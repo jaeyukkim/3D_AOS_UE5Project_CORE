@@ -14,8 +14,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define SENIORPROJECT_MyGameModeBase_generated_h
 
 #define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_SPARSE_DATA
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execSetNumberOfMonster);
+
+
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execSetNumberOfMonster);
+
+
 #define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyGameModeBase(); \

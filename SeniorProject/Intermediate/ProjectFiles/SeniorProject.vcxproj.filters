@@ -134,6 +134,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\Stage1_State.cpp">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1_State.h">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\TitleSceneController.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>

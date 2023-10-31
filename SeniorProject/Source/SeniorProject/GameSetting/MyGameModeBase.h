@@ -15,10 +15,13 @@ UCLASS()
 class SENIORPROJECT_API AMyGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
 
+	
 
 
 public:
 	AMyGameModeBase();
+
+	UFUNCTION()
+		void SetNumberOfMonster();
 };

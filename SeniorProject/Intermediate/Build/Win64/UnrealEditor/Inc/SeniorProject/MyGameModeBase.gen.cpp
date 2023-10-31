@@ -14,8 +14,42 @@ void EmptyLinkFunctionForGeneratedCodeMyGameModeBase() {}
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(AMyGameModeBase::execSetNumberOfMonster)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetNumberOfMonster();
+		P_NATIVE_END;
+	}
 	void AMyGameModeBase::StaticRegisterNativesAMyGameModeBase()
 	{
+		UClass* Class = AMyGameModeBase::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "SetNumberOfMonster", &AMyGameModeBase::execSetNumberOfMonster },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameModeBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyGameModeBase, nullptr, "SetNumberOfMonster", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMyGameModeBase);
 	UClass* Z_Construct_UClass_AMyGameModeBase_NoRegister()
@@ -25,6 +59,7 @@ void EmptyLinkFunctionForGeneratedCodeMyGameModeBase() {}
 	struct Z_Construct_UClass_AMyGameModeBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -34,6 +69,9 @@ void EmptyLinkFunctionForGeneratedCodeMyGameModeBase() {}
 	UObject* (*const Z_Construct_UClass_AMyGameModeBase_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_AGameModeBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMyGameModeBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMyGameModeBase_SetNumberOfMonster, "SetNumberOfMonster" }, // 3546507116
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyGameModeBase_Statics::Class_MetaDataParams[] = {
@@ -52,11 +90,11 @@ void EmptyLinkFunctionForGeneratedCodeMyGameModeBase() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		0,
 		0,
 		0x009002ACu,
@@ -80,9 +118,9 @@ void EmptyLinkFunctionForGeneratedCodeMyGameModeBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyGameModeBase, AMyGameModeBase::StaticClass, TEXT("AMyGameModeBase"), &Z_Registration_Info_UClass_AMyGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyGameModeBase), 4009531954U) },
+		{ Z_Construct_UClass_AMyGameModeBase, AMyGameModeBase::StaticClass, TEXT("AMyGameModeBase"), &Z_Registration_Info_UClass_AMyGameModeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyGameModeBase), 3463397567U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_471680069(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_2055762900(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

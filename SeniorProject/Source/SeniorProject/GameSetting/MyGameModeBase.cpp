@@ -8,7 +8,12 @@
 
 AMyGameModeBase::AMyGameModeBase()
 {
-	DefaultPawnClass = AKallari::StaticClass();
+	DefaultPawnClass = AMyCharacter::StaticClass();
 	PlayerControllerClass = AMyPlayerController::StaticClass();
 
 }
+
+void AMyGameModeBase::SetNumberOfMonster()
+{
+}
+
