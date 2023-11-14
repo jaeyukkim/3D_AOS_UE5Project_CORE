@@ -9,6 +9,7 @@
 #include "SeniorProject/GameSetting/MyCharacterWidget.h"
 #include "AbilityComponent.h"
 #include "MyPlayerController.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -158,46 +159,6 @@ AMyCharacter::AMyCharacter()
 	}
 
 
-	/////////////////////////////////////Chrunch/////////////////////////////////////////////////
-
-	/*
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack1(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_01_Montage'"));
-
-	if (Chrunch_Attack1.Succeeded())
-	{
-		ChrunchAttackMontageSet[0] = Chrunch_Attack1.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack2(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_02_Montage'"));
-
-	if (Chrunch_Attack2.Succeeded())
-	{
-		ChrunchAttackMontageSet[1] = Chrunch_Attack2.Object;
-		ChrunchAttackMontageSet[3] = Chrunch_Attack2.Object;
-	}
-
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack3(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_03_Montage'"));
-
-	if (Chrunch_Attack3.Succeeded())
-	{
-		ChrunchAttackMontageSet[2] = Chrunch_Attack3.Object;
-	}
-
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_GameStart(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/LevelStart_Montage'"));
-
-	if (Chrunch_GameStart.Succeeded())
-	{
-		StartGameAnim[1] = Chrunch_GameStart.Object;
-	}
-
-	*/
-	///////////////////////////////////////////////////////////Kallari/////////////////////////////////////////////////
 
 
 	///////////////////////////sound////////////////////////////////////
@@ -378,7 +339,7 @@ void AMyCharacter::LSB()
 
 void AMyCharacter::PlayFootSound()
 {
-	UE_LOG(LogTemp, Warning, TEXT("FOOTSTEP"));
+
 
 	if (AudioComponent != nullptr)
 	{
@@ -416,14 +377,14 @@ void AMyCharacter::Attack()
 	switch (AttackCount)
 	{
 	case 0:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK1"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 1;
 		AttackDamageCount = 0;
 		break;
 
 	case 1:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK2"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 2;
 		AttackDamageCount = 1;
@@ -431,7 +392,7 @@ void AMyCharacter::Attack()
 		break;
 
 	case 2:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK3"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 3;
 		AttackDamageCount = 2;
@@ -439,7 +400,7 @@ void AMyCharacter::Attack()
 		break;
 
 	case 3:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK4"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 0;
 		AttackDamageCount = 3;
@@ -577,7 +538,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			else
 				AIController->StopAI();
 
-			UE_LOG(LogTemp, Warning, TEXT("HP IS ZERO"));
+
 			auto KwangAnim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
 			if (::IsValid(KwangAnim))
 				KwangAnim->SetDead();
@@ -600,6 +561,17 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 
 
 	}
+}
+
+void AMyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
+	if (GameMode)
+	{
+		GameMode->OnMobDeleted.Broadcast();
+	}
+
 }
 	
 
@@ -665,7 +637,7 @@ void AMyCharacter::SwordTrace()
 float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	UE_LOG(LogTemp, Warning, TEXT("Actor : %s   took Damage : %f"), *GetName(), FinalDamage);
+	
 	
 
 

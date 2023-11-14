@@ -20,7 +20,7 @@ public:
 	// Sets default values for this character's properties
 	AKallari();
 	void SetCharacterState(ECharacterState NewState);
-	ECharacterState GetCharacterState() const;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	enum class EControlMode
 	{

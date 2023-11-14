@@ -8,6 +8,7 @@
 #include "Components/WidgetComponent.h"
 #include "SeniorProject/GameSetting/MyCharacterWidget.h"
 #include "MyPlayerController.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 // Sets default values
 AKallari::AKallari()
@@ -327,14 +328,14 @@ void AKallari::Attack()
 	switch (AttackCount)
 	{
 	case 0:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK1"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 1;
 		AttackDamageCount = 0;
 		break;
 
 	case 1:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK2"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 2;
 		AttackDamageCount = 1;
@@ -342,7 +343,7 @@ void AKallari::Attack()
 		break;
 
 	case 2:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK3"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 0;
 		AttackDamageCount = 2;
@@ -492,7 +493,7 @@ void AKallari::SetCharacterState(ECharacterState NewState)
 			else
 				AIController->StopAI();
 
-			UE_LOG(LogTemp, Warning, TEXT("HP IS ZERO"));
+
 			auto KallariAnim = Cast<UKallariAnimInstance>(GetMesh()->GetAnimInstance());
 			if (::IsValid(KallariAnim))
 				KallariAnim->SetDead();
@@ -514,6 +515,16 @@ void AKallari::SetCharacterState(ECharacterState NewState)
 		}
 
 
+	}
+}
+
+void AKallari::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
+	if (GameMode)
+	{
+		GameMode->OnMobDeleted.Broadcast();
 	}
 }
 
@@ -583,7 +594,7 @@ void AKallari::TwoHandTrace()
 float AKallari::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	UE_LOG(LogTemp, Warning, TEXT("Actor : %s   took Damage : %f"), *GetName(), FinalDamage);
+
 
 
 

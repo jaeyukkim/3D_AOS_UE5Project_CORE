@@ -341,7 +341,7 @@ void UAbilityComponent::Attack_Q_Ability()
 					FDamageEvent DamageEvent;
 					if (Hit.GetActor()->ActorHasTag("ENEMY"))
 					{
-						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 1.5f, DamageEvent, Character->GetController(), Character);
+						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 150.0f, DamageEvent, Character->GetController(), Character);
 					}
 
 				}

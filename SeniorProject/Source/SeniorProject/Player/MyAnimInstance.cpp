@@ -99,7 +99,7 @@ FRotator UMyAnimInstance::NormalizedDeltaRotator(FRotator A, FRotator B)
 
 void UMyAnimInstance::AnimNotify_SaveAttack()
 {
-	UE_LOG(LogTemp, Warning, TEXT("SaveAttack"))
+
 	if(Character != NULL)
 		Character->ComboAttackSave();
 	
@@ -108,7 +108,7 @@ void UMyAnimInstance::AnimNotify_SaveAttack()
 
 void UMyAnimInstance::AnimNotify_ResetCombo()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ResetCombo"))
+
 	
 	if(Character != NULL)
 		Character->ResetCombo();

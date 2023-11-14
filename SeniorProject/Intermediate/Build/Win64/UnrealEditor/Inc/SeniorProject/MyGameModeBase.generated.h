@@ -13,18 +13,24 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_MyGameModeBase_generated_h
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_SPARSE_DATA
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_SPARSE_DATA
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execSetNumberOfMonster);
+	DECLARE_FUNCTION(execOpenPotal3); \
+	DECLARE_FUNCTION(execOpenPotal2); \
+	DECLARE_FUNCTION(execOpenPotal1); \
+	DECLARE_FUNCTION(execResetNumberOfMob);
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSetNumberOfMonster);
+	DECLARE_FUNCTION(execOpenPotal3); \
+	DECLARE_FUNCTION(execOpenPotal2); \
+	DECLARE_FUNCTION(execOpenPotal1); \
+	DECLARE_FUNCTION(execResetNumberOfMob);
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyGameModeBase(); \
 	friend struct Z_Construct_UClass_AMyGameModeBase_Statics; \
@@ -33,7 +39,7 @@ public: \
 	DECLARE_SERIALIZER(AMyGameModeBase)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_INCLASS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_INCLASS \
 private: \
 	static void StaticRegisterNativesAMyGameModeBase(); \
 	friend struct Z_Construct_UClass_AMyGameModeBase_Statics; \
@@ -42,7 +48,7 @@ public: \
 	DECLARE_SERIALIZER(AMyGameModeBase)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_STANDARD_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMyGameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMyGameModeBase) \
@@ -55,7 +61,7 @@ private: \
 public:
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyGameModeBase(AMyGameModeBase&&); \
@@ -66,25 +72,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMyGameModeBase)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_14_PROLOG
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_GENERATED_BODY_LEGACY \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_16_PROLOG
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_INCLASS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_STANDARD_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_RPC_WRAPPERS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_INCLASS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_GENERATED_BODY \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_17_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameModeBase_h_20_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

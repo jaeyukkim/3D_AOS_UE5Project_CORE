@@ -394,7 +394,9 @@
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\mycharacterwidget.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mycharacterwidget.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayercontroller.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h"
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\mygamemodebase.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mygamemodebase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

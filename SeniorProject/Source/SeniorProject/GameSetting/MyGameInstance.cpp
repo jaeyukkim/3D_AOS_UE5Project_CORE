@@ -26,7 +26,7 @@ void UMyGameInstance::Init()
 
 	UE_LOG(LogTemp, Warning, TEXT("DropExp of Level 20 : %d"), GetMyCharacterData(20)->DropExp);
 
-
+	
 }
 
 
