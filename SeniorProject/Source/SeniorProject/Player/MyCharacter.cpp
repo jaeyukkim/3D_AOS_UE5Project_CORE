@@ -9,6 +9,7 @@
 #include "SeniorProject/GameSetting/MyCharacterWidget.h"
 #include "AbilityComponent.h"
 #include "MyPlayerController.h"
+#include "MyPlayerState.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -529,8 +530,13 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			SetActorHiddenInGame(false);
 			HpBarWidget->SetHiddenInGame(true);
 
-			if(bIsPlayer)
+			if (bIsPlayer)
+			{
 				DisableInput(PlayerController);
+				auto MyPlayerState = Cast<AMyPlayerState>(GetPlayerState());
+				CharacterStat->SetLevel(MyPlayerState->GetCharacterLevel());
+			}
+				
 		
 
 			PlayAnimMontage(StartGameAnim, 1.0f);

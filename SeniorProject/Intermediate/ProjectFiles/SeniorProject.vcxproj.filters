@@ -134,10 +134,10 @@
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\Stage1_State.cpp">
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1_State.h">
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\TitleSceneController.cpp">
@@ -189,6 +189,12 @@
       <Filter>Source\SeniorProject\Player</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Player\MyPlayerController.h">
+      <Filter>Source\SeniorProject\Player</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Player\MyPlayerState.cpp">
+      <Filter>Source\SeniorProject\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Player\MyPlayerState.h">
       <Filter>Source\SeniorProject\Player</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Player\SwordTraceLoop.cpp">

@@ -215,7 +215,13 @@
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\kallari.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\kallari.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayercontroller.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h"
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\stage1potal.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\stage1potal.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayerstate.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstate.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstate.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayerstate.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
