@@ -22,7 +22,7 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 	void SetCharacterState(ECharacterState NewState);
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	ECharacterState GetCharacterState() const;
 
 	enum class EControlMode
 	{
@@ -31,7 +31,7 @@ public:
 	};
 
 
-	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -45,7 +45,7 @@ public:
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 		AController* EventInstigator, AActor* DamageCauser) override;
 	//virtual void PossessedBy(AController* NewController) override;
-	
+
 	
 
 	UPROPERTY(VisibleAnywhere, Category = Stat)

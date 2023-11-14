@@ -392,9 +392,7 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\aicontroller.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\minionaicontroller.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\aiminions\\minionaniminstance.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\minionaniminstance.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\mygamemodebase.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mygamemodebase.generated.h"
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\minionaniminstance.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

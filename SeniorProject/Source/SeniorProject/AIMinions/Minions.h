@@ -26,7 +26,7 @@ class SENIORPROJECT_API AMinions : public ACharacter
 public:
 	// Sets default values for this character's properties
 	AMinions();
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 
 
 protected:

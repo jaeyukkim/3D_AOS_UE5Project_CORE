@@ -527,9 +527,7 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\staticmeshactor.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\abilitycomponent.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayercontroller.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\mygamemodebase.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mygamemodebase.generated.h"
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayercontroller.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

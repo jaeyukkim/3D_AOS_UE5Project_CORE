@@ -93,7 +93,7 @@ void UMyCharacterStatComponent::SetDamage(float Damage)
 
 	SetHP(FMath::Clamp<float>(CurrentHp - Damage, 0.0f, CurrentStatData->MaxHp));
 
-	
+
 	
 	if (CurrentHp <= 0.0f)
 	{

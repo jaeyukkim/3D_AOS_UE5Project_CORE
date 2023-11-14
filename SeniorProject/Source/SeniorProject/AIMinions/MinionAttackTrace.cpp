@@ -21,7 +21,7 @@ void UMinionAttackTrace::NotifyTick(USkeletalMeshComponent* MeshComp, UAnimSeque
 	if (Minion)
 		Minion->MinionSwordTrace();
 
-
+	UE_LOG(LogTemp, Warning, TEXT("TRACE"))
 }
 
 void UMinionAttackTrace::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
