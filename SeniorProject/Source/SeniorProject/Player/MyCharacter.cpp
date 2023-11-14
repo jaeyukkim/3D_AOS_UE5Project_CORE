@@ -10,6 +10,7 @@
 #include "AbilityComponent.h"
 #include "MyPlayerController.h"
 #include "MyPlayerState.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -287,6 +288,16 @@ void AMyCharacter::BeginPlay()
 
 
 	
+}
+
+void AMyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
+	if (GameMode)
+	{
+		GameMode->OnMobDeleted.Broadcast();
+	}
 }
 
 // Called every frame

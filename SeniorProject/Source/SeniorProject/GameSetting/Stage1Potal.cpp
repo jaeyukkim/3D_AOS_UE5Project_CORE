@@ -18,8 +18,10 @@ AStage1Potal::AStage1Potal()
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
 	CollisionBox->SetBoxExtent(FVector(100.0f, 100.0f, 150.0f));
 	CollisionBox->SetupAttachment(RootComponent);
-	CollisionBox->SetRelativeLocation(FVector(70.0f, -70.0f, 250.0f));
+	CollisionBox->SetRelativeLocation(FVector(0.0f,  0.0f, 100.0f));
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AStage1Potal::OnOverlapBegin);
+	CollisionBox->SetCollisionProfileName(TEXT("IgnoreOnlyPawn"));
+
 
 	ActivePotal1.AddLambda([this]()->void
 		{
@@ -34,7 +36,7 @@ AStage1Potal::AStage1Potal()
 void AStage1Potal::BeginPlay()
 {
 	Super::BeginPlay();
-	DisablePotal();
+
 }
 
 
@@ -66,5 +68,5 @@ void AStage1Potal::ActivePotal()
 }
 void AStage1Potal::DisablePotal()
 {
-	CollisionBox->SetCollisionProfileName(TEXT("NoCollision"));
+	CollisionBox->SetCollisionProfileName(TEXT("IgnoreOnlyPawn"));
 }

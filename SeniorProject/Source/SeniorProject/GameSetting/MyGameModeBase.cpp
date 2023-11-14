@@ -24,7 +24,7 @@ AMyGameModeBase::AMyGameModeBase()
 void AMyGameModeBase::StartPlay()
 {
 	Super::StartPlay();
-	ResetNumberOfMob();
+	SetNumberOfMonster();
 }
 
 void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)

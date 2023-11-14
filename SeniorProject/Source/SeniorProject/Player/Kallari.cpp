@@ -8,6 +8,7 @@
 #include "Components/WidgetComponent.h"
 #include "SeniorProject/GameSetting/MyCharacterWidget.h"
 #include "MyPlayerController.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 // Sets default values
 AKallari::AKallari()
@@ -216,6 +217,16 @@ void AKallari::BeginPlay()
 
 	
 
+}
+
+void AKallari::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
+	if (GameMode)
+	{
+		GameMode->OnMobDeleted.Broadcast();
+	}
 }
 
 // Called every frame

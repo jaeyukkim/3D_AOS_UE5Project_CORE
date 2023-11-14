@@ -7,6 +7,7 @@
 #include "Components/WidgetComponent.h"
 #include "MinionAIController.h"
 #include "MinionAnimInstance.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 // Sets default values
 AMinions::AMinions()
@@ -294,6 +295,15 @@ void AMinions::BeginPlay()
 
 }
 
+void AMinions::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
+	if (GameMode)
+	{
+		GameMode->OnMobDeleted.Broadcast();
+	}
+}
 // Called every frame
 void AMinions::Tick(float DeltaTime)
 {

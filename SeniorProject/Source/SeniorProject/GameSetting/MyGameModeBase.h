@@ -47,5 +47,6 @@ private:
 		void OpenPotal3();
 	UPROPERTY()
 		TArray<AActor*> AllActors;
+
 	void SetNumberOfMonster();
 };
