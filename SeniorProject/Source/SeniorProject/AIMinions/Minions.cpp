@@ -357,21 +357,21 @@ void AMinions::Attack()
 	switch (AttackCount)
 	{
 	case 0:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK1"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 1;
 		AttackDamageCount = 0;
 		break;
 
 	case 1:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK2"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 2;
 		AttackDamageCount = 1;
 		break;
 
 	case 2:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK3"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 3;
 		AttackDamageCount = 2;
@@ -379,7 +379,7 @@ void AMinions::Attack()
 		break;
 
 	case 3:
-		UE_LOG(LogTemp, Warning, TEXT("ATTACK4"));
+
 		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
 		AttackCount = 0;
 		AttackDamageCount = 3;
@@ -546,7 +546,7 @@ break;
 
 
 
-		UE_LOG(LogTemp, Warning, TEXT("HP IS ZERO"));
+
 		auto MinionAnim = Cast<UMinionAnimInstance>(GetMesh()->GetAnimInstance());
 		if (::IsValid(MinionAnim))
 			MinionAnim->SetDead();
@@ -623,7 +623,7 @@ void AMinions::MinionSwordTrace()
 float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	UE_LOG(LogTemp, Warning, TEXT("Actor : %s   took Damage : %f"), *GetName(), FinalDamage);
+
 
 	if (DamageCauser)
 		Hurt(DamageCauser);

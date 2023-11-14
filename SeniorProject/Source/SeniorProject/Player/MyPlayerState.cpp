@@ -20,7 +20,7 @@ int32 AMyPlayerState::GetCharacterLevel() const
 void AMyPlayerState::InitPlayerData()
 {
 	SetPlayerName(TEXT("JaeYuk"));
-	SetLevel(1);
+	SetLevel(10);
 
 	Exp = 0;
 }

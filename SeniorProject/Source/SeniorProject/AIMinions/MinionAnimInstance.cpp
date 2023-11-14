@@ -91,7 +91,7 @@ FRotator UMinionAnimInstance::NormalizedDeltaRotator(FRotator A, FRotator B)
 //콤보어택 저장
 void UMinionAnimInstance::AnimNotify_SaveAttack()
 {
-	UE_LOG(LogTemp, Warning, TEXT("SaveAttack"))
+
 		if (Minion != NULL)
 			Minion->ComboAttackSave();
 
@@ -101,7 +101,7 @@ void UMinionAnimInstance::AnimNotify_SaveAttack()
 //콤보공격 초기화
 void UMinionAnimInstance::AnimNotify_ResetCombo()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ResetCombo"))
+
 
 		if (Minion != NULL)
 			Minion->ResetCombo();

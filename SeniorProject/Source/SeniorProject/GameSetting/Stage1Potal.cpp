@@ -16,14 +16,17 @@ AStage1Potal::AStage1Potal()
 		MeshComponent->SetStaticMesh(DOOR_MESH.Object);
 	}
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
-	CollisionBox->SetBoxExtent(FVector(100.f, 100.f, 300.f));
+	CollisionBox->SetBoxExtent(FVector(100.0f, 100.0f, 150.0f));
 	CollisionBox->SetupAttachment(RootComponent);
-	CollisionBox->SetRelativeLocation(FVector(70.f, 0.f, 250.f));
+	CollisionBox->SetRelativeLocation(FVector(70.0f, -70.0f, 250.0f));
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AStage1Potal::OnOverlapBegin);
+
 	ActivePotal1.AddLambda([this]()->void
 		{
 			ActivePotal();
 		});
+
+
 }
 
 
@@ -32,7 +35,6 @@ void AStage1Potal::BeginPlay()
 {
 	Super::BeginPlay();
 	DisablePotal();
-
 }
 
 
@@ -54,7 +56,6 @@ void AStage1Potal::OnOverlapBegin(
 {
 	if (OtherActor && (OtherActor != this))
 	{
-		// ?¡À???? ????? ????? ???????? ?? ???? ???
 		UGameplayStatics::OpenLevel(GetWorld(), "TitleScene");
 	}
 }

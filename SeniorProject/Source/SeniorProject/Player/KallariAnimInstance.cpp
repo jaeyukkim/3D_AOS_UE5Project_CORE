@@ -95,7 +95,7 @@ FRotator UKallariAnimInstance::NormalizedDeltaRotator(FRotator A, FRotator B)
 
 void UKallariAnimInstance::AnimNotify_SaveAttack()
 {
-	UE_LOG(LogTemp, Warning, TEXT("SaveAttack"))
+
 		if (Kallari != NULL)
 			Kallari->ComboAttackSave();
 
@@ -104,7 +104,7 @@ void UKallariAnimInstance::AnimNotify_SaveAttack()
 
 void UKallariAnimInstance::AnimNotify_ResetCombo()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ResetCombo"))
+
 
 		if (Kallari != NULL)
 			Kallari->ResetCombo();
