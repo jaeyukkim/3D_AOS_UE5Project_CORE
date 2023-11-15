@@ -4,6 +4,7 @@
 #include "MyPlayerController.h"
 #include "SeniorProject/GameSetting/MyHUDWidget.h"
 #include "MyPlayerState.h"
+#include "MyCharacter.h"
 
 
 AMyPlayerController::AMyPlayerController()
@@ -28,9 +29,26 @@ void AMyPlayerController::BeginPlay()
 
 	MyPlayerState = Cast<AMyPlayerState>(PlayerState);
 
-	HUDWidget->BindPlayerState(MyPlayerState);
-	MyPlayerState->OnPlayerStateChanged.Broadcast();
+	if(HUDWidget)
+		HUDWidget->BindPlayerState(MyPlayerState);
+
+	if (MyPlayerState)
+		MyPlayerState->OnPlayerStateChanged.Broadcast();
+
+
+
 }
+
+
+void AMyPlayerController::NPCKill(AController* KilledNPC, int32 Exp) const
+{
+	if (MyPlayerState->AddExp(Exp))
+	{
+		auto MyCharacter = Cast<AMyCharacter>(KilledNPC->GetPawn());
+		MyCharacter->UpdateCharacterStat();
+	}
+}
+
 
 UMyHUDWidget* AMyPlayerController::GetHUDWidget() const
 {

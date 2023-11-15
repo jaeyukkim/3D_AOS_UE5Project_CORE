@@ -42,7 +42,7 @@ public:
 		AController* EventInstigator, AActor* DamageCauser) override;
 	//virtual void PossessedBy(AController* NewController) override;
 
-
+	int32 GetExp() const;
 
 	UPROPERTY(VisibleAnywhere, Category = Stat)
 		class UMyCharacterStatComponent* CharacterStat;

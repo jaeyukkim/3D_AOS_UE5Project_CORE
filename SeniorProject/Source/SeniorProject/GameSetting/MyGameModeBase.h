@@ -13,6 +13,7 @@
  */
 DECLARE_MULTICAST_DELEGATE(FMobDeletedDelegate);
 
+
 UCLASS()
 class SENIORPROJECT_API AMyGameModeBase : public AGameModeBase
 {
@@ -33,9 +34,11 @@ public:
 		void ResetNumberOfMob();
 
 	FMobDeletedDelegate OnMobDeleted;
+
 	EStage CurrentStage;
 
 private:
+
 
 	UPROPERTY()
 		int32 MonsterCount;
@@ -47,6 +50,8 @@ private:
 		void OpenPotal3();
 	UPROPERTY()
 		TArray<AActor*> AllActors;
+	UPROPERTY()
+		class AMyPlayerState* MyPlayerState;
 
 	void SetNumberOfMonster();
 };

@@ -161,46 +161,6 @@ AMyCharacter::AMyCharacter()
 	}
 
 
-	/////////////////////////////////////Chrunch/////////////////////////////////////////////////
-
-	/*
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack1(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_01_Montage'"));
-
-	if (Chrunch_Attack1.Succeeded())
-	{
-		ChrunchAttackMontageSet[0] = Chrunch_Attack1.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack2(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_02_Montage'"));
-
-	if (Chrunch_Attack2.Succeeded())
-	{
-		ChrunchAttackMontageSet[1] = Chrunch_Attack2.Object;
-		ChrunchAttackMontageSet[3] = Chrunch_Attack2.Object;
-	}
-
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_Attack3(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/Ability_Combo_03_Montage'"));
-
-	if (Chrunch_Attack3.Succeeded())
-	{
-		ChrunchAttackMontageSet[2] = Chrunch_Attack3.Object;
-	}
-
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Chrunch_GameStart(
-		TEXT("AnimMontage'/Game/ParagonCrunch/Characters/Heroes/Crunch/Animations/LevelStart_Montage'"));
-
-	if (Chrunch_GameStart.Succeeded())
-	{
-		StartGameAnim[1] = Chrunch_GameStart.Object;
-	}
-
-	*/
-	///////////////////////////////////////////////////////////Kallari/////////////////////////////////////////////////
 
 
 	///////////////////////////sound////////////////////////////////////
@@ -262,9 +222,8 @@ void AMyCharacter::BeginPlay()
 	{
 		PlayerController = Cast<AMyPlayerController>(GetController());
 		if (PlayerController == nullptr) return;
-
 		SetControlMode(EControlMode::PLAYER);
-
+		UpdateCharacterStat();
 	}
 
 
@@ -545,9 +504,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			if (bIsPlayer)
 			{
 				DisableInput(PlayerController);
-				auto MyPlayerState = Cast<AMyPlayerState>(GetPlayerState());
-				CharacterStat->SetLevel(MyPlayerState->GetCharacterLevel());
-				PlayerController->GetHUDWidget()->BindCharacterStat(CharacterStat);
+				
 			}
 				
 		
@@ -590,6 +547,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			SetActorEnableCollision(false);
 			GetMesh()->SetHiddenInGame(false);
 			HpBarWidget->SetHiddenInGame(true);
+			SetCanBeDamaged(false);
 
 			if (bIsPlayer)
 				DisableInput(PlayerController);
@@ -691,12 +649,11 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 
 	
 
-
-	if(DamageCauser)
-		Hurt(DamageCauser);
+		
 
 	if (CanBeDamaged() && !bIsPlayer)
 	{
+		Hurt(DamageCauser);
 		CharacterStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
@@ -707,19 +664,46 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 					
 			}), 0.2f, false);
 
+		if (CurrentState == ECharacterState::DEAD)
+		{
+			if (EventInstigator->IsPlayerController())
+			{
+				auto MyPlayerController = Cast<AMyPlayerController>(EventInstigator);
+				if (MyPlayerController)
+					MyPlayerController->NPCKill(EventInstigator, GetExp());
+
+				UE_LOG(LogTemp, Warning, TEXT("DROP EXP : %d"), GetExp());
+			}
+		}
+
 	}
 		
 
 	else if(bIsPlayer)
 		CharacterStat->SetDamage(DamageAmount);
 	
-
+	
 
 	return FinalDamage;
 	
 }
 
+int32 AMyCharacter::GetExp() const
+{
+	return CharacterStat->GetDropExp();
+}
 
+void AMyCharacter::UpdateCharacterStat()
+{
+	if (IsPlayerControlled())
+	{
+		auto MyPlayerState = Cast<AMyPlayerState>(GetPlayerState());
+		CharacterStat->SetLevel(MyPlayerState->GetCharacterLevel());
+		PlayerController->GetHUDWidget()->BindCharacterStat(CharacterStat);
+
+	}
+	
+}
 
 void AMyCharacter::Hurt(AActor* DamageCauser)
 {

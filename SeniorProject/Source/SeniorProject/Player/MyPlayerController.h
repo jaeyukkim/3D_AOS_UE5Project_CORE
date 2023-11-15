@@ -20,6 +20,7 @@ class SENIORPROJECT_API AMyPlayerController : public APlayerController
 public:
 	AMyPlayerController();
 	class UMyHUDWidget* GetHUDWidget() const;
+	void NPCKill(class AController* KilledNPC, int32 Exp) const;
 
 protected:
 	virtual void BeginPlay() override;

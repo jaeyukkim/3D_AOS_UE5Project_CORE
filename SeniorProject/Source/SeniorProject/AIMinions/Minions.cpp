@@ -8,6 +8,7 @@
 #include "MinionAIController.h"
 #include "MinionAnimInstance.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
+#include "SeniorProject/Player/MyPlayerController.h"
 
 // Sets default values
 AMinions::AMinions()
@@ -549,6 +550,7 @@ break;
 
 	case EMinionState::DEAD:
 	{
+		SetCanBeDamaged(false);
 		SetActorEnableCollision(false);
 		GetMesh()->SetHiddenInGame(false);
 		HpBarWidget->SetHiddenInGame(true);
@@ -635,11 +637,13 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
 
-	if (DamageCauser)
-		Hurt(DamageCauser);
+	
 
 	if (CanBeDamaged())
 	{
+
+		Hurt(DamageCauser);
+
 		MinionStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
@@ -649,14 +653,30 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 
 			}), 0.2f, false);
+		if (CurrentState == EMinionState::DEAD)
+		{
+			if (EventInstigator->IsPlayerController())
+			{
+				auto MyPlayerController = Cast<AMyPlayerController>(EventInstigator);
+				if (MyPlayerController)
+					MyPlayerController->NPCKill(EventInstigator, GetExp());
 
+				UE_LOG(LogTemp, Warning, TEXT("DROP EXP : %d"), GetExp());
+			}
+		}
 	}
+
+	
 
 
 	return FinalDamage;
 
 }
 
+int32 AMinions::GetExp() const
+{
+	return MinionStat ->GetDropExp();
+}
 
 
 void AMinions::Hurt(AActor* DamageCauser)

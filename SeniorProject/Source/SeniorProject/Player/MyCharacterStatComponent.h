@@ -37,6 +37,7 @@ public:
 	float GetAttackDMG();
 	float GetCurrentHp();
 	float GetHpRatio();
+	int32 GetDropExp() const;
 
 	FOnHpIsZeroDelegate OnHPIsZero;
 	FOnHpChangedDelegate OnHpChanged;

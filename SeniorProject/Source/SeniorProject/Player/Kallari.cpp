@@ -494,6 +494,7 @@ void AKallari::SetCharacterState(ECharacterState NewState)
 		// 사망처리
 		case ECharacterState::DEAD:
 		{
+			SetCanBeDamaged(false);
 			SetActorEnableCollision(false);
 			GetMesh()->SetHiddenInGame(false);
 			HpBarWidget->SetHiddenInGame(true);
@@ -602,12 +603,14 @@ float AKallari::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 
 
-	if (DamageCauser)
-		Hurt(DamageCauser);
+	
 
 	//트레이스동안 여러번 때리지 않기 위해 타격가능 텀 두기
 	if (CanBeDamaged() && !bIsPlayer)
 	{
+	
+		Hurt(DamageCauser);
+
 		CharacterStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
@@ -618,18 +621,33 @@ float AKallari::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 			}), 0.2f, false);
 
+		if (CurrentState == ECharacterState::DEAD)
+		{
+			if (EventInstigator->IsPlayerController())
+			{
+				auto MyPlayerController = Cast<AMyPlayerController>(EventInstigator);
+				if (MyPlayerController)
+					MyPlayerController->NPCKill(EventInstigator, GetExp());
+				UE_LOG(LogTemp, Warning, TEXT("DROP EXP : %d"), GetExp());
+			}
+		}
+
 	}
 
 
 	else if (bIsPlayer)
 		CharacterStat->SetDamage(DamageAmount);
 
-
+	
 
 	return FinalDamage;
 
 }
 
+int32 AKallari::GetExp() const
+{
+	return CharacterStat->GetDropExp();
+}
 
 //피격시 데미지처리와 애니메이션 진행
 void AKallari::Hurt(AActor* DamageCauser)

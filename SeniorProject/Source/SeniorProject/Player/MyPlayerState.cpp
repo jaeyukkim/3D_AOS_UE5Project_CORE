@@ -3,12 +3,13 @@
 
 #include "SeniorProject/Player/MyPlayerState.h"
 #include "SeniorProject/GameSetting/MyGameInstance.h"
-
+#include "MyCharacterStatComponent.h"
 
 AMyPlayerState::AMyPlayerState()
 {
 	CharacterLevel = 1;
 	Exp = 0;
+
 }
 
 
@@ -20,10 +21,11 @@ int32 AMyPlayerState::GetCharacterLevel() const
 void AMyPlayerState::InitPlayerData()
 {
 	SetPlayerName(TEXT("JaeYuk"));
-	SetLevel(10);
+	LevelUp(1);
 
 	Exp = 0;
 }
+
 
 float AMyPlayerState::GetExpRatio() const
 {
@@ -44,22 +46,28 @@ bool AMyPlayerState::AddExp(int32 IncomeExp)
 	if (Exp >= CurrentStatData->NextExp)
 	{
 		Exp -= CurrentStatData->NextExp;
-		SetLevel(CharacterLevel + 1);
+		LevelUp(CharacterLevel + 1);
 		DidLevelUp = true;
 	}
 
 	OnPlayerStateChanged.Broadcast();
+
+
 	return DidLevelUp;
 }
 
 
 
-void AMyPlayerState::SetLevel(int32 NewCharacterLevel)
+void AMyPlayerState::LevelUp(int32 NewCharacterLevel)
 {
 	auto MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
 
-
-	CurrentStatData = MyGameInstance->GetMyCharacterData(NewCharacterLevel);
+	if(MyGameInstance)
+		CurrentStatData = MyGameInstance->GetMyCharacterData(NewCharacterLevel);
 
 	CharacterLevel = NewCharacterLevel;
+
+	OnPlayerStateChanged.Broadcast();
+
+	UE_LOG(LogTemp, Warning, TEXT("LevelUp"));
 }

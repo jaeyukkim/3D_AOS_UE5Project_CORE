@@ -10,6 +10,8 @@
 /**
  * 
  */
+
+
 DECLARE_MULTICAST_DELEGATE(FOnPlayerStateChangedDelegate);
 UCLASS()
 class SENIORPROJECT_API AMyPlayerState : public APlayerState
@@ -22,12 +24,15 @@ public:
 
 	int32 GetCharacterLevel() const;
 	float GetExpRatio() const;
-	bool AddExp(int32 IncomeExp);
 
+	UFUNCTION()
+	bool AddExp(int32 IncomeExp);
+	
 
 	void InitPlayerData();
 
 	FOnPlayerStateChangedDelegate OnPlayerStateChanged;
+	//FMobExpDrop OnMobDropExp;
 
 protected:
 
@@ -39,6 +44,6 @@ protected:
 		int32 Exp;
 
 private:
-	void SetLevel(int32 NewCharacterLevel);
+	void LevelUp(int32 NewCharacterLevel);
 	struct FMyCharacterData* CurrentStatData;
 };

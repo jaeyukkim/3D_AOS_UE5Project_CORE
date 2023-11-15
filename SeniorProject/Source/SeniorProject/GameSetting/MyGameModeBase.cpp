@@ -31,9 +31,10 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
 
-	auto MyPlayerState = Cast<AMyPlayerState>(NewPlayer->PlayerState);
+	MyPlayerState = Cast<AMyPlayerState>(NewPlayer->PlayerState);
 
-	MyPlayerState->InitPlayerData();
+	if(MyPlayerState)
+		MyPlayerState->InitPlayerData();
 }
 
 

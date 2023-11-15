@@ -44,6 +44,8 @@ void UMyHUDWidget::UpdateCharacterStat()
 
 void UMyHUDWidget::UpdatePlayerState()
 {
+	if (!CurrentPlayerState.IsValid())
+		UE_LOG(LogTemp, Warning, TEXT("CurrentPlayerState is null"));
 
 	if(ExpBar)
 		ExpBar->SetPercent(CurrentPlayerState->GetExpRatio());

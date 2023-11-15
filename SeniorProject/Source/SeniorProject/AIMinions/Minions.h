@@ -42,6 +42,7 @@ public:
 	//virtual void PossessedBy(AController* NewController) override;
 
 
+	int32 GetExp() const;
 
 	UPROPERTY(VisibleAnywhere, Category = Stat)
 		class UMyCharacterStatComponent* MinionStat;

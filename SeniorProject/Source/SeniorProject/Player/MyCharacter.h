@@ -22,7 +22,7 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 	void SetCharacterState(ECharacterState NewState);
-	ECharacterState GetCharacterState() const;
+
 
 	enum class EControlMode
 	{
@@ -115,7 +115,8 @@ public:
 	UFUNCTION()
 		void SwordTrace();
 
-
+	int32 GetExp() const;
+	void UpdateCharacterStat();
 
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
 		ECharacterState CurrentState;

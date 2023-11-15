@@ -140,6 +140,9 @@ float UMyCharacterStatComponent::GetHpRatio()
 
 }
 
-
+int32 UMyCharacterStatComponent::GetDropExp() const
+{
+	return CurrentStatData->DropExp;
+}
 
 
