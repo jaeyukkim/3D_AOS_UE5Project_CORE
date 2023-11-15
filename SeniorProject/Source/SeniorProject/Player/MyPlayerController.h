@@ -3,7 +3,7 @@
 #pragma once
 
 #include "SeniorProject/SeniorProject.h"
-#include "EngineMinimal.h"
+
 #include "GameFramework/PlayerController.h"
 #include "MyPlayerController.generated.h"
 
@@ -17,8 +17,20 @@ class SENIORPROJECT_API AMyPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
+public:
+	AMyPlayerController();
+	class UMyHUDWidget* GetHUDWidget() const;
 
 protected:
 	virtual void BeginPlay() override;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
+		TSubclassOf<class UMyHUDWidget> HUDWidgetClass;
+
+private:
+	UPROPERTY()
+		class UMyHUDWidget* HUDWidget;
+
+	UPROPERTY()
+		class AMyPlayerState* MyPlayerState;
 };

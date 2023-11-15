@@ -20,7 +20,6 @@ class SENIORPROJECT_API AMyPlayerState : public APlayerState
 public:
 	AMyPlayerState();
 
-	int32 GetGameScore() const;
 	int32 GetCharacterLevel() const;
 	float GetExpRatio() const;
 	bool AddExp(int32 IncomeExp);

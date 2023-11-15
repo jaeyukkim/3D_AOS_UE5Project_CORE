@@ -11,6 +11,7 @@
 #include "MyPlayerController.h"
 #include "MyPlayerState.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
+#include "SeniorProject/GameSetting/MyHUDWidget.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -546,6 +547,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 				DisableInput(PlayerController);
 				auto MyPlayerState = Cast<AMyPlayerState>(GetPlayerState());
 				CharacterStat->SetLevel(MyPlayerState->GetCharacterLevel());
+				PlayerController->GetHUDWidget()->BindCharacterStat(CharacterStat);
 			}
 				
 		
