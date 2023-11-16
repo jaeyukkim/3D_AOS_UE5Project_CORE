@@ -113,6 +113,10 @@ DerivedDataCache/*
 
 */Content/UI
 
+*/Content
+
+*/.umap
+
 *.pdb
 
 *.bmp
