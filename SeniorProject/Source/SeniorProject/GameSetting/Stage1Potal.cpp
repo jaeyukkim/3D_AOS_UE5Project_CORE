@@ -58,7 +58,7 @@ void AStage1Potal::OnOverlapBegin(
 {
 	if (OtherActor && (OtherActor != this))
 	{
-		UGameplayStatics::OpenLevel(GetWorld(), "TitleScene");
+		UGameplayStatics::OpenLevel(GetWorld(), "DemoMapDay");
 	}
 }
 void AStage1Potal::ActivePotal()

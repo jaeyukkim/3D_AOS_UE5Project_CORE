@@ -116,6 +116,12 @@
     <Filter Include="Source\SeniorProject\GameSetting">
       <UniqueIdentifier>{27A5F520-9169-3569-AD92-7A626B5B2CAB}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\DeadZone.cpp">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\DeadZone.h">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyCharacterWidget.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>

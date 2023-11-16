@@ -548,6 +548,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			GetMesh()->SetHiddenInGame(false);
 			HpBarWidget->SetHiddenInGame(true);
 			SetCanBeDamaged(false);
+			Camera->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
 
 			if (bIsPlayer)
 				DisableInput(PlayerController);
