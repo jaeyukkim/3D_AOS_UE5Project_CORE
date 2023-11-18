@@ -37,7 +37,7 @@ public:
 protected:
 
 
-	UPROPERTY(Transient)
+	UPROPERTY(EditAnywhere, Category = "Level")
 		int32 CharacterLevel;
 
 	UPROPERTY(Transient)
