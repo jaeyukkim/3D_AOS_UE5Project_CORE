@@ -56,6 +56,7 @@ AMyCharacter::AMyCharacter()
 	HpBarWidget->SetupAttachment(GetMesh());
 	HpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 
+
 	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HPBAR(TEXT("WidgetBlueprint'/Game/UI/UI_HpBar'"));
 	if (UI_HPBAR.Succeeded())
 	{
@@ -215,22 +216,25 @@ void AMyCharacter::BeginPlay()
 
 	SetCharacterMode();
 
-	
-
 	bIsPlayer = IsPlayerControlled();
+
 	if (bIsPlayer)
 	{
 		PlayerController = Cast<AMyPlayerController>(GetController());
 		if (PlayerController == nullptr) return;
 		SetControlMode(EControlMode::PLAYER);
 		UpdateCharacterStat();
+		ActiveHpBar();
 	}
 
 
 	else
 	{
+		
 		AIController = Cast<AKwangAiController>(GetController());
 		SetControlMode(EControlMode::AI);
+		DisabledHpBar();
+
 		if (AIController == nullptr) return;
 	}
 
@@ -436,6 +440,49 @@ bool AMyCharacter::GetBool_IsNoWep()
 	return false;
 }
 
+void AMyCharacter::ActiveHpBar()
+{
+	if (HpBarWidget && !HpBarWidget->IsVisible())
+	{
+
+
+		HpBarWidget->SetVisibility(true);
+	}
+}
+
+void AMyCharacter::DisabledHpBar()
+{
+	if (HpBarWidget && HpBarWidget->IsVisible())
+		HpBarWidget->SetVisibility(false);
+}
+
+void AMyCharacter::ControlHpBarVisibility()
+{
+	if (HpBarWidget)
+	{
+		
+		ActiveHpBar();
+		//이미 타이머가 등록되어 있다면 다시 초기화
+		if (GetWorldTimerManager().IsTimerActive(KwangUITimerHandle))
+		{
+			GetWorldTimerManager().ClearTimer(KwangUITimerHandle);
+		}
+		//타이머 등록 되어있지 않으면 등록
+		else
+		{
+			GetWorld()->GetTimerManager().SetTimer(KwangUITimerHandle, FTimerDelegate::CreateLambda([this]() ->
+				void
+				{
+					DisabledHpBar();
+
+				}), 8.0f, false);
+		}
+
+
+	}
+	
+}
+
 
 
 void AMyCharacter::SetControlMode(EControlMode option)
@@ -448,6 +495,7 @@ void AMyCharacter::SetControlMode(EControlMode option)
 		GetCharacterMovement()->bOrientRotationToMovement = false;
 		GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
 		GetCharacterMovement()->MaxWalkSpeed = 590.0f;
+
 	}
 	else if (option == EControlMode::AI)
 	{
@@ -458,6 +506,7 @@ void AMyCharacter::SetControlMode(EControlMode option)
 		GetCharacterMovement()->RotationRate = FRotator(0.0f, 480.0f, 0.0f);
 		GetCharacterMovement()->MaxWalkSpeed = 300.0f;
 		GetCharacterMovement()->bRequestedMoveUseAcceleration = false;
+		
 	}
 	Tags.Add(TEXT("MyCharacterClass"));
 }
@@ -475,6 +524,7 @@ void AMyCharacter::SetCharacterMode()
 
 
 		HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+
 		
 		if (bIsPlayer)
 			GetCharacterMovement()->MaxWalkSpeed = 600.0f;
@@ -499,7 +549,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 		case ECharacterState::LOADING:
 		{
 			SetActorHiddenInGame(false);
-			HpBarWidget->SetHiddenInGame(true);
+			
 
 			if (bIsPlayer)
 			{
@@ -522,10 +572,13 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 
 		case ECharacterState::READY:
 		{
-			HpBarWidget->SetHiddenInGame(false);
+
 
 			if (bIsPlayer)
+	
 				EnableInput(PlayerController);
+			
+				
 			else
 				AIController->RunAI();
 
@@ -657,6 +710,8 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 		Hurt(DamageCauser);
 		CharacterStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
+		ControlHpBarVisibility();
+
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
 			void 
 			{
@@ -664,6 +719,9 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 				
 					
 			}), 0.2f, false);
+
+		
+
 
 		if (CurrentState == ECharacterState::DEAD)
 		{

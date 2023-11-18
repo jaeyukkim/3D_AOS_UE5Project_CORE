@@ -244,6 +244,10 @@ void EmptyLinkFunctionForGeneratedCodeKallari() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LoadingTimer_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_LoadingTimer;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_KallariUITimerHandle_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_KallariUITimerHandle;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -381,6 +385,12 @@ void EmptyLinkFunctionForGeneratedCodeKallari() {}
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKallari_Statics::NewProp_LoadingTimer = { "LoadingTimer", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AKallari, LoadingTimer), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(Z_Construct_UClass_AKallari_Statics::NewProp_LoadingTimer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AKallari_Statics::NewProp_LoadingTimer_MetaData)) }; // 589591453
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKallari_Statics::NewProp_KallariUITimerHandle_MetaData[] = {
+		{ "ModuleRelativePath", "SeniorProject/Player/Kallari.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKallari_Statics::NewProp_KallariUITimerHandle = { "KallariUITimerHandle", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AKallari, KallariUITimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(Z_Construct_UClass_AKallari_Statics::NewProp_KallariUITimerHandle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AKallari_Statics::NewProp_KallariUITimerHandle_MetaData)) }; // 589591453
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AKallari_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_CharacterStat,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_SpringArm,
@@ -400,6 +410,7 @@ void EmptyLinkFunctionForGeneratedCodeKallari() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_DeadTimerHandle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_DamagedTimerHandle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_LoadingTimer,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKallari_Statics::NewProp_KallariUITimerHandle,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AKallari_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AKallari>::IsAbstract,
@@ -437,9 +448,9 @@ void EmptyLinkFunctionForGeneratedCodeKallari() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_Kallari_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AKallari, AKallari::StaticClass, TEXT("AKallari"), &Z_Registration_Info_UClass_AKallari, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKallari), 1513659712U) },
+		{ Z_Construct_UClass_AKallari, AKallari::StaticClass, TEXT("AKallari"), &Z_Registration_Info_UClass_AKallari, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKallari), 2103967652U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_Kallari_h_4181704984(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_Kallari_h_4099165024(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_Kallari_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_Kallari_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

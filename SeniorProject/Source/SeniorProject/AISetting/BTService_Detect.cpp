@@ -41,7 +41,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		}
 
 
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 500)
+		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
 		{
 			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
 			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, false);
@@ -66,7 +66,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		}
 
 
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 500)
+		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
 		{
 			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
 			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, false);
@@ -92,7 +92,7 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 		}
 
 
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 500)
+		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
 		{
 			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
 			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AMinionAIController::IsOutOfRangeKey, false);

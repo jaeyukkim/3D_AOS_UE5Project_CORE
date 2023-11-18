@@ -55,6 +55,7 @@ AKallari::AKallari()
 	HpBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPBARWIDGET"));
 	HpBarWidget->SetupAttachment(GetMesh());
 	HpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
+	
 
 	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HPBAR(TEXT("WidgetBlueprint'/Game/UI/UI_HpBar'"));
 	if (UI_HPBAR.Succeeded())
@@ -62,7 +63,7 @@ AKallari::AKallari()
 		HpBarWidget->SetWidgetClass(UI_HPBAR.Class);
 		HpBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
 	}
-
+	
 
 
 
@@ -189,7 +190,7 @@ void AKallari::BeginPlay()
 		if (PlayerController == nullptr) return;
 
 		SetControlMode(EControlMode::PLAYER);
-
+		ActiveHpBar();
 	}
 
 
@@ -197,6 +198,7 @@ void AKallari::BeginPlay()
 	{
 		AIController = Cast<AKwangAiController>(GetController());
 		SetControlMode(EControlMode::AI);
+		DisabledHpBar();
 		if (AIController == nullptr) return;
 	}
 
@@ -207,7 +209,7 @@ void AKallari::BeginPlay()
 	{
 		CharacterWidget->SetCharacterStat(CharacterStat);
 	}
-
+	
 
 	SetCharacterMode();
 	SetCharacterState(ECharacterState::LOADING);
@@ -394,6 +396,7 @@ void AKallari::SetControlMode(EControlMode option)
 		GetCharacterMovement()->bOrientRotationToMovement = false;
 		GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
 		GetCharacterMovement()->MaxWalkSpeed = 590.0f;
+
 	}
 	else if (option == EControlMode::AI)
 	{
@@ -404,7 +407,7 @@ void AKallari::SetControlMode(EControlMode option)
 		GetCharacterMovement()->RotationRate = FRotator(0.0f, 480.0f, 0.0f);
 		GetCharacterMovement()->MaxWalkSpeed = 300.0f;
 		GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
-
+	
 	}
 	Tags.Add(TEXT("KallariClass"));
 }
@@ -431,6 +434,42 @@ void AKallari::SetCharacterMode()
 
 }
 
+void AKallari::ActiveHpBar()
+{
+	if (HpBarWidget && !HpBarWidget->IsVisible())
+		HpBarWidget->SetVisibility(true);
+}
+
+void AKallari::DisabledHpBar()
+{
+	if (HpBarWidget && HpBarWidget->IsVisible())
+		HpBarWidget->SetVisibility(false);
+}
+
+void AKallari::ControlHpBarVisibility()
+{
+	if (HpBarWidget)
+	{
+		ActiveHpBar();
+		//이미 타이머가 등록되어 있다면 다시 초기화
+		if (GetWorldTimerManager().IsTimerActive(KallariUITimerHandle))
+		{
+			GetWorldTimerManager().ClearTimer(KallariUITimerHandle);
+		}
+		//타이머 등록 되어있지 않으면 등록
+		else
+		{
+			GetWorld()->GetTimerManager().SetTimer(KallariUITimerHandle, FTimerDelegate::CreateLambda([this]() ->
+				void
+				{
+					DisabledHpBar();
+
+				}), 8.0f, false);
+		}
+
+
+	}
+}
 
 void AKallari::SetCharacterState(ECharacterState NewState)
 {
@@ -448,7 +487,6 @@ void AKallari::SetCharacterState(ECharacterState NewState)
 		case ECharacterState::LOADING:
 		{
 			SetActorHiddenInGame(false);
-			HpBarWidget->SetHiddenInGame(true);
 
 			if (bIsPlayer)
 				DisableInput(PlayerController);
@@ -470,7 +508,7 @@ void AKallari::SetCharacterState(ECharacterState NewState)
 		// 게임 스타트 이동, 공격 가능
 		case ECharacterState::READY:
 		{
-			HpBarWidget->SetHiddenInGame(false);
+			
 
 			if (bIsPlayer)
 				EnableInput(PlayerController);
@@ -613,6 +651,9 @@ float AKallari::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 		CharacterStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
+		ControlHpBarVisibility();
+
+
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
 			void
 			{
@@ -632,6 +673,7 @@ float AKallari::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 			}
 		}
 
+		
 	}
 
 

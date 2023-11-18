@@ -133,6 +133,9 @@ public:
 		bool IsAttacking;
 
 
+	void ActiveHpBar();
+	void DisabledHpBar();
+	void ControlHpBarVisibility();
 
 	void Attack();
 	void AttackDirectionSetSoket(EAttackDirection AttackDirection);
@@ -142,7 +145,11 @@ public:
 	bool SaveAttack;
 	FOnAttackEndDelegate OnAttackEnd;
 	float DeadTimer;
+
+	UPROPERTY()
 	FTimerHandle DeadTimerHandle = { };
+	UPROPERTY()
+	FTimerHandle MonsterUITimerHandle = { };
 
 	FName RightSoketBottom;
 	FName RightSoketTop;

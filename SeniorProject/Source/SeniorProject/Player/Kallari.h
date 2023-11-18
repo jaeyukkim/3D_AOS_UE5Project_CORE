@@ -20,7 +20,7 @@ public:
 	// Sets default values for this character's properties
 	AKallari();
 	void SetCharacterState(ECharacterState NewState);
-	ECharacterState GetCharacterState() const;
+
 
 	enum class EControlMode
 	{
@@ -129,6 +129,10 @@ private:
 
 public:
 
+	void ActiveHpBar();
+	void DisabledHpBar();
+	void ControlHpBarVisibility();
+
 	const float Speed = 750.0f; //이동속도
 	int32 AttackCount;	//현재 공격 카운트
 	int32 AttackDamageCount;	//데미지를 적용 할 공격 카운트
@@ -166,7 +170,8 @@ public:
 		FTimerHandle DamagedTimerHandle = { };
 	UPROPERTY()
 		FTimerHandle LoadingTimer = { };
-
+	UPROPERTY()
+		FTimerHandle KallariUITimerHandle = { };
 
 
 	FName RightSoketBottom;

@@ -143,7 +143,9 @@ public:
 	void CanMoves();
 	void StopMoves();
 	bool GetBool_IsNoWep();
-
+	void ActiveHpBar();
+	void DisabledHpBar();
+	void ControlHpBarVisibility();
 	
 
 	int32 AttackCount;
@@ -185,6 +187,8 @@ public:
 	UPROPERTY()
 		FTimerHandle LoadingTimer = { };
 
+	UPROPERTY()
+	FTimerHandle KwangUITimerHandle = { };
 
 
 	FName RightSoketBottom;

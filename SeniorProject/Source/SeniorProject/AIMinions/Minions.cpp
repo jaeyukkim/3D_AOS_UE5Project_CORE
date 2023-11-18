@@ -206,7 +206,7 @@ AMinions::AMinions()
 	}
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> Rane_Attack4(
-		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_D_Montage'"));
+		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_B_Montage'"));
 
 	if (Rane_Attack4.Succeeded())
 	{
@@ -359,6 +359,43 @@ void AMinions::AttackDirectionSetSoket(EAttackDirection AttackDirection)
 }
 
 
+
+void AMinions::ActiveHpBar()
+{
+	if (HpBarWidget && !HpBarWidget->IsVisible())
+		HpBarWidget->SetVisibility(true);
+}
+
+void AMinions::DisabledHpBar()
+{
+	if (HpBarWidget && HpBarWidget->IsVisible())
+		HpBarWidget->SetVisibility(false);
+}
+
+void AMinions::ControlHpBarVisibility()
+{
+	if (HpBarWidget)
+	{
+		ActiveHpBar();
+		//이미 타이머가 등록되어 있다면 다시 초기화
+		if (GetWorldTimerManager().IsTimerActive(MonsterUITimerHandle))
+		{
+			GetWorldTimerManager().ClearTimer(MonsterUITimerHandle);
+		}
+		//타이머 등록 되어있지 않으면 등록
+		else
+		{
+			GetWorld()->GetTimerManager().SetTimer(MonsterUITimerHandle, FTimerDelegate::CreateLambda([this]() ->
+				void
+				{
+					DisabledHpBar();
+
+				}), 8.0f, false);
+		}
+
+
+	}
+}
 
 void AMinions::Attack()
 {
@@ -519,7 +556,7 @@ void AMinions::SetMinionState(EMinionState NewState)
 	case EMinionState::LOADING:
 	{
 		SetActorHiddenInGame(false);
-		HpBarWidget->SetHiddenInGame(true);
+		DisabledHpBar();
 
 
 
@@ -532,7 +569,7 @@ void AMinions::SetMinionState(EMinionState NewState)
 	}
 	case EMinionState::READY:
 	{
-		HpBarWidget->SetHiddenInGame(false);
+		
         AIController->RunAI();
 
 
@@ -646,6 +683,9 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 		MinionStat->SetDamage(DamageAmount);
 		SetCanBeDamaged(false);
+		ControlHpBarVisibility();
+
+
 		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
 			void
 			{
@@ -653,6 +693,10 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 
 			}), 0.2f, false);
+
+		//맞았을 때 HP바 활성화
+		
+
 		if (CurrentState == EMinionState::DEAD)
 		{
 			if (EventInstigator->IsPlayerController())

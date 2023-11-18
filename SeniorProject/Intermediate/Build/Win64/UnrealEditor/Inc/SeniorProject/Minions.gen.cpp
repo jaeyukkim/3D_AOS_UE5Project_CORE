@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_EMinionState();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMinionAIController_NoRegister();
+	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTimerHandle();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
 	DEFINE_FUNCTION(AMinions::execMinionSwordTrace)
@@ -245,6 +246,14 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static void NewProp_IsAttacking_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsAttacking;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DeadTimerHandle_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DeadTimerHandle;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MonsterUITimerHandle_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_MonsterUITimerHandle;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WaeponBottomPoint_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_WaeponBottomPoint;
@@ -408,6 +417,18 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_IsAttacking = { "IsAttacking", nullptr, (EPropertyFlags)0x0010000000020815, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AMinions), &Z_Construct_UClass_AMinions_Statics::NewProp_IsAttacking_SetBit, METADATA_PARAMS(Z_Construct_UClass_AMinions_Statics::NewProp_IsAttacking_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_IsAttacking_MetaData)) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_DeadTimerHandle_MetaData[] = {
+		{ "ModuleRelativePath", "SeniorProject/AIMinions/Minions.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_DeadTimerHandle = { "DeadTimerHandle", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMinions, DeadTimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(Z_Construct_UClass_AMinions_Statics::NewProp_DeadTimerHandle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_DeadTimerHandle_MetaData)) }; // 589591453
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_MonsterUITimerHandle_MetaData[] = {
+		{ "ModuleRelativePath", "SeniorProject/AIMinions/Minions.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_MonsterUITimerHandle = { "MonsterUITimerHandle", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMinions, MonsterUITimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(Z_Construct_UClass_AMinions_Statics::NewProp_MonsterUITimerHandle_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_MonsterUITimerHandle_MetaData)) }; // 589591453
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_WaeponBottomPoint_MetaData[] = {
 		{ "ModuleRelativePath", "SeniorProject/AIMinions/Minions.h" },
 	};
@@ -449,6 +470,8 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_CurrentState,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_AIController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_IsAttacking,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_DeadTimerHandle,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_MonsterUITimerHandle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_WaeponBottomPoint,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_WaeponTopPoint,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_AttackRange,
@@ -489,9 +512,9 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 4012626543U) },
+		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 3512346970U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_838611144(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_1677713984(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
