@@ -21,6 +21,7 @@ class SENIORPROJECT_API AMyPlayerState : public APlayerState
 
 public:
 	AMyPlayerState();
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	int32 GetCharacterLevel() const;
 	float GetExpRatio() const;

@@ -213,27 +213,28 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-
+	
 	SetCharacterMode();
 
 	bIsPlayer = IsPlayerControlled();
+	HpBarWidget->SetHiddenInGame(false);
 
 	if (bIsPlayer)
 	{
+		HpBarWidget->SetHiddenInGame(false);
 		PlayerController = Cast<AMyPlayerController>(GetController());
 		if (PlayerController == nullptr) return;
 		SetControlMode(EControlMode::PLAYER);
 		UpdateCharacterStat();
-		ActiveHpBar();
+		
 	}
 
 
 	else
 	{
-		
+
 		AIController = Cast<AKwangAiController>(GetController());
 		SetControlMode(EControlMode::AI);
-		DisabledHpBar();
 
 		if (AIController == nullptr) return;
 	}
@@ -257,11 +258,19 @@ void AMyCharacter::BeginPlay()
 void AMyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+
 	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
 	if (GameMode)
 	{
 		GameMode->OnMobDeleted.Broadcast();
 	}
+
+
+	GetWorldTimerManager().ClearTimer(KwangUITimerHandle);
+	GetWorldTimerManager().ClearTimer(DamagedTimerHandle);
+	GetWorldTimerManager().ClearTimer(DeadTimerHandle);
+
+
 }
 
 // Called every frame
@@ -571,18 +580,26 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 
 
 			if (bIsPlayer)
-	
+			{
 				EnableInput(PlayerController);
+
+			}
+	
+				
 			
 				
 			else
+			{
 				AIController->RunAI();
+				DisabledHpBar();
+			}
+				
 
 
 			CharacterStat->OnHPIsZero.AddLambda([this]() -> void
 				{
 					SetCharacterState(ECharacterState::DEAD);
-					
+			
 				});
 
 			

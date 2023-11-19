@@ -16,11 +16,15 @@ class SENIORPROJECT_API AStage1Potal : public AActor
 public:
 	// Sets default values for this actor's properties
 	AStage1Potal();
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 	UPROPERTY(VisibleAnywhere)
 		UStaticMesh* doorMesh;
 	UPROPERTY(VisibleAnywhere)
 		class UStaticMeshComponent* MeshComponent;
 	FActivePotal1 ActivePotal1;
+	
 
 
 protected:

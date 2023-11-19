@@ -22,7 +22,7 @@ public:
 	AMyGameModeBase();
 	virtual void StartPlay() override;
 	virtual void PostLogin(APlayerController* NewPlayer) override;
-
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	enum class EStage : uint8
 	{
 		STAGE1 = 0,

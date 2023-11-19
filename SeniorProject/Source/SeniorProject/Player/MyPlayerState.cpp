@@ -12,6 +12,11 @@ AMyPlayerState::AMyPlayerState()
 
 }
 
+void AMyPlayerState::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	OnPlayerStateChanged.Clear();
+}
+
 
 int32 AMyPlayerState::GetCharacterLevel() const
 {

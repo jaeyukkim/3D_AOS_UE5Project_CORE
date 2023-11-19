@@ -37,6 +37,11 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 		MyPlayerState->InitPlayerData();
 }
 
+void AMyGameModeBase::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	OnMobDeleted.Clear();
+}
+
 
 void AMyGameModeBase::SetNumberOfMonster()
 {

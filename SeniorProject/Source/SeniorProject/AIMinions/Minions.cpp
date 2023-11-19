@@ -299,12 +299,21 @@ void AMinions::BeginPlay()
 void AMinions::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+
 	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
 	if (GameMode)
 	{
 		GameMode->OnMobDeleted.Broadcast();
 	}
+
+
+	GetWorldTimerManager().ClearTimer(MonsterUITimerHandle);
+	GetWorldTimerManager().ClearTimer(DamagedTimerHandle);
+	GetWorldTimerManager().ClearTimer(DeadTimerHandle);
+
+
 }
+
 // Called every frame
 void AMinions::Tick(float DeltaTime)
 {

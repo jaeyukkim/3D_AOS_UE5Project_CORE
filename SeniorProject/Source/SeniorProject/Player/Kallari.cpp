@@ -224,11 +224,19 @@ void AKallari::BeginPlay()
 void AKallari::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	Super::EndPlay(EndPlayReason);
+
 	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
 	if (GameMode)
 	{
 		GameMode->OnMobDeleted.Broadcast();
 	}
+
+
+	GetWorldTimerManager().ClearTimer(KallariUITimerHandle);
+	GetWorldTimerManager().ClearTimer(DamagedTimerHandle);
+	GetWorldTimerManager().ClearTimer(DeadTimerHandle);
+
+
 }
 
 // Called every frame

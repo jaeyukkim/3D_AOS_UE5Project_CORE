@@ -31,6 +31,11 @@ AStage1Potal::AStage1Potal()
 
 }
 
+void AStage1Potal::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	ActivePotal1.Clear();
+}
+
 
 // Called when the game starts or when spawned
 void AStage1Potal::BeginPlay()

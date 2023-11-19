@@ -29,6 +29,12 @@ void UMyCharacterStatComponent::BeginPlay()
 	
 }
 
+void UMyCharacterStatComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	OnHPIsZero.Clear();
+	OnHpChanged.Clear();
+}
+
 
 // Called every frame
 void UMyCharacterStatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
