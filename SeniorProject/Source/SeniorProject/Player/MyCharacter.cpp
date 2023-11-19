@@ -443,11 +443,7 @@ bool AMyCharacter::GetBool_IsNoWep()
 void AMyCharacter::ActiveHpBar()
 {
 	if (HpBarWidget && !HpBarWidget->IsVisible())
-	{
-
-
 		HpBarWidget->SetVisibility(true);
-	}
 }
 
 void AMyCharacter::DisabledHpBar()
@@ -522,8 +518,8 @@ void AMyCharacter::SetCharacterMode()
 		RightSoketTop = FName(TEXT("FX_weapon_tip"));
 
 
-
-		HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+		if(HpBarWidget)
+			HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
 
 		
 		if (bIsPlayer)
