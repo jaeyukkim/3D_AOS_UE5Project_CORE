@@ -3,6 +3,7 @@
 
 #include "MyGameInstance.h"
 
+
 //데이터 테이블에 있는 능력치를 불러와 적용
 UMyGameInstance::UMyGameInstance()
 {
@@ -18,6 +19,22 @@ UMyGameInstance::UMyGameInstance()
 	static ConstructorHelpers::FObjectFinder<UDataTable> DT_MINION(*MinionDataPath);
 
 	MinionDataTable = DT_MINION.Object;
+}
+
+void UMyGameInstance::Shutdown()
+{
+	Super::Shutdown();
+	FString SaveSlotName = TEXT("Player1");
+
+
+	FString SavePath = FPaths::Combine(FPaths::ProjectSavedDir(), 
+		TEXT("SaveGames"), FString::Printf(TEXT("%s.sav"), *SaveSlotName));
+	
+
+	if (FPlatformFileManager::Get().GetPlatformFile().FileExists(*SavePath))
+	{
+		FPlatformFileManager::Get().GetPlatformFile().DeleteFile(*SavePath);
+	}
 }
 
 void UMyGameInstance::Init()

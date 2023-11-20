@@ -25,12 +25,14 @@ public:
 
 	int32 GetCharacterLevel() const;
 	float GetExpRatio() const;
+	FString SaveSlotName;
 
 	UFUNCTION()
 	bool AddExp(int32 IncomeExp);
 	
 
 	void InitPlayerData();
+	void SavePlayerData();
 
 	FOnPlayerStateChangedDelegate OnPlayerStateChanged;
 	//FMobExpDrop OnMobDropExp;

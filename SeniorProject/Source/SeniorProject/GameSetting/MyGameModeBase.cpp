@@ -84,6 +84,8 @@ void AMyGameModeBase::OpenPotal1()
 		if (Potal1)
 		{
 			Potal1->ActivePotal1.Broadcast();
+			if (MyPlayerState)
+				MyPlayerState->SavePlayerData();
 		}
 	}
 

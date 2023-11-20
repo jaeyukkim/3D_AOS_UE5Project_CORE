@@ -592,6 +592,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			{
 				AIController->RunAI();
 				DisabledHpBar();
+	
 			}
 				
 

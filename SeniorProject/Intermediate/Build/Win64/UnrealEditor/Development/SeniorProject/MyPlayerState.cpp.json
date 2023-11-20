@@ -214,7 +214,11 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\datatable.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mygameinstance.generated.h",
             "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\mycharacterstatcomponent.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mycharacterstatcomponent.generated.h"
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mycharacterstatcomponent.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\mysavegame.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\savegame.h",
+            "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\savegame.generated.h",
+            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mysavegame.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -48,6 +48,8 @@ private:
 	
 	UPROPERTY(VisibleAnywhere)
 		UBlackboardComponent* BlackboardComp;
+
+
 protected:
 	
 

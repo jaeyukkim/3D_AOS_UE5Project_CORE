@@ -4,12 +4,13 @@
 #include "SeniorProject/Player/MyPlayerState.h"
 #include "SeniorProject/GameSetting/MyGameInstance.h"
 #include "MyCharacterStatComponent.h"
+#include "SeniorProject/GameSetting/MySaveGame.h"
 
 AMyPlayerState::AMyPlayerState()
 {
 	CharacterLevel = 1;
 	Exp = 0;
-
+	SaveSlotName = TEXT("Player1");
 }
 
 void AMyPlayerState::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -25,10 +26,31 @@ int32 AMyPlayerState::GetCharacterLevel() const
 
 void AMyPlayerState::InitPlayerData()
 {
-	SetPlayerName(TEXT("JaeYuk"));
-	LevelUp(CharacterLevel);
+	auto MySaveGame = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot(SaveSlotName, 0));
+	if (nullptr == MySaveGame)
+	{
+		MySaveGame = GetMutableDefault<UMySaveGame>();
+	}
 
-	Exp = 0;
+
+	LevelUp(MySaveGame->Level);
+	Exp = MySaveGame->Exp;
+
+	SavePlayerData();
+}
+
+void AMyPlayerState::SavePlayerData()
+{
+	UMySaveGame* NewPlayerData = NewObject<UMySaveGame>();
+
+	NewPlayerData->Level = CharacterLevel;
+	NewPlayerData->Exp = Exp;
+
+
+	if (!UGameplayStatics::SaveGameToSlot(NewPlayerData, SaveSlotName, 0))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("SaveGame Error!"));
+	}
 }
 
 

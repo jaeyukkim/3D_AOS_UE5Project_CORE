@@ -45,12 +45,18 @@ class SENIORPROJECT_API UMyGameInstance : public UGameInstance
 
 public:
 	UMyGameInstance();
-
+	virtual void Shutdown() override;
 	virtual void Init() override;
 
 
 	FMyCharacterData* GetMyCharacterData(int32 Level);
 	FMyCharacterData* GetMyMinionData(int32 Level);
+	
+	UPROPERTY(VisibleAnywhere, Category = Basic)
+		FString SavedCharacterData;
+
+	// Function to clear the data
+
 
 private:
 	UPROPERTY()
