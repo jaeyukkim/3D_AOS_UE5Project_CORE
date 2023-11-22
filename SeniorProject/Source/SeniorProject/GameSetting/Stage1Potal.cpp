@@ -22,6 +22,14 @@ AStage1Potal::AStage1Potal()
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &AStage1Potal::OnOverlapBegin);
 	CollisionBox->SetCollisionProfileName(TEXT("IgnoreOnlyPawn"));
 
+	static ConstructorHelpers::FObjectFinder<UParticleSystem> DoorOpen_PARTICLE(TEXT
+	("ParticleSystem'/Game/ParagonKallari/FX/Particles/Kallari/Abilities/Ultimate/FX/P_Ultimate_Portal'"));
+
+	if (DoorOpen_PARTICLE.Succeeded())
+	{
+		DoorOpenEffect = DoorOpen_PARTICLE.Object;
+	}
+
 
 	ActivePotal1.AddLambda([this]()->void
 		{
@@ -69,6 +77,8 @@ void AStage1Potal::OnOverlapBegin(
 void AStage1Potal::ActivePotal()
 {
 	CollisionBox->SetCollisionProfileName(TEXT("OverlapOnlyPlayer"));
+	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), DoorOpenEffect, 
+		GetActorLocation()+ FVector(-50.0f, 0.0f, -50.0f));
 
 }
 void AStage1Potal::DisablePotal()

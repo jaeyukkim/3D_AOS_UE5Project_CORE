@@ -47,6 +47,9 @@ private:
 			const FHitResult& SweepResult
 		);
 
+	UPROPERTY(EditAnywhere, Category = Attacks)
+		UParticleSystem* DoorOpenEffect;
+
 	UFUNCTION()
 		void ActivePotal();
 	UFUNCTION()

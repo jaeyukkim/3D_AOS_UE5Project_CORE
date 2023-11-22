@@ -341,7 +341,7 @@ void UAbilityComponent::Attack_Q_Ability()
 					FDamageEvent DamageEvent;
 					if (Hit.GetActor()->ActorHasTag("ENEMY"))
 					{
-						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 150.0f, DamageEvent, Character->GetController(), Character);
+						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 					}
 
 				}
@@ -414,7 +414,7 @@ void UAbilityComponent::Attack_R_Ability()
 			FDamageEvent DamageEvent;
 			if (Hit.GetActor()->ActorHasTag("ENEMY"))
 			{
-				Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 2.0f, DamageEvent, Character->GetController(), Character);
+				Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 4.0f, DamageEvent, Character->GetController(), Character);
 			}
 
 		}
@@ -479,7 +479,7 @@ void UAbilityComponent::Attack_RMB_Ability()
 		{
 
 			if (Hit.GetActor()->ActorHasTag("ENEMY"))
-				Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 2.0f, DamageEvent, Character->GetController(), Character);
+				Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 
 		}
 
@@ -515,7 +515,7 @@ void UAbilityComponent::Attack_RMB_Ability_NoWep()
 				{
 
 					if (Hit.GetActor()->ActorHasTag("ENEMY"))
-						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 2.0f, DamageEvent, Character->GetController(), Character);
+						Hit.GetActor()->TakeDamage(Character->CharacterStat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 
 				}
 

@@ -126,10 +126,10 @@ private:
 	const float Q_Abiliry_CoolDown = 1.0f;	//Q½ºÅ³ Äð´Ù¿î
 	bool Is_Q_Ability_CoolDown;
 
-	const float R_Abiliry_CoolDown = 4.0f;	//R½ºÅ³ Äð´Ù¿î
+	const float R_Abiliry_CoolDown = 10.0f;	//R½ºÅ³ Äð´Ù¿î
 	bool Is_R_Ability_CoolDown;
 
-	const float RMB_Abiliry_CoolDown = 3.0f;		//RMB ½ºÅ³ Äð´Ù¿î
+	const float RMB_Abiliry_CoolDown = 4.0f;		//RMB ½ºÅ³ Äð´Ù¿î
 	bool Is_RMB_Ability_CoolDown;
 	
 	

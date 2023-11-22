@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystem_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AStage1Potal::execDisablePotal)
 	{
@@ -206,6 +207,10 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CollisionBox_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DoorOpenEffect_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DoorOpenEffect;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -248,10 +253,18 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData[] = {
+		{ "Category", "Attacks" },
+		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect = { "DoorOpenEffect", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, DoorOpenEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStage1Potal_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStage1Potal_Statics::NewProp_doorMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStage1Potal_Statics::NewProp_MeshComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AStage1Potal_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AStage1Potal>::IsAbstract,
@@ -289,9 +302,9 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AStage1Potal, AStage1Potal::StaticClass, TEXT("AStage1Potal"), &Z_Registration_Info_UClass_AStage1Potal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStage1Potal), 1412030321U) },
+		{ Z_Construct_UClass_AStage1Potal, AStage1Potal::StaticClass, TEXT("AStage1Potal"), &Z_Registration_Info_UClass_AStage1Potal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStage1Potal), 2388554635U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_2527333127(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_2732447309(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
