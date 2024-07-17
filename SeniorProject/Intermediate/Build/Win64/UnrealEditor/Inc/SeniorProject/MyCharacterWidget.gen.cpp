@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/GameSetting/MyCharacterWidget.h"
+#include "SeniorProject/GameSetting/MyCharacterWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 // Cross Module References
@@ -44,15 +44,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterWidget_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n  hp?\xd9\xbf? \xc4\xb3???? ???? ????\xc8\xad\n */" },
-		{ "IncludePath", "SeniorProject/GameSetting/MyCharacterWidget.h" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyCharacterWidget.h" },
+		{ "IncludePath", "GameSetting/MyCharacterWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyCharacterWidget.h" },
 		{ "ToolTip", "hp?\xd9\xbf? \xc4\xb3???? ???? ????\xc8\xad" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyCharacterWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyCharacterWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar = { "HPProgressBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyCharacterWidget, HPProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData)) };
@@ -95,9 +95,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyCharacterWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyCharacterWidget, UMyCharacterWidget::StaticClass, TEXT("UMyCharacterWidget"), &Z_Registration_Info_UClass_UMyCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterWidget), 365864207U) },
+		{ Z_Construct_UClass_UMyCharacterWidget, UMyCharacterWidget::StaticClass, TEXT("UMyCharacterWidget"), &Z_Registration_Info_UClass_UMyCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterWidget), 2369079695U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyCharacterWidget_h_1760914273(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyCharacterWidget_h_3481478918(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyCharacterWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

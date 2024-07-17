@@ -2,7 +2,7 @@
 
 
 #include "SeniorProject/AISetting/BTService_Detect.h"
-#include "KwangAiController.h"
+
 #include "SeniorProject/AIMinions/MinionAIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "DrawDebugHelpers.h"
@@ -23,85 +23,32 @@ void UBTService_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeM
 
 	auto Monster = OwnerComp.GetAIOwner()->GetPawn();
 
+	if (!IsValid(Monster))
+		return;
 
-	if (Monster->ActorHasTag(TEXT("MyCharacterClass")))
+	FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AMinionAIController::HomePosKey);
+
+	if (FVector::Distance(Monster->GetActorLocation(), OriginPos) >= 3500)
 	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AKwangAiController::HomePosKey);
+		OwnerComp.GetBlackboardComponent()->SetValueAsBool(AMinionAIController::IsOutOfRangeKey, true);
 
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) >= 2000)
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, true);
-
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 1200.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsObject(AKwangAiController::TargetKey, NULL);
-			OwnerComp.RestartTree();
-			SetNextTickTime(NodeMemory, 1.0f);
+		Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 800.0f;
+		OwnerComp.GetBlackboardComponent()->SetValueAsObject(AMinionAIController::TargetKey, NULL);
+		OwnerComp.RestartTree();
+		SetNextTickTime(NodeMemory, 1.0f);
 
 
-		}
-
-
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
-		{
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, false);
-
-		}
-	}
-
-	if (Monster->ActorHasTag(TEXT("KallariClass")))
-	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AKwangAiController::HomePosKey);
-
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) >= 2000)
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, true);
-
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 1200.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsObject(AKwangAiController::TargetKey, NULL);
-			OwnerComp.RestartTree();
-			SetNextTickTime(NodeMemory, 1.0f);
-
-
-		}
-
-
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
-		{
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AKwangAiController::IsOutOfRangeKey, false);
-
-		}
 	}
 
 
-	else if (Monster->ActorHasTag(TEXT("MinionClass")))
+	if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
 	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AMinionAIController::HomePosKey);
+		Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
+		OwnerComp.GetBlackboardComponent()->SetValueAsBool(AMinionAIController::IsOutOfRangeKey, false);
 
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) >= 2000)
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AMinionAIController::IsOutOfRangeKey, true);
-
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 800.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsObject(AMinionAIController::TargetKey, NULL);
-			OwnerComp.RestartTree();
-			SetNextTickTime(NodeMemory, 1.0f);
-
-
-		}
-
-
-		if (FVector::Distance(Monster->GetActorLocation(), OriginPos) <= 600)
-		{
-			Monster->GetController()->GetCharacter()->GetCharacterMovement()->MaxWalkSpeed = 300.0f;
-			OwnerComp.GetBlackboardComponent()->SetValueAsBool(AMinionAIController::IsOutOfRangeKey, false);
-
-		}
 	}
-
 	
-	
+
 
 
 

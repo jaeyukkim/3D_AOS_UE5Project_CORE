@@ -14,8 +14,8 @@ class AActor;
 #endif
 #define SENIORPROJECT_Minions_generated_h
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_SPARSE_DATA
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_RPC_WRAPPERS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_SPARSE_DATA
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execMinionSwordTrace); \
 	DECLARE_FUNCTION(execHurt); \
@@ -23,7 +23,7 @@ class AActor;
 	DECLARE_FUNCTION(execComboAttackSave);
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execMinionSwordTrace); \
 	DECLARE_FUNCTION(execHurt); \
@@ -31,28 +31,28 @@ class AActor;
 	DECLARE_FUNCTION(execComboAttackSave);
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMinions(); \
 	friend struct Z_Construct_UClass_AMinions_Statics; \
 public: \
-	DECLARE_CLASS(AMinions, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
+	DECLARE_CLASS(AMinions, ACharacter, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(AMinions)
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_INCLASS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesAMinions(); \
 	friend struct Z_Construct_UClass_AMinions_Statics; \
 public: \
-	DECLARE_CLASS(AMinions, ACharacter, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
+	DECLARE_CLASS(AMinions, ACharacter, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(AMinions)
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_STANDARD_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AMinions(const FObjectInitializer& ObjectInitializer); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMinions) \
+	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AMinions) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMinions); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMinions); \
 private: \
@@ -62,7 +62,7 @@ private: \
 public:
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMinions(AMinions&&); \
@@ -70,28 +70,28 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AMinions); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AMinions); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AMinions)
+	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(AMinions)
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_20_PROLOG
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_GENERATED_BODY_LEGACY \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_14_PROLOG
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_RPC_WRAPPERS \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_INCLASS \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_STANDARD_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_RPC_WRAPPERS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_INCLASS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_GENERATED_BODY \
+#define FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_24_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_AIMinions_Minions_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

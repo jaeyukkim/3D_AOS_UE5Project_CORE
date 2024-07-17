@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/Player/SwordTraceLoop.h"
+#include "SeniorProject/Player/SwordTraceLoop.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSwordTraceLoop() {}
 // Cross Module References
@@ -50,20 +50,20 @@ void EmptyLinkFunctionForGeneratedCodeSwordTraceLoop() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USwordTraceLoop_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n * ???\xdd\xbd? ???? ?????\xcf\xb8? ?\xc7\xb0\xdd\xb9??? ?\xd7\xb8?\n */" },
 		{ "HideCategories", "Object" },
-		{ "IncludePath", "SeniorProject/Player/SwordTraceLoop.h" },
-		{ "ModuleRelativePath", "SeniorProject/Player/SwordTraceLoop.h" },
+		{ "IncludePath", "Player/SwordTraceLoop.h" },
+		{ "ModuleRelativePath", "Player/SwordTraceLoop.h" },
 		{ "ToolTip", "???\xdd\xbd? ???? ?????\xcf\xb8? ?\xc7\xb0\xdd\xb9??? ?\xd7\xb8?" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Character_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/Player/SwordTraceLoop.h" },
+		{ "ModuleRelativePath", "Player/SwordTraceLoop.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000010, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USwordTraceLoop, Character), Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Character_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Character_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Minion_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/Player/SwordTraceLoop.h" },
+		{ "ModuleRelativePath", "Player/SwordTraceLoop.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Minion = { "Minion", nullptr, (EPropertyFlags)0x0010000000000010, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USwordTraceLoop, Minion), Z_Construct_UClass_AMinions_NoRegister, METADATA_PARAMS(Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Minion_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USwordTraceLoop_Statics::NewProp_Minion_MetaData)) };
@@ -107,9 +107,9 @@ void EmptyLinkFunctionForGeneratedCodeSwordTraceLoop() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_SwordTraceLoop_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USwordTraceLoop, USwordTraceLoop::StaticClass, TEXT("USwordTraceLoop"), &Z_Registration_Info_UClass_USwordTraceLoop, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USwordTraceLoop), 3850696358U) },
+		{ Z_Construct_UClass_USwordTraceLoop, USwordTraceLoop::StaticClass, TEXT("USwordTraceLoop"), &Z_Registration_Info_UClass_USwordTraceLoop, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USwordTraceLoop), 382057286U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_SwordTraceLoop_h_3244561935(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_SwordTraceLoop_h_1019787820(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_SwordTraceLoop_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_SwordTraceLoop_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

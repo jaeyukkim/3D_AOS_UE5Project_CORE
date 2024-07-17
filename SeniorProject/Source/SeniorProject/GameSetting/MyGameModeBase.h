@@ -48,9 +48,9 @@ private:
 		void OpenPotal2();
 	UFUNCTION()
 		void OpenPotal3();
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 		TArray<AActor*> AllActors;
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 		class AMyPlayerState* MyPlayerState;
 
 	void SetNumberOfMonster();

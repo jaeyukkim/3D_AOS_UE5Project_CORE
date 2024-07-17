@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/AIMinions/MinionAttackTrace.h"
+#include "SeniorProject/AIMinions/MinionAttackTrace.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMinionAttackTrace() {}
 // Cross Module References
@@ -45,14 +45,14 @@ void EmptyLinkFunctionForGeneratedCodeMinionAttackTrace() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMinionAttackTrace_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n  ?????\xcd\xb0? ???\xdd\xbd\xc3\xbf? ?? ?????? ?\xd7\xb8??? ?????? ???? \n  ?????????? ?\xcf\xb4? ?\xd4\xbc??? \xc8\xa3???\xcf\xb4? ?????????\xd4\xbc?\n  \n */" },
 		{ "HideCategories", "Object" },
-		{ "IncludePath", "SeniorProject/AIMinions/MinionAttackTrace.h" },
-		{ "ModuleRelativePath", "SeniorProject/AIMinions/MinionAttackTrace.h" },
+		{ "IncludePath", "AIMinions/MinionAttackTrace.h" },
+		{ "ModuleRelativePath", "AIMinions/MinionAttackTrace.h" },
 		{ "ToolTip", "?????\xcd\xb0? ???\xdd\xbd\xc3\xbf? ?? ?????? ?\xd7\xb8??? ?????? ????\n?????????? ?\xcf\xb4? ?\xd4\xbc??? \xc8\xa3???\xcf\xb4? ?????????\xd4\xbc?" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMinionAttackTrace_Statics::NewProp_Minion_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/AIMinions/MinionAttackTrace.h" },
+		{ "ModuleRelativePath", "AIMinions/MinionAttackTrace.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMinionAttackTrace_Statics::NewProp_Minion = { "Minion", nullptr, (EPropertyFlags)0x0010000000000010, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMinionAttackTrace, Minion), Z_Construct_UClass_AMinions_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMinionAttackTrace_Statics::NewProp_Minion_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMinionAttackTrace_Statics::NewProp_Minion_MetaData)) };
@@ -95,9 +95,9 @@ void EmptyLinkFunctionForGeneratedCodeMinionAttackTrace() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_MinionAttackTrace_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMinionAttackTrace, UMinionAttackTrace::StaticClass, TEXT("UMinionAttackTrace"), &Z_Registration_Info_UClass_UMinionAttackTrace, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMinionAttackTrace), 3097965333U) },
+		{ Z_Construct_UClass_UMinionAttackTrace, UMinionAttackTrace::StaticClass, TEXT("UMinionAttackTrace"), &Z_Registration_Info_UClass_UMinionAttackTrace, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMinionAttackTrace), 1320853815U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_MinionAttackTrace_h_2422653113(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_MinionAttackTrace_h_496376894(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_MinionAttackTrace_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_AIMinions_MinionAttackTrace_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

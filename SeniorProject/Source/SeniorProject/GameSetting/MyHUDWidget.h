@@ -17,6 +17,7 @@ class SENIORPROJECT_API UMyHUDWidget : public UUserWidget
 
 public:
 	void BindCharacterStat(class UMyCharacterStatComponent* CharacterStat);
+
 	void BindPlayerState(class AMyPlayerState* PlayerState);
 
 protected:
@@ -25,7 +26,9 @@ protected:
 	void UpdatePlayerState();
 
 private:
+
 	TWeakObjectPtr<class UMyCharacterStatComponent> CurrentCharacterStat;
+
 	TWeakObjectPtr<class AMyPlayerState> CurrentPlayerState;
 
 	UPROPERTY()

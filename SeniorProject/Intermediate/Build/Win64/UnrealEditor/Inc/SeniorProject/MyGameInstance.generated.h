@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_MyGameInstance_generated_h
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_17_GENERATED_BODY \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_18_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FMyCharacterData_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -21,10 +21,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FMyCharacterData>();
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_SPARSE_DATA
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_RPC_WRAPPERS
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_SPARSE_DATA
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_RPC_WRAPPERS
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMyGameInstance(); \
 	friend struct Z_Construct_UClass_UMyGameInstance_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(UMyGameInstance)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_INCLASS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_INCLASS \
 private: \
 	static void StaticRegisterNativesUMyGameInstance(); \
 	friend struct Z_Construct_UClass_UMyGameInstance_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(UMyGameInstance)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_STANDARD_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMyGameInstance(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMyGameInstance) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UMyGameInstance(UMyGameInstance&&); \
@@ -66,25 +66,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMyGameInstance)
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_40_PROLOG
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_GENERATED_BODY_LEGACY \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_41_PROLOG
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_RPC_WRAPPERS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_INCLASS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_STANDARD_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_RPC_WRAPPERS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_INCLASS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_GENERATED_BODY \
+#define FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_SPARSE_DATA \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_43_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_SPARSE_DATA \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_44_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

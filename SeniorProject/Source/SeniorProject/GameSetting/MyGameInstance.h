@@ -5,6 +5,7 @@
 #include "SeniorProject/SeniorProject.h"
 #include "Engine/DataTable.h"
 #include "Engine/GameInstance.h"
+#include "Engine/StreamableManager.h"
 #include "MyGameInstance.generated.h"
 
 /**
@@ -55,6 +56,7 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = Basic)
 		FString SavedCharacterData;
 
+	FStreamableManager StreamableManager;
 	// Function to clear the data
 
 
@@ -64,4 +66,9 @@ private:
 	
 	UPROPERTY()
 		class UDataTable* MinionDataTable;
+
+
+
+	
+
 };

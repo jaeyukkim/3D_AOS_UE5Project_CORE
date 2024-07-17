@@ -15,11 +15,9 @@ class SENIORPROJECT_API UMySaveGame : public USaveGame
 	GENERATED_BODY()
 public:
 	UMySaveGame();
-
-	UPROPERTY()
+	
 		int32 Level;
 
-	UPROPERTY()
 		int32 Exp;
 
 };

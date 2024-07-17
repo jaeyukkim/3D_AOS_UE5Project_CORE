@@ -219,13 +219,13 @@ void UAbilityComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 		//Chrunch
 		bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector* 1500.0f,
 		 ECollisionChannel::ECC_Visibility);
-		FColor DrawColor = bHit ? FColor::Green : FColor::Red;
+		
 		if (bHit)
 		{
 			decal->SetActorLocation(HitResult.Location);
 			CurrentAbilityLocation = HitResult.Location;
 		}
-		DrawDebugLine(GetWorld(), CameraLocation, CameraLocation + CameraFowardVector * 1500.0f, DrawColor, false);
+		
 
 	}
 	

@@ -29,18 +29,45 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultSeniorProject.ini">
+      <Filter>Config</Filter>
+    </None>
     <Filter Include="Config\HoloLens">
       <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
       <Filter>Config\HoloLens</Filter>
     </None>
-    <None Include="..\..\Source\SeniorProject.Build.cs">
-      <Filter>Source</Filter>
+    <Filter Include="Source\MyAssetSetting">
+      <UniqueIdentifier>{05FBD2B7-2AF6-3143-922E-E56BADCED03B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MyAssetSetting\MyAssetSetting.Build.cs">
+      <Filter>Source\MyAssetSetting</Filter>
     </None>
+    <Filter Include="Source\MyAssetSetting\Private">
+      <UniqueIdentifier>{B7BBCBE3-2E7E-3C23-92D3-6E624E2384BD}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MyAssetSetting\Private\CharacterAssetSetting.cpp">
+      <Filter>Source\MyAssetSetting\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MyAssetSetting\Private\MyAssetSetting.cpp">
+      <Filter>Source\MyAssetSetting\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\MyAssetSetting\Public">
+      <UniqueIdentifier>{1A13E220-45D9-30E0-9049-1A3CD7AC896B}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\MyAssetSetting\Public\CharacterAssetSetting.h">
+      <Filter>Source\MyAssetSetting\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MyAssetSetting\Public\MyAssetSetting.h">
+      <Filter>Source\MyAssetSetting\Public</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject">
       <UniqueIdentifier>{8FD6EAE9-FBF5-3CF1-A91B-7DC1B165B31A}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Source\SeniorProject\SeniorProject.Build.cs">
+      <Filter>Source\SeniorProject</Filter>
+    </None>
     <ClCompile Include="..\..\Source\SeniorProject\SeniorProject.cpp">
       <Filter>Source\SeniorProject</Filter>
     </ClCompile>
@@ -50,6 +77,36 @@
     <Filter Include="Source\SeniorProject\AIMinions">
       <UniqueIdentifier>{26CD1312-9DE5-36A7-B1F1-E726B63895ED}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AIMinions\Crunch.cpp">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AIMinions\Crunch.h">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AIMinions\KallariAI.cpp">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AIMinions\KallariAI.h">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AIMinions\Kwang.cpp">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AIMinions\Kwang.h">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AIMinions\LaneSuper.cpp">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AIMinions\LaneSuper.h">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AIMinions\Melee.cpp">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AIMinions\Melee.h">
+      <Filter>Source\SeniorProject\AIMinions</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\AIMinions\MinionAIController.cpp">
       <Filter>Source\SeniorProject\AIMinions</Filter>
     </ClCompile>
@@ -107,12 +164,6 @@
     <ClInclude Include="..\..\Source\SeniorProject\AISetting\BTTask_TurnToTarget.h">
       <Filter>Source\SeniorProject\AISetting</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AISetting\KwangAiController.cpp">
-      <Filter>Source\SeniorProject\AISetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AISetting\KwangAiController.h">
-      <Filter>Source\SeniorProject\AISetting</Filter>
-    </ClInclude>
     <Filter Include="Source\SeniorProject\GameSetting">
       <UniqueIdentifier>{27A5F520-9169-3569-AD92-7A626B5B2CAB}</UniqueIdentifier>
     </Filter>
@@ -140,10 +191,22 @@
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyGamePlayWidget.cpp">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGamePlayWidget.h">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyHUDWidget.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyHUDWidget.h">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyMenuWidget.cpp">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyMenuWidget.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MySaveGame.cpp">
@@ -171,18 +234,6 @@
       <Filter>Source\SeniorProject\Player</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Player\AbilityComponent.h">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Player\Kallari.cpp">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Player\Kallari.h">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Player\KallariAnimInstance.cpp">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Player\KallariAnimInstance.h">
       <Filter>Source\SeniorProject\Player</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Player\MyAnimInstance.cpp">
@@ -219,12 +270,6 @@
       <Filter>Source\SeniorProject\Player</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Player\SwordTraceLoop.h">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Player\TwoHandAttackTrace.cpp">
-      <Filter>Source\SeniorProject\Player</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Player\TwoHandAttackTrace.h">
       <Filter>Source\SeniorProject\Player</Filter>
     </ClInclude>
   </ItemGroup>

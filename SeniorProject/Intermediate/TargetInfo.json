@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "SeniorProject",
-			"Path": "C:\\Users\\77\\Documents\\Unreal Projects\\Capstone-project\\SeniorProject\\Source\\SeniorProject.Target.cs",
+			"Path": "D:\\Capstone-project\\SeniorProject\\Source\\SeniorProject.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "SeniorProjectEditor",
-			"Path": "C:\\Users\\77\\Documents\\Unreal Projects\\Capstone-project\\SeniorProject\\Source\\SeniorProjectEditor.Target.cs",
+			"Path": "D:\\Capstone-project\\SeniorProject\\Source\\SeniorProjectEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

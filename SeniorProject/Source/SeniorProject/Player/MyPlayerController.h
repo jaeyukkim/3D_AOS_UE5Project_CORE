@@ -21,17 +21,37 @@ public:
 	AMyPlayerController();
 	class UMyHUDWidget* GetHUDWidget() const;
 	void NPCKill(class AController* KilledNPC, int32 Exp) const;
+	void ChangeInputMode(bool bGameMode = true);
+	virtual void OnPossess(APawn* InPawn) override;
 
 protected:
 	virtual void BeginPlay() override;
+	virtual void SetupInputComponent() override;
+	
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 		TSubclassOf<class UMyHUDWidget> HUDWidgetClass;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
+		TSubclassOf<class UMyMenuWidget> MenuWidgetClass;
+
+
 private:
-	UPROPERTY()
+
+	UPROPERTY(EditDefaultsOnly)
+		class UMyMenuWidget* MenuWidget;
+
+	UPROPERTY(EditDefaultsOnly)
 		class UMyHUDWidget* HUDWidget;
 
-	UPROPERTY()
+	UPROPERTY(EditDefaultsOnly)
 		class AMyPlayerState* MyPlayerState;
+
+
+
+	FInputModeGameOnly GameInputMode;
+	FInputModeUIOnly UIInputMode;
+
+	void OnGamePause();
 };

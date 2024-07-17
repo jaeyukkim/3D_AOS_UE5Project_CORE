@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/GameSetting/MyHUDWidget.h"
+#include "SeniorProject/GameSetting/MyHUDWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyHUDWidget() {}
 // Cross Module References
@@ -53,28 +53,28 @@ void EmptyLinkFunctionForGeneratedCodeMyHUDWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyHUDWidget_Statics::Class_MetaDataParams[] = {
 		{ "Comment", "/**\n * \n */" },
-		{ "IncludePath", "SeniorProject/GameSetting/MyHUDWidget.h" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyHUDWidget.h" },
+		{ "IncludePath", "GameSetting/MyHUDWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyHUDWidget.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_HPBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyHUDWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyHUDWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_HPBar = { "HPBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyHUDWidget, HPBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_HPBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_HPBar_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_ExpBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyHUDWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyHUDWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_ExpBar = { "ExpBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyHUDWidget, ExpBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_ExpBar_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_ExpBar_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_PlayerLevel_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyHUDWidget.h" },
+		{ "ModuleRelativePath", "GameSetting/MyHUDWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_PlayerLevel = { "PlayerLevel", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyHUDWidget, PlayerLevel), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_PlayerLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyHUDWidget_Statics::NewProp_PlayerLevel_MetaData)) };
@@ -119,9 +119,9 @@ void EmptyLinkFunctionForGeneratedCodeMyHUDWidget() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyHUDWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyHUDWidget, UMyHUDWidget::StaticClass, TEXT("UMyHUDWidget"), &Z_Registration_Info_UClass_UMyHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyHUDWidget), 2440475451U) },
+		{ Z_Construct_UClass_UMyHUDWidget, UMyHUDWidget::StaticClass, TEXT("UMyHUDWidget"), &Z_Registration_Info_UClass_UMyHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyHUDWidget), 752254461U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyHUDWidget_h_4231929012(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyHUDWidget_h_668116966(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyHUDWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyHUDWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

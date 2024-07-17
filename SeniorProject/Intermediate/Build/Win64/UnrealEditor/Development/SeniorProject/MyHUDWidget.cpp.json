@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\myhudwidget.cpp",
+        "Source": "d:\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\myhudwidget.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\seniorprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "PCH": "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\seniorprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\development\\seniorproject\\definitions.seniorproject.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\myhudwidget.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\seniorproject.h",
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\development\\seniorproject\\definitions.seniorproject.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\myhudwidget.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\seniorproject.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",
@@ -335,7 +335,7 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\dynamicpropertypath.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\widgetblueprintgeneratedclass.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\userwidget.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myhudwidget.generated.h",
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myhudwidget.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\progressbar.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\slate\\public\\widgets\\notifications\\sprogressbar.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\slate\\sprogressbar.generated.h",
@@ -344,12 +344,12 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\umg\\public\\components\\textwidgettypes.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\textwidgettypes.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\textblock.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\mycharacterstatcomponent.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mycharacterstatcomponent.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayerstate.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\player\\mycharacterstatcomponent.h",
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\mycharacterstatcomponent.generated.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\player\\myplayerstate.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstate.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\playerstate.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayerstate.generated.h"
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\myplayerstate.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

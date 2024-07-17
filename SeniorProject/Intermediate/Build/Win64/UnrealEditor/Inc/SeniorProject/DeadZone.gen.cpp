@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/GameSetting/DeadZone.h"
+#include "SeniorProject/GameSetting/DeadZone.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDeadZone() {}
 // Cross Module References
@@ -107,7 +107,7 @@ void EmptyLinkFunctionForGeneratedCodeDeadZone() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/DeadZone.h" },
+		{ "ModuleRelativePath", "GameSetting/DeadZone.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADeadZone, nullptr, "ActiveDeadZone", nullptr, nullptr, sizeof(Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::DeadZone_eventActiveDeadZone_Parms), Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ADeadZone_ActiveDeadZone_Statics::Function_MetaDataParams)) };
@@ -145,19 +145,19 @@ void EmptyLinkFunctionForGeneratedCodeDeadZone() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADeadZone_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADeadZone_ActiveDeadZone, "ActiveDeadZone" }, // 1213213600
+		{ &Z_Construct_UFunction_ADeadZone_ActiveDeadZone, "ActiveDeadZone" }, // 3652648972
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADeadZone_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "SeniorProject/GameSetting/DeadZone.h" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/DeadZone.h" },
+		{ "IncludePath", "GameSetting/DeadZone.h" },
+		{ "ModuleRelativePath", "GameSetting/DeadZone.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADeadZone_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "DeadZone" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/DeadZone.h" },
+		{ "ModuleRelativePath", "GameSetting/DeadZone.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADeadZone_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADeadZone, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADeadZone_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADeadZone_Statics::NewProp_CollisionBox_MetaData)) };
@@ -200,9 +200,9 @@ void EmptyLinkFunctionForGeneratedCodeDeadZone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_DeadZone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADeadZone, ADeadZone::StaticClass, TEXT("ADeadZone"), &Z_Registration_Info_UClass_ADeadZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADeadZone), 4231916350U) },
+		{ Z_Construct_UClass_ADeadZone, ADeadZone::StaticClass, TEXT("ADeadZone"), &Z_Registration_Info_UClass_ADeadZone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADeadZone), 3652386090U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_DeadZone_h_1380823384(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_DeadZone_h_1193140497(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_DeadZone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_DeadZone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

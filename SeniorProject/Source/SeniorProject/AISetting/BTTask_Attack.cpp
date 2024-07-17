@@ -2,11 +2,11 @@
 
 
 #include "SeniorProject/AISetting/BTTask_Attack.h"
-#include "KwangAiController.h"
+
 #include "SeniorProject/AIMinions/Minions.h"
 #include "SeniorProject/AIMinions/MinionAIController.h"
 #include "SeniorProject/Player/MyCharacter.h"
-#include "SeniorProject/Player/Kallari.h"
+
 
 
 UBTTask_Attack::UBTTask_Attack()
@@ -22,47 +22,14 @@ EBTNodeResult::Type UBTTask_Attack::ExecuteTask(UBehaviorTreeComponent& OwnerCom
 
 
 	
-	
-	auto Monster = OwnerComp.GetAIOwner()->GetPawn();
+	auto Minion = Cast<AMinions>(OwnerComp.GetAIOwner()->GetPawn());
+	if (Minion == nullptr) return EBTNodeResult::Failed;
 
-
-	if (Monster->ActorHasTag(TEXT("MyCharacterClass")))
-	{
-		auto MyCharacter = Cast<AMyCharacter>(OwnerComp.GetAIOwner()->GetPawn());
-		if (MyCharacter == nullptr) return EBTNodeResult::Failed;
-
-		MyCharacter->Attack();
-		IsAttacking = true;
-		MyCharacter->OnAttackEnd.AddLambda([this]()	-> void { IsAttacking = false; });
-	}
+	Minion->Attack();
+	IsAttacking = true;
+	Minion->OnAttackEnd.AddLambda([this]()	-> void { IsAttacking = false; });
 	
 
-
-	else if (Monster->ActorHasTag(TEXT("KallariClass")))
-	{
-		auto kallari = Cast<AKallari>(OwnerComp.GetAIOwner()->GetPawn());
-		if (kallari == nullptr) return EBTNodeResult::Failed;
-
-		kallari->Attack();
-		IsAttacking = true;
-		kallari->OnAttackEnd.AddLambda([this]()	-> void { IsAttacking = false; });
-	}
-
-
-
-	else if (Monster->ActorHasTag(TEXT("MinionClass")))
-	{
-		auto Minion = Cast<AMinions>(OwnerComp.GetAIOwner()->GetPawn());
-		if (Minion == nullptr) return EBTNodeResult::Failed;
-
-		Minion->Attack();
-		IsAttacking = true;
-		Minion->OnAttackEnd.AddLambda([this]()	-> void { IsAttacking = false; });
-	}
-
-
-	
-	
 
 	return EBTNodeResult::InProgress;
 }

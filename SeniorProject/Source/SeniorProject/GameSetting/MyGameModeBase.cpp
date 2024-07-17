@@ -3,7 +3,7 @@
 
 #include "MyGameModeBase.h"
 #include "SeniorProject/Player/MyCharacter.h"
-#include "SeniorProject/Player/Kallari.h"
+
 #include "SeniorProject/Player/MyPlayerController.h"
 #include "Stage1Potal.h"
 #include "SeniorProject/Player/MyPlayerState.h"
@@ -19,7 +19,7 @@ AMyGameModeBase::AMyGameModeBase()
 			ResetNumberOfMob();
 		});
 	CurrentStage = EStage::STAGE1;
-
+	MonsterCount = 2;
 }
 void AMyGameModeBase::StartPlay()
 {
@@ -33,7 +33,7 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 
 	MyPlayerState = Cast<AMyPlayerState>(NewPlayer->PlayerState);
 
-	if(MyPlayerState)
+	if(MyPlayerState	!= nullptr)
 		MyPlayerState->InitPlayerData();
 }
 

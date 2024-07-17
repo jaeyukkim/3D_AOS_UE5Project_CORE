@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/GameSetting/MyGameInstance.h"
+#include "SeniorProject/GameSetting/MyGameInstance.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyGameInstance() {}
 // Cross Module References
@@ -66,7 +66,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FMyCharacterData>()
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Comment", "/**\n\x09???? ????\n */" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewStructOps()
@@ -76,35 +76,35 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FMyCharacterData>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Level_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Level = { "Level", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMyCharacterData, Level), METADATA_PARAMS(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Level_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_MaxHp_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_MaxHp = { "MaxHp", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMyCharacterData, MaxHp), METADATA_PARAMS(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_MaxHp_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_MaxHp_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Attack_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Attack = { "Attack", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMyCharacterData, Attack), METADATA_PARAMS(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Attack_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_Attack_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_DropExp_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_DropExp = { "DropExp", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMyCharacterData, DropExp), METADATA_PARAMS(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_DropExp_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_DropExp_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_NextExp_MetaData[] = {
 		{ "Category", "Data" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_NextExp = { "NextExp", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(FMyCharacterData, NextExp), METADATA_PARAMS(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_NextExp_MetaData, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewProp_NextExp_MetaData)) };
@@ -172,26 +172,26 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FMyCharacterData>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyGameInstance_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "SeniorProject/GameSetting/MyGameInstance.h" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "IncludePath", "GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCharacterData_MetaData[] = {
 		{ "Category", "Basic" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCharacterData = { "SavedCharacterData", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyGameInstance, SavedCharacterData), METADATA_PARAMS(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCharacterData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_SavedCharacterData_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MyCharacterTable_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MyCharacterTable = { "MyCharacterTable", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyGameInstance, MyCharacterTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MyCharacterTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MyCharacterTable_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MinionDataTable_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/MyGameInstance.h" },
+		{ "ModuleRelativePath", "GameSetting/MyGameInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MinionDataTable = { "MinionDataTable", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyGameInstance, MinionDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MinionDataTable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyGameInstance_Statics::NewProp_MinionDataTable_MetaData)) };
@@ -237,12 +237,12 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FMyCharacterData>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ScriptStructInfo[] = {
-		{ FMyCharacterData::StaticStruct, Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewStructOps, TEXT("MyCharacterData"), &Z_Registration_Info_UScriptStruct_MyCharacterData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMyCharacterData), 167088361U) },
+		{ FMyCharacterData::StaticStruct, Z_Construct_UScriptStruct_FMyCharacterData_Statics::NewStructOps, TEXT("MyCharacterData"), &Z_Registration_Info_UScriptStruct_MyCharacterData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FMyCharacterData), 1770025581U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 1129693095U) },
+		{ Z_Construct_UClass_UMyGameInstance, UMyGameInstance::StaticClass, TEXT("UMyGameInstance"), &Z_Registration_Info_UClass_UMyGameInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyGameInstance), 2114724830U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_1913988777(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_219682891(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_MyGameInstance_h_Statics::ScriptStructInfo),
 		nullptr, 0);

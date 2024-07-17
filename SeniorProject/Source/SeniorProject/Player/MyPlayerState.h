@@ -35,15 +35,12 @@ public:
 	void SavePlayerData();
 
 	FOnPlayerStateChangedDelegate OnPlayerStateChanged;
-	//FMobExpDrop OnMobDropExp;
+	
 
 protected:
 
-
-	UPROPERTY(EditAnywhere, Category = "Level")
 		int32 CharacterLevel;
 
-	UPROPERTY(Transient)
 		int32 Exp;
 
 private:

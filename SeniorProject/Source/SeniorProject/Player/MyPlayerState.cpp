@@ -32,10 +32,10 @@ void AMyPlayerState::InitPlayerData()
 		MySaveGame = GetMutableDefault<UMySaveGame>();
 	}
 
-
 	LevelUp(MySaveGame->Level);
 	Exp = MySaveGame->Exp;
 
+	
 	SavePlayerData();
 }
 

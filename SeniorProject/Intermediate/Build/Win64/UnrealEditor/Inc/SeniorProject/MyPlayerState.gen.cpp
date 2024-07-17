@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/Player/MyPlayerState.h"
+#include "SeniorProject/Player/MyPlayerState.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 // Cross Module References
@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SeniorProject/Player/MyPlayerState.h" },
+		{ "ModuleRelativePath", "Player/MyPlayerState.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayerState, nullptr, "AddExp", nullptr, nullptr, sizeof(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::MyPlayerState_eventAddExp_Parms), Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams)) };
@@ -83,15 +83,6 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterLevel_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_CharacterLevel;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Exp_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_Exp;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -100,33 +91,16 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyPlayerState_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMyPlayerState_AddExp, "AddExp" }, // 1959507023
+		{ &Z_Construct_UFunction_AMyPlayerState_AddExp, "AddExp" }, // 423987652
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "SeniorProject/Player/MyPlayerState.h" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyPlayerState.h" },
+		{ "IncludePath", "Player/MyPlayerState.h" },
+		{ "ModuleRelativePath", "Player/MyPlayerState.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerState_Statics::NewProp_CharacterLevel_MetaData[] = {
-		{ "Category", "Level" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyPlayerState.h" },
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyPlayerState_Statics::NewProp_CharacterLevel = { "CharacterLevel", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyPlayerState, CharacterLevel), METADATA_PARAMS(Z_Construct_UClass_AMyPlayerState_Statics::NewProp_CharacterLevel_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::NewProp_CharacterLevel_MetaData)) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerState_Statics::NewProp_Exp_MetaData[] = {
-		{ "ModuleRelativePath", "SeniorProject/Player/MyPlayerState.h" },
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AMyPlayerState_Statics::NewProp_Exp = { "Exp", nullptr, (EPropertyFlags)0x0020080000002000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AMyPlayerState, Exp), METADATA_PARAMS(Z_Construct_UClass_AMyPlayerState_Statics::NewProp_Exp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::NewProp_Exp_MetaData)) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyPlayerState_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerState_Statics::NewProp_CharacterLevel,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerState_Statics::NewProp_Exp,
-	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyPlayerState_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyPlayerState>::IsAbstract,
 	};
@@ -136,11 +110,11 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		Z_Construct_UClass_AMyPlayerState_Statics::PropPointers,
+		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::PropPointers),
+		0,
 		0,
 		0x009002A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams))
@@ -163,9 +137,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 2389433484U) },
+		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 1982844100U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyPlayerState_h_982543694(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyPlayerState_h_2340126617(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

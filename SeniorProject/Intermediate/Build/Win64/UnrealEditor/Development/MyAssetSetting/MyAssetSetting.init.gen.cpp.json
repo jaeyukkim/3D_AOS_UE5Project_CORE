@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\myassetsetting\\myassetsetting.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\seniorprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\development\\myassetsetting\\definitions.myassetsetting.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

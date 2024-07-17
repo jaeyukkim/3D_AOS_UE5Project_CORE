@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 public class SeniorProjectTarget : TargetRules
 {
-	public SeniorProjectTarget(TargetInfo Target) : base(Target)
-	{
-		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
+    public SeniorProjectTarget(TargetInfo Target) : base(Target)
+    {
+        Type = TargetType.Game;
+        DefaultBuildSettings = BuildSettingsVersion.V2;
 
-		ExtraModuleNames.AddRange( new string[] { "SeniorProject" } );
-	}
+        ExtraModuleNames.AddRange(new string[] { "SeniorProject", "MyAssetSetting" });
+     
+
+    }
 }

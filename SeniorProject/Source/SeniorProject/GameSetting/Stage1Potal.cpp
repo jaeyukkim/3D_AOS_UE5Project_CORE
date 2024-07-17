@@ -71,7 +71,12 @@ void AStage1Potal::OnOverlapBegin(
 {
 	if (OtherActor && (OtherActor != this))
 	{
-		UGameplayStatics::OpenLevel(GetWorld(), "DemoMapDay");
+		FString CurrentLevelName = UGameplayStatics::GetCurrentLevelName(GetWorld());
+
+		if(CurrentLevelName == FString("ElvenRuins"))
+			UGameplayStatics::OpenLevel(GetWorld(), "DemoMapDay");
+		else if (CurrentLevelName == FString("DemoMapDay"))
+			UGameplayStatics::OpenLevel(GetWorld(), "TitleScene");
 	}
 }
 void AStage1Potal::ActivePotal()

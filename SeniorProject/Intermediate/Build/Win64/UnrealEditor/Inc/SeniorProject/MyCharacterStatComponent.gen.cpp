@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/Player/MyCharacterStatComponent.h"
+#include "SeniorProject/Player/MyCharacterStatComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 // Cross Module References
@@ -53,15 +53,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "ClassGroupNames", "Custom" },
-		{ "IncludePath", "SeniorProject/Player/MyCharacterStatComponent.h" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyCharacterStatComponent.h" },
+		{ "IncludePath", "Player/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Player/MyCharacterStatComponent.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Player/MyCharacterStatComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level = { "Level", nullptr, (EPropertyFlags)0x0040000000000801, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyCharacterStatComponent, Level), METADATA_PARAMS(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData)) };
@@ -69,7 +69,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Player/MyCharacterStatComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp = { "CurrentHp", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UMyCharacterStatComponent, CurrentHp), METADATA_PARAMS(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData)) };
@@ -77,7 +77,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_IsPlayerDead_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "SeniorProject/Player/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "Player/MyCharacterStatComponent.h" },
 	};
 #endif
 	void Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_IsPlayerDead_SetBit(void* Obj)
@@ -126,9 +126,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyCharacterStatComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyCharacterStatComponent, UMyCharacterStatComponent::StaticClass, TEXT("UMyCharacterStatComponent"), &Z_Registration_Info_UClass_UMyCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterStatComponent), 4083270460U) },
+		{ Z_Construct_UClass_UMyCharacterStatComponent, UMyCharacterStatComponent::StaticClass, TEXT("UMyCharacterStatComponent"), &Z_Registration_Info_UClass_UMyCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterStatComponent), 2639359007U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyCharacterStatComponent_h_167813805(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyCharacterStatComponent_h_2242458469(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_Player_MyCharacterStatComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

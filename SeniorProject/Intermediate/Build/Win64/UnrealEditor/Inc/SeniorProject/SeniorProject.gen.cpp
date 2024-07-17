@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/SeniorProject.h"
+#include "SeniorProject/SeniorProject.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSeniorProject() {}
 // Cross Module References
@@ -46,7 +46,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject() {}
 		{ "BlueprintType", "true" },
 		{ "DEAD.Name", "ECharacterState::DEAD" },
 		{ "LOADING.Name", "ECharacterState::LOADING" },
-		{ "ModuleRelativePath", "SeniorProject/SeniorProject.h" },
+		{ "ModuleRelativePath", "SeniorProject.h" },
 		{ "PREINT.Name", "ECharacterState::PREINT" },
 		{ "READY.Name", "ECharacterState::READY" },
 	};
@@ -102,7 +102,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject() {}
 		{ "BlueprintType", "true" },
 		{ "DEAD.Name", "EMinionState::DEAD" },
 		{ "LOADING.Name", "EMinionState::LOADING" },
-		{ "ModuleRelativePath", "SeniorProject/SeniorProject.h" },
+		{ "ModuleRelativePath", "SeniorProject.h" },
 		{ "READY.Name", "EMinionState::READY" },
 	};
 #endif
@@ -155,7 +155,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_SeniorProject_EAttackDirection_Statics::Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
 		{ "Left.Name", "EAttackDirection::Left" },
-		{ "ModuleRelativePath", "SeniorProject/SeniorProject.h" },
+		{ "ModuleRelativePath", "SeniorProject.h" },
 		{ "Right.Name", "EAttackDirection::Right" },
 	};
 #endif
@@ -184,11 +184,11 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject() {}
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_SeniorProject_h_Statics::EnumInfo[] = {
-		{ ECharacterState_StaticEnum, TEXT("ECharacterState"), &Z_Registration_Info_UEnum_ECharacterState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 719557229U) },
-		{ EMinionState_StaticEnum, TEXT("EMinionState"), &Z_Registration_Info_UEnum_EMinionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3007366519U) },
-		{ EAttackDirection_StaticEnum, TEXT("EAttackDirection"), &Z_Registration_Info_UEnum_EAttackDirection, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 365377352U) },
+		{ ECharacterState_StaticEnum, TEXT("ECharacterState"), &Z_Registration_Info_UEnum_ECharacterState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4177871130U) },
+		{ EMinionState_StaticEnum, TEXT("EMinionState"), &Z_Registration_Info_UEnum_EMinionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3410177569U) },
+		{ EAttackDirection_StaticEnum, TEXT("EAttackDirection"), &Z_Registration_Info_UEnum_EAttackDirection, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3457443260U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_SeniorProject_h_2759029965(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_SeniorProject_h_1313109256(TEXT("/Script/SeniorProject"),
 		nullptr, 0,
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_SeniorProject_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_SeniorProject_h_Statics::EnumInfo));

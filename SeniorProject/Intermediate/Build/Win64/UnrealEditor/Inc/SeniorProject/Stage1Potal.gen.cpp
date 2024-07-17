@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Source/SeniorProject/GameSetting/Stage1Potal.h"
+#include "SeniorProject/GameSetting/Stage1Potal.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 // Cross Module References
@@ -67,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AStage1Potal_ActivePotal_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AStage1Potal_ActivePotal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStage1Potal, nullptr, "ActivePotal", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AStage1Potal_ActivePotal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AStage1Potal_ActivePotal_Statics::Function_MetaDataParams)) };
@@ -89,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AStage1Potal_DisablePotal_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AStage1Potal_DisablePotal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStage1Potal, nullptr, "DisablePotal", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AStage1Potal_DisablePotal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AStage1Potal_DisablePotal_Statics::Function_MetaDataParams)) };
@@ -170,7 +170,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStage1Potal, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::Stage1Potal_eventOnOverlapBegin_Parms), Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00440401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AStage1Potal_OnOverlapBegin_Statics::Function_MetaDataParams)) };
@@ -220,20 +220,20 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AStage1Potal_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AStage1Potal_ActivePotal, "ActivePotal" }, // 1828733295
-		{ &Z_Construct_UFunction_AStage1Potal_DisablePotal, "DisablePotal" }, // 2181670788
-		{ &Z_Construct_UFunction_AStage1Potal_OnOverlapBegin, "OnOverlapBegin" }, // 3071177766
+		{ &Z_Construct_UFunction_AStage1Potal_ActivePotal, "ActivePotal" }, // 2855963049
+		{ &Z_Construct_UFunction_AStage1Potal_DisablePotal, "DisablePotal" }, // 2787909000
+		{ &Z_Construct_UFunction_AStage1Potal_OnOverlapBegin, "OnOverlapBegin" }, // 3092143950
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "SeniorProject/GameSetting/Stage1Potal.h" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "IncludePath", "GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::NewProp_doorMesh_MetaData[] = {
 		{ "Category", "Stage1Potal" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_doorMesh = { "doorMesh", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, doorMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_doorMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_doorMesh_MetaData)) };
@@ -241,7 +241,7 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::NewProp_MeshComponent_MetaData[] = {
 		{ "Category", "Stage1Potal" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_MeshComponent = { "MeshComponent", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, MeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_MeshComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_MeshComponent_MetaData)) };
@@ -249,14 +249,14 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "Stage1Potal" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_CollisionBox_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "SeniorProject/GameSetting/Stage1Potal.h" },
+		{ "ModuleRelativePath", "GameSetting/Stage1Potal.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect = { "DoorOpenEffect", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AStage1Potal, DoorOpenEffect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AStage1Potal_Statics::NewProp_DoorOpenEffect_MetaData)) };
@@ -302,9 +302,9 @@ void EmptyLinkFunctionForGeneratedCodeStage1Potal() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AStage1Potal, AStage1Potal::StaticClass, TEXT("AStage1Potal"), &Z_Registration_Info_UClass_AStage1Potal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStage1Potal), 2388554635U) },
+		{ Z_Construct_UClass_AStage1Potal, AStage1Potal::StaticClass, TEXT("AStage1Potal"), &Z_Registration_Info_UClass_AStage1Potal, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStage1Potal), 1630129602U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_2732447309(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_2894506583(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_Source_SeniorProject_GameSetting_Stage1Potal_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

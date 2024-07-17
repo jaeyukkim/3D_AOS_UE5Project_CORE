@@ -1,29 +1,32 @@
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAnimInstance.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\Minions.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTDecorator_IsInAttackRange.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyCharacterWidget.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_FindPatrolPos.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyGameModeBase.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\KwangAiController.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyHUDWidget.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\DeadZone.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\TitleSceneController.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\AbilityComponent.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\KallariAnimInstance.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\Kallari.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MySaveGame.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\Stage1Potal.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\SwordTraceLoop.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyCharacter.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyPlayerState.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\TwoHandAttackTrace.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyAnimInstance.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\SeniorProject.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyCharacterStatComponent.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyPlayerController.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAIController.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_TurnToTarget.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTService_Detect.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_Attack.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAttackTrace.h
-C:\Users\77\Documents\Unreal Projects\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyGameInstance.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\KallariAI.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\Crunch.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAnimInstance.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\LaneSuper.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\Kwang.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTDecorator_IsInAttackRange.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\Minions.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_FindPatrolPos.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAIController.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\MinionAttackTrace.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_Attack.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTService_Detect.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyHUDWidget.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyGameInstance.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyGameModeBase.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\DeadZone.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\Stage1Potal.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyCharacterWidget.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyAnimInstance.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyCharacter.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyCharacterStatComponent.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyPlayerState.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\MyPlayerController.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\SwordTraceLoop.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MySaveGame.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\TitleSceneController.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\Player\AbilityComponent.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\SeniorProject.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AIMinions\Melee.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\AISetting\BTTask_TurnToTarget.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyGamePlayWidget.h
+D:\Capstone-project\SeniorProject\Source\SeniorProject\GameSetting\MyMenuWidget.h

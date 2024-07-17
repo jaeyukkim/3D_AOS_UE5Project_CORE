@@ -1,13 +1,13 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\stage1potal.cpp",
+        "Source": "d:\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\stage1potal.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\seniorprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "PCH": "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\seniorprojecteditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
         "Includes": [
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\development\\seniorproject\\definitions.seniorproject.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\stage1potal.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\source\\seniorproject\\seniorproject.h",
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\development\\seniorproject\\definitions.seniorproject.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\gamesetting\\stage1potal.h",
+            "d:\\capstone-project\\seniorproject\\source\\seniorproject\\seniorproject.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\public\\engineminimal.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\core\\public\\misc\\monolithicheaderboilerplate.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\coreuobject\\public\\coreuobject.h",
@@ -205,7 +205,7 @@
             "c:\\program files\\epic games\\ue_5.0\\engine\\source\\runtime\\engine\\classes\\kismet\\gameplaystaticstypes.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystaticstypes.generated.h",
             "c:\\program files\\epic games\\ue_5.0\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\gameplaystatics.generated.h",
-            "c:\\users\\77\\documents\\unreal projects\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\stage1potal.generated.h"
+            "d:\\capstone-project\\seniorproject\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\stage1potal.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -10,16 +10,22 @@
 
 void UMyHUDWidget::BindCharacterStat(UMyCharacterStatComponent* CharacterStat)
 {
+	if (IsValid(CharacterStat))
+	{
+		CurrentCharacterStat = CharacterStat;
+		CharacterStat->OnHpChanged.AddUObject(this, &UMyHUDWidget::UpdateCharacterStat);
+	}
 
-	CurrentCharacterStat = CharacterStat;
-	CharacterStat->OnHpChanged.AddUObject(this, &UMyHUDWidget::UpdateCharacterStat);
 }
 
 void UMyHUDWidget::BindPlayerState(AMyPlayerState* PlayerState)
 {
-
-	CurrentPlayerState = PlayerState;
-	PlayerState->OnPlayerStateChanged.AddUObject(this, &UMyHUDWidget::UpdatePlayerState);
+	if (IsValid(PlayerState))
+	{
+		CurrentPlayerState = PlayerState;
+		PlayerState->OnPlayerStateChanged.AddUObject(this, &UMyHUDWidget::UpdatePlayerState);
+	}
+	
 }
 
 void UMyHUDWidget::NativeConstruct()
@@ -38,7 +44,7 @@ void UMyHUDWidget::NativeConstruct()
 
 void UMyHUDWidget::UpdateCharacterStat()
 {
-	if(HPBar)
+	if(IsValid(HPBar) && CurrentCharacterStat != nullptr)
 		HPBar->SetPercent(CurrentCharacterStat->GetHpRatio());
 }
 
@@ -47,10 +53,10 @@ void UMyHUDWidget::UpdatePlayerState()
 	if (!CurrentPlayerState.IsValid())
 		UE_LOG(LogTemp, Warning, TEXT("CurrentPlayerState is null"));
 
-	if(ExpBar)
+	if(IsValid(ExpBar) && CurrentPlayerState != nullptr)
 		ExpBar->SetPercent(CurrentPlayerState->GetExpRatio());
 
-	if(PlayerLevel)
+	if(IsValid(PlayerLevel) && CurrentPlayerState != nullptr)
 		PlayerLevel->SetText(FText::FromString(FString::FromInt(CurrentPlayerState->GetCharacterLevel())));
 
 }

@@ -2,7 +2,7 @@
 
 
 #include "SeniorProject/AISetting/BTTask_FindPatrolPos.h"
-#include "KwangAiController.h"
+
 #include "BehaviorTree/BlackboardComponent.h"
 #include "NavigationSystem.h"
 #include "SeniorProject/AIMinions/MinionAIController.h"
@@ -24,47 +24,19 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 
 	UNavigationSystemV1* NavSystem = UNavigationSystemV1::GetNavigationSystem(Monster->GetWorld());
 
-	if (Monster->ActorHasTag(TEXT("MyCharacterClass")))
+
+
+
+	FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AMinionAIController::HomePosKey);
+	FNavLocation NextPatrol;
+
+	if (NavSystem->GetRandomPointInNavigableRadius(OriginPos, 600.0f, NextPatrol))
 	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AKwangAiController::HomePosKey);
-		FNavLocation NextPatrol;
-
-		if (NavSystem->GetRandomPointInNavigableRadius(OriginPos, 600.0f, NextPatrol))
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsVector(AKwangAiController::PatrolPosKey, NextPatrol.Location);
-			return EBTNodeResult::Succeeded;
-		}
-	}
-
-
-	else if (Monster->ActorHasTag(TEXT("KallariClass")))
-	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AKwangAiController::HomePosKey);
-		FNavLocation NextPatrol;
-
-		if (NavSystem->GetRandomPointInNavigableRadius(OriginPos, 600.0f, NextPatrol))
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsVector(AKwangAiController::PatrolPosKey, NextPatrol.Location);
-			return EBTNodeResult::Succeeded;
-		}
-	}
-
-
-
-	else if (Monster->ActorHasTag(TEXT("MinionClass")))
-	{
-		FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AMinionAIController::HomePosKey);
-		FNavLocation NextPatrol;
-
-		if (NavSystem->GetRandomPointInNavigableRadius(OriginPos, 600.0f, NextPatrol))
-		{
-			OwnerComp.GetBlackboardComponent()->SetValueAsVector(AMinionAIController::PatrolPosKey, NextPatrol.Location);
-			return EBTNodeResult::Succeeded;
-		}
+		OwnerComp.GetBlackboardComponent()->SetValueAsVector(AMinionAIController::PatrolPosKey, NextPatrol.Location);
+		return EBTNodeResult::Succeeded;
 	}
 	
-
-
+	
 	return EBTNodeResult::Failed;
 }
 

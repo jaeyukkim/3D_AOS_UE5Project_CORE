@@ -9,15 +9,9 @@
 DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 
 
-enum MinionType
-{
-	Melee = 0,
-	RaneSuper = 1,
-	Chrunch = 2
-};
 
 
-UCLASS()
+UCLASS(abstract)
 
 class SENIORPROJECT_API AMinions : public ACharacter
 {
@@ -52,8 +46,6 @@ public:
 		class UWidgetComponent* HpBarWidget;
 
 
-	UPROPERTY(EditAnywhere, Category = Type)
-		int32 RandomMinionType;
 
 
 	UFUNCTION()
@@ -78,26 +70,10 @@ public:
 		bool Damaged = true;
 
 	UPROPERTY(EditAnywhere, Category = Anim)
-		TArray<TSubclassOf<UAnimInstance>> MinionAnimation;	//미니언의 애니메이션들을 저장
-
-	UPROPERTY(EditAnywhere, Category = Attacks)
-		TArray<UAnimMontage*> MeleeAttackMontageSet;
-
-	UPROPERTY(EditAnywhere, Category = Attacks)
-		TArray<UAnimMontage*> RaneSuperAttackMontageSet;
-
-	UPROPERTY(EditAnywhere, Category = Attacks)
-		TArray<UAnimMontage*> ChrunchAttackMontageSet;
-
-
+		TSubclassOf<UAnimInstance> MinionAnimation;	//미니언의 애니메이션들을 저장
 
 	UPROPERTY(EditAnywhere, Category = Attacks)
 		TArray<UAnimMontage*> AttackMontage;
-
-
-
-	UPROPERTY(EditAnywhere, Category = Mesh)
-		TArray<USkeletalMesh*> MinionMesh;
 
 
 private:
@@ -122,8 +98,6 @@ private:
 
 private:
 
-	void SetControlMode();
-	void SetMinionMode(int32 RandomMinionType);
 	void SetMinionState(EMinionState NewState);
 
 
@@ -155,7 +129,7 @@ public:
 	FName RightSoketTop;
 	FName LeftSoketBottom;
 	FName LeftSoketTop;
-
+	
 
 
 	UPROPERTY()
@@ -171,6 +145,11 @@ public:
 
 
 	const int32  MaxAttackCombo = 4;
-	const int32 Num_Of_Kind_Minion = 3;
 	FTimerHandle DamagedTimerHandle = { };
+
+
+	protected:
+		virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
+	
+	
 };

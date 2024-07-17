@@ -55,3 +55,4 @@ FMyCharacterData* UMyGameInstance::GetMyMinionData(int32 Level)
 {
 	return MinionDataTable->FindRow<FMyCharacterData>(*FString::FromInt(Level), TEXT(""));
 }
+

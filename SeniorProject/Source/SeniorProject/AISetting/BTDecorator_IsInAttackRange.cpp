@@ -2,7 +2,7 @@
 
 
 #include "SeniorProject/AISetting/BTDecorator_IsInAttackRange.h"
-#include "KwangAiController.h"
+
 #include "SeniorProject/AIMinions/MinionAIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
@@ -22,55 +22,17 @@ bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeCompo
 	if (ControllingPawn == nullptr) return false;
 
 
-	if (ControllingPawn->ActorHasTag(TEXT("MyCharacterClass")))
+
+	auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AMinionAIController::TargetKey));
+	if (Target == nullptr)
+		return false;
+
+	if (bResult != NULL)
 	{
-
-		auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AKwangAiController::TargetKey));
-		if (Target == nullptr)
-			return false;
-
-		if (bResult != NULL)
-		{
-			bResult = (Target->GetDistanceTo(ControllingPawn) <= AttackRange);
-			return bResult;
-		}
-
+		bResult = (Target->GetDistanceTo(ControllingPawn) <= AttackRange);
+		return bResult;
 	}
-	
-
-
-	if (ControllingPawn->ActorHasTag(TEXT("KallariClass")))
-	{
-
-		auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AKwangAiController::TargetKey));
-		if (Target == nullptr)
-			return false;
-
-		if (bResult != NULL)
-		{
-			bResult = (Target->GetDistanceTo(ControllingPawn) <= AttackRange);
-			return bResult;
-		}
-
-	}
-
-
-	else if(ControllingPawn->ActorHasTag(TEXT("MinionClass")))
-	{
-		auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AMinionAIController::TargetKey));
-		if (Target == nullptr)
-			return false;
-
-		if (bResult != NULL)
-		{
-			bResult = (Target->GetDistanceTo(ControllingPawn) <= AttackRange);
-			return bResult;
-		}
-
-	}
-
-
-	
 
 	return false;
+
 }

@@ -24,28 +24,19 @@ public:
 	void SetCharacterState(ECharacterState NewState);
 
 
-	enum class EControlMode
-	{
-		PLAYER,
-		AI
-	};
 
 
 
-
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:	
-	// Called every frame
+
 	virtual void Tick(float DeltaTime) override;
-	//virtual void PostInitializeComponents() override;
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 		AController* EventInstigator, AActor* DamageCauser) override;
-	//virtual void PossessedBy(AController* NewController) override;
+	
 
 	
 
@@ -78,22 +69,16 @@ public:
 
 
 
-	UPROPERTY(EditAnywhere, Category = Mesh)
-		USkeletalMesh* CharacterMesh;
-
-
-
 	UPROPERTY()
 		class AMyPlayerController* PlayerController;
+
+
+
+
+
 	UPROPERTY()
-		class AKwangAiController* AIController;
-
-
-
-
-
 		USoundCue* FootStepAudioCue;
-
+	UPROPERTY()
 		UAudioComponent* AudioComponent;
 
 
@@ -128,14 +113,17 @@ private:
 	void LookUp(float Value);
 	void Turn(float Value);
 	void LSB();
-	void SetControlMode(EControlMode option);
-	void SetCharacterMode();
+
+	void SetCharacterSetting();
 	void Ability_RMB();
 	void Ability_R();
 	void Ability_Q();
 
 
-
+private:
+	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
+	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
+	void OnAssetLoadCompleted();
 		
 
 public:
@@ -158,7 +146,7 @@ public:
 	bool IsRightAttack;
 	bool SaveAttack;
 	bool CanTakeDamage = true;
-	bool bIsPlayer;
+	
 
 
 
@@ -176,7 +164,7 @@ public:
 
 
 
-		FOnAttackEndDelegate OnAttackEnd;
+	FOnAttackEndDelegate OnAttackEnd;
 
 
 
@@ -190,8 +178,10 @@ public:
 	UPROPERTY()
 	FTimerHandle KwangUITimerHandle = { };
 
-
+	UPROPERTY()
 	FName RightSoketBottom;
+
+	UPROPERTY()
 	FName RightSoketTop;
 
 
