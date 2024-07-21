@@ -17,7 +17,12 @@ AMinions::AMinions()
 	PrimaryActorTick.bCanEverTick = false;
 	AttackMontage.Init(nullptr, MaxAttackCombo);
 
-	
+	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
+
+	AttributeSet = CreateDefaultSubobject<UAttributeSet>("AttributeSet");
+
 
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
@@ -59,6 +64,7 @@ void AMinions::BeginPlay()
 
 	//3가지 미니언 타입중 랜덤으로 결정
 
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 
 	AIController = Cast<AMinionAIController>(GetController());
 	
@@ -71,7 +77,6 @@ void AMinions::BeginPlay()
 	}
 	
 	SetMinionState(ECharacterState::LOADING);
-
 
 
 
@@ -279,6 +284,7 @@ void AMinions::AttackTrace()
 	}
 
 }
+
 
 float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {

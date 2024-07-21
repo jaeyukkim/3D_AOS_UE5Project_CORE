@@ -8,7 +8,7 @@
 UBTDecorator_IsInAttackRange::UBTDecorator_IsInAttackRange()
 {
 	NodeName = TEXT("CanAttack");
-	AttackRange = 250.0f;
+	AttackRange = 320.0f;
 }
 
 //감지된 플레이어가 있을 때 공격범위 안에 들어오는지 리턴하는 함수

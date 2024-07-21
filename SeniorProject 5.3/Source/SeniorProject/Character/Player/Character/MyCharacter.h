@@ -6,7 +6,7 @@
 #include "SeniorProject/SeniorProject.h"
 #include "Components/AudioComponent.h"
 #include "Sound/SoundCue.h"
-#include "EngineMinimal.h"
+#include "InputActionValue.h"
 #include "SeniorProject/Character/CharacterBase/DefaultBase/CharacterBase.h"
 #include "MyCharacter.generated.h"
 
@@ -25,16 +25,14 @@ public:
 
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
-	
 
-public:	
 
 	virtual void Tick(float DeltaTime) override;
-	//virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 		AController* EventInstigator, AActor* DamageCauser) override;
-	
-
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
 
 	UPROPERTY(VisibleAnywhere, Category = Abillity)
 		class UAbilityComponent* AbilityComponent;
@@ -94,7 +92,42 @@ private:
 	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
 	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
 	void OnAssetLoadCompleted();
+
+
+	void InitAbilityActorInfo();
+
+private:
+
 		
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputMappingContext* PlayerContext;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* MoveAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* LookAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* JumpAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* LSB_Action;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* Q_Action;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* RMB_Ability;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		class UInputAction* R_Ability;
+
+	
+
+
+	void Move(const FInputActionValue& InputActionValue);
+	void Look(const FInputActionValue& InputActionValue);
 
 public:
 	

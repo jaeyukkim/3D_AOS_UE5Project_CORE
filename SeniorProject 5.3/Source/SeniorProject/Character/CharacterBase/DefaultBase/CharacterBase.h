@@ -4,23 +4,32 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/Character.h"
+#include "AbilitySystemInterface.h"
+#include "AbilitySystemComponent.h"
+#include "AttributeSet.h"
 #include "CharacterBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 
 
 UCLASS(abstract)
-class SENIORPROJECT_API ACharacterBase : public ACharacter
+class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	ACharacterBase();
+	ACharacterBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<UAttributeSet> AttributeSet;
 
 public:	
 
@@ -106,4 +115,7 @@ public:
 		bool IsAttacking;
 
 	FOnAttackEndDelegate OnAttackEnd;
+
+
+	
 };

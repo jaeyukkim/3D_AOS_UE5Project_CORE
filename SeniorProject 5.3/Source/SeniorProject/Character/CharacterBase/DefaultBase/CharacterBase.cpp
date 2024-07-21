@@ -4,11 +4,13 @@
 
 #include "CharacterBase.h"
 #include "Components/WidgetComponent.h"
+#include "MovementComponentBase.h"
 #include "SeniorProject/Character/Player/PlayerBase/MyCharacterStatComponent.h"
 
 
 // Sets default values
-ACharacterBase::ACharacterBase()
+ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
@@ -28,6 +30,7 @@ ACharacterBase::ACharacterBase()
 		HpBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
 	}
 
+	
 
 	IsAttacking = true;
 	SaveAttack = true;
@@ -77,6 +80,10 @@ void ACharacterBase::ResetCombo()
 	OnAttackEnd.Broadcast();
 }
 
+UAbilitySystemComponent* ACharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
 
 
 void ACharacterBase::ActiveHpBar()

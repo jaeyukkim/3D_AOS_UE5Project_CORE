@@ -84,6 +84,12 @@
     <Filter Include="Source\SeniorProject\Character\CharacterBase\DefaultBase">
       <UniqueIdentifier>{AA1887ED-543F-3367-8E0F-9E3C70AE6893}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AbilitySystemComponentBase.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AbilitySystemComponentBase.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AnimInstanceBase.cpp">
       <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
     </ClCompile>
@@ -96,10 +102,28 @@
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AttackTraceLoop.h">
       <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AttributeSetBase.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\AttributeSetBase.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\CharacterBase.cpp">
       <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\CharacterBase.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\MovementComponentBase.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\MovementComponentBase.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\PlayerStateBase.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\PlayerStateBase.h">
       <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Character\CharacterBase\UI">

@@ -4,7 +4,6 @@
 
 
 #include "SeniorProject/SeniorProject.h"
-#include "InputActionValue.h"
 #include "GameFramework/PlayerController.h"
 #include "MyPlayerController.generated.h"
 
@@ -27,7 +26,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-	virtual void SetupInputComponent() override;
+
 	
 
 
@@ -50,18 +49,6 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 		class AMyPlayerState* MyPlayerState;
 
-	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputMappingContext* PlayerContext;
-
-	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* MoveAction;
-
-	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* LookAction;
-
-
-	void Move(const FInputActionValue& InputActionValue);
-	void Look(const FInputActionValue& InputActionValue);
 
 	FInputModeGameOnly GameInputMode;
 

@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_APlayerState();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerState();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerState_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -85,6 +86,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -105,6 +107,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
+		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMyPlayerState_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AMyPlayerState, IAbilitySystemInterface), false },  // 3195502011
+		};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyPlayerState_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyPlayerState>::IsAbstract,
 	};
@@ -115,11 +121,11 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		DependentSingletons,
 		FuncInfo,
 		nullptr,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
 		0,
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009002A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams), Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams)
 	};
@@ -142,9 +148,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 2148943844U) },
+		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 650621748U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_2394146858(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_1797704642(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

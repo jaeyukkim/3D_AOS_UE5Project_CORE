@@ -6,9 +6,7 @@
 #include "MyPlayerState.h"
 #include "SeniorProject/Character/Player/Character/MyCharacter.h"
 #include "SeniorProject/Character/CharacterBase/UI/MyMenuWidget.h"
-#include "EnhancedInputSubsystems.h"
-#include "EnhancedInputComponent.h"
-#include "InputMappingContext.h"
+
 
 
 AMyPlayerController::AMyPlayerController()
@@ -27,34 +25,11 @@ AMyPlayerController::AMyPlayerController()
 	{
 		MenuWidgetClass = UI_MENU_C.Class;
 	}
-
-	static ConstructorHelpers::FObjectFinder<UInputMappingContext> MAPPING_CONTEXT(
-		TEXT("/Script/EnhancedInput.InputMappingContext'/Game/BP/Input/InputAction/IMC_PlayerContext.IMC_PlayerContext'"));
-
-	if (MAPPING_CONTEXT.Succeeded())
-	{
-		PlayerContext = MAPPING_CONTEXT.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> MOVEACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Move.IA_Move'"));
-
-	if (MOVEACTION.Succeeded())
-	{
-		MoveAction = MOVEACTION.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> LOOKACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Look.IA_Look'"));
-
-	if (MOVEACTION.Succeeded())
-	{
-		LookAction = MOVEACTION.Object;
-	}
+	
 
 
 	bReplicates = true;
-	
+
 }
 
 void AMyPlayerController::OnPossess(APawn* InPawn)
@@ -76,20 +51,11 @@ void AMyPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 
-	//check(PlayerContext);
 
-	UEnhancedInputLocalPlayerSubsystem* Subsystem = 
-		ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	
-	//check(Subsystem);
-	Subsystem->AddMappingContext(PlayerContext, 0);
-
-	
 	FInputModeGameOnly InputMode;
 	SetInputMode(InputMode);
 
 	ChangeInputMode(true);
-	
 		
 	
 	MyPlayerState = Cast<AMyPlayerState>(PlayerState);
@@ -105,40 +71,8 @@ void AMyPlayerController::BeginPlay()
 	
 }
 
-void AMyPlayerController::SetupInputComponent()
-{
-	Super::SetupInputComponent();
 
-	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
-	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyPlayerController::Move);
-	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyPlayerController::Look);
 
-}
-
-void AMyPlayerController::Move(const FInputActionValue& InputActionValue)
-{
-	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
-	
-	if (APawn* ControlledPawn = GetPawn<APawn>())
-	{
-		ControlledPawn->AddMovementInput(FRotationMatrix(GetControlRotation()).GetUnitAxis(EAxis::X), InputAxisVector.Y);
-		ControlledPawn->AddMovementInput(FRotationMatrix(GetControlRotation()).GetUnitAxis(EAxis::Y), InputAxisVector.X);
-	}
-	
-}
-
-void AMyPlayerController::Look(const FInputActionValue& InputActionValue)
-{
-	
-	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
-
-	if (APawn* ControlledPawn = GetPawn<APawn>())
-	{
-		ControlledPawn->AddControllerPitchInput(InputAxisVector.Y);
-		ControlledPawn->AddControllerYawInput(InputAxisVector.X);
-	}
-	
-}
 
 
 /*
@@ -149,6 +83,7 @@ void AMyPlayerController::SetupInputComponent()
 		EInputEvent::IE_Pressed, this, &AMyPlayerController::OnGamePause);
 }
 */
+
 
 
 

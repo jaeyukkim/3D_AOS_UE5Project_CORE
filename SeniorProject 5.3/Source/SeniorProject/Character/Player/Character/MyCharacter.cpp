@@ -14,6 +14,10 @@
 #include "SeniorProject/GameSetting/MyGameInstance.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/Character/CharacterBase/UI/MyHUDWidget.h"
+#include "EnhancedInputSubsystems.h"
+#include "EnhancedInputComponent.h"
+#include "InputMappingContext.h"
+
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -33,14 +37,8 @@ AMyCharacter::AMyCharacter()
 	/////////////////////////////카메라 설정//////////////////////////
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
-
-
-
 	SpringArm->SetupAttachment(GetCapsuleComponent());
 	Camera->SetupAttachment(SpringArm);
-
-
-
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 	SpringArm->TargetArmLength = 320.0f;
 	SpringArm->SetRelativeRotation(FRotator::ZeroRotator);
@@ -67,18 +65,110 @@ AMyCharacter::AMyCharacter()
 	}
 
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponents"));
-
-
 	AudioComponent->bAutoActivate = false;
 	AudioComponent->SetupAttachment(GetMesh());
 
 
-
-
 	///////////////////////////sound////////////////////////////////////
+
+
+	
+	static ConstructorHelpers::FObjectFinder<UInputMappingContext> MAPPING_CONTEXT(
+		TEXT("/Script/EnhancedInput.InputMappingContext'/Game/BP/Input/InputAction/IMC_PlayerContext.IMC_PlayerContext'"));
+
+	if (MAPPING_CONTEXT.Succeeded())
+	{
+		PlayerContext = MAPPING_CONTEXT.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> MOVEACTION(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Move.IA_Move'"));
+
+	if (MOVEACTION.Succeeded())
+	{
+		MoveAction = MOVEACTION.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> LOOKACTION(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Look.IA_Look'"));
+
+	if (LOOKACTION.Succeeded())
+	{
+		LookAction = LOOKACTION.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> JUMPACTION(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Jump.IA_Jump'"));
+
+	if (JUMPACTION.Succeeded())
+	{
+		JumpAction = JUMPACTION.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> LSBACTION(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_LSB.IA_LSB'"));
+
+	if (LSBACTION.Succeeded())
+	{
+		LSB_Action = LSBACTION.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_RMB(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityRMB.IA_AbilityRMB'"));
+
+	if (ACTION_RMB.Succeeded())
+	{
+		RMB_Ability = ACTION_RMB.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_Q(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityQ.IA_AbilityQ'"));
+
+	if (ACTION_Q.Succeeded())
+	{
+		Q_Action = ACTION_Q.Object;
+	}
+
+	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_R(
+		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityR.IA_AbilityR'"));
+
+	if (ACTION_R.Succeeded())
+	{
+		R_Ability = ACTION_R.Object;
+	}
+
+	
+
+	
 
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
 
+}
+
+void AMyCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	// Ability Info 서버 초기화
+	InitAbilityActorInfo();
+
+}
+
+void AMyCharacter::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+	// Ability Info 클라이언트 초기화
+	InitAbilityActorInfo();
+
+}
+
+void AMyCharacter::InitAbilityActorInfo()
+{
+	AMyPlayerState* MyPlayerState = GetPlayerState<AMyPlayerState>();
+	check(MyPlayerState);
+	MyPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(MyPlayerState, this);
+	AbilitySystemComponent = MyPlayerState->GetAbilitySystemComponent();
+	AttributeSet = MyPlayerState->GetAttributeSet();
 }
 
 void AMyCharacter::BeginPlay()
@@ -86,7 +176,14 @@ void AMyCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	PlayerController = Cast<AMyPlayerController>(GetController());
-	if (PlayerController == nullptr) Destroy();
+	if (PlayerController != nullptr)
+	{
+		UEnhancedInputLocalPlayerSubsystem* Subsystem =
+			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+		Subsystem->AddMappingContext(PlayerContext, 0);
+	}
+
+	
 
 
 	UpdateCharacterStat();
@@ -131,7 +228,50 @@ void AMyCharacter::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
+	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
+	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
+	EnhancedInputComponent->BindAction(LSB_Action, ETriggerEvent::Triggered, this, &AMyCharacter::LSB);
+	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
+	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
+	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);
+
+
+
+}
+
+void AMyCharacter::Move(const FInputActionValue& InputActionValue)
+{
+	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
+	const FRotator Rotation = GetControlRotation();
+	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
+
+	const FVector FowardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+	const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+	
+	AddMovementInput(FowardDirection, InputAxisVector.Y);
+	AddMovementInput(RightDirection, InputAxisVector.X);
+	
+
+}
+
+void AMyCharacter::Look(const FInputActionValue& InputActionValue)
+{
+
+	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
+
+
+	AddControllerPitchInput(InputAxisVector.Y);
+	AddControllerYawInput(InputAxisVector.X);
+	
+
+}
 
 
 void AMyCharacter::PlayFootSound()
@@ -156,6 +296,8 @@ void AMyCharacter::OnAssetLoadCompleted()
 		GetMesh()->SetSkeletalMesh(AssetLoaded);
 	}
 }
+
+
 
 void AMyCharacter::Attack()
 {

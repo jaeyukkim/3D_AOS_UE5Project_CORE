@@ -5,6 +5,9 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
+#include "AbilitySystemInterface.h"
+#include "AbilitySystemComponent.h"
+#include "AttributeSet.h"
 #include "MyPlayerState.generated.h"
 
 /**
@@ -14,7 +17,7 @@
 
 DECLARE_MULTICAST_DELEGATE(FOnPlayerStateChangedDelegate);
 UCLASS()
-class SENIORPROJECT_API AMyPlayerState : public APlayerState
+class SENIORPROJECT_API AMyPlayerState : public APlayerState, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -36,12 +39,19 @@ public:
 
 	FOnPlayerStateChangedDelegate OnPlayerStateChanged;
 	
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
+
+
+	
 
 protected:
 
 		int32 CharacterLevel;
-
 		int32 Exp;
+		TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+		TObjectPtr<UAttributeSet> AttributeSet;
+
 
 private:
 	void LevelUp(int32 NewCharacterLevel);

@@ -1,6 +1,7 @@
 
 
 using UnrealBuildTool;
+using UnrealBuildTool.Rules;
 
 public class SeniorProject : ModuleRules
 {
@@ -9,9 +10,10 @@ public class SeniorProject : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "NavigationSystem",
-        "AIModule","GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput"});
+        "AIModule","GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput", "GameplayAbilities"});
 
-        PrivateDependencyModuleNames.AddRange(new string[] {"MyAssetSetting"});
+
+        PrivateDependencyModuleNames.AddRange(new string[] {"MyAssetSetting", "GameplayTasks", "GameplayTags"});
 
 
         PrivateDependencyModuleNames.AddRange(new string[] { });

@@ -10,6 +10,7 @@
 
 
 
+
 UCLASS(abstract)
 
 class SENIORPROJECT_API AMinions : public ACharacterBase
@@ -37,6 +38,7 @@ public:
 	virtual void Attack() override;
 	virtual void AttackTrace() override;
 
+	
 
 
 	UPROPERTY(EditAnywhere, Category = Attacks)
@@ -60,7 +62,7 @@ private:
 
 
 protected:
-		virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
+	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
 	
 	
 };

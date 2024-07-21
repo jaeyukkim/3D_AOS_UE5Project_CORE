@@ -12,7 +12,8 @@
 				"Engine",
 				"AIModule",
 				"UMG",
-				"MyAssetSetting"
+				"MyAssetSetting",
+				"GameplayAbilities"
 			]
 		},
 		{
@@ -32,6 +33,10 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
 		}
 	]
 }

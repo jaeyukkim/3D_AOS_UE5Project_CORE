@@ -11,7 +11,17 @@ AMyPlayerState::AMyPlayerState()
 	CharacterLevel = 1;
 	Exp = 0;
 	SaveSlotName = TEXT("Player1");
+
+	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+
+	AttributeSet = CreateDefaultSubobject<UAttributeSet>("AttributeSet");
+
+	NetUpdateFrequency = 100.0f;
+
 }
+
 
 void AMyPlayerState::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
@@ -98,4 +108,9 @@ void AMyPlayerState::LevelUp(int32 NewCharacterLevel)
 	OnPlayerStateChanged.Broadcast();
 
 	UE_LOG(LogTemp, Warning, TEXT("LevelUp"));
+}
+
+UAbilitySystemComponent* AMyPlayerState::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
 }

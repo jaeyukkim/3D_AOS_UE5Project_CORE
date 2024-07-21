@@ -2,16 +2,19 @@
 
 
 #include "MyGameModeBase.h"
-
 #include "SeniorProject/Character/Player/Character/MyCharacter.h"
 #include "SeniorProject/Character/Player/PlayerBase/MyPlayerState.h"
 #include"SeniorProject/Character/Player/PlayerBase/MyPlayerController.h"
+#include "SeniorProject/Character/Player/Character/MyCharacter.h"
+#include "SeniorProject/Character/Player/PlayerBase/MyPlayerController.h"
 
 #include "Stage1Potal.h"
 
 AMyGameModeBase::AMyGameModeBase()
 {
 	
+	PlayerControllerClass = AMyPlayerController::StaticClass();
+
 
 	OnMobDeleted.AddLambda([this]() -> void
 		{
