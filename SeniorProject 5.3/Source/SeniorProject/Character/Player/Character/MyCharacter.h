@@ -147,7 +147,7 @@ public:
 
 
 
-	float AttackWidthArea;
+	
 
 
 

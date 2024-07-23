@@ -33,7 +33,7 @@ void ALaneSuper::SetDefaultSetting()
 	}
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> Rane_Attack2(
-		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_B_Montage'"));
+		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_C_Montage'"));
 
 	if (Rane_Attack2.Succeeded())
 	{
@@ -41,7 +41,7 @@ void ALaneSuper::SetDefaultSetting()
 	}
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> Rane_Attack3(
-		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_C_Montage'"));
+		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_A_Montage'"));
 
 	if (Rane_Attack3.Succeeded())
 	{
@@ -49,7 +49,7 @@ void ALaneSuper::SetDefaultSetting()
 	}
 
 	static ConstructorHelpers::FObjectFinder<UAnimMontage> Rane_Attack4(
-		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_B_Montage'"));
+		TEXT("AnimMontage'/Game/ParagonMinions/Characters/Minions/Down_Minions/Animations/Super/Attack_C_Montage'"));
 
 	if (Rane_Attack4.Succeeded())
 	{

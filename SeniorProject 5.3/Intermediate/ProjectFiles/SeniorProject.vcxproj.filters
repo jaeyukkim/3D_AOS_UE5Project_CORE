@@ -138,10 +138,28 @@
     <Filter Include="Source\SeniorProject\Character\CharacterBase\UI">
       <UniqueIdentifier>{EBAAEBB1-8A7D-3E91-8353-6C914DEC0BD4}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultHUD.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultHUD.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultWidgetController.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultWidgetController.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidget.cpp">
       <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidget.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidgetController.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidgetController.h">
       <Filter>Source\SeniorProject\Character\CharacterBase\UI</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyGamePlayWidget.cpp">

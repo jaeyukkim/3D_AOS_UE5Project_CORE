@@ -45,10 +45,6 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MenuWidget;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_HUDWidget_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_HUDWidget;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyPlayerState_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MyPlayerState;
@@ -94,17 +90,15 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidget = { "MenuWidget", nullptr, (EPropertyFlags)0x0040000000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, MenuWidget), Z_Construct_UClass_UMyMenuWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidget_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidget_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidget_MetaData[] = {
-		{ "Category", "MyPlayerController" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyPlayerController.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidget = { "HUDWidget", nullptr, (EPropertyFlags)0x0040000000090009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, HUDWidget), Z_Construct_UClass_UMyHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidget_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidget_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState_MetaData[] = {
 		{ "Category", "MyPlayerController" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/*\x09UPROPERTY(EditDefaultsOnly)\n\x09\x09""class UMyHUDWidget* HUDWidget;\n\x09\x09*/" },
+#endif
 		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyPlayerController.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UPROPERTY(EditDefaultsOnly)\n       class UMyHUDWidget* HUDWidget;" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState = { "MyPlayerState", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, MyPlayerState), Z_Construct_UClass_AMyPlayerState_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState_MetaData) };
@@ -112,7 +106,6 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidget,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_HUDWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyPlayerController_Statics::StaticCppClassTypeInfo = {
@@ -153,9 +146,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 290546186U) },
+		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 2463047308U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerController_h_595918031(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerController_h_1024238139(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

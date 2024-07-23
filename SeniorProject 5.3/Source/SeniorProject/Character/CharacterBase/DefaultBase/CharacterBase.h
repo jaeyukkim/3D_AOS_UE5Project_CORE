@@ -81,6 +81,7 @@ public:
 	
 	void AttackDirectionSetSoket(EAttackDirection AttackDirection);
 	int32 AttackRange;
+	float AttackWidthArea;
 
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;

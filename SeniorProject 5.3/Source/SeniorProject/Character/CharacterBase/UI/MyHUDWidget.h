@@ -20,6 +20,18 @@ public:
 
 	void BindPlayerState(class AMyPlayerState* PlayerState);
 
+
+public:
+	UFUNCTION(BlueprintCallable)
+		void SetWidgetController(UObject* InWidgetController);
+
+	UPROPERTY(BlueprintReadOnly)
+		TObjectPtr<UObject> WidgetController;
+protected:
+	UFUNCTION(BlueprintImplementableEvent)
+		void WidgetControllerSet();
+
+
 protected:
 	virtual void NativeConstruct() override;
 	void UpdateCharacterStat();
@@ -39,5 +51,7 @@ private:
 
 	UPROPERTY()
 		class UTextBlock* PlayerLevel;
+
+
 
 };

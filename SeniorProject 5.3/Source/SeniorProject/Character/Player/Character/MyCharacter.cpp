@@ -16,6 +16,7 @@
 #include "SeniorProject/Character/CharacterBase/UI/MyHUDWidget.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "SeniorProject/Character/CharacterBase/UI/DefaultHUD.h"
 #include "InputMappingContext.h"
 
 
@@ -144,6 +145,10 @@ AMyCharacter::AMyCharacter()
 
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
 
+
+	
+
+
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -170,7 +175,16 @@ void AMyCharacter::InitAbilityActorInfo()
 	MyPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(MyPlayerState, this);
 	AbilitySystemComponent = MyPlayerState->GetAbilitySystemComponent();
 	AttributeSet = MyPlayerState->GetAttributeSet();
+
+	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
+	{
+		if (ADefaultHUD* AuraHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
+		{
+			AuraHUD->InitOverlay(MyPlayerController, MyPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
 }
+
 
 void AMyCharacter::BeginPlay()
 {
@@ -181,7 +195,9 @@ void AMyCharacter::BeginPlay()
 	{
 		UEnhancedInputLocalPlayerSubsystem* Subsystem =
 			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
-		Subsystem->AddMappingContext(PlayerContext, 0);
+		
+		if(Subsystem)
+			Subsystem->AddMappingContext(PlayerContext, 0);
 	}
 
 	
@@ -406,7 +422,7 @@ void AMyCharacter::AimTrace()
 		{
 			// Case B
 			ThisActor->HighlightActor();
-			UE_LOG(LogTemp, Warning, TEXT("AimTrace"));
+		
 
 		}
 		else
@@ -585,7 +601,7 @@ void AMyCharacter::UpdateCharacterStat()
 	Stat->SetLevel(MyPlayerState->GetCharacterLevel());
 
 
-	PlayerController->GetHUDWidget()->BindCharacterStat(Stat);
+	//PlayerController->GetHUDWidget()->BindCharacterStat(Stat);
 
 	
 }

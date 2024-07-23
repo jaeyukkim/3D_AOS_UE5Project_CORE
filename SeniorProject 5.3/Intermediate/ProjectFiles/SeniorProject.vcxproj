@@ -411,12 +411,30 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\Interface\EnemyInterface.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultHUD.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultHUD.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultWidgetController.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\DefaultWidgetController.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidget.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidgetController.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyCharacterWidgetController.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\UI\MyGamePlayWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>

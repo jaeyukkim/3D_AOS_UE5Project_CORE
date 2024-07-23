@@ -56,4 +56,5 @@ void AKallariAI::SetDefaultSetting()
 	LeftSoketTop = TEXT("FX_Trail_L_02");
 
 	GetCharacterMovement()->MaxWalkSpeed = 700.0f;
+	
 }

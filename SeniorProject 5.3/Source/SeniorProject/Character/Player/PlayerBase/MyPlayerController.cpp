@@ -12,12 +12,12 @@
 AMyPlayerController::AMyPlayerController()
 {
 
-	static ConstructorHelpers::FClassFinder<UMyHUDWidget> UI_HUD_C(
+	/*static ConstructorHelpers::FClassFinder<UMyHUDWidget> UI_HUD_C(
 		TEXT("WidgetBlueprint'/Game/UI/UI_HUD'"));
 	if (UI_HUD_C.Succeeded())
 	{
 		HUDWidgetClass = UI_HUD_C.Class;
-	}
+	}*/
 
 	static ConstructorHelpers::FClassFinder<UMyMenuWidget> UI_MENU_C(
 		TEXT("WidgetBlueprint'/Game/UI/UI_Pause'"));
@@ -36,13 +36,14 @@ void AMyPlayerController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
 
-	HUDWidget = CreateWidget<UMyHUDWidget>(this, HUDWidgetClass);
+	/*HUDWidget = CreateWidget<UMyHUDWidget>(this, HUDWidgetClass);
 	if (HUDWidget)
 	{
 		HUDWidget->SetUserFocus(this);
-		HUDWidget->AddToViewport(1);
+		HUDWidget->AddToViewport(3);
 
 	}
+	*/
 }
 
 
@@ -61,8 +62,8 @@ void AMyPlayerController::BeginPlay()
 	MyPlayerState = Cast<AMyPlayerState>(PlayerState);
 
 	
-	if(HUDWidget != nullptr)
-		HUDWidget->BindPlayerState(MyPlayerState);
+	/*if(HUDWidget != nullptr)
+		HUDWidget->BindPlayerState(MyPlayerState);*/
 
 	if (MyPlayerState != nullptr)
 		MyPlayerState->OnPlayerStateChanged.Broadcast();
@@ -128,7 +129,7 @@ void AMyPlayerController::OnGamePause()
 	
 }
 
-UMyHUDWidget* AMyPlayerController::GetHUDWidget() const
+/*UMyHUDWidget* AMyPlayerController::GetHUDWidget() const
 {
-	return HUDWidget;
-}
+	//return HUDWidget;
+}*/

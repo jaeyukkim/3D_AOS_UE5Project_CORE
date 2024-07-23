@@ -21,6 +21,10 @@ struct FGameplayAttributeData;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnRep_NextExp); \
+	DECLARE_FUNCTION(execOnRep_DropExp); \
+	DECLARE_FUNCTION(execOnRep_AttackRating); \
+	DECLARE_FUNCTION(execOnRep_Level); \
 	DECLARE_FUNCTION(execOnRep_MaxMana); \
 	DECLARE_FUNCTION(execOnRep_Mana); \
 	DECLARE_FUNCTION(execOnRep_MaxHealth); \
@@ -42,7 +46,11 @@ public: \
 		MaxHealth, \
 		Mana, \
 		MaxMana, \
-		NETFIELD_REP_END=MaxMana	}; \
+		Level, \
+		AttackRating, \
+		DropExp, \
+		NextExp, \
+		NETFIELD_REP_END=NextExp	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \
 private: \
 	REPLICATED_BASE_CLASS(UAttributeSetBase) \

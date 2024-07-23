@@ -151,13 +151,13 @@ void ACharacterBase::HighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(true);
 	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
-	UE_LOG(LogTemp, Warning, TEXT("HighlightActor"));
+
 
 }
 
 void ACharacterBase::UnHighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(false);
-	UE_LOG(LogTemp, Warning, TEXT("UnhlightActor"));
+
 }
 

@@ -30,6 +30,13 @@ void UMyHUDWidget::BindPlayerState(AMyPlayerState* PlayerState)
 	
 }
 
+void UMyHUDWidget::SetWidgetController(UObject* InWidgetController)
+{
+	WidgetController = InWidgetController;
+	WidgetControllerSet();
+}
+
+
 void UMyHUDWidget::NativeConstruct()
 {
 	Super::NativeConstruct();

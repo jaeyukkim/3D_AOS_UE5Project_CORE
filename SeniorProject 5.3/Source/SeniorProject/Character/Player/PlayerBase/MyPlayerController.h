@@ -43,9 +43,9 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 		class UMyMenuWidget* MenuWidget;
 
-	UPROPERTY(EditDefaultsOnly)
+/*	UPROPERTY(EditDefaultsOnly)
 		class UMyHUDWidget* HUDWidget;
-
+		*/
 	UPROPERTY(EditDefaultsOnly)
 		class AMyPlayerState* MyPlayerState;
 

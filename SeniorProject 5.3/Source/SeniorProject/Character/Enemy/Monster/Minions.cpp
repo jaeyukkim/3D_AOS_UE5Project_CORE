@@ -55,6 +55,7 @@ AMinions::AMinions()
 	Tags.Add(TEXT("MinionClass"));
 	HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
 	
+	AttackWidthArea = 40.0f;
 }
 
 // Called when the game starts or when spawned
@@ -258,7 +259,7 @@ void AMinions::AttackTrace()
 	}
 
 	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, WaeponBottomPoint, WaeponTopPoint,
-		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(15.0f), Params);
+		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
 
 	if (bHit)
