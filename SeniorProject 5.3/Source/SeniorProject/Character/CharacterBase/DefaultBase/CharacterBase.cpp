@@ -30,7 +30,9 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 		HpBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
 	}
 
-	
+	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
+
+
 
 	IsAttacking = true;
 	SaveAttack = true;
@@ -136,12 +138,26 @@ void ACharacterBase::AttackDirectionSetSoket(EAttackDirection AttackDirection)
 	{
 		IsRightAttack = true;
 	}
-
+	
 
 	else if (AttackDirection == EAttackDirection::Left)
 	{
 		IsRightAttack = false;
 	}
 
+}
+
+void ACharacterBase::HighlightActor()
+{
+	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+	UE_LOG(LogTemp, Warning, TEXT("HighlightActor"));
+
+}
+
+void ACharacterBase::UnHighlightActor()
+{
+	GetMesh()->SetRenderCustomDepth(false);
+	UE_LOG(LogTemp, Warning, TEXT("UnhlightActor"));
 }
 

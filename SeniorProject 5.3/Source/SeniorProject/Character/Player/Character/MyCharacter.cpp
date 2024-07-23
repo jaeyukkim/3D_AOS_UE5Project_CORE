@@ -23,8 +23,8 @@
 AMyCharacter::AMyCharacter()
 {
 
-	PrimaryActorTick.bCanEverTick = false;
-
+	PrimaryActorTick.bCanEverTick = true;
+	
 	AttackMontage.Init(nullptr, 4);
 
 
@@ -71,7 +71,8 @@ AMyCharacter::AMyCharacter()
 
 	///////////////////////////sound////////////////////////////////////
 
-
+	ThisActor = nullptr;
+	LastActor = nullptr;
 	
 	static ConstructorHelpers::FObjectFinder<UInputMappingContext> MAPPING_CONTEXT(
 		TEXT("/Script/EnhancedInput.InputMappingContext'/Game/BP/Input/InputAction/IMC_PlayerContext.IMC_PlayerContext'"));
@@ -151,7 +152,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 
 	// Ability Info 서버 초기화
 	InitAbilityActorInfo();
-
+	
 }
 
 void AMyCharacter::OnRep_PlayerState()
@@ -226,6 +227,10 @@ void AMyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	AimTrace();
+	
+
 
 }
 void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -354,6 +359,85 @@ bool AMyCharacter::GetBool_IsNoWep()
 	return false;
 }
 
+void AMyCharacter::AimTrace()
+{
+	FHitResult  HitResult;
+
+
+	FVector CameraLocation = Camera->GetComponentLocation();
+	FVector CameraFowardVector = Camera->GetComponentRotation().Vector();
+	FCollisionQueryParams Params(NAME_None, false, this);
+
+	//Chrunch
+	//bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector * 4000,
+		//ECollisionChannel::ECC_Visibility);
+
+	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector * 4000,
+		FQuat::Identity, ECollisionChannel::ECC_Visibility, FCollisionShape::MakeSphere(AttackWidthArea), Params);
+
+	// 사거리 내에 에이밍 된 적이 없다면
+	if (!HitResult.bBlockingHit)
+		return;
+
+
+
+	LastActor = ThisActor;
+	ThisActor = HitResult.GetActor();
+
+	/**
+	 * 라인 트레이스에 따라 설정됨:
+	 *  A. LastActor is null && ThisActor is null
+	 *		- 아무것도 하지 않음
+	 *	B. LastActor is null && ThisActor is valid
+	 *		- Highlight ThisActor
+	 *	C. LastActor is valid && ThisActor is null
+	 *		- UnHighlight LastActor
+	 *	D. Both actors are valid, but LastActor != ThisActor
+	 *		- UnHighlight LastActor,  Highlight ThisActor
+	 *	E. Both actors are valid, and are the same actor
+	 *		- 아무것도 하지 않음
+	 */
+
+
+	if (LastActor == nullptr)
+	{
+
+		if (ThisActor != nullptr)
+		{
+			// Case B
+			ThisActor->HighlightActor();
+			UE_LOG(LogTemp, Warning, TEXT("AimTrace"));
+
+		}
+		else
+		{
+			// Case A - both are null, 아무것도 하지 않음
+		}
+	}
+	else // LastActor is valid
+	{
+		if (ThisActor == nullptr)
+		{
+			// Case C
+			LastActor->UnHighlightActor();
+		}
+		else // both actors are valid
+		{
+			if (LastActor != ThisActor)
+			{
+				// Case D
+				LastActor->UnHighlightActor();
+				ThisActor->HighlightActor();
+			}
+			else
+			{
+				// Case E - 아무것도 하지 않음
+			}
+		}
+	}
+
+}
+
 
 
 
@@ -394,7 +478,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 			});
 
 		break;
-
+		
 	}
 
 	case ECharacterState::DEAD:
@@ -452,8 +536,7 @@ void AMyCharacter::AttackTrace()
 	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, WaeponBottomPoint, WaeponTopPoint,
 		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
-
-
+	
 
 	if (bHit)
 	{

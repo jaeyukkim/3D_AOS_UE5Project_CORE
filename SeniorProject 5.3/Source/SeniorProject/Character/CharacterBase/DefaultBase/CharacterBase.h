@@ -7,13 +7,14 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "AttributeSet.h"
+#include "SeniorProject/Character/CharacterBase/Interface/EnemyInterface.h"
 #include "CharacterBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 
 
 UCLASS(abstract)
-class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface
+class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface
 {
 	GENERATED_BODY()
 
@@ -79,9 +80,10 @@ public:
 
 	
 	void AttackDirectionSetSoket(EAttackDirection AttackDirection);
+	int32 AttackRange;
 
-
-	
+	virtual void HighlightActor() override;
+	virtual void UnHighlightActor() override;
 
 
 protected:
@@ -107,6 +109,9 @@ protected:
 		FTimerHandle DamagedTimerHandle = { };
 	UPROPERTY()
 		FTimerHandle UITimerHandle = { };
+
+	
+
 
 public:
 	bool IsRightAttack = true;

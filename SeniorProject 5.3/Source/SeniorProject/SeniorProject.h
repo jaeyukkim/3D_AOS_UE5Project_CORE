@@ -3,7 +3,7 @@
 #pragma once
 
 #include "EngineMinimal.h"
-
+#define CUSTOM_DEPTH_RED 100
 
 UENUM(BlueprintType)
 

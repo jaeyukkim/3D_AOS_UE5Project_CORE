@@ -57,5 +57,6 @@ private:
 
 
 
+	void CursurTrace();
 	void OnGamePause();
 };

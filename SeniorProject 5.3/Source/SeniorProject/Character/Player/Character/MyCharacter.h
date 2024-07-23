@@ -7,6 +7,7 @@
 #include "Components/AudioComponent.h"
 #include "Sound/SoundCue.h"
 #include "InputActionValue.h"
+#include "SeniorProject/Character/CharacterBase/Interface/EnemyInterface.h"
 #include "SeniorProject/Character/CharacterBase/DefaultBase/CharacterBase.h"
 #include "MyCharacter.generated.h"
 
@@ -136,8 +137,9 @@ public:
 	bool GetBool_IsNoWep();
 
 
-	int32 AttackCount;
+	
 	int32 AttackDamageCount;
+	
 
 	bool bIsNoWep;
 	bool bIsCasting;
@@ -149,7 +151,9 @@ public:
 
 
 
-
-
+private:
+		TScriptInterface<IEnemyInterface> LastActor;
+		TScriptInterface<IEnemyInterface> ThisActor;
+		void AimTrace();
 
 };

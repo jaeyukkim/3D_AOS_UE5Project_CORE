@@ -309,7 +309,7 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 				SetCanBeDamaged(true);
 
 
-			}), 0.2f, false);
+			}), 0.1f, false);
 
 		//맞았을 때 HP바 활성화
 		

@@ -191,6 +191,7 @@ void AKwangPlayer::SetCharacterSetting()
 
 
 	AttackWidthArea = 15.0f;
+	AttackRange = 300.0f;
 	IsRightAttack = true;
 	RightSoketBottom = FName(TEXT("FX_weapon_base"));
 	RightSoketTop = FName(TEXT("FX_weapon_tip"));

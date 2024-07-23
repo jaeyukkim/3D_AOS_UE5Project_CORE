@@ -126,6 +126,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\DefaultBase\PlayerStateBase.h">
       <Filter>Source\SeniorProject\Character\CharacterBase\DefaultBase</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\Character\CharacterBase\Interface">
+      <UniqueIdentifier>{E60CC4DD-949D-3BD2-A134-EA5CDC64DD5E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase\Interface\EnemyInterface.cpp">
+      <Filter>Source\SeniorProject\Character\CharacterBase\Interface</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase\Interface\EnemyInterface.h">
+      <Filter>Source\SeniorProject\Character\CharacterBase\Interface</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character\CharacterBase\UI">
       <UniqueIdentifier>{EBAAEBB1-8A7D-3E91-8353-6C914DEC0BD4}</UniqueIdentifier>
     </Filter>
