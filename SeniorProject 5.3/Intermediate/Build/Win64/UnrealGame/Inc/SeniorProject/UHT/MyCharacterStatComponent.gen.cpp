@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Player/PlayerBase/MyCharacterStatComponent.h"
+#include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 // Cross Module References
@@ -54,15 +54,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintSpawnableComponent", "" },
 		{ "ClassGroupNames", "Custom" },
-		{ "IncludePath", "Character/Player/PlayerBase/MyCharacterStatComponent.h" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyCharacterStatComponent.h" },
+		{ "IncludePath", "PlayerBase/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyCharacterStatComponent.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyCharacterStatComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level = { "Level", nullptr, (EPropertyFlags)0x0040000000000801, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyCharacterStatComponent, Level), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData), Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_Level_MetaData) };
@@ -70,7 +70,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyCharacterStatComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp = { "CurrentHp", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyCharacterStatComponent, CurrentHp), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData), Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_CurrentHp_MetaData) };
@@ -78,7 +78,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_IsPlayerDead_MetaData[] = {
 		{ "AllowPriveteAccess", "TRUE" },
 		{ "Category", "Stat" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyCharacterStatComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyCharacterStatComponent.h" },
 	};
 #endif
 	void Z_Construct_UClass_UMyCharacterStatComponent_Statics::NewProp_IsPlayerDead_SetBit(void* Obj)
@@ -124,15 +124,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterStatComponent() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMyCharacterStatComponent);
 	UMyCharacterStatComponent::~UMyCharacterStatComponent() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyCharacterStatComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacterStatComponent_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyCharacterStatComponent, UMyCharacterStatComponent::StaticClass, TEXT("UMyCharacterStatComponent"), &Z_Registration_Info_UClass_UMyCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterStatComponent), 1287984547U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMyCharacterStatComponent, UMyCharacterStatComponent::StaticClass, TEXT("UMyCharacterStatComponent"), &Z_Registration_Info_UClass_UMyCharacterStatComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterStatComponent), 2524028475U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyCharacterStatComponent_h_1507734241(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacterStatComponent_h_2700907299(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacterStatComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

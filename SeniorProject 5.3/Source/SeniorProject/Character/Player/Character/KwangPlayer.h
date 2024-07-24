@@ -3,7 +3,7 @@
 #pragma once
 
 #include "SeniorProject/SeniorProject.h"
-#include "MyCharacter.h"
+#include "SeniorProject/PlayerBase/MyCharacter.h"
 #include "KwangPlayer.generated.h"
 
 /**

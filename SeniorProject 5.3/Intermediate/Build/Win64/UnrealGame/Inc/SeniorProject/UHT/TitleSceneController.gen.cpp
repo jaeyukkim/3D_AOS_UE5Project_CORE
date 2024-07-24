@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/GameSetting/TitleSceneController.h"
+#include "SeniorProject/UI/TitleSceneController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTitleSceneController() {}
 // Cross Module References
@@ -50,21 +50,21 @@ void EmptyLinkFunctionForGeneratedCodeTitleSceneController() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATitleSceneController_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Collision Rendering Transformation" },
-		{ "IncludePath", "GameSetting/TitleSceneController.h" },
-		{ "ModuleRelativePath", "GameSetting/TitleSceneController.h" },
+		{ "IncludePath", "UI/TitleSceneController.h" },
+		{ "ModuleRelativePath", "UI/TitleSceneController.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetClass_MetaData[] = {
 		{ "Category", "UI" },
-		{ "ModuleRelativePath", "GameSetting/TitleSceneController.h" },
+		{ "ModuleRelativePath", "UI/TitleSceneController.h" },
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetClass = { "UIWidgetClass", nullptr, (EPropertyFlags)0x0014000000010005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATitleSceneController, UIWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetClass_MetaData), Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetClass_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetInstance_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "GameSetting/TitleSceneController.h" },
+		{ "ModuleRelativePath", "UI/TitleSceneController.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetInstance = { "UIWidgetInstance", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATitleSceneController, UIWidgetInstance), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetInstance_MetaData), Z_Construct_UClass_ATitleSceneController_Statics::NewProp_UIWidgetInstance_MetaData) };
@@ -106,15 +106,15 @@ void EmptyLinkFunctionForGeneratedCodeTitleSceneController() {}
 	ATitleSceneController::ATitleSceneController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ATitleSceneController);
 	ATitleSceneController::~ATitleSceneController() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_TitleSceneController_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_TitleSceneController_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_TitleSceneController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ATitleSceneController, ATitleSceneController::StaticClass, TEXT("ATitleSceneController"), &Z_Registration_Info_UClass_ATitleSceneController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATitleSceneController), 1845060741U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_TitleSceneController_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ATitleSceneController, ATitleSceneController::StaticClass, TEXT("ATitleSceneController"), &Z_Registration_Info_UClass_ATitleSceneController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATitleSceneController), 3953709750U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_TitleSceneController_h_3083605375(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_TitleSceneController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_TitleSceneController_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_TitleSceneController_h_1517111127(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_TitleSceneController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_TitleSceneController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

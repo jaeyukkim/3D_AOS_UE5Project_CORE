@@ -13,8 +13,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 	ENGINE_API UClass* Z_Construct_UClass_AHUD();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ADefaultHUD();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ADefaultHUD_NoRegister();
-	SENIORPROJECT_API UClass* Z_Construct_UClass_UMyCharacterWidgetController_NoRegister();
-	SENIORPROJECT_API UClass* Z_Construct_UClass_UMyHUDWidget_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidget_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidgetController_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	void ADefaultHUD::StaticRegisterNativesADefaultHUD()
@@ -32,21 +32,21 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyHudWidget_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OverlayWidget_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MyHudWidget;
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_OverlayWidget;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyHudWidgetClass_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OverlayWidgetClass_MetaData[];
 #endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_MyHudWidgetClass;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_OverlayWidgetClass;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyCharacterWidgetController_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OverlayWidgetController_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MyCharacterWidgetController;
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_OverlayWidgetController;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyCharacterWidgetControllerClass_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OverlayWidgetControllerClass_MetaData[];
 #endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_MyCharacterWidgetControllerClass;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_OverlayWidgetControllerClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -68,37 +68,37 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidget_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Character/CharacterBase/UI/DefaultHUD.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidget = { "MyHudWidget", nullptr, (EPropertyFlags)0x0014000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, MyHudWidget), Z_Construct_UClass_UMyHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidget_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidget_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget = { "OverlayWidget", nullptr, (EPropertyFlags)0x0014000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, OverlayWidget), Z_Construct_UClass_UOverlayWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidgetClass_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass_MetaData[] = {
 		{ "Category", "DefaultHUD" },
 		{ "ModuleRelativePath", "Character/CharacterBase/UI/DefaultHUD.h" },
 	};
 #endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidgetClass = { "MyHudWidgetClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, MyHudWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UMyHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidgetClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidgetClass_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass = { "OverlayWidgetClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, OverlayWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UOverlayWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetController_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetController_MetaData[] = {
 		{ "ModuleRelativePath", "Character/CharacterBase/UI/DefaultHUD.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetController = { "MyCharacterWidgetController", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, MyCharacterWidgetController), Z_Construct_UClass_UMyCharacterWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetController_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetController_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetController = { "OverlayWidgetController", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, OverlayWidgetController), Z_Construct_UClass_UOverlayWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetController_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetController_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetControllerClass_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetControllerClass_MetaData[] = {
 		{ "Category", "DefaultHUD" },
 		{ "ModuleRelativePath", "Character/CharacterBase/UI/DefaultHUD.h" },
 	};
 #endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetControllerClass = { "MyCharacterWidgetControllerClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, MyCharacterWidgetControllerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UMyCharacterWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetControllerClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetControllerClass_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetControllerClass = { "OverlayWidgetControllerClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, OverlayWidgetControllerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UOverlayWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetControllerClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetControllerClass_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultHUD_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidget,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyHudWidgetClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetController,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_MyCharacterWidgetControllerClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetController,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetControllerClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultHUD_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultHUD>::IsAbstract,
@@ -139,9 +139,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_DefaultHUD_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultHUD, ADefaultHUD::StaticClass, TEXT("ADefaultHUD"), &Z_Registration_Info_UClass_ADefaultHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultHUD), 3996131262U) },
+		{ Z_Construct_UClass_ADefaultHUD, ADefaultHUD::StaticClass, TEXT("ADefaultHUD"), &Z_Registration_Info_UClass_ADefaultHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultHUD), 2971247993U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_DefaultHUD_h_1449608895(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_DefaultHUD_h_402567570(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_DefaultHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_DefaultHUD_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

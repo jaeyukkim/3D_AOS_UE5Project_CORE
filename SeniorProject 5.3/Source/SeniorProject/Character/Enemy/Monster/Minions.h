@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "SeniorProject/Character/Characterbase/DefaultBase/CharacterBase.h"
+#include "SeniorProject/DefaultBase/CharacterBase.h"
 #include "Minions.generated.h"
 
 

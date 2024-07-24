@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Player/PlayerBase/MyAnimInstance.h"
+#include "SeniorProject/PlayerBase/MyAnimInstance.h"
 #include "../../Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
@@ -192,7 +192,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Ability_Q_Cooldown", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown_Statics::Function_MetaDataParams) };
@@ -214,7 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Ability_R_Cooldown", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown_Statics::Function_MetaDataParams) };
@@ -236,7 +236,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Ability_RMB_Cooldown", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown_Statics::Function_MetaDataParams) };
@@ -258,7 +258,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Attack_Q", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q_Statics::Function_MetaDataParams) };
@@ -280,7 +280,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Attack_R", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R_Statics::Function_MetaDataParams) };
@@ -302,7 +302,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Attack_RMB", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_Statics::Function_MetaDataParams) };
@@ -324,7 +324,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_Attack_RMB_NoWep", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep_Statics::Function_MetaDataParams) };
@@ -346,7 +346,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CanAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack_Statics::Function_MetaDataParams) };
@@ -368,7 +368,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CanMove", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams) };
@@ -390,7 +390,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CanNotAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack_Statics::Function_MetaDataParams) };
@@ -412,7 +412,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CastingOff", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff_Statics::Function_MetaDataParams) };
@@ -434,7 +434,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CastingOn", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn_Statics::Function_MetaDataParams) };
@@ -456,7 +456,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_FootStep", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep_Statics::Function_MetaDataParams) };
@@ -478,7 +478,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_HideKwangSword", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword_Statics::Function_MetaDataParams) };
@@ -500,7 +500,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_HideSword", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword_Statics::Function_MetaDataParams) };
@@ -522,7 +522,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_MoveToSword", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword_Statics::Function_MetaDataParams) };
@@ -544,7 +544,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_RunStop", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop_Statics::Function_MetaDataParams) };
@@ -566,7 +566,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_StopMove", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams) };
@@ -588,7 +588,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_UnHideKwangSword", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword_Statics::Function_MetaDataParams) };
@@ -610,7 +610,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_UnHideSword", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword_Statics::Function_MetaDataParams) };
@@ -663,26 +663,26 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMyAnimInstance_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown, "AnimNotify_Ability_Q_Cooldown" }, // 1477594183
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown, "AnimNotify_Ability_R_Cooldown" }, // 4074787301
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown, "AnimNotify_Ability_RMB_Cooldown" }, // 4010303332
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q, "AnimNotify_Attack_Q" }, // 133518142
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R, "AnimNotify_Attack_R" }, // 2759797991
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB, "AnimNotify_Attack_RMB" }, // 3607857761
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep, "AnimNotify_Attack_RMB_NoWep" }, // 1444590729
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack, "AnimNotify_CanAttack" }, // 3961391079
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove, "AnimNotify_CanMove" }, // 2333781416
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack, "AnimNotify_CanNotAttack" }, // 3688574186
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff, "AnimNotify_CastingOff" }, // 1945653238
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn, "AnimNotify_CastingOn" }, // 3979893648
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep, "AnimNotify_FootStep" }, // 1220703952
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword, "AnimNotify_HideKwangSword" }, // 3764122452
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword, "AnimNotify_HideSword" }, // 1742026611
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword, "AnimNotify_MoveToSword" }, // 640564295
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop, "AnimNotify_RunStop" }, // 2770471107
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove, "AnimNotify_StopMove" }, // 2948213161
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword, "AnimNotify_UnHideKwangSword" }, // 2705864988
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword, "AnimNotify_UnHideSword" }, // 4148046319
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_Q_Cooldown, "AnimNotify_Ability_Q_Cooldown" }, // 644172403
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_R_Cooldown, "AnimNotify_Ability_R_Cooldown" }, // 924046542
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Ability_RMB_Cooldown, "AnimNotify_Ability_RMB_Cooldown" }, // 1675985186
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_Q, "AnimNotify_Attack_Q" }, // 3247507073
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_R, "AnimNotify_Attack_R" }, // 986164054
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB, "AnimNotify_Attack_RMB" }, // 1865524747
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep, "AnimNotify_Attack_RMB_NoWep" }, // 3293733176
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack, "AnimNotify_CanAttack" }, // 1939321321
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove, "AnimNotify_CanMove" }, // 179643978
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack, "AnimNotify_CanNotAttack" }, // 55094651
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff, "AnimNotify_CastingOff" }, // 3336828787
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn, "AnimNotify_CastingOn" }, // 1500555481
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_FootStep, "AnimNotify_FootStep" }, // 2835372541
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideKwangSword, "AnimNotify_HideKwangSword" }, // 3152392545
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword, "AnimNotify_HideSword" }, // 228884942
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword, "AnimNotify_MoveToSword" }, // 3860702525
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop, "AnimNotify_RunStop" }, // 1591697135
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove, "AnimNotify_StopMove" }, // 975730682
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword, "AnimNotify_UnHideKwangSword" }, // 1166025329
+		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword, "AnimNotify_UnHideSword" }, // 2507886510
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -691,15 +691,15 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "AnimInstance" },
-		{ "IncludePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "IncludePath", "PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	void Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_SetBit(void* Obj)
@@ -711,7 +711,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop = { "DirectionOnStop", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyAnimInstance, DirectionOnStop), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData) };
@@ -719,7 +719,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	void Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting_SetBit(void* Obj)
@@ -729,7 +729,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting = { "bIsCasting", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UMyAnimInstance), &Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsCasting_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_PlayerCharacter_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyAnimInstance.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_PlayerCharacter = { "PlayerCharacter", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyAnimInstance, PlayerCharacter), Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_PlayerCharacter_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_PlayerCharacter_MetaData) };
@@ -772,15 +772,15 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMyAnimInstance);
 	UMyAnimInstance::~UMyAnimInstance() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyAnimInstance_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyAnimInstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 3678582017U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 67191866U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyAnimInstance_h_2390310246(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyAnimInstance_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_2227596848(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

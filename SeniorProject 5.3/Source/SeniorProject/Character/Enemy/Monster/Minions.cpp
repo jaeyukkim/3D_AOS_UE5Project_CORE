@@ -2,13 +2,13 @@
 
 
 #include "Minions.h"
-#include "SeniorProject/Character/Player/PlayerBase/MyCharacterStatComponent.h"
-#include "SeniorProject/Character/CharacterBase/UI/MyCharacterWidget.h"
+#include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
+#include "SeniorProject/UI/MyCharacterWidget.h"
 #include "Components/WidgetComponent.h"
-#include "SeniorProject/Character/Enemy/EnemyBase/AISetting/MinionAIController.h"
-#include "SeniorProject/Character/Enemy/EnemyBase/AISetting/MinionAnimInstance.h"
+#include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
+#include "SeniorProject/EnemyBase/AISetting/MinionAnimInstance.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
-#include "SeniorProject/Character/Player/PlayerBase/MyPlayerController.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
 
 // Sets default values
 AMinions::AMinions()

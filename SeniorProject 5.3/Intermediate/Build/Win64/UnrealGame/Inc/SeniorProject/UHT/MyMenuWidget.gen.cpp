@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/UI/MyMenuWidget.h"
+#include "SeniorProject/UI/MyMenuWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 // Cross Module References
@@ -55,7 +55,7 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyMenuWidget, nullptr, "OnResumeClicked", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked_Statics::Function_MetaDataParams) };
@@ -77,7 +77,7 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyMenuWidget, nullptr, "OnRetryGameClicked", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked_Statics::Function_MetaDataParams) };
@@ -99,7 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyMenuWidget, nullptr, "OnReturnToTitleClicked", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked_Statics::Function_MetaDataParams) };
@@ -146,9 +146,9 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyMenuWidget_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMyMenuWidget_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked, "OnResumeClicked" }, // 2826318309
-		{ &Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked, "OnRetryGameClicked" }, // 919640720
-		{ &Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked, "OnReturnToTitleClicked" }, // 2912946389
+		{ &Z_Construct_UFunction_UMyMenuWidget_OnResumeClicked, "OnResumeClicked" }, // 1712232788
+		{ &Z_Construct_UFunction_UMyMenuWidget_OnRetryGameClicked, "OnRetryGameClicked" }, // 1729215820
+		{ &Z_Construct_UFunction_UMyMenuWidget_OnReturnToTitleClicked, "OnReturnToTitleClicked" }, // 408617793
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMyMenuWidget_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -156,28 +156,28 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "IncludePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "IncludePath", "UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ResumeButton_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ResumeButton = { "ResumeButton", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyMenuWidget, ResumeButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ResumeButton_MetaData), Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ResumeButton_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ReturnToTitleButton_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ReturnToTitleButton = { "ReturnToTitleButton", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyMenuWidget, ReturnToTitleButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ReturnToTitleButton_MetaData), Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_ReturnToTitleButton_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_RetryGameButton_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyMenuWidget.h" },
+		{ "ModuleRelativePath", "UI/MyMenuWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_RetryGameButton = { "RetryGameButton", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyMenuWidget, RetryGameButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_RetryGameButton_MetaData), Z_Construct_UClass_UMyMenuWidget_Statics::NewProp_RetryGameButton_MetaData) };
@@ -220,15 +220,15 @@ void EmptyLinkFunctionForGeneratedCodeMyMenuWidget() {}
 	UMyMenuWidget::UMyMenuWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMyMenuWidget);
 	UMyMenuWidget::~UMyMenuWidget() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyMenuWidget_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyMenuWidget_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyMenuWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyMenuWidget, UMyMenuWidget::StaticClass, TEXT("UMyMenuWidget"), &Z_Registration_Info_UClass_UMyMenuWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyMenuWidget), 4034853651U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyMenuWidget_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMyMenuWidget, UMyMenuWidget::StaticClass, TEXT("UMyMenuWidget"), &Z_Registration_Info_UClass_UMyMenuWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyMenuWidget), 3097162131U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyMenuWidget_h_2599774363(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyMenuWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyMenuWidget_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyMenuWidget_h_1895526982(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyMenuWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyMenuWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
