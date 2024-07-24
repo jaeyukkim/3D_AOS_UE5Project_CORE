@@ -8,7 +8,7 @@
 #include "Components/ProgressBar.h"
 #include "Components/TextBlock.h"
 
-
+/*
 void UOverlayWidget::BindCharacterStat(UMyCharacterStatComponent* CharacterStat)
 {
 	if (IsValid(CharacterStat))
@@ -28,6 +28,7 @@ void UOverlayWidget::BindPlayerState(AMyPlayerState* PlayerState)
 	}
 
 }
+*/
 
 void UOverlayWidget::SetWidgetController(UObject* InWidgetController)
 {
@@ -35,7 +36,7 @@ void UOverlayWidget::SetWidgetController(UObject* InWidgetController)
 	WidgetControllerSet();
 }
 
-
+/*
 void UOverlayWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
@@ -69,4 +70,4 @@ void UOverlayWidget::UpdatePlayerState()
 
 }
 
-
+*/

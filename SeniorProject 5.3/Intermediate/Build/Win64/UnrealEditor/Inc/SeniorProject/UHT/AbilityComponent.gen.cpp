@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Player/PlayerBase/AbilityComponent.h"
+#include "SeniorProject/PlayerBase/AbilityComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 // Cross Module References
@@ -94,9 +94,9 @@ void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//Kwang \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb3 \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n" },
 #endif
-		{ "IncludePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "IncludePath", "PlayerBase/AbilityComponent.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Kwang \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb3 \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae" },
 #endif
@@ -105,75 +105,75 @@ void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_SwordMeshComponent_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_SwordMeshComponent = { "SwordMeshComponent", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, SwordMeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_SwordMeshComponent_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_SwordMeshComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSwordMesh_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSwordMesh = { "KwangSwordMesh", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, KwangSwordMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSwordMesh_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSwordMesh_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSword_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSword = { "KwangSword", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, KwangSword), Z_Construct_UClass_AStaticMeshActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSword_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_KwangSword_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Q_Effect_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Q_Effect = { "Q_Effect", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Q_Effect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Q_Effect_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Q_Effect_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Throw_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Throw_Montage = { "Ability_Q_Throw_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_Q_Throw_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Throw_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Throw_Montage_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Catch_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Catch_Montage = { "Ability_Q_Catch_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_Q_Catch_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Catch_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_Q_Catch_Montage_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_RMB_NoWep_Effect_MetaData[] = {
 		{ "Category", "Q_Ability" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_RMB_NoWep_Effect = { "RMB_NoWep_Effect", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, RMB_NoWep_Effect), Z_Construct_UClass_UParticleSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_RMB_NoWep_Effect_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_RMB_NoWep_Effect_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_Montage = { "Ability_RMB_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_RMB_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_Montage_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_NoWep_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_NoWep_Montage = { "Ability_RMB_NoWep_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_RMB_NoWep_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_NoWep_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_RMB_NoWep_Montage_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_Montage = { "Ability_R_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_R_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_Montage_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_NoWep_Montage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/AbilityComponent.h" },
+		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_NoWep_Montage = { "Ability_R_NoWep_Montage", nullptr, (EPropertyFlags)0x0040000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityComponent, Ability_R_NoWep_Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_NoWep_Montage_MetaData), Z_Construct_UClass_UAbilityComponent_Statics::NewProp_Ability_R_NoWep_Montage_MetaData) };
@@ -223,15 +223,15 @@ void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UAbilityComponent);
 	UAbilityComponent::~UAbilityComponent() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_AbilityComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_AbilityComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 3799295517U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 911054969U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_AbilityComponent_h_1461659071(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_AbilityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_AbilityComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_2057830977(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

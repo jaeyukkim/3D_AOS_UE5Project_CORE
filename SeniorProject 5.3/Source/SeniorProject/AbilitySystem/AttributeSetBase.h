@@ -64,7 +64,9 @@ public:
 		FGameplayAttributeData NextExp;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
 
-
+	UPROPERTY(ReplicatedUsing = OnRep_Exp)
+		FGameplayAttributeData Exp;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Exp);
 
 
 	UFUNCTION()
@@ -83,6 +85,8 @@ public:
 		void OnRep_DropExp(const FGameplayAttributeData& OldDropExp);
 	UFUNCTION()
 		void OnRep_NextExp(const FGameplayAttributeData& OldNextExp);
+	UFUNCTION()
+		void OnRep_Exp(const FGameplayAttributeData& OldExp);
 
 
 };

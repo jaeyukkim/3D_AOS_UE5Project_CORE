@@ -6,8 +6,6 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
-#include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "MyPlayerState.generated.h"
 
 /**
@@ -47,10 +45,10 @@ public:
 
 protected:
 
-		int32 CharacterLevel;
-		int32 Exp;
-		TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
-		TObjectPtr<UAttributeSet> AttributeSet;
+	int32 CharacterLevel;
+	int32 Exp;
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+	TObjectPtr<UAttributeSet> AttributeSet;
 
 
 private:

@@ -329,27 +329,27 @@ void UAbilityComponent::Attack_Q_Ability()
 			void
 			{
 				KwangSword->SetActorLocation(CurrentAbilityLocation);
-				UGameplayStatics::PlaySoundAtLocation(KwangSword, Q_Attack_Cue, KwangSword->GetActorLocation());
-			
-				TArray<FHitResult> HitResult;
-				FCollisionShape Shape = FCollisionShape::MakeSphere(180.0f);
-				GetWorld()->SweepMultiByChannel(HitResult, CurrentAbilityLocation, CurrentAbilityLocation, FQuat(), ECollisionChannel::ECC_GameTraceChannel2, Shape);
+		UGameplayStatics::PlaySoundAtLocation(KwangSword, Q_Attack_Cue, KwangSword->GetActorLocation());
+
+		TArray<FHitResult> HitResult;
+		FCollisionShape Shape = FCollisionShape::MakeSphere(180.0f);
+		GetWorld()->SweepMultiByChannel(HitResult, CurrentAbilityLocation, CurrentAbilityLocation, FQuat(), ECollisionChannel::ECC_GameTraceChannel2, Shape);
 
 
-
-				for (auto& Hit : HitResult)
+		
+			for (auto& Hit : HitResult)
+			{
+				FDamageEvent DamageEvent;
+				if (Hit.GetActor()->ActorHasTag("ENEMY"))
 				{
-					FDamageEvent DamageEvent;
-					if (Hit.GetActor()->ActorHasTag("ENEMY"))
-					{
-						Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
-					}
-
+					//Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 				}
 
-			}), 0.6f, false);
-	
-	
+			}
+
+		}), 0.6f, false);
+		
+			
 	
 	}
 
@@ -409,13 +409,13 @@ void UAbilityComponent::Attack_R_Ability()
 		GetWorld()->SweepMultiByChannel(HitResult, Character->GetActorLocation(), Character->GetActorLocation(), FQuat(), ECollisionChannel::ECC_GameTraceChannel2, Shape);
 
 
-
+		
 		for (auto& Hit : HitResult)
 		{
 			FDamageEvent DamageEvent;
 			if (Hit.GetActor()->ActorHasTag("ENEMY"))
 			{
-				Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 4.0f, DamageEvent, Character->GetController(), Character);
+				//Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 4.0f, DamageEvent, Character->GetController(), Character);
 			}
 
 		}
@@ -475,16 +475,16 @@ void UAbilityComponent::Attack_RMB_Ability()
 		GetWorld()->SweepMultiByChannel(HitResult, Character->GetActorLocation(), Character->GetActorLocation(),
 			FQuat(), ECollisionChannel::ECC_GameTraceChannel2, Shape);
 		
-
+		
 		for (auto& Hit : HitResult)
 		{
 
-			if (Hit.GetActor()->ActorHasTag("ENEMY"))
-				Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
+		//	if (Hit.GetActor()->ActorHasTag("ENEMY"))
+			//	Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 
 		}
 
-
+		
 
 
 		
@@ -512,11 +512,12 @@ void UAbilityComponent::Attack_RMB_Ability_NoWep()
 				GetWorld()->SweepMultiByChannel(HitResult, CurrentAbilityLocation, CurrentAbilityLocation,
 					FQuat(), ECollisionChannel::ECC_GameTraceChannel2, Shape);
 
+		
 				for (auto& Hit : HitResult)
 				{
 
-					if (Hit.GetActor()->ActorHasTag("ENEMY"))
-						Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
+				//	if (Hit.GetActor()->ActorHasTag("ENEMY"))
+					//	Hit.GetActor()->TakeDamage(Character->Stat->GetAttackDMG() * 3.0f, DamageEvent, Character->GetController(), Character);
 
 				}
 

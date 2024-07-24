@@ -5,13 +5,13 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
-#include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "CharacterBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 
+class UAbilitySystemComponent;
+class UAttributeSet;
 
 UCLASS(abstract)
 class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface
@@ -28,8 +28,10 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-
+	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
 
 public:	
@@ -38,8 +40,7 @@ public:
 
 
 
-	UPROPERTY(EditAnywhere, Category = UI)
-		class UWidgetComponent* HpBarWidget;
+
 
 	UPROPERTY(VisibleAnywhere, Category = Stat)
 		class UMyCharacterStatComponent* Stat;

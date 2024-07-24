@@ -2,6 +2,11 @@
 
 
 #include "DefaultWidgetController.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
+#include "SeniorProject/DefaultBase/PlayerStateBase.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
+
 
 void UDefaultWidgetController::SetWidgetControllerParams(const FWidgetControllerParams& WCParams)
 {
@@ -9,4 +14,21 @@ void UDefaultWidgetController::SetWidgetControllerParams(const FWidgetController
 	PlayerState = WCParams.PlayerState;
 	AbilitySystemComponent = WCParams.AbilitySystemComponent;
 	AttributeSet = WCParams.AttributeSet;
+}
+
+void UDefaultWidgetController::BroadcastInitialValues()
+{
+}
+
+void UDefaultWidgetController::BindCallbacksToDependencies()
+{
+}
+
+UAttributeSetBase* UDefaultWidgetController::GetMyAS()
+{
+	if (AttributeSetBase == nullptr)
+	{
+		AttributeSetBase = Cast<UAttributeSetBase>(AttributeSet);
+	}
+	return AttributeSetBase;
 }

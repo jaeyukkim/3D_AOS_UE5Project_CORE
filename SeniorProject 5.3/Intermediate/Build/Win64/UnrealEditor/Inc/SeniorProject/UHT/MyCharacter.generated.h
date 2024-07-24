@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Character/Player/Character/MyCharacter.h"
+// IWYU pragma: private, include "PlayerBase/MyCharacter.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -15,17 +15,17 @@ class AActor;
 #endif
 #define SENIORPROJECT_MyCharacter_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execHurt); \
 	DECLARE_FUNCTION(execPlayFootSound);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
 	friend struct Z_Construct_UClass_AMyCharacter_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AMyCharacter)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMyCharacter(AMyCharacter&&); \
@@ -46,17 +46,17 @@ public: \
 	NO_API virtual ~AMyCharacter();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_17_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_19_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h_20_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -64,7 +64,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class AMyCharacter>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_Character_MyCharacter_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

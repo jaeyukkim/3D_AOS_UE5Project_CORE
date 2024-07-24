@@ -7,7 +7,7 @@
 /**
  *
  */
-
+class UAttributeSetBase;
 class UAttributeSet;
 class UAbilitySystemComponent;
 
@@ -46,6 +46,8 @@ class SENIORPROJECT_API UDefaultWidgetController : public UObject
 public:
 	UFUNCTION(BlueprintCallable)
 		void SetWidgetControllerParams(const FWidgetControllerParams& WCParams);
+	virtual void BroadcastInitialValues();
+	virtual void BindCallbacksToDependencies();
 
 protected:
 
@@ -61,4 +63,8 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
 		TObjectPtr<UAttributeSet> AttributeSet;
 
+	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
+		TObjectPtr<UAttributeSetBase> AttributeSetBase;
+
+	UAttributeSetBase* GetMyAS();
 };

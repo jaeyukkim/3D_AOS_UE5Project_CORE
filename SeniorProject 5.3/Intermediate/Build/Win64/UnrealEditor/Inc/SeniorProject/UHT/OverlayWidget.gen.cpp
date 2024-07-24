@@ -5,15 +5,13 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/UI/OverlayWidget.h"
+#include "SeniorProject/UI/OverlayWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidget();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidget_NoRegister();
-	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
-	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
@@ -57,7 +55,7 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
+		{ "ModuleRelativePath", "UI/OverlayWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UOverlayWidget, nullptr, "SetWidgetController", nullptr, nullptr, Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::PropPointers), sizeof(Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::OverlayWidget_eventSetWidgetController_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::Function_MetaDataParams), Z_Construct_UFunction_UOverlayWidget_SetWidgetController_Statics::Function_MetaDataParams) };
@@ -81,7 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
+		{ "ModuleRelativePath", "UI/OverlayWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UOverlayWidget, nullptr, "WidgetControllerSet", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet_Statics::Function_MetaDataParams), Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet_Statics::Function_MetaDataParams) };
@@ -110,18 +108,6 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WidgetController_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_WidgetController;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_HPBar_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_HPBar;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ExpBar_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_ExpBar;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerLevel_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerLevel;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -132,8 +118,8 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UOverlayWidget_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UOverlayWidget_SetWidgetController, "SetWidgetController" }, // 3515552844
-		{ &Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet, "WidgetControllerSet" }, // 2230121358
+		{ &Z_Construct_UFunction_UOverlayWidget_SetWidgetController, "SetWidgetController" }, // 3921008887
+		{ &Z_Construct_UFunction_UOverlayWidget_WidgetControllerSet, "WidgetControllerSet" }, // 2650569307
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -141,43 +127,19 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "IncludePath", "Character/CharacterBase/UI/OverlayWidget.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
+		{ "IncludePath", "UI/OverlayWidget.h" },
+		{ "ModuleRelativePath", "UI/OverlayWidget.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidget_Statics::NewProp_WidgetController_MetaData[] = {
 		{ "Category", "OverlayWidget" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
+		{ "ModuleRelativePath", "UI/OverlayWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UOverlayWidget_Statics::NewProp_WidgetController = { "WidgetController", nullptr, (EPropertyFlags)0x0014000000000014, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidget, WidgetController), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::NewProp_WidgetController_MetaData), Z_Construct_UClass_UOverlayWidget_Statics::NewProp_WidgetController_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidget_Statics::NewProp_HPBar_MetaData[] = {
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UOverlayWidget_Statics::NewProp_HPBar = { "HPBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidget, HPBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::NewProp_HPBar_MetaData), Z_Construct_UClass_UOverlayWidget_Statics::NewProp_HPBar_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidget_Statics::NewProp_ExpBar_MetaData[] = {
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UOverlayWidget_Statics::NewProp_ExpBar = { "ExpBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidget, ExpBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::NewProp_ExpBar_MetaData), Z_Construct_UClass_UOverlayWidget_Statics::NewProp_ExpBar_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidget_Statics::NewProp_PlayerLevel_MetaData[] = {
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/OverlayWidget.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UOverlayWidget_Statics::NewProp_PlayerLevel = { "PlayerLevel", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidget, PlayerLevel), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidget_Statics::NewProp_PlayerLevel_MetaData), Z_Construct_UClass_UOverlayWidget_Statics::NewProp_PlayerLevel_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UOverlayWidget_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidget_Statics::NewProp_WidgetController,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidget_Statics::NewProp_HPBar,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidget_Statics::NewProp_ExpBar,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidget_Statics::NewProp_PlayerLevel,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UOverlayWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UOverlayWidget>::IsAbstract,
@@ -213,15 +175,15 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidget() {}
 	UOverlayWidget::UOverlayWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UOverlayWidget);
 	UOverlayWidget::~UOverlayWidget() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_OverlayWidget_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_OverlayWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UOverlayWidget, UOverlayWidget::StaticClass, TEXT("UOverlayWidget"), &Z_Registration_Info_UClass_UOverlayWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidget), 3825395913U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UOverlayWidget, UOverlayWidget::StaticClass, TEXT("UOverlayWidget"), &Z_Registration_Info_UClass_UOverlayWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidget), 3579321850U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_OverlayWidget_h_1426378171(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_OverlayWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_OverlayWidget_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_2165135280(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

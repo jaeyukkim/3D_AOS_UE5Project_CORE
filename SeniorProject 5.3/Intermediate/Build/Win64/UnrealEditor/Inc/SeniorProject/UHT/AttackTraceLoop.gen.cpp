@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/DefaultBase/AttackTraceLoop.h"
+#include "SeniorProject/DefaultBase/AttackTraceLoop.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAttackTraceLoop() {}
 // Cross Module References
@@ -48,13 +48,13 @@ void EmptyLinkFunctionForGeneratedCodeAttackTraceLoop() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Object" },
-		{ "IncludePath", "Character/CharacterBase/DefaultBase/AttackTraceLoop.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AttackTraceLoop.h" },
+		{ "IncludePath", "DefaultBase/AttackTraceLoop.h" },
+		{ "ModuleRelativePath", "DefaultBase/AttackTraceLoop.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttackTraceLoop_Statics::NewProp_Character_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AttackTraceLoop.h" },
+		{ "ModuleRelativePath", "DefaultBase/AttackTraceLoop.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAttackTraceLoop_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000010, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttackTraceLoop, Character), Z_Construct_UClass_ACharacterBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttackTraceLoop_Statics::NewProp_Character_MetaData), Z_Construct_UClass_UAttackTraceLoop_Statics::NewProp_Character_MetaData) };
@@ -95,15 +95,15 @@ void EmptyLinkFunctionForGeneratedCodeAttackTraceLoop() {}
 	UAttackTraceLoop::UAttackTraceLoop(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UAttackTraceLoop);
 	UAttackTraceLoop::~UAttackTraceLoop() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttackTraceLoop_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AttackTraceLoop_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAttackTraceLoop, UAttackTraceLoop::StaticClass, TEXT("UAttackTraceLoop"), &Z_Registration_Info_UClass_UAttackTraceLoop, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttackTraceLoop), 3482877253U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UAttackTraceLoop, UAttackTraceLoop::StaticClass, TEXT("UAttackTraceLoop"), &Z_Registration_Info_UClass_UAttackTraceLoop, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttackTraceLoop), 544229123U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttackTraceLoop_h_2689447979(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AttackTraceLoop_h_2753437207(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AttackTraceLoop_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

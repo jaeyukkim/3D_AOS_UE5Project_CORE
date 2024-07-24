@@ -2,14 +2,16 @@
 
 
 #include "PlayerStateBase.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 
 APlayerStateBase::APlayerStateBase()
 {
-	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
-	AttributeSet = CreateDefaultSubobject<UAttributeSet>("AttributeSet");
+	AttributeSet = CreateDefaultSubobject<UAttributeSetBase>("AttributeSet");
 
 	NetUpdateFrequency = 100.0f;
 	

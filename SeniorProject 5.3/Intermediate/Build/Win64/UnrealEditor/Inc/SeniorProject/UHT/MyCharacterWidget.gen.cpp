@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/UI/MyCharacterWidget.h"
+#include "SeniorProject/UI/MyCharacterWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 // Cross Module References
@@ -47,8 +47,8 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n  hp\xef\xbf\xbd\xd9\xbf\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad\n */" },
 #endif
-		{ "IncludePath", "Character/CharacterBase/UI/MyCharacterWidget.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyCharacterWidget.h" },
+		{ "IncludePath", "UI/MyCharacterWidget.h" },
+		{ "ModuleRelativePath", "UI/MyCharacterWidget.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "hp\xef\xbf\xbd\xd9\xbf\xef\xbf\xbd \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc8\xad" },
 #endif
@@ -57,7 +57,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/UI/MyCharacterWidget.h" },
+		{ "ModuleRelativePath", "UI/MyCharacterWidget.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar = { "HPProgressBar", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyCharacterWidget, HPProgressBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData), Z_Construct_UClass_UMyCharacterWidget_Statics::NewProp_HPProgressBar_MetaData) };
@@ -98,15 +98,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacterWidget() {}
 	UMyCharacterWidget::UMyCharacterWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMyCharacterWidget);
 	UMyCharacterWidget::~UMyCharacterWidget() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyCharacterWidget_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyCharacterWidget_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyCharacterWidget_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyCharacterWidget, UMyCharacterWidget::StaticClass, TEXT("UMyCharacterWidget"), &Z_Registration_Info_UClass_UMyCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterWidget), 4169125722U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyCharacterWidget_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMyCharacterWidget, UMyCharacterWidget::StaticClass, TEXT("UMyCharacterWidget"), &Z_Registration_Info_UClass_UMyCharacterWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyCharacterWidget), 4128421835U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyCharacterWidget_h_3328448930(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_UI_MyCharacterWidget_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyCharacterWidget_h_875966098(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyCharacterWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_MyCharacterWidget_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

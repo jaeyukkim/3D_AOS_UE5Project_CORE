@@ -5,12 +5,14 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/DefaultBase/PlayerStateBase.h"
+#include "SeniorProject/DefaultBase/PlayerStateBase.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_APlayerState();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -29,6 +31,15 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilitySystemComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttributeSet_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AttributeSet;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -44,11 +55,30 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "Character/CharacterBase/DefaultBase/PlayerStateBase.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/PlayerStateBase.h" },
+		{ "IncludePath", "DefaultBase/PlayerStateBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/PlayerStateBase.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
+		{ "Category", "PlayerStateBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x00240800000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, AbilitySystemComponent), Z_Construct_UClass_UAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet = { "AttributeSet", nullptr, (EPropertyFlags)0x0024080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, AttributeSet), Z_Construct_UClass_UAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerStateBase_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet,
+	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_APlayerStateBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(APlayerStateBase, IAbilitySystemInterface), false },  // 3195502011
 		};
@@ -62,15 +92,16 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_APlayerStateBase_Statics::PropPointers,
 		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::PropPointers),
 		UE_ARRAY_COUNT(InterfaceParams),
 		0x009002A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::Class_MetaDataParams), Z_Construct_UClass_APlayerStateBase_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_APlayerStateBase()
 	{
 		if (!Z_Registration_Info_UClass_APlayerStateBase.OuterSingleton)
@@ -85,15 +116,15 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(APlayerStateBase);
 	APlayerStateBase::~APlayerStateBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_PlayerStateBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_PlayerStateBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_PlayerStateBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 1682441246U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_PlayerStateBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 1494565962U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_PlayerStateBase_h_3110286592(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_PlayerStateBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_PlayerStateBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_PlayerStateBase_h_2565843569(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_PlayerStateBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_PlayerStateBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

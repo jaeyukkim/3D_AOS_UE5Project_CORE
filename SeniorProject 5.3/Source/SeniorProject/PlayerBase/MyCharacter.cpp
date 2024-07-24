@@ -8,12 +8,16 @@
 #include "SeniorProject/GameSetting/MyGameInstance.h"
 
 #include "SeniorProject/PlayerBase/MyAnimInstance.h"
-#include "SeniorProject/PlayerBase/MyPlayerState.h"
-
+#include "SeniorProject/DefaultBase/PlayerStateBase.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
 #include "SeniorProject/PlayerBase/AbilityComponent.h"
-#include "SeniorProject/UI/MyCharacterWidget.h"
+
 #include "SeniorProject/UI/DefaultHUD.h"
+
+#include "AbilitySystemComponent.h"
+#include "AttributeSet.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 
 #include "MyAssetSetting/Public/CharacterAssetSetting.h"
@@ -149,9 +153,6 @@ AMyCharacter::AMyCharacter()
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
 
 
-	
-
-
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -173,17 +174,22 @@ void AMyCharacter::OnRep_PlayerState()
 
 void AMyCharacter::InitAbilityActorInfo()
 {
-	AMyPlayerState* MyPlayerState = GetPlayerState<AMyPlayerState>();
-	check(MyPlayerState);
-	MyPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(MyPlayerState, this);
-	AbilitySystemComponent = MyPlayerState->GetAbilitySystemComponent();
-	AttributeSet = MyPlayerState->GetAttributeSet();
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
+	PlayerStateBase->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerStateBase, this);
+	//Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent())->AbilityActorInfoSet();
+	 
+	AbilitySystemComponent = PlayerStateBase->GetAbilitySystemComponent();
+	AttributeSet = PlayerStateBase->GetAttributeSet();
+
+
+	checkf(AttributeSet, TEXT("PlayerStateBase Class uninitialized"));
 
 	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
 	{
-		if (ADefaultHUD* AuraHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
+		if (ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
 		{
-			AuraHUD->InitOverlay(MyPlayerController, MyPlayerState, AbilitySystemComponent, AttributeSet);
+			DefaultHUD->InitOverlay(MyPlayerController, PlayerStateBase, AbilitySystemComponent, AttributeSet);
 		}
 	}
 }
@@ -205,17 +211,6 @@ void AMyCharacter::BeginPlay()
 
 	
 
-
-	UpdateCharacterStat();
-
-
-
-
-	auto CharacterWidget = Cast<UMyCharacterWidget>(HpBarWidget->GetUserWidgetObject());
-	if (CharacterWidget != nullptr)
-	{
-		CharacterWidget->SetCharacterStat(Stat);
-	}
 
 
 	SetCharacterState(ECharacterState::LOADING);
@@ -504,7 +499,6 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 	{
 		SetActorEnableCollision(false);
 		GetMesh()->SetHiddenInGame(false);
-		HpBarWidget->SetHiddenInGame(true);
 		SetCanBeDamaged(false);
 		Camera->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
 
@@ -556,7 +550,7 @@ void AMyCharacter::AttackTrace()
 		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
 	
-
+	/*
 	if (bHit)
 	{
 
@@ -575,7 +569,7 @@ void AMyCharacter::AttackTrace()
 		}
 
 	}
-
+	*/
 }
 
 
@@ -587,7 +581,7 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 
 	
 
-	Stat->SetDamage(DamageAmount);
+	//Stat->SetDamage(DamageAmount);
 
 
 
@@ -600,11 +594,8 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 void AMyCharacter::UpdateCharacterStat()
 {
 	
-	auto MyPlayerState = Cast<AMyPlayerState>(GetPlayerState());
-	Stat->SetLevel(MyPlayerState->GetCharacterLevel());
+	
 
-
-	//PlayerController->GetHUDWidget()->BindCharacterStat(Stat);
 
 	
 }

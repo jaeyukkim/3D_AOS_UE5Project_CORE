@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Character/CharacterBase/DefaultBase/AttributeSetBase.h"
+// IWYU pragma: private, include "AbilitySystem/AttributeSetBase.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 #include "Net/Core/PushModel/PushModelMacros.h"
@@ -16,11 +16,12 @@ struct FGameplayAttributeData;
 #endif
 #define SENIORPROJECT_AttributeSetBase_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnRep_Exp); \
 	DECLARE_FUNCTION(execOnRep_NextExp); \
 	DECLARE_FUNCTION(execOnRep_DropExp); \
 	DECLARE_FUNCTION(execOnRep_AttackRating); \
@@ -31,8 +32,8 @@ struct FGameplayAttributeData;
 	DECLARE_FUNCTION(execOnRep_Health);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAttributeSetBase(); \
 	friend struct Z_Construct_UClass_UAttributeSetBase_Statics; \
@@ -50,14 +51,15 @@ public: \
 		AttackRating, \
 		DropExp, \
 		NextExp, \
-		NETFIELD_REP_END=NextExp	}; \
+		Exp, \
+		NETFIELD_REP_END=Exp	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \
 private: \
 	REPLICATED_BASE_CLASS(UAttributeSetBase) \
 public:
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UAttributeSetBase(UAttributeSetBase&&); \
@@ -69,17 +71,17 @@ public: \
 	NO_API virtual ~UAttributeSetBase();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_19_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_19_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h_22_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -87,7 +89,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class UAttributeSetBase>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AttributeSetBase_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

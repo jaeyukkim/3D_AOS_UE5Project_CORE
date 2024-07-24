@@ -5,11 +5,10 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
-#include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "PlayerStateBase.generated.h"
 
-
+class UAbilitySystemComponent;
+class UAttributeSet;
 
 /**
  * 
@@ -26,7 +25,10 @@ public:
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
 
 protected:
+	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
 
 };

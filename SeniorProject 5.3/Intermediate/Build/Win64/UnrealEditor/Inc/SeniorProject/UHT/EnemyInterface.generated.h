@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Character/CharacterBase/Interface/EnemyInterface.h"
+// IWYU pragma: private, include "Interface/EnemyInterface.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,12 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_EnemyInterface_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	SENIORPROJECT_API UEnemyInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -33,7 +33,7 @@ public: \
 	SENIORPROJECT_API virtual ~UEnemyInterface();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_GENERATED_UINTERFACE_BODY() \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUEnemyInterface(); \
 	friend struct Z_Construct_UClass_UEnemyInterface_Statics; \
@@ -42,15 +42,15 @@ public: \
 	DECLARE_SERIALIZER(UEnemyInterface)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_GENERATED_UINTERFACE_BODY() \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_GENERATED_UINTERFACE_BODY() \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~IEnemyInterface() {} \
 public: \
@@ -59,16 +59,16 @@ public: \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_11_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_22_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_11_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -76,7 +76,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class UEnemyInterface>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_Interface_EnemyInterface_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

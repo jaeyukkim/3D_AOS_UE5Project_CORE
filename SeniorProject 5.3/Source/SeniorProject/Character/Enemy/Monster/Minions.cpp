@@ -53,7 +53,7 @@ AMinions::AMinions()
 	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	Tags.Add(TEXT("MinionClass"));
-	HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+
 	
 	AttackWidthArea = 40.0f;
 }
@@ -71,12 +71,7 @@ void AMinions::BeginPlay()
 	
 	if (AIController == nullptr) return;
 	
-	auto CharacterWidget = Cast<UMyCharacterWidget>(HpBarWidget->GetUserWidgetObject());
-	if (CharacterWidget != nullptr)
-	{
-		CharacterWidget->SetCharacterStat(Stat);
-	}
-	
+
 	SetMinionState(ECharacterState::LOADING);
 
 
@@ -176,7 +171,7 @@ void AMinions::SetMinionState(ECharacterState NewState)
 	case ECharacterState::LOADING:
 	{
 		SetActorHiddenInGame(false);
-		DisabledHpBar();
+		
 
 
 
@@ -210,7 +205,7 @@ void AMinions::SetMinionState(ECharacterState NewState)
 		SetCanBeDamaged(false);
 		SetActorEnableCollision(false);
 		GetMesh()->SetHiddenInGame(false);
-		HpBarWidget->SetHiddenInGame(true);
+
 		AIController->StopAI();
 
 
@@ -261,7 +256,7 @@ void AMinions::AttackTrace()
 	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, WaeponBottomPoint, WaeponTopPoint,
 		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
-
+	/*
 	if (bHit)
 	{
 
@@ -283,7 +278,7 @@ void AMinions::AttackTrace()
 		}
 
 	}
-
+	*/
 }
 
 
@@ -293,7 +288,7 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 
 	
-
+	/*
 	if (CanBeDamaged() && DamageCauser->ActorHasTag("PLAYER"))
 	{
 
@@ -329,8 +324,9 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 	}
 
 
-
+	*/
 	return FinalDamage;
+	
 
 }
 

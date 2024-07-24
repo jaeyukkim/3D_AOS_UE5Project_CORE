@@ -154,8 +154,12 @@ public:
 
 
 private:
+	UPROPERTY()
 		TScriptInterface<IEnemyInterface> LastActor;
+
+	UPROPERTY()
 		TScriptInterface<IEnemyInterface> ThisActor;
+
 		void AimTrace();
 
 };

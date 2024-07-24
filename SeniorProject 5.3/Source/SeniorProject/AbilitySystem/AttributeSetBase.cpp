@@ -6,10 +6,14 @@
 
 UAttributeSetBase::UAttributeSetBase()
 {
-	InitHealth(100);
+	InitHealth(50);
 	InitMaxHealth(100);
-	InitMana(100);
+	InitMana(50);
 	InitMaxMana(100);
+	InitExp(10);
+	InitNextExp(100);
+	InitLevel(1);
+	InitAttackRating(10);
 
 }
 
@@ -23,6 +27,8 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AttackRating, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropExp, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, NextExp, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Exp, COND_None, REPNOTIFY_Always);
+
 
 
 }
@@ -69,6 +75,12 @@ void UAttributeSetBase::OnRep_DropExp(const FGameplayAttributeData& OldDropExp)
 void UAttributeSetBase::OnRep_NextExp(const FGameplayAttributeData& OldNextExp)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, NextExp, OldNextExp);
+
+}
+
+void UAttributeSetBase::OnRep_Exp(const FGameplayAttributeData& OldExp)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Exp, OldExp);
 
 }
 

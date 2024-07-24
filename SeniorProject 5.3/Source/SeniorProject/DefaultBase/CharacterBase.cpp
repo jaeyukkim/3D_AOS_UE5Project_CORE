@@ -19,16 +19,7 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	Stat = CreateDefaultSubobject<UMyCharacterStatComponent>(TEXT("Stat"));
 
 
-	HpBarWidget = CreateDefaultSubobject<UWidgetComponent>(TEXT("HPBARWIDGET"));
-	HpBarWidget->SetupAttachment(GetMesh());
-	HpBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
-
-	static ConstructorHelpers::FClassFinder<UUserWidget> UI_HPBAR(TEXT("WidgetBlueprint'/Game/UI/UI_HpBar'"));
-	if (UI_HPBAR.Succeeded())
-	{
-		HpBarWidget->SetWidgetClass(UI_HPBAR.Class);
-		HpBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
-	}
+	
 
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 
@@ -88,42 +79,6 @@ UAbilitySystemComponent* ACharacterBase::GetAbilitySystemComponent() const
 }
 
 
-void ACharacterBase::ActiveHpBar()
-{
-	if (HpBarWidget && !HpBarWidget->IsVisible())
-		HpBarWidget->SetVisibility(true);
-}
-
-void ACharacterBase::DisabledHpBar()
-{
-	if (HpBarWidget && HpBarWidget->IsVisible())
-		HpBarWidget->SetVisibility(false);
-}
-
-void ACharacterBase::ControlHpBarVisibility()
-{
-	if (HpBarWidget)
-	{
-		ActiveHpBar();
-		//이미 타이머가 등록되어 있다면 다시 초기화
-		if (GetWorldTimerManager().IsTimerActive(UITimerHandle))
-		{
-			GetWorldTimerManager().ClearTimer(UITimerHandle);
-		}
-		//타이머 등록 되어있지 않으면 등록
-		else
-		{
-			GetWorld()->GetTimerManager().SetTimer(UITimerHandle, FTimerDelegate::CreateLambda([this]() ->
-				void
-				{
-					DisabledHpBar();
-
-				}), 8.0f, false);
-		}
-
-
-	}
-}
 
 int32 ACharacterBase::GetExp() const
 {

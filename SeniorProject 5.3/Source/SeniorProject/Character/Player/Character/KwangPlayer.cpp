@@ -205,5 +205,5 @@ void AKwangPlayer::SetCharacterSetting()
 	SaveAttack = true;
 	AttackCount = 0;
 
-	HpBarWidget->SetRelativeLocation(FVector(0.0f, 0.0f, 180.0f));
+	
 }

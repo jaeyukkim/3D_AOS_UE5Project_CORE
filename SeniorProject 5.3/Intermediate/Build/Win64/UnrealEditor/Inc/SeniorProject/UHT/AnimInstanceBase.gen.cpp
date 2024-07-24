@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/DefaultBase/AnimInstanceBase.h"
+#include "SeniorProject/DefaultBase/AnimInstanceBase.h"
 #include "../../Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
@@ -73,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_LeftAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams) };
@@ -95,7 +95,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_ResetCombo", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams) };
@@ -117,7 +117,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_RightAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams) };
@@ -139,7 +139,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_SaveAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams) };
@@ -161,7 +161,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "SetDead", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams) };
@@ -274,11 +274,11 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UAnimInstanceBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack, "AnimNotify_LeftAttack" }, // 3461494606
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo, "AnimNotify_ResetCombo" }, // 1890268773
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack, "AnimNotify_RightAttack" }, // 2991602563
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack, "AnimNotify_SaveAttack" }, // 1849677321
-		{ &Z_Construct_UFunction_UAnimInstanceBase_SetDead, "SetDead" }, // 5017803
+		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack, "AnimNotify_LeftAttack" }, // 2773554804
+		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo, "AnimNotify_ResetCombo" }, // 2678926706
+		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack, "AnimNotify_RightAttack" }, // 212464118
+		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack, "AnimNotify_SaveAttack" }, // 3947051961
+		{ &Z_Construct_UFunction_UAnimInstanceBase_SetDead, "SetDead" }, // 991805515
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -287,13 +287,13 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "AnimInstance" },
-		{ "IncludePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "IncludePath", "DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Character), Z_Construct_UClass_ACharacterBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character_MetaData) };
@@ -301,7 +301,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_SetBit(void* Obj)
@@ -313,7 +313,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection = { "EnemyDirection", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, EnemyDirection), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData) };
@@ -321,7 +321,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed = { "Speed", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Speed), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed_MetaData) };
@@ -329,7 +329,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Roll_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Roll = { "Roll", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Roll), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Roll_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Roll_MetaData) };
@@ -337,7 +337,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Pitch_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Pitch = { "Pitch", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Pitch), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Pitch_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Pitch_MetaData) };
@@ -345,7 +345,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Yaw_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Yaw = { "Yaw", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Yaw), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Yaw_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Yaw_MetaData) };
@@ -353,7 +353,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsAccelerating_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsAccelerating_SetBit(void* Obj)
@@ -365,7 +365,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_FullBody_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_FullBody_SetBit(void* Obj)
@@ -377,7 +377,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsInAir_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsInAir_SetBit(void* Obj)
@@ -389,7 +389,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AttackCombo_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AttackCombo_SetBit(void* Obj)
@@ -401,7 +401,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDead_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDead_SetBit(void* Obj)
@@ -413,7 +413,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_YawDelta_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_YawDelta = { "YawDelta", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, YawDelta), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_YawDelta_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_YawDelta_MetaData) };
@@ -421,7 +421,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AimRotation_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AimRotation = { "AimRotation", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, AimRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AimRotation_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_AimRotation_MetaData) };
@@ -429,7 +429,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_ActorRotation_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_ActorRotation = { "ActorRotation", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, ActorRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_ActorRotation_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_ActorRotation_MetaData) };
@@ -437,7 +437,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_RotationLastTick_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_RotationLastTick = { "RotationLastTick", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, RotationLastTick), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_RotationLastTick_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_RotationLastTick_MetaData) };
@@ -445,7 +445,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_DeltaRotator_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_DeltaRotator = { "DeltaRotator", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, DeltaRotator), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_DeltaRotator_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_DeltaRotator_MetaData) };
@@ -453,7 +453,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/AnimInstanceBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Direction), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction_MetaData) };
@@ -510,15 +510,15 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UAnimInstanceBase);
 	UAnimInstanceBase::~UAnimInstanceBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AnimInstanceBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 351374128U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 506178458U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AnimInstanceBase_h_3456874202(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_3477478477(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

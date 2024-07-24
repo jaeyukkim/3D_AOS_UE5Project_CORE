@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/CharacterBase/DefaultBase/CharacterBase.h"
+#include "SeniorProject/DefaultBase/CharacterBase.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/TimerHandle.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
@@ -13,13 +13,14 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTimerHandle();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UEnemyInterface_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UMyCharacterStatComponent_NoRegister();
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterState();
-	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	DEFINE_FUNCTION(ACharacterBase::execResetCombo)
@@ -54,7 +55,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterBase_ComboAttackSave_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterBase_ComboAttackSave_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterBase, nullptr, "ComboAttackSave", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_ComboAttackSave_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterBase_ComboAttackSave_Statics::Function_MetaDataParams) };
@@ -76,7 +77,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterBase_ResetCombo_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterBase_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterBase, nullptr, "ResetCombo", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_ResetCombo_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterBase_ResetCombo_Statics::Function_MetaDataParams) };
@@ -102,9 +103,13 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_HpBarWidget_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_HpBarWidget;
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilitySystemComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttributeSet_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AttributeSet;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Stat_MetaData[];
 #endif
@@ -160,38 +165,44 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACharacterBase_ComboAttackSave, "ComboAttackSave" }, // 796197379
-		{ &Z_Construct_UFunction_ACharacterBase_ResetCombo, "ResetCombo" }, // 146744871
+		{ &Z_Construct_UFunction_ACharacterBase_ComboAttackSave, "ComboAttackSave" }, // 3814410723
+		{ &Z_Construct_UFunction_ACharacterBase_ResetCombo, "ResetCombo" }, // 2498511085
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "IncludePath", "DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_HpBarWidget_MetaData[] = {
-		{ "Category", "UI" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_HpBarWidget = { "HpBarWidget", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, HpBarWidget), Z_Construct_UClass_UWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_HpBarWidget_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_HpBarWidget_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x0024080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, AbilitySystemComponent), Z_Construct_UClass_UAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet = { "AttributeSet", nullptr, (EPropertyFlags)0x0024080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, AttributeSet), Z_Construct_UClass_UAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_Stat_MetaData[] = {
 		{ "Category", "Stat" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_Stat = { "Stat", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, Stat), Z_Construct_UClass_UMyCharacterStatComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_Stat_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_Stat_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_Damaged_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_ACharacterBase_Statics::NewProp_Damaged_SetBit(void* Obj)
@@ -203,7 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_MetaData[] = {
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage = { "AttackMontage", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, AttackMontage), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_MetaData) };
@@ -212,7 +223,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_CurrentState_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "State" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_CurrentState = { "CurrentState", nullptr, (EPropertyFlags)0x0010000000020815, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, CurrentState), Z_Construct_UEnum_SeniorProject_ECharacterState, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_CurrentState_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_CurrentState_MetaData) }; // 462776798
@@ -220,31 +231,31 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackCount_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackCount = { "AttackCount", nullptr, (EPropertyFlags)0x0010000000020815, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, AttackCount), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackCount_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackCount_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_DeadTimerHandle_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_DeadTimerHandle = { "DeadTimerHandle", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, DeadTimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_DeadTimerHandle_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_DeadTimerHandle_MetaData) }; // 3999327403
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_LoadingTimer_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_LoadingTimer = { "LoadingTimer", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, LoadingTimer), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_LoadingTimer_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_LoadingTimer_MetaData) }; // 3999327403
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_DamagedTimerHandle_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_DamagedTimerHandle = { "DamagedTimerHandle", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, DamagedTimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_DamagedTimerHandle_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_DamagedTimerHandle_MetaData) }; // 3999327403
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_UITimerHandle_MetaData[] = {
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_UITimerHandle = { "UITimerHandle", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, UITimerHandle), Z_Construct_UScriptStruct_FTimerHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_UITimerHandle_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_UITimerHandle_MetaData) }; // 3999327403
@@ -252,7 +263,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Attacks" },
-		{ "ModuleRelativePath", "Character/CharacterBase/DefaultBase/CharacterBase.h" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	void Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking_SetBit(void* Obj)
@@ -261,7 +272,8 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking = { "IsAttacking", nullptr, (EPropertyFlags)0x0010000000020815, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_IsAttacking_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacterBase_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_HpBarWidget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_Stat,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_Damaged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_Inner,
@@ -277,7 +289,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 3482687418
+			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 2623055100
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterBase_Statics::StaticCppClassTypeInfo = {
@@ -313,15 +325,15 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ACharacterBase);
 	ACharacterBase::~ACharacterBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_CharacterBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1326769792U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1717807521U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_CharacterBase_h_485580864(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_DefaultBase_CharacterBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_580320259(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

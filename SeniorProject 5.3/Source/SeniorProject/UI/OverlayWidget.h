@@ -13,11 +13,12 @@ UCLASS()
 class SENIORPROJECT_API UOverlayWidget : public UUserWidget
 {
 	GENERATED_BODY()
-public:
+
+/*public:
 	void BindCharacterStat(class UMyCharacterStatComponent* CharacterStat);
 
 	void BindPlayerState(class AMyPlayerState* PlayerState);
-
+	*/
 
 public:
 	UFUNCTION(BlueprintCallable)
@@ -29,7 +30,7 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 		void WidgetControllerSet();
 
-
+	/*
 protected:
 	virtual void NativeConstruct() override;
 	void UpdateCharacterStat();
@@ -49,5 +50,6 @@ private:
 
 	UPROPERTY()
 		class UTextBlock* PlayerLevel;
+		*/
 
 };

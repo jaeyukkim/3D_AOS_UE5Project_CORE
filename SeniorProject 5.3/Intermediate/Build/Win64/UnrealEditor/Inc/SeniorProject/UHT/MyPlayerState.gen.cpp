@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Player/PlayerBase/MyPlayerState.h"
+#include "SeniorProject/PlayerBase/MyPlayerState.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 // Cross Module References
@@ -59,7 +59,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyPlayerState.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyPlayerState.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayerState, nullptr, "AddExp", nullptr, nullptr, Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::MyPlayerState_eventAddExp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayerState_AddExp_Statics::Function_MetaDataParams) };
@@ -96,14 +96,14 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyPlayerState_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMyPlayerState_AddExp, "AddExp" }, // 2218565585
+		{ &Z_Construct_UFunction_AMyPlayerState_AddExp, "AddExp" }, // 2940845024
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerState_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerState_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "Character/Player/PlayerBase/MyPlayerState.h" },
-		{ "ModuleRelativePath", "Character/Player/PlayerBase/MyPlayerState.h" },
+		{ "IncludePath", "PlayerBase/MyPlayerState.h" },
+		{ "ModuleRelativePath", "PlayerBase/MyPlayerState.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
@@ -143,15 +143,15 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerState() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMyPlayerState);
 	AMyPlayerState::~AMyPlayerState() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerState_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 650621748U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerState_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AMyPlayerState, AMyPlayerState::StaticClass, TEXT("AMyPlayerState"), &Z_Registration_Info_UClass_AMyPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerState), 2693983912U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_1797704642(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_PlayerBase_MyPlayerState_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerState_h_194619519(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerState_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
