@@ -90,6 +90,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AttributeSetBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\Actor">
+      <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\EffectActorBase.cpp">
+      <Filter>Source\SeniorProject\Actor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\EffectActorBase.h">
+      <Filter>Source\SeniorProject\Actor</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character">
       <UniqueIdentifier>{E2ADD259-DA64-31ED-85F0-72602C63FECB}</UniqueIdentifier>
     </Filter>

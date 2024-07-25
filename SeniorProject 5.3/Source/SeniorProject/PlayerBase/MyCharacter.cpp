@@ -169,7 +169,7 @@ void AMyCharacter::OnRep_PlayerState()
 	Super::OnRep_PlayerState();
 	// Ability Info 클라이언트 초기화
 	InitAbilityActorInfo();
-
+	
 }
 
 void AMyCharacter::InitAbilityActorInfo()
