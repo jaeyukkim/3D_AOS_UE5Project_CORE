@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\myassetsetting\\uht\\myassetsetting.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\seniorprojecteditor\\debuggame\\engine\\sharedpch.engine.nonoptimized.cpp20.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\myassetsetting\\definitions.myassetsetting.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
