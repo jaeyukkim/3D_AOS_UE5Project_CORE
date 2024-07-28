@@ -22,7 +22,7 @@ public:
 	AMinions();
 
 
-
+	
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	virtual void BeginPlay() override;
 
@@ -63,6 +63,6 @@ private:
 
 protected:
 	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-	
+	virtual void InitAbilityActorInfo() override;
 	
 };

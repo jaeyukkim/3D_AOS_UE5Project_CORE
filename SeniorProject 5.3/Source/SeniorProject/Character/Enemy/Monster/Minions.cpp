@@ -3,12 +3,12 @@
 
 #include "Minions.h"
 #include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
-#include "SeniorProject/UI/MyCharacterWidget.h"
-#include "Components/WidgetComponent.h"
+
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
 #include "SeniorProject/EnemyBase/AISetting/MinionAnimInstance.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
-#include "SeniorProject/PlayerBase/MyPlayerController.h"
+
 
 // Sets default values
 AMinions::AMinions()
@@ -29,9 +29,9 @@ AMinions::AMinions()
 
 
 
-	//ÆùÀÌ AI¿¡ ÀÇÇØ Á¦¾îµÉ ¶§ »ç¿ëÇÒ ±âº» Å¬·¡½ºÀÔ´Ï´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ AIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº» Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 	AIControllerClass = AMinionAIController::StaticClass();
-	//AI ÆùÀÌ AI ÄÁÆ®·Ñ·¯¿¡ ÀÇÇØ ÀÚµ¿À¸·Î ¼ÒÀ¯µÇ´ÂÁö ¿©ºÎ¸¦ ÁöÁ¤ÇÕ´Ï´Ù.
+	//AI ï¿½ï¿½ï¿½ï¿½ AI ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 	
 
@@ -63,14 +63,15 @@ void AMinions::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//3°¡Áö ¹Ì´Ï¾ð Å¸ÀÔÁß ·£´ýÀ¸·Î °áÁ¤
 
-	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	//3ï¿½ï¿½ï¿½ï¿½ ï¿½Ì´Ï¾ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-	AIController = Cast<AMinionAIController>(GetController());
 	
+	
+	AIController = Cast<AMinionAIController>(GetController());
 	if (AIController == nullptr) return;
 	
+	InitAbilityActorInfo();
 
 	SetMinionState(ECharacterState::LOADING);
 
@@ -114,7 +115,7 @@ void AMinions::Attack()
 {
 
 	
-	//ÇöÀç °ø°Ý ÄÞº¸¿¡ µû¶ó ´Ù¸¥ ¸ùÅ¸ÁÖ ½ÇÇà
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	switch (AttackCount)
 	{
 	case 0:
@@ -158,7 +159,7 @@ void AMinions::Attack()
 
 
 
-//½ÃÀÛ½Ã ·Îµù, ·¹µð, »ç¸Á 3°¡Áö »óÅÂ¿¡ µû¸¥ Ã³¸® ±¸Çö
+//ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Îµï¿½, ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void AMinions::SetMinionState(ECharacterState NewState)
 {
 	//if (CurrentState != NewState) return;
@@ -232,7 +233,13 @@ void AMinions::SetMinionState(ECharacterState NewState)
 	}
 }
 
-
+void AMinions::InitAbilityActorInfo()
+{
+	
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	//Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->AbilityActorInfoSet();
+	
+}
 
 
 void AMinions::AttackTrace()
@@ -307,7 +314,7 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 			}), 0.1f, false);
 
-		//¸Â¾ÒÀ» ¶§ HP¹Ù È°¼ºÈ­
+		//ï¿½Â¾ï¿½ï¿½ï¿½ ï¿½ï¿½ HPï¿½ï¿½ È°ï¿½ï¿½È­
 		
 
 		if (CurrentState == ECharacterState::DEAD)

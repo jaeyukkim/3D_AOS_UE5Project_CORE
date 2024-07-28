@@ -290,6 +290,10 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 #endif
 		static const UECodeGen_Private::FMapPropertyParams NewProp_ActiveEffectHandles;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActorLevel_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ActorLevel;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_InstantGameplayEffectClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_InstantGameplayEffectClass;
@@ -352,6 +356,13 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 #endif
 	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles = { "ActiveEffectHandles", nullptr, (EPropertyFlags)0x0020088000000008, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEffectActorBase, ActiveEffectHandles), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles_MetaData), Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles_MetaData) }; // 179499981
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActorLevel_MetaData[] = {
+		{ "Category", "Applied Effects" },
+		{ "ModuleRelativePath", "Actor/EffectActorBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActorLevel = { "ActorLevel", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEffectActorBase, ActorLevel), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActorLevel_MetaData), Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActorLevel_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AEffectActorBase_Statics::NewProp_InstantGameplayEffectClass_MetaData[] = {
 		{ "Category", "Applied Effects" },
 		{ "ModuleRelativePath", "Actor/EffectActorBase.h" },
@@ -408,6 +419,7 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles_ValueProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActiveEffectHandles,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_ActorLevel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_InstantGameplayEffectClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_InstantEffectApplicationPolicy_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEffectActorBase_Statics::NewProp_InstantEffectApplicationPolicy,
@@ -463,9 +475,9 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 		{ EEffectRemovalPolicy_StaticEnum, TEXT("EEffectRemovalPolicy"), &Z_Registration_Info_UEnum_EEffectRemovalPolicy, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2368174702U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEffectActorBase, AEffectActorBase::StaticClass, TEXT("AEffectActorBase"), &Z_Registration_Info_UClass_AEffectActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectActorBase), 2163420653U) },
+		{ Z_Construct_UClass_AEffectActorBase, AEffectActorBase::StaticClass, TEXT("AEffectActorBase"), &Z_Registration_Info_UClass_AEffectActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectActorBase), 1071743829U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_3089565692(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_2583052683(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::EnumInfo));

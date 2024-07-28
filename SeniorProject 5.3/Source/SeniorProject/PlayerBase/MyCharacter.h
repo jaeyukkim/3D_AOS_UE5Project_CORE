@@ -84,11 +84,12 @@ public:
 
 protected:
 
-	virtual void LSB() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-	virtual void SetCharacterSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-	virtual void Ability_RMB() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-	virtual void Ability_R() PURE_VIRTUAL(Minions::SetDefaultSetting, );;
-	virtual void Ability_Q() PURE_VIRTUAL(Minions::SetDefaultSetting, );
+	virtual void LSB() PURE_VIRTUAL(AMyCharacter::LSB, );
+	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
+	virtual void Ability_RMB() PURE_VIRTUAL(AMyCharacter::Ability_RMB, );
+	virtual void Ability_R() PURE_VIRTUAL(AMyCharacter::Ability_R, );;
+	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
+	virtual void InitAbilityActorInfo() override;
 
 
 private:
@@ -97,7 +98,6 @@ private:
 	void OnAssetLoadCompleted();
 
 
-	void InitAbilityActorInfo();
 
 private:
 

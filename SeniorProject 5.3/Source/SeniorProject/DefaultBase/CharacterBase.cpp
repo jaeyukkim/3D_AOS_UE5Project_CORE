@@ -42,6 +42,11 @@ void ACharacterBase::BeginPlay()
 	
 }
 
+void ACharacterBase::InitAbilityActorInfo()
+{
+	
+}
+
 // Called every frame
 void ACharacterBase::Tick(float DeltaTime)
 {

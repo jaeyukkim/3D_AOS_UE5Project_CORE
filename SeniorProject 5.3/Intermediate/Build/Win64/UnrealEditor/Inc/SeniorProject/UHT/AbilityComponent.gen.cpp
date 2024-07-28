@@ -92,13 +92,13 @@ void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 		{ "BlueprintType", "true" },
 		{ "ClassGroupNames", "Custom" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//Kwang \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb3 \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae\n" },
+		{ "Comment", "//Kwang \xec\xba\x90\xeb\xa6\xad\xed\x84\xb0\xec\x9d\x98 \xec\x8a\xa4\xed\x82\xac \xec\xbb\xb4\xed\x8f\xac\xeb\x84\x8c\xed\x8a\xb8\n" },
 #endif
 		{ "IncludePath", "PlayerBase/AbilityComponent.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "PlayerBase/AbilityComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Kwang \xc4\xb3\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xc5\xb3 \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xc6\xae" },
+		{ "ToolTip", "Kwang \xec\xba\x90\xeb\xa6\xad\xed\x84\xb0\xec\x9d\x98 \xec\x8a\xa4\xed\x82\xac \xec\xbb\xb4\xed\x8f\xac\xeb\x84\x8c\xed\x8a\xb8" },
 #endif
 	};
 #endif
@@ -228,9 +228,9 @@ void EmptyLinkFunctionForGeneratedCodeAbilityComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 911054969U) },
+		{ Z_Construct_UClass_UAbilityComponent, UAbilityComponent::StaticClass, TEXT("UAbilityComponent"), &Z_Registration_Info_UClass_UAbilityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityComponent), 3901214210U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_2057830977(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_964020631(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_AbilityComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

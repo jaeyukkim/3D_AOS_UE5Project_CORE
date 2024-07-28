@@ -12,7 +12,7 @@
 #include "Components/ActorComponent.h"
 #include "AbilityComponent.generated.h"
 
-//Kwang Ä³¸¯ÅÍÀÇ ½ºÅ³ ÄÄÆ÷³ÍÆ®
+//Kwang ìºë¦­í„°ì˜ ìŠ¤í‚¬ ì»´í¬ë„ŒíŠ¸
 
 UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class SENIORPROJECT_API UAbilityComponent : public UActorComponent
@@ -37,29 +37,29 @@ public:
 	void HideKwangSwords();
 
 
-	void AbilityRangeTrace();	//½ºÅ³ ¹üÀ§ ÁöÁ¤
-	void Q_Ability();	//½ºÅ³ ½ÇÇà
-	void Q_Ability_NoWep();	//°ËÀÌ ¾øÀ» ¶§ ½ºÅ³ ½ÇÇà
-	bool Ability_Q_IsActive();		//¹üÀ§ÁöÁ¤ÁßÀÎ°¡ ÆÇ´ÜÇÏ´Â °ª
-	void Attack_Q_Ability();	//	°ø°İ ¹× µ¥¹ÌÁöÃ³¸® ¼öÇà
-	void StartColdown_Q_Ability();	//Äğ´Ù¿î ½ÃÀÛ
+	void AbilityRangeTrace();	//ìŠ¤í‚¬ ë²”ìœ„ ì§€ì •
+	void Q_Ability();	//ìŠ¤í‚¬ ì‹¤í–‰
+	void Q_Ability_NoWep();	//ê²€ì´ ì—†ì„ ë•Œ ìŠ¤í‚¬ ì‹¤í–‰
+	bool Ability_Q_IsActive();		//ë²”ìœ„ì§€ì •ì¤‘ì¸ê°€ íŒë‹¨í•˜ëŠ” ê°’
+	void Attack_Q_Ability();	//	ê³µê²© ë° ë°ë¯¸ì§€ì²˜ë¦¬ ìˆ˜í–‰
+	void StartColdown_Q_Ability();	//ì¿¨ë‹¤ìš´ ì‹œì‘
 
-	void MoveToSwordLocation();	//°ËÀÌ ¾øÀ» ¶§ ±Ã±Ø±â½ÃÀü½Ã °Ë À§Ä¡·Î ÀÌµ¿
+	void MoveToSwordLocation();	//ê²€ì´ ì—†ì„ ë•Œ ê¶ê·¹ê¸°ì‹œì „ì‹œ ê²€ ìœ„ì¹˜ë¡œ ì´ë™
 
-	void R_Ability();	//±Ã±Ø±â ½ºÅ³ ½ÇÇà
-	void R_Ability_NoWep();	//°ËÀÌ ¾øÀ» ¶§ ±Ã±Ø±â ½ºÅ³
-	void Attack_R_Ability();		//°ø°İÆÇÁ¤ ¹× µ¥¹ÌÁöÃ³¸® ¼öÇà
-	void StartColdown_R_Ability();		//Äğ´Ù¿î ½ÃÀÛ
-
-
-	void RMB_Ability();		//½ºÅ³ ½ÇÇà
-	void RMB_NoWep_Ability();	//°ËÀÌ ¾øÀ» ¶§ ½ºÅ³ ½ÇÇà
-	void Attack_RMB_Ability();	//°ø°İ ÆÇÁ¤°ú µ¥¹ÌÁöÃ³¸®
-	void Attack_RMB_Ability_NoWep();	//°ËÀÌ ¾øÀ» ¶§ °ø°İÆÇÁ¤°ú µ¥¹ÌÁöÃ³¸®
-	void StartColdown_RMB_Ability();	//Äğ´Ù¿î ½ÃÀÛ
+	void R_Ability();	//ê¶ê·¹ê¸° ìŠ¤í‚¬ ì‹¤í–‰
+	void R_Ability_NoWep();	//ê²€ì´ ì—†ì„ ë•Œ ê¶ê·¹ê¸° ìŠ¤í‚¬
+	void Attack_R_Ability();		//ê³µê²©íŒì • ë° ë°ë¯¸ì§€ì²˜ë¦¬ ìˆ˜í–‰
+	void StartColdown_R_Ability();		//ì¿¨ë‹¤ìš´ ì‹œì‘
 
 
-	bool GetIsActiveRangeTrace();	//Q½ºÅ³ ¹üÀ§ÁöÁ¤ µ¥Ä®ÀÌ ÄÑÁ®ÀÖ´Â°¡ ºÎ¿ï°ª
+	void RMB_Ability();		//ìŠ¤í‚¬ ì‹¤í–‰
+	void RMB_NoWep_Ability();	//ê²€ì´ ì—†ì„ ë•Œ ìŠ¤í‚¬ ì‹¤í–‰
+	void Attack_RMB_Ability();	//ê³µê²© íŒì •ê³¼ ë°ë¯¸ì§€ì²˜ë¦¬
+	void Attack_RMB_Ability_NoWep();	//ê²€ì´ ì—†ì„ ë•Œ ê³µê²©íŒì •ê³¼ ë°ë¯¸ì§€ì²˜ë¦¬
+	void StartColdown_RMB_Ability();	//ì¿¨ë‹¤ìš´ ì‹œì‘
+
+
+	bool GetIsActiveRangeTrace();	//QìŠ¤í‚¬ ë²”ìœ„ì§€ì • ë°ì¹¼ì´ ì¼œì ¸ìˆëŠ”ê°€ ë¶€ìš¸ê°’
 
 private:
 	UPROPERTY()
@@ -122,13 +122,13 @@ private:
 	bool bIsActive_Q_Ability;
 	bool bIsActiveRangeTrace;
 
-	const float Q_Abiliry_CoolDown = 1.0f;	//Q½ºÅ³ Äğ´Ù¿î
+	const float Q_Abiliry_CoolDown = 1.0f;	//QìŠ¤í‚¬ ì¿¨ë‹¤ìš´
 	bool Is_Q_Ability_CoolDown;
 
-	const float R_Abiliry_CoolDown = 10.0f;	//R½ºÅ³ Äğ´Ù¿î
+	const float R_Abiliry_CoolDown = 10.0f;	//RìŠ¤í‚¬ ì¿¨ë‹¤ìš´
 	bool Is_R_Ability_CoolDown;
 
-	const float RMB_Abiliry_CoolDown = 4.0f;		//RMB ½ºÅ³ Äğ´Ù¿î
+	const float RMB_Abiliry_CoolDown = 4.0f;		//RMB ìŠ¤í‚¬ ì¿¨ë‹¤ìš´
 	bool Is_RMB_Ability_CoolDown;
 	
 	

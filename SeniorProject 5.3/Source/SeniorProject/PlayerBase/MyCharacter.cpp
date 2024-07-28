@@ -16,12 +16,10 @@
 #include "SeniorProject/UI/DefaultHUD.h"
 
 #include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 
-#include "MyAssetSetting/Public/CharacterAssetSetting.h"
-#include "Components/WidgetComponent.h"
+
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "InputMappingContext.h"
@@ -42,7 +40,7 @@ AMyCharacter::AMyCharacter()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 
 
-	/////////////////////////////Ä«¸Þ¶ó ¼³Á¤//////////////////////////
+	/////////////////////////////Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½//////////////////////////
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
 	SpringArm->SetupAttachment(GetCapsuleComponent());
@@ -159,7 +157,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	// Ability Info ¼­¹ö ÃÊ±âÈ­
+	// Ability Info ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 	InitAbilityActorInfo();
 	
 }
@@ -167,7 +165,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 void AMyCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	// Ability Info Å¬¶óÀÌ¾ðÆ® ÃÊ±âÈ­
+	// Ability Info Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½Ê±ï¿½È­
 	InitAbilityActorInfo();
 	
 }
@@ -177,7 +175,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
 	PlayerStateBase->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerStateBase, this);
-	//Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent())->AbilityActorInfoSet();
+	Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent())->AbilityActorInfoSet();
 	 
 	AbilitySystemComponent = PlayerStateBase->GetAbilitySystemComponent();
 	AttributeSet = PlayerStateBase->GetAttributeSet();
@@ -389,7 +387,7 @@ void AMyCharacter::AimTrace()
 	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector * 4000,
 		FQuat::Identity, ECollisionChannel::ECC_Visibility, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
-	// »ç°Å¸® ³»¿¡ ¿¡ÀÌ¹Ö µÈ ÀûÀÌ ¾ø´Ù¸é
+	// ï¿½ï¿½Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½
 	if (!HitResult.bBlockingHit)
 		return;
 
@@ -399,9 +397,9 @@ void AMyCharacter::AimTrace()
 	ThisActor = HitResult.GetActor();
 
 	/**
-	 * ¶óÀÎ Æ®·¹ÀÌ½º¿¡ µû¶ó ¼³Á¤µÊ:
+	 * ï¿½ï¿½ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:
 	 *  A. LastActor is null && ThisActor is null
-	 *		- ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+	 *		- ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 *	B. LastActor is null && ThisActor is valid
 	 *		- Highlight ThisActor
 	 *	C. LastActor is valid && ThisActor is null
@@ -409,7 +407,7 @@ void AMyCharacter::AimTrace()
 	 *	D. Both actors are valid, but LastActor != ThisActor
 	 *		- UnHighlight LastActor,  Highlight ThisActor
 	 *	E. Both actors are valid, and are the same actor
-	 *		- ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+	 *		- ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 
 
@@ -425,7 +423,7 @@ void AMyCharacter::AimTrace()
 		}
 		else
 		{
-			// Case A - both are null, ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+			// Case A - both are null, ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		}
 	}
 	else // LastActor is valid
@@ -445,7 +443,7 @@ void AMyCharacter::AimTrace()
 			}
 			else
 			{
-				// Case E - ¾Æ¹«°Íµµ ÇÏÁö ¾ÊÀ½
+				// Case E - ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			}
 		}
 	}
@@ -594,9 +592,6 @@ float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 void AMyCharacter::UpdateCharacterStat()
 {
 	
-	
-
-
 	
 }
 
