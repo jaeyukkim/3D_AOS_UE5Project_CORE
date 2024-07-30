@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-SeniorProject-0001-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\SeniorProjectEditor\DebugGame\UnrealEd\SharedPCH.UnrealEd.NonOptimized.Cpp20.InclOrderUnreal5_0.h.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Module.SeniorProject.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Default.rc2.res"
+/OUT:"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\UnrealEditor-SeniorProject-0001-Win64-DebugGame.lib"

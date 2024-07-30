@@ -26,10 +26,7 @@ struct FUIWidgetRow : public FTableRowBase
 };
 
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnHealtChangedSignature, float, NewHealth);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMaxHealtChangedSignature, float, NewMaxHealth);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnExpChangedSignature, float, NewExp);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNextExpChangedSignature, float, NewNextExp);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLevelChangedSignature, int32, NewLevel);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMessageWidgetRowSignature, FUIWidgetRow, Row);
@@ -52,16 +49,22 @@ public:
 	virtual void BindCallbacksToDependencies() override;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnHealtChangedSignature OnHealthChanged;
+		FOnAttributeChangedSignature OnHealthChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnHealtChangedSignature OnMaxHealthChanged;
+		FOnAttributeChangedSignature OnMaxHealthChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnExpChangedSignature OnExpChanged;
+		FOnAttributeChangedSignature OnManaChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnNextExpChangedSignature OnNextExpChanged;
+		FOnAttributeChangedSignature OnMaxManaChanged;
+
+	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
+		FOnAttributeChangedSignature OnExpChanged;
+
+	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
+		FOnAttributeChangedSignature OnNextExpChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
 		FOnLevelChangedSignature OnLevelChanged;
@@ -70,11 +73,6 @@ public:
 	FMessageWidgetRowSignature MessageWidgetRowDelegate;
 	
 protected:
-	void HealthChanged(const FOnAttributeChangeData& Data) const;
-	void MaxHealthChanged(const FOnAttributeChangeData& Data) const;
-	void NextExpChanged(const FOnAttributeChangeData& Data) const;
-	void ExpChanged(const FOnAttributeChangeData& Data) const;
-	void LevelChanged(const FOnAttributeChangeData& Data) const;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
 	TObjectPtr<UDataTable> MessageWidgetDataTable;

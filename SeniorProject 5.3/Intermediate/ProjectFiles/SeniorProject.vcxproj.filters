@@ -27,6 +27,9 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <None Include="..\..\Config\DefaultGameplayTags.ini">
+      <Filter>Config</Filter>
+    </None>
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
@@ -276,6 +279,12 @@
     <Filter Include="Source\SeniorProject\Interface">
       <UniqueIdentifier>{988DF46C-B201-33AD-9D2A-91F012BD48FF}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Interface\CombatInterface.cpp">
+      <Filter>Source\SeniorProject\Interface</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Interface\CombatInterface.h">
+      <Filter>Source\SeniorProject\Interface</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Interface\EnemyInterface.cpp">
       <Filter>Source\SeniorProject\Interface</Filter>
     </ClCompile>

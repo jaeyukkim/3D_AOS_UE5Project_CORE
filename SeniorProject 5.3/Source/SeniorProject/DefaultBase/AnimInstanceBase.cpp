@@ -3,6 +3,8 @@
 
 #include "AnimInstanceBase.h"
 
+#include "KismetAnimationLibrary.h"
+
 
 UAnimInstanceBase::UAnimInstanceBase()
 {
@@ -47,7 +49,7 @@ void UAnimInstanceBase::NativeUpdateAnimation(float DeltaSeconds)
 		Pitch = DeltaRotator.Pitch;
 		Yaw = DeltaRotator.Yaw;
 
-		// ¸ó½ºÅÍÀÇ ºÎµå·¯¿î ½ÃÁ¡º¯È¯
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµå·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯
 		YawDelta = FMath::FInterpTo(YawDelta,
 			(NormalizedDeltaRotator(RotationLastTick, ActorRotation).Yaw / DeltaSeconds) / 7.0,
 			DeltaSeconds, 6.0);
@@ -57,7 +59,7 @@ void UAnimInstanceBase::NativeUpdateAnimation(float DeltaSeconds)
 
 
 
-		Direction = CalculateDirection(Character->GetVelocity(), ActorRotation);	//¸ó½ºÅÍÀÇ ¹æÇâ
+		Direction = UKismetAnimationLibrary::CalculateDirection(Character->GetVelocity(), ActorRotation);	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
 		if (Character)
@@ -91,7 +93,7 @@ FRotator UAnimInstanceBase::NormalizedDeltaRotator(FRotator A, FRotator B)
 	return Delta;
 }
 
-//ÄÞº¸¾îÅÃ ÀúÀå
+//ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void UAnimInstanceBase::AnimNotify_SaveAttack()
 {
 
@@ -101,7 +103,7 @@ void UAnimInstanceBase::AnimNotify_SaveAttack()
 
 }
 
-//ÄÞº¸°ø°Ý ÃÊ±âÈ­
+//ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 void UAnimInstanceBase::AnimNotify_ResetCombo()
 {
 
@@ -110,10 +112,10 @@ void UAnimInstanceBase::AnimNotify_ResetCombo()
 		Character->ResetCombo();
 }
 
-//ÀÌµ¿Áß ¸ØÃèÀ» ¶§ ¾î´À¹æÇâÀ¸·Î ÀÌµ¿ÇÏ°í ÀÖ¾ú´ÂÁö À§Ä¡Á¤º¸ ÀúÀå
+//ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-// ¿À¸¥ ¼Õ °ø°Ý½Ã °ø°ÝÀ» ÁøÇàÇÏ´Â ¼ÕÀ» ¿À¸¥¼ÕÀ¸·Î º¯°æ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void UAnimInstanceBase::AnimNotify_RightAttack()
 {
 	if (IsValid(Character))
@@ -121,7 +123,7 @@ void UAnimInstanceBase::AnimNotify_RightAttack()
 
 }
 
-// ¿À¸¥ ¼Õ °ø°Ý½Ã °ø°ÝÀ» ÁøÇàÇÏ´Â ¼Õ À» ¿Þ¼ÕÀ¸·Î º¯°æ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ý½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 void UAnimInstanceBase::AnimNotify_LeftAttack()
 {
 	if (IsValid(Character))
@@ -129,7 +131,7 @@ void UAnimInstanceBase::AnimNotify_LeftAttack()
 
 }
 
-// µ¥¹ÌÁö Ã³¸®
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 void UAnimInstanceBase::SetDamaged()
 {
 	IsDamaged = true;

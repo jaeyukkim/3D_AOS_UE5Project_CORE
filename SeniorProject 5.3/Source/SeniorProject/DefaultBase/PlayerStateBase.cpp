@@ -2,6 +2,8 @@
 
 
 #include "PlayerStateBase.h"
+
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 
@@ -17,7 +19,18 @@ APlayerStateBase::APlayerStateBase()
 	
 }
 
+void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(APlayerStateBase, Level);
+	
+}
+
 UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
+}
+
+void APlayerStateBase::OnRep_Level(int32 OldLevel)
+{
 }

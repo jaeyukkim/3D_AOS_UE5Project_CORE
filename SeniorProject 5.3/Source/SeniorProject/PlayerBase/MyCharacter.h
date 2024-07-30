@@ -7,14 +7,16 @@
 
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/DefaultBase/CharacterBase.h"
-
-#include "Components/AudioComponent.h"
-#include "Sound/SoundCue.h"
 #include "InputActionValue.h"
 #include "MyCharacter.generated.h"
 
 
-
+class USpringArmComponent;
+class UCameraComponent;
+class UInputMappingContext;
+class UInputAction;
+class USoundCue;
+class UAudioComponent;
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase
@@ -41,29 +43,21 @@ public:
 		class UAbilityComponent* AbilityComponent;
 
 
-	UPROPERTY(VisibleAnywhere, Category = Camera)
-		USpringArmComponent* SpringArm;
+	UPROPERTY(VisibleAnywhere, Category = "Camera")
+		TObjectPtr<USpringArmComponent> SpringArm;
 
-	UPROPERTY(VisibleAnywhere, Category = Camera)
-		UCameraComponent* Camera;
+	UPROPERTY(VisibleAnywhere, Category = "Camera")
+		TObjectPtr<UCameraComponent> Camera;
 
 
 	UPROPERTY(EditAnywhere, Category = Anim)
-		UAnimMontage* StartGameAnim;
-
-
+		TObjectPtr<UAnimMontage> StartGameAnim;
+	
 
 	UPROPERTY()
 		class AMyPlayerController* PlayerController;
-
-
-
-
-
-	UPROPERTY()
-		USoundCue* FootStepAudioCue;
-	UPROPERTY()
-		UAudioComponent* AudioComponent;
+	
+	
 
 
 	UFUNCTION()
@@ -103,28 +97,28 @@ private:
 
 		
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputMappingContext* PlayerContext;
+		TObjectPtr<UInputMappingContext> PlayerContext;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* MoveAction;
+		TObjectPtr<UInputAction> MoveAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* LookAction;
+		TObjectPtr<UInputAction> LookAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* JumpAction;
+		TObjectPtr<UInputAction> JumpAction;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* LSB_Action;
+		TObjectPtr<UInputAction> LSB_Action;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* Q_Action;
+		TObjectPtr<UInputAction> Q_Action;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* RMB_Ability;
+		TObjectPtr<UInputAction> RMB_Ability;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
-		class UInputAction* R_Ability;
+		TObjectPtr<UInputAction> R_Ability;
 
 	
 
@@ -148,7 +142,7 @@ public:
 	bool bIsActive_Q_Ability;
 
 
-
+	int32 GetPlayerLevel() override;
 	
 
 

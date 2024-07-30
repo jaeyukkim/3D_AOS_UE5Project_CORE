@@ -340,6 +340,7 @@
     <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
     <None Include="..\..\Config\DefaultGame.ini"/>
+    <None Include="..\..\Config\DefaultGameplayTags.ini"/>
     <None Include="..\..\Config\DefaultInput.ini"/>
     <None Include="..\..\Config\DefaultSeniorProject.ini"/>
     <None Include="..\..\Config\HoloLens\HoloLensEngine.ini"/>
@@ -525,6 +526,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Interface\CombatInterface.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions_1)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Interface\CombatInterface.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\Interface\EnemyInterface.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_1)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_1)</ForcedIncludeFiles>

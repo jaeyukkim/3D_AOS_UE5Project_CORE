@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CharacterBase.h"
+
+#include "AbilitySystemComponent.h"
 #include "Components/WidgetComponent.h"
 #include "MovementComponentBase.h"
 #include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
@@ -14,13 +16,6 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-
-
-	Stat = CreateDefaultSubobject<UMyCharacterStatComponent>(TEXT("Stat"));
-
-
-	
-
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 
 
@@ -85,10 +80,6 @@ UAbilitySystemComponent* ACharacterBase::GetAbilitySystemComponent() const
 
 
 
-int32 ACharacterBase::GetExp() const
-{
-	return Stat->GetDropExp();
-}
 
 void ACharacterBase::AttackDirectionSetSoket(EAttackDirection AttackDirection)
 {
@@ -121,3 +112,19 @@ void ACharacterBase::UnHighlightActor()
 
 }
 
+void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const
+{
+	check(IsValid(GetAbilitySystemComponent()));
+	check(GameplayEffectClass);
+	FGameplayEffectContextHandle ContextHandle = GetAbilitySystemComponent()->MakeEffectContext();
+	ContextHandle.AddSourceObject(this);
+	const FGameplayEffectSpecHandle SpecHandle = GetAbilitySystemComponent()->MakeOutgoingSpec(GameplayEffectClass, Level, ContextHandle);
+	
+	GetAbilitySystemComponent()->ApplyGameplayEffectSpecToTarget(*SpecHandle.Data.Get(), GetAbilitySystemComponent());
+}
+
+void ACharacterBase::InitializeDefaultAttributes() const
+{
+	ApplyEffectToSelf(VitalAttributes, 1.f);
+	ApplyEffectToSelf(AdditionalAttributes, 1.f);
+}

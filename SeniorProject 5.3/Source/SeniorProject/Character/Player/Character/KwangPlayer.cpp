@@ -94,94 +94,14 @@ void AKwangPlayer::LSB()
 void AKwangPlayer::SetCharacterSetting()
 {
 
-	Tags.Add(TEXT("PLAYER"));
-	Tags.Add(TEXT("Kwang"));
-	Tags.Add(TEXT("MyCharacterClass"));
+	
 
 	AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("Ability"));
 
 
 
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh> Kwang_Mesh(
-		TEXT("SkeletalMesh'/Game/ParagonKwang/Characters/Heroes/Kwang/Meshes/Kwang_GDC.Kwang_GDC'"));
-	if (Kwang_Mesh.Succeeded())
-	{
-		GetMesh()->SetSkeletalMesh(Kwang_Mesh.Object);
-
-	}
-
-
-
-
-	static ConstructorHelpers::FClassFinder<UAnimInstance> Kwang_Anim(
-		TEXT("AnimBlueprint'/Game/BP/Animation/KwangAnim'"));
-	if (Kwang_Anim.Succeeded())
-	{
-
-		GetMesh()->SetAnimInstanceClass(Kwang_Anim.Class);
-	}
-
-
-	////////////////////////////////////////// Attack Montage////////////////////////////////////////////////
-	////////////////////////////////Kwang////////////////////////////////
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack1(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_A_Slow_Montage'"));
-
-	if (Kwang_Attack1.Succeeded())
-	{
-		AttackMontage[0] = Kwang_Attack1.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack2(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_B_Slow_Montage'"));
-
-	if (Kwang_Attack2.Succeeded())
-	{
-		AttackMontage[1] = Kwang_Attack2.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack3(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_C_Slow_Montage'"));
-
-	if (Kwang_Attack3.Succeeded())
-	{
-		AttackMontage[2] = Kwang_Attack3.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack4(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_D_Slow_Montage'"));
-
-	if (Kwang_Attack4.Succeeded())
-	{
-		AttackMontage[3] = Kwang_Attack4.Object;
-	}
-
-
-
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_GameStart(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/LevelStart_Montage'"));
-
-	if (Kwang_GameStart.Succeeded())
-	{
-		StartGameAnim = Kwang_GameStart.Object;
-	}
-
-
-	/*
-	auto DefaultSetting = GetDefault<UCharacterAssetSetting>();
-	int32 RandIndex = FMath::RandRange(0, DefaultSetting->KwangAssets.Num() - 1);
-	CharacterAssetToLoad = DefaultSetting->KwangAssets[RandIndex];
-
-	auto MyGameInstance = Cast<UMyGameInstance>(GetGameInstance());
-	if (nullptr != MyGameInstance)
-	{
-		AssetStreamingHandle = MyGameInstance->StreamableManager.RequestAsyncLoad(
-			CharacterAssetToLoad, FStreamableDelegate::CreateUObject
-			(this, &AMyCharacter::OnAssetLoadCompleted));
-	}
-	*/
+	
 
 
 	bUseControllerRotationYaw = true;

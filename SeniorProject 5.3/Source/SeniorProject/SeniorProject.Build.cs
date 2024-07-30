@@ -13,7 +13,7 @@ public class SeniorProject : ModuleRules
         "AIModule","GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput", "GameplayAbilities"});
 
 
-        PrivateDependencyModuleNames.AddRange(new string[] {"MyAssetSetting", "GameplayTasks", "GameplayTags"});
+        PrivateDependencyModuleNames.AddRange(new string[] {"MyAssetSetting", "GameplayTasks", "GameplayTags", "AnimGraphRuntime" });
 
 
         PrivateDependencyModuleNames.AddRange(new string[] { });

@@ -5,6 +5,7 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "CharacterBase.generated.h"
 
@@ -12,9 +13,10 @@ DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 
 class UAbilitySystemComponent;
 class UAttributeSet;
+class UGameplayEffect;
 
 UCLASS(abstract)
-class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface
+class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface
 {
 	GENERATED_BODY()
 
@@ -38,19 +40,6 @@ protected:
 public:	
 
 	virtual void Tick(float DeltaTime) override;
-
-
-
-
-
-	UPROPERTY(VisibleAnywhere, Category = Stat)
-		class UMyCharacterStatComponent* Stat;
-
-	void ControlHpBarVisibility();
-	void DisabledHpBar();
-	void ActiveHpBar();
-	int32 GetExp() const;
-
 	
 
 	UPROPERTY(Visibleanywhere, Category = Attacks)
@@ -124,6 +113,14 @@ public:
 
 	FOnAttackEndDelegate OnAttackEnd;
 
+protected:
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
+	TSubclassOf<UGameplayEffect> VitalAttributes;
 
-	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
+	TSubclassOf<UGameplayEffect> AdditionalAttributes;
+
+	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
+	void InitializeDefaultAttributes() const;
+
 };

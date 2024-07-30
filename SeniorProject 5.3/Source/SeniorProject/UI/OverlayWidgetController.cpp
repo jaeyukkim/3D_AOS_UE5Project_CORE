@@ -10,9 +10,11 @@ void UOverlayWidgetController::BroadcastInitialValues()
 
 	OnHealthChanged.Broadcast(GetMyAS()->GetHealth());
 	OnMaxHealthChanged.Broadcast(GetMyAS()->GetMaxHealth());
+	OnManaChanged.Broadcast(GetMyAS()->GetMana());
+	OnMaxManaChanged.Broadcast(GetMyAS()->GetMaxMana());
 	OnNextExpChanged.Broadcast(GetMyAS()->GetNextExp());
 	OnExpChanged.Broadcast(GetMyAS()->GetExp());
-	OnLevelChanged.Broadcast(GetMyAS()->GetLevel());
+	//OnLevelChanged.Broadcast(GetMyAS()->GetLevel());
 }
 
 void UOverlayWidgetController::BindCallbacksToDependencies()
@@ -20,20 +22,43 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		GetMyAS()->GetHealthAttribute()).AddUObject(this, &UOverlayWidgetController::HealthChanged);
+	GetMyAS()->GetHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnHealthChanged.Broadcast(Data.NewValue);
+	});
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		GetMyAS()->GetMaxHealthAttribute()).AddUObject(this, &UOverlayWidgetController::MaxHealthChanged);
+	GetMyAS()->GetMaxHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnMaxHealthChanged.Broadcast(Data.NewValue);
+	});
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		GetMyAS()->GetNextExpAttribute()).AddUObject(this, &UOverlayWidgetController::NextExpChanged);
+	GetMyAS()->GetMaxHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnManaChanged.Broadcast(Data.NewValue);
+	});
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		GetMyAS()->GetExpAttribute()).AddUObject(this, &UOverlayWidgetController::ExpChanged);
-
+	GetMyAS()->GetMaxHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnMaxManaChanged.Broadcast(Data.NewValue);
+	});
+	
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-		GetMyAS()->GetLevelAttribute()).AddUObject(this, &UOverlayWidgetController::LevelChanged);
+	GetMyAS()->GetNextExpAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnNextExpChanged.Broadcast(Data.NewValue);
+	});
+	
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
+	GetMyAS()->GetExpAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	{
+		OnExpChanged.Broadcast(Data.NewValue);
+	});
 
+
+	
 	Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
 	[this](const FGameplayTagContainer& AssetTags)
 	{
@@ -54,32 +79,5 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 }
 
-void UOverlayWidgetController::HealthChanged(const FOnAttributeChangeData& Data) const
-{
-	OnHealthChanged.Broadcast(Data.NewValue);
-}
-
-void UOverlayWidgetController::MaxHealthChanged(const FOnAttributeChangeData& Data) const
-{
-	OnMaxHealthChanged.Broadcast(Data.NewValue);
-}
-
-void UOverlayWidgetController::NextExpChanged(const FOnAttributeChangeData& Data) const
-{
-	OnNextExpChanged.Broadcast(Data.NewValue);
-
-}
-
-void UOverlayWidgetController::ExpChanged(const FOnAttributeChangeData& Data) const
-{
-	OnNextExpChanged.Broadcast(Data.NewValue);
-
-}
-
-void UOverlayWidgetController::LevelChanged(const FOnAttributeChangeData& Data) const
-{
-	OnLevelChanged.Broadcast(Data.NewValue);
-
-}
 
 

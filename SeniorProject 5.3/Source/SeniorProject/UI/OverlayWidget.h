@@ -21,6 +21,8 @@ class SENIORPROJECT_API UOverlayWidget : public UUserWidget
 	*/
 
 public:
+	
+	
 	UFUNCTION(BlueprintCallable)
 		void SetWidgetController(UObject* InWidgetController);
 

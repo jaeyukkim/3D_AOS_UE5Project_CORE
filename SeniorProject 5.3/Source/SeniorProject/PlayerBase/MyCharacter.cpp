@@ -10,7 +10,7 @@
 #include "SeniorProject/PlayerBase/MyAnimInstance.h"
 #include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
-#include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
+
 #include "SeniorProject/PlayerBase/AbilityComponent.h"
 
 #include "SeniorProject/UI/DefaultHUD.h"
@@ -18,11 +18,9 @@
 #include "AbilitySystemComponent.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
-
-
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-#include "InputMappingContext.h"
+
 
 
 // Sets default values
@@ -33,118 +31,28 @@ AMyCharacter::AMyCharacter()
 	
 	AttackMontage.Init(nullptr, 4);
 
-
-	////////////////////////
-
-
-	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-
-
-	/////////////////////////////ī�޶� ����//////////////////////////
-	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
-	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
-	SpringArm->SetupAttachment(GetCapsuleComponent());
-	Camera->SetupAttachment(SpringArm);
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
+	
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
+	SpringArm->SetupAttachment(GetCapsuleComponent());
 	SpringArm->TargetArmLength = 320.0f;
+	SpringArm->SetRelativeLocation(FVector(0.0f, 0.0f, 115.0f));
 	SpringArm->SetRelativeRotation(FRotator::ZeroRotator);
 	SpringArm->bUsePawnControlRotation = true;
 	SpringArm->bInheritPitch = true;
 	SpringArm->bInheritRoll = true;
 	SpringArm->bInheritYaw = true;
 	SpringArm->bDoCollisionTest = true;
-	SpringArm->SetRelativeLocation(FVector(0.0f, 0.0f, 115.0f));
 
+	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));\
+	Camera->SetupAttachment(SpringArm);
 
+	
+	
 
-	///////////////////////////sound////////////////////////////////////
-
-	static ConstructorHelpers::FObjectFinder<USoundCue> FOOT_STEP_CUE
-	(
-		TEXT("SoundCue'/Game/Sound/Kwang_FootStep_Que'")
-	);
-
-
-	if (FOOT_STEP_CUE.Succeeded())
-	{
-		FootStepAudioCue = FOOT_STEP_CUE.Object;
-	}
-
-	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponents"));
-	AudioComponent->bAutoActivate = false;
-	AudioComponent->SetupAttachment(GetMesh());
-
-
-	///////////////////////////sound////////////////////////////////////
 
 	ThisActor = nullptr;
 	LastActor = nullptr;
-	
-	static ConstructorHelpers::FObjectFinder<UInputMappingContext> MAPPING_CONTEXT(
-		TEXT("/Script/EnhancedInput.InputMappingContext'/Game/BP/Input/InputAction/IMC_PlayerContext.IMC_PlayerContext'"));
-
-	if (MAPPING_CONTEXT.Succeeded())
-	{
-		PlayerContext = MAPPING_CONTEXT.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> MOVEACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Move.IA_Move'"));
-
-	if (MOVEACTION.Succeeded())
-	{
-		MoveAction = MOVEACTION.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> LOOKACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Look.IA_Look'"));
-
-	if (LOOKACTION.Succeeded())
-	{
-		LookAction = LOOKACTION.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> JUMPACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_Jump.IA_Jump'"));
-
-	if (JUMPACTION.Succeeded())
-	{
-		JumpAction = JUMPACTION.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> LSBACTION(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_LSB.IA_LSB'"));
-
-	if (LSBACTION.Succeeded())
-	{
-		LSB_Action = LSBACTION.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_RMB(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityRMB.IA_AbilityRMB'"));
-
-	if (ACTION_RMB.Succeeded())
-	{
-		RMB_Ability = ACTION_RMB.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_Q(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityQ.IA_AbilityQ'"));
-
-	if (ACTION_Q.Succeeded())
-	{
-		Q_Action = ACTION_Q.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UInputAction> ACTION_R(
-		TEXT("/Script/EnhancedInput.InputAction'/Game/BP/Input/InputAction/InputAction/IA_AbilityR.IA_AbilityR'"));
-
-	if (ACTION_R.Succeeded())
-	{
-		R_Ability = ACTION_R.Object;
-	}
-
-	
 
 	
 
@@ -190,6 +98,7 @@ void AMyCharacter::InitAbilityActorInfo()
 			DefaultHUD->InitOverlay(MyPlayerController, PlayerStateBase, AbilitySystemComponent, AttributeSet);
 		}
 	}
+	InitializeDefaultAttributes();
 }
 
 
@@ -295,12 +204,6 @@ void AMyCharacter::PlayFootSound()
 {
 
 
-	if (AudioComponent != nullptr)
-	{
-		AudioComponent->SetSound(FootStepAudioCue);
-		AudioComponent->Play();
-	}
-
 }
 
 
@@ -369,6 +272,14 @@ bool AMyCharacter::GetBool_IsNoWep()
 
 
 	return false;
+}
+
+int32 AMyCharacter::GetPlayerLevel()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->GetPlayerLevel();
+	
 }
 
 void AMyCharacter::AimTrace()
@@ -483,12 +394,7 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 
 		EnableInput(PlayerController);
 
-		Stat->OnHPIsZero.AddLambda([this]() -> void
-			{
-				SetCharacterState(ECharacterState::DEAD);
-
-			});
-
+		
 		break;
 		
 	}

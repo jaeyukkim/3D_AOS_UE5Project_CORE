@@ -44,7 +44,7 @@ AMinions::AMinions()
 
 
 
-	Stat->SetMinionLevel(1);
+	
 	Tags.Add(TEXT("ENEMY"));
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
@@ -188,14 +188,7 @@ void AMinions::SetMinionState(ECharacterState NewState)
 		
         AIController->RunAI();
 
-
-		Stat->OnHPIsZero.AddLambda([this]() -> void
-	{
-		SetMinionState(ECharacterState::DEAD);
-
-	});
-
-
+			
 
 	break;
 

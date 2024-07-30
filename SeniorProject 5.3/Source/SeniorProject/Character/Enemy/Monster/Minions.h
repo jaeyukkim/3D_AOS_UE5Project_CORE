@@ -47,12 +47,12 @@ public:
 	const int32  MaxAttackCombo = 4;
 	UFUNCTION()
 		void Hurt(AActor* DamageCauser);
-
-
 	
 
 	UPROPERTY()
 		class AMinionAIController* AIController;
+
+	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
 
 	
 private:
@@ -64,5 +64,8 @@ private:
 protected:
 	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
 	virtual void InitAbilityActorInfo() override;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
+	int32 Level = 1;
 	
 };

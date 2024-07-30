@@ -30,6 +30,7 @@ void UOverlayWidget::BindPlayerState(AMyPlayerState* PlayerState)
 }
 */
 
+
 void UOverlayWidget::SetWidgetController(UObject* InWidgetController)
 {
 	WidgetController = InWidgetController;

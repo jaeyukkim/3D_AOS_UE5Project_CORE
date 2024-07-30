@@ -166,12 +166,20 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		}
 		return Z_Registration_Info_UScriptStruct_EffectProperties.InnerSingleton;
 	}
-	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Exp)
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_ManaRegeneration)
 	{
-		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldExp);
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldManaRegeneration);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnRep_Exp(Z_Param_Out_OldExp);
+		P_THIS->OnRep_ManaRegeneration(Z_Param_Out_OldManaRegeneration);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_HealthRegeneration)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldHealthRegeneration);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_HealthRegeneration(Z_Param_Out_OldHealthRegeneration);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_NextExp)
@@ -190,22 +198,6 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		P_THIS->OnRep_DropExp(Z_Param_Out_OldDropExp);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_AttackRating)
-	{
-		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldAttackRating);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->OnRep_AttackRating(Z_Param_Out_OldAttackRating);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Level)
-	{
-		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldLevel);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->OnRep_Level(Z_Param_Out_OldLevel);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_MaxMana)
 	{
 		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldMaxMana);
@@ -214,20 +206,76 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		P_THIS->OnRep_MaxMana(Z_Param_Out_OldMaxMana);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Mana)
-	{
-		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldMana);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->OnRep_Mana(Z_Param_Out_OldMana);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_MaxHealth)
 	{
 		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldMaxHealth);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->OnRep_MaxHealth(Z_Param_Out_OldMaxHealth);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_DropGold)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldDropGold);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_DropGold(Z_Param_Out_OldDropGold);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Exp)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldExp);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Exp(Z_Param_Out_OldExp);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_AttackDamage)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldAttackDamage);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_AttackDamage(Z_Param_Out_OldAttackDamage);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_LifeSteal)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldLifeSteal);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_LifeSteal(Z_Param_Out_OldLifeSteal);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_CriticalChance)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldCriticalChance);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_CriticalChance(Z_Param_Out_OldCriticalChance);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_MovementSpeed)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldMovementSpeed);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_MovementSpeed(Z_Param_Out_OldMovementSpeed);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Armor)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldArmor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Armor(Z_Param_Out_OldArmor);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Mana)
+	{
+		P_GET_STRUCT_REF(FGameplayAttributeData,Z_Param_Out_OldMana);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Mana(Z_Param_Out_OldMana);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UAttributeSetBase::execOnRep_Health)
@@ -242,28 +290,34 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 	{
 		UClass* Class = UAttributeSetBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "OnRep_AttackRating", &UAttributeSetBase::execOnRep_AttackRating },
+			{ "OnRep_Armor", &UAttributeSetBase::execOnRep_Armor },
+			{ "OnRep_AttackDamage", &UAttributeSetBase::execOnRep_AttackDamage },
+			{ "OnRep_CriticalChance", &UAttributeSetBase::execOnRep_CriticalChance },
 			{ "OnRep_DropExp", &UAttributeSetBase::execOnRep_DropExp },
+			{ "OnRep_DropGold", &UAttributeSetBase::execOnRep_DropGold },
 			{ "OnRep_Exp", &UAttributeSetBase::execOnRep_Exp },
 			{ "OnRep_Health", &UAttributeSetBase::execOnRep_Health },
-			{ "OnRep_Level", &UAttributeSetBase::execOnRep_Level },
+			{ "OnRep_HealthRegeneration", &UAttributeSetBase::execOnRep_HealthRegeneration },
+			{ "OnRep_LifeSteal", &UAttributeSetBase::execOnRep_LifeSteal },
 			{ "OnRep_Mana", &UAttributeSetBase::execOnRep_Mana },
+			{ "OnRep_ManaRegeneration", &UAttributeSetBase::execOnRep_ManaRegeneration },
 			{ "OnRep_MaxHealth", &UAttributeSetBase::execOnRep_MaxHealth },
 			{ "OnRep_MaxMana", &UAttributeSetBase::execOnRep_MaxMana },
+			{ "OnRep_MovementSpeed", &UAttributeSetBase::execOnRep_MovementSpeed },
 			{ "OnRep_NextExp", &UAttributeSetBase::execOnRep_NextExp },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
-	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics
 	{
-		struct AttributeSetBase_eventOnRep_AttackRating_Parms
+		struct AttributeSetBase_eventOnRep_Armor_Parms
 		{
-			FGameplayAttributeData OldAttackRating;
+			FGameplayAttributeData OldArmor;
 		};
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldAttackRating_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldArmor_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_OldAttackRating;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldArmor;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -271,28 +325,112 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::NewProp_OldAttackRating_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::NewProp_OldArmor_MetaData[] = {
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::NewProp_OldAttackRating = { "OldAttackRating", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_AttackRating_Parms, OldAttackRating), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::NewProp_OldAttackRating_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::NewProp_OldAttackRating_MetaData) }; // 2151517668
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::NewProp_OldAttackRating,
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::NewProp_OldArmor = { "OldArmor", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_Armor_Parms, OldArmor), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::NewProp_OldArmor_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::NewProp_OldArmor_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::NewProp_OldArmor,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_AttackRating", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::AttributeSetBase_eventOnRep_AttackRating_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::AttributeSetBase_eventOnRep_AttackRating_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Armor", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::AttributeSetBase_eventOnRep_Armor_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::AttributeSetBase_eventOnRep_Armor_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics
+	{
+		struct AttributeSetBase_eventOnRep_AttackDamage_Parms
+		{
+			FGameplayAttributeData OldAttackDamage;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldAttackDamage_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldAttackDamage;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::NewProp_OldAttackDamage_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::NewProp_OldAttackDamage = { "OldAttackDamage", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_AttackDamage_Parms, OldAttackDamage), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::NewProp_OldAttackDamage_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::NewProp_OldAttackDamage_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::NewProp_OldAttackDamage,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_AttackDamage", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::AttributeSetBase_eventOnRep_AttackDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::AttributeSetBase_eventOnRep_AttackDamage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics
+	{
+		struct AttributeSetBase_eventOnRep_CriticalChance_Parms
+		{
+			FGameplayAttributeData OldCriticalChance;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldCriticalChance_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldCriticalChance;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::NewProp_OldCriticalChance_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::NewProp_OldCriticalChance = { "OldCriticalChance", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_CriticalChance_Parms, OldCriticalChance), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::NewProp_OldCriticalChance_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::NewProp_OldCriticalChance_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::NewProp_OldCriticalChance,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_CriticalChance", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::AttributeSetBase_eventOnRep_CriticalChance_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::AttributeSetBase_eventOnRep_CriticalChance_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -326,7 +464,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_DropExp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::AttributeSetBase_eventOnRep_DropExp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_DropExp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::AttributeSetBase_eventOnRep_DropExp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::AttributeSetBase_eventOnRep_DropExp_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp()
@@ -335,6 +473,48 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics
+	{
+		struct AttributeSetBase_eventOnRep_DropGold_Parms
+		{
+			FGameplayAttributeData OldDropGold;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldDropGold_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldDropGold;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::NewProp_OldDropGold_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::NewProp_OldDropGold = { "OldDropGold", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_DropGold_Parms, OldDropGold), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::NewProp_OldDropGold_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::NewProp_OldDropGold_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::NewProp_OldDropGold,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_DropGold", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::AttributeSetBase_eventOnRep_DropGold_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::AttributeSetBase_eventOnRep_DropGold_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -368,7 +548,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Exp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::AttributeSetBase_eventOnRep_Exp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Exp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::AttributeSetBase_eventOnRep_Exp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp_Statics::AttributeSetBase_eventOnRep_Exp_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp()
@@ -407,10 +587,16 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* \xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f */" },
+#endif
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f" },
+#endif
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Health", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::AttributeSetBase_eventOnRep_Health_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Health", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::AttributeSetBase_eventOnRep_Health_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Health_Statics::AttributeSetBase_eventOnRep_Health_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_Health()
@@ -422,16 +608,16 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics
 	{
-		struct AttributeSetBase_eventOnRep_Level_Parms
+		struct AttributeSetBase_eventOnRep_HealthRegeneration_Parms
 		{
-			FGameplayAttributeData OldLevel;
+			FGameplayAttributeData OldHealthRegeneration;
 		};
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldLevel_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldHealthRegeneration_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_OldLevel;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldHealthRegeneration;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -439,28 +625,70 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::NewProp_OldLevel_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::NewProp_OldHealthRegeneration_MetaData[] = {
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::NewProp_OldLevel = { "OldLevel", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_Level_Parms, OldLevel), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::NewProp_OldLevel_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::NewProp_OldLevel_MetaData) }; // 2151517668
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::NewProp_OldLevel,
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::NewProp_OldHealthRegeneration = { "OldHealthRegeneration", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_HealthRegeneration_Parms, OldHealthRegeneration), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::NewProp_OldHealthRegeneration_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::NewProp_OldHealthRegeneration_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::NewProp_OldHealthRegeneration,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Level", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::AttributeSetBase_eventOnRep_Level_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::AttributeSetBase_eventOnRep_Level_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_Level()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_HealthRegeneration", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::AttributeSetBase_eventOnRep_HealthRegeneration_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::AttributeSetBase_eventOnRep_HealthRegeneration_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_Level_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics
+	{
+		struct AttributeSetBase_eventOnRep_LifeSteal_Parms
+		{
+			FGameplayAttributeData OldLifeSteal;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldLifeSteal_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldLifeSteal;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::NewProp_OldLifeSteal_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::NewProp_OldLifeSteal = { "OldLifeSteal", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_LifeSteal_Parms, OldLifeSteal), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::NewProp_OldLifeSteal_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::NewProp_OldLifeSteal_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::NewProp_OldLifeSteal,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_LifeSteal", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::AttributeSetBase_eventOnRep_LifeSteal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::AttributeSetBase_eventOnRep_LifeSteal_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -494,7 +722,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Mana", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::AttributeSetBase_eventOnRep_Mana_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_Mana", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::AttributeSetBase_eventOnRep_Mana_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::AttributeSetBase_eventOnRep_Mana_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana()
@@ -503,6 +731,48 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics
+	{
+		struct AttributeSetBase_eventOnRep_ManaRegeneration_Parms
+		{
+			FGameplayAttributeData OldManaRegeneration;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldManaRegeneration_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldManaRegeneration;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::NewProp_OldManaRegeneration_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::NewProp_OldManaRegeneration = { "OldManaRegeneration", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_ManaRegeneration_Parms, OldManaRegeneration), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::NewProp_OldManaRegeneration_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::NewProp_OldManaRegeneration_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::NewProp_OldManaRegeneration,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_ManaRegeneration", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::AttributeSetBase_eventOnRep_ManaRegeneration_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::AttributeSetBase_eventOnRep_ManaRegeneration_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -533,10 +803,16 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* \xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f \xec\xb6\x94\xea\xb0\x80 \xec\xa0\x95\xeb\xb3\xb4 */" },
+#endif
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f \xec\xb6\x94\xea\xb0\x80 \xec\xa0\x95\xeb\xb3\xb4" },
+#endif
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_MaxHealth", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::AttributeSetBase_eventOnRep_MaxHealth_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_MaxHealth", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::AttributeSetBase_eventOnRep_MaxHealth_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth_Statics::AttributeSetBase_eventOnRep_MaxHealth_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth()
@@ -578,7 +854,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_MaxMana", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::AttributeSetBase_eventOnRep_MaxMana_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_MaxMana", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::AttributeSetBase_eventOnRep_MaxMana_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::AttributeSetBase_eventOnRep_MaxMana_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana()
@@ -587,6 +863,48 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics
+	{
+		struct AttributeSetBase_eventOnRep_MovementSpeed_Parms
+		{
+			FGameplayAttributeData OldMovementSpeed;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OldMovementSpeed_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_OldMovementSpeed;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::NewProp_OldMovementSpeed_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::NewProp_OldMovementSpeed = { "OldMovementSpeed", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AttributeSetBase_eventOnRep_MovementSpeed_Parms, OldMovementSpeed), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::NewProp_OldMovementSpeed_MetaData), Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::NewProp_OldMovementSpeed_MetaData) }; // 2151517668
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::NewProp_OldMovementSpeed,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_MovementSpeed", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::AttributeSetBase_eventOnRep_MovementSpeed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::AttributeSetBase_eventOnRep_MovementSpeed_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -620,7 +938,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_NextExp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::AttributeSetBase_eventOnRep_NextExp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAttributeSetBase, nullptr, "OnRep_NextExp", nullptr, nullptr, Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::AttributeSetBase_eventOnRep_NextExp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp_Statics::AttributeSetBase_eventOnRep_NextExp_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp()
@@ -649,25 +967,49 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_Health;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mana_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Mana;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackDamage_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_AttackDamage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Exp_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Exp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Armor_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Armor;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MovementSpeed_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_MovementSpeed;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CriticalChance_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_CriticalChance;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LifeSteal_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_LifeSteal;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxHealth_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_MaxHealth;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mana_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_HealthRegeneration_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Mana;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_HealthRegeneration;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MaxMana_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_MaxMana;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Level_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ManaRegeneration_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Level;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackRating_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_AttackRating;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ManaRegeneration;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DropExp_MetaData[];
 #endif
@@ -677,9 +1019,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_NextExp;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Exp_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DropGold_MetaData[];
 #endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Exp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DropGold;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -690,15 +1032,21 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UAttributeSetBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackRating, "OnRep_AttackRating" }, // 211921657
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp, "OnRep_DropExp" }, // 3576999015
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp, "OnRep_Exp" }, // 2275077592
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Health, "OnRep_Health" }, // 1780828854
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Level, "OnRep_Level" }, // 3889009168
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana, "OnRep_Mana" }, // 580305536
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth, "OnRep_MaxHealth" }, // 2822330536
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana, "OnRep_MaxMana" }, // 2161438484
-		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp, "OnRep_NextExp" }, // 63691103
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Armor, "OnRep_Armor" }, // 1156526640
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_AttackDamage, "OnRep_AttackDamage" }, // 1895239550
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_CriticalChance, "OnRep_CriticalChance" }, // 3868887701
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_DropExp, "OnRep_DropExp" }, // 3714644735
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_DropGold, "OnRep_DropGold" }, // 592500029
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Exp, "OnRep_Exp" }, // 1983335439
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Health, "OnRep_Health" }, // 789107393
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_HealthRegeneration, "OnRep_HealthRegeneration" }, // 255143309
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_LifeSteal, "OnRep_LifeSteal" }, // 3508060982
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_Mana, "OnRep_Mana" }, // 1435699642
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_ManaRegeneration, "OnRep_ManaRegeneration" }, // 1157449113
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxHealth, "OnRep_MaxHealth" }, // 3017373318
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_MaxMana, "OnRep_MaxMana" }, // 1830751188
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_MovementSpeed, "OnRep_MovementSpeed" }, // 1257776416
+		{ &Z_Construct_UFunction_UAttributeSetBase_OnRep_NextExp, "OnRep_NextExp" }, // 1563922122
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -712,68 +1060,137 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health_MetaData[] = {
+		{ "Category", "Vital Attribute" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* \xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f */" },
+#endif
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f" },
+#endif
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health = { "Health", "OnRep_Health", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Health), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health_MetaData) }; // 2151517668
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData[] = {
-		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth = { "MaxHealth", "OnRep_MaxHealth", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, MaxHealth), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData) }; // 2151517668
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health = { "Health", "OnRep_Health", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Health), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health_MetaData) }; // 2151517668
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana_MetaData[] = {
+		{ "Category", "Vital Attribute" },
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana = { "Mana", "OnRep_Mana", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Mana), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana_MetaData) }; // 2151517668
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana = { "Mana", "OnRep_Mana", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Mana), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana_MetaData) }; // 2151517668
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackDamage_MetaData[] = {
+		{ "Category", "Vital Attribute" },
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana = { "MaxMana", "OnRep_MaxMana", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, MaxMana), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData) }; // 2151517668
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Level_MetaData[] = {
-		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Level = { "Level", "OnRep_Level", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Level), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Level_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Level_MetaData) }; // 2151517668
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackRating_MetaData[] = {
-		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackRating = { "AttackRating", "OnRep_AttackRating", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, AttackRating), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackRating_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackRating_MetaData) }; // 2151517668
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData[] = {
-		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp = { "DropExp", "OnRep_DropExp", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, DropExp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData) }; // 2151517668
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData[] = {
-		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp = { "NextExp", "OnRep_NextExp", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, NextExp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData) }; // 2151517668
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackDamage = { "AttackDamage", "OnRep_AttackDamage", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, AttackDamage), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackDamage_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackDamage_MetaData) }; // 2151517668
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp_MetaData[] = {
+		{ "Category", "Vital Attribute" },
 		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp = { "Exp", "OnRep_Exp", (EPropertyFlags)0x0010000100000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Exp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp_MetaData) }; // 2151517668
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp = { "Exp", "OnRep_Exp", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Exp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Armor_MetaData[] = {
+		{ "Category", "Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Armor = { "Armor", "OnRep_Armor", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, Armor), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Armor_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Armor_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MovementSpeed_MetaData[] = {
+		{ "Category", "Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MovementSpeed = { "MovementSpeed", "OnRep_MovementSpeed", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, MovementSpeed), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MovementSpeed_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MovementSpeed_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_CriticalChance_MetaData[] = {
+		{ "Category", "Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_CriticalChance = { "CriticalChance", "OnRep_CriticalChance", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, CriticalChance), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_CriticalChance_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_CriticalChance_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_LifeSteal_MetaData[] = {
+		{ "Category", "Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_LifeSteal = { "LifeSteal", "OnRep_LifeSteal", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, LifeSteal), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_LifeSteal_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_LifeSteal_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* \xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f \xec\xb6\x94\xea\xb0\x80 \xec\xa0\x95\xeb\xb3\xb4 */" },
+#endif
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "\xea\xb8\xb0\xeb\xb3\xb8 \xed\x95\x84\xec\x88\x98 \xec\x8a\xa4\xed\x85\x9f \xec\xb6\x94\xea\xb0\x80 \xec\xa0\x95\xeb\xb3\xb4" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth = { "MaxHealth", "OnRep_MaxHealth", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, MaxHealth), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_HealthRegeneration_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_HealthRegeneration = { "HealthRegeneration", "OnRep_HealthRegeneration", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, HealthRegeneration), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_HealthRegeneration_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_HealthRegeneration_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana = { "MaxMana", "OnRep_MaxMana", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, MaxMana), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_ManaRegeneration_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_ManaRegeneration = { "ManaRegeneration", "OnRep_ManaRegeneration", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, ManaRegeneration), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_ManaRegeneration_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_ManaRegeneration_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp = { "DropExp", "OnRep_DropExp", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, DropExp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp = { "NextExp", "OnRep_NextExp", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, NextExp), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp_MetaData) }; // 2151517668
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropGold_MetaData[] = {
+		{ "Category", "Aditional Info Vital Attribute" },
+		{ "ModuleRelativePath", "AbilitySystem/AttributeSetBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropGold = { "DropGold", "OnRep_DropGold", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttributeSetBase, DropGold), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropGold_MetaData), Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropGold_MetaData) }; // 2151517668
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAttributeSetBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Health,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Mana,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackDamage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Armor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MovementSpeed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_CriticalChance,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_LifeSteal,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxHealth,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_HealthRegeneration,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_MaxMana,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Level,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_AttackRating,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_ManaRegeneration,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropExp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_NextExp,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_Exp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttributeSetBase_Statics::NewProp_DropGold,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UAttributeSetBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UAttributeSetBase>::IsAbstract,
@@ -810,25 +1227,37 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 	void UAttributeSetBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_Health(TEXT("Health"));
-		static const FName Name_MaxHealth(TEXT("MaxHealth"));
 		static const FName Name_Mana(TEXT("Mana"));
+		static const FName Name_AttackDamage(TEXT("AttackDamage"));
+		static const FName Name_Exp(TEXT("Exp"));
+		static const FName Name_Armor(TEXT("Armor"));
+		static const FName Name_MovementSpeed(TEXT("MovementSpeed"));
+		static const FName Name_CriticalChance(TEXT("CriticalChance"));
+		static const FName Name_LifeSteal(TEXT("LifeSteal"));
+		static const FName Name_MaxHealth(TEXT("MaxHealth"));
+		static const FName Name_HealthRegeneration(TEXT("HealthRegeneration"));
 		static const FName Name_MaxMana(TEXT("MaxMana"));
-		static const FName Name_Level(TEXT("Level"));
-		static const FName Name_AttackRating(TEXT("AttackRating"));
+		static const FName Name_ManaRegeneration(TEXT("ManaRegeneration"));
 		static const FName Name_DropExp(TEXT("DropExp"));
 		static const FName Name_NextExp(TEXT("NextExp"));
-		static const FName Name_Exp(TEXT("Exp"));
+		static const FName Name_DropGold(TEXT("DropGold"));
 
 		const bool bIsValid = true
 			&& Name_Health == ClassReps[(int32)ENetFields_Private::Health].Property->GetFName()
-			&& Name_MaxHealth == ClassReps[(int32)ENetFields_Private::MaxHealth].Property->GetFName()
 			&& Name_Mana == ClassReps[(int32)ENetFields_Private::Mana].Property->GetFName()
+			&& Name_AttackDamage == ClassReps[(int32)ENetFields_Private::AttackDamage].Property->GetFName()
+			&& Name_Exp == ClassReps[(int32)ENetFields_Private::Exp].Property->GetFName()
+			&& Name_Armor == ClassReps[(int32)ENetFields_Private::Armor].Property->GetFName()
+			&& Name_MovementSpeed == ClassReps[(int32)ENetFields_Private::MovementSpeed].Property->GetFName()
+			&& Name_CriticalChance == ClassReps[(int32)ENetFields_Private::CriticalChance].Property->GetFName()
+			&& Name_LifeSteal == ClassReps[(int32)ENetFields_Private::LifeSteal].Property->GetFName()
+			&& Name_MaxHealth == ClassReps[(int32)ENetFields_Private::MaxHealth].Property->GetFName()
+			&& Name_HealthRegeneration == ClassReps[(int32)ENetFields_Private::HealthRegeneration].Property->GetFName()
 			&& Name_MaxMana == ClassReps[(int32)ENetFields_Private::MaxMana].Property->GetFName()
-			&& Name_Level == ClassReps[(int32)ENetFields_Private::Level].Property->GetFName()
-			&& Name_AttackRating == ClassReps[(int32)ENetFields_Private::AttackRating].Property->GetFName()
+			&& Name_ManaRegeneration == ClassReps[(int32)ENetFields_Private::ManaRegeneration].Property->GetFName()
 			&& Name_DropExp == ClassReps[(int32)ENetFields_Private::DropExp].Property->GetFName()
 			&& Name_NextExp == ClassReps[(int32)ENetFields_Private::NextExp].Property->GetFName()
-			&& Name_Exp == ClassReps[(int32)ENetFields_Private::Exp].Property->GetFName();
+			&& Name_DropGold == ClassReps[(int32)ENetFields_Private::DropGold].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in UAttributeSetBase"));
 	}
@@ -843,9 +1272,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FEffectProperties>()
 		{ FEffectProperties::StaticStruct, Z_Construct_UScriptStruct_FEffectProperties_Statics::NewStructOps, TEXT("EffectProperties"), &Z_Registration_Info_UScriptStruct_EffectProperties, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEffectProperties), 999623850U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAttributeSetBase, UAttributeSetBase::StaticClass, TEXT("UAttributeSetBase"), &Z_Registration_Info_UClass_UAttributeSetBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttributeSetBase), 1913261894U) },
+		{ Z_Construct_UClass_UAttributeSetBase, UAttributeSetBase::StaticClass, TEXT("UAttributeSetBase"), &Z_Registration_Info_UClass_UAttributeSetBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttributeSetBase), 3707760035U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_1812210143(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_724174628(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_Statics::ScriptStructInfo),
 		nullptr, 0);
