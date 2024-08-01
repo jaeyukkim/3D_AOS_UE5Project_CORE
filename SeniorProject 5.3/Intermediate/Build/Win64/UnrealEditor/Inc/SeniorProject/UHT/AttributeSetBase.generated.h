@@ -28,19 +28,25 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FEffectPropertie
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_58_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_58_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnRep_ManaRegeneration); \
-	DECLARE_FUNCTION(execOnRep_HealthRegeneration); \
-	DECLARE_FUNCTION(execOnRep_NextExp); \
 	DECLARE_FUNCTION(execOnRep_DropExp); \
-	DECLARE_FUNCTION(execOnRep_MaxMana); \
-	DECLARE_FUNCTION(execOnRep_MaxHealth); \
 	DECLARE_FUNCTION(execOnRep_DropGold); \
 	DECLARE_FUNCTION(execOnRep_Exp); \
-	DECLARE_FUNCTION(execOnRep_AttackDamage); \
+	DECLARE_FUNCTION(execOnRep_MagicPenetration); \
+	DECLARE_FUNCTION(execOnRep_Lethality); \
 	DECLARE_FUNCTION(execOnRep_LifeSteal); \
+	DECLARE_FUNCTION(execOnRep_ManaRegeneration); \
+	DECLARE_FUNCTION(execOnRep_HealthRegeneration); \
+	DECLARE_FUNCTION(execOnRep_MaxMana); \
+	DECLARE_FUNCTION(execOnRep_MaxHealth); \
+	DECLARE_FUNCTION(execOnRep_AttackSpeed); \
+	DECLARE_FUNCTION(execOnRep_AbilityHaste); \
 	DECLARE_FUNCTION(execOnRep_CriticalChance); \
 	DECLARE_FUNCTION(execOnRep_MovementSpeed); \
+	DECLARE_FUNCTION(execOnRep_MagicResistance); \
 	DECLARE_FUNCTION(execOnRep_Armor); \
+	DECLARE_FUNCTION(execOnRep_AbilityPower); \
+	DECLARE_FUNCTION(execOnRep_AttackDamage); \
+	DECLARE_FUNCTION(execOnRep_NextExp); \
 	DECLARE_FUNCTION(execOnRep_Mana); \
 	DECLARE_FUNCTION(execOnRep_Health);
 
@@ -58,18 +64,24 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		Health=NETFIELD_REP_START, \
 		Mana, \
+		NextExp, \
 		AttackDamage, \
-		Exp, \
+		AbilityPower, \
 		Armor, \
-		MovementSpeed, \
+		MagicResistance, \
+		AttackSpeed, \
+		AbilityHaste, \
 		CriticalChance, \
-		LifeSteal, \
+		MovementSpeed, \
 		MaxHealth, \
 		HealthRegeneration, \
 		MaxMana, \
 		ManaRegeneration, \
+		Lethality, \
+		MagicPenetration, \
+		LifeSteal, \
+		Exp, \
 		DropExp, \
-		NextExp, \
 		DropGold, \
 		NETFIELD_REP_END=DropGold	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \

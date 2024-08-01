@@ -69,6 +69,18 @@
     <Filter Include="Source\SeniorProject">
       <UniqueIdentifier>{8FD6EAE9-FBF5-3CF1-A91B-7DC1B165B31A}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AssetManagerBase.cpp">
+      <Filter>Source\SeniorProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AssetManagerBase.h">
+      <Filter>Source\SeniorProject</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\GamePlayTagsBase.cpp">
+      <Filter>Source\SeniorProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GamePlayTagsBase.h">
+      <Filter>Source\SeniorProject</Filter>
+    </ClInclude>
     <None Include="..\..\Source\SeniorProject\SeniorProject.Build.cs">
       <Filter>Source\SeniorProject</Filter>
     </None>

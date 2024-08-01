@@ -34,13 +34,13 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	});
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-	GetMyAS()->GetMaxHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	GetMyAS()->GetManaAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
 	{
 		OnManaChanged.Broadcast(Data.NewValue);
 	});
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
-	GetMyAS()->GetMaxHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
+	GetMyAS()->GetMaxManaAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
 	{
 		OnMaxManaChanged.Broadcast(Data.NewValue);
 	});

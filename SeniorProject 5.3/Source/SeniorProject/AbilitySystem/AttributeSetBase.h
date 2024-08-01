@@ -65,7 +65,7 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 
-	/* 기본 필수 스텟 */
+	/* Vital Attribute */
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_Health, Category="Vital Attribute")
 		FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Health);
@@ -73,83 +73,124 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category="Vital Attribute")
 		FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Mana);
+		
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_NextExp, Category="GamePlay Attribute")
+	FGameplayAttributeData NextExp;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
+	/* Vital Attribute */
+
 	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AttackDamage, Category="Vital Attribute")
+	
+	/* SecondaryAttributes */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AttackDamage, Category="SecondaryAttributes")
 		FGameplayAttributeData AttackDamage;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AttackDamage);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AbilityPower, Category="SecondaryAttributes")
+		FGameplayAttributeData AbilityPower;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AbilityPower);
 	
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Armor, Category="SecondaryAttributes")
+		FGameplayAttributeData Armor;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Armor);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MagicResistance, Category="SecondaryAttributes")
+		FGameplayAttributeData	MagicResistance;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MagicResistance);
+	
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AttackSpeed, Category="SecondaryAttributes")
+	FGameplayAttributeData AttackSpeed;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AttackSpeed);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AbilityHaste, Category="SecondaryAttributes")
+	FGameplayAttributeData AbilityHaste;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AbilityHaste);
+	
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalChance, Category="SecondaryAttributes")
+		FGameplayAttributeData CriticalChance;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, CriticalChance);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MovementSpeed, Category="SecondaryAttributes")
+	FGameplayAttributeData MovementSpeed;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MovementSpeed);
+	/* SecondaryAttributes */
+
+
+	
+	/* Additional Vital Attribute */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category="Additional Vital Attribute")
+		FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxHealth);
+	
+	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_HealthRegeneration, Category="Additional Vital Attribute")
+		FGameplayAttributeData HealthRegeneration;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, HealthRegeneration);
+	
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Additional Vital Attribute")
+		FGameplayAttributeData MaxMana;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
+
+	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_ManaRegeneration, Category="Additional Vital Attribute")
+		FGameplayAttributeData ManaRegeneration;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, ManaRegeneration);
+
+	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_Lethality, Category="Additional Vital Attribute")
+	FGameplayAttributeData Lethality;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Lethality);
+
+	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_MagicPenetration, Category="Additional Vital Attribute")
+	FGameplayAttributeData MagicPenetration;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MagicPenetration);
+	
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_LifeSteal, Category="Additional Vital Attribute")
+		FGameplayAttributeData LifeSteal;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, LifeSteal);
+	/* Additional Vital Attribute */
+
+	
+
+	/* GamePlay Attribute */
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Exp, Category="Vital Attribute")
 	FGameplayAttributeData Exp;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Exp);
 	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Armor, Category="Vital Attribute")
-	FGameplayAttributeData Armor;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Armor);
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MovementSpeed, Category="Vital Attribute")
-	FGameplayAttributeData MovementSpeed;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MovementSpeed);
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalChance, Category="Vital Attribute")
-	FGameplayAttributeData CriticalChance;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, CriticalChance);
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_LifeSteal, Category="Vital Attribute")
-	FGameplayAttributeData LifeSteal;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, LifeSteal);
-	
-	/* 기본 필수 스텟 */
-
-	
-	/* 기본 필수 스텟 추가 정보 */
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData MaxHealth;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxHealth);
-	
-	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_HealthRegeneration, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData HealthRegeneration;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, HealthRegeneration);
-
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData MaxMana;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
-
-	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_ManaRegeneration, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData ManaRegeneration;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, ManaRegeneration);
-	
-	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropExp, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData DropExp;
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropExp, Category="AGamePlay Attribute")
+	FGameplayAttributeData DropExp;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropExp);
-	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_NextExp, Category="Aditional Info Vital Attribute")
-		FGameplayAttributeData NextExp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
 
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropGold, Category="Aditional Info Vital Attribute")
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropGold, Category="GamePlay Attribute")
 	FGameplayAttributeData DropGold;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropGold);
-	/* 기본 필수 스텟 추가 정보 */
+	/* GamePlay Attribute */
 	
+/* -------------------------OnRep---------------------------------*/
+
 	
-	
-	
-	
-	
-	
-	
-	/* 기본 필수 스텟 */
+	/* Vital Attribute */
 	UFUNCTION()
 	void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
 	
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
+	
+	UFUNCTION()
+	void OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const;
+	/* Vital Attribute */
+
+	
+	
+	/* SecondaryAttributes */
+	UFUNCTION()
+	void OnRep_AttackDamage(const FGameplayAttributeData& OldAttackDamage) const;
+
+	UFUNCTION()
+	void OnRep_AbilityPower(const FGameplayAttributeData& OldAbilityPower) const;
 
 	UFUNCTION()
 	void OnRep_Armor(const FGameplayAttributeData& OldArmor) const;
+
+	UFUNCTION()
+	void OnRep_MagicResistance(const FGameplayAttributeData& OldMagicResistance) const;
 	
 	UFUNCTION()
 	void OnRep_MovementSpeed(const FGameplayAttributeData& OldMovementSpeed) const;
@@ -158,22 +199,15 @@ public:
 	void OnRep_CriticalChance(const FGameplayAttributeData& OldCriticalChance) const;
 
 	UFUNCTION()
-	void OnRep_LifeSteal(const FGameplayAttributeData& OldLifeSteal) const;
-	
-	UFUNCTION()
-	void OnRep_AttackDamage(const FGameplayAttributeData& OldAttackDamage) const;
-	
-	UFUNCTION()
-	void OnRep_Exp(const FGameplayAttributeData& OldExp) const;
+	void OnRep_AbilityHaste(const FGameplayAttributeData& OldAbilityHaste) const;
 
 	UFUNCTION()
-	void OnRep_DropGold(const FGameplayAttributeData& OldDropGold) const;
-	/* 기본 필수 스텟 */
-
+	void OnRep_AttackSpeed(const FGameplayAttributeData& OldAttackSpeed) const;
+	/* SecondaryAttributes */
 
 
 	
-	/* 기본 필수 스텟 추가 정보 */
+	/* Additional Vital Attribute */
 	UFUNCTION()
 	void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
 
@@ -181,17 +215,33 @@ public:
 	void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
 
 	UFUNCTION()
-	void OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const;
-	
-	UFUNCTION()
-	void OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const;
-
-	UFUNCTION()
 	void OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const;
 
 	UFUNCTION()
 	void OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const;
-	/* 기본 필수 스텟 추가 정보 */
+	
+	UFUNCTION()
+	void OnRep_LifeSteal(const FGameplayAttributeData& OldLifeSteal) const;
+	
+	UFUNCTION()
+	void OnRep_Lethality(const FGameplayAttributeData& OldLethality) const;
+	
+	UFUNCTION()
+	void OnRep_MagicPenetration(const FGameplayAttributeData& OldMagicPenetration) const;
+	/* Additional Vital Attribute */
+
+
+	
+	/* GamePlay Attribute */
+	UFUNCTION()
+	void OnRep_Exp(const FGameplayAttributeData& OldExp) const;
+	
+	UFUNCTION()
+	void OnRep_DropGold(const FGameplayAttributeData& OldDropGold) const;
+	
+	UFUNCTION()
+	void OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const;
+	/* GamePlay Attribute */
 
 
 	

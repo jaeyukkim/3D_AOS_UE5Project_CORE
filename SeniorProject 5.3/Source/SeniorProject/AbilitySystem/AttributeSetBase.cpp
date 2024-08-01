@@ -6,40 +6,49 @@
 
 UAttributeSetBase::UAttributeSetBase()
 {
-	InitHealth(50);
 	InitMaxHealth(100);
-	InitMana(50);
 	InitMaxMana(100);
-	InitExp(10);
 	InitNextExp(100);
-
-	InitAttackDamage(10);
-
 }
 
 void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
 {
-	/* 기본 필수 스텟 */
+	/* Vital Attribute */
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Mana, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AttackDamage, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Exp, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Armor, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MovementSpeed, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, CriticalChance, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, LifeSteal, COND_None, REPNOTIFY_Always);
-	/* 기본 필수 스텟 */
-
-	/* 기본 필수 스텟 추가 정보 */
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxHealth, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, HealthRegeneration, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxMana, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, ManaRegeneration, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropExp, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, NextExp, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropGold, COND_None, REPNOTIFY_Always);
+	/* Vital Attribute */
 
-	/* 기본 필수 스텟 추가 정보 */
+	
+	/* SecondaryAttributes */
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AttackDamage, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AbilityPower, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Armor, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MagicResistance, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AttackSpeed, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, AbilityHaste, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, CriticalChance, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MovementSpeed, COND_None, REPNOTIFY_Always);
+	/* SecondaryAttributes */
+
+	
+	/* Additional Vital Attribute */
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxHealth, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxMana, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, HealthRegeneration, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, ManaRegeneration, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Lethality, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MagicPenetration, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, LifeSteal, COND_None, REPNOTIFY_Always);
+	
+	/* Additional Vital Attribute */
+
+	
+	/* GamePlay Attribute */
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Exp, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropExp, COND_None, REPNOTIFY_Always);
+	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropGold, COND_None, REPNOTIFY_Always);
+	/* GamePlay Attribute */
 }
 
 void UAttributeSetBase::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
@@ -108,25 +117,48 @@ void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData
 
 	}
 }
-
+/* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Health, OldHealth);
 }
-
-void UAttributeSetBase::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MaxHealth, OldMaxHealth);
-}
-
 void UAttributeSetBase::OnRep_Mana(const FGameplayAttributeData& OldMana) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Mana, OldMana);
 }
+void UAttributeSetBase::OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, DropExp, OldDropExp);
+}
+/* OnRep_VitalAttributes */
 
+
+
+/* OnRep_SecondaryAttributes */
+void UAttributeSetBase::OnRep_AttackDamage(const FGameplayAttributeData& OldAttackDamage) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, AttackDamage, OldAttackDamage);
+}
+void UAttributeSetBase::OnRep_AbilityPower(const FGameplayAttributeData& OldAbilityPower) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, AbilityPower, OldAbilityPower);
+}
+void UAttributeSetBase::OnRep_AttackSpeed(const FGameplayAttributeData& OldAttackSpeed) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, AttackSpeed, OldAttackSpeed);
+}
+void UAttributeSetBase::OnRep_AbilityHaste(const FGameplayAttributeData& OldAbilityHaste) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, AbilityHaste, OldAbilityHaste);
+}
 void UAttributeSetBase::OnRep_Armor(const FGameplayAttributeData& OldArmor) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Armor, OldArmor);
+}
+
+void UAttributeSetBase::OnRep_MagicResistance(const FGameplayAttributeData& OldMagicResistance) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MagicResistance, OldMagicResistance)
 }
 
 void UAttributeSetBase::OnRep_MovementSpeed(const FGameplayAttributeData& OldMovementSpeed) const
@@ -138,52 +170,56 @@ void UAttributeSetBase::OnRep_CriticalChance(const FGameplayAttributeData& OldCr
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, CriticalChance, OldCriticalChance);
 }
+/* OnRep_SecondaryAttributes */
 
-void UAttributeSetBase::OnRep_LifeSteal(const FGameplayAttributeData& OldLifeSteal) const
+
+
+/* OnRep_ Additional VitalAttributes */
+void UAttributeSetBase::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, LifeSteal, OldLifeSteal);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MaxHealth, OldMaxHealth);
 }
-
 void UAttributeSetBase::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MaxMana, OldMaxMana);
 }
-
-void UAttributeSetBase::OnRep_AttackDamage(const FGameplayAttributeData& OldAttackDamage) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, AttackDamage, OldAttackDamage);
-}
-
-void UAttributeSetBase::OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, DropExp, OldDropExp);
-}
-
-void UAttributeSetBase::OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, NextExp, OldNextExp);
-}
-
 void UAttributeSetBase::OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Mana, HealthRegeneration);
 }
-
 void UAttributeSetBase::OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, ManaRegeneration, OldManaRegeneration);
 }
+void UAttributeSetBase::OnRep_LifeSteal(const FGameplayAttributeData& OldLifeSteal) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, LifeSteal, OldLifeSteal);
+}
+void UAttributeSetBase::OnRep_Lethality(const FGameplayAttributeData& OldLethality) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Lethality, OldLethality);
+}
+
+void UAttributeSetBase::OnRep_MagicPenetration(const FGameplayAttributeData& OldMagicPenetration) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MagicPenetration, OldMagicPenetration);
+}
+
+/* OnRep_ Additional VitalAttributes */
 
 
+
+/*  OnRep_ GamePlay VitalAttributes */
 void UAttributeSetBase::OnRep_Exp(const FGameplayAttributeData& OldExp) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Exp, OldExp);
 }
-
+void UAttributeSetBase::OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, NextExp, OldNextExp);
+}
 void UAttributeSetBase::OnRep_DropGold(const FGameplayAttributeData& OldDropGold) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, DropGold, OldDropGold);
 }
-
-
-
+/* GamePlay OnRep */

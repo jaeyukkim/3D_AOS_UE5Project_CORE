@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-MyAssetSetting-2180-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\SeniorProjectEditor\DebugGame\Engine\SharedPCH.Engine.NonOptimized.Cpp20.InclOrderUnreal5_0.h.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\CharacterAssetSetting.gen.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\MyAssetSetting.init.gen.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\CharacterAssetSetting.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\MyAssetSetting.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\Default.rc2.res"
+/OUT:"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\UnrealEditor-MyAssetSetting-2180-Win64-DebugGame.lib"

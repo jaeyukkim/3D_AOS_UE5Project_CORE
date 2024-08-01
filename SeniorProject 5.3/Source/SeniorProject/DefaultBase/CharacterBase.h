@@ -114,11 +114,17 @@ public:
 	FOnAttackEndDelegate OnAttackEnd;
 
 protected:
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
-	TSubclassOf<UGameplayEffect> VitalAttributes;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
+	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
+	
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
+	TSubclassOf<UGameplayEffect> DefaultAdditionalVitalAttributes;
 
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
-	TSubclassOf<UGameplayEffect> AdditionalAttributes;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
+	TSubclassOf<UGameplayEffect> DefaultSecondaryAttributes;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
+	TSubclassOf<UGameplayEffect> DefaultGamePlayAttributes;
 
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	void InitializeDefaultAttributes() const;
