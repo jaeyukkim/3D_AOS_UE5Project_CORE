@@ -74,9 +74,9 @@ public:
 		FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Mana);
 		
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_NextExp, Category="GamePlay Attribute")
-	FGameplayAttributeData NextExp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Exp, Category="Vital Attribute")
+	FGameplayAttributeData Exp;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Exp);
 	/* Vital Attribute */
 
 	
@@ -99,11 +99,11 @@ public:
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MagicResistance);
 	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AttackSpeed, Category="SecondaryAttributes")
-	FGameplayAttributeData AttackSpeed;
+		FGameplayAttributeData AttackSpeed;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AttackSpeed);
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_AbilityHaste, Category="SecondaryAttributes")
-	FGameplayAttributeData AbilityHaste;
+		FGameplayAttributeData AbilityHaste;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, AbilityHaste);
 	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CriticalChance, Category="SecondaryAttributes")
@@ -121,19 +121,23 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category="Additional Vital Attribute")
 		FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxHealth);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Additional Vital Attribute")
+	FGameplayAttributeData MaxMana;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_NextExp, Category="Additional Vital Attribute")
+	FGameplayAttributeData NextExp;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
 	
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_HealthRegeneration, Category="Additional Vital Attribute")
 		FGameplayAttributeData HealthRegeneration;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, HealthRegeneration);
-	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Additional Vital Attribute")
-		FGameplayAttributeData MaxMana;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
 
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_ManaRegeneration, Category="Additional Vital Attribute")
 		FGameplayAttributeData ManaRegeneration;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, ManaRegeneration);
-
+	
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_Lethality, Category="Additional Vital Attribute")
 	FGameplayAttributeData Lethality;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Lethality);
@@ -150,11 +154,7 @@ public:
 	
 
 	/* GamePlay Attribute */
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Exp, Category="Vital Attribute")
-	FGameplayAttributeData Exp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Exp);
-	
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropExp, Category="AGamePlay Attribute")
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropExp, Category="GamePlay Attribute")
 	FGameplayAttributeData DropExp;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropExp);
 

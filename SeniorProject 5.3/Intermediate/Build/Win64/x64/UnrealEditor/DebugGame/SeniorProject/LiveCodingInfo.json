@@ -1,12 +1,13 @@
 {
 	"RemapUnityFiles": 
 	{
-		"Module.SeniorProject.cpp.obj": [
+		"Module.SeniorProject.1.cpp.obj": [
 			"AbilityComponent.gen.cpp.obj",
 			"AbilitySystemComponentBase.gen.cpp.obj",
 			"AnimInstanceBase.gen.cpp.obj",
 			"AssetManagerBase.gen.cpp.obj",
 			"AttackTraceLoop.gen.cpp.obj",
+			"AttributeInfo.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
 			"BTDecorator_IsInAttackRange.gen.cpp.obj",
 			"BTService_Detect.gen.cpp.obj",
@@ -26,7 +27,9 @@
 			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
-			"MinionAIController.gen.cpp.obj",
+			"MinionAIController.gen.cpp.obj"
+		],
+		"Module.SeniorProject.2.cpp.obj": [
 			"MinionAnimInstance.gen.cpp.obj",
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
@@ -50,6 +53,7 @@
 			"TitleSceneController.gen.cpp.obj",
 			"AbilitySystemComponentBase.cpp.obj",
 			"AttributeSetBase.cpp.obj",
+			"AttributeInfo.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"AssetManagerBase.cpp.obj",
 			"Crunch.cpp.obj",
@@ -84,7 +88,9 @@
 			"MyCharacter.cpp.obj",
 			"MyCharacterStatComponent.cpp.obj",
 			"MyPlayerController.cpp.obj",
-			"MyPlayerState.cpp.obj",
+			"MyPlayerState.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"SeniorProject.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"DefaultWidgetController.cpp.obj",

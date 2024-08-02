@@ -36,7 +36,9 @@
 /FUNCTIONPADMIN:6
 /NATVIS:"..\Plugins\FX\Niagara\Intermediate\Build\Win64\x64\UnrealEditor\Development\Niagara\Niagara.natvis"
 "D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\SeniorProjectEditor\DebugGame\UnrealEd\SharedPCH.UnrealEd.NonOptimized.Cpp20.InclOrderUnreal5_0.h.obj"
-"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Module.SeniorProject.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Module.SeniorProject.1.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Module.SeniorProject.2.cpp.obj"
+"D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Module.SeniorProject.3.cpp.obj"
 "D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\SeniorProject\Default.rc2.res"
 "D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\MyAssetSetting\UnrealEditor-MyAssetSetting-0001-Win64-DebugGame.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\GameplayTasks\UnrealEditor-GameplayTasks.lib"

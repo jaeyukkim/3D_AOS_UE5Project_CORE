@@ -105,6 +105,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AttributeSetBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Data">
+      <UniqueIdentifier>{B6143FE6-F6B8-392F-8560-D8DDEB0CC3BC}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Data\AttributeInfo.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\AttributeInfo.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
     </Filter>

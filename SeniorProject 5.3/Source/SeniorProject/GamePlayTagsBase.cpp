@@ -14,8 +14,9 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Character Current Life Point"));
 	GameplayTags.Attributes_Vital_Mana =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Vital.Mana"),
 		FString("Character Current Mana"));
-	GameplayTags.Attributes_Vital_NextExp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Vital.NextExp"),
-		FString("Required Exp until the next level up"));
+	GameplayTags.Attributes_Vital_Exp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Vital.Exp"),
+			FString("Character Current Exp"));
+
 	/* Vital Attribute Tags*/
 
 
@@ -46,6 +47,8 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Character Max Life Point"));
 	GameplayTags.Attributes_AdditionalVital_MaxMana =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.AdditionalVital.MaxMana"),
 		FString("Character Max Mana Point"));
+	GameplayTags.Attributes_AdditionalVital_NextExp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.AdditionalVital.NextExp"),
+	FString("Required Exp until the next level up"));
 	GameplayTags.Attributes_AdditionalVital_HealthRegeneration =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.AdditionalVital.HealthRegeneration"),
 		FString("CharacterHealth Recovery Amount Per Second"));
 	GameplayTags.Attributes_AdditionalVital_ManaRegeneration =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.AdditionalVital.ManaRegeneration"),
@@ -61,8 +64,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 
 	
 	/* GamePlay Attribute Tags*/
-	GameplayTags.Attributes_GamePlay_Exp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.Exp"),
-			FString("Character Current Exp"));
+	
 	GameplayTags.Attributes_GamePlay_DropExp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.DropExp"),
 			FString("When you die, you raise your enemy's EXP by this point"));
 	GameplayTags.Attributes_GamePlay_DropGold =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.DropGold"),

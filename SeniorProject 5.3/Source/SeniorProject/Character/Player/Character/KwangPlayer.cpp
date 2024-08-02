@@ -2,6 +2,7 @@
 
 
 #include "KwangPlayer.h"
+#include "SeniorProject/PlayerBase/AbilityComponent.h"
 
 AKwangPlayer::AKwangPlayer()
 {

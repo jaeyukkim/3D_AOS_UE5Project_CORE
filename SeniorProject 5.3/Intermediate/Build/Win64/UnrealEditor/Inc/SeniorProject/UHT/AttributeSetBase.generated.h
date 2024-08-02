@@ -64,7 +64,7 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		Health=NETFIELD_REP_START, \
 		Mana, \
-		NextExp, \
+		Exp, \
 		AttackDamage, \
 		AbilityPower, \
 		Armor, \
@@ -74,13 +74,13 @@ public: \
 		CriticalChance, \
 		MovementSpeed, \
 		MaxHealth, \
-		HealthRegeneration, \
 		MaxMana, \
+		NextExp, \
+		HealthRegeneration, \
 		ManaRegeneration, \
 		Lethality, \
 		MagicPenetration, \
 		LifeSteal, \
-		Exp, \
 		DropExp, \
 		DropGold, \
 		NETFIELD_REP_END=DropGold	}; \
