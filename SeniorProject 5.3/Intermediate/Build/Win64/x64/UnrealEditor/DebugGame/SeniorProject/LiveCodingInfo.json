@@ -8,7 +8,9 @@
 			"AssetManagerBase.gen.cpp.obj",
 			"AttackTraceLoop.gen.cpp.obj",
 			"AttributeInfo.gen.cpp.obj",
+			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
+			"BlueprintFunctionLibraryBase.gen.cpp.obj",
 			"BTDecorator_IsInAttackRange.gen.cpp.obj",
 			"BTService_Detect.gen.cpp.obj",
 			"BTTask_Attack.gen.cpp.obj",
@@ -24,12 +26,12 @@
 			"EnemyInterface.gen.cpp.obj",
 			"KallariAI.gen.cpp.obj",
 			"Kwang.gen.cpp.obj",
-			"KwangPlayer.gen.cpp.obj",
-			"LaneSuper.gen.cpp.obj",
-			"Melee.gen.cpp.obj",
-			"MinionAIController.gen.cpp.obj"
+			"KwangPlayer.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"LaneSuper.gen.cpp.obj",
+			"Melee.gen.cpp.obj",
+			"MinionAIController.gen.cpp.obj",
 			"MinionAnimInstance.gen.cpp.obj",
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
@@ -53,6 +55,7 @@
 			"TitleSceneController.gen.cpp.obj",
 			"AbilitySystemComponentBase.cpp.obj",
 			"AttributeSetBase.cpp.obj",
+			"BlueprintFunctionLibraryBase.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"AssetManagerBase.cpp.obj",
@@ -83,15 +86,16 @@
 			"Stage1Potal.cpp.obj",
 			"CombatInterface.cpp.obj",
 			"EnemyInterface.cpp.obj",
-			"AbilityComponent.cpp.obj",
+			"AbilityComponent.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"MyAnimInstance.cpp.obj",
 			"MyCharacter.cpp.obj",
 			"MyCharacterStatComponent.cpp.obj",
 			"MyPlayerController.cpp.obj",
-			"MyPlayerState.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"MyPlayerState.cpp.obj",
 			"SeniorProject.cpp.obj",
+			"AttributeMenuWidgetController.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"DefaultWidgetController.cpp.obj",
 			"MyCharacterWidget.cpp.obj",

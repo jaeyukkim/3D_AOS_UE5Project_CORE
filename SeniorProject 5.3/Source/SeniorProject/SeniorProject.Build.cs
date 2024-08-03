@@ -1,7 +1,7 @@
 
 
 using UnrealBuildTool;
-using UnrealBuildTool.Rules;
+
 
 public class SeniorProject : ModuleRules
 {
@@ -13,7 +13,7 @@ public class SeniorProject : ModuleRules
         "AIModule","GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput", "GameplayAbilities"});
 
 
-        PrivateDependencyModuleNames.AddRange(new string[] {"MyAssetSetting", "GameplayTasks", "GameplayTags", "AnimGraphRuntime" });
+        PrivateDependencyModuleNames.AddRange(new string[] {"GameplayTasks", "GameplayTags", "AnimGraphRuntime"});
 
 
         PrivateDependencyModuleNames.AddRange(new string[] { });

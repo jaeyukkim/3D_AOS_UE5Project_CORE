@@ -3,9 +3,31 @@
 
 #include "AttributeSetBase.h"
 #include "Net/UnrealNetwork.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 
 UAttributeSetBase::UAttributeSetBase()
 {
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+
+	/* SecondaryAttributes */
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_AttackDamage, GetAttackDamageAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_AbilityPower, GetAbilityPowerAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_Armor, GetArmorAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_MagicResistance, GetMagicResistanceAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_AttackSpeed, GetAttackSpeedAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_AbilityHaste, GetAbilityHasteAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_CriticalChance, GetCriticalChanceAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_MovementSpeed, GetMovementSpeedAttribute);
+	/* SecondaryAttributes */
+
+	/* Additional Vital Attribute */
+	TagsToAttributes.Add(GameplayTags.Attributes_AdditionalVital_HealthRegeneration, GetHealthRegenerationAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_AdditionalVital_ManaRegeneration, GetManaRegenerationAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_AdditionalVital_Lethality, GetLethalityAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_AdditionalVital_MagicPenetration, GetMagicPenetrationAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_AdditionalVital_LifeSteal, GetLifeStealAttribute);
+	/* Additional Vital Attribute */
+
 	
 }
 
@@ -15,7 +37,6 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Mana, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Exp, COND_None, REPNOTIFY_Always);
-
 	/* Vital Attribute */
 
 	
@@ -40,7 +61,6 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Lethality, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MagicPenetration, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, LifeSteal, COND_None, REPNOTIFY_Always);
-	
 	/* Additional Vital Attribute */
 
 	
@@ -203,7 +223,6 @@ void UAttributeSetBase::OnRep_Lethality(const FGameplayAttributeData& OldLethali
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Lethality, OldLethality);
 }
-
 void UAttributeSetBase::OnRep_MagicPenetration(const FGameplayAttributeData& OldMagicPenetration) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MagicPenetration, OldMagicPenetration);

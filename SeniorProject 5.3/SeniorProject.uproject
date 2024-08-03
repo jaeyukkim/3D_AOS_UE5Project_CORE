@@ -12,20 +12,11 @@
 				"Engine",
 				"AIModule",
 				"UMG",
-				"MyAssetSetting",
 				"GameplayAbilities",
 				"CoreUObject"
 			]
-		},
-		{
-			"Name": "MyAssetSetting",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault",
-			"AdditionalDependencies": [
-				"Engine",
-				"CoreUObject"
-			]
 		}
+	
 	],
 	"Plugins": [
 		{

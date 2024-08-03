@@ -6,6 +6,7 @@
 #include "MyCharacterStatComponent.h"
 #include "SeniorProject/GameSetting/MySaveGame.h"
 
+
 AMyPlayerState::AMyPlayerState()
 {
 	CharacterLevel = 1;

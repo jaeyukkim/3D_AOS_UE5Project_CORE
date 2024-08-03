@@ -5,6 +5,7 @@
 #include "OverlayWidget.h"
 #include "OverlayWidgetController.h"
 #include "AbilitySystemComponent.h"
+#include "AttributeMenuWidgetController.h"
 
 UOverlayWidgetController* ADefaultHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
 {
@@ -15,10 +16,21 @@ UOverlayWidgetController* ADefaultHUD::GetOverlayWidgetController(const FWidgetC
 		OverlayWidgetController->SetWidgetControllerParams(WCParams);
 		OverlayWidgetController->BindCallbacksToDependencies();
 
-
 	}
 	return OverlayWidgetController;
 	
+}
+
+UAttributeMenuWidgetController* ADefaultHUD::GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams)
+{
+	if (AttributeMenuWidgetController == nullptr)
+	{
+		AttributeMenuWidgetController = NewObject<UAttributeMenuWidgetController>(this, AttributeMenuWidgetControllerClass);
+		AttributeMenuWidgetController->SetWidgetControllerParams(WCParams);
+		AttributeMenuWidgetController->BindCallbacksToDependencies();
+
+	}
+	return AttributeMenuWidgetController;
 }
 
 void ADefaultHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)

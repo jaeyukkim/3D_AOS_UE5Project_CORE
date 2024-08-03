@@ -16,6 +16,13 @@
  	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
  	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
+
+//	typedef is specific to the FGameplayAttribute() signature, but TStaticFunPtr is generic to any signature chosen
+//	typedef TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FAttributeFuncPtr;
+// StaticFunction 함수 포인터와 델리게이트 지정
+template<class T>
+using TStaticFuncPtr = typename TBaseStaticDelegateInstance<T, FDefaultDelegateUserPolicy>::FFuncPtr;
+
 USTRUCT()
 struct FEffectProperties
 {
@@ -65,6 +72,11 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 
+	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAttributes;
+
+
+
+	
 	/* Vital Attribute */
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_Health, Category="Vital Attribute")
 		FGameplayAttributeData Health;

@@ -3,7 +3,7 @@
 
 
 using UnrealBuildTool;
-using System.Collections.Generic;
+
 
 public class SeniorProjectEditorTarget : TargetRules
 {
@@ -12,7 +12,7 @@ public class SeniorProjectEditorTarget : TargetRules
         Type = TargetType.Editor;
         DefaultBuildSettings = BuildSettingsVersion.V4;
 
-        ExtraModuleNames.AddRange(new string[] { "SeniorProject", "MyAssetSetting" });
+        ExtraModuleNames.AddRange(new string[] { "SeniorProject" });
  
 
     }

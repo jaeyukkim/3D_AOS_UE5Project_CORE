@@ -42,30 +42,6 @@
     <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
       <Filter>Config\HoloLens</Filter>
     </None>
-    <Filter Include="Source\MyAssetSetting">
-      <UniqueIdentifier>{05FBD2B7-2AF6-3143-922E-E56BADCED03B}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Source\MyAssetSetting\MyAssetSetting.Build.cs">
-      <Filter>Source\MyAssetSetting</Filter>
-    </None>
-    <Filter Include="Source\MyAssetSetting\Private">
-      <UniqueIdentifier>{B7BBCBE3-2E7E-3C23-92D3-6E624E2384BD}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\MyAssetSetting\Private\CharacterAssetSetting.cpp">
-      <Filter>Source\MyAssetSetting\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\MyAssetSetting\Private\MyAssetSetting.cpp">
-      <Filter>Source\MyAssetSetting\Private</Filter>
-    </ClCompile>
-    <Filter Include="Source\MyAssetSetting\Public">
-      <UniqueIdentifier>{1A13E220-45D9-30E0-9049-1A3CD7AC896B}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Source\MyAssetSetting\Public\CharacterAssetSetting.h">
-      <Filter>Source\MyAssetSetting\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MyAssetSetting\Public\MyAssetSetting.h">
-      <Filter>Source\MyAssetSetting\Public</Filter>
-    </ClInclude>
     <Filter Include="Source\SeniorProject">
       <UniqueIdentifier>{8FD6EAE9-FBF5-3CF1-A91B-7DC1B165B31A}</UniqueIdentifier>
     </Filter>
@@ -103,6 +79,12 @@
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AttributeSetBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\BlueprintFunctionLibraryBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\BlueprintFunctionLibraryBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\Data">
@@ -354,6 +336,12 @@
     <Filter Include="Source\SeniorProject\UI">
       <UniqueIdentifier>{0774CF93-CC69-3E8D-8376-09C009D5B38F}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\AttributeMenuWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\AttributeMenuWidgetController.h">
+      <Filter>Source\SeniorProject\UI</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\UI\DefaultHUD.cpp">
       <Filter>Source\SeniorProject\UI</Filter>
     </ClCompile>

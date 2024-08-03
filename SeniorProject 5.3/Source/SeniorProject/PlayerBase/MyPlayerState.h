@@ -6,6 +6,8 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
+#include "AttributeSet.h"
+#include "AbilitySystemComponent.h"
 #include "MyPlayerState.generated.h"
 
 /**

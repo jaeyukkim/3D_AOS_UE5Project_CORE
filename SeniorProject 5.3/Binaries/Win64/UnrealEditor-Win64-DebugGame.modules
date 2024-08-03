@@ -2,7 +2,6 @@
 	"BuildId": "27405482",
 	"Modules": 
 	{
-		"MyAssetSetting": "UnrealEditor-MyAssetSetting-0003-Win64-DebugGame.dll",
-		"SeniorProject": "UnrealEditor-SeniorProject-0003-Win64-DebugGame.dll"
+		"SeniorProject": "UnrealEditor-SeniorProject-0002-Win64-DebugGame.dll"
 	}
 }
