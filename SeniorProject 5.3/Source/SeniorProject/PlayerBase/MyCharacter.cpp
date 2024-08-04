@@ -20,7 +20,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-
+#include "SeniorProject/UI/OverlayWidgetController.h"
 
 
 // Sets default values
@@ -166,6 +166,7 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
 	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
 	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);
+	EnhancedInputComponent->BindAction(ShowAdditionalAttribute, ETriggerEvent::Triggered, this, &AMyCharacter::ShowAdditionalAttributeMenu);
 
 
 
@@ -199,6 +200,30 @@ void AMyCharacter::Look(const FInputActionValue& InputActionValue)
 
 }
 
+void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue)
+{
+	bool bIsPressed = InputActionValue.Get<bool>();
+	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
+	{
+		ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD());
+		UOverlayWidgetController* OverlayWidgetController = DefaultHUD->GetOverlayWidgetController(FWidgetControllerParams());
+
+		if (bIsPressed)
+		{
+			// C 키가 눌렸을 때
+			OverlayWidgetController->OnAdditionalAttributeMenu.Broadcast(true);
+		}
+		else
+		{
+			// C 키가 떼어졌을 때
+			OverlayWidgetController->OnAdditionalAttributeMenu.Broadcast(false);
+
+		}
+	}
+
+	
+}
+
 
 void AMyCharacter::PlayFootSound()
 {
@@ -223,6 +248,7 @@ void AMyCharacter::Attack()
 {
 	
 	
+
 	switch (AttackCount)
 	{
 	case 0:

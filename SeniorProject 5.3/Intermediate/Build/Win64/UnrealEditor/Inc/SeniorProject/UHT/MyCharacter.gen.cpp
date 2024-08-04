@@ -168,6 +168,10 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_R_Ability;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShowAdditionalAttribute_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ShowAdditionalAttribute;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LastActor_MetaData[];
 #endif
 		static const UECodeGen_Private::FInterfacePropertyParams NewProp_LastActor;
@@ -290,6 +294,13 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_R_Ability = { "R_Ability", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, R_Ability), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_R_Ability_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_R_Ability_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute_MetaData[] = {
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute = { "ShowAdditionalAttribute", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, ShowAdditionalAttribute), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_LastActor_MetaData[] = {
 		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
 	};
@@ -315,6 +326,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Q_Action,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_RMB_Ability,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_R_Ability,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_LastActor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_ThisActor,
 	};
@@ -356,9 +368,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 2888481370U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 2610931199U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_1126347331(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_2133716455(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

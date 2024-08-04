@@ -31,6 +31,10 @@ SENIORPROJECT_API void FOnAttributeChangedSignature_DelegateWrapper(const FMulti
 SENIORPROJECT_API void FOnLevelChangedSignature_DelegateWrapper(const FMulticastScriptDelegate& OnLevelChangedSignature, int32 NewLevel);
 
 
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_31_DELEGATE \
+SENIORPROJECT_API void FOnAdditionalAttributeMenuSignature_DelegateWrapper(const FMulticastScriptDelegate& OnAdditionalAttributeMenuSignature, bool bIsActive);
+
+
 #define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_32_DELEGATE \
 SENIORPROJECT_API void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& MessageWidgetRowSignature, FUIWidgetRow Row);
 

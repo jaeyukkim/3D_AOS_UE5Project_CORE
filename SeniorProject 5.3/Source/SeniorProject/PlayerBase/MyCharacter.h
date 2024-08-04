@@ -119,12 +119,18 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> R_Ability;
+	
+	UPROPERTY(EditAnywhere, Category = "Input")
+		TObjectPtr<UInputAction> ShowAdditionalAttribute;
 
 	
 
 
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
+
+	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);
+	
 
 public:
 	

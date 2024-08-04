@@ -28,7 +28,7 @@ struct FUIWidgetRow : public FTableRowBase
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLevelChangedSignature, int32, NewLevel);
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAdditionalAttributeMenuSignature, bool, bIsActive);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMessageWidgetRowSignature, FUIWidgetRow, Row);
 
 class UOverlayWidget;
@@ -69,8 +69,11 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
 		FOnLevelChangedSignature OnLevelChanged;
 
+	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
+		FOnAdditionalAttributeMenuSignature OnAdditionalAttributeMenu;
+	
 	UPROPERTY(BlueprintAssignable, Category="GAS|Messages")
-	FMessageWidgetRowSignature MessageWidgetRowDelegate;
+		FMessageWidgetRowSignature MessageWidgetRowDelegate;
 	
 protected:
 
