@@ -22,13 +22,13 @@
 			"DeadZone.gen.cpp.obj",
 			"DefaultHUD.gen.cpp.obj",
 			"DefaultWidgetController.gen.cpp.obj",
-			"EffectActorBase.gen.cpp.obj",
+			"EffectActorBase.gen.cpp.obj"
+		],
+		"Module.SeniorProject.2.cpp.obj": [
 			"EnemyInterface.gen.cpp.obj",
 			"KallariAI.gen.cpp.obj",
 			"Kwang.gen.cpp.obj",
-			"KwangPlayer.gen.cpp.obj"
-		],
-		"Module.SeniorProject.2.cpp.obj": [
+			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
 			"MinionAIController.gen.cpp.obj",
@@ -78,7 +78,9 @@
 			"BTTask_Attack.cpp.obj",
 			"BTTask_FindPatrolPos.cpp.obj",
 			"BTTask_TurnToTarget.cpp.obj",
-			"GamePlayTagsBase.cpp.obj",
+			"GamePlayTagsBase.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"DeadZone.cpp.obj",
 			"MyGameInstance.cpp.obj",
 			"MyGameModeBase.cpp.obj",
@@ -86,9 +88,7 @@
 			"Stage1Potal.cpp.obj",
 			"CombatInterface.cpp.obj",
 			"EnemyInterface.cpp.obj",
-			"AbilityComponent.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"AbilityComponent.cpp.obj",
 			"MyAnimInstance.cpp.obj",
 			"MyCharacter.cpp.obj",
 			"MyCharacterStatComponent.cpp.obj",

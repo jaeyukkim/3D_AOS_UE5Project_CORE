@@ -221,8 +221,8 @@ void AMyCharacter::OnAssetLoadCompleted()
 
 void AMyCharacter::Attack()
 {
-
-
+	
+	
 	switch (AttackCount)
 	{
 	case 0:

@@ -519,21 +519,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaultwidgetcontroller.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\effectactorbase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\enemyinterface.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kallariai.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\enemy\\monster\\kallariai.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kallariai.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwang.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\enemy\\monster\\kwang.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwang.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwangplayer.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\player\\character\\kwangplayer.h",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\playerbase\\mycharacter.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputactionvalue.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputactionvalue.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mycharacter.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwangplayer.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
