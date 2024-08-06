@@ -48,6 +48,15 @@ public:
 	/* GamePlay Attribute Tags*/
 
 
+	/* Input Tag */
+	FGameplayTag Input_LMB;
+	FGameplayTag Input_RMB;
+	FGameplayTag Input_Q;
+	FGameplayTag Input_R;
+	/* Input Tag */
+
+
+
 protected:
 private:
 	static FGameplayTagsBase GameplayTags;

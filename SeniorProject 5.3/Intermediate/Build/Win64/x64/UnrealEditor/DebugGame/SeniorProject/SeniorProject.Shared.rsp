@@ -265,6 +265,8 @@
 /I "..\Plugins\Runtime\GameplayAbilities\Source\GameplayAbilities\Public"
 /I "..\Plugins\Runtime\DataRegistry\Intermediate\Build\Win64\UnrealEditor\Inc\DataRegistry\UHT"
 /I "..\Plugins\Runtime\DataRegistry\Source\DataRegistry\Public"
+/I "..\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Inc\EnhancedInput\UHT"
+/I "..\Plugins\EnhancedInput\Source\EnhancedInput\Public"
 /I "D:\Capstone-project\SeniorProject 5.3\Intermediate\Build\Win64\UnrealEditor\Inc\SeniorProject\UHT"
 /I "D:\Capstone-project\SeniorProject 5.3\Source"
 /I "..\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\Niagara\UHT"
@@ -278,8 +280,6 @@
 /I "..\Plugins\FX\Niagara\Intermediate\Build\Win64\UnrealEditor\Inc\NiagaraShader\UHT"
 /I "..\Plugins\FX\Niagara\Source\NiagaraShader\Public"
 /I "..\Plugins\FX\Niagara\Source\NiagaraVertexFactories\Public"
-/I "..\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Inc\EnhancedInput\UHT"
-/I "..\Plugins\EnhancedInput\Source\EnhancedInput\Public"
 /external:W0
 /external:I "ThirdParty\mimalloc\include"
 /external:I "ThirdParty\LibTiff\Source\Win64"

@@ -13,10 +13,10 @@
 				"AIModule",
 				"UMG",
 				"GameplayAbilities",
-				"CoreUObject"
+				"CoreUObject",
+				"EnhancedInput"
 			]
 		}
-	
 	],
 	"Plugins": [
 		{

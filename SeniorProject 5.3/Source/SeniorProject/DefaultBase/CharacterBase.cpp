@@ -5,9 +5,9 @@
 #include "CharacterBase.h"
 
 #include "AbilitySystemComponent.h"
-#include "Components/WidgetComponent.h"
 #include "MovementComponentBase.h"
-#include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
+
 
 
 // Sets default values
@@ -130,4 +130,12 @@ void ACharacterBase::InitializeDefaultAttributes() const
 	ApplyEffectToSelf(DefaultSecondaryAttributes, 1.f);
 	ApplyEffectToSelf(DefaultGamePlayAttributes, 1.f);
 
+}
+
+void ACharacterBase::AddCharacterAbility()
+{
+	if(!HasAuthority()) return;
+
+	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
+	ASCBase->AddCharacterAbility(GameplayAbility);
 }

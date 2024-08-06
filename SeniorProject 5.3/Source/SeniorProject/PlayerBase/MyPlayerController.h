@@ -5,6 +5,7 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerController.h"
+#include "GameplayTagContainer.h"
 #include "MyPlayerController.generated.h"
 
 
@@ -12,6 +13,8 @@
 /**
  * 
  */
+class UInputActionData;
+
 UCLASS()
 class SENIORPROJECT_API AMyPlayerController : public APlayerController
 {
@@ -26,10 +29,7 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-
-	
-
-
+	virtual void SetupInputComponent() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 		TSubclassOf<class UMyMenuWidget> MenuWidgetClass;
@@ -47,12 +47,14 @@ private:
 
 
 	FInputModeGameOnly GameInputMode;
-
-
 	FInputModeUIOnly UIInputMode;
 
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	TObjectPtr<UInputActionData> InputData;
 
-
+	void AbilityInputTagPressed(FGameplayTag InputTag);
+	void AbilityInputTagReleased(FGameplayTag InputTag);
+	void AbilityInputTagHeld(FGameplayTag InputTag);
 
 	void OnGamePause();
 };

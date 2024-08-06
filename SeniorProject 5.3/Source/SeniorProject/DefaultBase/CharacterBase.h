@@ -14,6 +14,8 @@ DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
 class UAbilitySystemComponent;
 class UAttributeSet;
 class UGameplayEffect;
+class UGameplayAbility;
+
 
 UCLASS(abstract)
 class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface
@@ -128,5 +130,9 @@ protected:
 
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	void InitializeDefaultAttributes() const;
-
+	void AddCharacterAbility();
+	
+private:
+	UPROPERTY(EditAnywhere, Category="Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
 };

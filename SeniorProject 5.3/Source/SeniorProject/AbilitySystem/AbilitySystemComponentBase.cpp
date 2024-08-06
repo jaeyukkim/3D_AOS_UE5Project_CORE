@@ -18,8 +18,18 @@ void UAbilitySystemComponentBase::AbilityActorInfoSet()
 	
 }
 
+void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility)
+{
+	for(TSubclassOf<UGameplayAbility> ability : CharacterAbility)
+	{
+		FGameplayAbilitySpec AbilitySpe = FGameplayAbilitySpec(ability, 1);
+		//GiveAbility(AbilitySpe);
+		GiveAbilityAndActivateOnce(AbilitySpe);
+	}
+}
+
 void UAbilitySystemComponentBase::EffectApplied(UAbilitySystemComponent* AbilitySystemComponent,
-	const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
+                                                const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
 	FGameplayTagContainer TagContainer;
 	//EffectSpec.GetAllAssetTags(TagContainer);

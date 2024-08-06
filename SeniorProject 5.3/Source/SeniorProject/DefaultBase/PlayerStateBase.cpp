@@ -34,3 +34,4 @@ UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const
 void APlayerStateBase::OnRep_Level(int32 OldLevel)
 {
 }
+

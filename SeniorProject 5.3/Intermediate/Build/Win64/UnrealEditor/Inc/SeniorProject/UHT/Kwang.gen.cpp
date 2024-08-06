@@ -83,9 +83,9 @@ void EmptyLinkFunctionForGeneratedCodeKwang() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AKwang, AKwang::StaticClass, TEXT("AKwang"), &Z_Registration_Info_UClass_AKwang, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwang), 951612901U) },
+		{ Z_Construct_UClass_AKwang, AKwang::StaticClass, TEXT("AKwang"), &Z_Registration_Info_UClass_AKwang, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwang), 2102181480U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_1269073591(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_3815633643(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

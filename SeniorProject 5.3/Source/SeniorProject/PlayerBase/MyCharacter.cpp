@@ -67,6 +67,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 
 	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
+	AddCharacterAbility();
 	
 }
 

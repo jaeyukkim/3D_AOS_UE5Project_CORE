@@ -71,4 +71,17 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 			FString("When you die, you raise your enemy's Gold by this point"));
 	/* GamePlay Attribute Tags*/
 
+	/* Input Tag */
+	GameplayTags.Input_LMB =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.LMB"),
+			FString("Input Tag for Left Mouse Button"));
+	GameplayTags.Input_RMB =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.RMB"),
+			FString("Input Tag for Right Mouse Button"));
+	GameplayTags.Input_Q =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.Q"),
+			FString("Input Tag for Q Keyboard Button"));
+	GameplayTags.Input_R =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.R"),
+			FString("Input Tag for R Keyboard Button"));
+	
+	/* Input Tag */
+
+
 }

@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerController_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerState_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UInputActionData_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UMyMenuWidget_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
@@ -43,6 +44,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MyPlayerState_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MyPlayerState;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputData_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_InputData;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -54,9 +59,6 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "HideCategories", "Collision Rendering Transformation" },
 		{ "IncludePath", "PlayerBase/MyPlayerController.h" },
 		{ "ModuleRelativePath", "PlayerBase/MyPlayerController.h" },
@@ -84,10 +86,18 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState = { "MyPlayerState", nullptr, (EPropertyFlags)0x0040000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, MyPlayerState), Z_Construct_UClass_AMyPlayerState_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData_MetaData[] = {
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "PlayerBase/MyPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData = { "InputData", nullptr, (EPropertyFlags)0x0044000000010001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, InputData), Z_Construct_UClass_UInputActionData_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyPlayerController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MenuWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_MyPlayerState,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMyPlayerController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMyPlayerController>::IsAbstract,
@@ -127,9 +137,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 1574444419U) },
+		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 1138349503U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_2334390140(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_2176621427(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

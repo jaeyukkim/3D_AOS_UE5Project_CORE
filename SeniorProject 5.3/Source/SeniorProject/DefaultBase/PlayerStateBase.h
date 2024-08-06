@@ -10,7 +10,6 @@
 
 class UAbilitySystemComponent;
 class UAttributeSet;
-
 /**
  * 
  */
@@ -38,5 +37,9 @@ protected:
 	
 	UFUNCTION()
 	void OnRep_Level(int32 OldLevel);
+
+	
+private:
+	
 
 };

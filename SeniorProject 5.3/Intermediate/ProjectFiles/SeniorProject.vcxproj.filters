@@ -87,6 +87,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\BlueprintFunctionLibraryBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\GameplayAbilityBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\GameplayAbilityBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\Data">
       <UniqueIdentifier>{B6143FE6-F6B8-392F-8560-D8DDEB0CC3BC}</UniqueIdentifier>
     </Filter>
@@ -278,6 +284,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\Input">
+      <UniqueIdentifier>{4E8E1C17-8CDD-3D52-BA83-96FB2DACF31C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Input\InputActionData.cpp">
+      <Filter>Source\SeniorProject\Input</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Input\InputActionData.h">
+      <Filter>Source\SeniorProject\Input</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Input\InputComponentBase.cpp">
+      <Filter>Source\SeniorProject\Input</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Input\InputComponentBase.h">
+      <Filter>Source\SeniorProject\Input</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Interface">
       <UniqueIdentifier>{988DF46C-B201-33AD-9D2A-91F012BD48FF}</UniqueIdentifier>

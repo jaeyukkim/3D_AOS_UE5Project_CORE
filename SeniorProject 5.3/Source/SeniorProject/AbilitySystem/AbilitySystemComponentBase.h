@@ -19,7 +19,9 @@ class SENIORPROJECT_API UAbilitySystemComponentBase : public UAbilitySystemCompo
 public:
 	void AbilityActorInfoSet();
 	FEffectAssetTags EffectAssetTags;
-	
+
+
+	void AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility);
 protected:
 	void EffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 	
