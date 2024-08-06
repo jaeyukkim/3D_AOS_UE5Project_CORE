@@ -14,6 +14,7 @@
  * 
  */
 class UInputActionData;
+class UAbilitySystemComponentBase;
 
 UCLASS()
 class SENIORPROJECT_API AMyPlayerController : public APlayerController
@@ -27,6 +28,10 @@ public:
 	void ChangeInputMode(bool bGameMode = true);
 	virtual void OnPossess(APawn* InPawn) override;
 
+	UAbilitySystemComponentBase* GetASC();
+
+
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
@@ -51,6 +56,9 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	TObjectPtr<UInputActionData> InputData;
+
+	UPROPERTY()
+	TObjectPtr<UAbilitySystemComponentBase> AbilityComponentBase;
 
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);

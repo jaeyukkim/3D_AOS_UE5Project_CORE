@@ -2,7 +2,10 @@
 
 
 #include "MyPlayerController.h"
+
+#include "AbilitySystemBlueprintLibrary.h"
 #include "MyPlayerState.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/PlayerBase/MyCharacter.h"
 #include "SeniorProject/Input/InputComponentBase.h"
 #include "SeniorProject/UI/MyMenuWidget.h"
@@ -31,6 +34,16 @@ void AMyPlayerController::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 
 }
+
+UAbilitySystemComponentBase* AMyPlayerController::GetASC()
+{
+	if(AbilityComponentBase == nullptr)
+	{
+		AbilityComponentBase = Cast<UAbilitySystemComponentBase>(UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(GetPawn<APawn>()));
+	}
+	return AbilityComponentBase;
+}
+
 
 
 void AMyPlayerController::BeginPlay()
@@ -85,17 +98,19 @@ void AMyPlayerController::ChangeInputMode(bool bGameMode)
 
 void AMyPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 {
-	GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Red, *InputTag.ToString());
+//	GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Red, *InputTag.ToString());
 }
 
 void AMyPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
-	GEngine->AddOnScreenDebugMessage(2, 3.f, FColor::Blue, *InputTag.ToString());
+	if (GetASC() == nullptr) return;
+	GetASC()->AbilityInputTagReleased(InputTag);
 }
 
 void AMyPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
 {
-	GEngine->AddOnScreenDebugMessage(3, 3.f, FColor::Green, *InputTag.ToString());
+	if (GetASC() == nullptr) return;
+	GetASC()->AbilityInputTagHeld(InputTag);
 }
 
 void AMyPlayerController::OnGamePause()

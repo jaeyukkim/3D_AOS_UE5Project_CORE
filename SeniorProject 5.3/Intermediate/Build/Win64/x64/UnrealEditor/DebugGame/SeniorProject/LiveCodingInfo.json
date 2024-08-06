@@ -65,11 +65,11 @@
 			"AssetManagerBase.cpp.obj",
 			"Crunch.cpp.obj",
 			"KallariAI.cpp.obj",
-			"Kwang.cpp.obj",
-			"LaneSuper.cpp.obj",
-			"Melee.cpp.obj"
+			"Kwang.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"LaneSuper.cpp.obj",
+			"Melee.cpp.obj",
 			"Minions.cpp.obj",
 			"KwangPlayer.cpp.obj",
 			"AnimInstanceBase.cpp.obj",

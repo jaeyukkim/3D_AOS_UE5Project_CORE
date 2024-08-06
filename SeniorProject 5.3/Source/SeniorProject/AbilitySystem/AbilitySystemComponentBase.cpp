@@ -2,29 +2,63 @@
 
 
 #include "AbilitySystemComponentBase.h"
+
+#include "GameplayAbilityBase.h"
 #include "SeniorProject/GameplayTagsBase.h"
 
 void UAbilitySystemComponentBase::AbilityActorInfoSet()
 {
 	OnGameplayEffectAppliedDelegateToSelf.AddUObject(this, &UAbilitySystemComponentBase::EffectApplied);
 
-	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
-	GEngine->AddOnScreenDebugMessage(
-		-1,
-		10.f,
-		FColor::Orange,
-		FString::Printf(TEXT("Tag: %s"), *GameplayTags.Attributes_Secondary_Armor.ToString())
-		);
+	
 	
 }
 
-void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility)
+
+
+void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities)
 {
-	for(TSubclassOf<UGameplayAbility> ability : CharacterAbility)
+	for(const TSubclassOf<UGameplayAbility> ability : StartupAbilities)
 	{
-		FGameplayAbilitySpec AbilitySpe = FGameplayAbilitySpec(ability, 1);
-		//GiveAbility(AbilitySpe);
-		GiveAbilityAndActivateOnce(AbilitySpe);
+		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(ability, 1);
+
+		if(const UGameplayAbilityBase* AbilityBase = Cast<UGameplayAbilityBase>(AbilitySpec.Ability))
+		{
+			AbilitySpec.DynamicAbilityTags.AddTag(AbilityBase->StartupInputTag);
+			GiveAbility(AbilitySpec);
+		}
+	}
+}
+void UAbilitySystemComponentBase::AbilityInputTagHeld(const FGameplayTag& InputTag)
+{
+	if(!InputTag.IsValid()) return;
+
+	for(FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		if(AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		{
+			AbilitySpecInputPressed(AbilitySpec);
+			if (!AbilitySpec.IsActive())
+			{
+				TryActivateAbility(AbilitySpec.Handle);
+			}
+		}
+		
+	}
+	
+}
+
+void UAbilitySystemComponentBase::AbilityInputTagReleased(const FGameplayTag& InputTag)
+{
+	if(!InputTag.IsValid()) return;
+
+	for(FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		if(AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		{
+			AbilitySpecInputReleased(AbilitySpec);
+		}
+		
 	}
 }
 

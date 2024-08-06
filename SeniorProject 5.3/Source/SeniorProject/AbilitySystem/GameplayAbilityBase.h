@@ -13,5 +13,9 @@ UCLASS()
 class SENIORPROJECT_API UGameplayAbilityBase : public UGameplayAbility
 {
 	GENERATED_BODY()
+public:
+	
+	UPROPERTY(EditDefaultsOnly, Category="Input")
+	FGameplayTag StartupInputTag;
 	
 };

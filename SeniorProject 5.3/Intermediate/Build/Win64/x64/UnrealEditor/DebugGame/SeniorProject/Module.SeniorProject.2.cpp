@@ -40,5 +40,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Crunch.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/KallariAI.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Kwang.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/LaneSuper.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Melee.cpp"
