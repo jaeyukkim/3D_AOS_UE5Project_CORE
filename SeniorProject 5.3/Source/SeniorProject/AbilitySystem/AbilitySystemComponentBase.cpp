@@ -8,7 +8,7 @@
 
 void UAbilitySystemComponentBase::AbilityActorInfoSet()
 {
-	OnGameplayEffectAppliedDelegateToSelf.AddUObject(this, &UAbilitySystemComponentBase::EffectApplied);
+	OnGameplayEffectAppliedDelegateToSelf.AddUObject(this, &UAbilitySystemComponentBase::ClientEffectApplied);
 
 	
 	
@@ -62,7 +62,7 @@ void UAbilitySystemComponentBase::AbilityInputTagReleased(const FGameplayTag& In
 	}
 }
 
-void UAbilitySystemComponentBase::EffectApplied(UAbilitySystemComponent* AbilitySystemComponent,
+void UAbilitySystemComponentBase::ClientEffectApplied_Implementation(UAbilitySystemComponent* AbilitySystemComponent,
                                                 const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
 	FGameplayTagContainer TagContainer;
