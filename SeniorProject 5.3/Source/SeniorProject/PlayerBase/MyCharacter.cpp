@@ -403,9 +403,9 @@ void AMyCharacter::SetCharacterState(ECharacterState NewState)
 	{
 		SetActorHiddenInGame(false);
 
-		DisableInput(PlayerController);
+		//DisableInput(PlayerController);
 		
-		PlayAnimMontage(StartGameAnim, 1.0f);
+		//PlayAnimMontage(StartGameAnim, 1.0f);
 
 
 		GetWorld()->GetTimerManager().SetTimer(LoadingTimer, FTimerDelegate::CreateLambda([this]() -> void {

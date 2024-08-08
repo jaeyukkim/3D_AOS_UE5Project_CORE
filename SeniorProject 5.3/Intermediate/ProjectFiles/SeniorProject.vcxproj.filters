@@ -111,6 +111,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\Actor\EffectActorBase.h">
       <Filter>Source\SeniorProject\Actor</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\ProjectileBase.cpp">
+      <Filter>Source\SeniorProject\Actor</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\ProjectileBase.h">
+      <Filter>Source\SeniorProject\Actor</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character">
       <UniqueIdentifier>{E2ADD259-DA64-31ED-85F0-72602C63FECB}</UniqueIdentifier>
     </Filter>

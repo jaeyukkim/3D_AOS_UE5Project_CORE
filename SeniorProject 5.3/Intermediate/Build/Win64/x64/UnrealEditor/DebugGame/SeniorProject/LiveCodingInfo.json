@@ -52,6 +52,7 @@
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
+			"ProjectileBase.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Stage1Potal.gen.cpp.obj",
@@ -62,12 +63,13 @@
 			"AttributeInfo.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
+			"ProjectileBase.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"AssetManagerBase.cpp.obj",
 			"Crunch.cpp.obj",
 			"KallariAI.cpp.obj",
-			"Kwang.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"Kwang.cpp.obj",
 			"LaneSuper.cpp.obj",
 			"Melee.cpp.obj",
 			"Minions.cpp.obj",
