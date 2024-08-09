@@ -93,6 +93,24 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\GameplayAbilityBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Abilities">
+      <UniqueIdentifier>{82C9FA38-1F08-3E4B-A6DA-DFC25B31022D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\AbilityTask">
+      <UniqueIdentifier>{53BCA145-88EA-3E50-BD02-596E55F5698A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTask\TargetDataAim.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\AbilityTask</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTask\TargetDataAim.h">
+      <Filter>Source\SeniorProject\AbilitySystem\AbilityTask</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\Data">
       <UniqueIdentifier>{B6143FE6-F6B8-392F-8560-D8DDEB0CC3BC}</UniqueIdentifier>
     </Filter>

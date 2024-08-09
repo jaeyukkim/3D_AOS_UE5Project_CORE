@@ -164,9 +164,9 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
 	EnhancedInputComponent->BindAction(LSB_Action, ETriggerEvent::Triggered, this, &AMyCharacter::LSB);
-	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
-	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
-	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);
+//	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
+//	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
+//	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);
 	EnhancedInputComponent->BindAction(ShowAdditionalAttribute, ETriggerEvent::Triggered, this, &AMyCharacter::ShowAdditionalAttributeMenu);
 
 
@@ -228,6 +228,28 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 
 void AMyCharacter::PlayFootSound()
 {
+
+
+}
+
+void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
+{
+		
+	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
+	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*AbilityDistance;
+		
+	TraceEndLocation += CameraLocation;
+
+	//Chrunch
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation,
+	 ECollisionChannel::ECC_Visibility);
+		
+	if (!bHit)
+	{
+		FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
+		bool bFloorHit = GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_Visibility);
+
+	}
 
 
 }
@@ -315,19 +337,18 @@ void AMyCharacter::AimTrace()
 
 
 	FVector CameraLocation = Camera->GetComponentLocation();
-	FVector CameraFowardVector = Camera->GetComponentRotation().Vector();
+	FVector CameraForwardVector = Camera->GetComponentRotation().Vector();
 	FCollisionQueryParams Params(NAME_None, false, this);
+	
 
-	//Chrunch
-	//bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector * 4000,
-		//ECollisionChannel::ECC_Visibility);
-
-	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector * 4000,
+	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
 		FQuat::Identity, ECollisionChannel::ECC_Visibility, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
 	// ��Ÿ� ���� ���̹� �� ���� ���ٸ�
 	if (!HitResult.bBlockingHit)
 		return;
+
+	
 
 
 

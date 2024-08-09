@@ -11,6 +11,7 @@ AProjectileBase::AProjectileBase()
 {
  	
 	PrimaryActorTick.bCanEverTick = false;
+	bReplicates = true;
 
 	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
 	Sphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);

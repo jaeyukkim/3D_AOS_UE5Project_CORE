@@ -53,19 +53,23 @@
 			"OverlayWidgetController.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
+			"ProjectileSpellBase.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Stage1Potal.gen.cpp.obj",
+			"TargetDataAim.gen.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"TitleSceneController.gen.cpp.obj",
+			"ProjectileSpellBase.cpp.obj",
 			"AbilitySystemComponentBase.cpp.obj",
+			"TargetDataAim.cpp.obj",
 			"AttributeSetBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
-			"ProjectileBase.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"ProjectileBase.cpp.obj",
 			"AssetManagerBase.cpp.obj",
 			"Crunch.cpp.obj",
 			"KallariAI.cpp.obj",

@@ -62,7 +62,8 @@ public:
 
 	UFUNCTION()
 		void PlayFootSound();
-
+	
+	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
 
 
 
@@ -80,9 +81,9 @@ protected:
 
 	virtual void LSB() PURE_VIRTUAL(AMyCharacter::LSB, );
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
-	virtual void Ability_RMB() PURE_VIRTUAL(AMyCharacter::Ability_RMB, );
-	virtual void Ability_R() PURE_VIRTUAL(AMyCharacter::Ability_R, );;
-	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
+//	virtual void Ability_RMB() PURE_VIRTUAL(AMyCharacter::Ability_RMB, );
+//	virtual void Ability_R() PURE_VIRTUAL(AMyCharacter::Ability_R, );;
+//	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
 	virtual void InitAbilityActorInfo() override;
 
 

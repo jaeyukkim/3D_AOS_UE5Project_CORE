@@ -3,6 +3,7 @@
 
 #include "AssetManagerBase.h"
 #include "GameplayTagsBase.h"
+#include "AbilitySystemGlobals.h"
 
 UAssetManagerBase& UAssetManagerBase::Get()
 {
@@ -17,4 +18,5 @@ void UAssetManagerBase::StartInitialLoading()
 	Super::StartInitialLoading();
 
 	FGameplayTagsBase::InitializeNativeGameplayTags();
+	UAbilitySystemGlobals::Get().InitGlobalData();
 }

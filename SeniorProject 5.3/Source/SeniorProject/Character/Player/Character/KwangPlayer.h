@@ -18,9 +18,9 @@ public:
 	AKwangPlayer();
 
 	virtual void SetCharacterSetting() override;
-	virtual void Ability_RMB() override;
-	virtual void Ability_R() override;
-	virtual void Ability_Q() override;
+//	virtual void Ability_RMB() override;
+//	virtual void Ability_R() override;
+//	virtual void Ability_Q() override;
 	virtual void LSB() override;
 	
 

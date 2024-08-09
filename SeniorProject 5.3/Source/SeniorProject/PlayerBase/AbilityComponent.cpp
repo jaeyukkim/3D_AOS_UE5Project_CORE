@@ -213,18 +213,33 @@ void UAbilityComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 		
 		
 		CameraLocation = Character->PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
-		CameraFowardVector = Character->PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector();
+		TraceEndLocation = Character->PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*1500.0f;
 		
-
+		TraceEndLocation += CameraLocation;
 
 		//Chrunch
-		bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraFowardVector* 1500.0f,
+		bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation,
 		 ECollisionChannel::ECC_Visibility);
 		
 		if (bHit)
 		{
 			decal->SetActorLocation(HitResult.Location);
 			CurrentAbilityLocation = HitResult.Location;
+
+
+		}
+		else
+		{
+			FHitResult FloorHitResult;
+			FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
+			bool bFloorHit = GetWorld()->LineTraceSingleByChannel(FloorHitResult, TraceEndLocation, DownwardTraceEnd, ECC_Visibility);
+
+			if (bFloorHit)
+			{
+				decal->SetActorLocation(FloorHitResult.Location);
+				CurrentAbilityLocation = FloorHitResult.Location;
+			}
+
 		}
 		
 

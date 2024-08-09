@@ -110,7 +110,7 @@ private:
 	class UMaterialInterface* Ability_Q_RangeDecal;
 	class ADecalActor* decal;
 	FVector CameraLocation;
-	FVector CameraFowardVector;
+	FVector TraceEndLocation;
 	FVector CurrentAbilityLocation;
 
 	FTimerHandle Q_AbilityTimerHandle = { };

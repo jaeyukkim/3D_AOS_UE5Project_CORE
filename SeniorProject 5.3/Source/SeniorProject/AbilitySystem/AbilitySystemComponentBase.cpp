@@ -9,8 +9,6 @@
 void UAbilitySystemComponentBase::AbilityActorInfoSet()
 {
 	OnGameplayEffectAppliedDelegateToSelf.AddUObject(this, &UAbilitySystemComponentBase::ClientEffectApplied);
-
-	
 	
 }
 

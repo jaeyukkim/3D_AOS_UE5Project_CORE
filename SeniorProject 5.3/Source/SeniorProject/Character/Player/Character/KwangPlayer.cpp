@@ -9,7 +9,7 @@ AKwangPlayer::AKwangPlayer()
 	SetCharacterSetting();
 }
 
-
+/*
 void AKwangPlayer::Ability_Q()
 {
 
@@ -64,7 +64,7 @@ void AKwangPlayer::Ability_R()
 	}
 
 }
-
+*/
 void AKwangPlayer::LSB()
 {
 	if (bIsCasting)
