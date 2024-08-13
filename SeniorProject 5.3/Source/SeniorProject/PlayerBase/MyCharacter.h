@@ -26,10 +26,10 @@ class SENIORPROJECT_API AMyCharacter : public ACharacterBase
 public:
 	// Sets default values for this character's properties
 	AMyCharacter();
-	void SetCharacterState(ECharacterState NewState);
+	
 
 	virtual void BeginPlay() override;
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	
 
 
 	virtual void Tick(float DeltaTime) override;
@@ -73,7 +73,7 @@ public:
 	virtual void AttackTrace() override;
 	virtual void Attack() override;
 
-	void UpdateCharacterStat();
+
 
 
 
@@ -85,18 +85,10 @@ protected:
 //	virtual void Ability_R() PURE_VIRTUAL(AMyCharacter::Ability_R, );;
 //	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
 	virtual void InitAbilityActorInfo() override;
-
-
-private:
-	FSoftObjectPath CharacterAssetToLoad = FSoftObjectPath(nullptr);
-	TSharedPtr<struct FStreamableHandle> AssetStreamingHandle;
-	void OnAssetLoadCompleted();
-
-
+	int32 GetPlayerLevel();
 
 private:
 
-		
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputMappingContext> PlayerContext;
 
@@ -135,23 +127,13 @@ private:
 
 public:
 	
-	void CanMoves();
-	void StopMoves();
+
 	bool GetBool_IsNoWep();
-
-
-	
 	int32 AttackDamageCount;
 	
-
 	bool bIsNoWep;
 	bool bIsCasting;
 	bool bIsActive_Q_Ability;
-
-
-	int32 GetPlayerLevel() override;
-	
-
 
 
 private:

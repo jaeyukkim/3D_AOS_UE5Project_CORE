@@ -7,10 +7,12 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/AbilitySystem/GameplayAbilityBase.h"
 #include "GameplayTagContainer.h"
+#include "ScalableFloat.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 // Cross Module References
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility();
+	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FScalableFloat();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase_NoRegister();
@@ -34,6 +36,10 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_StartupInputTag_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_StartupInputTag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Damage;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -59,8 +65,16 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag = { "StartupInputTag", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGameplayAbilityBase, StartupInputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_Damage_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "AbilitySystem/GameplayAbilityBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGameplayAbilityBase, Damage), Z_Construct_UScriptStruct_FScalableFloat, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_Damage_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_Damage_MetaData) }; // 4070660376
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UGameplayAbilityBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_Damage,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UGameplayAbilityBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UGameplayAbilityBase>::IsAbstract,
@@ -101,9 +115,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 2586345251U) },
+		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 1391811330U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_98812544(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_3249797609(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

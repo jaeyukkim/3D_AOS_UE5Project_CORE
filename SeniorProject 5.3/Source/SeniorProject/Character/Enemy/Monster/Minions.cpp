@@ -3,11 +3,14 @@
 
 #include "Minions.h"
 #include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
-
+#include "Components/WidgetComponent.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
-#include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/UI/OverlayWidget.h"
 #include "SeniorProject/EnemyBase/AISetting/MinionAnimInstance.h"
+#include "SeniorProject/AbilitySystem/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
+
 
 
 // Sets default values
@@ -17,32 +20,34 @@ AMinions::AMinions()
 	PrimaryActorTick.bCanEverTick = false;
 	AttackMontage.Init(nullptr, MaxAttackCombo);
 
-	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>("AbilitySystemComponent");
+	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 
-	AttributeSet = CreateDefaultSubobject<UAttributeSet>("AttributeSet");
+	AttributeSet = CreateDefaultSubobject<UAttributeSetBase>("AttributeSet");
 
+	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
+	HealthBar->SetupAttachment(GetRootComponent());
+	HealthBar->SetWidgetSpace(EWidgetSpace::Screen);
+	HealthBar->SetDrawSize(FVector2D(150.0f, 50.0f));
 
+	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 
 
 
 	//���� AI�� ���� ����� �� ����� �⺻ Ŭ�����Դϴ�.
-	AIControllerClass = AMinionAIController::StaticClass();
+	//AIControllerClass = AMinionAIController::StaticClass();
 	//AI ���� AI ��Ʈ�ѷ��� ���� �ڵ����� �����Ǵ��� ���θ� �����մϴ�.
-	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
+	//AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 	
-
 	
 
 	bUseControllerRotationYaw = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
-
-
-
+	
 
 	
 	Tags.Add(TEXT("ENEMY"));
@@ -68,47 +73,42 @@ void AMinions::BeginPlay()
 
 	
 	
-	AIController = Cast<AMinionAIController>(GetController());
-	if (AIController == nullptr) return;
+	//AIController = Cast<AMinionAIController>(GetController());
+	//if (AIController == nullptr) return;
 	
 	InitAbilityActorInfo();
 
-	SetMinionState(ECharacterState::LOADING);
-
-
-
-}
-
-void AMinions::EndPlay(const EEndPlayReason::Type EndPlayReason)
-{
-	Super::EndPlay(EndPlayReason);
-	
-	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
-	if (GameMode)
+	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
 	{
-		GameMode->OnMobDeleted.Broadcast();
-		
+		OverlayUserWidget->SetWidgetController(this);
 	}
 
+	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+	{
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnMaxHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
 
-	GetWorldTimerManager().ClearTimer(UITimerHandle);
-	GetWorldTimerManager().ClearTimer(DamagedTimerHandle);
-	GetWorldTimerManager().ClearTimer(DeadTimerHandle);
+		OnHealthChanged.Broadcast(AS->GetHealth());
+		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+	}
 	
 
+
 }
+
+
 
 // Called every frame
-void AMinions::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
-
-
-
-
 
 
 void AMinions::Attack()
@@ -156,82 +156,18 @@ void AMinions::Attack()
 
 
 
-
-
-
-//���۽� �ε�, ����, ��� 3���� ���¿� ���� ó�� ����
-void AMinions::SetMinionState(ECharacterState NewState)
-{
-	//if (CurrentState != NewState) return;
-
-
-	CurrentState = NewState;
-
-	switch (CurrentState)
-	{
-	case ECharacterState::LOADING:
-	{
-		SetActorHiddenInGame(false);
-		
-
-
-
-		GetWorld()->GetTimerManager().SetTimer(LoadingTimer, FTimerDelegate::CreateLambda([this]() -> void {
-			SetMinionState(ECharacterState::READY);
-			}), 5.0f, false);
-
-
-		break;
-	}
-	case ECharacterState::READY:
-	{
-		
-        AIController->RunAI();
-
-			
-
-	break;
-
-	}
-
-	case ECharacterState::DEAD:
-	{
-		SetCanBeDamaged(false);
-		SetActorEnableCollision(false);
-		GetMesh()->SetHiddenInGame(false);
-
-		AIController->StopAI();
-
-
-
-
-		auto MinionAnimation = Cast<UMinionAnimInstance>(GetMesh()->GetAnimInstance());
-		if (::IsValid(MinionAnimation))
-			MinionAnimation->SetDead();
-		
-
-
-		GetWorld()->GetTimerManager().SetTimer(DeadTimerHandle, FTimerDelegate::CreateLambda([this]() ->
-			void {
-
-				Destroy();
-
-			}), DeadTimer, false);
-
-
-
-		break;
-	}
-
-	}
-}
-
 void AMinions::InitAbilityActorInfo()
 {
 	
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
-	//Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->AbilityActorInfoSet();
-	
+	Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->AbilityActorInfoSet();
+	InitializeDefaultAttributes();
+}
+
+void AMinions::InitializeDefaultAttributes() const
+{
+	Super::InitializeDefaultAttributes();
+	UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(this, CharacterClass, Level, AbilitySystemComponent);
 }
 
 
@@ -287,44 +223,6 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 
 
-	
-	/*
-	if (CanBeDamaged() && DamageCauser->ActorHasTag("PLAYER"))
-	{
-
-		Hurt(DamageCauser);
-
-		Stat->SetDamage(DamageAmount);
-		SetCanBeDamaged(false);
-		ControlHpBarVisibility();
-
-
-		GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
-			void
-			{
-				SetCanBeDamaged(true);
-
-
-			}), 0.1f, false);
-
-		//�¾��� �� HP�� Ȱ��ȭ
-		
-
-		if (CurrentState == ECharacterState::DEAD)
-		{
-			if (EventInstigator->IsPlayerController())
-			{
-				auto MyPlayerController = Cast<AMyPlayerController>(EventInstigator);
-				if (MyPlayerController)
-					MyPlayerController->NPCKill(EventInstigator, GetExp());
-
-				UE_LOG(LogTemp, Warning, TEXT("DROP EXP : %d"), GetExp());
-			}
-		}
-	}
-
-
-	*/
 	return FinalDamage;
 	
 

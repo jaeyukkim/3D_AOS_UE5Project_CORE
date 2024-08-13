@@ -24,8 +24,7 @@ class SENIORPROJECT_API AMyPlayerController : public APlayerController
 public:
 	AMyPlayerController();
 
-	void NPCKill(class AController* KilledNPC, int32 Exp) const;
-	void ChangeInputMode(bool bGameMode = true);
+	
 	virtual void OnPossess(APawn* InPawn) override;
 
 	UAbilitySystemComponentBase* GetASC();

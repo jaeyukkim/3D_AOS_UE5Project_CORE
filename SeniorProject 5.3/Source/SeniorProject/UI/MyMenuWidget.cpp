@@ -36,7 +36,6 @@ void UMyMenuWidget::OnResumeClicked()
 
 
 	RemoveFromParent();
-	MyPlayerController->ChangeInputMode(true);
 	MyPlayerController->SetPause(false);
 }
 

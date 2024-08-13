@@ -174,6 +174,15 @@ public:
 	FGameplayAttributeData DropGold;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropGold);
 	/* GamePlay Attribute */
+
+
+	/*
+	 * Meta Attributes
+	 */
+
+	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
+	FGameplayAttributeData IncomingDamage;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingDamage);
 	
 /* -------------------------OnRep---------------------------------*/
 

@@ -36,8 +36,7 @@ void UMyGamePlayWidget::OnResumeClicked()
 	if(MyPlayerController)
 	{
 		RemoveFromParent();
-
-		MyPlayerController->ChangeInputMode(true);
+		
 		MyPlayerController->SetPause(false);
 	}
 		

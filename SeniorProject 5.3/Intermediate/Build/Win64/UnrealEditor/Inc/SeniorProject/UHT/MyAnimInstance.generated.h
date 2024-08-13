@@ -32,8 +32,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execAnimNotify_UnHideSword); \
 	DECLARE_FUNCTION(execAnimNotify_HideSword); \
 	DECLARE_FUNCTION(execAnimNotify_FootStep); \
-	DECLARE_FUNCTION(execAnimNotify_CanMove); \
-	DECLARE_FUNCTION(execAnimNotify_StopMove); \
 	DECLARE_FUNCTION(execAnimNotify_CastingOff); \
 	DECLARE_FUNCTION(execAnimNotify_CastingOn); \
 	DECLARE_FUNCTION(execAnimNotify_CanNotAttack); \

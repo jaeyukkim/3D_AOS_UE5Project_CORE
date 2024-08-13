@@ -68,22 +68,6 @@ void UMyAnimInstance::AnimNotify_CastingOff()
 	}
 }
 
-void UMyAnimInstance::AnimNotify_StopMove()
-{
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->StopMoves();
-	}
-}
-
-void UMyAnimInstance::AnimNotify_CanMove()
-{
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->CanMoves();
-	}
-}
-
 
 
 void UMyAnimInstance::AnimNotify_FootStep()
@@ -147,7 +131,7 @@ void UMyAnimInstance::AnimNotify_MoveToSword()
 
 
 
-//½ºÅ³ ÁøÇà
+//ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½
 
 void UMyAnimInstance::AnimNotify_Attack_Q()
 {

@@ -117,31 +117,6 @@ void AMyCharacter::BeginPlay()
 			Subsystem->AddMappingContext(PlayerContext, 0);
 	}
 
-	
-
-
-
-	SetCharacterState(ECharacterState::LOADING);
-
-
-
-}
-void AMyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
-{
-	Super::EndPlay(EndPlayReason);
-
-	
-	AMyGameModeBase* GameMode = GetWorld()->GetAuthGameMode<AMyGameModeBase>();
-	if (GameMode)
-	{
-		GameMode->OnMobDeleted.Broadcast();
-	}
-
-
-	GetWorldTimerManager().ClearTimer(UITimerHandle);
-	GetWorldTimerManager().ClearTimer(DamagedTimerHandle);
-	GetWorldTimerManager().ClearTimer(DeadTimerHandle);
-	
 
 }
 
@@ -234,7 +209,7 @@ void AMyCharacter::PlayFootSound()
 
 void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 {
-		
+	
 	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
 	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*AbilityDistance;
 		
@@ -255,23 +230,12 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 }
 
 
-void AMyCharacter::OnAssetLoadCompleted()
-{
-	USkeletalMesh* AssetLoaded = Cast<USkeletalMesh>(AssetStreamingHandle->GetLoadedAsset());
-	AssetStreamingHandle.Reset();
-	if (nullptr != AssetLoaded)
-	{
-		GetMesh()->SetSkeletalMesh(AssetLoaded);
-	}
-}
 
 
 
 void AMyCharacter::Attack()
 {
 	
-	
-
 	switch (AttackCount)
 	{
 	case 0:
@@ -412,77 +376,6 @@ void AMyCharacter::AimTrace()
 
 
 
-void AMyCharacter::SetCharacterState(ECharacterState NewState)
-{
-
-
-	CurrentState = NewState;
-
-	switch (CurrentState)
-	{
-	case ECharacterState::LOADING:
-	{
-		SetActorHiddenInGame(false);
-
-		//DisableInput(PlayerController);
-		
-		//PlayAnimMontage(StartGameAnim, 1.0f);
-
-
-		GetWorld()->GetTimerManager().SetTimer(LoadingTimer, FTimerDelegate::CreateLambda([this]() -> void {
-			SetCharacterState(ECharacterState::READY);
-			}), 5.0f, false);
-
-
-		break;
-	}
-
-	case ECharacterState::READY:
-	{
-
-		EnableInput(PlayerController);
-
-		
-		break;
-		
-	}
-
-	case ECharacterState::DEAD:
-	{
-		SetActorEnableCollision(false);
-		GetMesh()->SetHiddenInGame(false);
-		SetCanBeDamaged(false);
-		Camera->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
-
-	
-		DisableInput(PlayerController);
-	
-
-
-		auto CharacterAnim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
-		if (::IsValid(CharacterAnim))
-			CharacterAnim->SetDead();
-
-
-		GetWorld()->GetTimerManager().SetTimer(DeadTimerHandle, FTimerDelegate::CreateLambda([this]() ->
-			void {
-
-				PlayerController->RestartLevel();
-				
-			}), DeadTimer, false);
-
-		break;
-	}
-
-
-	}
-}
-
-
-
-
-
-
 void AMyCharacter::AttackTrace()
 {
 
@@ -502,26 +395,6 @@ void AMyCharacter::AttackTrace()
 		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
 
 	
-	/*
-	if (bHit)
-	{
-
-		if (::IsValid(HitResult.GetActor()))
-		{
-
-			FDamageEvent DamageEvent;
-			if ( HitResult.GetActor())
-			{
-				HitResult.GetActor()->TakeDamage(Stat->GetAttackDMG() +
-					(AttackDamageCount * 0.1f * Stat->GetAttackDMG()), DamageEvent, GetController(), this);
-				CanTakeDamage = false;
-			}
-
-
-		}
-
-	}
-	*/
 }
 
 
@@ -529,25 +402,13 @@ void AMyCharacter::AttackTrace()
 float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-
-
 	
-
-	//Stat->SetDamage(DamageAmount);
-
-
 
 	return FinalDamage;
 
 }
 
 
-
-void AMyCharacter::UpdateCharacterStat()
-{
-	
-	
-}
 
 void AMyCharacter::Hurt(AActor* DamageCauser)
 {
@@ -567,17 +428,3 @@ void AMyCharacter::Hurt(AActor* DamageCauser)
 	}
 
 }
-
-
-
-void AMyCharacter::CanMoves()
-{
-	EnableInput(PlayerController);
-}
-
-void AMyCharacter::StopMoves()
-{
-
-	DisableInput(PlayerController);
-}
-

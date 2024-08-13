@@ -120,6 +120,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\AttributeInfo.h">
       <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Data\CharacterClassInfo.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\CharacterClassInfo.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
     </Filter>

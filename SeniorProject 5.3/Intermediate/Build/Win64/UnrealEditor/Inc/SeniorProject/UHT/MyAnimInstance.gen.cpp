@@ -107,20 +107,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		P_THIS->AnimNotify_FootStep();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UMyAnimInstance::execAnimNotify_CanMove)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_CanMove();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UMyAnimInstance::execAnimNotify_StopMove)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_StopMove();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UMyAnimInstance::execAnimNotify_CastingOff)
 	{
 		P_FINISH;
@@ -168,7 +154,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 			{ "AnimNotify_Attack_RMB", &UMyAnimInstance::execAnimNotify_Attack_RMB },
 			{ "AnimNotify_Attack_RMB_NoWep", &UMyAnimInstance::execAnimNotify_Attack_RMB_NoWep },
 			{ "AnimNotify_CanAttack", &UMyAnimInstance::execAnimNotify_CanAttack },
-			{ "AnimNotify_CanMove", &UMyAnimInstance::execAnimNotify_CanMove },
 			{ "AnimNotify_CanNotAttack", &UMyAnimInstance::execAnimNotify_CanNotAttack },
 			{ "AnimNotify_CastingOff", &UMyAnimInstance::execAnimNotify_CastingOff },
 			{ "AnimNotify_CastingOn", &UMyAnimInstance::execAnimNotify_CastingOn },
@@ -177,7 +162,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 			{ "AnimNotify_HideSword", &UMyAnimInstance::execAnimNotify_HideSword },
 			{ "AnimNotify_MoveToSword", &UMyAnimInstance::execAnimNotify_MoveToSword },
 			{ "AnimNotify_RunStop", &UMyAnimInstance::execAnimNotify_RunStop },
-			{ "AnimNotify_StopMove", &UMyAnimInstance::execAnimNotify_StopMove },
 			{ "AnimNotify_UnHideKwangSword", &UMyAnimInstance::execAnimNotify_UnHideKwangSword },
 			{ "AnimNotify_UnHideSword", &UMyAnimInstance::execAnimNotify_UnHideSword },
 		};
@@ -359,28 +343,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_CanMove", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack_Statics
 	{
 #if WITH_METADATA
@@ -557,28 +519,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMyAnimInstance, nullptr, "AnimNotify_StopMove", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams), Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword_Statics
 	{
 #if WITH_METADATA
@@ -671,7 +611,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB, "AnimNotify_Attack_RMB" }, // 1865524747
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_Attack_RMB_NoWep, "AnimNotify_Attack_RMB_NoWep" }, // 3293733176
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanAttack, "AnimNotify_CanAttack" }, // 1939321321
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanMove, "AnimNotify_CanMove" }, // 179643978
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CanNotAttack, "AnimNotify_CanNotAttack" }, // 55094651
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOff, "AnimNotify_CastingOff" }, // 3336828787
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_CastingOn, "AnimNotify_CastingOn" }, // 1500555481
@@ -680,7 +619,6 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_HideSword, "AnimNotify_HideSword" }, // 228884942
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_MoveToSword, "AnimNotify_MoveToSword" }, // 3860702525
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_RunStop, "AnimNotify_RunStop" }, // 1591697135
-		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_StopMove, "AnimNotify_StopMove" }, // 975730682
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideKwangSword, "AnimNotify_UnHideKwangSword" }, // 1166025329
 		{ &Z_Construct_UFunction_UMyAnimInstance_AnimNotify_UnHideSword, "AnimNotify_UnHideSword" }, // 2507886510
 	};
@@ -777,9 +715,9 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 67191866U) },
+		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 4226610251U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_2227596848(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_785668175(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

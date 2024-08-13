@@ -55,7 +55,7 @@ public:
 	FGameplayTag Input_R;
 	/* Input Tag */
 
-
+	FGameplayTag Damage;
 
 protected:
 private:

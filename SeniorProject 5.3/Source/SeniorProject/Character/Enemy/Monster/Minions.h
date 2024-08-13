@@ -3,15 +3,17 @@
 #pragma once
 
 #include "SeniorProject/DefaultBase/CharacterBase.h"
+#include "SeniorProject/UI/OverlayWidgetController.h"
+#include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 #include "Minions.generated.h"
 
 
 
+class UWidgetComponent;
 
 
 
-
-UCLASS(abstract)
+UCLASS(abstract, Blueprintable)
 
 class SENIORPROJECT_API AMinions : public ACharacterBase
 {
@@ -23,12 +25,12 @@ public:
 
 
 	
-	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
 	virtual void BeginPlay() override;
 
 public:
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	
 
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent,
@@ -38,7 +40,11 @@ public:
 	virtual void Attack() override;
 	virtual void AttackTrace() override;
 
-	
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnHealthChanged;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnMaxHealthChanged;
 
 
 	UPROPERTY(EditAnywhere, Category = Attacks)
@@ -54,18 +60,20 @@ public:
 
 	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
 
-	
-private:
-
-	void SetMinionState(ECharacterState NewState);
-
 
 
 protected:
 	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
 	virtual void InitAbilityActorInfo() override;
+	virtual void InitializeDefaultAttributes() const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
 	int32 Level = 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
+	ECharacterClass CharacterClass = ECharacterClass::Minion;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="UI")
+	TObjectPtr<UWidgetComponent> HealthBar;
 	
 };

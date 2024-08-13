@@ -2,6 +2,10 @@
 
 
 #include "ProjectileSpellBase.h"
+
+#include "AbilitySystemBlueprintLibrary.h"
+#include "AbilitySystemComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Actor/ProjectileBase.h"
 
@@ -38,6 +42,18 @@ void UProjectileSpellBase::SpawnProjectile(const FVector& AimLocation)
 		Cast<APawn>(GetOwningActorFromActorInfo()),
 		ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
+
+	const UAbilitySystemComponent* SourceASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(GetAvatarActorFromActorInfo());
+	const FGameplayEffectSpecHandle SpecHandle = SourceASC->MakeOutgoingSpec(DamageEffectClass, GetAbilityLevel(), SourceASC->MakeEffectContext());
+
+	const FGameplayTagsBase GameplayTags = FGameplayTagsBase::Get();
+	const float ScaledDamage = Damage.GetValueAtLevel(GetAbilityLevel());
+
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Damage, ScaledDamage);
+
+	
+	Projectile->DamageEffectSpecHandle = SpecHandle;
+	
 	//TODO: Give the Projectile a Gameplay Effect Spec for causing Damage.
 
 	Projectile->FinishSpawning(SpawnTransform);

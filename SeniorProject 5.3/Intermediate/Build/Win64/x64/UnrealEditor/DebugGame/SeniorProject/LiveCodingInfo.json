@@ -17,6 +17,7 @@
 			"BTTask_FindPatrolPos.gen.cpp.obj",
 			"BTTask_TurnToTarget.gen.cpp.obj",
 			"CharacterBase.gen.cpp.obj",
+			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
 			"DeadZone.gen.cpp.obj",
@@ -56,10 +57,10 @@
 			"ProjectileSpellBase.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
-			"Stage1Potal.gen.cpp.obj",
-			"TargetDataAim.gen.cpp.obj"
+			"Stage1Potal.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"TargetDataAim.gen.cpp.obj",
 			"TitleSceneController.gen.cpp.obj",
 			"ProjectileSpellBase.cpp.obj",
 			"AbilitySystemComponentBase.cpp.obj",
@@ -67,6 +68,7 @@
 			"AttributeSetBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"AttributeInfo.cpp.obj",
+			"CharacterClassInfo.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"ProjectileBase.cpp.obj",

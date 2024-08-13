@@ -40,11 +40,6 @@ public:
 	UFUNCTION()
 		void AnimNotify_CastingOff();
 
-	UFUNCTION()
-		void AnimNotify_StopMove();
-
-	UFUNCTION()
-		void AnimNotify_CanMove();
 
 	UFUNCTION()
 		void AnimNotify_FootStep();
