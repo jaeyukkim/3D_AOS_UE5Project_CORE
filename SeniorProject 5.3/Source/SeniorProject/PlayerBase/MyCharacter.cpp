@@ -20,6 +20,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "SeniorProject/AbilitySystem/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/UI/OverlayWidgetController.h"
 
 
@@ -68,6 +69,8 @@ void AMyCharacter::PossessedBy(AController* NewController)
 	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
 	AddCharacterAbility();
+	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
+
 	
 }
 
@@ -233,9 +236,43 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 
 
 
-void AMyCharacter::Attack()
+void AMyCharacter::Attack_Implementation()
 {
-	
+	UAnimMontage* MontageToPlay = nullptr;
+
+	switch (AttackCount)
+	{
+	case 0:
+		MontageToPlay = AttackMontage[0];
+		AttackCount = 1;
+		AttackDamageCount = 0;
+		break;
+
+	case 1:
+		MontageToPlay = AttackMontage[1];
+		AttackCount = 2;
+		AttackDamageCount = 1;
+		break;
+
+	case 2:
+		MontageToPlay = AttackMontage[2];
+		AttackCount = 3;
+		AttackDamageCount = 2;
+		break;
+
+	case 3:
+		MontageToPlay = AttackMontage[3];
+		AttackCount = 0;
+		AttackDamageCount = 3;
+		break;
+	}
+
+	if (MontageToPlay)
+	{
+		// 모든 클라이언트에서 몽타주를 실행하도록 멀티캐스트 호출
+		MulticastPlayAttackMontage(MontageToPlay, AttackCount);
+	}
+	/*
 	switch (AttackCount)
 	{
 	case 0:
@@ -270,10 +307,13 @@ void AMyCharacter::Attack()
 		break;
 
 	}
-
+*/
 
 }
-
+bool AMyCharacter::Attack_Validate()
+{
+	return true;
+}
 
 bool AMyCharacter::GetBool_IsNoWep()
 {
@@ -397,6 +437,18 @@ void AMyCharacter::AttackTrace()
 	
 }
 
+void AMyCharacter::Die()
+{
+	Super::Die();
+}
+
+void AMyCharacter::MulticastPlayAttackMontage_Implementation(UAnimMontage* Montage, int32 MontageIndex)
+{
+	if (Montage && GetMesh() && GetMesh()->GetAnimInstance())
+	{
+		GetMesh()->GetAnimInstance()->Montage_Play(Montage, 1.0f);
+	}
+}
 
 
 float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)

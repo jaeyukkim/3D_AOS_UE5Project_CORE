@@ -15,7 +15,7 @@ class UAbilitySystemComponent;
 class UAttributeSet;
 class UGameplayEffect;
 class UGameplayAbility;
-
+class UAnimMontage;
 
 UCLASS(abstract)
 class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface
@@ -49,6 +49,8 @@ public:
 
 
 	virtual void AttackTrace() PURE_VIRTUAL(Minions::SetDefaultSetting, );
+
+
 	virtual void Attack() PURE_VIRTUAL(Minions::SetDefaultSetting, );
 
 	
@@ -114,7 +116,23 @@ public:
 		bool IsAttacking;
 
 	FOnAttackEndDelegate OnAttackEnd;
+	
 
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	bool bHitReacting = false;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UAnimMontage> HitReactMontage;
+
+	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
+
+	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+	
+	virtual void Die() override;
+
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastHandleDeath();
+	
 protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;

@@ -4,6 +4,9 @@
 #include "AttributeSetBase.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/Interface/CombatInterface.h"
+
+class ICombatInterface;
 
 UAttributeSetBase::UAttributeSetBase()
 {
@@ -113,6 +116,23 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 			SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
 
 			const bool bFatal = NewHealth <= 0.f;
+
+			if (bFatal)
+			{
+				ICombatInterface* CombatInterface = Cast<ICombatInterface>(Props.TargetAvatarActor);
+				if (CombatInterface)
+				{
+					CombatInterface->Die();
+				}
+			}
+			
+			else
+			{
+				FGameplayTagContainer TagContainer;
+				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_HitReact);
+				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+			}
+			
 		}
 	}
 	

@@ -519,10 +519,7 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\debugtextinfo.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\hud.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaulthud.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaultwidgetcontroller.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\effectactorbase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaultwidgetcontroller.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

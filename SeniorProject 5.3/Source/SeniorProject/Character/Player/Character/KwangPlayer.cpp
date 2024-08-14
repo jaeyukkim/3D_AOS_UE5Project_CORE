@@ -87,7 +87,13 @@ void AKwangPlayer::LSB()
 	else if (IsAttacking == false)
 	{
 		IsAttacking = true;
-		Attack();
+
+		if(HasAuthority())
+			Attack();
+		else
+		{
+			Attack();
+		}
 	}
 
 }

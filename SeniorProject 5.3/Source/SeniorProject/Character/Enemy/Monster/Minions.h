@@ -60,7 +60,9 @@ public:
 
 	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	float LifeSpan = 5.f;
+	virtual void Die() override;
 
 protected:
 	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );

@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+class UAnimMontage;
 #ifdef SENIORPROJECT_MyCharacter_generated_h
 #error "MyCharacter.generated.h already included, missing '#pragma once' in MyCharacter.h"
 #endif
@@ -19,12 +20,18 @@ class AActor;
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MulticastPlayAttackMontage_Implementation(UAnimMontage* Montage, int32 MontageIndex); \
+	virtual bool Attack_Validate(); \
+	virtual void Attack_Implementation(); \
  \
+	DECLARE_FUNCTION(execMulticastPlayAttackMontage); \
+	DECLARE_FUNCTION(execAttack); \
 	DECLARE_FUNCTION(execHurt); \
 	DECLARE_FUNCTION(execPlayFootSound);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_CALLBACK_WRAPPERS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyCharacter(); \
@@ -55,6 +62,7 @@ public: \
 	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_CALLBACK_WRAPPERS \
 	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_INCLASS_NO_PURE_DECLS \
 	FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_24_ENHANCED_CONSTRUCTORS \
 private: \

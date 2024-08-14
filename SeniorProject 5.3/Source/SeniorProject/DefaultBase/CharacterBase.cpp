@@ -24,6 +24,8 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	SaveAttack = true;
 	AttackCount = 0;
 	DeadTimer = 5.0f;
+	bReplicates = true;
+
 }
 
 
@@ -110,6 +112,32 @@ void ACharacterBase::UnHighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(false);
 
+}
+
+UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
+{
+	return HitReactMontage;
+}
+
+void ACharacterBase::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	bHitReacting = NewCount > 0;
+}
+
+void ACharacterBase::Die()
+{
+	MulticastHandleDeath();
+}
+
+void ACharacterBase::MulticastHandleDeath_Implementation()
+{
+	
+	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetEnableGravity(true);
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
+
+	//GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
 void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const

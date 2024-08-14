@@ -71,9 +71,14 @@ public:
 		void Hurt(AActor* DamageCauser);
 
 	virtual void AttackTrace() override;
+
+	UFUNCTION(NetMulticast, Reliable, WithValidation)
 	virtual void Attack() override;
 
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastPlayAttackMontage(UAnimMontage* Montage, int32 MontageIndex);
 
+	virtual void Die() override;
 
 
 

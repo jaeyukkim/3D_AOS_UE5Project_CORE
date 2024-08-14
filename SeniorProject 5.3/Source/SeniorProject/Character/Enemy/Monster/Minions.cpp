@@ -4,6 +4,7 @@
 #include "Minions.h"
 #include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
 #include "Components/WidgetComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/UI/OverlayWidget.h"
@@ -77,6 +78,7 @@ void AMinions::BeginPlay()
 	//if (AIController == nullptr) return;
 	
 	InitAbilityActorInfo();
+	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
 
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
 	{
@@ -98,6 +100,11 @@ void AMinions::BeginPlay()
 			}
 		);
 
+		AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(
+			this,
+			&ACharacterBase::HitReactTagChanged
+		);
+		
 		OnHealthChanged.Broadcast(AS->GetHealth());
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
@@ -154,7 +161,11 @@ void AMinions::Attack()
 }
 
 
-
+void AMinions::Die()
+{
+	SetLifeSpan(LifeSpan);
+	Super::Die();
+}
 
 void AMinions::InitAbilityActorInfo()
 {

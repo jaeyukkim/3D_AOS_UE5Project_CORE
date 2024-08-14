@@ -22,10 +22,10 @@
 			"Crunch.gen.cpp.obj",
 			"DeadZone.gen.cpp.obj",
 			"DefaultHUD.gen.cpp.obj",
-			"DefaultWidgetController.gen.cpp.obj",
-			"EffectActorBase.gen.cpp.obj"
+			"DefaultWidgetController.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"EffectActorBase.gen.cpp.obj",
 			"EnemyInterface.gen.cpp.obj",
 			"GameplayAbilityBase.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
@@ -55,11 +55,11 @@
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
-			"SeniorProject.gen.cpp.obj",
-			"SeniorProject.init.gen.cpp.obj",
-			"Stage1Potal.gen.cpp.obj"
+			"SeniorProject.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"SeniorProject.init.gen.cpp.obj",
+			"Stage1Potal.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
 			"TitleSceneController.gen.cpp.obj",
 			"ProjectileSpellBase.cpp.obj",

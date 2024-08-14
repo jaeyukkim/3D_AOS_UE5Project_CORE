@@ -24,6 +24,7 @@ enum class ECharacterClass : uint8;
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGiveStartupAbilities); \
 	DECLARE_FUNCTION(execInitializeDefaultAttributes); \
 	DECLARE_FUNCTION(execGetUAttributeMenuWidgetController); \
 	DECLARE_FUNCTION(execGetOverlayWidgetController);
