@@ -454,6 +454,8 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagsmanager.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagsmanager.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\overlaywidgetcontroller.generated.h",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\data\\characterclassinfo.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\blueprintfunctionlibrarybase.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\btdecorator_isinattackrange.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\enemybase\\custombehaviortree\\btdecorator_isinattackrange.h",
@@ -499,6 +501,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\enemybase\\custombehaviortree\\bttask_turntotarget.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\bttask_turntotarget.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterbase.gen.cpp",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\crunch.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\enemy\\monster\\crunch.h",
@@ -515,11 +518,7 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\debugtextinfo.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\debugtextinfo.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\hud.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaulthud.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaultwidgetcontroller.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\effectactorbase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\effectactorbase.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaulthud.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

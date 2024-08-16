@@ -11,7 +11,7 @@
 class USphereComponent;
 class UProjectileMovementComponent;
 
-UCLASS()
+UCLASS(BlueprintType)
 class SENIORPROJECT_API AProjectileBase : public AActor
 {
 	GENERATED_BODY()

@@ -9,7 +9,7 @@
 #include "MyGameInstance.generated.h"
 
 /**
-	½ºÅÝ Àû¿ë
+	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
  */
 
 USTRUCT(BlueprintType)
@@ -66,9 +66,6 @@ private:
 	
 	UPROPERTY()
 		class UDataTable* MinionDataTable;
-
-
-
 	
 
 };

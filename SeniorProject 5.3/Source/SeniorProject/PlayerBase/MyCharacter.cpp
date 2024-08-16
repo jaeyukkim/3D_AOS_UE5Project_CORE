@@ -5,13 +5,9 @@
 #include "MyCharacter.h"
 
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
-#include "SeniorProject/GameSetting/MyGameInstance.h"
-
 #include "SeniorProject/PlayerBase/MyAnimInstance.h"
 #include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
-
-#include "SeniorProject/PlayerBase/AbilityComponent.h"
 
 #include "SeniorProject/UI/DefaultHUD.h"
 
