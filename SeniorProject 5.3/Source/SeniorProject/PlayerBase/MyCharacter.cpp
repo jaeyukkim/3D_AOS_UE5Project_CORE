@@ -124,7 +124,10 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	AimTrace();
+	if(IsNetMode(NM_Client) && IsLocallyControlled())
+	{
+		AimTrace();
+	}
 	
 
 
@@ -338,15 +341,24 @@ void AMyCharacter::AimTrace()
 
 	FVector CameraLocation = Camera->GetComponentLocation();
 	FVector CameraForwardVector = Camera->GetComponentRotation().Vector();
-	FCollisionQueryParams Params(NAME_None, false, this);
+	//FCollisionQueryParams Params(NAME_None, false, this);
 	
 
-	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
-		FQuat::Identity, ECollisionChannel::ECC_Visibility, FCollisionShape::MakeSphere(AttackWidthArea), Params);
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
+		 ECollisionChannel::ECC_Visibility);
 
+	// 레이 그리기
+	FColor LineColor = bHit ? FColor::Green : FColor::Red; // 맞추면 초록색, 아니면 빨간색
+
+	
+		
 	// ��Ÿ� ���� ���̹� �� ���� ���ٸ�
 	if (!HitResult.bBlockingHit)
-		return;
+	{
+		ThisActor = nullptr;
+		if(LastActor != nullptr)
+			LastActor->UnHighlightActor();
+	};
 
 	
 

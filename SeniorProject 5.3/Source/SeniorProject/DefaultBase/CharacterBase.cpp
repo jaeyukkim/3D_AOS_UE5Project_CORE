@@ -102,14 +102,19 @@ void ACharacterBase::AttackDirectionSetSoket(EAttackDirection AttackDirection)
 
 void ACharacterBase::HighlightActor()
 {
+	
+	
 	GetMesh()->SetRenderCustomDepth(true);
 	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
-
+	
+	
+	
 
 }
 
 void ACharacterBase::UnHighlightActor()
 {
+	
 	GetMesh()->SetRenderCustomDepth(false);
 
 }
