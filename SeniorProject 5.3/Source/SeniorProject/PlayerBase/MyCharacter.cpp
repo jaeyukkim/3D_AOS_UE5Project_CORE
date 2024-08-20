@@ -124,7 +124,7 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(IsNetMode(NM_Client) && IsLocallyControlled())
+	if(IsLocallyControlled())
 	{
 		AimTrace();
 	}
@@ -344,8 +344,8 @@ void AMyCharacter::AimTrace()
 	//FCollisionQueryParams Params(NAME_None, false, this);
 	
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
-		 ECollisionChannel::ECC_Visibility);
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 1000,
+		 ECollisionChannel::ECC_GameTraceChannel2);
 
 	// 레이 그리기
 	FColor LineColor = bHit ? FColor::Green : FColor::Red; // 맞추면 초록색, 아니면 빨간색
@@ -355,15 +355,20 @@ void AMyCharacter::AimTrace()
 	// ��Ÿ� ���� ���̹� �� ���� ���ٸ�
 	if (!HitResult.bBlockingHit)
 	{
-		ThisActor = nullptr;
 		if(LastActor != nullptr)
+		{
 			LastActor->UnHighlightActor();
+			LastActor = nullptr;
+		}
+		if(ThisActor != nullptr)
+		{
+			ThisActor->UnHighlightActor();
+			ThisActor = nullptr;
+		}
+
 	};
 
 	
-
-
-
 	LastActor = ThisActor;
 	ThisActor = HitResult.GetActor();
 
@@ -385,12 +390,11 @@ void AMyCharacter::AimTrace()
 	if (LastActor == nullptr)
 	{
 
-		if (ThisActor != nullptr)
+		if (ThisActor != nullptr && ThisActor != this)
 		{
 			// Case B
 			ThisActor->HighlightActor();
 		
-
 		}
 		else
 		{
@@ -410,6 +414,8 @@ void AMyCharacter::AimTrace()
 			{
 				// Case D
 				LastActor->UnHighlightActor();
+				
+				if(ThisActor != this)
 				ThisActor->HighlightActor();
 			}
 			else

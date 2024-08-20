@@ -5,6 +5,8 @@
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
+#include "Kismet/GameplayStatics.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
 
 class ICombatInterface;
 
@@ -132,7 +134,7 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_HitReact);
 				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
 			}
-			
+			ShowFloatingText(Props, LocalIncomingDamage);
 		}
 	}
 	
@@ -158,7 +160,7 @@ void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData
 
 		if (Props.SourceController)
 		{
-			ACharacter* SourceCharacter = Cast<ACharacter>(Props.SourceController->GetPawn());
+			Props.SourceCharacter = Cast<ACharacter>(Props.SourceController->GetPawn());
 			if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
 			{
 				Props.TargetAvatarActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
@@ -170,6 +172,18 @@ void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData
 
 	}
 }
+
+void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage) const
+{
+	if (Props.SourceCharacter != Props.TargetCharacter)
+	{
+		if(AMyPlayerController* PC = Cast<AMyPlayerController>(Props.SourceCharacter->Controller))
+		{
+			PC->ShowDamageNumber(Damage, Props.TargetCharacter);
+		}
+	}
+}
+
 /* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const
 {

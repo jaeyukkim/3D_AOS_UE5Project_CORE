@@ -20,13 +20,16 @@
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
-			"DeadZone.gen.cpp.obj",
-			"DefaultHUD.gen.cpp.obj",
-			"DefaultWidgetController.gen.cpp.obj"
+			"DamageActorBase.gen.cpp.obj",
+			"DamageTextComponent.gen.cpp.obj",
+			"DeadZone.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"DefaultHUD.gen.cpp.obj",
+			"DefaultWidgetController.gen.cpp.obj",
 			"EffectActorBase.gen.cpp.obj",
 			"EnemyInterface.gen.cpp.obj",
+			"ExecCalc_Damage.gen.cpp.obj",
 			"GameplayAbilityBase.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
@@ -51,13 +54,13 @@
 			"MyPlayerState.gen.cpp.obj",
 			"MySaveGame.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
-			"OverlayWidgetController.gen.cpp.obj",
+			"OverlayWidgetController.gen.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
-			"SeniorProject.gen.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Stage1Potal.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
@@ -69,7 +72,9 @@
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
+			"ExecCalc_Damage.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
+			"DamageActorBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"ProjectileBase.cpp.obj",
 			"AssetManagerBase.cpp.obj",
@@ -110,6 +115,7 @@
 			"MyPlayerState.cpp.obj",
 			"SeniorProject.cpp.obj",
 			"AttributeMenuWidgetController.cpp.obj",
+			"DamageTextComponent.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"DefaultWidgetController.cpp.obj",
 			"MyCharacterWidget.cpp.obj",

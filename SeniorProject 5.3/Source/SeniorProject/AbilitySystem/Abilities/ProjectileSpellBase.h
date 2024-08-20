@@ -18,6 +18,9 @@ class SENIORPROJECT_API UProjectileSpellBase : public UGameplayAbilityBase
 public:
 	UPROPERTY(EditAnywhere)
 		float AbilityDistance;
+
+	
+	
 protected:
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 		const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
@@ -31,5 +34,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<UGameplayEffect> DamageEffectClass;
 
+	
 	
 };

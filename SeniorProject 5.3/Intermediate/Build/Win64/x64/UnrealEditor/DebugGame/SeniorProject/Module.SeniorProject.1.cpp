@@ -17,6 +17,6 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Crunch.gen.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageActorBase.gen.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageTextComponent.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DeadZone.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DefaultHUD.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DefaultWidgetController.gen.cpp"

@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "SeniorProject/SeniorProject.h"
-#include "GameFramework/Actor.h"
+
+#include "DamageActorBase.h"
 #include "GamePlayEffectTypes.h"
 #include "EffectActorBase.generated.h"
 
@@ -27,7 +27,7 @@ enum class EEffectRemovalPolicy
 
 
 UCLASS()
-class SENIORPROJECT_API AEffectActorBase : public AActor
+class SENIORPROJECT_API AEffectActorBase : public ADamageActorBase
 {
 	GENERATED_BODY()
 	

@@ -49,7 +49,11 @@ void UProjectileSpellBase::SpawnProjectile(const FVector& AimLocation)
 	const FGameplayTagsBase GameplayTags = FGameplayTagsBase::Get();
 	const float ScaledDamage = Damage.GetValueAtLevel(GetAbilityLevel());
 
-	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Damage, ScaledDamage);
+	
+	if(DamageType == EDamageType::PhysicalDamage)
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.PhysicalDamage, ScaledDamage);
+	else
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.MagicalDamage, ScaledDamage);
 
 	
 	Projectile->DamageEffectSpecHandle = SpecHandle;

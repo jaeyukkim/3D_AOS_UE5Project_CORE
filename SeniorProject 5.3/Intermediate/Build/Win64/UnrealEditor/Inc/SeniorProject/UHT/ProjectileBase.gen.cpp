@@ -7,18 +7,16 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/Actor/ProjectileBase.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
-#include "GameplayEffectTypes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 // Cross Module References
-	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayEffectSpecHandle();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_ADamageActorBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AProjectileBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AProjectileBase_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -144,10 +142,6 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ProjectileMovement;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DamageEffectSpecHandle_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_DamageEffectSpecHandle;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Sphere_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Sphere;
@@ -160,7 +154,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_AProjectileBase_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AActor,
+		(UObject* (*)())Z_Construct_UClass_ADamageActorBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::DependentSingletons) < 16);
@@ -184,14 +178,6 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectSpecHandle_MetaData[] = {
-		{ "Category", "ProjectileBase" },
-		{ "ExposeOnSpawn", "TRUE" },
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectSpecHandle = { "DamageEffectSpecHandle", nullptr, (EPropertyFlags)0x0011000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, DamageEffectSpecHandle), Z_Construct_UScriptStruct_FGameplayEffectSpecHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectSpecHandle_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectSpecHandle_MetaData) }; // 2882128022
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_Sphere_MetaData[] = {
 		{ "Category", "ProjectileBase" },
 		{ "EditInline", "true" },
@@ -209,7 +195,6 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectileBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectSpecHandle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Sphere,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh,
 	};
@@ -251,9 +236,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 4214380944U) },
+		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 3585606185U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_296535705(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_1347658154(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

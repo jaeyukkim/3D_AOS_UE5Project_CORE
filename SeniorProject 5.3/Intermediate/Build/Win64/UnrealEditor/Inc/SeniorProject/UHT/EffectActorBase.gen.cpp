@@ -11,11 +11,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FActiveGameplayEffectHandle();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_ADamageActorBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AEffectActorBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AEffectActorBase_NoRegister();
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_EEffectApplicationPolicy();
@@ -330,7 +330,7 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_AEffectActorBase_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_AActor,
+		(UObject* (*)())Z_Construct_UClass_ADamageActorBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEffectActorBase_Statics::DependentSingletons) < 16);
@@ -475,9 +475,9 @@ void EmptyLinkFunctionForGeneratedCodeEffectActorBase() {}
 		{ EEffectRemovalPolicy_StaticEnum, TEXT("EEffectRemovalPolicy"), &Z_Registration_Info_UEnum_EEffectRemovalPolicy, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2368174702U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AEffectActorBase, AEffectActorBase::StaticClass, TEXT("AEffectActorBase"), &Z_Registration_Info_UClass_AEffectActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectActorBase), 1071743829U) },
+		{ Z_Construct_UClass_AEffectActorBase, AEffectActorBase::StaticClass, TEXT("AEffectActorBase"), &Z_Registration_Info_UClass_AEffectActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEffectActorBase), 4190547131U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_2583052683(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_2345910492(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_EffectActorBase_h_Statics::EnumInfo));

@@ -15,6 +15,7 @@
  */
 class UInputActionData;
 class UAbilitySystemComponentBase;
+class UDamageTextComponent;
 
 UCLASS()
 class SENIORPROJECT_API AMyPlayerController : public APlayerController
@@ -29,7 +30,8 @@ public:
 
 	UAbilitySystemComponentBase* GetASC();
 
-
+	UFUNCTION(Client, Reliable)
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter);
 	
 protected:
 	virtual void BeginPlay() override;
@@ -37,7 +39,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
 		TSubclassOf<class UMyMenuWidget> MenuWidgetClass;
-
+	
+	UPROPERTY(EditDefaultsOnly)
+		TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
 
 
 private:
@@ -64,4 +68,6 @@ private:
 	void AbilityInputTagHeld(FGameplayTag InputTag);
 
 	void OnGamePause();
+
+	
 };

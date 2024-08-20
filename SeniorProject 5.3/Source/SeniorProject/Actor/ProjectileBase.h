@@ -3,8 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-#include "GameplayEffectTypes.h"
+#include "DamageActorBase.h"
 #include "ProjectileBase.generated.h"
 
 
@@ -12,7 +11,7 @@ class USphereComponent;
 class UProjectileMovementComponent;
 
 UCLASS(BlueprintType)
-class SENIORPROJECT_API AProjectileBase : public AActor
+class SENIORPROJECT_API AProjectileBase : public ADamageActorBase
 {
 	GENERATED_BODY()
 	
@@ -22,8 +21,7 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
-	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn = true))
-	FGameplayEffectSpecHandle DamageEffectSpecHandle;
+	
 	
 protected:
 

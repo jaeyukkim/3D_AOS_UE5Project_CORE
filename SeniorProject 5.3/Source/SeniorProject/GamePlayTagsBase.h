@@ -55,7 +55,8 @@ public:
 	FGameplayTag Input_R;
 	/* Input Tag */
 
-	FGameplayTag Damage;
+	FGameplayTag PhysicalDamage;
+	FGameplayTag MagicalDamage;
 	FGameplayTag Effects_HitReact;
 
 protected:

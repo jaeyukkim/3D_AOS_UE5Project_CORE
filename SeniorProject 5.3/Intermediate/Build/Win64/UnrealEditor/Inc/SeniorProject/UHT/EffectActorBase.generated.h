@@ -32,7 +32,7 @@ private: \
 	static void StaticRegisterNativesAEffectActorBase(); \
 	friend struct Z_Construct_UClass_AEffectActorBase_Statics; \
 public: \
-	DECLARE_CLASS(AEffectActorBase, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
+	DECLARE_CLASS(AEffectActorBase, ADamageActorBase, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(AEffectActorBase)
 
 

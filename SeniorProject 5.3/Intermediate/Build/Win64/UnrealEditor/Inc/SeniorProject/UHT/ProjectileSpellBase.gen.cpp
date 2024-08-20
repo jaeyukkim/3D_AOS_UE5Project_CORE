@@ -187,9 +187,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileSpellBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UProjectileSpellBase, UProjectileSpellBase::StaticClass, TEXT("UProjectileSpellBase"), &Z_Registration_Info_UClass_UProjectileSpellBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProjectileSpellBase), 3952716530U) },
+		{ Z_Construct_UClass_UProjectileSpellBase, UProjectileSpellBase::StaticClass, TEXT("UProjectileSpellBase"), &Z_Registration_Info_UClass_UProjectileSpellBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProjectileSpellBase), 776472844U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_2292136198(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_1254948545(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

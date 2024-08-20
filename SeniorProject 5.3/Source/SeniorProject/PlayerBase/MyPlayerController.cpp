@@ -5,7 +5,8 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/Input/InputComponentBase.h"
-
+#include "GameFramework/Character.h"
+#include "SeniorProject/UI/Damage/DamageTextComponent.h"
 
 
 
@@ -30,6 +31,17 @@ UAbilitySystemComponentBase* AMyPlayerController::GetASC()
 	return AbilityComponentBase;
 }
 
+void AMyPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter)
+{
+	if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
+	{
+		UDamageTextComponent* DamageText = NewObject<UDamageTextComponent>(TargetCharacter, DamageTextComponentClass);
+		DamageText->RegisterComponent();
+		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+		DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+		DamageText->SetDamageText(DamageAmount);
+	}
+}
 
 
 void AMyPlayerController::BeginPlay()

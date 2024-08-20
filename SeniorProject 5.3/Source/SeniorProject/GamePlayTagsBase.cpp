@@ -84,8 +84,11 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	/* Input Tag */
 
 
-	GameplayTags.Damage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Damage"),
-		FString("Damage"));
+	GameplayTags.PhysicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("PhysicalDamage"),
+		FString("PhysicalDamage"));
+	GameplayTags.MagicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("MagicalDamage"),
+		FString("MagicalDamage"));
+	
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
 			FName("Effects.HitReact"),FString("Tag granted when Hit Reacting"));
 }
