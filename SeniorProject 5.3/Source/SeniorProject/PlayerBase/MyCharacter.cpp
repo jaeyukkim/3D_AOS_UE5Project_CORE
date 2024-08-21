@@ -16,7 +16,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-#include "SeniorProject/AbilitySystem/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/UI/OverlayWidgetController.h"
 
 
@@ -344,7 +344,7 @@ void AMyCharacter::AimTrace()
 	//FCollisionQueryParams Params(NAME_None, false, this);
 	
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 1000,
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
 		 ECollisionChannel::ECC_GameTraceChannel2);
 
 	// 레이 그리기
@@ -352,7 +352,7 @@ void AMyCharacter::AimTrace()
 
 	
 		
-	// ��Ÿ� ���� ���̹� �� ���� ���ٸ�
+
 	if (!HitResult.bBlockingHit)
 	{
 		if(LastActor != nullptr)
@@ -372,19 +372,6 @@ void AMyCharacter::AimTrace()
 	LastActor = ThisActor;
 	ThisActor = HitResult.GetActor();
 
-	/**
-	 * ���� Ʈ���̽��� ���� ������:
-	 *  A. LastActor is null && ThisActor is null
-	 *		- �ƹ��͵� ���� ����
-	 *	B. LastActor is null && ThisActor is valid
-	 *		- Highlight ThisActor
-	 *	C. LastActor is valid && ThisActor is null
-	 *		- UnHighlight LastActor
-	 *	D. Both actors are valid, but LastActor != ThisActor
-	 *		- UnHighlight LastActor,  Highlight ThisActor
-	 *	E. Both actors are valid, and are the same actor
-	 *		- �ƹ��͵� ���� ����
-	 */
 
 
 	if (LastActor == nullptr)

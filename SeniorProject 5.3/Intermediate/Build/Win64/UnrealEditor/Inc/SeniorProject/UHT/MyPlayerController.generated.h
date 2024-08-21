@@ -19,7 +19,7 @@ class ACharacter;
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_23_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_23_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter); \
+	virtual void ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage); \
  \
 	DECLARE_FUNCTION(execShowDamageNumber);
 

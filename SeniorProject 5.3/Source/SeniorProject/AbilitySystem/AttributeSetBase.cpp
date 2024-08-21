@@ -2,6 +2,8 @@
 
 
 #include "AttributeSetBase.h"
+
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
@@ -134,7 +136,10 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_HitReact);
 				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
 			}
-			ShowFloatingText(Props, LocalIncomingDamage);
+			const bool bCriticalHit = UBlueprintFunctionLibraryBase::IsCriticalHit(Props.EffectContextHandle);
+			const bool bMagicalDamage = UBlueprintFunctionLibraryBase::IsMagicalDamage(Props.EffectContextHandle);
+
+			ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
 		}
 	}
 	
@@ -173,13 +178,13 @@ void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData
 	}
 }
 
-void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage) const
+void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const
 {
 	if (Props.SourceCharacter != Props.TargetCharacter)
 	{
 		if(AMyPlayerController* PC = Cast<AMyPlayerController>(Props.SourceCharacter->Controller))
 		{
-			PC->ShowDamageNumber(Damage, Props.TargetCharacter);
+			PC->ShowDamageNumber(Damage, Props.TargetCharacter, bCriticalHit, bMagicalDamage);
 		}
 	}
 }

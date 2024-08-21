@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "SeniorProject/AbilitySystem/GameplayAbilityBase.h"
+#include "DamageGameplayAbilityBase.h"
 #include "ProjectileSpellBase.generated.h"
 
 class AProjectileBase;
@@ -12,7 +12,7 @@ class UGameplayEffect;
  * 
  */
 UCLASS()
-class SENIORPROJECT_API UProjectileSpellBase : public UGameplayAbilityBase
+class SENIORPROJECT_API UProjectileSpellBase : public UDamageGameplayAbilityBase
 {
 	GENERATED_BODY()
 public:
@@ -31,8 +31,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TSubclassOf<AProjectileBase> ProjectileClass;
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	TSubclassOf<UGameplayEffect> DamageEffectClass;
+	
 
 	
 	

@@ -11,9 +11,8 @@ void EmptyLinkFunctionForGeneratedCodeProjectileSpellBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AProjectileBase_NoRegister();
-	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UDamageGameplayAbilityBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UProjectileSpellBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UProjectileSpellBase_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -96,16 +95,12 @@ void EmptyLinkFunctionForGeneratedCodeProjectileSpellBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_DamageEffectClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_DamageEffectClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UProjectileSpellBase_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UGameplayAbilityBase,
+		(UObject* (*)())Z_Construct_UClass_UDamageGameplayAbilityBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UProjectileSpellBase_Statics::DependentSingletons) < 16);
@@ -136,17 +131,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileSpellBase() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UProjectileSpellBase, ProjectileClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AProjectileBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_ProjectileClass_MetaData), Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_ProjectileClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_DamageEffectClass_MetaData[] = {
-		{ "Category", "ProjectileSpellBase" },
-		{ "ModuleRelativePath", "AbilitySystem/Abilities/ProjectileSpellBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_DamageEffectClass = { "DamageEffectClass", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UProjectileSpellBase, DamageEffectClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_DamageEffectClass_MetaData), Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_DamageEffectClass_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UProjectileSpellBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_AbilityDistance,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_ProjectileClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UProjectileSpellBase_Statics::NewProp_DamageEffectClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UProjectileSpellBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UProjectileSpellBase>::IsAbstract,
@@ -187,9 +174,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileSpellBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UProjectileSpellBase, UProjectileSpellBase::StaticClass, TEXT("UProjectileSpellBase"), &Z_Registration_Info_UClass_UProjectileSpellBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProjectileSpellBase), 776472844U) },
+		{ Z_Construct_UClass_UProjectileSpellBase, UProjectileSpellBase::StaticClass, TEXT("UProjectileSpellBase"), &Z_Registration_Info_UClass_UProjectileSpellBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UProjectileSpellBase), 2439911510U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_1254948545(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_334272455(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_ProjectileSpellBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -134,7 +134,7 @@ public:
 	
 
 	bool GetBool_IsNoWep();
-	int32 AttackDamageCount;
+	uint32 AttackDamageCount;
 	
 	bool bIsNoWep;
 	bool bIsCasting;

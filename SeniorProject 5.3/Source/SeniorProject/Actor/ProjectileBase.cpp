@@ -4,7 +4,8 @@
 #include "ProjectileBase.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
-#include "Components/SphereComponent.h"
+#include "Components/CapsuleComponent.h"
+
 #include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
@@ -16,13 +17,13 @@ AProjectileBase::AProjectileBase()
 	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
 	
-	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
-	Sphere->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	Sphere->SetCollisionResponseToAllChannels(ECR_Ignore);
+	Capsule = CreateDefaultSubobject<UCapsuleComponent>("Capsule");
+	Capsule->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	Capsule->SetCollisionResponseToAllChannels(ECR_Ignore);
 	//Sphere->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);
 	//Sphere->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Overlap);
-	Sphere->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
-	Sphere->SetupAttachment(Mesh);
+	Capsule->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	Capsule->SetupAttachment(Mesh);
 	
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>("ProjectileMovement");
 	ProjectileMovement->InitialSpeed = 100.0f; // Start at rest
@@ -42,11 +43,11 @@ AProjectileBase::AProjectileBase()
 void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnSphereOverlap);
+	Capsule->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
 	
 }
 
-void AProjectileBase::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))

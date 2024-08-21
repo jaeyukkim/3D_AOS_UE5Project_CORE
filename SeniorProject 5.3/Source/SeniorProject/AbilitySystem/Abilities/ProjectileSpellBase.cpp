@@ -6,7 +6,7 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
-#include "SeniorProject/Interface/CombatInterface.h"
+#include "DamageGameplayAbilityBase.h"
 #include "SeniorProject/Actor/ProjectileBase.h"
 
 void UProjectileSpellBase::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
@@ -47,14 +47,14 @@ void UProjectileSpellBase::SpawnProjectile(const FVector& AimLocation)
 	const FGameplayEffectSpecHandle SpecHandle = SourceASC->MakeOutgoingSpec(DamageEffectClass, GetAbilityLevel(), SourceASC->MakeEffectContext());
 
 	const FGameplayTagsBase GameplayTags = FGameplayTagsBase::Get();
-	const float ScaledDamage = Damage.GetValueAtLevel(GetAbilityLevel());
+
+	for (auto& Pair : DamageTypes)
+	{
+		const float ScaledDamage = Pair.Value.GetValueAtLevel(GetAbilityLevel());
+		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, Pair.Key, ScaledDamage);
+	}
 
 	
-	if(DamageType == EDamageType::PhysicalDamage)
-		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.PhysicalDamage, ScaledDamage);
-	else
-		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.MagicalDamage, ScaledDamage);
-
 	
 	Projectile->DamageEffectSpecHandle = SpecHandle;
 	

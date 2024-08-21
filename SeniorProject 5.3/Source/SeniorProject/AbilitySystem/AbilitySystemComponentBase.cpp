@@ -3,7 +3,7 @@
 
 #include "AbilitySystemComponentBase.h"
 
-#include "GameplayAbilityBase.h"
+#include "SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h"
 #include "SeniorProject/GameplayTagsBase.h"
 
 void UAbilitySystemComponentBase::AbilityActorInfoSet()

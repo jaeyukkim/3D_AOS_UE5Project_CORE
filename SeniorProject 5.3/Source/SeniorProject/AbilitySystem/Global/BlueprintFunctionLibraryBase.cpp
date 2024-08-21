@@ -4,6 +4,7 @@
 #include "BlueprintFunctionLibraryBase.h"
 
 #include "AbilitySystemComponent.h"
+#include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
 #include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/UI/DefaultHUD.h"
@@ -81,5 +82,44 @@ void UBlueprintFunctionLibraryBase::GiveStartupAbilities(const UObject* WorldCon
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
 		ASC->GiveAbility(AbilitySpec);
+	}
+}
+
+
+bool UBlueprintFunctionLibraryBase::IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->IsCriticalHit();
+	}
+	return false;
+}
+
+
+void UBlueprintFunctionLibraryBase::SetIsCriticalHit(FGameplayEffectContextHandle& EffectContextHandle,
+	bool bInIsCriticalHit)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetIsCriticalHit(bInIsCriticalHit);
+	}
+}
+
+
+bool UBlueprintFunctionLibraryBase::IsMagicalDamage(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->IsMagicalDamage();
+	}
+	return false;
+}
+
+void UBlueprintFunctionLibraryBase::SetIsMagicalDamage(FGameplayEffectContextHandle& EffectContextHandle,
+                                                       bool bInIsMagicalDamage)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetIsMagicalDamage(bInIsMagicalDamage);
 	}
 }

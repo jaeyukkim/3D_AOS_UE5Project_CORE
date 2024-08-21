@@ -7,7 +7,7 @@
 #include "ProjectileBase.generated.h"
 
 
-class USphereComponent;
+class UCapsuleComponent;
 class UProjectileMovementComponent;
 
 UCLASS(BlueprintType)
@@ -28,11 +28,11 @@ protected:
 	virtual void BeginPlay() override;
 	
 	UFUNCTION()
-	void OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	void OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TObjectPtr<USphereComponent> Sphere;
+	TObjectPtr<UCapsuleComponent> Capsule;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UStaticMeshComponent> Mesh;

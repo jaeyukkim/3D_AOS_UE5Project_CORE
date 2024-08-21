@@ -9,8 +9,8 @@ UAssetManagerBase& UAssetManagerBase::Get()
 {
 	check(GEngine);
 
-	UAssetManagerBase* AuraAssetManager = Cast<UAssetManagerBase>(GEngine->AssetManager);
-	return *AuraAssetManager;
+	UAssetManagerBase* AssetManager = Cast<UAssetManagerBase>(GEngine->AssetManager);
+	return *AssetManager;
 }
 
 void UAssetManagerBase::StartInitialLoading()

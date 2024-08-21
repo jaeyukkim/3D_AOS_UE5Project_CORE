@@ -28,7 +28,7 @@ private: \
 	static void StaticRegisterNativesUProjectileSpellBase(); \
 	friend struct Z_Construct_UClass_UProjectileSpellBase_Statics; \
 public: \
-	DECLARE_CLASS(UProjectileSpellBase, UGameplayAbilityBase, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
+	DECLARE_CLASS(UProjectileSpellBase, UDamageGameplayAbilityBase, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(UProjectileSpellBase)
 
 

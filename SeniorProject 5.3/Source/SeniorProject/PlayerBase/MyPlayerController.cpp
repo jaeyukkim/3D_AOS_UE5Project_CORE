@@ -31,7 +31,7 @@ UAbilitySystemComponentBase* AMyPlayerController::GetASC()
 	return AbilityComponentBase;
 }
 
-void AMyPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter)
+void AMyPlayerController::ShowDamageNumber_Implementation(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage)
 {
 	if (IsValid(TargetCharacter) && DamageTextComponentClass && IsLocalController())
 	{
@@ -39,7 +39,7 @@ void AMyPlayerController::ShowDamageNumber_Implementation(float DamageAmount, AC
 		DamageText->RegisterComponent();
 		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
 		DamageText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
-		DamageText->SetDamageText(DamageAmount);
+		DamageText->SetDamageText(DamageAmount, bCriticalHit, bMagicalDamage);
 	}
 }
 

@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "GameplayTagContainer.h"
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"

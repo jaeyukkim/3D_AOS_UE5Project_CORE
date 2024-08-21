@@ -9,7 +9,7 @@
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/UI/OverlayWidget.h"
 #include "SeniorProject/EnemyBase/AISetting/MinionAnimInstance.h"
-#include "SeniorProject/AbilitySystem/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 

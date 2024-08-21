@@ -25,22 +25,28 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_DamageAmount);
 		P_GET_OBJECT(ACharacter,Z_Param_TargetCharacter);
+		P_GET_UBOOL(Z_Param_bCriticalHit);
+		P_GET_UBOOL(Z_Param_bMagicalDamage);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->ShowDamageNumber_Implementation(Z_Param_DamageAmount,Z_Param_TargetCharacter);
+		P_THIS->ShowDamageNumber_Implementation(Z_Param_DamageAmount,Z_Param_TargetCharacter,Z_Param_bCriticalHit,Z_Param_bMagicalDamage);
 		P_NATIVE_END;
 	}
 	struct MyPlayerController_eventShowDamageNumber_Parms
 	{
 		float DamageAmount;
 		ACharacter* TargetCharacter;
+		bool bCriticalHit;
+		bool bMagicalDamage;
 	};
 	static FName NAME_AMyPlayerController_ShowDamageNumber = FName(TEXT("ShowDamageNumber"));
-	void AMyPlayerController::ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter)
+	void AMyPlayerController::ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage)
 	{
 		MyPlayerController_eventShowDamageNumber_Parms Parms;
 		Parms.DamageAmount=DamageAmount;
 		Parms.TargetCharacter=TargetCharacter;
+		Parms.bCriticalHit=bCriticalHit ? true : false;
+		Parms.bMagicalDamage=bMagicalDamage ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_AMyPlayerController_ShowDamageNumber),&Parms);
 	}
 	void AMyPlayerController::StaticRegisterNativesAMyPlayerController()
@@ -55,6 +61,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	{
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_DamageAmount;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetCharacter;
+		static void NewProp_bCriticalHit_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bCriticalHit;
+		static void NewProp_bMagicalDamage_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bMagicalDamage;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -63,9 +73,21 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	};
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_DamageAmount = { "DamageAmount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPlayerController_eventShowDamageNumber_Parms, DamageAmount), METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_TargetCharacter = { "TargetCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPlayerController_eventShowDamageNumber_Parms, TargetCharacter), Z_Construct_UClass_ACharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	void Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bCriticalHit_SetBit(void* Obj)
+	{
+		((MyPlayerController_eventShowDamageNumber_Parms*)Obj)->bCriticalHit = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bCriticalHit = { "bCriticalHit", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyPlayerController_eventShowDamageNumber_Parms), &Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bCriticalHit_SetBit, METADATA_PARAMS(0, nullptr) };
+	void Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bMagicalDamage_SetBit(void* Obj)
+	{
+		((MyPlayerController_eventShowDamageNumber_Parms*)Obj)->bMagicalDamage = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bMagicalDamage = { "bMagicalDamage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(MyPlayerController_eventShowDamageNumber_Parms), &Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bMagicalDamage_SetBit, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_DamageAmount,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_TargetCharacter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bCriticalHit,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::NewProp_bMagicalDamage,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber_Statics::Function_MetaDataParams[] = {
@@ -130,7 +152,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyPlayerController_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber, "ShowDamageNumber" }, // 3494106086
+		{ &Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber, "ShowDamageNumber" }, // 2203302998
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -229,9 +251,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 776541495U) },
+		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 4283952888U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_2577414316(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_4120553172(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

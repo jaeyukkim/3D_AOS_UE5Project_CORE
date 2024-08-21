@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "AbilitySystem/GameplayAbilityBase.h"
+// IWYU pragma: private, include "AbilitySystem/Abilities/GameplayAbilityBase.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,12 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_GameplayAbilityBase_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUGameplayAbilityBase(); \
 	friend struct Z_Construct_UClass_UGameplayAbilityBase_Statics; \
@@ -28,7 +28,7 @@ public: \
 	DECLARE_SERIALIZER(UGameplayAbilityBase)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UGameplayAbilityBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -42,17 +42,17 @@ public: \
 	NO_API virtual ~UGameplayAbilityBase();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_21_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_14_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h_24_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -60,15 +60,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class UGameplayAbilityBase>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_GameplayAbilityBase_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h
 
-
-#define FOREACH_ENUM_EDAMAGETYPE(op) \
-	op(EDamageType::PhysicalDamage) \
-	op(EDamageType::MagicalDamage) 
-
-enum class EDamageType : uint8;
-template<> struct TIsUEnumClass<EDamageType> { enum { Value = true }; };
-template<> SENIORPROJECT_API UEnum* StaticEnum<EDamageType>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

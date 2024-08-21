@@ -31,7 +31,7 @@ public:
 	UAbilitySystemComponentBase* GetASC();
 
 	UFUNCTION(Client, Reliable)
-	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter);
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage);
 	
 protected:
 	virtual void BeginPlay() override;

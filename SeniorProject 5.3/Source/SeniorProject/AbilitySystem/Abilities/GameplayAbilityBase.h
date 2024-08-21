@@ -10,13 +10,6 @@
  * 
  */
 
-UENUM(BlueprintType)
-enum class EDamageType : uint8
-{
-	PhysicalDamage,
-	MagicalDamage
-};
-
 
 UCLASS()
 class SENIORPROJECT_API UGameplayAbilityBase : public UGameplayAbility
@@ -27,9 +20,5 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	FGameplayTag StartupInputTag;
 	
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Damage")
-	FScalableFloat Damage;
-
-	UPROPERTY(EditAnywhere)
-	EDamageType DamageType;
+	
 };

@@ -5,13 +5,15 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/AbilitySystem/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+#include "GameplayEffectTypes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
+	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayEffectContextHandle();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAttributeMenuWidgetController_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UBlueprintFunctionLibraryBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UBlueprintFunctionLibraryBase_NoRegister();
@@ -19,6 +21,40 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execSetIsMagicalDamage)
+	{
+		P_GET_STRUCT_REF(FGameplayEffectContextHandle,Z_Param_Out_EffectContextHandle);
+		P_GET_UBOOL(Z_Param_bInIsCriticalHit);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UBlueprintFunctionLibraryBase::SetIsMagicalDamage(Z_Param_Out_EffectContextHandle,Z_Param_bInIsCriticalHit);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execIsMagicalDamage)
+	{
+		P_GET_STRUCT_REF(FGameplayEffectContextHandle,Z_Param_Out_EffectContextHandle);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=UBlueprintFunctionLibraryBase::IsMagicalDamage(Z_Param_Out_EffectContextHandle);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execSetIsCriticalHit)
+	{
+		P_GET_STRUCT_REF(FGameplayEffectContextHandle,Z_Param_Out_EffectContextHandle);
+		P_GET_UBOOL(Z_Param_bInIsCriticalHit);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UBlueprintFunctionLibraryBase::SetIsCriticalHit(Z_Param_Out_EffectContextHandle,Z_Param_bInIsCriticalHit);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execIsCriticalHit)
+	{
+		P_GET_STRUCT_REF(FGameplayEffectContextHandle,Z_Param_Out_EffectContextHandle);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=UBlueprintFunctionLibraryBase::IsCriticalHit(Z_Param_Out_EffectContextHandle);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execGiveStartupAbilities)
 	{
 		P_GET_OBJECT(UObject,Z_Param_WorldContextObject);
@@ -63,6 +99,10 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 			{ "GetUAttributeMenuWidgetController", &UBlueprintFunctionLibraryBase::execGetUAttributeMenuWidgetController },
 			{ "GiveStartupAbilities", &UBlueprintFunctionLibraryBase::execGiveStartupAbilities },
 			{ "InitializeDefaultAttributes", &UBlueprintFunctionLibraryBase::execInitializeDefaultAttributes },
+			{ "IsCriticalHit", &UBlueprintFunctionLibraryBase::execIsCriticalHit },
+			{ "IsMagicalDamage", &UBlueprintFunctionLibraryBase::execIsMagicalDamage },
+			{ "SetIsCriticalHit", &UBlueprintFunctionLibraryBase::execSetIsCriticalHit },
+			{ "SetIsMagicalDamage", &UBlueprintFunctionLibraryBase::execSetIsMagicalDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -98,7 +138,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::Function_MetaDataParams[] = {
 		{ "Category", "AbilitySystemLibraryBase|WidgetController" },
-		{ "ModuleRelativePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "GetOverlayWidgetController", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::BlueprintFunctionLibraryBase_eventGetOverlayWidgetController_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics::Function_MetaDataParams) };
@@ -145,7 +185,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::Function_MetaDataParams[] = {
 		{ "Category", "AbilitySystemLibraryBase|WidgetController" },
-		{ "ModuleRelativePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "GetUAttributeMenuWidgetController", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::BlueprintFunctionLibraryBase_eventGetUAttributeMenuWidgetController_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController_Statics::Function_MetaDataParams) };
@@ -200,7 +240,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::Function_MetaDataParams[] = {
 		{ "Category", "AuraAbilitySystemLibrary|CharacterClassDefaults" },
-		{ "ModuleRelativePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "GiveStartupAbilities", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::BlueprintFunctionLibraryBase_eventGiveStartupAbilities_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::Function_MetaDataParams) };
@@ -266,7 +306,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::Function_MetaDataParams[] = {
 		{ "Category", "AuraAbilitySystemLibrary|CharacterClassDefaults" },
-		{ "ModuleRelativePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "InitializeDefaultAttributes", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::BlueprintFunctionLibraryBase_eventInitializeDefaultAttributes_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::Function_MetaDataParams) };
@@ -278,6 +318,198 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics
+	{
+		struct BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms
+		{
+			FGameplayEffectContextHandle EffectContextHandle;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EffectContextHandle_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EffectContextHandle;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_EffectContextHandle_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_EffectContextHandle = { "EffectContextHandle", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms, EffectContextHandle), Z_Construct_UScriptStruct_FGameplayEffectContextHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_EffectContextHandle_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_EffectContextHandle_MetaData) }; // 3768813396
+	void Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms), &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_EffectContextHandle,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "IsCriticalHit", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14422401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::BlueprintFunctionLibraryBase_eventIsCriticalHit_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics
+	{
+		struct BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms
+		{
+			FGameplayEffectContextHandle EffectContextHandle;
+			bool ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EffectContextHandle_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EffectContextHandle;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_EffectContextHandle_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_EffectContextHandle = { "EffectContextHandle", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms, EffectContextHandle), Z_Construct_UScriptStruct_FGameplayEffectContextHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_EffectContextHandle_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_EffectContextHandle_MetaData) }; // 3768813396
+	void Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms), &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_EffectContextHandle,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "IsMagicalDamage", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14422401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::BlueprintFunctionLibraryBase_eventIsMagicalDamage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics
+	{
+		struct BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms
+		{
+			FGameplayEffectContextHandle EffectContextHandle;
+			bool bInIsCriticalHit;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EffectContextHandle;
+		static void NewProp_bInIsCriticalHit_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bInIsCriticalHit;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_EffectContextHandle = { "EffectContextHandle", nullptr, (EPropertyFlags)0x0010000008000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms, EffectContextHandle), Z_Construct_UScriptStruct_FGameplayEffectContextHandle, METADATA_PARAMS(0, nullptr) }; // 3768813396
+	void Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_bInIsCriticalHit_SetBit(void* Obj)
+	{
+		((BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms*)Obj)->bInIsCriticalHit = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_bInIsCriticalHit = { "bInIsCriticalHit", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms), &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_bInIsCriticalHit_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_EffectContextHandle,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::NewProp_bInIsCriticalHit,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "SetIsCriticalHit", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04422401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::BlueprintFunctionLibraryBase_eventSetIsCriticalHit_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics
+	{
+		struct BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms
+		{
+			FGameplayEffectContextHandle EffectContextHandle;
+			bool bInIsCriticalHit;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EffectContextHandle;
+		static void NewProp_bInIsCriticalHit_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bInIsCriticalHit;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_EffectContextHandle = { "EffectContextHandle", nullptr, (EPropertyFlags)0x0010000008000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms, EffectContextHandle), Z_Construct_UScriptStruct_FGameplayEffectContextHandle, METADATA_PARAMS(0, nullptr) }; // 3768813396
+	void Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_bInIsCriticalHit_SetBit(void* Obj)
+	{
+		((BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms*)Obj)->bInIsCriticalHit = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_bInIsCriticalHit = { "bInIsCriticalHit", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms), &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_bInIsCriticalHit_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_EffectContextHandle,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::NewProp_bInIsCriticalHit,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "SetIsMagicalDamage", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04422401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::BlueprintFunctionLibraryBase_eventSetIsMagicalDamage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -302,10 +534,14 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController, "GetOverlayWidgetController" }, // 3829041005
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController, "GetUAttributeMenuWidgetController" }, // 3114743644
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 1100745202
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes, "InitializeDefaultAttributes" }, // 1587933493
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController, "GetOverlayWidgetController" }, // 1192307670
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController, "GetUAttributeMenuWidgetController" }, // 1461303798
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 2204042487
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes, "InitializeDefaultAttributes" }, // 1666154150
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit, "IsCriticalHit" }, // 1378247691
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage, "IsMagicalDamage" }, // 3122701809
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit, "SetIsCriticalHit" }, // 2638286082
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage, "SetIsMagicalDamage" }, // 4099381600
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -313,8 +549,8 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "IncludePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
-		{ "ModuleRelativePath", "AbilitySystem/BlueprintFunctionLibraryBase.h" },
+		{ "IncludePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::StaticCppClassTypeInfo = {
@@ -350,15 +586,15 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	UBlueprintFunctionLibraryBase::UBlueprintFunctionLibraryBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UBlueprintFunctionLibraryBase);
 	UBlueprintFunctionLibraryBase::~UBlueprintFunctionLibraryBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 2874687548U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 2041176936U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_2455774691(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_BlueprintFunctionLibraryBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_1750412432(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

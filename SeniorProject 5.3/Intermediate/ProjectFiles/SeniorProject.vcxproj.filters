@@ -75,27 +75,33 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AbilitySystemComponentBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTypesBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTypesBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\AttributeSetBase.cpp">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AttributeSetBase.h">
       <Filter>Source\SeniorProject\AbilitySystem</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\BlueprintFunctionLibraryBase.cpp">
-      <Filter>Source\SeniorProject\AbilitySystem</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\BlueprintFunctionLibraryBase.h">
-      <Filter>Source\SeniorProject\AbilitySystem</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\GameplayAbilityBase.cpp">
-      <Filter>Source\SeniorProject\AbilitySystem</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\GameplayAbilityBase.h">
-      <Filter>Source\SeniorProject\AbilitySystem</Filter>
-    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\Abilities">
       <UniqueIdentifier>{82C9FA38-1F08-3E4B-A6DA-DFC25B31022D}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\DamageGameplayAbilityBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\DamageGameplayAbilityBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\GameplayAbilityBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\GameplayAbilityBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.cpp">
       <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
     </ClCompile>
@@ -134,6 +140,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\ExecCalc\ExecCalc_Damage.h">
       <Filter>Source\SeniorProject\AbilitySystem\ExecCalc</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Global">
+      <UniqueIdentifier>{42E19540-14A7-3976-B79C-166E7956C049}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Global\AbilitySystemGlobalsBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Global</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Global\AbilitySystemGlobalsBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Global</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Global\BlueprintFunctionLibraryBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Global</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Global\BlueprintFunctionLibraryBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Global</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
