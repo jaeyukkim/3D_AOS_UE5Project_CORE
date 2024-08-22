@@ -2,7 +2,6 @@
 
 
 #include "Minions.h"
-#include "SeniorProject/PlayerBase/MyCharacterStatComponent.h"
 #include "Components/WidgetComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
@@ -12,11 +11,16 @@
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 
+#include "SeniorProject/AI/AIControllerBase.h"
+#include "BehaviorTree/BehaviorTree.h"
+#include "BehaviorTree/BlackboardComponent.h"
+
 
 
 // Sets default values
 AMinions::AMinions()
 {
+	Tags.Add(TEXT("ENEMY"));
 
 	PrimaryActorTick.bCanEverTick = false;
 	AttackMontage.Init(nullptr, MaxAttackCombo);
@@ -51,17 +55,29 @@ AMinions::AMinions()
 	
 
 	
-	Tags.Add(TEXT("ENEMY"));
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 480.0f, 0.0f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
-	Tags.Add(TEXT("MinionClass"));
+	
 
 	
 	AttackWidthArea = 40.0f;
+}
+
+void AMinions::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if(!HasAuthority()) return;
+	
+	AIControllerBase = Cast<AAIControllerBase>(NewController);
+	AIControllerBase->GetBlackboardComponent()->InitializeBlackboard(*BehaviorTree->BlackboardAsset);
+	AIControllerBase->RunBehaviorTree(BehaviorTree);
+	AIControllerBase->GetBlackboardComponent()->SetValueAsBool("HitReacting", false);
+	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("RangedAttacker"), CharacterClass != ECharacterClass::Minion_Melee);
 }
 
 // Called when the game starts or when spawned
@@ -69,16 +85,14 @@ void AMinions::BeginPlay()
 {
 	Super::BeginPlay();
 
-
-	//3���� �̴Ͼ� Ÿ���� �������� ����
-
 	
-	
-	//AIController = Cast<AMinionAIController>(GetController());
-	//if (AIController == nullptr) return;
 	
 	InitAbilityActorInfo();
-	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
+	
+	if(HasAuthority())
+	{
+		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
+	}
 
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
 	{
@@ -100,10 +114,8 @@ void AMinions::BeginPlay()
 			}
 		);
 
-		AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(
-			this,
-			&ACharacterBase::HitReactTagChanged
-		);
+		AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(this,&AMinions::HitReactTagChanged);
+		
 		
 		OnHealthChanged.Broadcast(AS->GetHealth());
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
@@ -172,13 +184,24 @@ void AMinions::InitAbilityActorInfo()
 	
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->AbilityActorInfoSet();
-	InitializeDefaultAttributes();
+	if(HasAuthority())
+	{
+		InitializeDefaultAttributes();
+	}
 }
 
 void AMinions::InitializeDefaultAttributes() const
 {
-	Super::InitializeDefaultAttributes();
+	
 	UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(this, CharacterClass, Level, AbilitySystemComponent);
+}
+
+
+void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	Super::HitReactTagChanged(CallbackTag, NewCount);
+	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
+
 }
 
 
@@ -243,14 +266,6 @@ float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 
 void AMinions::Hurt(AActor* DamageCauser)
 {
-
-	auto anim = Cast<UMinionAnimInstance>(GetMesh()->GetAnimInstance());
-
-	if (anim)
-	{
-		anim->SetDamaged();
-
-	}
-
+	
 }
 

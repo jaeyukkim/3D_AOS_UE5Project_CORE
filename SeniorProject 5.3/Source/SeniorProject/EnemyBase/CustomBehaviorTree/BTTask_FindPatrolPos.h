@@ -7,7 +7,7 @@
 #include "BTTask_FindPatrolPos.generated.h"
 
 /**
- *  ´ÙÀ½ ¹«ÀÛÀ§ ÀÌµ¿ ½ÃÁ¡À» Á¤ÇÔ
+ *  ë¸”ë™ë³´ë“œì— HomePos, PatrolPos í‚¤ê°€ ìˆì–´ì•¼ ì‚¬ìš© ê°€ëŠ¥í•¨.
  */
 UCLASS()
 class SENIORPROJECT_API UBTTask_FindPatrolPos : public UBTTaskNode

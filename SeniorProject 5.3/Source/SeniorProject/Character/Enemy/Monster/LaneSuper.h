@@ -16,5 +16,5 @@ class SENIORPROJECT_API ALaneSuper : public AMinions
 public:
 	ALaneSuper();
 
-	virtual void SetDefaultSetting();
+	virtual void SetDefaultSetting() override;
 };

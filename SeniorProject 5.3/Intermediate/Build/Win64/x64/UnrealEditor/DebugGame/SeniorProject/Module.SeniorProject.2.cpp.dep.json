@@ -6,6 +6,9 @@
         "PCH": "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\seniorprojecteditor\\debuggame\\unrealed\\sharedpch.unrealed.nonoptimized.cpp20.inclorderunreal5_0.h.pch",
         "Includes": [
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\seniorproject\\definitions.seniorproject.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.gen.cpp",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\interface\\combatinterface.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\crunch.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\enemy\\monster\\crunch.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\seniorproject.h",
@@ -214,8 +217,6 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagcontainer.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\source\\gameplayabilities\\public\\abilitysysteminterface.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitysysteminterface.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\interface\\combatinterface.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\interface\\enemyinterface.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\enemyinterface.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterbase.generated.h",
@@ -593,12 +594,7 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\source\\gameplayabilities\\public\\abilitysystemreplicationproxyinterface.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitysystemreplicationproxyinterface.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitysystemcomponent.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\myplayerstate.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mysavegame.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\gamesetting\\mysavegame.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\savegame.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\savegame.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mysavegame.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\myplayerstate.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

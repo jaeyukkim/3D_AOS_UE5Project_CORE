@@ -16,5 +16,5 @@ class SENIORPROJECT_API AKwang : public AMinions
 
 public:
 	AKwang();
-	virtual void SetDefaultSetting();
+	virtual void SetDefaultSetting() override;
 };

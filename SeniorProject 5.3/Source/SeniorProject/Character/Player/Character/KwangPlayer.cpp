@@ -114,7 +114,7 @@ void AKwangPlayer::SetCharacterSetting()
 	bUseControllerRotationYaw = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
-	GetCharacterMovement()->MaxWalkSpeed = 600.0f;
+	GetCharacterMovement()->MaxWalkSpeed = 3000.0f;
 
 
 	AttackWidthArea = 15.0f;

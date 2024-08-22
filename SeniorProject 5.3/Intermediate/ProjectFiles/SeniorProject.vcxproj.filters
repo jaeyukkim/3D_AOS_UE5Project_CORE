@@ -177,6 +177,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\Actor\ProjectileBase.h">
       <Filter>Source\SeniorProject\Actor</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AI">
+      <UniqueIdentifier>{EE4CBE6E-5201-3060-BB60-137499223F2F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AI\AIControllerBase.cpp">
+      <Filter>Source\SeniorProject\AI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AI\AIControllerBase.h">
+      <Filter>Source\SeniorProject\AI</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character">
       <UniqueIdentifier>{E2ADD259-DA64-31ED-85F0-72602C63FECB}</UniqueIdentifier>
     </Filter>
@@ -220,6 +229,12 @@
       <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Minions.h">
+      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Ranged.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Ranged.h">
       <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Character\Player">

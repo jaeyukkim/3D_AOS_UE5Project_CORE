@@ -2,7 +2,7 @@
 
 
 #include "BTDecorator_IsInAttackRange.h"
-#include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
+#include "AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
 UBTDecorator_IsInAttackRange::UBTDecorator_IsInAttackRange()
@@ -11,7 +11,7 @@ UBTDecorator_IsInAttackRange::UBTDecorator_IsInAttackRange()
 	AttackRange = 350.0f;
 }
 
-//감지된 플레이어가 있을 때 공격범위 안에 들어오는지 리턴하는 함수
+
 bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) const
 {
 
@@ -22,7 +22,7 @@ bool UBTDecorator_IsInAttackRange::CalculateRawConditionValue(UBehaviorTreeCompo
 
 
 
-	auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AMinionAIController::TargetKey));
+	auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 	if (Target == nullptr)
 		return false;
 

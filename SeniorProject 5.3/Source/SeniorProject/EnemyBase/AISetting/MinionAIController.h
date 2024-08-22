@@ -18,15 +18,15 @@ class SENIORPROJECT_API AMinionAIController : public AAIController
 public:
 	AMinionAIController();
 
-	//ÀÌ ÄÁÆ®·Ñ·¯¸¦ ÁöÁ¤µÈ Æù¿¡ ¿¬°áÇÏ´Â ÇÚµéÀÔ´Ï´Ù.
+	//ì´ ì»¨íŠ¸ë¡¤ëŸ¬ë¥¼ ì§€ì •ëœ í°ì— ì—°ê²°í•˜ëŠ” í•¸ë“¤ì…ë‹ˆë‹¤.
 	virtual void OnPossess(APawn* InPawn) override;
 
 
 
-	static const FName HomePosKey;	//¸ó½ºÅÍÀÇ È¨ À§Ä¡
-	static const FName PatrolPosKey;	//´ÙÀ½ ¹«ÀÛÀ§ ÀÌµ¿ À§Ä¡ Á¤º¸
-	static const FName TargetKey;		//¸ó½ºÅÍÀÇ Å¸°ÙÁ¤º¸
-	static const FName IsOutOfRangeKey;	//¸ó½ºÅÍ°¡ È¨ ¹üÀ§ ¹Û¿¡ ³ª°¬´ÂÁö
+	static const FName HomePosKey;	//ëª¬ìŠ¤í„°ì˜ í™ˆ ìœ„ì¹˜
+	static const FName PatrolPosKey;	//ë‹¤ìŒ ë¬´ì‘ìœ„ ì´ë™ ìœ„ì¹˜ ì •ë³´
+	static const FName TargetKey;		//ëª¬ìŠ¤í„°ì˜ íƒ€ê²Ÿì •ë³´
+	static const FName IsOutOfRangeKey;	//ëª¬ìŠ¤í„°ê°€ í™ˆ ë²”ìœ„ ë°–ì— ë‚˜ê°”ëŠ”ì§€
 
 	FVector GetHomePosKey();
 

@@ -127,7 +127,7 @@ public:
 
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 
-	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	
 	virtual void Die() override;
 

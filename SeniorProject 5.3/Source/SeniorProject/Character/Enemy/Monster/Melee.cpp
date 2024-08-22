@@ -64,6 +64,5 @@ void AMelee::SetDefaultSetting()
 
 	LeftSoketBottom = TEXT("FX_Trail_02_L");
 	LeftSoketTop = TEXT("FX_Trail_01_L");
-
 	
 }

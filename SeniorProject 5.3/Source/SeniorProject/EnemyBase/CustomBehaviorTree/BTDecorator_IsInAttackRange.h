@@ -7,7 +7,7 @@
 #include "BTDecorator_IsInAttackRange.generated.h"
 
 /**
-	°ø°Ý ¹üÀ§¿¡ µé¾î¿Ô´ÂÁö ÆÇ´Ü
+	ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½
  */
 UCLASS()
 class SENIORPROJECT_API UBTDecorator_IsInAttackRange : public UBTDecorator
@@ -18,8 +18,8 @@ class SENIORPROJECT_API UBTDecorator_IsInAttackRange : public UBTDecorator
 public:
 	UBTDecorator_IsInAttackRange();
 
-
-	float AttackRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float AttackRange;
 
 protected:
 	virtual bool CalculateRawConditionValue(UBehaviorTreeComponent& OwnerComp,

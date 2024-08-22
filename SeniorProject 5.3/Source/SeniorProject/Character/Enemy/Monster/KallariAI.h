@@ -17,5 +17,5 @@ class SENIORPROJECT_API AKallariAI : public AMinions
 public:
 
 	AKallariAI();
-	virtual void SetDefaultSetting();
+	virtual void SetDefaultSetting() override;
 };

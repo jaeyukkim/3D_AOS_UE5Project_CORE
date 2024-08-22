@@ -18,5 +18,5 @@ public:
 	AMelee();
 	
 protected:
-	virtual void SetDefaultSetting();
+	virtual void SetDefaultSetting() override;
 };

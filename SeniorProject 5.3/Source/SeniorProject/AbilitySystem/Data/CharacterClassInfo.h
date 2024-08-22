@@ -13,7 +13,8 @@ UENUM(BlueprintType)
 enum class ECharacterClass : uint8
 {
 	Kwang,
-	Minion
+	Minion_Melee,
+	Minion_Ranged
 };
 
 USTRUCT(BlueprintType)

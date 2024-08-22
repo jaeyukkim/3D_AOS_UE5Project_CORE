@@ -16,13 +16,13 @@ const FName AMinionAIController::IsOutOfRangeKey(TEXT("IsOutOfRange"));
 AMinionAIController::AMinionAIController()
 {
 
-	//ºí·¢º¸µå ÇÒ´ç
+	//ë¸”ë™ë³´ë“œ í• ë‹¹
 	static ConstructorHelpers::FObjectFinder<UBlackboardData> BBAsset(TEXT("BlackboardData'/Game/AI/BB_MINION'"));
 	if (BBAsset.Succeeded())
 	{
 		BBMonster = BBAsset.Object;
 	}
-	//ºñÇìÀÌºñ¾î Æ®¸® ÇÒ´ç
+	//ë¹„í—¤ì´ë¹„ì–´ íŠ¸ë¦¬ í• ë‹¹
 	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTAsset(TEXT("BehaviorTree'/Game/AI/BT_MINION'"));
 	if (BTAsset.Succeeded())
 	{
@@ -35,9 +35,9 @@ AMinionAIController::AMinionAIController()
 	AIPerceptionComponent = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("PerceptionComp"));
 	Sight = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("Sight"));
 
-	Sight->SightRadius = 800.0f;	//½Ã¾ß°Å¸® 800
-	Sight->LoseSightRadius = Sight->SightRadius + 300.0f;	//´ë»óÀ» ÀÒ´Â ½Ã¾ß¹üÀ§
-	Sight->PeripheralVisionAngleDegrees = 180.0f;		//ÁÖº¯ ½Ã¾ß°¢
+	Sight->SightRadius = 800.0f;	//ì‹œì•¼ê±°ë¦¬ 800
+	Sight->LoseSightRadius = Sight->SightRadius + 300.0f;	//ëŒ€ìƒì„ ìƒëŠ” ì‹œì•¼ë²”ìœ„
+	Sight->PeripheralVisionAngleDegrees = 180.0f;		//ì£¼ë³€ ì‹œì•¼ê°
 
 	Sight->DetectionByAffiliation.bDetectEnemies = true;
 	Sight->DetectionByAffiliation.bDetectFriendlies = true;
@@ -57,13 +57,13 @@ void AMinionAIController::OnPossess(APawn* InPawn)
 	
 }
 
-// ¸ó½ºÅÍÀÇ º»·¡ À§Ä¡¸¦ ¹İÈ¯
+// ëª¬ìŠ¤í„°ì˜ ë³¸ë˜ ìœ„ì¹˜ë¥¼ ë°˜í™˜
 FVector AMinionAIController::GetHomePosKey()
 {
 	return Blackboard->GetValueAsVector(HomePosKey);
 }
 
-// ¸ó½ºÅÍ¸¦ °¨Áö
+// ëª¬ìŠ¤í„°ë¥¼ ê°ì§€
 void AMinionAIController::OnSensed(const TArray<AActor*>& UpdatedActors)
 {
 
@@ -71,7 +71,7 @@ void AMinionAIController::OnSensed(const TArray<AActor*>& UpdatedActors)
 
 	for (int i = 0; i < UpdatedActors.Num(); i++)
 	{
-		//ÇÃ·¹ÀÌ¾î ÅÂ±×¸¦ °¡Áö°íÀÖÀ¸¸é ºí·¢º¸µå¿¡ °ª ÀúÀå
+		//í”Œë ˆì´ì–´ íƒœê·¸ë¥¼ ê°€ì§€ê³ ìˆìœ¼ë©´ ë¸”ë™ë³´ë“œì— ê°’ ì €ì¥
 		if (UpdatedActors[i]->ActorHasTag("Player") && Blackboard->GetValueAsObject(TargetKey) == NULL)
 		{
 			Blackboard->SetValueAsObject(TargetKey, UpdatedActors[i]);
@@ -88,7 +88,7 @@ void AMinionAIController::OnSensed(const TArray<AActor*>& UpdatedActors)
 
 }
 
-// Blackboard ÀÚ»êÀ» Blackboard ±¸¼º ¿ä¼Ò¿¡ ¼º°øÀûÀ¸·Î ¿¬°áÇÑ °æ¿ì ¸ó½ºÅÍÀÇ È¨ À§Ä¡ ¼±Á¤
+// Blackboard ìì‚°ì„ Blackboard êµ¬ì„± ìš”ì†Œì— ì„±ê³µì ìœ¼ë¡œ ì—°ê²°í•œ ê²½ìš° ëª¬ìŠ¤í„°ì˜ í™ˆ ìœ„ì¹˜ ì„ ì •
 void AMinionAIController::RunAI()
 {
 	if (UseBlackboard(BBMonster, BlackboardComp))
@@ -104,7 +104,7 @@ void AMinionAIController::RunAI()
 	AIPerceptionComponent->OnPerceptionUpdated.AddDynamic(this, &AMinionAIController::OnSensed);
 }
 
-// ¸ó½ºÅÍÀÇ ºñÇìÀÌºñ¾î Æ®¸® Á¤ÁöÇÔ¼ö
+// ëª¬ìŠ¤í„°ì˜ ë¹„í—¤ì´ë¹„ì–´ íŠ¸ë¦¬ ì •ì§€í•¨ìˆ˜
 void AMinionAIController::StopAI()
 {
 	auto AIBehaviorTree = Cast<UBehaviorTreeComponent>(BrainComponent);

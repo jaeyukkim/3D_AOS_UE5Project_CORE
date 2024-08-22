@@ -4,12 +4,13 @@
 #include "BTTask_FindPatrolPos.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "NavigationSystem.h"
-#include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
+#include "AIController.h"
 
 
 UBTTask_FindPatrolPos::UBTTask_FindPatrolPos()
 {
 	NodeName = TEXT("FindPatrolPos");
+	
 }
 
 EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
@@ -26,12 +27,12 @@ EBTNodeResult::Type UBTTask_FindPatrolPos::ExecuteTask(UBehaviorTreeComponent& O
 
 
 
-	FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(AMinionAIController::HomePosKey);
+	FVector OriginPos = OwnerComp.GetBlackboardComponent()->GetValueAsVector(TEXT("HomePos"));
 	FNavLocation NextPatrol;
 
 	if (NavSystem->GetRandomPointInNavigableRadius(OriginPos, 600.0f, NextPatrol))
 	{
-		OwnerComp.GetBlackboardComponent()->SetValueAsVector(AMinionAIController::PatrolPosKey, NextPatrol.Location);
+		OwnerComp.GetBlackboardComponent()->SetValueAsVector(TEXT("PatrolPos"), NextPatrol.Location);
 		return EBTNodeResult::Succeeded;
 	}
 	

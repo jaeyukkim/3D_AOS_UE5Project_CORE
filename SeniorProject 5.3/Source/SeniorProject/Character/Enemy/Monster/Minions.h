@@ -10,7 +10,8 @@
 
 
 class UWidgetComponent;
-
+class AAIControllerBase;
+class UBehaviorTree;
 
 
 UCLASS(abstract, Blueprintable)
@@ -25,7 +26,7 @@ public:
 
 
 	
-
+	virtual void PossessedBy(AController* NewController) override;
 	virtual void BeginPlay() override;
 
 public:
@@ -51,12 +52,10 @@ public:
 		float AttackRange;
 
 	const int32  MaxAttackCombo = 4;
+	
 	UFUNCTION()
 		void Hurt(AActor* DamageCauser);
 	
-
-	UPROPERTY()
-		class AMinionAIController* AIController;
 
 	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
 
@@ -68,14 +67,21 @@ protected:
 	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
+	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
 	int32 Level = 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
-	ECharacterClass CharacterClass = ECharacterClass::Minion;
+	ECharacterClass CharacterClass = ECharacterClass::Minion_Melee;
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="UI")
 	TObjectPtr<UWidgetComponent> HealthBar;
+
+	UPROPERTY()
+	TObjectPtr<AAIControllerBase> AIControllerBase;
+
+	UPROPERTY(EditAnywhere, Category = "AI")
+	TObjectPtr<UBehaviorTree> BehaviorTree;
 	
 };

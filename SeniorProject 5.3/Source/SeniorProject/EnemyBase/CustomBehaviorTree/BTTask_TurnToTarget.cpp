@@ -3,7 +3,7 @@
 #pragma once
 
 #include "BTTask_TurnToTarget.h"
-#include "SeniorProject/EnemyBase/AISetting/MinionAIController.h"
+#include "AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 
 UBTTask_TurnToTarget::UBTTask_TurnToTarget()
@@ -20,9 +20,9 @@ EBTNodeResult::Type UBTTask_TurnToTarget::ExecuteTask(UBehaviorTreeComponent& Ow
 
 	
 
-	auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AMinionAIController::TargetKey));
+	auto Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 
-	Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(AMinionAIController::TargetKey));
+	Target = Cast<AActor>(OwnerComp.GetBlackboardComponent()->GetValueAsObject(TEXT("Target")));
 
 	if (Target == nullptr) return EBTNodeResult::Failed;
 

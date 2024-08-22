@@ -16,5 +16,5 @@ class SENIORPROJECT_API ACrunch : public AMinions
 public:
 	ACrunch();
 
-	virtual void SetDefaultSetting();
+	virtual void SetDefaultSetting() override;
 };
