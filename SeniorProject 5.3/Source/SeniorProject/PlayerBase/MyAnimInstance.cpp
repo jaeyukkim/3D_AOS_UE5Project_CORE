@@ -36,46 +36,29 @@ void UMyAnimInstance::AnimNotify_RunStop()
 
 void UMyAnimInstance::AnimNotify_CanAttack()
 {
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->IsAttacking = false;
-	}
-		
+	
 }
 
 void UMyAnimInstance::AnimNotify_CanNotAttack()
 {
-	if (IsValid(PlayerCharacter))
-	{
-
-		PlayerCharacter->IsAttacking = true;
-	}
+	
 }
 
 void UMyAnimInstance::AnimNotify_CastingOn()
 {
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->bIsCasting = true;
-	}
+	
 }
 
 void UMyAnimInstance::AnimNotify_CastingOff()
 {
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->bIsCasting = false;
-	}
+	
 }
 
 
 
 void UMyAnimInstance::AnimNotify_FootStep()
 {
-	if (IsValid(PlayerCharacter))
-	{
-		PlayerCharacter->PlayFootSound();
-	}
+
 }
 
 

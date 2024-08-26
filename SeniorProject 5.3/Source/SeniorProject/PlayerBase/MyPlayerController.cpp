@@ -70,20 +70,20 @@ void AMyPlayerController::SetupInputComponent()
 
 void AMyPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 {
-
+	if (GetASC() == nullptr) return;
+		GetASC()->AbilityInputTagReleased(InputTag);
 	
 }
 
 void AMyPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
-	if (GetASC() == nullptr) return;
-	GetASC()->AbilityInputTagReleased(InputTag);
+	
 }
 
 void AMyPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
 {
 	if (GetASC() == nullptr) return;
-	GetASC()->AbilityInputTagHeld(InputTag);
+		GetASC()->AbilityInputTagHeld(InputTag);
 }
 
 

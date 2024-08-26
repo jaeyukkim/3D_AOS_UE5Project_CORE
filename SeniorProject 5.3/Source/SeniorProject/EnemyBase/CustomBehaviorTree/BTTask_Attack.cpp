@@ -14,7 +14,7 @@ UBTTask_Attack::UBTTask_Attack()
 	IsAttacking = false;
 }
 
-// °ø°Ý ¹üÀ§ ¾È¿¡ µé¾î¿Ã ½Ã °¢°¢ Å¬·¡½º¿¡ ´ëÇØ °ø°ÝÀ» ÁøÇàÇÔ
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 EBTNodeResult::Type UBTTask_Attack::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	EBTNodeResult::Type Result = Super::ExecuteTask(OwnerComp, NodeMemory);
@@ -24,9 +24,7 @@ EBTNodeResult::Type UBTTask_Attack::ExecuteTask(UBehaviorTreeComponent& OwnerCom
 	auto Minion = Cast<AMinions>(OwnerComp.GetAIOwner()->GetPawn());
 	if (Minion == nullptr) return EBTNodeResult::Failed;
 
-	Minion->Attack();
-	IsAttacking = true;
-	Minion->OnAttackEnd.AddLambda([this]()	-> void { IsAttacking = false; });
+	
 	
 
 

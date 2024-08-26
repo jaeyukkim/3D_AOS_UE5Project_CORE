@@ -60,8 +60,11 @@ public:
 	FGameplayTag Effects_HitReact;
 	TArray<FGameplayTag> DamageTypes;
 
-	FGameplayTag Abilities_Attack;
-	
+	FGameplayTag Abilities_Combat_Attack;
+	FGameplayTag Abilities_Combat_MeleeAttack;
+	FGameplayTag Abilities_Combat_ResetCombo;
+	FGameplayTag Abilities_Combat_SaveCombo;
+
 	static FGameplayTagsBase GameplayTags;
 
 protected:

@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
 #ifdef SENIORPROJECT_Minions_generated_h
 #error "Minions.generated.h already included, missing '#pragma once' in Minions.h"
 #endif
@@ -18,11 +17,7 @@ class AActor;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execHurt);
-
-
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_INCLASS_NO_PURE_DECLS \
 private: \

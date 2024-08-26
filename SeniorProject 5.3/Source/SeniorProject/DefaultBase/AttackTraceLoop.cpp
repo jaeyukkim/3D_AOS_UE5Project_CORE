@@ -12,7 +12,7 @@ void UAttackTraceLoop::NotifyBegin(USkeletalMeshComponent* MeshComp,
 {
 	Super::NotifyBegin(MeshComp, Animation, TotalDuration, EventReference);
 
-	Character = Cast<ACharacterBase>(MeshComp->GetOwner());
+	
 
 
 }
@@ -22,8 +22,6 @@ void UAttackTraceLoop::NotifyTick(USkeletalMeshComponent* MeshComp,
 
 	Super::NotifyTick(MeshComp, Animation, FrameDeltaTime, EventReference);
 
-	if (Character)
-		Character->AttackTrace();
 
 
 
@@ -34,8 +32,7 @@ void UAttackTraceLoop::NotifyEnd(USkeletalMeshComponent* MeshComp,
 {
 	Super::NotifyEnd(MeshComp, Animation, EventReference);
 
-	if (Character)
-		Character->CanTakeDamage = true;
+
 
 }
 

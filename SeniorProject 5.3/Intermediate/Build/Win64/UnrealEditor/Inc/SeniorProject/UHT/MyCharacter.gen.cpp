@@ -6,12 +6,9 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/PlayerBase/MyCharacter.h"
-#include "UObject/CoreNet.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 // Cross Module References
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
@@ -25,181 +22,8 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
-	DEFINE_FUNCTION(AMyCharacter::execMulticastPlayAttackMontage)
-	{
-		P_GET_OBJECT(UAnimMontage,Z_Param_Montage);
-		P_GET_PROPERTY(FIntProperty,Z_Param_MontageIndex);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->MulticastPlayAttackMontage_Implementation(Z_Param_Montage,Z_Param_MontageIndex);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AMyCharacter::execAttack)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		if (!P_THIS->Attack_Validate())
-		{
-			RPC_ValidateFailed(TEXT("Attack_Validate"));
-			return;
-		}
-		P_THIS->Attack_Implementation();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AMyCharacter::execHurt)
-	{
-		P_GET_OBJECT(AActor,Z_Param_DamageCauser);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->Hurt(Z_Param_DamageCauser);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AMyCharacter::execPlayFootSound)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->PlayFootSound();
-		P_NATIVE_END;
-	}
-	struct MyCharacter_eventMulticastPlayAttackMontage_Parms
-	{
-		UAnimMontage* Montage;
-		int32 MontageIndex;
-	};
-	static FName NAME_AMyCharacter_Attack = FName(TEXT("Attack"));
-	void AMyCharacter::Attack()
-	{
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_Attack),NULL);
-	}
-	static FName NAME_AMyCharacter_MulticastPlayAttackMontage = FName(TEXT("MulticastPlayAttackMontage"));
-	void AMyCharacter::MulticastPlayAttackMontage(UAnimMontage* Montage, int32 MontageIndex)
-	{
-		MyCharacter_eventMulticastPlayAttackMontage_Parms Parms;
-		Parms.Montage=Montage;
-		Parms.MontageIndex=MontageIndex;
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_MulticastPlayAttackMontage),&Parms);
-	}
 	void AMyCharacter::StaticRegisterNativesAMyCharacter()
 	{
-		UClass* Class = AMyCharacter::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "Attack", &AMyCharacter::execAttack },
-			{ "Hurt", &AMyCharacter::execHurt },
-			{ "MulticastPlayAttackMontage", &AMyCharacter::execMulticastPlayAttackMontage },
-			{ "PlayFootSound", &AMyCharacter::execPlayFootSound },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_AMyCharacter_Attack_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_Attack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_Attack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "Attack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x80024CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Attack_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_Attack_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_AMyCharacter_Attack()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_Attack_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AMyCharacter_Hurt_Statics
-	{
-		struct MyCharacter_eventHurt_Parms
-		{
-			AActor* DamageCauser;
-		};
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_DamageCauser;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyCharacter_Hurt_Statics::NewProp_DamageCauser = { "DamageCauser", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventHurt_Parms, DamageCauser), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_Hurt_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_Hurt_Statics::NewProp_DamageCauser,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_Hurt_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_Hurt_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "Hurt", nullptr, nullptr, Z_Construct_UFunction_AMyCharacter_Hurt_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Hurt_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_Hurt_Statics::MyCharacter_eventHurt_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Hurt_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_Hurt_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Hurt_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_Hurt_Statics::MyCharacter_eventHurt_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AMyCharacter_Hurt()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_Hurt_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics
-	{
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_Montage;
-		static const UECodeGen_Private::FIntPropertyParams NewProp_MontageIndex;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::NewProp_Montage = { "Montage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventMulticastPlayAttackMontage_Parms, Montage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::NewProp_MontageIndex = { "MontageIndex", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventMulticastPlayAttackMontage_Parms, MontageIndex), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::NewProp_Montage,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::NewProp_MontageIndex,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "MulticastPlayAttackMontage", nullptr, nullptr, Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::PropPointers), sizeof(MyCharacter_eventMulticastPlayAttackMontage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::PropPointers) < 2048);
-	static_assert(sizeof(MyCharacter_eventMulticastPlayAttackMontage_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "PlayFootSound", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_AMyCharacter_PlayFootSound()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_PlayFootSound_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMyCharacter);
 	UClass* Z_Construct_UClass_AMyCharacter_NoRegister()
@@ -209,7 +33,6 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	struct Z_Construct_UClass_AMyCharacter_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -226,13 +49,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Camera;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_StartGameAnim_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_StartGameAnim;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerController_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerController;
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_PlayerController;
 		static const UECodeGen_Private::FBytePropertyParams NewProp_CharacterClass_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterClass_MetaData[];
@@ -291,13 +110,6 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::DependentSingletons) < 16);
-	const FClassFunctionLinkInfo Z_Construct_UClass_AMyCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMyCharacter_Attack, "Attack" }, // 3626850261
-		{ &Z_Construct_UFunction_AMyCharacter_Hurt, "Hurt" }, // 2372473580
-		{ &Z_Construct_UFunction_AMyCharacter_MulticastPlayAttackMontage, "MulticastPlayAttackMontage" }, // 3819120943
-		{ &Z_Construct_UFunction_AMyCharacter_PlayFootSound, "PlayFootSound" }, // 901406654
-	};
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
@@ -330,18 +142,12 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_Camera = { "Camera", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, Camera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_Camera_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_Camera_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_StartGameAnim_MetaData[] = {
-		{ "Category", "Anim" },
-		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_StartGameAnim = { "StartGameAnim", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, StartGameAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_StartGameAnim_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_StartGameAnim_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController_MetaData[] = {
+		{ "Category", "Input" },
 		{ "ModuleRelativePath", "PlayerBase/MyCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController = { "PlayerController", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, PlayerController), Z_Construct_UClass_AMyPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController = { "PlayerController", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, PlayerController), Z_Construct_UClass_AMyPlayerController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController_MetaData) };
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_CharacterClass_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_CharacterClass_MetaData[] = {
@@ -429,7 +235,6 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_AbilityComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpringArm,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Camera,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_StartGameAnim,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_CharacterClass_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_CharacterClass,
@@ -453,11 +258,11 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_AMyCharacter_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::PropPointers),
 		0,
 		0x009000A5u,
@@ -483,9 +288,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 3538757303U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 225703433U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_1401474235(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_3628560208(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

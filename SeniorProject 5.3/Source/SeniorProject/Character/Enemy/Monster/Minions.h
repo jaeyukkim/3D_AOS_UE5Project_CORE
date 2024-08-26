@@ -23,38 +23,14 @@ class SENIORPROJECT_API AMinions : public ACharacterBase
 public:
 	// Sets default values for this character's properties
 	AMinions();
-
-
-	
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void BeginPlay() override;
-
-public:
-	// Called every frame
 	
-
-
-	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent,
-		AController* EventInstigator, AActor* DamageCauser) override;
-	
-	
-	virtual void Attack() override;
-	virtual void AttackTrace() override;
-
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
 
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnMaxHealthChanged;
-
-
-	UPROPERTY(EditAnywhere, Category = Attacks)
-		float AttackRange;
-
-	const int32  MaxAttackCombo = 4;
-	
-	UFUNCTION()
-		void Hurt(AActor* DamageCauser);
 	
 
 	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
@@ -64,7 +40,7 @@ public:
 	virtual void Die() override;
 
 protected:
-	virtual void SetDefaultSetting() PURE_VIRTUAL(Minions::SetDefaultSetting, );
+	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;

@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 class UAbilitySystemComponent;
 class UAttributeMenuWidgetController;
 class UObject;
@@ -25,6 +26,7 @@ struct FGameplayEffectContextHandle;
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetLivePlayersWithinRadius); \
 	DECLARE_FUNCTION(execSetIsMagicalDamage); \
 	DECLARE_FUNCTION(execIsMagicalDamage); \
 	DECLARE_FUNCTION(execSetIsCriticalHit); \

@@ -23,12 +23,11 @@ AMinions::AMinions()
 	Tags.Add(TEXT("ENEMY"));
 
 	PrimaryActorTick.bCanEverTick = false;
-	AttackMontage.Init(nullptr, MaxAttackCombo);
+	
 
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
-
 	AttributeSet = CreateDefaultSubobject<UAttributeSetBase>("AttributeSet");
 
 	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
@@ -42,18 +41,6 @@ AMinions::AMinions()
 
 
 
-	//���� AI�� ���� ����� �� ����� �⺻ Ŭ�����Դϴ�.
-	//AIControllerClass = AMinionAIController::StaticClass();
-	//AI ���� AI ��Ʈ�ѷ��� ���� �ڵ����� �����Ǵ��� ���θ� �����մϴ�.
-	//AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
-	
-	
-
-	bUseControllerRotationYaw = true;
-	
-	
-
-	
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
@@ -62,8 +49,6 @@ AMinions::AMinions()
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	
 
-	
-	AttackWidthArea = 40.0f;
 }
 
 void AMinions::PossessedBy(AController* NewController)
@@ -129,47 +114,6 @@ void AMinions::BeginPlay()
 // Called every frame
 
 
-void AMinions::Attack()
-{
-
-	
-	//���� ���� �޺��� ���� �ٸ� ��Ÿ�� ����
-	switch (AttackCount)
-	{
-	case 0:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 1;
-		AttackDamageCount = 0;
-		break;
-
-	case 1:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 2;
-		AttackDamageCount = 1;
-		break;
-
-	case 2:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 3;
-		AttackDamageCount = 2;
-
-		break;
-
-	case 3:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 0;
-		AttackDamageCount = 3;
-
-		break;
-
-	}
-
-
-}
 
 
 void AMinions::Die()
@@ -202,69 +146,3 @@ void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount
 	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
 
 }
-
-
-void AMinions::AttackTrace()
-{
-
-	FCollisionQueryParams Params(NAME_None, false, this);
-	FHitResult  HitResult;
-
-	if (IsRightAttack)
-	{
-		WaeponBottomPoint = GetMesh()->GetSocketLocation(RightSoketBottom);
-		WaeponTopPoint = GetMesh()->GetSocketLocation(RightSoketTop);
-	}
-
-	else
-	{
-		WaeponBottomPoint = GetMesh()->GetSocketLocation(LeftSoketBottom);
-		WaeponTopPoint = GetMesh()->GetSocketLocation(LeftSoketTop);
-	}
-
-	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, WaeponBottomPoint, WaeponTopPoint,
-		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
-
-	/*
-	if (bHit)
-	{
-
-		if (::IsValid(HitResult.GetActor()))
-		{
-			FDamageEvent DamageEvent;
-			if (CanTakeDamage)
-			{
-			
-				HitResult.GetActor()->TakeDamage(Stat->GetAttackDMG() +
-					(AttackDamageCount * 0.1f * Stat->GetAttackDMG()), DamageEvent, GetController(), this);
-				
-				CanTakeDamage = false;
-				
-				
-			}
-
-
-		}
-
-	}
-	*/
-}
-
-
-float AMinions::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-
-
-	return FinalDamage;
-	
-
-}
-
-
-
-void AMinions::Hurt(AActor* DamageCauser)
-{
-	
-}
-

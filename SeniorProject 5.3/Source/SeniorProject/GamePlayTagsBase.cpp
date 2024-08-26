@@ -89,8 +89,15 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.MagicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Damage.MagicalDamage"),
 		FString("MagicalDamage"));
 
-	GameplayTags.Abilities_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Attack"),
+	GameplayTags.Abilities_Combat_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.Attack"),
 		FString("Attack Ability Tag"));
+	GameplayTags.Abilities_Combat_MeleeAttack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.MeleeAttack"),
+		FString("Attack Ability Tag"));
+	GameplayTags.Abilities_Combat_SaveCombo = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.SaveCombo"),
+		FString("Attack Ability Tag"));
+	GameplayTags.Abilities_Combat_ResetCombo = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.ResetCombo"),
+		FString("Attack Ability Tag"));
+
 	
 	GameplayTags.DamageTypes.Add(GameplayTags.PhysicalDamage);
 	GameplayTags.DamageTypes.Add(GameplayTags.MagicalDamage);

@@ -97,8 +97,6 @@ FRotator UAnimInstanceBase::NormalizedDeltaRotator(FRotator A, FRotator B)
 void UAnimInstanceBase::AnimNotify_SaveAttack()
 {
 
-	if (IsValid(Character))
-		Character->ComboAttackSave();
 
 
 }
@@ -107,9 +105,6 @@ void UAnimInstanceBase::AnimNotify_SaveAttack()
 void UAnimInstanceBase::AnimNotify_ResetCombo()
 {
 
-
-	if (IsValid(Character))
-		Character->ResetCombo();
 }
 
 //�̵��� ������ �� ����������� �̵��ϰ� �־����� ��ġ���� ����
@@ -118,16 +113,14 @@ void UAnimInstanceBase::AnimNotify_ResetCombo()
 // ���� �� ���ݽ� ������ �����ϴ� ���� ���������� ����
 void UAnimInstanceBase::AnimNotify_RightAttack()
 {
-	if (IsValid(Character))
-		Character->AttackDirectionSetSoket(EAttackDirection::Right);
+
 
 }
 
 // ���� �� ���ݽ� ������ �����ϴ� �� �� �޼����� ����
 void UAnimInstanceBase::AnimNotify_LeftAttack()
 {
-	if (IsValid(Character))
-		Character->AttackDirectionSetSoket(EAttackDirection::Left);
+
 
 }
 

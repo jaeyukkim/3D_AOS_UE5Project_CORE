@@ -10,33 +10,25 @@
 
 
 
-// Sets default values
+
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
-
-
-
-	IsAttacking = true;
-	SaveAttack = true;
-	AttackCount = 0;
-	DeadTimer = 5.0f;
-	bReplicates = true;
 	
-
+	bReplicates = true;
+	//설정 된 애니매이션 수 -1 개 [인덱스 사용 위해서];
+	
+	
 }
 
 
-
-
-// Called when the game starts or when spawned
 void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	MaxAttackCombo = AttackMontage.Num()-1;
 	
 }
 
@@ -56,49 +48,10 @@ void ACharacterBase::Tick(float DeltaTime)
 
 
 
-void ACharacterBase::ComboAttackSave()
-{
-	if (SaveAttack)
-	{
-		SaveAttack = false;
-		Attack();
-
-	}
-	OnAttackEnd.Broadcast();
-}
-
-
-void ACharacterBase::ResetCombo()
-{
-	AttackCount = 0;
-	SaveAttack = false;
-	IsAttacking = false;
-	OnAttackEnd.Broadcast();
-}
 
 UAbilitySystemComponent* ACharacterBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
-}
-
-
-
-
-void ACharacterBase::AttackDirectionSetSoket(EAttackDirection AttackDirection)
-{
-
-
-	if (AttackDirection == EAttackDirection::Right)
-	{
-		IsRightAttack = true;
-	}
-	
-
-	else if (AttackDirection == EAttackDirection::Left)
-	{
-		IsRightAttack = false;
-	}
-
 }
 
 void ACharacterBase::HighlightActor()
@@ -111,15 +64,19 @@ void ACharacterBase::HighlightActor()
 
 void ACharacterBase::UnHighlightActor()
 {
-	
 	GetMesh()->SetRenderCustomDepth(false);
-
 }
 
 UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
 {
 	return HitReactMontage;
 }
+
+UAnimMontage* ACharacterBase::GetAttackMontage_Implementation()
+{
+	return AttackMontage[GetCurrentCombo()];
+}
+
 
 void ACharacterBase::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
@@ -140,6 +97,7 @@ void ACharacterBase::MulticastHandleDeath_Implementation()
 	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
 
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	bDead = true;
 }
 
 void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const

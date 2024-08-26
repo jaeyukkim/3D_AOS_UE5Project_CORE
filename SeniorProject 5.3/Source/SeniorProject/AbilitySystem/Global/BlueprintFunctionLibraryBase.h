@@ -27,22 +27,26 @@ public:
 	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
 	static UAttributeMenuWidgetController* GetUAttributeMenuWidgetController(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemLibrary|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="AbilitySystemLibraryBase|CharacterClassDefaults")
 	static void InitializeDefaultAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC);
 
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemLibrary|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="AbilitySystemLibraryBase|CharacterClassDefaults")
 	static void GiveStartupAbilities(const UObject* WorldContextObject, UAbilitySystemComponent* ASC, ECharacterClass CharacterClass);
 
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static bool IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle);
 
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static void SetIsCriticalHit(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool bInIsCriticalHit);
 
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static bool IsMagicalDamage(const FGameplayEffectContextHandle& EffectContextHandle);
 
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static void SetIsMagicalDamage(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool bInIsCriticalHit);
 
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	static void GetLivePlayersWithinRadius(const UObject* WorldContextObject,TArray<AActor*>& OutOverlappingActors,
+		const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin);
+	
 };

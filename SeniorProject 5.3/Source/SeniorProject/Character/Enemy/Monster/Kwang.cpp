@@ -24,42 +24,6 @@ void AKwang::SetDefaultSetting()
 		GetMesh()->SetAnimInstanceClass(Kwang_Anim.Class);
 	}
 
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack1(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_A_Slow_Montage'"));
-
-	if (Kwang_Attack1.Succeeded())
-	{
-		AttackMontage[0] = Kwang_Attack1.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack2(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_B_Slow_Montage'"));
-
-	if (Kwang_Attack2.Succeeded())
-	{
-		AttackMontage[1] = Kwang_Attack2.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack3(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_C_Slow_Montage'"));
-
-	if (Kwang_Attack3.Succeeded())
-	{
-		AttackMontage[2] = Kwang_Attack3.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UAnimMontage> Kwang_Attack4(
-		TEXT("AnimMontage'/Game/ParagonKwang/Characters/Heroes/Kwang/Animations/PrimaryAttack_D_Slow_Montage'"));
-
-	if (Kwang_Attack4.Succeeded())
-	{
-		AttackMontage[3] = Kwang_Attack4.Object;
-	}
-
-	RightSoketBottom = FName(TEXT("FX_weapon_base"));
-	RightSoketTop = FName(TEXT("FX_weapon_tip"));
-
-	LeftSoketBottom = TEXT("FX_weapon_base");
-	LeftSoketTop = TEXT("FX_weapon_tip");
+	
 
 }

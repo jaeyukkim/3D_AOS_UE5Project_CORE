@@ -13,9 +13,6 @@ class UCombatInterface : public UInterface
 {
 	GENERATED_BODY()
 	
-public:
-	uint8 MaxAttackCombo = 0;
-	uint8 CurrentCombo = 0;
 };
 
 /**
@@ -31,17 +28,24 @@ public:
 	FORCEINLINE virtual void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult) {HitResult = FHitResult(); return;}
 
 	
-	virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
-	virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
-	virtual int32 GetCurrentCombo() const {return 1;}
-	virtual int32 GetMaxAttackCombo() const {return 1;}
-
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	int32 GetCurrentComboBp();
+	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
+	FORCEINLINE virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
+	FORCEINLINE virtual int32 GetCurrentCombo() const {return 1;}
+	FORCEINLINE virtual int32 GetMaxAttackCombo() const {return 1;}
+	FORCEINLINE virtual int32 GetAttackRange() const {return 100;}
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetHitReactMontage();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UAnimMontage* GetAttackMontage();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool IsDead() const;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	AActor* GetAvatar();
+	
 	virtual void Die() = 0;
 
 	

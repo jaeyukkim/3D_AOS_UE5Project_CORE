@@ -11,6 +11,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayEffectContextHandle();
@@ -21,6 +23,18 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execGetLivePlayersWithinRadius)
+	{
+		P_GET_OBJECT(UObject,Z_Param_WorldContextObject);
+		P_GET_TARRAY_REF(AActor*,Z_Param_Out_OutOverlappingActors);
+		P_GET_TARRAY_REF(AActor*,Z_Param_Out_ActorsToIgnore);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Radius);
+		P_GET_STRUCT_REF(FVector,Z_Param_Out_SphereOrigin);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UBlueprintFunctionLibraryBase::GetLivePlayersWithinRadius(Z_Param_WorldContextObject,Z_Param_Out_OutOverlappingActors,Z_Param_Out_ActorsToIgnore,Z_Param_Radius,Z_Param_Out_SphereOrigin);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execSetIsMagicalDamage)
 	{
 		P_GET_STRUCT_REF(FGameplayEffectContextHandle,Z_Param_Out_EffectContextHandle);
@@ -96,6 +110,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	{
 		UClass* Class = UBlueprintFunctionLibraryBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetLivePlayersWithinRadius", &UBlueprintFunctionLibraryBase::execGetLivePlayersWithinRadius },
 			{ "GetOverlayWidgetController", &UBlueprintFunctionLibraryBase::execGetOverlayWidgetController },
 			{ "GetUAttributeMenuWidgetController", &UBlueprintFunctionLibraryBase::execGetUAttributeMenuWidgetController },
 			{ "GiveStartupAbilities", &UBlueprintFunctionLibraryBase::execGiveStartupAbilities },
@@ -106,6 +121,87 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 			{ "SetIsMagicalDamage", &UBlueprintFunctionLibraryBase::execSetIsMagicalDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics
+	{
+		struct BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms
+		{
+			const UObject* WorldContextObject;
+			TArray<AActor*> OutOverlappingActors;
+			TArray<AActor*> ActorsToIgnore;
+			float Radius;
+			FVector SphereOrigin;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_WorldContextObject_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_WorldContextObject;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_OutOverlappingActors_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_OutOverlappingActors;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ActorsToIgnore_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ActorsToIgnore_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ActorsToIgnore;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Radius;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SphereOrigin_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_SphereOrigin;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_WorldContextObject_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_WorldContextObject = { "WorldContextObject", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms, WorldContextObject), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_WorldContextObject_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_WorldContextObject_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_OutOverlappingActors_Inner = { "OutOverlappingActors", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_OutOverlappingActors = { "OutOverlappingActors", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms, OutOverlappingActors), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore_Inner = { "ActorsToIgnore", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore = { "ActorsToIgnore", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms, ActorsToIgnore), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore_MetaData) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_Radius = { "Radius", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms, Radius), METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_SphereOrigin_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_SphereOrigin = { "SphereOrigin", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms, SphereOrigin), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_SphereOrigin_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_SphereOrigin_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_WorldContextObject,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_OutOverlappingActors_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_OutOverlappingActors,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_ActorsToIgnore,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_Radius,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::NewProp_SphereOrigin,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AbilitySystemLibraryBase|GameplayEffects" },
+		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBlueprintFunctionLibraryBase, nullptr, "GetLivePlayersWithinRadius", nullptr, nullptr, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04C22401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::BlueprintFunctionLibraryBase_eventGetLivePlayersWithinRadius_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController_Statics
 	{
@@ -247,7 +343,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|CharacterClassDefaults" },
+		{ "Category", "AbilitySystemLibraryBase|CharacterClassDefaults" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -313,7 +409,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|CharacterClassDefaults" },
+		{ "Category", "AbilitySystemLibraryBase|CharacterClassDefaults" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -365,7 +461,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "Category", "AbilitySystemLibraryBase|GameplayEffects" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -417,7 +513,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "Category", "AbilitySystemLibraryBase|GameplayEffects" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -461,7 +557,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "Category", "AbilitySystemLibraryBase|GameplayEffects" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -505,7 +601,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage_Statics::Function_MetaDataParams[] = {
-		{ "Category", "AuraAbilitySystemLibrary|GameplayEffects" },
+		{ "Category", "AbilitySystemLibraryBase|GameplayEffects" },
 		{ "ModuleRelativePath", "AbilitySystem/Global/BlueprintFunctionLibraryBase.h" },
 	};
 #endif
@@ -542,14 +638,15 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetLivePlayersWithinRadius, "GetLivePlayersWithinRadius" }, // 2393443708
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController, "GetOverlayWidgetController" }, // 1192307670
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController, "GetUAttributeMenuWidgetController" }, // 1461303798
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 1512195470
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes, "InitializeDefaultAttributes" }, // 2145267979
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit, "IsCriticalHit" }, // 1378247691
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage, "IsMagicalDamage" }, // 3122701809
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit, "SetIsCriticalHit" }, // 2638286082
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage, "SetIsMagicalDamage" }, // 4099381600
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 259121267
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes, "InitializeDefaultAttributes" }, // 407463853
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit, "IsCriticalHit" }, // 652839068
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage, "IsMagicalDamage" }, // 1819650774
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsCriticalHit, "SetIsCriticalHit" }, // 859231299
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_SetIsMagicalDamage, "SetIsMagicalDamage" }, // 4181259265
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -599,9 +696,9 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 4242842100U) },
+		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 1448327809U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_1510642741(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_1320058110(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

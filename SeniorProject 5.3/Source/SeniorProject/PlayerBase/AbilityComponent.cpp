@@ -13,7 +13,7 @@
 #include "Components/PrimitiveComponent.h"
 
 
-//Kwang Ä³¸¯ÅÍÀÇ ½ºÅ³ ÄÄÆ÷³ÍÆ®
+//Kwang ìºë¦­í„°ì˜ ìŠ¤í‚¬ ì»´í¬ë„ŒíŠ¸
 // 
 // 
 // Sets default values for this component's properties
@@ -231,7 +231,7 @@ void UAbilityComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAct
 		else
 		{
 			FHitResult FloorHitResult;
-			FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // ¼öÁ÷ ¾Æ·¡·Î Ãß°¡ Æ®·¹ÀÌ½º
+			FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // ìˆ˜ì§ ì•„ëž˜ë¡œ ì¶”ê°€ íŠ¸ë ˆì´ìŠ¤
 			bool bFloorHit = GetWorld()->LineTraceSingleByChannel(FloorHitResult, TraceEndLocation, DownwardTraceEnd, ECC_Visibility);
 
 			if (bFloorHit)

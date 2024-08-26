@@ -19,6 +19,7 @@ class UInputMappingContext;
 class UInputAction;
 class USoundCue;
 class UAudioComponent;
+class AMyPlayerController;
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase
@@ -31,73 +32,37 @@ public:
 	
 
 	virtual void BeginPlay() override;
-	
-
-
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
-		AController* EventInstigator, AActor* DamageCauser) override;
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	
-
 	
-	UPROPERTY(VisibleAnywhere, Category = Abillity)
+	
+	UPROPERTY(VisibleAnywhere, Category = "Abillity")
 		class UAbilityComponent* AbilityComponent;
-
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 		TObjectPtr<USpringArmComponent> SpringArm;
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 		TObjectPtr<UCameraComponent> Camera;
-
-
-	UPROPERTY(EditAnywhere, Category = Anim)
-		TObjectPtr<UAnimMontage> StartGameAnim;
 	
+	UPROPERTY(EditAnywhere, Category="Input")
+		TObjectPtr<AMyPlayerController> PlayerController;
 
-	UPROPERTY()
-		class AMyPlayerController* PlayerController;
-	
-	
-
-
-	UFUNCTION()
-		void PlayFootSound();
 	
 	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
-
-
-
-	UFUNCTION()
-		void Hurt(AActor* DamageCauser);
-
-	virtual void AttackTrace() override;
-
-	UFUNCTION(NetMulticast, Reliable, WithValidation)
-	virtual void Attack() override;
-
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastPlayAttackMontage(UAnimMontage* Montage, int32 MontageIndex);
-
 	virtual void Die() override;
 
-
-
 protected:
-
-	virtual void LSB() PURE_VIRTUAL(AMyCharacter::LSB, );
+	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
-//	virtual void Ability_RMB() PURE_VIRTUAL(AMyCharacter::Ability_RMB, );
-//	virtual void Ability_R() PURE_VIRTUAL(AMyCharacter::Ability_R, );;
-//	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
 	virtual void InitAbilityActorInfo() override;
-	int32 GetPlayerLevel();
+	virtual int32 GetPlayerLevel() override;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
 	ECharacterClass CharacterClass;
-
+	
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
@@ -126,28 +91,13 @@ private:
 	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> ShowAdditionalAttribute;
-
 	
-
-
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 
 	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);
 	
 
-public:
-	
-
-	bool GetBool_IsNoWep();
-	uint32 AttackDamageCount;
-	
-	bool bIsNoWep;
-	bool bIsCasting;
-	bool bIsActive_Q_Ability;
-
-
-private:
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> LastActor;
 

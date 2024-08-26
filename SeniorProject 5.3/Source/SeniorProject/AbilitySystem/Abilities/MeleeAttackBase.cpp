@@ -15,8 +15,6 @@ void UMeleeAttackBase::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 	ICombatInterface* AvatarActor = Cast<ICombatInterface>(ActorInfo->AvatarActor);
 	if(AvatarActor == nullptr) return;
 	
-	AvatarActor->SetMaxAttackCombo(AttackMontage.Num()-1);
-
 	int32 CurrentCombo = AvatarActor->GetCurrentCombo();
 	int32 MaxCombo = AvatarActor->GetMaxAttackCombo();
 
@@ -29,12 +27,5 @@ void UMeleeAttackBase::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
 		AvatarActor->SetCurrentCombo(0);
 	}
 	
-//	ActorInfo->AnimInstance->Montage_Play(AttackMontage[AvatarActor->GetCurrentCombo()]);
-	
 }
 
-UAnimMontage* UMeleeAttackBase::GetAttackAnim(int32 Combo)
-{
-	
-	return AttackMontage[Combo];
-}

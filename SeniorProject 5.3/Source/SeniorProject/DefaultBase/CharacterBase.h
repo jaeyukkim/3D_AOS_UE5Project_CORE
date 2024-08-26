@@ -3,14 +3,13 @@
 #pragma once
 
 #include "GameplayTagContainer.h"
-#include "SeniorProject/SeniorProject.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "CharacterBase.generated.h"
 
-DECLARE_MULTICAST_DELEGATE(FOnAttackEndDelegate);
+
 
 class UAbilitySystemComponent;
 class UAttributeSet;
@@ -26,9 +25,38 @@ class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySyste
 public:
 	// Sets default values for this character's properties
 	ACharacterBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	virtual void Tick(float DeltaTime) override;
+
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
 
+	
+	/*Enemy Interface*/
+	virtual void HighlightActor() override;
+	virtual void UnHighlightActor() override;
+	/*Enemy Interface*/
+
+	
+	/*CombatInterface*/
+	virtual UAnimMontage* GetAttackMontage_Implementation() override;
+
+	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
+	FORCEINLINE virtual int32 GetCurrentCombo() const override { return CurrentCombo; }
+	FORCEINLINE virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
+	
+	FORCEINLINE virtual int32 GetAttackRange() const override {return AttackRange;}
+	FORCEINLINE virtual bool IsDead_Implementation() const override {return bDead;}
+	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;};
+	
+	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
+	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+	virtual void Die() override;
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastHandleDeath();
+	/*CombatInterface*/
+
+	
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -40,107 +68,7 @@ protected:
 	TObjectPtr<UAttributeSet> AttributeSet;
 
 	virtual void InitAbilityActorInfo();
-public:	
 
-	virtual void Tick(float DeltaTime) override;
-	
-
-	UPROPERTY(Visibleanywhere, Category = Attacks)
-		bool Damaged = true;
-
-
-	virtual void AttackTrace() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-
-
-	virtual void Attack() PURE_VIRTUAL(Minions::SetDefaultSetting, );
-
-	
-
-	UFUNCTION()
-		void ComboAttackSave();
-
-	UFUNCTION()
-		void ResetCombo();
-
-public:
-
-
-	UPROPERTY(EditAnywhere, Category = Attacks)
-		TArray<UAnimMontage*> AttackMontage;
-
-	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = State, Meta = (AllowPrivateAccess = true))
-		ECharacterState CurrentState;
-
-	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attacks, Meta = (AllowPrivateAccess = true))
-		int32 AttackCount;
-
-	
-	void AttackDirectionSetSoket(EAttackDirection AttackDirection);
-	int32 AttackRange;
-	float AttackWidthArea;
-
-	virtual void HighlightActor() override;
-	virtual void UnHighlightActor() override;
-
-	virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
-    virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) override { MaxAttackCombo = NewMaxAttackCombo; }
-    virtual int32 GetCurrentCombo() const override { return CurrentCombo; }
-    virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
-	virtual int32 GetCurrentComboBp_Implementation() override { return CurrentCombo;}
-	
-protected:
-
-	int32 AttackDamageCount;
-	bool SaveAttack;
-	
-
-	float DeadTimer;
-	FName RightSoketBottom;
-	FName RightSoketTop;
-	FName LeftSoketBottom;
-	FName LeftSoketTop;
-	FVector WaeponBottomPoint;
-	FVector WaeponTopPoint;
-	
-
-	UPROPERTY()
-		FTimerHandle DeadTimerHandle = { };
-	UPROPERTY()
-		FTimerHandle LoadingTimer = { };
-	UPROPERTY()
-		FTimerHandle DamagedTimerHandle = { };
-	UPROPERTY()
-		FTimerHandle UITimerHandle = { };
-
-	
-
-
-public:
-	bool IsRightAttack = true;
-	bool CanTakeDamage = true;
-	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = Attacks, Meta = (AllowPrivateAccess = true))
-		bool IsAttacking;
-
-	FOnAttackEndDelegate OnAttackEnd;
-	
-
-	UPROPERTY(BlueprintReadOnly, Category = "Combat")
-	bool bHitReacting = false;
-
-	UPROPERTY(EditAnywhere, Category = "Combat")
-	TObjectPtr<UAnimMontage> HitReactMontage;
-
-	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
-
-	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
-	
-	virtual void Die() override;
-
-	UFUNCTION(NetMulticast, Reliable)
-	virtual void MulticastHandleDeath();
-	int32 MaxAttackCombo = 0;
-	int32 CurrentCombo = 0;
-protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
 	
@@ -157,9 +85,31 @@ protected:
 	virtual void InitializeDefaultAttributes() const;
 	void AddCharacterAbility();
 	
+	UPROPERTY(BlueprintReadOnly)
+	bool bDead = false;
+public:	
+	
+	
+	int32 AttackRange;
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	bool bHitReacting = false;
+	
+	
 private:
 	UPROPERTY(EditAnywhere, Category="Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
+
+	/*Combat Interface*/
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UAnimMontage> HitReactMontage;
+
+	UPROPERTY(EditAnywhere,  Category="Combat")
+	TArray<TObjectPtr<UAnimMontage>> AttackMontage;
+
+	int32 MaxAttackCombo = 0;
+	int32 CurrentCombo = 0;
+	
+	/*Combat Interface*/
 
 	
 };

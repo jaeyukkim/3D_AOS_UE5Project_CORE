@@ -12,6 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FScalableFloat();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
@@ -20,8 +21,55 @@ void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(UDamageGameplayAbilityBase::execCauseDamage)
+	{
+		P_GET_OBJECT(AActor,Z_Param_TargetActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CauseDamage(Z_Param_TargetActor);
+		P_NATIVE_END;
+	}
 	void UDamageGameplayAbilityBase::StaticRegisterNativesUDamageGameplayAbilityBase()
 	{
+		UClass* Class = UDamageGameplayAbilityBase::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "CauseDamage", &UDamageGameplayAbilityBase::execCauseDamage },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics
+	{
+		struct DamageGameplayAbilityBase_eventCauseDamage_Parms
+		{
+			AActor* TargetActor;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetActor;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DamageGameplayAbilityBase_eventCauseDamage_Parms, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::NewProp_TargetActor,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/DamageGameplayAbilityBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UDamageGameplayAbilityBase, nullptr, "CauseDamage", nullptr, nullptr, Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::DamageGameplayAbilityBase_eventCauseDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::DamageGameplayAbilityBase_eventCauseDamage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UDamageGameplayAbilityBase);
 	UClass* Z_Construct_UClass_UDamageGameplayAbilityBase_NoRegister()
@@ -31,6 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 	struct Z_Construct_UClass_UDamageGameplayAbilityBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -53,6 +102,10 @@ void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UDamageGameplayAbilityBase_CauseDamage, "CauseDamage" }, // 1363272545
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
@@ -92,11 +145,11 @@ void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UDamageGameplayAbilityBase_Statics::PropPointers),
 		0,
 		0x001000A0u,
@@ -123,9 +176,9 @@ void EmptyLinkFunctionForGeneratedCodeDamageGameplayAbilityBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDamageGameplayAbilityBase, UDamageGameplayAbilityBase::StaticClass, TEXT("UDamageGameplayAbilityBase"), &Z_Registration_Info_UClass_UDamageGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDamageGameplayAbilityBase), 2908152826U) },
+		{ Z_Construct_UClass_UDamageGameplayAbilityBase, UDamageGameplayAbilityBase::StaticClass, TEXT("UDamageGameplayAbilityBase"), &Z_Registration_Info_UClass_UDamageGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDamageGameplayAbilityBase), 3850273741U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_2413947999(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_2288906522(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

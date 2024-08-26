@@ -25,8 +25,6 @@ AMyCharacter::AMyCharacter()
 {
 
 	PrimaryActorTick.bCanEverTick = true;
-	
-	AttackMontage.Init(nullptr, 4);
 
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 	
@@ -45,17 +43,10 @@ AMyCharacter::AMyCharacter()
 	Camera->SetupAttachment(SpringArm);
 
 	
-	
-
-
 	ThisActor = nullptr;
 	LastActor = nullptr;
-
 	
-
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
-
-
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -131,7 +122,6 @@ void AMyCharacter::Tick(float DeltaTime)
 	}
 	
 
-
 }
 void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -141,10 +131,6 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
-//	EnhancedInputComponent->BindAction(LSB_Action, ETriggerEvent::Triggered, this, &AMyCharacter::LSB);
-//	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
-//	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
-//	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);
 	EnhancedInputComponent->BindAction(ShowAdditionalAttribute, ETriggerEvent::Triggered, this, &AMyCharacter::ShowAdditionalAttributeMenu);
 
 
@@ -204,12 +190,6 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 }
 
 
-void AMyCharacter::PlayFootSound()
-{
-
-
-}
-
 void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 {
 	
@@ -232,100 +212,11 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 
 }
 
-
-
-
-
-void AMyCharacter::Attack_Implementation()
+void AMyCharacter::Die()
 {
-	UAnimMontage* MontageToPlay = nullptr;
-
-	switch (AttackCount)
-	{
-	case 0:
-		MontageToPlay = AttackMontage[0];
-		AttackCount = 1;
-		AttackDamageCount = 0;
-		break;
-
-	case 1:
-		MontageToPlay = AttackMontage[1];
-		AttackCount = 2;
-		AttackDamageCount = 1;
-		break;
-
-	case 2:
-		MontageToPlay = AttackMontage[2];
-		AttackCount = 3;
-		AttackDamageCount = 2;
-		break;
-
-	case 3:
-		MontageToPlay = AttackMontage[3];
-		AttackCount = 0;
-		AttackDamageCount = 3;
-		break;
-	}
-
-	if (MontageToPlay)
-	{
-		// 모든 클라이언트에서 몽타주를 실행하도록 멀티캐스트 호출
-		MulticastPlayAttackMontage(MontageToPlay, AttackCount);
-	}
-	/*
-	switch (AttackCount)
-	{
-	case 0:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 1;
-		AttackDamageCount = 0;
-		break;
-
-	case 1:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 2;
-		AttackDamageCount = 1;
-
-		break;
-
-	case 2:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 3;
-		AttackDamageCount = 2;
-
-		break;
-
-	case 3:
-
-		PlayAnimMontage(AttackMontage[AttackCount], 1.0f);
-		AttackCount = 0;
-		AttackDamageCount = 3;
-
-		break;
-
-	}
-*/
-
-}
-bool AMyCharacter::Attack_Validate()
-{
-	return true;
+	Super::Die();
 }
 
-bool AMyCharacter::GetBool_IsNoWep()
-{
-	auto KwangAnim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
-	if (KwangAnim != nullptr)
-	{
-		return KwangAnim->bIsNoWep;
-	}
-
-
-	return false;
-}
 
 int32 AMyCharacter::GetPlayerLevel()
 {
@@ -411,74 +302,6 @@ void AMyCharacter::AimTrace()
 				// Case E - �ƹ��͵� ���� ����
 			}
 		}
-	}
-
-}
-
-
-
-
-void AMyCharacter::AttackTrace()
-{
-
-	WaeponBottomPoint = GetMesh()->GetSocketLocation(RightSoketBottom);
-	WaeponTopPoint = GetMesh()->GetSocketLocation(RightSoketTop);
-	FVector WeaponMiddlePoint = (WaeponBottomPoint + WaeponTopPoint) / 2;
-
-	FRotator3d SwordRotator = (WaeponTopPoint - WaeponBottomPoint).Rotation();
-
-
-
-
-	FCollisionQueryParams Params(NAME_None, false, this);
-	FHitResult  HitResult;
-
-	bool bHit = GetWorld()->SweepSingleByChannel(HitResult, WaeponBottomPoint, WaeponTopPoint,
-		FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel2, FCollisionShape::MakeSphere(AttackWidthArea), Params);
-
-	
-}
-
-void AMyCharacter::Die()
-{
-	Super::Die();
-}
-
-void AMyCharacter::MulticastPlayAttackMontage_Implementation(UAnimMontage* Montage, int32 MontageIndex)
-{
-	if (Montage && GetMesh() && GetMesh()->GetAnimInstance())
-	{
-		GetMesh()->GetAnimInstance()->Montage_Play(Montage, 1.0f);
-	}
-}
-
-
-float AMyCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	float FinalDamage = Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-	
-
-	return FinalDamage;
-
-}
-
-
-
-void AMyCharacter::Hurt(AActor* DamageCauser)
-{
-
-	if (DamageCauser)
-	{
-		float EnemyDirection = GetDotProductTo(DamageCauser);
-
-		auto anim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
-
-		if (anim)
-		{
-			anim->SetDamaged();
-
-		}
-
 	}
 
 }

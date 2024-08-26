@@ -17,11 +17,5 @@ public:
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 		const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly,  Category="Attack")
-	TArray<TObjectPtr<UAnimMontage>> AttackMontage;
 	
-
-	UFUNCTION(BlueprintCallable)
-	UAnimMontage* GetAttackAnim(int32 Combo);
-
 };
