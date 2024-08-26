@@ -25,6 +25,7 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	AttackCount = 0;
 	DeadTimer = 5.0f;
 	bReplicates = true;
+	
 
 }
 

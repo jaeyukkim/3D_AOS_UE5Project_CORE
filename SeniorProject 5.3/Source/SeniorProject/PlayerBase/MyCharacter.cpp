@@ -65,7 +65,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
 	AddCharacterAbility();
-	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
+	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 
 	
 }
@@ -80,6 +80,7 @@ void AMyCharacter::OnRep_PlayerState()
 
 void AMyCharacter::InitAbilityActorInfo()
 {
+	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
 	PlayerStateBase->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerStateBase, this);
@@ -140,7 +141,7 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyCharacter::Move);
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
-	EnhancedInputComponent->BindAction(LSB_Action, ETriggerEvent::Triggered, this, &AMyCharacter::LSB);
+//	EnhancedInputComponent->BindAction(LSB_Action, ETriggerEvent::Triggered, this, &AMyCharacter::LSB);
 //	EnhancedInputComponent->BindAction(Q_Action, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_Q);
 //	EnhancedInputComponent->BindAction(RMB_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_RMB);
 //	EnhancedInputComponent->BindAction(R_Ability, ETriggerEvent::Triggered, this, &AMyCharacter::Ability_R);

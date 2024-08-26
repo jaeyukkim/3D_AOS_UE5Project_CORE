@@ -14,7 +14,7 @@ class UAttributeSet;
  * 
  */
 UCLASS()
-class SENIORPROJECT_API APlayerStateBase : public APlayerState, public IAbilitySystemInterface, public ICombatInterface
+class SENIORPROJECT_API APlayerStateBase : public APlayerState, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 public:
@@ -23,8 +23,8 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
-	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
-	virtual void Die() override;
+	FORCEINLINE int32 GetPlayerLevel() {return Level;};
+//	virtual void Die() override;
 	
 protected:
 	UPROPERTY(VisibleAnywhere)

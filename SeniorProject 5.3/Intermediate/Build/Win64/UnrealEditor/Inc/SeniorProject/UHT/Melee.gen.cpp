@@ -83,9 +83,9 @@ void EmptyLinkFunctionForGeneratedCodeMelee() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMelee, AMelee::StaticClass, TEXT("AMelee"), &Z_Registration_Info_UClass_AMelee, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMelee), 4210993588U) },
+		{ Z_Construct_UClass_AMelee, AMelee::StaticClass, TEXT("AMelee"), &Z_Registration_Info_UClass_AMelee, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMelee), 4162480173U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_275696799(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_295726578(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

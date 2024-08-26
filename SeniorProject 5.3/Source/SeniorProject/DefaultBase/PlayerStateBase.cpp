@@ -31,10 +31,7 @@ UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const
 	return AbilitySystemComponent;
 }
 
-void APlayerStateBase::Die()
-{
-	
-}
+
 
 void APlayerStateBase::OnRep_Level(int32 OldLevel)
 {

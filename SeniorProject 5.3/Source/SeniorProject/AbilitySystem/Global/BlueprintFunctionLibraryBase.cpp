@@ -8,6 +8,7 @@
 #include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/UI/DefaultHUD.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 
 UOverlayWidgetController* UBlueprintFunctionLibraryBase::GetOverlayWidgetController(const UObject* WorldContextObject)
 {
@@ -51,10 +52,12 @@ void UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(const UObject* W
 	if(MyGameModeBase == nullptr) return;
 
 	AActor* AvatarActor = ASC->GetAvatarActor();
-	
 	UCharacterClassInfo* CharacterClassInfo = MyGameModeBase->CharacterClassInfo;
-	FCharacterClassDefaultInfo ClassDefaultInfo = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+	if(CharacterClassInfo == nullptr) return;
+
 	
+	FCharacterClassDefaultInfo ClassDefaultInfo = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+
 	FGameplayEffectContextHandle ContextHandle = ASC->MakeEffectContext();
 	ContextHandle.AddSourceObject(AvatarActor);
 	
@@ -72,16 +75,26 @@ void UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(const UObject* W
 }
 
 void UBlueprintFunctionLibraryBase::GiveStartupAbilities(const UObject* WorldContextObject,
-	UAbilitySystemComponent* ASC)
+	UAbilitySystemComponent* ASC, ECharacterClass CharacterClass)
 {
 	AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
 	if (MyGameModeBase == nullptr) return;
 
 	UCharacterClassInfo* CharacterClassInfo = MyGameModeBase->CharacterClassInfo;
-	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->CommonAbilities)
+	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->StartupAbilities)
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
 		ASC->GiveAbility(AbilitySpec);
+	}
+
+	const FCharacterClassDefaultInfo& DefaultInfo = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+	for (TSubclassOf<UGameplayAbility> AbilityClass : DefaultInfo.StartupAbilities)
+	{
+		if (ICombatInterface* CombatInterface = Cast<ICombatInterface>(ASC->GetAvatarActor()))
+		{
+			FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, CombatInterface->GetPlayerLevel());
+			ASC->GiveAbility(AbilitySpec);
+		}
 	}
 }
 

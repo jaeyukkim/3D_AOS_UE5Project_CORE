@@ -3,6 +3,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemGlobalsBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilityTypesBase.gen.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AIControllerBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AnimInstanceBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AssetManagerBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AttackTraceLoop.gen.cpp"
@@ -17,4 +18,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/BTTask_TurnToTarget.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp"

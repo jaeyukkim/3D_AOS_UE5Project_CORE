@@ -2,10 +2,12 @@
 
 
 #include "KwangPlayer.h"
+
 #include "SeniorProject/PlayerBase/AbilityComponent.h"
 
 AKwangPlayer::AKwangPlayer()
 {
+	CharacterClass = ECharacterClass::Kwang;
 	SetCharacterSetting();
 }
 
@@ -89,10 +91,10 @@ void AKwangPlayer::LSB()
 		IsAttacking = true;
 
 		if(HasAuthority())
-			Attack();
+			Attack_Implementation();
 		else
 		{
-			Attack();
+			Attack_Implementation();
 		}
 	}
 
@@ -101,15 +103,8 @@ void AKwangPlayer::LSB()
 void AKwangPlayer::SetCharacterSetting()
 {
 
-	
-
 	AbilityComponent = CreateDefaultSubobject<UAbilityComponent>(TEXT("Ability"));
-
-
-
-
 	
-
 
 	bUseControllerRotationYaw = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;

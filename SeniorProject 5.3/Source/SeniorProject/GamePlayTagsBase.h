@@ -59,6 +59,8 @@ public:
 	FGameplayTag MagicalDamage;
 	FGameplayTag Effects_HitReact;
 	TArray<FGameplayTag> DamageTypes;
+
+	FGameplayTag Abilities_Attack;
 	
 	static FGameplayTagsBase GameplayTags;
 

@@ -102,6 +102,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\GameplayAbilityBase.h">
       <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.cpp">
       <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
     </ClCompile>

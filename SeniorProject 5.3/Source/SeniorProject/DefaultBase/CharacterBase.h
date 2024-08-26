@@ -82,7 +82,12 @@ public:
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
 
-
+	virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
+    virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) override { MaxAttackCombo = NewMaxAttackCombo; }
+    virtual int32 GetCurrentCombo() const override { return CurrentCombo; }
+    virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
+	virtual int32 GetCurrentComboBp_Implementation() override { return CurrentCombo;}
+	
 protected:
 
 	int32 AttackDamageCount;
@@ -133,7 +138,8 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
-	
+	int32 MaxAttackCombo = 0;
+	int32 CurrentCombo = 0;
 protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
@@ -154,4 +160,6 @@ protected:
 private:
 	UPROPERTY(EditAnywhere, Category="Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
+
+	
 };

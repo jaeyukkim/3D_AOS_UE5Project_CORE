@@ -16,6 +16,7 @@ void UAbilitySystemComponentBase::AbilityActorInfoSet()
 
 void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities)
 {
+	
 	for(const TSubclassOf<UGameplayAbility> ability : StartupAbilities)
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(ability, 1);

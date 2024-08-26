@@ -7,6 +7,8 @@
 
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/DefaultBase/CharacterBase.h"
+#include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+
 #include "InputActionValue.h"
 #include "MyCharacter.generated.h"
 
@@ -38,7 +40,9 @@ public:
 		AController* EventInstigator, AActor* DamageCauser) override;
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
+	
 
+	
 	UPROPERTY(VisibleAnywhere, Category = Abillity)
 		class UAbilityComponent* AbilityComponent;
 
@@ -91,6 +95,8 @@ protected:
 //	virtual void Ability_Q() PURE_VIRTUAL(AMyCharacter::Ability_Q, );
 	virtual void InitAbilityActorInfo() override;
 	int32 GetPlayerLevel();
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
+	ECharacterClass CharacterClass;
 
 private:
 

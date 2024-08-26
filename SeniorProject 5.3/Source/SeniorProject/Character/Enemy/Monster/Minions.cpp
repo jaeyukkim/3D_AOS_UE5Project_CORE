@@ -50,15 +50,14 @@ AMinions::AMinions()
 	
 
 	bUseControllerRotationYaw = true;
-	GetCharacterMovement()->bOrientRotationToMovement = false;
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
+	
 	
 
 	
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 480.0f, 0.0f);
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	
@@ -91,7 +90,7 @@ void AMinions::BeginPlay()
 	
 	if(HasAuthority())
 	{
-		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent);
+		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 	}
 
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))

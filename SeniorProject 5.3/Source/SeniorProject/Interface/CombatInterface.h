@@ -12,6 +12,10 @@ UINTERFACE(MinimalAPI, BlueprintType)
 class UCombatInterface : public UInterface
 {
 	GENERATED_BODY()
+	
+public:
+	uint8 MaxAttackCombo = 0;
+	uint8 CurrentCombo = 0;
 };
 
 /**
@@ -23,11 +27,24 @@ class SENIORPROJECT_API ICombatInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	FORCEINLINE virtual int32 GetPlayerLevel() {return 0;}
+	FORCEINLINE virtual int32 GetPlayerLevel() {return 1;}
 	FORCEINLINE virtual void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult) {HitResult = FHitResult(); return;}
+
+	
+	virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
+	virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
+	virtual int32 GetCurrentCombo() const {return 1;}
+	virtual int32 GetMaxAttackCombo() const {return 1;}
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	int32 GetCurrentComboBp();
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetHitReactMontage();
 
 	virtual void Die() = 0;
+
+	
+
+	
 };

@@ -20,8 +20,10 @@ class UAnimMontage;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
+	virtual int32 GetCurrentComboBp_Implementation() { return 0; }; \
  \
-	DECLARE_FUNCTION(execGetHitReactMontage);
+	DECLARE_FUNCTION(execGetHitReactMontage); \
+	DECLARE_FUNCTION(execGetCurrentComboBp);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_ACCESSORS
@@ -63,12 +65,13 @@ protected: \
 public: \
 	typedef UCombatInterface UClassType; \
 	typedef ICombatInterface ThisClass; \
+	static int32 Execute_GetCurrentComboBp(UObject* O); \
 	static UAnimMontage* Execute_GetHitReactMontage(UObject* O); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_11_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_22_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_SPARSE_DATA \

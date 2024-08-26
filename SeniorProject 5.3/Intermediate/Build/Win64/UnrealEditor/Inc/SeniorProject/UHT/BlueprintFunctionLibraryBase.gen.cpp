@@ -59,9 +59,10 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	{
 		P_GET_OBJECT(UObject,Z_Param_WorldContextObject);
 		P_GET_OBJECT(UAbilitySystemComponent,Z_Param_ASC);
+		P_GET_ENUM(ECharacterClass,Z_Param_CharacterClass);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		UBlueprintFunctionLibraryBase::GiveStartupAbilities(Z_Param_WorldContextObject,Z_Param_ASC);
+		UBlueprintFunctionLibraryBase::GiveStartupAbilities(Z_Param_WorldContextObject,Z_Param_ASC,ECharacterClass(Z_Param_CharacterClass));
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UBlueprintFunctionLibraryBase::execInitializeDefaultAttributes)
@@ -206,6 +207,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 		{
 			const UObject* WorldContextObject;
 			UAbilitySystemComponent* ASC;
+			ECharacterClass CharacterClass;
 		};
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WorldContextObject_MetaData[];
@@ -215,6 +217,8 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ASC_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ASC;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_CharacterClass_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_CharacterClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -233,9 +237,13 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_ASC = { "ASC", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGiveStartupAbilities_Parms, ASC), Z_Construct_UClass_UAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_ASC_MetaData), Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_ASC_MetaData) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_CharacterClass_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_CharacterClass = { "CharacterClass", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BlueprintFunctionLibraryBase_eventGiveStartupAbilities_Parms, CharacterClass), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(0, nullptr) }; // 2406218765
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_WorldContextObject,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_ASC,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_CharacterClass_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::NewProp_CharacterClass,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities_Statics::Function_MetaDataParams[] = {
@@ -536,7 +544,7 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UBlueprintFunctionLibraryBase_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetOverlayWidgetController, "GetOverlayWidgetController" }, // 1192307670
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GetUAttributeMenuWidgetController, "GetUAttributeMenuWidgetController" }, // 1461303798
-		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 2204042487
+		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_GiveStartupAbilities, "GiveStartupAbilities" }, // 1512195470
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_InitializeDefaultAttributes, "InitializeDefaultAttributes" }, // 2145267979
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsCriticalHit, "IsCriticalHit" }, // 1378247691
 		{ &Z_Construct_UFunction_UBlueprintFunctionLibraryBase_IsMagicalDamage, "IsMagicalDamage" }, // 3122701809
@@ -591,9 +599,9 @@ void EmptyLinkFunctionForGeneratedCodeBlueprintFunctionLibraryBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 3691652044U) },
+		{ Z_Construct_UClass_UBlueprintFunctionLibraryBase, UBlueprintFunctionLibraryBase::StaticClass, TEXT("UBlueprintFunctionLibraryBase"), &Z_Registration_Info_UClass_UBlueprintFunctionLibraryBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBlueprintFunctionLibraryBase), 4242842100U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_1528359005(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_1510642741(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

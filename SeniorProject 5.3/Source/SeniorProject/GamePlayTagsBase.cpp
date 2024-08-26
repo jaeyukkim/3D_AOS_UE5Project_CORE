@@ -88,6 +88,9 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("PhysicalDamage"));
 	GameplayTags.MagicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Damage.MagicalDamage"),
 		FString("MagicalDamage"));
+
+	GameplayTags.Abilities_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Attack"),
+		FString("Attack Ability Tag"));
 	
 	GameplayTags.DamageTypes.Add(GameplayTags.PhysicalDamage);
 	GameplayTags.DamageTypes.Add(GameplayTags.MagicalDamage);
