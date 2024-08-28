@@ -62,10 +62,22 @@ public:
 
 	FGameplayTag Abilities_Combat_Attack;
 	FGameplayTag Abilities_Combat_MeleeAttack;
+	FGameplayTag Abilities_Combat_RangeAttack;
 	FGameplayTag Abilities_Combat_ResetCombo;
 	FGameplayTag Abilities_Combat_SaveCombo;
 
+	FGameplayTag CombatSocket_Weapon;
+	FGameplayTag CombatSocket_RightHand;
+	FGameplayTag CombatSocket_LeftHand;
+	FGameplayTag CombatSocket_Tail;
+	
 	static FGameplayTagsBase GameplayTags;
+
+	/* Team Name */
+	FGameplayTag TeamName_BlueTeam;
+	FGameplayTag TeamName_RedTeam;
+	FGameplayTag TeamName_NeutralityTeam;
+	/* Team Name */
 
 protected:
 private:

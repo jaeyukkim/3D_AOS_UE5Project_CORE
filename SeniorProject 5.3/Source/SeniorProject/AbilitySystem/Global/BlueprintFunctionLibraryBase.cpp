@@ -3,12 +3,15 @@
 
 #include "BlueprintFunctionLibraryBase.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
 #include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/UI/DefaultHUD.h"
 #include "SeniorProject/Interface/CombatInterface.h"
+#include "SeniorProject/Interface/EnemyInterface.h"
 
 UOverlayWidgetController* UBlueprintFunctionLibraryBase::GetOverlayWidgetController(const UObject* WorldContextObject)
 {
@@ -155,4 +158,49 @@ void UBlueprintFunctionLibraryBase::GetLivePlayersWithinRadius(const UObject* Wo
 			}
 		}
 	}
+}
+
+bool UBlueprintFunctionLibraryBase::IsFriends(AActor* ThisActor, AActor* TargetActor)
+{
+	if(!(ThisActor->Implements<UEnemyInterface>() && TargetActor->Implements<UEnemyInterface>()))
+	{
+		return false;
+	}
+
+	
+	FGameplayTag ThisActorTeam = Cast<IEnemyInterface>(ThisActor)->Execute_GetTeamName(ThisActor);
+	FGameplayTag TargetActorTeam = Cast<IEnemyInterface>(TargetActor)->Execute_GetTeamName(TargetActor);
+
+	/* ThisActor가 중립 몬스터 일 때 */
+	if(ThisActorTeam == FGameplayTagsBase::Get().TeamName_NeutralityTeam)
+	{
+		// TargetActor가 미니언이면 적이 아님
+		return TargetActor->ActorHasTag("Minion");
+	}
+	
+	/* TargetActor가 중립 몬스터 일 때 */
+	else if(TargetActorTeam == FGameplayTagsBase::Get().TeamName_NeutralityTeam)
+	{
+		// ThisActor가 미니언이면 적이 아님
+		return ThisActor->ActorHasTag("Minion");
+	}
+
+	return ThisActorTeam == TargetActorTeam;
+}
+
+AActor* UBlueprintFunctionLibraryBase::GetOwnerActorFromSpecHandle(const FGameplayEffectSpecHandle& SpecHandle)
+{
+	if(SpecHandle.IsValid())
+	{
+		AActor* Instigator = SpecHandle.Data.Get()->GetContext().GetInstigator();
+		UAbilitySystemComponent* ASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Instigator);
+		if(ASC != nullptr && Instigator != nullptr)
+		{
+			AActor* AvatarActor = ASC->GetAvatarActor();
+			if(AvatarActor != nullptr)
+				return AvatarActor;
+		}
+	}
+	
+	return nullptr;
 }

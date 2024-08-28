@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMinions() {}
 // Cross Module References
 	AIMODULE_API UClass* Z_Construct_UClass_UBehaviorTree_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AAIControllerBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMinions();
@@ -45,6 +46,10 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LifeSpan_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_LifeSpan;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CombatTarget_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_CombatTarget;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Level_MetaData[];
 #endif
@@ -104,6 +109,19 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_LifeSpan = { "LifeSpan", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, LifeSpan), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_LifeSpan_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_LifeSpan_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData[] = {
+		{ "Category", "Combat" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/*Enemy Interface*/" },
+#endif
+		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Enemy Interface" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget = { "CombatTarget", nullptr, (EPropertyFlags)0x0014000000000004, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, CombatTarget), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_Level_MetaData[] = {
 		{ "Category", "Defalut Character Setting" },
 		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
@@ -143,6 +161,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_OnHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_OnMaxHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_LifeSpan,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_Level,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass,
@@ -188,9 +207,9 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 3961203635U) },
+		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 3798837524U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_1405908032(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_2987568990(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -20,7 +20,7 @@
 // Sets default values
 AMinions::AMinions()
 {
-	Tags.Add(TEXT("ENEMY"));
+	Tags.Add(TEXT("Minion"));
 
 	PrimaryActorTick.bCanEverTick = false;
 	
@@ -62,6 +62,7 @@ void AMinions::PossessedBy(AController* NewController)
 	AIControllerBase->RunBehaviorTree(BehaviorTree);
 	AIControllerBase->GetBlackboardComponent()->SetValueAsBool("HitReacting", false);
 	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("RangedAttacker"), CharacterClass != ECharacterClass::Minion_Melee);
+	
 }
 
 // Called when the game starts or when spawned
@@ -105,7 +106,7 @@ void AMinions::BeginPlay()
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
 	
-
+	Execute_SetMinionTeamName(this, FGameplayTagsBase::Get().TeamName_NeutralityTeam);
 
 }
 
@@ -119,7 +120,24 @@ void AMinions::BeginPlay()
 void AMinions::Die()
 {
 	SetLifeSpan(LifeSpan);
+	AIControllerBase->StopAI();
+	
 	Super::Die();
+}
+
+void AMinions::SetCombatTarget_Implementation(AActor* InCombatTarget)
+{
+	CombatTarget = InCombatTarget;
+}
+
+AActor* AMinions::GetCombatTarget_Implementation() const
+{
+	return CombatTarget;
+}
+
+void AMinions::SetMinionTeamName_Implementation(FGameplayTag NewTeamName)
+{
+	TeamName = NewTeamName;
 }
 
 void AMinions::InitAbilityActorInfo()
@@ -135,7 +153,6 @@ void AMinions::InitAbilityActorInfo()
 
 void AMinions::InitializeDefaultAttributes() const
 {
-	
 	UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(this, CharacterClass, Level, AbilitySystemComponent);
 }
 
@@ -143,6 +160,7 @@ void AMinions::InitializeDefaultAttributes() const
 void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
 	Super::HitReactTagChanged(CallbackTag, NewCount);
-	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
+	if(AIControllerBase && AIControllerBase->GetBlackboardComponent())
+		AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
 
 }

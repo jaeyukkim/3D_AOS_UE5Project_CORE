@@ -35,6 +35,7 @@
 			"EnemyInterface.gen.cpp.obj",
 			"ExecCalc_Damage.gen.cpp.obj",
 			"GameplayAbilityBase.gen.cpp.obj",
+			"HomingProjectile.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
 			"KallariAI.gen.cpp.obj",
@@ -54,10 +55,10 @@
 			"MyGameInstance.gen.cpp.obj",
 			"MyGameModeBase.gen.cpp.obj",
 			"MyGamePlayWidget.gen.cpp.obj",
-			"MyMenuWidget.gen.cpp.obj",
-			"MyPlayerController.gen.cpp.obj"
+			"MyMenuWidget.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"MyPlayerController.gen.cpp.obj",
 			"MyPlayerState.gen.cpp.obj",
 			"MySaveGame.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
@@ -86,6 +87,7 @@
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"DamageActorBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
+			"HomingProjectile.cpp.obj",
 			"ProjectileBase.cpp.obj",
 			"AIControllerBase.cpp.obj",
 			"AssetManagerBase.cpp.obj",

@@ -39,6 +39,15 @@ public:
 	float LifeSpan = 5.f;
 	virtual void Die() override;
 
+	/*Enemy Interface*/
+	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) override;
+	virtual AActor* GetCombatTarget_Implementation() const override;
+	virtual void SetMinionTeamName_Implementation(FGameplayTag NewTeamName) override;
+	/*Enemy Interface*/
+
+	UPROPERTY(BlueprintReadWrite, Category = "Combat")
+	TObjectPtr<AActor> CombatTarget;
+	
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;

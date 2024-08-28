@@ -14,3 +14,9 @@ AAIControllerBase::AAIControllerBase()
 	check(BehaviorTreeComponent);
 	
 }
+
+void AAIControllerBase::StopAI()
+{
+	if(BehaviorTreeComponent != nullptr)
+		BehaviorTreeComponent->StopTree(EBTStopMode::Safe);
+}

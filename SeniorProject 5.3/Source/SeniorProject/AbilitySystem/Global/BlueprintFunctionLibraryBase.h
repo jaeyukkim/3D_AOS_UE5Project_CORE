@@ -48,5 +48,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static void GetLivePlayersWithinRadius(const UObject* WorldContextObject,TArray<AActor*>& OutOverlappingActors,
 		const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin);
-	
+
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	static bool IsFriends(AActor* FirstActor, AActor* SecondActor);
+
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	static AActor* GetOwnerActorFromSpecHandle(const FGameplayEffectSpecHandle& SpecHandle);
 };

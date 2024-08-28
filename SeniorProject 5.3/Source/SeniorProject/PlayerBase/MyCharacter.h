@@ -51,10 +51,15 @@ public:
 	UPROPERTY(EditAnywhere, Category="Input")
 		TObjectPtr<AMyPlayerController> PlayerController;
 
-	
+	/* CombatInterface */
 	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
 	virtual void Die() override;
+	/* end CombatInterface */
 
+	/* Enemy Interface */
+	
+	virtual void SetPlayerTeamName_Implementation(APlayerState* PS) override;
+	/* end Enemy Interface */
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );

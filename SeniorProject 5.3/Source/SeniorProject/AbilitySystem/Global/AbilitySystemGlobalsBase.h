@@ -13,7 +13,10 @@ UCLASS()
 class SENIORPROJECT_API UAbilitySystemGlobalsBase : public UAbilitySystemGlobals
 {
 	GENERATED_BODY()
+
+public:
 	
 	virtual FGameplayEffectContext* AllocGameplayEffectContext() const override;
+
 	
 };

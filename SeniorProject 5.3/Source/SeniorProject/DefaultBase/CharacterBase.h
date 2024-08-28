@@ -10,7 +10,6 @@
 #include "CharacterBase.generated.h"
 
 
-
 class UAbilitySystemComponent;
 class UAttributeSet;
 class UGameplayEffect;
@@ -31,10 +30,11 @@ public:
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
 
 	
-	/*Enemy Interface*/
+	/* Enemy Interface */
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
-	/*Enemy Interface*/
+	virtual FGameplayTag GetTeamName_Implementation() const override;
+	/* end Enemy Interface */
 
 	
 	/*CombatInterface*/
@@ -50,15 +50,35 @@ public:
 	
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
+	
 	virtual void Die() override;
+	
+	UFUNCTION(BlueprintImplementableEvent)
+	void DieAction();
+	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
-	/*CombatInterface*/
+	/* end CombatInterface*/
 
-	
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName WeaponTipSocketName;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName LeftHandSocketName;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName RightHandSocketName;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FName TailSocketName;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	FGameplayTag TeamName;
 	
 protected:
-	// Called when the game starts or when spawned
+	
 	virtual void BeginPlay() override;
 
 	UPROPERTY()
@@ -87,6 +107,7 @@ protected:
 	
 	UPROPERTY(BlueprintReadOnly)
 	bool bDead = false;
+	
 public:	
 	
 	

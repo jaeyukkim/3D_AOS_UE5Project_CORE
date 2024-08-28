@@ -11,6 +11,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class UAnimMontage;
+struct FGameplayTag;
 #ifdef SENIORPROJECT_CombatInterface_generated_h
 #error "CombatInterface.generated.h already included, missing '#pragma once' in CombatInterface.h"
 #endif
@@ -24,11 +25,13 @@ class UAnimMontage;
 	virtual bool IsDead_Implementation() const { return false; }; \
 	virtual UAnimMontage* GetAttackMontage_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
+	virtual FVector GetCombatSocketLocation_Implementation(FGameplayTag const& MontageTag) { return FVector(ForceInit); }; \
  \
 	DECLARE_FUNCTION(execGetAvatar); \
 	DECLARE_FUNCTION(execIsDead); \
 	DECLARE_FUNCTION(execGetAttackMontage); \
-	DECLARE_FUNCTION(execGetHitReactMontage);
+	DECLARE_FUNCTION(execGetHitReactMontage); \
+	DECLARE_FUNCTION(execGetCombatSocketLocation);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_ACCESSORS
@@ -72,6 +75,7 @@ public: \
 	typedef ICombatInterface ThisClass; \
 	static UAnimMontage* Execute_GetAttackMontage(UObject* O); \
 	static AActor* Execute_GetAvatar(UObject* O); \
+	static FVector Execute_GetCombatSocketLocation(UObject* O, FGameplayTag const& MontageTag); \
 	static UAnimMontage* Execute_GetHitReactMontage(UObject* O); \
 	static bool Execute_IsDead(const UObject* O); \
 	virtual UObject* _getUObject() const { return nullptr; }

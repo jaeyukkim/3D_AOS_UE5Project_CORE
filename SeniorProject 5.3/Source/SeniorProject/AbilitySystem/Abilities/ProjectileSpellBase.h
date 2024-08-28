@@ -6,6 +6,7 @@
 #include "DamageGameplayAbilityBase.h"
 #include "ProjectileSpellBase.generated.h"
 
+class AHomingProjectile;
 class AProjectileBase;
 class UGameplayEffect;
 /**
@@ -26,13 +27,17 @@ protected:
 		const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnProjectile(const FVector& AimLocation);
+	void SpawnMeteor(const FVector& AimLocation);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride);
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnHomingProjectile(AActor* Target, const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride);
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TSubclassOf<AProjectileBase> ProjectileClass;
 	
-	
-
-	
-	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSubclassOf<AHomingProjectile> HomingProjectileClass;
 };

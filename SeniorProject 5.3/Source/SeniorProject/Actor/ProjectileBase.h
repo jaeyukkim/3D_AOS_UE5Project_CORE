@@ -6,8 +6,7 @@
 #include "DamageActorBase.h"
 #include "ProjectileBase.generated.h"
 
-
-class UCapsuleComponent;
+class USphereComponent;
 class UProjectileMovementComponent;
 
 UCLASS(BlueprintType)
@@ -22,7 +21,6 @@ public:
 	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
 	
-	
 protected:
 
 	virtual void BeginPlay() override;
@@ -32,9 +30,10 @@ protected:
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	TObjectPtr<UCapsuleComponent> Capsule;
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UStaticMeshComponent> Mesh;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<USphereComponent> SphereComponent;
+	
 
 };

@@ -16,6 +16,7 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/UI/OverlayWidgetController.h"
 
@@ -57,7 +58,6 @@ void AMyCharacter::PossessedBy(AController* NewController)
 	InitAbilityActorInfo();
 	AddCharacterAbility();
 	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
-
 	
 }
 
@@ -91,6 +91,7 @@ void AMyCharacter::InitAbilityActorInfo()
 		}
 	}
 	InitializeDefaultAttributes();
+	SetPlayerTeamName_Implementation(PlayerStateBase);
 }
 
 
@@ -215,6 +216,21 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 void AMyCharacter::Die()
 {
 	Super::Die();
+	
+}
+
+
+void AMyCharacter::SetPlayerTeamName_Implementation(APlayerState* PS)
+{
+	checkf(PS, TEXT("PlayerState Not Initialize"));
+	if (PS->GetPlayerId() % 2 == 0)
+	{
+		TeamName = FGameplayTagsBase::Get().TeamName_RedTeam;
+	}
+	else
+	{
+		TeamName = FGameplayTagsBase::Get().TeamName_BlueTeam;
+	}
 }
 
 
@@ -223,28 +239,21 @@ int32 AMyCharacter::GetPlayerLevel()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	return PlayerStateBase->GetPlayerLevel();
-	
 }
 
 void AMyCharacter::AimTrace()
 {
-	FHitResult  HitResult;
+	FHitResult HitResult;
 
 
 	FVector CameraLocation = Camera->GetComponentLocation();
 	FVector CameraForwardVector = Camera->GetComponentRotation().Vector();
-	//FCollisionQueryParams Params(NAME_None, false, this);
 	
-
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
 		 ECollisionChannel::ECC_GameTraceChannel2);
-
-	// 레이 그리기
-	FColor LineColor = bHit ? FColor::Green : FColor::Red; // 맞추면 초록색, 아니면 빨간색
-
 	
-		
 
+	/* 아무것도 감지되지 않았을 때 초기화 */
 	if (!HitResult.bBlockingHit)
 	{
 		if(LastActor != nullptr)
@@ -257,49 +266,46 @@ void AMyCharacter::AimTrace()
 			ThisActor->UnHighlightActor();
 			ThisActor = nullptr;
 		}
-
 	};
 
 	
 	LastActor = ThisActor;
 	ThisActor = HitResult.GetActor();
 
-
+	
 
 	if (LastActor == nullptr)
 	{
-
-		if (ThisActor != nullptr && ThisActor != this)
+		/* Case A : 현재 감지 된 캐릭터가 자신이 아니라 적일때 HighLight */
+		if (ThisActor != nullptr && ThisActor != this && !UBlueprintFunctionLibraryBase::IsFriends(this,Cast<AActor>(ThisActor.GetObject())))
 		{
-			// Case B
 			ThisActor->HighlightActor();
-		
 		}
 		else
 		{
-			// Case A - both are null, �ƹ��͵� ���� ����
+			/* Case B : 현재 감지 된 캐릭터, 이전에 감지했던 캐릭터가 없을 때 아무것도 하지 않음 */
 		}
 	}
 	else // LastActor is valid
 	{
 		if (ThisActor == nullptr)
 		{
-			// Case C
+			/* Case C : 이전에 감지 된 캐릭터가 있고 지금 감지중인 캐릭터가 없을 때 */
 			LastActor->UnHighlightActor();
 		}
-		else // both actors are valid
+		else 
 		{
 			if (LastActor != ThisActor)
 			{
-				// Case D
+				/* Case D : 이전에 감지 된 캐릭터가 있고 현재 감지 대상이 바뀌었을때 이전 대상 UnHighlightActor 현재 대상은 적일 경우에만 HighLight */
 				LastActor->UnHighlightActor();
 				
-				if(ThisActor != this)
+				if(ThisActor != this && !UBlueprintFunctionLibraryBase::IsFriends(this,Cast<AActor>(ThisActor.GetObject())))
 				ThisActor->HighlightActor();
 			}
 			else
 			{
-				// Case E - �ƹ��͵� ���� ����
+				// Case E :
 			}
 		}
 	}

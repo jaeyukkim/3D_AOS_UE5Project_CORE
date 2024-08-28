@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/DefaultBase/CharacterBase.h"
+#include "GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 // Cross Module References
@@ -17,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UCombatInterface_NoRegister();
@@ -30,6 +32,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		P_THIS->MulticastHandleDeath_Implementation();
 		P_NATIVE_END;
 	}
+	static FName NAME_ACharacterBase_DieAction = FName(TEXT("DieAction"));
+	void ACharacterBase::DieAction()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ACharacterBase_DieAction),NULL);
+	}
 	static FName NAME_ACharacterBase_MulticastHandleDeath = FName(TEXT("MulticastHandleDeath"));
 	void ACharacterBase::MulticastHandleDeath()
 	{
@@ -42,6 +49,28 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 			{ "MulticastHandleDeath", &ACharacterBase::execMulticastHandleDeath },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ACharacterBase_DieAction_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterBase_DieAction_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterBase_DieAction_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterBase, nullptr, "DieAction", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_DieAction_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterBase_DieAction_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ACharacterBase_DieAction()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterBase_DieAction_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics
 	{
@@ -77,6 +106,26 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_WeaponTipSocketName_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_WeaponTipSocketName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LeftHandSocketName_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_LeftHandSocketName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RightHandSocketName_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_RightHandSocketName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TailSocketName_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_TailSocketName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TeamName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TeamName;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
@@ -136,6 +185,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ACharacterBase_DieAction, "DieAction" }, // 1236211070
 		{ &Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath, "MulticastHandleDeath" }, // 3854617414
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::FuncInfo) < 2048);
@@ -147,6 +197,47 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName_MetaData[] = {
+		{ "Category", "Combat" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* end CombatInterface*/" },
+#endif
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "end CombatInterface" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName = { "WeaponTipSocketName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, WeaponTipSocketName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_LeftHandSocketName_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_LeftHandSocketName = { "LeftHandSocketName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, LeftHandSocketName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_LeftHandSocketName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_LeftHandSocketName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName = { "RightHandSocketName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, RightHandSocketName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName = { "TailSocketName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, TailSocketName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName = { "TeamName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, TeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData) }; // 2083603574
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "EditInline", "true" },
@@ -241,6 +332,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage = { "AttackMontage", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, AttackMontage), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttackMontage_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacterBase_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_LeftHandSocketName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DefaultVitalAttributes,
@@ -257,8 +353,8 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 2623055100
-			{ Z_Construct_UClass_UCombatInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, ICombatInterface), false },  // 537185450
+			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 1288381000
+			{ Z_Construct_UClass_UCombatInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, ICombatInterface), false },  // 1251930284
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterBase_Statics::StaticCppClassTypeInfo = {
@@ -299,9 +395,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1224578991U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 2988462354U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_1185082809(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_1698468824(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

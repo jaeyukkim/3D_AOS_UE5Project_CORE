@@ -2,9 +2,14 @@
 
 
 #include "AbilitySystemGlobalsBase.h"
+
+#include "AbilitySystemBlueprintLibrary.h"
 #include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
+
 
 FGameplayEffectContext* UAbilitySystemGlobalsBase::AllocGameplayEffectContext() const
 {
 	return new FGameplayEffectBaseContext();
 }
+
+

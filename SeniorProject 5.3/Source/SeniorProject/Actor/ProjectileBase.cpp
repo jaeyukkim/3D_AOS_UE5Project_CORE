@@ -4,9 +4,10 @@
 #include "ProjectileBase.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
-#include "Components/CapsuleComponent.h"
-
+#include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "SeniorProject/AbilitySystem/Global/AbilitySystemGlobalsBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 
 // Sets default values
 AProjectileBase::AProjectileBase()
@@ -16,14 +17,15 @@ AProjectileBase::AProjectileBase()
 	bReplicates = true;
 	
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
-	
-	Capsule = CreateDefaultSubobject<UCapsuleComponent>("Capsule");
-	Capsule->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	Capsule->SetCollisionResponseToAllChannels(ECR_Ignore);
-	//Sphere->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);
-	//Sphere->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Overlap);
-	Capsule->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
-	Capsule->SetupAttachment(Mesh);
+	SetRootComponent(Mesh);
+
+	SphereComponent = CreateDefaultSubobject<USphereComponent>("SphereComponent");
+	SphereComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	SphereComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
+	SphereComponent->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);
+	SphereComponent->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Overlap);
+	SphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	SphereComponent->SetupAttachment(Mesh);
 	
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>("ProjectileMovement");
 	ProjectileMovement->InitialSpeed = 100.0f; // Start at rest
@@ -34,7 +36,6 @@ AProjectileBase::AProjectileBase()
 	
 
 	
-	SetRootComponent(Mesh);
 	
 	
 }
@@ -43,13 +44,24 @@ AProjectileBase::AProjectileBase()
 void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
-	Capsule->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+
+	
+	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+	//Sphere->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
 	
 }
 
 void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	
+
+	AActor* OwnerActor = UBlueprintFunctionLibraryBase::GetOwnerActorFromSpecHandle(DamageEffectSpecHandle);
+	if(OwnerActor == nullptr) return;
+
+	if(UBlueprintFunctionLibraryBase::IsFriends(OwnerActor, OtherActor))
+		return;
+	
 	if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
 	{
 		TargetASC->ApplyGameplayEffectSpecToSelf(*DamageEffectSpecHandle.Data.Get());

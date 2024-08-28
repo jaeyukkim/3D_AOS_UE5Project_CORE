@@ -33,6 +33,9 @@ public:
 	FORCEINLINE virtual int32 GetCurrentCombo() const {return 1;}
 	FORCEINLINE virtual int32 GetMaxAttackCombo() const {return 1;}
 	FORCEINLINE virtual int32 GetAttackRange() const {return 100;}
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	FVector GetCombatSocketLocation(const FGameplayTag& MontageTag);
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetHitReactMontage();

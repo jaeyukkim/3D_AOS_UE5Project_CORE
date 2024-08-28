@@ -17,7 +17,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_Vital_Exp =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Vital.Exp"),
 			FString("Character Current Exp"));
 
-	/* Vital Attribute Tags*/
+	/* end Vital Attribute Tags */
 
 
 
@@ -38,7 +38,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Chance to Basic Attack Double Damage Percentage"));
 	GameplayTags.Attributes_Secondary_MovementSpeed =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Secondary.MovementSpeed"),
 		FString("Character Movement Speed"));
-	/* SecondaryAttributes Tags */
+	/* end SecondaryAttributes Tags */
 
 
 	
@@ -59,7 +59,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Ignore The MagicResistance as much as this Point "));
 	GameplayTags.Attributes_AdditionalVital_LifeSteal =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.AdditionalVital.LifeSteal"),
 		FString("Character recover by multiplying this percentage of the basic attack damage"));
-	/* Additional Vital Attribute Tags */
+	/* end Additional Vital Attribute Tags */
 
 
 	
@@ -69,7 +69,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 			FString("When you die, you raise your enemy's EXP by this point"));
 	GameplayTags.Attributes_GamePlay_DropGold =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.DropGold"),
 			FString("When you die, you raise your enemy's Gold by this point"));
-	/* GamePlay Attribute Tags*/
+	/* end GamePlay Attribute Tags*/
 
 	/* Input Tag */
 	GameplayTags.Input_LMB =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.LMB"),
@@ -80,27 +80,57 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 			FString("Input Tag for Q Keyboard Button"));
 	GameplayTags.Input_R =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.R"),
 			FString("Input Tag for R Keyboard Button"));
-	
-	/* Input Tag */
+	/* end Input Tag */
 
 
+	/* Damage Tag */
 	GameplayTags.PhysicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Damage.PhysicalDamage"),
 		FString("PhysicalDamage"));
 	GameplayTags.MagicalDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Damage.MagicalDamage"),
 		FString("MagicalDamage"));
+	GameplayTags.DamageTypes.Add(GameplayTags.PhysicalDamage);
+	GameplayTags.DamageTypes.Add(GameplayTags.MagicalDamage);
+	/* End Damage Tag */
 
+	
+	/* Combat Tag */
 	GameplayTags.Abilities_Combat_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.Attack"),
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_MeleeAttack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.MeleeAttack"),
+		FString("Attack Ability Tag"));
+	GameplayTags.Abilities_Combat_RangeAttack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.RangeAttack"),
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_SaveCombo = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.SaveCombo"),
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_ResetCombo = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.ResetCombo"),
 		FString("Attack Ability Tag"));
+	/* end Combat Tag */
+	
+	
+	/* Combat Sockets */
+	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.Weapon"),
+		FString("Weapon"));
+
+	GameplayTags.CombatSocket_RightHand = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.RightHand"),
+		FString("Right Hand"));
+	
+	GameplayTags.CombatSocket_LeftHand = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.LeftHand"),
+		FString("Left Hand"));
+
+	GameplayTags.CombatSocket_Tail = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.Tail"),
+		FString("Tail"));
+	/* end Combat Sockets */
 
 	
-	GameplayTags.DamageTypes.Add(GameplayTags.PhysicalDamage);
-	GameplayTags.DamageTypes.Add(GameplayTags.MagicalDamage);
+	/* Team Name */
+	GameplayTags.TeamName_BlueTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.BlueTeam"),
+			FString("BlueTeam"));
+	GameplayTags.TeamName_RedTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.RedTeam"),
+		FString("RedTeam"));
+	GameplayTags.TeamName_NeutralityTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.NeutralityTeam"),
+		FString("NeutralityTeam"));
+	/* end Team Name*/
+	
 	
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
 			FName("Effects.HitReact"),FString("Tag granted when Hit Reacting"));

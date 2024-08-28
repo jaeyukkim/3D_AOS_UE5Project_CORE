@@ -16,8 +16,11 @@ class SENIORPROJECT_API AAIControllerBase : public AAIController
 	GENERATED_BODY()
 public:
 	AAIControllerBase();
-
+	
+	void StopAI();
+	
 protected:
 	UPROPERTY()
 	TObjectPtr<UBehaviorTreeComponent> BehaviorTreeComponent;
+	
 };

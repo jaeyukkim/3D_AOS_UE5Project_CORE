@@ -6,6 +6,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "MovementComponentBase.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 
@@ -67,6 +68,11 @@ void ACharacterBase::UnHighlightActor()
 	GetMesh()->SetRenderCustomDepth(false);
 }
 
+FGameplayTag ACharacterBase::GetTeamName_Implementation() const
+{
+	return TeamName;
+}
+
 UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
 {
 	return HitReactMontage;
@@ -83,6 +89,28 @@ void ACharacterBase::HitReactTagChanged(const FGameplayTag CallbackTag, int32 Ne
 	bHitReacting = NewCount > 0;
 }
 
+FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag)
+{
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	if (MontageTag.MatchesTagExact(GameplayTags.CombatSocket_Weapon))
+	{
+		return GetMesh()->GetSocketLocation(WeaponTipSocketName);
+	}
+	if (MontageTag.MatchesTagExact(GameplayTags.CombatSocket_LeftHand))
+	{
+		return GetMesh()->GetSocketLocation(LeftHandSocketName);
+	}
+	if (MontageTag.MatchesTagExact(GameplayTags.CombatSocket_RightHand))
+	{
+		return GetMesh()->GetSocketLocation(RightHandSocketName);
+	}
+	if (MontageTag.MatchesTagExact(GameplayTags.CombatSocket_Tail))
+	{
+		return GetMesh()->GetSocketLocation(TailSocketName);
+	}
+	return FVector();
+}
+
 void ACharacterBase::Die()
 {
 	MulticastHandleDeath();
@@ -91,13 +119,17 @@ void ACharacterBase::Die()
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
 	
+
+	
 	GetMesh()->SetSimulatePhysics(true);
 	GetMesh()->SetEnableGravity(true);
 	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
-
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	
+	DieAction();
 	bDead = true;
+	
 }
 
 void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const
