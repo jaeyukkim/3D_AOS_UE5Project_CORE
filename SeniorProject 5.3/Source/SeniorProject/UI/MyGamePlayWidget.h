@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "SeniorProject/SeniorProject.h"
+
 #include "Blueprint/UserWidget.h"
 #include "MyGamePlayWidget.generated.h"
 

@@ -7,7 +7,7 @@
 #include "AbilitySystemComponentBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackEndSignatures);
 /**
  * 
  */
@@ -20,6 +20,10 @@ public:
 	void AbilityActorInfoSet();
 	FEffectAssetTags EffectAssetTags;
 	
+	UPROPERTY(BlueprintAssignable, Category = "Combat")
+	FOnAttackEndSignatures AttackEndSignature;
+	
+	
 	void AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility);
 	void AbilityInputTagHeld(const FGameplayTag& InputTag);
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);
@@ -27,5 +31,8 @@ protected:
 
     UFUNCTION(Client, Reliable)
 	void ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void BroadCastAttackEnd();
 	
 };

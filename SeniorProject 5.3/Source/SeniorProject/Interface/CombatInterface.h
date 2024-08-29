@@ -7,6 +7,8 @@
 #include "CombatInterface.generated.h"
 
 class UAnimMontage;
+
+
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI, BlueprintType)
 class UCombatInterface : public UInterface
@@ -48,10 +50,15 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	AActor* GetAvatar();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool IsAttacking();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SetIsAttacking(bool bIsAttacking);
 	
 	virtual void Die() = 0;
 
 	
-
 	
 };

@@ -61,8 +61,13 @@ void UAbilitySystemComponentBase::AbilityInputTagReleased(const FGameplayTag& In
 	}
 }
 
+void UAbilitySystemComponentBase::BroadCastAttackEnd_Implementation()
+{
+	AttackEndSignature.Broadcast();
+}
+
 void UAbilitySystemComponentBase::ClientEffectApplied_Implementation(UAbilitySystemComponent* AbilitySystemComponent,
-                                                const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
+                                                                     const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
 	FGameplayTagContainer TagContainer;
 	//EffectSpec.GetAllAssetTags(TagContainer);

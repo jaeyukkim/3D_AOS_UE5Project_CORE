@@ -16,6 +16,8 @@ class UGameplayEffect;
 class UGameplayAbility;
 class UAnimMontage;
 
+
+
 UCLASS(abstract)
 class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface
 {
@@ -43,10 +45,13 @@ public:
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
 	FORCEINLINE virtual int32 GetCurrentCombo() const override { return CurrentCombo; }
 	FORCEINLINE virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
-	
 	FORCEINLINE virtual int32 GetAttackRange() const override {return AttackRange;}
 	FORCEINLINE virtual bool IsDead_Implementation() const override {return bDead;}
 	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;};
+
+
+
+	
 	
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
@@ -76,6 +81,7 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FGameplayTag TeamName;
+
 	
 protected:
 	
@@ -129,7 +135,7 @@ private:
 
 	int32 MaxAttackCombo = 0;
 	int32 CurrentCombo = 0;
-	
+
 	/*Combat Interface*/
 
 	

@@ -7,7 +7,7 @@
 #include "MyCharacterWidget.generated.h"
 
 /**
-  hp¹Ù¿Í Ä³¸¯ÅÍ ½ºÅÝ µ¿±âÈ­
+  hpï¿½Ù¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­
  */
 UCLASS()
 class SENIORPROJECT_API UMyCharacterWidget : public UUserWidget

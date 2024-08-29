@@ -1,7 +1,6 @@
 #pragma once
 
-#include "SeniorProject/SeniorProject.h"
-#include "UObject/NoExportTypes.h"
+
 #include "DefaultWidgetController.generated.h"
 
 /**

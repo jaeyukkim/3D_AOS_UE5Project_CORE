@@ -3,8 +3,6 @@
 
 #include "DefaultWidgetController.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
-#include "SeniorProject/PlayerBase/MyPlayerController.h"
-#include "SeniorProject/DefaultBase/PlayerStateBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 

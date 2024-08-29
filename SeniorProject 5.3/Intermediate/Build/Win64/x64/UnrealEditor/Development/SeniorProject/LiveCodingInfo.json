@@ -19,10 +19,10 @@
 			"BTTask_Attack.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
 			"BTTask_TurnToTarget.gen.cpp.obj",
-			"CharacterBase.gen.cpp.obj",
-			"CharacterClassInfo.gen.cpp.obj"
+			"CharacterBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
 			"DamageActorBase.gen.cpp.obj",
@@ -49,15 +49,15 @@
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
-			"MyCharacter.gen.cpp.obj",
+			"MyCharacter.gen.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"MyCharacterStatComponent.gen.cpp.obj",
 			"MyCharacterWidget.gen.cpp.obj",
 			"MyGameInstance.gen.cpp.obj",
 			"MyGameModeBase.gen.cpp.obj",
 			"MyGamePlayWidget.gen.cpp.obj",
-			"MyMenuWidget.gen.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"MyMenuWidget.gen.cpp.obj",
 			"MyPlayerController.gen.cpp.obj",
 			"MyPlayerState.gen.cpp.obj",
 			"MySaveGame.gen.cpp.obj",
@@ -123,7 +123,9 @@
 			"EnemyInterface.cpp.obj",
 			"AbilityComponent.cpp.obj",
 			"MyAnimInstance.cpp.obj",
-			"MyCharacter.cpp.obj",
+			"MyCharacter.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"MyCharacterStatComponent.cpp.obj",
 			"MyPlayerController.cpp.obj",
 			"MyPlayerState.cpp.obj",

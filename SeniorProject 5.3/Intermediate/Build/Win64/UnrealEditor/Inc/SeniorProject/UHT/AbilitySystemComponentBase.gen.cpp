@@ -17,8 +17,42 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayEffectSpec();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	struct Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "OnAttackEndSignatures__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAttackEndSignatures)
+{
+	OnAttackEndSignatures.ProcessMulticastDelegate<UObject>(NULL);
+}
+	DEFINE_FUNCTION(UAbilitySystemComponentBase::execBroadCastAttackEnd)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BroadCastAttackEnd_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UAbilitySystemComponentBase::execClientEffectApplied)
 	{
 		P_GET_OBJECT(UAbilitySystemComponent,Z_Param_AbilitySystemComponent);
@@ -35,6 +69,11 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 		FGameplayEffectSpec EffectSpec;
 		FActiveGameplayEffectHandle ActiveEffectHandle;
 	};
+	static FName NAME_UAbilitySystemComponentBase_BroadCastAttackEnd = FName(TEXT("BroadCastAttackEnd"));
+	void UAbilitySystemComponentBase::BroadCastAttackEnd()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_BroadCastAttackEnd),NULL);
+	}
 	static FName NAME_UAbilitySystemComponentBase_ClientEffectApplied = FName(TEXT("ClientEffectApplied"));
 	void UAbilitySystemComponentBase::ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, FGameplayEffectSpec const& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 	{
@@ -48,9 +87,32 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 	{
 		UClass* Class = UAbilitySystemComponentBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "BroadCastAttackEnd", &UAbilitySystemComponentBase::execBroadCastAttackEnd },
 			{ "ClientEffectApplied", &UAbilitySystemComponentBase::execClientEffectApplied },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "BroadCastAttackEnd", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C080C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied_Statics
 	{
@@ -116,6 +178,11 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttackEndSignature_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_AttackEndSignature;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -125,6 +192,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd, "BroadCastAttackEnd" }, // 2447331622
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied, "ClientEffectApplied" }, // 4212018037
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo) < 2048);
@@ -138,6 +206,16 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilitySystemComponentBase_Statics::NewProp_AttackEndSignature_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UAbilitySystemComponentBase_Statics::NewProp_AttackEndSignature = { "AttackEndSignature", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilitySystemComponentBase, AttackEndSignature), Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::NewProp_AttackEndSignature_MetaData), Z_Construct_UClass_UAbilitySystemComponentBase_Statics::NewProp_AttackEndSignature_MetaData) }; // 765496312
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbilitySystemComponentBase_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilitySystemComponentBase_Statics::NewProp_AttackEndSignature,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UAbilitySystemComponentBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UAbilitySystemComponentBase>::IsAbstract,
 	};
@@ -147,15 +225,16 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_UAbilitySystemComponentBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::PropPointers),
 		0,
 		0x00B010A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::Class_MetaDataParams), Z_Construct_UClass_UAbilitySystemComponentBase_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_UAbilitySystemComponentBase()
 	{
 		if (!Z_Registration_Info_UClass_UAbilitySystemComponentBase.OuterSingleton)
@@ -176,9 +255,9 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 3406197666U) },
+		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 1533360885U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_2919334588(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_3326769762(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
