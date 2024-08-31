@@ -27,7 +27,9 @@ public:
 	// Sets default values for this character's properties
 	ACharacterBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	virtual void Tick(float DeltaTime) override;
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+	
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
 
@@ -79,7 +81,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName TailSocketName;
 
-	UPROPERTY(EditAnywhere, Category = "Combat")
+	UPROPERTY(EditAnywhere, Replicated, Category = "Combat")
 	FGameplayTag TeamName;
 
 	

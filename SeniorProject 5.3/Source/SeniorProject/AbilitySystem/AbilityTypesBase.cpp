@@ -38,9 +38,17 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 7;
 		}
+		if (bIsMagicalDamage)
+		{
+			RepBits |= 1 << 8;
+		}
+		if (bIsPhysicalDamage)
+		{
+			RepBits |= 1 << 9;
+		}
 	}
 
-	Ar.SerializeBits(&RepBits, 8);
+	Ar.SerializeBits(&RepBits, 11);
 
 	if (RepBits & (1 << 0))
 	{
@@ -81,6 +89,14 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 	if(RepBits & (1 << 7))
 	{
 		Ar << bIsCriticalHit;
+	}
+	if(RepBits & (1 << 8))
+	{
+		Ar << bIsMagicalDamage;
+	}
+	if(RepBits & (1 << 9))
+	{
+		Ar << bIsPhysicalDamage;
 	}
 	else
 	{

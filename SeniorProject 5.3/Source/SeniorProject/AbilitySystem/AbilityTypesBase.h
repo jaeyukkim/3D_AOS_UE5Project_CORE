@@ -3,6 +3,53 @@
 #include "GameplayEffectTypes.h"
 #include "AbilityTypesBase.generated.h"
 
+
+USTRUCT(BlueprintType)
+struct FDamageEffectParams
+{
+	GENERATED_BODY()
+
+	FDamageEffectParams(){}
+
+	UPROPERTY(BlueprintReadWrite)
+	TObjectPtr<UObject> WorldContextObject = nullptr;
+
+	UPROPERTY(BlueprintReadWrite)
+	TSubclassOf<UGameplayEffect> DamageGameplayEffectClass = nullptr;
+
+	UPROPERTY(BlueprintReadWrite)
+	TObjectPtr<UAbilitySystemComponent> SourceAbilitySystemComponent;
+
+	UPROPERTY(BlueprintReadWrite)
+	TObjectPtr<UAbilitySystemComponent> TargetAbilitySystemComponent;
+
+	UPROPERTY(BlueprintReadWrite)
+	FGameplayTag DamageType = FGameplayTag();
+	
+	UPROPERTY(BlueprintReadWrite)
+	float BaseDamage = 0.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float AppliedCoefficientDamage = 0.f;
+	
+	UPROPERTY(BlueprintReadWrite)
+	float APCoefficient = 0.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float ADCoefficient = 0.f;
+	
+	UPROPERTY(BlueprintReadWrite)
+	float AbilityLevel = 1.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float SourceAbilityPower = 1.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float SourceAttackDamage = 1.f;
+	
+	
+};
+
 USTRUCT(BlueprintType)
 struct FGameplayEffectBaseContext : public FGameplayEffectContext
 {
@@ -10,11 +57,19 @@ struct FGameplayEffectBaseContext : public FGameplayEffectContext
 
 public:
 	bool IsCriticalHit() const {return bIsCriticalHit;}
-	void SetIsCriticalHit(bool bInIsCriticalHit) {bIsCriticalHit = bInIsCriticalHit;}
-
 	bool IsMagicalDamage() const {return bIsMagicalDamage;}
-	void SetIsMagicalDamage(bool bInIsMagicalDamage) {bIsMagicalDamage = bInIsMagicalDamage;}
+	bool IsPhysicalDamage() const {return bIsPhysicalDamage;}
 
+	
+	void SetIsMagicalDamage(bool bInIsMagicalDamage) {bIsMagicalDamage = bInIsMagicalDamage;}
+	void SetIsCriticalHit(bool bInIsCriticalHit) {bIsCriticalHit = bInIsCriticalHit;}
+	void SetIsPhysicalDamage(bool bInIsPhysicalDamage) {bIsPhysicalDamage = bInIsPhysicalDamage;}
+
+
+
+	
+
+	
 	/** Returns the actual struct used for serialization, subclasses must override this! */
 	virtual UScriptStruct* GetScriptStruct() const
 	{
@@ -41,13 +96,20 @@ public:
 	}
 	
 protected:
-
-private:
+	
 	UPROPERTY()
 	bool bIsCriticalHit = false;
 
 	UPROPERTY()
 	bool bIsMagicalDamage = false;
+
+	UPROPERTY()
+	bool bIsPhysicalDamage = false;
+
+	UPROPERTY()
+	float BaseDamage = 0.f;
+	
+	
 };
 
 template<>

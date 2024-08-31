@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/AbilitySystem/Abilities/MeleeAttackBase.h"
+#include "SeniorProject/AbilitySystem/Abilities/Attack/MeleeAttackBase.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMeleeAttackBase() {}
 // Cross Module References
@@ -41,8 +41,8 @@ void EmptyLinkFunctionForGeneratedCodeMeleeAttackBase() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "IncludePath", "AbilitySystem/Abilities/MeleeAttackBase.h" },
-		{ "ModuleRelativePath", "AbilitySystem/Abilities/MeleeAttackBase.h" },
+		{ "IncludePath", "AbilitySystem/Abilities/Attack/MeleeAttackBase.h" },
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/Attack/MeleeAttackBase.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMeleeAttackBase_Statics::StaticCppClassTypeInfo = {
@@ -78,15 +78,15 @@ void EmptyLinkFunctionForGeneratedCodeMeleeAttackBase() {}
 	UMeleeAttackBase::UMeleeAttackBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMeleeAttackBase);
 	UMeleeAttackBase::~UMeleeAttackBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_MeleeAttackBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_MeleeAttackBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMeleeAttackBase, UMeleeAttackBase::StaticClass, TEXT("UMeleeAttackBase"), &Z_Registration_Info_UClass_UMeleeAttackBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMeleeAttackBase), 3160218671U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UMeleeAttackBase, UMeleeAttackBase::StaticClass, TEXT("UMeleeAttackBase"), &Z_Registration_Info_UClass_UMeleeAttackBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMeleeAttackBase), 3704868482U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_MeleeAttackBase_h_155753802(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_MeleeAttackBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_MeleeAttackBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_1449097704(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

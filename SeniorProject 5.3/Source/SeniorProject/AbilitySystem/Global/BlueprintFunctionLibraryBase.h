@@ -54,4 +54,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static AActor* GetOwnerActorFromSpecHandle(const FGameplayEffectSpecHandle& SpecHandle);
+
+	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|DamageEffect")
+	static FGameplayEffectContextHandle ApplyDamageEffect(const FDamageEffectParams& DamageEffectParams);
 };

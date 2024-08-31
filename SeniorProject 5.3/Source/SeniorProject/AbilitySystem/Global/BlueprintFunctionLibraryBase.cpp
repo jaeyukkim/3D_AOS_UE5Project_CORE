@@ -204,3 +204,20 @@ AActor* UBlueprintFunctionLibraryBase::GetOwnerActorFromSpecHandle(const FGamepl
 	
 	return nullptr;
 }
+
+FGameplayEffectContextHandle UBlueprintFunctionLibraryBase::ApplyDamageEffect(
+	const FDamageEffectParams& DamageEffectParams)
+{
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	const AActor* SourceAvatarActor = DamageEffectParams.SourceAbilitySystemComponent->GetAvatarActor();
+	
+	FGameplayEffectContextHandle EffectContextHandle = DamageEffectParams.SourceAbilitySystemComponent->MakeEffectContext();
+	EffectContextHandle.AddSourceObject(SourceAvatarActor);
+	
+	
+	const FGameplayEffectSpecHandle SpecHandle = DamageEffectParams.SourceAbilitySystemComponent->MakeOutgoingSpec(DamageEffectParams.DamageGameplayEffectClass, DamageEffectParams.AbilityLevel, EffectContextHandle);
+
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, DamageEffectParams.DamageType, DamageEffectParams.AppliedCoefficientDamage);
+	DamageEffectParams.TargetAbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data);
+	return EffectContextHandle;
+}

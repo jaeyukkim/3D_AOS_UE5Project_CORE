@@ -6,6 +6,7 @@
 
 #include "AbilitySystemComponent.h"
 #include "MovementComponentBase.h"
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
@@ -15,11 +16,11 @@
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
 {
- 	
+	bReplicates = true;
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 	
-	bReplicates = true;
+	
 	//설정 된 애니매이션 수 -1 개 [인덱스 사용 위해서];
 	
 	
@@ -43,6 +44,12 @@ void ACharacterBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(ACharacterBase, TeamName);
 }
 
 // Called to bind functionality to input

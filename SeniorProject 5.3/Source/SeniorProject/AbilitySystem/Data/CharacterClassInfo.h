@@ -12,9 +12,18 @@ class UGameplayEffect;
 UENUM(BlueprintType)
 enum class ECharacterClass : uint8
 {
+	Default,
 	Kwang,
 	Minion_Melee,
-	Minion_Ranged
+	Minion_Ranged,
+	FirstTurret,
+	SecondTurret,
+	LastTurret,
+	Inhibitor,
+	Nexus,
+	Default2,
+	Default3,
+	
 };
 
 USTRUCT(BlueprintType)

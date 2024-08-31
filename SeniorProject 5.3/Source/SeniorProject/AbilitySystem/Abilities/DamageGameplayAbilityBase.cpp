@@ -5,15 +5,40 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
+#include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 
 
 void UDamageGameplayAbilityBase::CauseDamage(AActor* TargetActor)
 {
-	FGameplayEffectSpecHandle DamageSpecHandle = MakeOutgoingGameplayEffectSpec(DamageEffectClass, 1.f);
-	for (TTuple<FGameplayTag, FScalableFloat> Pair : DamageTypes)
-	{
-		const float ScaledDamage = Pair.Value.GetValueAtLevel(GetAbilityLevel());
-		UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(DamageSpecHandle, Pair.Key, ScaledDamage);
-	}
-	GetAbilitySystemComponentFromActorInfo()->ApplyGameplayEffectSpecToTarget(*DamageSpecHandle.Data.Get(), UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetActor));
+	UBlueprintFunctionLibraryBase::ApplyDamageEffect(MakeDamageEffectParamsFromClassDefaults(TargetActor));
 }
+
+FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassDefaults(AActor* TargetActor) const
+{
+	FDamageEffectParams Params;
+
+	Params.WorldContextObject = GetAvatarActorFromActorInfo();
+	Params.DamageGameplayEffectClass = DamageEffectClass;
+	Params.SourceAbilitySystemComponent = GetAbilitySystemComponentFromActorInfo();
+	Params.TargetAbilitySystemComponent = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetActor);
+	Params.BaseDamage = BaseDamage.GetValueAtLevel(GetAbilityLevel());
+	Params.AbilityLevel = GetAbilityLevel();
+	Params.ADCoefficient = ADCoefficient;
+	Params.APCoefficient = APCoefficient;
+	Params.DamageType = DamageType;
+	
+	if (const UAttributeSetBase* SourceAttributes = Params.SourceAbilitySystemComponent ? Params.SourceAbilitySystemComponent->GetSet<UAttributeSetBase>() : nullptr)
+	{
+		Params.SourceAttackDamage = SourceAttributes->GetAttackDamage();
+		Params.SourceAbilityPower = SourceAttributes->GetAbilityPower();
+	}
+
+	Params.AppliedCoefficientDamage = Params.BaseDamage + (Params.SourceAttackDamage * Params.ADCoefficient) + (Params.SourceAbilityPower * Params.APCoefficient);
+
+	return Params;
+	
+}
+
+

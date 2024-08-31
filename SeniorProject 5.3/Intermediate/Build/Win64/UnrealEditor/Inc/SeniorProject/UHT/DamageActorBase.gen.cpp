@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Actor/DamageActorBase.h"
+#include "SeniorProject/Actor/Default/DamageActorBase.h"
 #include "GameplayEffectTypes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDamageActorBase() {}
@@ -45,15 +45,15 @@ void EmptyLinkFunctionForGeneratedCodeDamageActorBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADamageActorBase_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADamageActorBase_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "Actor/DamageActorBase.h" },
-		{ "ModuleRelativePath", "Actor/DamageActorBase.h" },
+		{ "IncludePath", "Actor/Default/DamageActorBase.h" },
+		{ "ModuleRelativePath", "Actor/Default/DamageActorBase.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADamageActorBase_Statics::NewProp_DamageEffectSpecHandle_MetaData[] = {
 		{ "Category", "DamageActorBase" },
 		{ "ExposeOnSpawn", "TRUE" },
-		{ "ModuleRelativePath", "Actor/DamageActorBase.h" },
+		{ "ModuleRelativePath", "Actor/Default/DamageActorBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADamageActorBase_Statics::NewProp_DamageEffectSpecHandle = { "DamageEffectSpecHandle", nullptr, (EPropertyFlags)0x0011000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADamageActorBase, DamageEffectSpecHandle), Z_Construct_UScriptStruct_FGameplayEffectSpecHandle, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADamageActorBase_Statics::NewProp_DamageEffectSpecHandle_MetaData), Z_Construct_UClass_ADamageActorBase_Statics::NewProp_DamageEffectSpecHandle_MetaData) }; // 2882128022
@@ -93,15 +93,15 @@ void EmptyLinkFunctionForGeneratedCodeDamageActorBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADamageActorBase);
 	ADamageActorBase::~ADamageActorBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_DamageActorBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Default_DamageActorBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_DamageActorBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADamageActorBase, ADamageActorBase::StaticClass, TEXT("ADamageActorBase"), &Z_Registration_Info_UClass_ADamageActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageActorBase), 1762954741U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Default_DamageActorBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ADamageActorBase, ADamageActorBase::StaticClass, TEXT("ADamageActorBase"), &Z_Registration_Info_UClass_ADamageActorBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageActorBase), 2601049318U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_DamageActorBase_h_4069299204(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_DamageActorBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_DamageActorBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Default_DamageActorBase_h_4249613128(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Default_DamageActorBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Default_DamageActorBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

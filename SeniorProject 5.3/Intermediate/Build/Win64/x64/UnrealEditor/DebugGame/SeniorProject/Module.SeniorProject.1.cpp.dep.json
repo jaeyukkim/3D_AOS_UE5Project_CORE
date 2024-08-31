@@ -471,9 +471,6 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\attributemenuwidgetcontroller.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\ui\\attributemenuwidgetcontroller.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\ui\\defaultwidgetcontroller.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
-            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\defaultwidgetcontroller.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\attributemenuwidgetcontroller.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\attributesetbase.gen.cpp",
@@ -523,9 +520,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\bttask_findpatrolpos.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\bttask_turntotarget.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\enemybase\\custombehaviortree\\bttask_turntotarget.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\bttask_turntotarget.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterbase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.gen.cpp"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\bttask_turntotarget.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

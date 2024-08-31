@@ -15,6 +15,7 @@ class UAttributeMenuWidgetController;
 class UObject;
 class UOverlayWidgetController;
 enum class ECharacterClass : uint8;
+struct FDamageEffectParams;
 struct FGameplayEffectContextHandle;
 struct FGameplayEffectSpecHandle;
 #ifdef SENIORPROJECT_BlueprintFunctionLibraryBase_generated_h
@@ -27,6 +28,7 @@ struct FGameplayEffectSpecHandle;
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Global_BlueprintFunctionLibraryBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execApplyDamageEffect); \
 	DECLARE_FUNCTION(execGetOwnerActorFromSpecHandle); \
 	DECLARE_FUNCTION(execIsFriends); \
 	DECLARE_FUNCTION(execGetLivePlayersWithinRadius); \

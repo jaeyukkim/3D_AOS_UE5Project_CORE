@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "SeniorProject/SeniorProject.h"
+#include "GameplayTagContainer.h"
 #include "UObject/Interface.h"
 
 #include "EnemyInterface.generated.h"

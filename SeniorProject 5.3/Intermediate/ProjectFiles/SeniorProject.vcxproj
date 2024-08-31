@@ -167,18 +167,18 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\GameplayAbilityBase.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.cpp">
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Attack\MeleeAttackBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.cpp">
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Attack\MeleeAttackBase.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Spell\ProjectileSpellBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.h"/>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Spell\ProjectileSpellBase.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTask\TargetDataAim.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -215,30 +215,36 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Global\BlueprintFunctionLibraryBase.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\DamageActorBase.cpp">
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Default\DamageActorBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\DamageActorBase.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\EffectActorBase.cpp">
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Default\DamageActorBase.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Default\EffectActorBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\EffectActorBase.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\HomingProjectile.cpp">
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Default\EffectActorBase.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Gameplay\Spawner.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\HomingProjectile.h"/>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\ProjectileBase.cpp">
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Gameplay\Spawner.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Projectile\HomingProjectile.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\ProjectileBase.h"/>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Projectile\HomingProjectile.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Projectile\ProjectileBase.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Projectile\ProjectileBase.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\AI\AIControllerBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -293,6 +299,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\Player\Character\KwangPlayer.h"/>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Turret\Turret.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Turret\Turret.h"/>
     <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\AnimInstanceBase.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>

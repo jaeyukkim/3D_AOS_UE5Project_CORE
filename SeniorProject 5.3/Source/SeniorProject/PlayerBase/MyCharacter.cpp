@@ -91,7 +91,11 @@ void AMyCharacter::InitAbilityActorInfo()
 		}
 	}
 	InitializeDefaultAttributes();
-	SetPlayerTeamName_Implementation(PlayerStateBase);
+
+	if(HasAuthority())
+	{
+		SetPlayerTeamName_Implementation(PlayerStateBase);
+	}
 }
 
 

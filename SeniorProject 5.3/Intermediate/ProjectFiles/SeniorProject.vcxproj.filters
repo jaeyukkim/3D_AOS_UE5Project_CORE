@@ -102,17 +102,23 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\GameplayAbilityBase.h">
       <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.cpp">
-      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Abilities\Attack">
+      <UniqueIdentifier>{D5570DD1-60A5-39AC-90F8-71298CC5796E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Attack\MeleeAttackBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities\Attack</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\MeleeAttackBase.h">
-      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Attack\MeleeAttackBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities\Attack</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.cpp">
-      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Abilities\Spell">
+      <UniqueIdentifier>{E859B38B-4087-37B9-AF3A-87E53E6B6ED0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Spell\ProjectileSpellBase.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities\Spell</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\ProjectileSpellBase.h">
-      <Filter>Source\SeniorProject\AbilitySystem\Abilities</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Abilities\Spell\ProjectileSpellBase.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Abilities\Spell</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\AbilityTask">
       <UniqueIdentifier>{53BCA145-88EA-3E50-BD02-596E55F5698A}</UniqueIdentifier>
@@ -165,29 +171,44 @@
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\DamageActorBase.cpp">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <Filter Include="Source\SeniorProject\Actor\Default">
+      <UniqueIdentifier>{1ED48833-F756-3AF3-A103-6D5D7FAFFD86}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Default\DamageActorBase.cpp">
+      <Filter>Source\SeniorProject\Actor\Default</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\DamageActorBase.h">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Default\DamageActorBase.h">
+      <Filter>Source\SeniorProject\Actor\Default</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\EffectActorBase.cpp">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Default\EffectActorBase.cpp">
+      <Filter>Source\SeniorProject\Actor\Default</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\EffectActorBase.h">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Default\EffectActorBase.h">
+      <Filter>Source\SeniorProject\Actor\Default</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\HomingProjectile.cpp">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <Filter Include="Source\SeniorProject\Actor\Gameplay">
+      <UniqueIdentifier>{C013FE84-3FC4-306F-A032-63B4C1E798C0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Gameplay\Spawner.cpp">
+      <Filter>Source\SeniorProject\Actor\Gameplay</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\HomingProjectile.h">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Gameplay\Spawner.h">
+      <Filter>Source\SeniorProject\Actor\Gameplay</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Actor\ProjectileBase.cpp">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <Filter Include="Source\SeniorProject\Actor\Projectile">
+      <UniqueIdentifier>{C566D13C-D30B-33BB-A46E-F61168CB16AA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Projectile\HomingProjectile.cpp">
+      <Filter>Source\SeniorProject\Actor\Projectile</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Actor\ProjectileBase.h">
-      <Filter>Source\SeniorProject\Actor</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Projectile\HomingProjectile.h">
+      <Filter>Source\SeniorProject\Actor\Projectile</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Projectile\ProjectileBase.cpp">
+      <Filter>Source\SeniorProject\Actor\Projectile</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Projectile\ProjectileBase.h">
+      <Filter>Source\SeniorProject\Actor\Projectile</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\AI">
       <UniqueIdentifier>{EE4CBE6E-5201-3060-BB60-137499223F2F}</UniqueIdentifier>
@@ -260,6 +281,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\Character\Player\Character\KwangPlayer.h">
       <Filter>Source\SeniorProject\Character\Player\Character</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\Character\Turret">
+      <UniqueIdentifier>{DF69177D-59DE-3C28-9770-54DEB66677DA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Turret\Turret.cpp">
+      <Filter>Source\SeniorProject\Character\Turret</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Turret\Turret.h">
+      <Filter>Source\SeniorProject\Character\Turret</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\DefaultBase">
       <UniqueIdentifier>{A94F3509-C32D-318E-B5C3-AEEEEDA9E6AD}</UniqueIdentifier>

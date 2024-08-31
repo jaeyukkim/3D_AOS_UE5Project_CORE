@@ -32,7 +32,13 @@ private: \
 public: \
 	DECLARE_CLASS(ACharacterBase, ACharacter, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(ACharacterBase) \
-	virtual UObject* _getUObject() const override { return const_cast<ACharacterBase*>(this); }
+	virtual UObject* _getUObject() const override { return const_cast<ACharacterBase*>(this); } \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		TeamName=NETFIELD_REP_START, \
+		NETFIELD_REP_END=TeamName	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_24_ENHANCED_CONSTRUCTORS \

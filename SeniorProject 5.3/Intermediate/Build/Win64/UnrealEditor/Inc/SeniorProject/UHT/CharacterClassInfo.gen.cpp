@@ -41,17 +41,33 @@ void EmptyLinkFunctionForGeneratedCodeCharacterClassInfo() {}
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_SeniorProject_ECharacterClass_Statics::Enumerators[] = {
+		{ "ECharacterClass::Default", (int64)ECharacterClass::Default },
 		{ "ECharacterClass::Kwang", (int64)ECharacterClass::Kwang },
 		{ "ECharacterClass::Minion_Melee", (int64)ECharacterClass::Minion_Melee },
 		{ "ECharacterClass::Minion_Ranged", (int64)ECharacterClass::Minion_Ranged },
+		{ "ECharacterClass::FirstTurret", (int64)ECharacterClass::FirstTurret },
+		{ "ECharacterClass::SecondTurret", (int64)ECharacterClass::SecondTurret },
+		{ "ECharacterClass::LastTurret", (int64)ECharacterClass::LastTurret },
+		{ "ECharacterClass::Inhibitor", (int64)ECharacterClass::Inhibitor },
+		{ "ECharacterClass::Nexus", (int64)ECharacterClass::Nexus },
+		{ "ECharacterClass::Default2", (int64)ECharacterClass::Default2 },
+		{ "ECharacterClass::Default3", (int64)ECharacterClass::Default3 },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_SeniorProject_ECharacterClass_Statics::Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "Default.Name", "ECharacterClass::Default" },
+		{ "Default2.Name", "ECharacterClass::Default2" },
+		{ "Default3.Name", "ECharacterClass::Default3" },
+		{ "FirstTurret.Name", "ECharacterClass::FirstTurret" },
+		{ "Inhibitor.Name", "ECharacterClass::Inhibitor" },
 		{ "Kwang.Name", "ECharacterClass::Kwang" },
+		{ "LastTurret.Name", "ECharacterClass::LastTurret" },
 		{ "Minion_Melee.Name", "ECharacterClass::Minion_Melee" },
 		{ "Minion_Ranged.Name", "ECharacterClass::Minion_Ranged" },
 		{ "ModuleRelativePath", "AbilitySystem/Data/CharacterClassInfo.h" },
+		{ "Nexus.Name", "ECharacterClass::Nexus" },
+		{ "SecondTurret.Name", "ECharacterClass::SecondTurret" },
 	};
 #endif
 	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_SeniorProject_ECharacterClass_Statics::EnumParams = {
@@ -240,14 +256,14 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FCharacterClassDefaultI
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_ValueProp = { "CharacterClassInformation", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FCharacterClassDefaultInfo, METADATA_PARAMS(0, nullptr) }; // 807896367
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_Key_KeyProp_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_Key_KeyProp = { "CharacterClassInformation_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(0, nullptr) }; // 2406218765
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_Key_KeyProp = { "CharacterClassInformation_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(0, nullptr) }; // 4275430793
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_MetaData[] = {
 		{ "Category", "Character Class Defaults" },
 		{ "ModuleRelativePath", "AbilitySystem/Data/CharacterClassInfo.h" },
 	};
 #endif
-	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation = { "CharacterClassInformation", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCharacterClassInfo, CharacterClassInformation), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_MetaData), Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_MetaData) }; // 2406218765 807896367
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation = { "CharacterClassInformation", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCharacterClassInfo, CharacterClassInformation), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_MetaData), Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_CharacterClassInformation_MetaData) }; // 4275430793 807896367
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_StartupAbilities_Inner = { "StartupAbilities", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayAbility_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterClassInfo_Statics::NewProp_StartupAbilities_MetaData[] = {
@@ -305,15 +321,15 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FCharacterClassDefaultI
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::EnumInfo[] = {
-		{ ECharacterClass_StaticEnum, TEXT("ECharacterClass"), &Z_Registration_Info_UEnum_ECharacterClass, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2406218765U) },
+		{ ECharacterClass_StaticEnum, TEXT("ECharacterClass"), &Z_Registration_Info_UEnum_ECharacterClass, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4275430793U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ScriptStructInfo[] = {
 		{ FCharacterClassDefaultInfo::StaticStruct, Z_Construct_UScriptStruct_FCharacterClassDefaultInfo_Statics::NewStructOps, TEXT("CharacterClassDefaultInfo"), &Z_Registration_Info_UScriptStruct_CharacterClassDefaultInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCharacterClassDefaultInfo), 807896367U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCharacterClassInfo, UCharacterClassInfo::StaticClass, TEXT("UCharacterClassInfo"), &Z_Registration_Info_UClass_UCharacterClassInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterClassInfo), 1304759647U) },
+		{ Z_Construct_UClass_UCharacterClassInfo, UCharacterClassInfo::StaticClass, TEXT("UCharacterClassInfo"), &Z_Registration_Info_UClass_UCharacterClassInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterClassInfo), 3385626909U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_1145335495(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_2522101358(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_CharacterClassInfo_h_Statics::EnumInfo));

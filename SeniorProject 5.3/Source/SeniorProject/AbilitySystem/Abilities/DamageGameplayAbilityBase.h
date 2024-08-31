@@ -14,13 +14,29 @@ class SENIORPROJECT_API UDamageGameplayAbilityBase : public UGameplayAbilityBase
 {
 	GENERATED_BODY()
 public:
+
+	UFUNCTION(BlueprintCallable)
+	void CauseDamage(AActor* TargetActor);
+	
+	UFUNCTION(BlueprintPure)
+	FDamageEffectParams MakeDamageEffectParamsFromClassDefaults (AActor* TargetActor = nullptr) const;
+	
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<UGameplayEffect> DamageEffectClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
-	TMap<FGameplayTag, FScalableFloat> DamageTypes;
+	FGameplayTag DamageType;
 
-	UFUNCTION(BlueprintCallable)
-	void CauseDamage(AActor* TargetActor);
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	FScalableFloat BaseDamage;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float APCoefficient = 0.f;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float ADCoefficient = 0.f;
+	
+	
 	
 };

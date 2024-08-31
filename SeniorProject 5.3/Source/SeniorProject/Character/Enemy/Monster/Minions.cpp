@@ -77,6 +77,7 @@ void AMinions::BeginPlay()
 	if(HasAuthority())
 	{
 		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
+		Execute_SetMinionTeamName(this, TeamName);
 	}
 
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
@@ -106,7 +107,7 @@ void AMinions::BeginPlay()
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
 	
-	Execute_SetMinionTeamName(this, FGameplayTagsBase::Get().TeamName_NeutralityTeam);
+	
 
 }
 

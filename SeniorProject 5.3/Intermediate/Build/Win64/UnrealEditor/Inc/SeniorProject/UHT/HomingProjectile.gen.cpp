@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Actor/HomingProjectile.h"
+#include "SeniorProject/Actor/Projectile/HomingProjectile.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
@@ -66,7 +66,7 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHomingProjectile, nullptr, "MulticastUpdateProjectileTransform", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00044CC1, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform_Statics::Function_MetaDataParams), Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform_Statics::Function_MetaDataParams) };
@@ -147,7 +147,7 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHomingProjectile, nullptr, "OnSphereOverlap", nullptr, nullptr, Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::PropPointers), sizeof(Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::HomingProjectile_eventOnSphereOverlap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::Function_MetaDataParams), Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap_Statics::Function_MetaDataParams) };
@@ -216,35 +216,35 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AHomingProjectile_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform, "MulticastUpdateProjectileTransform" }, // 1800751817
-		{ &Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap, "OnSphereOverlap" }, // 538479121
+		{ &Z_Construct_UFunction_AHomingProjectile_MulticastUpdateProjectileTransform, "MulticastUpdateProjectileTransform" }, // 1471596471
+		{ &Z_Construct_UFunction_AHomingProjectile_OnSphereOverlap, "OnSphereOverlap" }, // 235039911
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "Actor/HomingProjectile.h" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "IncludePath", "Actor/Projectile/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_ProjectileMovement_MetaData[] = {
 		{ "Category", "HomingProjectile" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_ProjectileMovement_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_ProjectileMovement_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetActor_MetaData[] = {
 		{ "Category", "Homing" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetActor_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetActor_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_HomingAccelerationMagnitude_MetaData[] = {
 		{ "Category", "Homing" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_HomingAccelerationMagnitude = { "HomingAccelerationMagnitude", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, HomingAccelerationMagnitude), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_HomingAccelerationMagnitude_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_HomingAccelerationMagnitude_MetaData) };
@@ -252,7 +252,7 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "HomingProjectile" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_Mesh_MetaData) };
@@ -260,25 +260,25 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_SphereComponent_MetaData[] = {
 		{ "Category", "HomingProjectile" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_SphereComponent = { "SphereComponent", nullptr, (EPropertyFlags)0x00240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, SphereComponent), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_SphereComponent_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_SphereComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetLocation_MetaData[] = {
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetLocation = { "TargetLocation", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, TargetLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetLocation_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetLocation_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetDirection_MetaData[] = {
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetDirection = { "TargetDirection", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, TargetDirection), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetDirection_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetDirection_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetRotator_MetaData[] = {
-		{ "ModuleRelativePath", "Actor/HomingProjectile.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/HomingProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetRotator = { "TargetRotator", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHomingProjectile, TargetRotator), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetRotator_MetaData), Z_Construct_UClass_AHomingProjectile_Statics::NewProp_TargetRotator_MetaData) };
@@ -339,15 +339,15 @@ void EmptyLinkFunctionForGeneratedCodeHomingProjectile() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHomingProjectile);
 	AHomingProjectile::~AHomingProjectile() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_HomingProjectile_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_HomingProjectile_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_HomingProjectile_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AHomingProjectile, AHomingProjectile::StaticClass, TEXT("AHomingProjectile"), &Z_Registration_Info_UClass_AHomingProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHomingProjectile), 1620040255U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_HomingProjectile_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AHomingProjectile, AHomingProjectile::StaticClass, TEXT("AHomingProjectile"), &Z_Registration_Info_UClass_AHomingProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHomingProjectile), 4071744020U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_HomingProjectile_h_3437425196(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_HomingProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_HomingProjectile_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_HomingProjectile_h_3006690686(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_HomingProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_HomingProjectile_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -10,7 +10,6 @@
  * 
  */
 
-
 UCLASS()
 class SENIORPROJECT_API UGameplayAbilityBase : public UGameplayAbility
 {

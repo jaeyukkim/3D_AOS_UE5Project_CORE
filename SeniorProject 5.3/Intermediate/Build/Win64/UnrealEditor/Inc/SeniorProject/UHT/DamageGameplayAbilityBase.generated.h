@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+struct FDamageEffectParams;
 #ifdef SENIORPROJECT_DamageGameplayAbilityBase_generated_h
 #error "DamageGameplayAbilityBase.generated.h already included, missing '#pragma once' in DamageGameplayAbilityBase.h"
 #endif
@@ -20,6 +21,7 @@ class AActor;
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_DamageGameplayAbilityBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execMakeDamageEffectParamsFromClassDefaults); \
 	DECLARE_FUNCTION(execCauseDamage);
 
 

@@ -5,8 +5,9 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Actor/ProjectileBase.h"
+#include "SeniorProject/Actor/Projectile/ProjectileBase.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
+#include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 // Cross Module References
@@ -19,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ADamageActorBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AProjectileBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AProjectileBase_NoRegister();
+	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FDamageEffectParams();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	DEFINE_FUNCTION(AProjectileBase::execOnCapsuleOverlap)
@@ -110,7 +112,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AProjectileBase, nullptr, "OnCapsuleOverlap", nullptr, nullptr, Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::PropPointers), sizeof(Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::ProjectileBase_eventOnCapsuleOverlap_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::Function_MetaDataParams), Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap_Statics::Function_MetaDataParams) };
@@ -142,6 +144,10 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ProjectileMovement;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DamageEffectParams_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DamageEffectParams;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Mesh;
@@ -149,6 +155,11 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SphereComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_SphereComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsAblePenetration_MetaData[];
+#endif
+		static void NewProp_bIsAblePenetration_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsAblePenetration;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -159,29 +170,37 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AProjectileBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap, "OnCapsuleOverlap" }, // 4274168626
+		{ &Z_Construct_UFunction_AProjectileBase_OnCapsuleOverlap, "OnCapsuleOverlap" }, // 1650797786
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "IncludePath", "Actor/ProjectileBase.h" },
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
+		{ "IncludePath", "Actor/Projectile/ProjectileBase.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData[] = {
 		{ "Category", "ProjectileBase" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams_MetaData[] = {
+		{ "Category", "ProjectileBase" },
+		{ "ExposeOnSpawn", "TRUE" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams = { "DamageEffectParams", nullptr, (EPropertyFlags)0x0011008000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, DamageEffectParams), Z_Construct_UScriptStruct_FDamageEffectParams, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams_MetaData) }; // 4036095010
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh_MetaData[] = {
 		{ "Category", "ProjectileBase" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh_MetaData) };
@@ -189,14 +208,27 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent_MetaData[] = {
 		{ "Category", "ProjectileBase" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actor/ProjectileBase.h" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent = { "SphereComponent", nullptr, (EPropertyFlags)0x00240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, SphereComponent), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_MetaData[] = {
+		{ "Category", "Attack" },
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
+	};
+#endif
+	void Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_SetBit(void* Obj)
+	{
+		((AProjectileBase*)Obj)->bIsAblePenetration = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration = { "bIsAblePenetration", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AProjectileBase), &Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectileBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectileBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProjectileBase>::IsAbstract,
@@ -231,15 +263,15 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AProjectileBase);
 	AProjectileBase::~AProjectileBase() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 577521861U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 2316188314U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_723639824(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_ProjectileBase_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_3794492288(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
