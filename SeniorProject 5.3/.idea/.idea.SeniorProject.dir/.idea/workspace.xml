@@ -9,139 +9,54 @@
   <component name="ChangeListManager">
     <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor-Win64-DebugGame.modules" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor-Win64-DebugGame.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/Development/SeniorProjectModuleRules.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/Development/SeniorProjectModuleRules.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/BuildRulesProjects/SeniorProjectModuleRules/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/DebugGame/SeniorProjectEditor.uhtmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/DebugGame/SeniorProjectEditor.uhtmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/Development/SeniorProjectEditor.uhtmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/Development/SeniorProjectEditor.uhtmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/BlueprintFunctionLibraryBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/BlueprintFunctionLibraryBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterClassInfo.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Crunch.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Crunch.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageActorBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageActorBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageActorBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageActorBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageGameplayAbilityBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/DamageGameplayAbilityBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EffectActorBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EffectActorBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EffectActorBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EffectActorBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/HomingProjectile.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/HomingProjectile.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/HomingProjectile.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/HomingProjectile.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KallariAI.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KallariAI.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Kwang.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Kwang.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KwangPlayer.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KwangPlayer.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/LaneSuper.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/LaneSuper.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Melee.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Melee.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MeleeAttackBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MeleeAttackBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MeleeAttackBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MeleeAttackBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Minions.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Minions.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MyCharacter.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MyCharacter.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileSpellBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileSpellBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileSpellBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ProjectileSpellBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Ranged.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Ranged.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Timestamp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Timestamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/DebugGame/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/DebugGame/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/DebugGame/Makefile.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/DebugGame/Makefile.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/Makefile.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/Makefile.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/ActionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/LiveCodingInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/LiveCodingInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.1.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.1.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.1.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.2.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.2.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.3.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/Module.SeniorProject.3.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-0002-Win64-DebugGame.dll.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-0002-Win64-DebugGame.dll.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-0002-Win64-DebugGame.lib.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-0002-Win64-DebugGame.lib.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-Win64-DebugGame.dll.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-Win64-DebugGame.dll.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-Win64-DebugGame.lib.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/DebugGame/SeniorProject/UnrealEditor-SeniorProject-Win64-DebugGame.lib.rsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/LiveCodingInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/LiveCodingInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.1.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.1.cpp.dep.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.2.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.2.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.2.cpp.dep.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.3.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.3.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.3.cpp.dep.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.4.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.4.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.4.cpp.dep.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/Module.SeniorProject.4.cpp.dep.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0001.dll.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0001.dll.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0001.lib.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0001.lib.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0002.dll.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0002.dll.rsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0002.lib.rsp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/UnrealEditor/Development/SeniorProject/UnrealEditor-SeniorProject-0002.lib.rsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/ProjectFiles/SeniorProject.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/ProjectFiles/SeniorProject.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/ProjectFiles/SeniorProject.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/ProjectFiles/SeniorProject.vcxproj.filters" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/AutoScreenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/AutoScreenshot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-047E11434485B2C864CA718960593042/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-0EFBD81C491A6C02B6CDC4893FE79E0F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-17CF4F77448F2072E9E49AAB01F8E0F1/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-183705364D38D284DB329F9FA90F95F4/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-287A291B41A95694E8227F9B4BA716F9/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-2CD4E07C48D54D9E3C6E8BBCBE40F0C7/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-2DF3E7AF4FDEFD56C2C6A2A85CE3239D/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-32E7E5F34492318398ABBB91F68FCFCB/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-34CEE54344522809F1FF5A8AFFFAC258/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-37FA875F4ACBF91466813389F560BBEB/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-43EB5D0344CEFFDE4B2F6BA5CF1FADA5/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-45742AA24CF32A5C2A21CEA9B07BCB59/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-588979B4427F9B5D0B7C32AD2B3DE405/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-611390384BC2BE95C663FC94CC8A60F5/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-70B8E109475885FC0FF1A4959FB36618/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-7772B83F4581D40D3292A18765EB8173/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-7DE43B57432DC6BC24B1DB8111404CD1/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-83B3BB1D4396C5E621EC02897999E59F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-889BC23F467ED7B7587C14A0A8CAF03F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9089C66E41E3AAAAD78BDFA04C03FD6C/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9146F90D465B3F7FA9F4BE9082935D0A/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9169C2E7469947E60D4330A9F650BE11/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-934FB0BC4CEBB950B11769AF02B1032F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-999D07F0427F1B6CD15E26AE78316382/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9A5907054CC2722EE3E3B98BAE3A8DA0/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A02BB7924ECD42305C68D6A605AB6746/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A46A3BEF4EF0AEB6BE074DAEA251965B/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A532D5AF426F10D63F619095479F4127/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-ABB95F4F4D5C8A1D75DCE2BC3960003D/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-AED0964645C3503FE5BEC9A4755F684F/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-B4CFDC0142B316B5F737D785291A5564/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-BE585BF84B28087CCA631489EBE74830/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-C1CBFAC54F6BC93FFBE95489E28C65CD/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-D84282644327B538DAB0C2A0BB78FABE/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-EEF6813B49A078C4BE7A9CAB431D3233/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F24A657A41BF5F98BA0C74A98916B427/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F6E997DC4F1D31D4834461BB617978FD/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-0AB858904B1798F059401E8C24F530F5/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-1ECF6BF84CADF1385229CF9F19EBB917/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-2451E76C4F88A3CCE8C2B7A50CF4A8A6/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-3A8BA2384229C5860F556DB02482D997/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-44ADBFFA4F1FF328CB1F2CA6F23F180B/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-694E4FD9490BC8A814B0DC83D199CB0C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-6E85FD97461BCB18D5FC77B6D930815D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-6F45DECD4B4CB72F62FE568E9B167911/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-704A00AB48B3F2FA230AD29666562A8E/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-727B44E94B0CEE71FEFB21BC4FF7A936/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-75B0C128486B0A645EDE52845EC70E2B/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-7751DC1B4CA09231D2D2B5B9DEE4E0D3/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-7ACE07504731ADCD53AED1805083E909/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-8451FE59450851A4E8523A8AD1777331/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-8EA255384765845B21DE07A8E30F4BE4/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-941B318945F7984DECCC6E879D2C673F/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9A8205744D884A6BE1D113801293345D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9C5331EC4FD824049229A1994821C267/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-9F920EB44A0B2998677C1BAE019A352D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A28E32AF44237514F4C6DFBD9CD3345E/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A94EB1E8493474FD5B5D65A9E8F7AB32/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-AC5170DE40AF346BCF96B29727699F5C/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-B68F967D4766BF9E54FE1EAC37F3B41D/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-BB71A79246334DE3ACC2F4940D7747FD/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-BBCCDE71408ECA7153DBCFAE702D26FA/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-BEED22884498FB0F972B19B1BD53B292/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-C29F659D4D4C56381C7B049EDB36261B/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-C93A527546E96CB8CE1D059A0EACDB13/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-E4818C0F400B6B3048929E8AC08F8DE0/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-EC133073482BBA5F5F22A2A321ACA6E1/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F35743D84887774B1F313695A0CFB685/CrashReportClient.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F6C14D0640288B1AF0FB25BEF3DF2784/CrashReportClient.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/GameplayTagsEditorState.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/GameplayTagsEditorState.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/MeleeAttackBase.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/MeleeAttackBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/ProjectileSpellBase.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/ProjectileSpellBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/DamageActorBase.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/DamageActorBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/EffectActorBase.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/EffectActorBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/HomingProjectile.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/HomingProjectile.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/ProjectileBase.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/ProjectileBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Minions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Minions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Minions.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Monster/Minions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/DefaultBase/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/DefaultBase/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/DefaultBase/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/DefaultBase/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/EnemyInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/EnemyInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/Gameplay/Spawner.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Actor/Gameplay/Spawner.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,62 +67,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://3" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -350,6 +210,8 @@
       <workItem from="1725078200566" duration="71000" />
       <workItem from="1725078609343" duration="13060000" />
       <workItem from="1725092530267" duration="8776000" />
+      <workItem from="1725191832313" duration="2807000" />
+      <workItem from="1725198996742" duration="12367000" />
     </task>
     <servers />
   </component>

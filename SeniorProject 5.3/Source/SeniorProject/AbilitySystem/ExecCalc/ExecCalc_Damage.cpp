@@ -72,7 +72,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	for (FGameplayTag DamageTypeTag : FGameplayTagsBase::Get().DamageTypes)
 	{
 		const float DamageTypeValue = Spec.GetSetByCallerMagnitude(DamageTypeTag, false, -1.f);
-
+	
 		if(DamageTypeValue > 0.f)
 		{
 			if(DamageTypeTag == FGameplayTagsBase::Get().MagicalDamage)

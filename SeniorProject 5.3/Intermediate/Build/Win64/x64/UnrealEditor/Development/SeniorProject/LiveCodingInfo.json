@@ -18,10 +18,10 @@
 			"BTService_Detect.gen.cpp.obj",
 			"BTTask_Attack.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
-			"BTTask_TurnToTarget.gen.cpp.obj",
-			"CharacterBase.gen.cpp.obj"
+			"BTTask_TurnToTarget.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"CharacterBase.gen.cpp.obj",
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
@@ -48,10 +48,10 @@
 			"MinionAnimInstance.gen.cpp.obj",
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
-			"MyAnimInstance.gen.cpp.obj",
-			"MyCharacter.gen.cpp.obj"
+			"MyAnimInstance.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"MyCharacter.gen.cpp.obj",
 			"MyCharacterStatComponent.gen.cpp.obj",
 			"MyCharacterWidget.gen.cpp.obj",
 			"MyGameInstance.gen.cpp.obj",
@@ -105,7 +105,9 @@
 			"Turret.cpp.obj",
 			"AnimInstanceBase.cpp.obj",
 			"AttackTraceLoop.cpp.obj",
-			"CharacterBase.cpp.obj",
+			"CharacterBase.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"MovementComponentBase.cpp.obj",
 			"PlayerStateBase.cpp.obj",
 			"MinionAIController.cpp.obj",
@@ -115,9 +117,7 @@
 			"BTTask_Attack.cpp.obj",
 			"BTTask_FindPatrolPos.cpp.obj",
 			"BTTask_TurnToTarget.cpp.obj",
-			"GamePlayTagsBase.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"GamePlayTagsBase.cpp.obj",
 			"DeadZone.cpp.obj",
 			"MyGameInstance.cpp.obj",
 			"MyGameModeBase.cpp.obj",

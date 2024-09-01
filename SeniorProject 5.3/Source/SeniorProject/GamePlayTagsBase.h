@@ -79,6 +79,21 @@ public:
 	FGameplayTag TeamName_NeutralityTeam;
 	/* Team Name */
 
+
+	/* Line Tag */
+	FGameplayTag Line_Top;
+	FGameplayTag Line_Mid;
+	FGameplayTag Line_Bottom;
+	/* Line Tag */
+
+	
+	/* Turret Tag */
+	FGameplayTag Turret_FirstTurret;
+	FGameplayTag Turret_SecondTurret;
+	FGameplayTag Turret_ThirdTurret;
+	/* Turret Tag */
+
+
 protected:
 private:
 	

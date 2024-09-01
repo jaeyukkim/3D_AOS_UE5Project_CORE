@@ -3,3 +3,11 @@
 
 #include "Turret.h"
 
+void ATurret::Die()
+{
+	if(HasAuthority())
+	{
+		OnTowerDestroyed.Broadcast(LineTag, TurretLevelTag, TeamName);
+	}
+	Super::Die();
+}

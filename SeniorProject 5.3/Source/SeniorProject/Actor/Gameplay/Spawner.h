@@ -34,6 +34,7 @@ public:
 	TSubclassOf<AActor> RangeClass;
 	UPROPERTY(EditDefaultsOnly, Category = "Minion")
 	TSubclassOf<AActor> MeleeClass;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Minion")
 	TSubclassOf<AActor> SuperMinionClass;
 
