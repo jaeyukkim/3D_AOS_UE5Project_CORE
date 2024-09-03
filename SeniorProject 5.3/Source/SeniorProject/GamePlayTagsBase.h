@@ -73,25 +73,28 @@ public:
 	
 	static FGameplayTagsBase GameplayTags;
 
-	/* Team Name */
-	FGameplayTag TeamName_BlueTeam;
-	FGameplayTag TeamName_RedTeam;
-	FGameplayTag TeamName_NeutralityTeam;
-	/* Team Name */
-
-
-	/* Line Tag */
-	FGameplayTag Line_Top;
-	FGameplayTag Line_Mid;
-	FGameplayTag Line_Bottom;
-	/* Line Tag */
-
 	
-	/* Turret Tag */
-	FGameplayTag Turret_FirstTurret;
-	FGameplayTag Turret_SecondTurret;
-	FGameplayTag Turret_ThirdTurret;
-	/* Turret Tag */
+	/* GameRuleTag */
+	
+	FGameplayTag GameRule_TeamName_BlueTeam;
+	FGameplayTag GameRule_TeamName_RedTeam;
+	FGameplayTag GameRule_TeamName_NeutralityTeam;
+
+	FGameplayTag GameRule_Line_Top;
+	FGameplayTag GameRule_Line_Mid;
+	FGameplayTag GameRule_Line_Bottom;
+
+	FGameplayTag GameRule_Turret_FirstTurret;
+	FGameplayTag GameRule_Turret_SecondTurret;
+	FGameplayTag GameRule_Turret_ThirdTurret;
+	
+	FGameplayTag GameRule_Turret_TopInhibitor;
+	FGameplayTag GameRule_Turret_MidInhibitor;
+	FGameplayTag GameRule_Turret_BottomInhibitor;
+	FGameplayTag GameRule_Turret_Nexus;
+
+
+	/* End GameRuleTag */
 
 
 protected:

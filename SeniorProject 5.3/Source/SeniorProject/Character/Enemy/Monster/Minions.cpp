@@ -23,7 +23,10 @@ AMinions::AMinions()
 	Tags.Add(TEXT("Minion"));
 
 	PrimaryActorTick.bCanEverTick = false;
-	
+
+	BlueTeamMesh = CreateDefaultSubobject<USkeletalMesh>("BlueTeamMesh");
+	BlueTeamMesh = CreateDefaultSubobject<USkeletalMesh>("RedTeamMesh");
+
 
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
@@ -49,6 +52,8 @@ AMinions::AMinions()
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	
 
+	GetCharacterMovement()->bUseRVOAvoidance = true;
+	GetCharacterMovement()->AvoidanceWeight = 2.0f;
 }
 
 void AMinions::PossessedBy(AController* NewController)
@@ -139,6 +144,16 @@ AActor* AMinions::GetCombatTarget_Implementation() const
 void AMinions::SetMinionTeamName_Implementation(FGameplayTag NewTeamName)
 {
 	TeamName = NewTeamName;
+
+	if(TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
+	{
+		GetMesh()->SetSkeletalMeshAsset(BlueTeamMesh);
+	}
+
+	if(TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
+	{
+		GetMesh()->SetSkeletalMeshAsset(RedTeamMesh);
+	}
 }
 
 void AMinions::InitAbilityActorInfo()

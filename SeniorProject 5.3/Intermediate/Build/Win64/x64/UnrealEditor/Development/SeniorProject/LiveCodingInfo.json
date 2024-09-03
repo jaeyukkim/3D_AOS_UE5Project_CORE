@@ -35,6 +35,7 @@
 			"EnemyInterface.gen.cpp.obj",
 			"ExecCalc_Damage.gen.cpp.obj",
 			"GameplayAbilityBase.gen.cpp.obj",
+			"GameRuleInterface.gen.cpp.obj",
 			"HomingProjectile.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
@@ -88,7 +89,9 @@
 			"AbilitySystemGlobalsBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"DamageActorBase.cpp.obj",
-			"EffectActorBase.cpp.obj",
+			"EffectActorBase.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"Spawner.cpp.obj",
 			"HomingProjectile.cpp.obj",
 			"ProjectileBase.cpp.obj",
@@ -105,9 +108,7 @@
 			"Turret.cpp.obj",
 			"AnimInstanceBase.cpp.obj",
 			"AttackTraceLoop.cpp.obj",
-			"CharacterBase.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"CharacterBase.cpp.obj",
 			"MovementComponentBase.cpp.obj",
 			"PlayerStateBase.cpp.obj",
 			"MinionAIController.cpp.obj",
@@ -127,6 +128,7 @@
 			"InputComponentBase.cpp.obj",
 			"CombatInterface.cpp.obj",
 			"EnemyInterface.cpp.obj",
+			"GameRuleInterface.cpp.obj",
 			"AbilityComponent.cpp.obj",
 			"MyAnimInstance.cpp.obj",
 			"MyCharacter.cpp.obj",

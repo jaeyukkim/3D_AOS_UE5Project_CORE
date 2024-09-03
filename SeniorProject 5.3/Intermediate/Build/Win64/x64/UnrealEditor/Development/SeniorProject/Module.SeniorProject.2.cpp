@@ -13,6 +13,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ExecCalc_Damage.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.gen.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameRuleInterface.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/HomingProjectile.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/InputActionData.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/InputComponentBase.gen.cpp"

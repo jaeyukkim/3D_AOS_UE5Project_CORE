@@ -16,7 +16,7 @@ struct FGameplayTag;
 #define SENIORPROJECT_Turret_generated_h
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Turret_Turret_h_9_DELEGATE \
-SENIORPROJECT_API void FTowerDestroyedDelegate_DelegateWrapper(const FMulticastScriptDelegate& TowerDestroyedDelegate, FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamName);
+SENIORPROJECT_API void FTurretDestroyedDelegate_DelegateWrapper(const FMulticastScriptDelegate& TurretDestroyedDelegate, FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamName);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Turret_Turret_h_16_SPARSE_DATA
@@ -34,8 +34,6 @@ public: \
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Turret_Turret_h_16_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ATurret(); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATurret(ATurret&&); \

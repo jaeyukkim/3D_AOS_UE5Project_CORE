@@ -10,12 +10,7 @@ ALaneSuper::ALaneSuper()
 
 void ALaneSuper::SetDefaultSetting()
 {
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh> RaneSuper_Mesh(
-		TEXT("SkeletalMesh'/Game/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Super_Dawn'"));
-	if (RaneSuper_Mesh.Succeeded())
-	{
-		GetMesh()->SetSkeletalMesh(RaneSuper_Mesh.Object);
-	}
+	
 
 	static ConstructorHelpers::FClassFinder<UAnimInstance> RaneSuper_Anim(
 		TEXT("AnimBlueprint'/Game/BP/Animation/MinionLaneSuperAnim'"));
@@ -25,4 +20,11 @@ void ALaneSuper::SetDefaultSetting()
 	}
 
 
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> RaneSuper_Mesh(
+		TEXT("SkeletalMesh'/Game/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Super_Dawn'"));
+	if (RaneSuper_Mesh.Succeeded())
+	{
+		GetMesh()->SetSkeletalMesh(RaneSuper_Mesh.Object);
+	}
+	
 }

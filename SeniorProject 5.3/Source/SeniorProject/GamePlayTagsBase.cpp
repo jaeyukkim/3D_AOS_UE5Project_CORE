@@ -70,6 +70,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_GamePlay_DropGold =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.DropGold"),
 			FString("When you die, you raise your enemy's Gold by this point"));
 	/* end GamePlay Attribute Tags*/
+	
 
 	/* Input Tag */
 	GameplayTags.Input_LMB =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.LMB"),
@@ -122,14 +123,29 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	/* end Combat Sockets */
 
 	
-	/* Team Name */
-	GameplayTags.TeamName_BlueTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.BlueTeam"),
+	/* GameRuleTag */
+	GameplayTags.GameRule_TeamName_BlueTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.TeamName.BlueTeam"),
 			FString("BlueTeam"));
-	GameplayTags.TeamName_RedTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.RedTeam"),
+	GameplayTags.GameRule_TeamName_RedTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.TeamName.RedTeam"),
 		FString("RedTeam"));
-	GameplayTags.TeamName_NeutralityTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("TeamName.NeutralityTeam"),
+	GameplayTags.GameRule_TeamName_NeutralityTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.TeamName.NeutralityTeam"),
 		FString("NeutralityTeam"));
-	/* end Team Name*/
+		
+	GameplayTags.GameRule_Line_Top = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.Top"),
+		FString("TopLine"));
+	GameplayTags.GameRule_Line_Mid = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.Mid"),
+		FString("MidLine"));
+	GameplayTags.GameRule_Line_Bottom = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.Bottom"),
+		FString("BottomLine"));
+
+	GameplayTags.GameRule_Turret_FirstTurret = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.FirstTurret"),
+		FString("FirstTurret"));
+	GameplayTags.GameRule_Turret_SecondTurret = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.SecondTurret"),
+		FString("SecondTurret"));
+	GameplayTags.GameRule_Turret_ThirdTurret = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.ThirdTurret"),
+		FString("ThirdTurret"));
+	/* end GameRuleTag */
+
 	
 	
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(

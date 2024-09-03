@@ -33,13 +33,6 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	AActor* GetCombatTarget() const;
 
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetPlayerTeamName(APlayerState* PS);
 	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE FGameplayTag GetTeamName() const;
-
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetMinionTeamName(FGameplayTag NewTeamName);
 	
 };

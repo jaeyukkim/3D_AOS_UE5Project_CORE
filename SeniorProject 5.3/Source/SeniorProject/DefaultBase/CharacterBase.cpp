@@ -20,8 +20,8 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 	
-	
-	//설정 된 애니매이션 수 -1 개 [인덱스 사용 위해서];
+
+
 	
 	
 }
@@ -50,6 +50,8 @@ void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ACharacterBase, TeamName);
+	DOREPLIFETIME(ACharacterBase, LineTag);
+	
 }
 
 // Called to bind functionality to input
@@ -73,11 +75,6 @@ void ACharacterBase::HighlightActor()
 void ACharacterBase::UnHighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(false);
-}
-
-FGameplayTag ACharacterBase::GetTeamName_Implementation() const
-{
-	return TeamName;
 }
 
 UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
@@ -125,14 +122,6 @@ void ACharacterBase::Die()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
-	
-
-	
-	GetMesh()->SetSimulatePhysics(true);
-	GetMesh()->SetEnableGravity(true);
-	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
-	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	
 	DieAction();
 	bDead = true;

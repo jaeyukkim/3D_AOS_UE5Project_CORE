@@ -7,6 +7,7 @@
 #include "AbilitySystemInterface.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
+#include "SeniorProject/Interface/GameRuleInterface.h"
 #include "CharacterBase.generated.h"
 
 
@@ -19,7 +20,7 @@ class UAnimMontage;
 
 
 UCLASS(abstract)
-class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface
+class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface, public IGameRuleInterface
 {
 	GENERATED_BODY()
 
@@ -37,11 +38,10 @@ public:
 	/* Enemy Interface */
 	virtual void HighlightActor() override;
 	virtual void UnHighlightActor() override;
-	virtual FGameplayTag GetTeamName_Implementation() const override;
 	/* end Enemy Interface */
 
 	
-	/*CombatInterface*/
+	/* CombatInterface */
 	virtual UAnimMontage* GetAttackMontage_Implementation() override;
 
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
@@ -50,15 +50,9 @@ public:
 	FORCEINLINE virtual int32 GetAttackRange() const override {return AttackRange;}
 	FORCEINLINE virtual bool IsDead_Implementation() const override {return bDead;}
 	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;};
-
-
-
-	
-	
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
-	
 	virtual void Die() override;
 	
 	UFUNCTION(BlueprintImplementableEvent)
@@ -69,6 +63,13 @@ public:
 	/* end CombatInterface*/
 
 
+	/* GameRuleInterface*/
+	virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
+	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
+	/* end GameRuleInterface */
+
+
+	
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName WeaponTipSocketName;
 
@@ -81,10 +82,11 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName TailSocketName;
 
-	UPROPERTY(EditAnywhere, Replicated, Category = "Combat")
+	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag TeamName;
 
-	
+	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
+	FGameplayTag LineTag;
 protected:
 	
 	virtual void BeginPlay() override;

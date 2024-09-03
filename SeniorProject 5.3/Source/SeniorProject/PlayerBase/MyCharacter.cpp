@@ -229,11 +229,11 @@ void AMyCharacter::SetPlayerTeamName_Implementation(APlayerState* PS)
 	checkf(PS, TEXT("PlayerState Not Initialize"));
 	if (PS->GetPlayerId() % 2 == 0)
 	{
-		TeamName = FGameplayTagsBase::Get().TeamName_RedTeam;
+		TeamName = FGameplayTagsBase::Get().GameRule_TeamName_RedTeam;
 	}
 	else
 	{
-		TeamName = FGameplayTagsBase::Get().TeamName_BlueTeam;
+		TeamName = FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam;
 	}
 }
 

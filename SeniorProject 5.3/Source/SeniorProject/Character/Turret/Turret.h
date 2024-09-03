@@ -6,7 +6,7 @@
 #include "SeniorProject/Character/Enemy/Monster/Minions.h"
 #include "Turret.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FTowerDestroyedDelegate, FGameplayTag, LineTag, FGameplayTag, TurretLevelTag, FGameplayTag, TeamName );
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FTurretDestroyedDelegate, FGameplayTag, LineTag, FGameplayTag, TurretLevelTag, FGameplayTag, TeamName );
 /**
  * 
  */
@@ -16,17 +16,21 @@ class SENIORPROJECT_API ATurret : public AMinions
 	GENERATED_BODY()
 
 public:
+	ATurret();
 	
+	/* Combat Interface */
 	virtual void Die() override;
+	/* end Combat Interface */
 
-	UPROPERTY(BlueprintAssignable, Category = "Events")
-	FTowerDestroyedDelegate OnTowerDestroyed;
+	/* GameRule Interface */
+	virtual FGameplayTag GetTurretLevelTag_Implementation() const override {return TurretLevelTag;}
+	/* end GameRule Interface */
+
 	
+	UPROPERTY(BlueprintAssignable, Category = "Turret")
+	FTurretDestroyedDelegate OnTurretDestroyed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower")
-	FGameplayTag LineTag; // 예: 탑, 미드, 바텀
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Tower")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameRule")
 	FGameplayTag TurretLevelTag;
 	
 };

@@ -24,5 +24,7 @@ void AMelee::SetDefaultSetting()
 	{
 		GetMesh()->SetAnimInstanceClass(Melee_Anim.Class);
 	}
+
+	
 	
 }

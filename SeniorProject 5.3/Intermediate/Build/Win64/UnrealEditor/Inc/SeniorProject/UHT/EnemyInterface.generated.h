@@ -10,8 +10,6 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
-class APlayerState;
-struct FGameplayTag;
 #ifdef SENIORPROJECT_EnemyInterface_generated_h
 #error "EnemyInterface.generated.h already included, missing '#pragma once' in EnemyInterface.h"
 #endif
@@ -21,15 +19,9 @@ struct FGameplayTag;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual void SetMinionTeamName_Implementation(FGameplayTag NewTeamName) {}; \
-	virtual FGameplayTag GetTeamName_Implementation() const { return FGameplayTag(); }; \
-	virtual void SetPlayerTeamName_Implementation(APlayerState* PS) {}; \
 	virtual AActor* GetCombatTarget_Implementation() const { return NULL; }; \
 	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) {}; \
  \
-	DECLARE_FUNCTION(execSetMinionTeamName); \
-	DECLARE_FUNCTION(execGetTeamName); \
-	DECLARE_FUNCTION(execSetPlayerTeamName); \
 	DECLARE_FUNCTION(execGetCombatTarget); \
 	DECLARE_FUNCTION(execSetCombatTarget);
 
@@ -74,10 +66,7 @@ public: \
 	typedef UEnemyInterface UClassType; \
 	typedef IEnemyInterface ThisClass; \
 	static AActor* Execute_GetCombatTarget(const UObject* O); \
-	static FGameplayTag Execute_GetTeamName(const UObject* O); \
 	static void Execute_SetCombatTarget(UObject* O, AActor* InCombatTarget); \
-	static void Execute_SetMinionTeamName(UObject* O, FGameplayTag NewTeamName); \
-	static void Execute_SetPlayerTeamName(UObject* O, APlayerState* PS); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

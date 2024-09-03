@@ -23,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UCombatInterface_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UEnemyInterface_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameRuleInterface_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	DEFINE_FUNCTION(ACharacterBase::execMulticastHandleDeath)
@@ -127,6 +128,10 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_TeamName;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LineTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_LineTag;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilitySystemComponent;
@@ -201,11 +206,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_WeaponTipSocketName_MetaData[] = {
 		{ "Category", "Combat" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/* end CombatInterface*/" },
+		{ "Comment", "/* end GameRuleInterface */" },
 #endif
 		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "end CombatInterface" },
+		{ "ToolTip", "end GameRuleInterface" },
 #endif
 	};
 #endif
@@ -233,11 +238,18 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName = { "TailSocketName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, TailSocketName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData[] = {
-		{ "Category", "Combat" },
+		{ "Category", "GameRule" },
 		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName = { "TeamName", nullptr, (EPropertyFlags)0x0010000000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, TeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag_MetaData[] = {
+		{ "Category", "GameRule" },
+		{ "ModuleRelativePath", "DefaultBase/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag_MetaData) }; // 2083603574
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "EditInline", "true" },
@@ -337,6 +349,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_RightHandSocketName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_TailSocketName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_TeamName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DefaultVitalAttributes,
@@ -353,8 +366,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IAbilitySystemInterface), false },  // 3195502011
-			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 1288381000
+			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 2247660618
 			{ Z_Construct_UClass_UCombatInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, ICombatInterface), false },  // 1353671507
+			{ Z_Construct_UClass_UGameRuleInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IGameRuleInterface), false },  // 3371675016
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACharacterBase_Statics::StaticCppClassTypeInfo = {
@@ -392,9 +406,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	void ACharacterBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_TeamName(TEXT("TeamName"));
+		static const FName Name_LineTag(TEXT("LineTag"));
 
 		const bool bIsValid = true
-			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName();
+			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName()
+			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ACharacterBase"));
 	}
@@ -405,9 +421,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 3100380755U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 2271769478U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_2047524474(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_1096548800(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

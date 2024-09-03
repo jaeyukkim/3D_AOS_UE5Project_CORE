@@ -68,5 +68,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "AI")
 	TObjectPtr<UBehaviorTree> BehaviorTree;
+
+
+	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
+	TObjectPtr<USkeletalMesh> RedTeamMesh;
+	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
+	TObjectPtr<USkeletalMesh> BlueTeamMesh;
+		
 	
 };

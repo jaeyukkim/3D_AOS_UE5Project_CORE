@@ -50,6 +50,7 @@ void EmptyLinkFunctionForGeneratedCodeAIControllerBase() {}
 		{ "HideCategories", "Collision Rendering Transformation" },
 		{ "IncludePath", "AI/AIControllerBase.h" },
 		{ "ModuleRelativePath", "AI/AIControllerBase.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 #if WITH_METADATA
@@ -100,9 +101,9 @@ void EmptyLinkFunctionForGeneratedCodeAIControllerBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AI_AIControllerBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AAIControllerBase, AAIControllerBase::StaticClass, TEXT("AAIControllerBase"), &Z_Registration_Info_UClass_AAIControllerBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAIControllerBase), 793941280U) },
+		{ Z_Construct_UClass_AAIControllerBase, AAIControllerBase::StaticClass, TEXT("AAIControllerBase"), &Z_Registration_Info_UClass_AAIControllerBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAIControllerBase), 1426018501U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AI_AIControllerBase_h_4251379364(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AI_AIControllerBase_h_4084511760(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AI_AIControllerBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AI_AIControllerBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

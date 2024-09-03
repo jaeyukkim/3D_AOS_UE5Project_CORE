@@ -12,6 +12,7 @@
 #include "SeniorProject/UI/DefaultHUD.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
+#include "SeniorProject/Interface/GameRuleInterface.h"
 
 UOverlayWidgetController* UBlueprintFunctionLibraryBase::GetOverlayWidgetController(const UObject* WorldContextObject)
 {
@@ -168,18 +169,18 @@ bool UBlueprintFunctionLibraryBase::IsFriends(AActor* ThisActor, AActor* TargetA
 	}
 
 	
-	FGameplayTag ThisActorTeam = Cast<IEnemyInterface>(ThisActor)->Execute_GetTeamName(ThisActor);
-	FGameplayTag TargetActorTeam = Cast<IEnemyInterface>(TargetActor)->Execute_GetTeamName(TargetActor);
+	FGameplayTag ThisActorTeam = Cast<IGameRuleInterface>(ThisActor)->Execute_GetTeamName(ThisActor);
+	FGameplayTag TargetActorTeam = Cast<IGameRuleInterface>(TargetActor)->Execute_GetTeamName(TargetActor);
 
 	/* ThisActor가 중립 몬스터 일 때 */
-	if(ThisActorTeam == FGameplayTagsBase::Get().TeamName_NeutralityTeam)
+	if(ThisActorTeam == FGameplayTagsBase::Get().GameRule_TeamName_NeutralityTeam)
 	{
 		// TargetActor가 미니언이면 적이 아님
 		return TargetActor->ActorHasTag("Minion");
 	}
 	
 	/* TargetActor가 중립 몬스터 일 때 */
-	else if(TargetActorTeam == FGameplayTagsBase::Get().TeamName_NeutralityTeam)
+	else if(TargetActorTeam == FGameplayTagsBase::Get().GameRule_TeamName_NeutralityTeam)
 	{
 		// ThisActor가 미니언이면 적이 아님
 		return ThisActor->ActorHasTag("Minion");

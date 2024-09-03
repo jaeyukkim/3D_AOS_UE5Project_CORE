@@ -15,7 +15,7 @@ class SENIORPROJECT_API AAIControllerBase : public AAIController
 {
 	GENERATED_BODY()
 public:
-	AAIControllerBase();
+	AAIControllerBase(const FObjectInitializer& ObjectInitializer);
 	
 	void StopAI();
 	

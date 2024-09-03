@@ -2,6 +2,7 @@
 
 #include "Spawner.h"
 #include "Components/BoxComponent.h"
+#include "Net/UnrealNetwork.h"
 
 ASpawner::ASpawner()
 {
@@ -11,6 +12,15 @@ ASpawner::ASpawner()
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>("Box");
 
 	
+}
+
+void ASpawner::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ASpawner, TeamName);
+	DOREPLIFETIME(ASpawner, LineTag);
+
 }
 
 
