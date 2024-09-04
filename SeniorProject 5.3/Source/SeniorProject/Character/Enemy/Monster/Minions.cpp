@@ -14,7 +14,7 @@
 #include "SeniorProject/AI/AIControllerBase.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
-
+#include "Net/UnrealNetwork.h"
 
 
 // Sets default values
@@ -54,6 +54,9 @@ AMinions::AMinions()
 
 	GetCharacterMovement()->bUseRVOAvoidance = true;
 	GetCharacterMovement()->AvoidanceWeight = 2.0f;
+
+
+
 }
 
 void AMinions::PossessedBy(AController* NewController)
@@ -82,7 +85,6 @@ void AMinions::BeginPlay()
 	if(HasAuthority())
 	{
 		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
-		Execute_SetMinionTeamName(this, TeamName);
 	}
 
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
@@ -116,6 +118,13 @@ void AMinions::BeginPlay()
 
 }
 
+void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AMinions, bIsMeshChanged);
+
+	
+}
 
 
 // Called every frame
@@ -141,20 +150,39 @@ AActor* AMinions::GetCombatTarget_Implementation() const
 	return CombatTarget;
 }
 
-void AMinions::SetMinionTeamName_Implementation(FGameplayTag NewTeamName)
+void AMinions::SetTeamNameByTag_Implementation(FGameplayTag NewTeamName)
 {
-	TeamName = NewTeamName;
+	Super::SetTeamNameByTag_Implementation(NewTeamName);
 
-	if(TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
+	if(HasAuthority())
 	{
-		GetMesh()->SetSkeletalMeshAsset(BlueTeamMesh);
+		TeamName = NewTeamName;
+		if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
+		{
+			GetMesh()->SetSkeletalMesh(BlueTeamMesh);
+		}
+		else if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
+		{
+			GetMesh()->SetSkeletalMesh(RedTeamMesh);
+		}
 	}
 
-	if(TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
+}
+
+void AMinions::OnRep_Mesh()
+{
+	if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
 	{
-		GetMesh()->SetSkeletalMeshAsset(RedTeamMesh);
+		GetMesh()->SetSkeletalMesh(BlueTeamMesh);
+	}
+	else if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
+	{
+		GetMesh()->SetSkeletalMesh(RedTeamMesh);
 	}
 }
+
+
+
 
 void AMinions::InitAbilityActorInfo()
 {
@@ -180,3 +208,4 @@ void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount
 		AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
 
 }
+

@@ -17,7 +17,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnRep_Mesh); \
+	DECLARE_FUNCTION(execSetIsMeshChanged);
+
+
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_INCLASS_NO_PURE_DECLS \
 private: \
@@ -25,7 +30,13 @@ private: \
 	friend struct Z_Construct_UClass_AMinions_Statics; \
 public: \
 	DECLARE_CLASS(AMinions, ACharacterBase, COMPILED_IN_FLAGS(CLASS_Abstract | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
-	DECLARE_SERIALIZER(AMinions)
+	DECLARE_SERIALIZER(AMinions) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		bIsMeshChanged=NETFIELD_REP_START, \
+		NETFIELD_REP_END=bIsMeshChanged	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ENHANCED_CONSTRUCTORS \

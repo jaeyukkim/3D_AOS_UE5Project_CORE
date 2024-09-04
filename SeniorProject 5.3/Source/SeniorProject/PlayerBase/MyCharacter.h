@@ -58,7 +58,7 @@ public:
 
 	/* Enemy Interface */
 	
-	virtual void SetPlayerTeamName_Implementation(APlayerState* PS) override;
+	virtual void SetTeamNameByPlayerState_Implementation(APlayerState* PS) override;
 	/* end Enemy Interface */
 protected:
 	

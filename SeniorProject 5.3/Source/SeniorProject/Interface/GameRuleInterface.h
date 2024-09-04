@@ -25,16 +25,16 @@ public:
 	FORCEINLINE FGameplayTag GetTeamName() const;
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetPlayerTeamName(APlayerState* PS);
+	FORCEINLINE void SetTeamNameByPlayerState(APlayerState* PS);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetMinionTeamName(FGameplayTag NewTeamName);
+	FORCEINLINE void SetTeamNameByTag(FGameplayTag NewTeamName);
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FORCEINLINE FGameplayTag GetLineTag() const;
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetLineTag(FGameplayTag NewTeamName);
+	FORCEINLINE void SetLineTag(FGameplayTag NewLineTag);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FORCEINLINE FGameplayTag GetTurretLevelTag() const;

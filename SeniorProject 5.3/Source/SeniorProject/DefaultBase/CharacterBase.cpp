@@ -20,9 +20,6 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 	
-
-
-	
 	
 }
 

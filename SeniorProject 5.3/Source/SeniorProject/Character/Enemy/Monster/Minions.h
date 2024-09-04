@@ -23,8 +23,11 @@ class SENIORPROJECT_API AMinions : public ACharacterBase
 public:
 	// Sets default values for this character's properties
 	AMinions();
+	
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void BeginPlay() override;
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	
 	
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
@@ -32,27 +35,40 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnMaxHealthChanged;
 	
-
-	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 5.f;
 	virtual void Die() override;
 
-	/*Enemy Interface*/
+
+	
+	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
+
+	
+
+	/* Enemy Interface */
 	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) override;
 	virtual AActor* GetCombatTarget_Implementation() const override;
-	virtual void SetMinionTeamName_Implementation(FGameplayTag NewTeamName) override;
-	/*Enemy Interface*/
-
 	UPROPERTY(BlueprintReadWrite, Category = "Combat")
 	TObjectPtr<AActor> CombatTarget;
+	/* end Enemy Interface */
+
+
+	/* GameplayInterface */
+	virtual void SetTeamNameByTag_Implementation(FGameplayTag NewTeamName) override;
+
+	/* end GameplayInterface */
+
+	
+	
+
 	
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
+
+	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
 	int32 Level = 1;
@@ -72,8 +88,18 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
 	TObjectPtr<USkeletalMesh> RedTeamMesh;
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
 	TObjectPtr<USkeletalMesh> BlueTeamMesh;
-		
+
+	UFUNCTION(BlueprintCallable)
+	void SetIsMeshChanged(bool IsMeshChanged) {bIsMeshChanged = IsMeshChanged;}
+	
+	UFUNCTION()
+	void OnRep_Mesh();
+
+private:
+	UPROPERTY(ReplicatedUsing = OnRep_Mesh)
+	bool bIsMeshChanged = false;
 	
 };

@@ -10,9 +10,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSpawner() {}
 // Cross Module References
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
@@ -20,9 +18,6 @@ void EmptyLinkFunctionForGeneratedCodeSpawner() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ASpawner_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameRuleInterface_NoRegister();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnMinionSpawnSignature__DelegateSignature();
-	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature();
-	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature();
-	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_SeniorProject_OnMinionSpawnSignature__DelegateSignature_Statics
@@ -51,86 +46,222 @@ void FOnMinionSpawnSignature_DelegateWrapper(const FMulticastScriptDelegate& OnM
 {
 	OnMinionSpawnSignature.ProcessMulticastDelegate<UObject>(NULL);
 }
-	struct Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics
+	DEFINE_FUNCTION(ASpawner::execSetIsSpawnSiegeMinion)
 	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "OnSiegeMinionSpawnSignature__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
+		P_GET_UBOOL(Z_Param_IsSpawnSiegeMinion);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsSpawnSiegeMinion(Z_Param_IsSpawnSiegeMinion);
+		P_NATIVE_END;
 	}
-void FOnSiegeMinionSpawnSignature_DelegateWrapper(const FMulticastScriptDelegate& OnSiegeMinionSpawnSignature)
-{
-	OnSiegeMinionSpawnSignature.ProcessMulticastDelegate<UObject>(NULL);
-}
-	struct Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics
+	DEFINE_FUNCTION(ASpawner::execGetIsSpawnSiegeMinion)
 	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "OnSuperMinionSpawnSignature__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetIsSpawnSiegeMinion();
+		P_NATIVE_END;
 	}
-void FOnSuperMinionSpawnSignature_DelegateWrapper(const FMulticastScriptDelegate& OnSuperMinionSpawnSignature)
-{
-	OnSuperMinionSpawnSignature.ProcessMulticastDelegate<UObject>(NULL);
-}
-	struct Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics
+	DEFINE_FUNCTION(ASpawner::execSetIsSpawnSuperMinion)
 	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "OnNeutralityMonsterSignature__DelegateSignature", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature_Statics::FuncParams);
-		}
-		return ReturnFunction;
+		P_GET_UBOOL(Z_Param_IsSpawnSuperMinion);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsSpawnSuperMinion(Z_Param_IsSpawnSuperMinion);
+		P_NATIVE_END;
 	}
-void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegate& OnNeutralityMonsterSignature)
-{
-	OnNeutralityMonsterSignature.ProcessMulticastDelegate<UObject>(NULL);
-}
+	DEFINE_FUNCTION(ASpawner::execGetIsSpawnSuperMinion)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->GetIsSpawnSuperMinion();
+		P_NATIVE_END;
+	}
 	void ASpawner::StaticRegisterNativesASpawner()
 	{
+		UClass* Class = ASpawner::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "GetIsSpawnSiegeMinion", &ASpawner::execGetIsSpawnSiegeMinion },
+			{ "GetIsSpawnSuperMinion", &ASpawner::execGetIsSpawnSuperMinion },
+			{ "SetIsSpawnSiegeMinion", &ASpawner::execSetIsSpawnSiegeMinion },
+			{ "SetIsSpawnSuperMinion", &ASpawner::execSetIsSpawnSuperMinion },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics
+	{
+		struct Spawner_eventGetIsSpawnSiegeMinion_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Spawner_eventGetIsSpawnSiegeMinion_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Spawner_eventGetIsSpawnSiegeMinion_Parms), &Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpawner, nullptr, "GetIsSpawnSiegeMinion", nullptr, nullptr, Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::Spawner_eventGetIsSpawnSiegeMinion_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::Spawner_eventGetIsSpawnSiegeMinion_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics
+	{
+		struct Spawner_eventGetIsSpawnSuperMinion_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Spawner_eventGetIsSpawnSuperMinion_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Spawner_eventGetIsSpawnSuperMinion_Parms), &Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpawner, nullptr, "GetIsSpawnSuperMinion", nullptr, nullptr, Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::Spawner_eventGetIsSpawnSuperMinion_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::Spawner_eventGetIsSpawnSuperMinion_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics
+	{
+		struct Spawner_eventSetIsSpawnSiegeMinion_Parms
+		{
+			bool IsSpawnSiegeMinion;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsSpawnSiegeMinion_MetaData[];
+#endif
+		static void NewProp_IsSpawnSiegeMinion_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsSpawnSiegeMinion;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	void Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion_SetBit(void* Obj)
+	{
+		((Spawner_eventSetIsSpawnSiegeMinion_Parms*)Obj)->IsSpawnSiegeMinion = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion = { "IsSpawnSiegeMinion", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Spawner_eventSetIsSpawnSiegeMinion_Parms), &Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion_MetaData), Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::NewProp_IsSpawnSiegeMinion,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpawner, nullptr, "SetIsSpawnSiegeMinion", nullptr, nullptr, Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::Spawner_eventSetIsSpawnSiegeMinion_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::Spawner_eventSetIsSpawnSiegeMinion_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics
+	{
+		struct Spawner_eventSetIsSpawnSuperMinion_Parms
+		{
+			bool IsSpawnSuperMinion;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsSpawnSuperMinion_MetaData[];
+#endif
+		static void NewProp_IsSpawnSuperMinion_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsSpawnSuperMinion;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	void Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion_SetBit(void* Obj)
+	{
+		((Spawner_eventSetIsSpawnSuperMinion_Parms*)Obj)->IsSpawnSuperMinion = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion = { "IsSpawnSuperMinion", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Spawner_eventSetIsSpawnSuperMinion_Parms), &Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion_MetaData), Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::NewProp_IsSpawnSuperMinion,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpawner, nullptr, "SetIsSpawnSuperMinion", nullptr, nullptr, Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::Spawner_eventSetIsSpawnSuperMinion_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::Spawner_eventSetIsSpawnSuperMinion_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ASpawner);
 	UClass* Z_Construct_UClass_ASpawner_NoRegister()
@@ -140,6 +271,7 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 	struct Z_Construct_UClass_ASpawner_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -152,41 +284,9 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_BoxComponent;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RangeClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_RangeClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeleeClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_MeleeClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SiegeClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_SiegeClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SuperMinionClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_SuperMinionClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_NeutralityMonsterClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_NeutralityMonsterClass;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnMinionSpawn_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnMinionSpawn;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnSiegeMinionSpawn_MetaData[];
-#endif
-		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnSiegeMinionSpawn;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnSuperMinionSpawn_MetaData[];
-#endif
-		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnSuperMinionSpawn;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnNeutralityMonsterSpawn_MetaData[];
-#endif
-		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnNeutralityMonsterSpawn;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TeamName_MetaData[];
 #endif
@@ -195,6 +295,16 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LineTag_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_LineTag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bSpawnSuperMinion_MetaData[];
+#endif
+		static void NewProp_bSpawnSuperMinion_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bSpawnSuperMinion;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bSpawnSiegeMinion_MetaData[];
+#endif
+		static void NewProp_bSpawnSiegeMinion_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bSpawnSiegeMinion;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -205,6 +315,13 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_ASpawner_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASpawner_GetIsSpawnSiegeMinion, "GetIsSpawnSiegeMinion" }, // 482839198
+		{ &Z_Construct_UFunction_ASpawner_GetIsSpawnSuperMinion, "GetIsSpawnSuperMinion" }, // 3727164573
+		{ &Z_Construct_UFunction_ASpawner_SetIsSpawnSiegeMinion, "SetIsSpawnSiegeMinion" }, // 1080485258
+		{ &Z_Construct_UFunction_ASpawner_SetIsSpawnSuperMinion, "SetIsSpawnSuperMinion" }, // 2969780732
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "Actor/Gameplay/Spawner.h" },
@@ -228,68 +345,12 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_BoxComponent = { "BoxComponent", nullptr, (EPropertyFlags)0x0014000000090009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, BoxComponent), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_BoxComponent_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_BoxComponent_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_RangeClass_MetaData[] = {
-		{ "Category", "Minion" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_RangeClass = { "RangeClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, RangeClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_RangeClass_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_RangeClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_MeleeClass_MetaData[] = {
-		{ "Category", "Minion" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_MeleeClass = { "MeleeClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, MeleeClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_MeleeClass_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_MeleeClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_SiegeClass_MetaData[] = {
-		{ "Category", "Minion" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_SiegeClass = { "SiegeClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, SiegeClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_SiegeClass_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_SiegeClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_SuperMinionClass_MetaData[] = {
-		{ "Category", "Minion" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_SuperMinionClass = { "SuperMinionClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, SuperMinionClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_SuperMinionClass_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_SuperMinionClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_NeutralityMonsterClass_MetaData[] = {
-		{ "Category", "Minion" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_NeutralityMonsterClass = { "NeutralityMonsterClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, NeutralityMonsterClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_NeutralityMonsterClass_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_NeutralityMonsterClass_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_OnMinionSpawn_MetaData[] = {
 		{ "Category", "Spawn" },
 		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_OnMinionSpawn = { "OnMinionSpawn", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, OnMinionSpawn), Z_Construct_UDelegateFunction_SeniorProject_OnMinionSpawnSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_OnMinionSpawn_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_OnMinionSpawn_MetaData) }; // 2553520474
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_OnSiegeMinionSpawn_MetaData[] = {
-		{ "Category", "Spawn" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_OnSiegeMinionSpawn = { "OnSiegeMinionSpawn", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, OnSiegeMinionSpawn), Z_Construct_UDelegateFunction_SeniorProject_OnSiegeMinionSpawnSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_OnSiegeMinionSpawn_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_OnSiegeMinionSpawn_MetaData) }; // 3859486388
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_OnSuperMinionSpawn_MetaData[] = {
-		{ "Category", "Spawn" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_OnSuperMinionSpawn = { "OnSuperMinionSpawn", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, OnSuperMinionSpawn), Z_Construct_UDelegateFunction_SeniorProject_OnSuperMinionSpawnSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_OnSuperMinionSpawn_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_OnSuperMinionSpawn_MetaData) }; // 3085583451
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_OnNeutralityMonsterSpawn_MetaData[] = {
-		{ "Category", "Spawn" },
-		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
-	};
-#endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_OnNeutralityMonsterSpawn = { "OnNeutralityMonsterSpawn", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, OnNeutralityMonsterSpawn), Z_Construct_UDelegateFunction_SeniorProject_OnNeutralityMonsterSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_OnNeutralityMonsterSpawn_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_OnNeutralityMonsterSpawn_MetaData) }; // 3174906081
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_TeamName_MetaData[] = {
 		{ "Category", "GameRule" },
@@ -304,23 +365,39 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0040000000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASpawner, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_LineTag_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_LineTag_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion_MetaData[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion_SetBit(void* Obj)
+	{
+		((ASpawner*)Obj)->bSpawnSuperMinion = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion = { "bSpawnSuperMinion", nullptr, (EPropertyFlags)0x0040000000010021, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASpawner), &Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion_MetaData[] = {
+		{ "Category", "Spawn" },
+		{ "ModuleRelativePath", "Actor/Gameplay/Spawner.h" },
+	};
+#endif
+	void Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion_SetBit(void* Obj)
+	{
+		((ASpawner*)Obj)->bSpawnSiegeMinion = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion = { "bSpawnSiegeMinion", nullptr, (EPropertyFlags)0x0040000000010021, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASpawner), &Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion_MetaData), Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASpawner_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_Mesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_BoxComponent,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_RangeClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_MeleeClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_SiegeClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_SuperMinionClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_NeutralityMonsterClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_OnMinionSpawn,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_OnSiegeMinionSpawn,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_OnSuperMinionSpawn,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_OnNeutralityMonsterSpawn,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_TeamName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_LineTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSuperMinion,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawner_Statics::NewProp_bSpawnSiegeMinion,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ASpawner_Statics::InterfaceParams[] = {
-			{ Z_Construct_UClass_UGameRuleInterface_NoRegister, (int32)VTABLE_OFFSET(ASpawner, IGameRuleInterface), false },  // 3371675016
+			{ Z_Construct_UClass_UGameRuleInterface_NoRegister, (int32)VTABLE_OFFSET(ASpawner, IGameRuleInterface), false },  // 2803433548
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::InterfaceParams) < 64);
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASpawner_Statics::StaticCppClassTypeInfo = {
@@ -331,11 +408,11 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_ASpawner_Statics::PropPointers,
 		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_ASpawner_Statics::PropPointers),
 		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
@@ -359,10 +436,14 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 	{
 		static const FName Name_TeamName(TEXT("TeamName"));
 		static const FName Name_LineTag(TEXT("LineTag"));
+		static const FName Name_bSpawnSuperMinion(TEXT("bSpawnSuperMinion"));
+		static const FName Name_bSpawnSiegeMinion(TEXT("bSpawnSiegeMinion"));
 
 		const bool bIsValid = true
 			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName()
-			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName();
+			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName()
+			&& Name_bSpawnSuperMinion == ClassReps[(int32)ENetFields_Private::bSpawnSuperMinion].Property->GetFName()
+			&& Name_bSpawnSiegeMinion == ClassReps[(int32)ENetFields_Private::bSpawnSiegeMinion].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ASpawner"));
 	}
@@ -373,9 +454,9 @@ void FOnNeutralityMonsterSignature_DelegateWrapper(const FMulticastScriptDelegat
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Gameplay_Spawner_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ASpawner, ASpawner::StaticClass, TEXT("ASpawner"), &Z_Registration_Info_UClass_ASpawner, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpawner), 1406683788U) },
+		{ Z_Construct_UClass_ASpawner, ASpawner::StaticClass, TEXT("ASpawner"), &Z_Registration_Info_UClass_ASpawner, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASpawner), 1267968545U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Gameplay_Spawner_h_2737314706(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Gameplay_Spawner_h_534235472(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Gameplay_Spawner_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Gameplay_Spawner_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

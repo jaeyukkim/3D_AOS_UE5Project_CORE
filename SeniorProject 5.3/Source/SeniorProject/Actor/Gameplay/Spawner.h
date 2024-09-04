@@ -11,9 +11,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMinionSpawnSignature);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSiegeMinionSpawnSignature);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSuperMinionSpawnSignature);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeutralityMonsterSignature);
+
 
 class UBoxComponent;
 
@@ -29,8 +27,17 @@ public:
 	FORCEINLINE virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
 	FORCEINLINE virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
 
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	FORCEINLINE bool GetIsSpawnSuperMinion() const { return bSpawnSuperMinion; }
 
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	FORCEINLINE void SetIsSpawnSuperMinion(const bool IsSpawnSuperMinion) { bSpawnSuperMinion = IsSpawnSuperMinion; }
 
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	FORCEINLINE bool GetIsSpawnSiegeMinion() const { return bSpawnSiegeMinion; }
+
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	FORCEINLINE void SetIsSpawnSiegeMinion(const bool IsSpawnSiegeMinion) { bSpawnSiegeMinion = IsSpawnSiegeMinion; }
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
 	TObjectPtr<USkeletalMeshComponent> Mesh;
@@ -38,37 +45,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Box")
 	TObjectPtr<UBoxComponent> BoxComponent;
 	
-
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Minion")
-	TSubclassOf<AActor> RangeClass;
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Minion")
-	TSubclassOf<AActor> MeleeClass;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Minion")
-	TSubclassOf<AActor> SiegeClass;
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Minion")
-	TSubclassOf<AActor> SuperMinionClass;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Minion")
-	TSubclassOf<AActor> NeutralityMonsterClass;
-
-	
 	
 	UPROPERTY(BlueprintAssignable, Category = "Spawn")
 	FOnMinionSpawnSignature OnMinionSpawn;
-
-	UPROPERTY(BlueprintAssignable, Category = "Spawn")
-	FOnSiegeMinionSpawnSignature OnSiegeMinionSpawn;
-	
-	UPROPERTY(BlueprintAssignable, Category = "Spawn")
-	FOnSuperMinionSpawnSignature OnSuperMinionSpawn;
-
-	UPROPERTY(BlueprintAssignable, Category = "Spawn")
-	FOnNeutralityMonsterSignature OnNeutralityMonsterSpawn;
-
 	
 	
 protected:
@@ -83,6 +62,10 @@ private:
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag LineTag;
 
-	
+	UPROPERTY(EditDefaultsOnly, Replicated ,Category = "Spawn")
+	bool bSpawnSuperMinion = false;
+
+	UPROPERTY(EditDefaultsOnly,Replicated, Category = "Spawn")
+	bool bSpawnSiegeMinion = false;
 	
 };

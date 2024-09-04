@@ -16,6 +16,8 @@ enum class ECharacterClass : uint8
 	Kwang,
 	Minion_Melee,
 	Minion_Ranged,
+	Minion_Siege,
+	Minion_Super,
 	Turret,
 	Inhibitor,
 	Nexus,

@@ -26,10 +26,10 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 	}
 	DEFINE_FUNCTION(IGameRuleInterface::execSetLineTag)
 	{
-		P_GET_STRUCT(FGameplayTag,Z_Param_NewTeamName);
+		P_GET_STRUCT(FGameplayTag,Z_Param_NewLineTag);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetLineTag_Implementation(Z_Param_NewTeamName);
+		P_THIS->SetLineTag_Implementation(Z_Param_NewLineTag);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(IGameRuleInterface::execGetLineTag)
@@ -39,20 +39,20 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		*(FGameplayTag*)Z_Param__Result=P_THIS->GetLineTag_Implementation();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(IGameRuleInterface::execSetMinionTeamName)
+	DEFINE_FUNCTION(IGameRuleInterface::execSetTeamNameByTag)
 	{
 		P_GET_STRUCT(FGameplayTag,Z_Param_NewTeamName);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetMinionTeamName_Implementation(Z_Param_NewTeamName);
+		P_THIS->SetTeamNameByTag_Implementation(Z_Param_NewTeamName);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(IGameRuleInterface::execSetPlayerTeamName)
+	DEFINE_FUNCTION(IGameRuleInterface::execSetTeamNameByPlayerState)
 	{
 		P_GET_OBJECT(APlayerState,Z_Param_PS);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetPlayerTeamName_Implementation(Z_Param_PS);
+		P_THIS->SetTeamNameByPlayerState_Implementation(Z_Param_PS);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(IGameRuleInterface::execGetTeamName)
@@ -76,15 +76,15 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 	};
 	struct GameRuleInterface_eventSetLineTag_Parms
 	{
-		FGameplayTag NewTeamName;
+		FGameplayTag NewLineTag;
 	};
-	struct GameRuleInterface_eventSetMinionTeamName_Parms
-	{
-		FGameplayTag NewTeamName;
-	};
-	struct GameRuleInterface_eventSetPlayerTeamName_Parms
+	struct GameRuleInterface_eventSetTeamNameByPlayerState_Parms
 	{
 		APlayerState* PS;
+	};
+	struct GameRuleInterface_eventSetTeamNameByTag_Parms
+	{
+		FGameplayTag NewTeamName;
 	};
 	FGameplayTag IGameRuleInterface::GetLineTag() const
 	{
@@ -104,17 +104,17 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		GameRuleInterface_eventGetTurretLevelTag_Parms Parms;
 		return Parms.ReturnValue;
 	}
-	void IGameRuleInterface::SetLineTag(FGameplayTag NewTeamName)
+	void IGameRuleInterface::SetLineTag(FGameplayTag NewLineTag)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetLineTag instead.");
 	}
-	void IGameRuleInterface::SetMinionTeamName(FGameplayTag NewTeamName)
+	void IGameRuleInterface::SetTeamNameByPlayerState(APlayerState* PS)
 	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetMinionTeamName instead.");
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetTeamNameByPlayerState instead.");
 	}
-	void IGameRuleInterface::SetPlayerTeamName(APlayerState* PS)
+	void IGameRuleInterface::SetTeamNameByTag(FGameplayTag NewTeamName)
 	{
-		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetPlayerTeamName instead.");
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetTeamNameByTag instead.");
 	}
 	void UGameRuleInterface::StaticRegisterNativesUGameRuleInterface()
 	{
@@ -124,8 +124,8 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 			{ "GetTeamName", &IGameRuleInterface::execGetTeamName },
 			{ "GetTurretLevelTag", &IGameRuleInterface::execGetTurretLevelTag },
 			{ "SetLineTag", &IGameRuleInterface::execSetLineTag },
-			{ "SetMinionTeamName", &IGameRuleInterface::execSetMinionTeamName },
-			{ "SetPlayerTeamName", &IGameRuleInterface::execSetPlayerTeamName },
+			{ "SetTeamNameByPlayerState", &IGameRuleInterface::execSetTeamNameByPlayerState },
+			{ "SetTeamNameByTag", &IGameRuleInterface::execSetTeamNameByTag },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -221,16 +221,16 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 	}
 	struct Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics
 	{
-		static const UECodeGen_Private::FStructPropertyParams NewProp_NewTeamName;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_NewLineTag;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::NewProp_NewTeamName = { "NewTeamName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetLineTag_Parms, NewTeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::NewProp_NewLineTag = { "NewLineTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetLineTag_Parms, NewLineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::NewProp_NewTeamName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::NewProp_NewLineTag,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameRuleInterface_SetLineTag_Statics::Function_MetaDataParams[] = {
@@ -249,37 +249,7 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics
-	{
-		static const UECodeGen_Private::FStructPropertyParams NewProp_NewTeamName;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::NewProp_NewTeamName = { "NewTeamName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetMinionTeamName_Parms, NewTeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::NewProp_NewTeamName,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Interface/GameRuleInterface.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameRuleInterface, nullptr, "SetMinionTeamName", nullptr, nullptr, Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::PropPointers), sizeof(GameRuleInterface_eventSetMinionTeamName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::PropPointers) < 2048);
-	static_assert(sizeof(GameRuleInterface_eventSetMinionTeamName_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics
+	struct Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics
 	{
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PS;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -288,24 +258,54 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::NewProp_PS = { "PS", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetPlayerTeamName_Parms, PS), Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::NewProp_PS,
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::NewProp_PS = { "PS", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetTeamNameByPlayerState_Parms, PS), Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::NewProp_PS,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Interface/GameRuleInterface.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameRuleInterface, nullptr, "SetPlayerTeamName", nullptr, nullptr, Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::PropPointers), sizeof(GameRuleInterface_eventSetPlayerTeamName_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::PropPointers) < 2048);
-	static_assert(sizeof(GameRuleInterface_eventSetPlayerTeamName_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameRuleInterface, nullptr, "SetTeamNameByPlayerState", nullptr, nullptr, Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::PropPointers), sizeof(GameRuleInterface_eventSetTeamNameByPlayerState_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::PropPointers) < 2048);
+	static_assert(sizeof(GameRuleInterface_eventSetTeamNameByPlayerState_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics
+	{
+		static const UECodeGen_Private::FStructPropertyParams NewProp_NewTeamName;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::NewProp_NewTeamName = { "NewTeamName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameRuleInterface_eventSetTeamNameByTag_Parms, NewTeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::NewProp_NewTeamName,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/GameRuleInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameRuleInterface, nullptr, "SetTeamNameByTag", nullptr, nullptr, Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::PropPointers), sizeof(GameRuleInterface_eventSetTeamNameByTag_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::PropPointers) < 2048);
+	static_assert(sizeof(GameRuleInterface_eventSetTeamNameByTag_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -333,9 +333,9 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		{ &Z_Construct_UFunction_UGameRuleInterface_GetLineTag, "GetLineTag" }, // 3097025543
 		{ &Z_Construct_UFunction_UGameRuleInterface_GetTeamName, "GetTeamName" }, // 4145850864
 		{ &Z_Construct_UFunction_UGameRuleInterface_GetTurretLevelTag, "GetTurretLevelTag" }, // 82094390
-		{ &Z_Construct_UFunction_UGameRuleInterface_SetLineTag, "SetLineTag" }, // 40222025
-		{ &Z_Construct_UFunction_UGameRuleInterface_SetMinionTeamName, "SetMinionTeamName" }, // 1741115868
-		{ &Z_Construct_UFunction_UGameRuleInterface_SetPlayerTeamName, "SetPlayerTeamName" }, // 1359284528
+		{ &Z_Construct_UFunction_UGameRuleInterface_SetLineTag, "SetLineTag" }, // 1858097053
+		{ &Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByPlayerState, "SetTeamNameByPlayerState" }, // 1330792014
+		{ &Z_Construct_UFunction_UGameRuleInterface_SetTeamNameByTag, "SetTeamNameByTag" }, // 2316350622
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGameRuleInterface_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -428,7 +428,7 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		return Parms.ReturnValue;
 	}
 	static FName NAME_UGameRuleInterface_SetLineTag = FName(TEXT("SetLineTag"));
-	void IGameRuleInterface::Execute_SetLineTag(UObject* O, FGameplayTag NewTeamName)
+	void IGameRuleInterface::Execute_SetLineTag(UObject* O, FGameplayTag NewLineTag)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UGameRuleInterface::StaticClass()));
@@ -436,38 +436,21 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		UFunction* const Func = O->FindFunction(NAME_UGameRuleInterface_SetLineTag);
 		if (Func)
 		{
-			Parms.NewTeamName=NewTeamName;
+			Parms.NewLineTag=NewLineTag;
 			O->ProcessEvent(Func, &Parms);
 		}
 		else if (auto I = (IGameRuleInterface*)(O->GetNativeInterfaceAddress(UGameRuleInterface::StaticClass())))
 		{
-			I->SetLineTag_Implementation(NewTeamName);
+			I->SetLineTag_Implementation(NewLineTag);
 		}
 	}
-	static FName NAME_UGameRuleInterface_SetMinionTeamName = FName(TEXT("SetMinionTeamName"));
-	void IGameRuleInterface::Execute_SetMinionTeamName(UObject* O, FGameplayTag NewTeamName)
+	static FName NAME_UGameRuleInterface_SetTeamNameByPlayerState = FName(TEXT("SetTeamNameByPlayerState"));
+	void IGameRuleInterface::Execute_SetTeamNameByPlayerState(UObject* O, APlayerState* PS)
 	{
 		check(O != NULL);
 		check(O->GetClass()->ImplementsInterface(UGameRuleInterface::StaticClass()));
-		GameRuleInterface_eventSetMinionTeamName_Parms Parms;
-		UFunction* const Func = O->FindFunction(NAME_UGameRuleInterface_SetMinionTeamName);
-		if (Func)
-		{
-			Parms.NewTeamName=NewTeamName;
-			O->ProcessEvent(Func, &Parms);
-		}
-		else if (auto I = (IGameRuleInterface*)(O->GetNativeInterfaceAddress(UGameRuleInterface::StaticClass())))
-		{
-			I->SetMinionTeamName_Implementation(NewTeamName);
-		}
-	}
-	static FName NAME_UGameRuleInterface_SetPlayerTeamName = FName(TEXT("SetPlayerTeamName"));
-	void IGameRuleInterface::Execute_SetPlayerTeamName(UObject* O, APlayerState* PS)
-	{
-		check(O != NULL);
-		check(O->GetClass()->ImplementsInterface(UGameRuleInterface::StaticClass()));
-		GameRuleInterface_eventSetPlayerTeamName_Parms Parms;
-		UFunction* const Func = O->FindFunction(NAME_UGameRuleInterface_SetPlayerTeamName);
+		GameRuleInterface_eventSetTeamNameByPlayerState_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UGameRuleInterface_SetTeamNameByPlayerState);
 		if (Func)
 		{
 			Parms.PS=PS;
@@ -475,7 +458,24 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		}
 		else if (auto I = (IGameRuleInterface*)(O->GetNativeInterfaceAddress(UGameRuleInterface::StaticClass())))
 		{
-			I->SetPlayerTeamName_Implementation(PS);
+			I->SetTeamNameByPlayerState_Implementation(PS);
+		}
+	}
+	static FName NAME_UGameRuleInterface_SetTeamNameByTag = FName(TEXT("SetTeamNameByTag"));
+	void IGameRuleInterface::Execute_SetTeamNameByTag(UObject* O, FGameplayTag NewTeamName)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UGameRuleInterface::StaticClass()));
+		GameRuleInterface_eventSetTeamNameByTag_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UGameRuleInterface_SetTeamNameByTag);
+		if (Func)
+		{
+			Parms.NewTeamName=NewTeamName;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IGameRuleInterface*)(O->GetNativeInterfaceAddress(UGameRuleInterface::StaticClass())))
+		{
+			I->SetTeamNameByTag_Implementation(NewTeamName);
 		}
 	}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_Statics
@@ -483,9 +483,9 @@ void EmptyLinkFunctionForGeneratedCodeGameRuleInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UGameRuleInterface, UGameRuleInterface::StaticClass, TEXT("UGameRuleInterface"), &Z_Registration_Info_UClass_UGameRuleInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameRuleInterface), 3371675016U) },
+		{ Z_Construct_UClass_UGameRuleInterface, UGameRuleInterface::StaticClass, TEXT("UGameRuleInterface"), &Z_Registration_Info_UClass_UGameRuleInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameRuleInterface), 2803433548U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_4237699499(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_2277520440(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

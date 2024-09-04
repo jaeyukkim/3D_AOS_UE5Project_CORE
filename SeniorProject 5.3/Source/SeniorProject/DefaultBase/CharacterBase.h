@@ -54,18 +54,19 @@ public:
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
 	virtual void Die() override;
-	
 	UFUNCTION(BlueprintImplementableEvent)
 	void DieAction();
-	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
 	/* end CombatInterface*/
 
+	
 
 	/* GameRuleInterface*/
 	virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
 	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
+	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
+	
 	/* end GameRuleInterface */
 
 
@@ -81,6 +82,8 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName TailSocketName;
+
+	
 
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag TeamName;

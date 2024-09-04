@@ -208,25 +208,24 @@ void AMyGameModeBase::SpawnMinion()
 			// 스포너가 구현한 인터페이스를 통해 팀과 라인을 가져옵니다.
 			if (IGameRuleInterface* EachSpawnerInterface = Cast<IGameRuleInterface>(EachSpawner))
 			{
-				FGameplayTag SpawnerTeam = EachSpawnerInterface->GetTeamName();
-				FGameplayTag SpawnerLine = EachSpawnerInterface->GetLineTag();
+				FGameplayTag SpawnerTeam = EachSpawnerInterface->Execute_GetTeamName(EachSpawner);
+				FGameplayTag SpawnerLine = EachSpawnerInterface->Execute_GetLineTag(EachSpawner);
 
 				// 억제기가 파괴되었는지 확인합니다.
 				if (IsInhibitorDestroyed(SpawnerTeam, SpawnerLine))
 				{
 					// 억제기가 파괴되었다면, 해당 스포너에 슈퍼 미니언을 생성하도록 지시합니다.
-					EachSpawner->OnSuperMinionSpawn.Broadcast();
+					EachSpawner->SetIsSpawnSuperMinion(true);
 				}
-				else if (SiegeMinionSpawnCycle % 3 == 0)
+				else if (SiegeMinionSpawnCycle / 3 == 0)
 				{
 					// SiegeMinionSpawnCycle 주기에 따라 공성 미니언을 생성합니다.
-					EachSpawner->OnSiegeMinionSpawn.Broadcast();
+					EachSpawner->SetIsSpawnSiegeMinion(true);
 				}
-				else
-				{
-					// 기본 미니언 생성 델리게이트를 호출합니다.
-					EachSpawner->OnMinionSpawn.Broadcast();
-				}
+				
+				// 기본 미니언 생성 델리게이트를 호출합니다.
+				EachSpawner->OnMinionSpawn.Broadcast();
+				
 			}
 		}
 	}

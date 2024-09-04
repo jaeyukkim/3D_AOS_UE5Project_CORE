@@ -10,6 +10,8 @@ ASpawner::ASpawner()
 
 	Mesh = CreateDefaultSubobject<USkeletalMeshComponent>("mesh");
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>("Box");
+	SetRootComponent(BoxComponent);
+	Mesh->SetupAttachment(BoxComponent);
 
 	
 }
@@ -20,6 +22,9 @@ void ASpawner::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 
 	DOREPLIFETIME(ASpawner, TeamName);
 	DOREPLIFETIME(ASpawner, LineTag);
+	DOREPLIFETIME(ASpawner, bSpawnSiegeMinion);
+	DOREPLIFETIME(ASpawner, bSpawnSuperMinion);
+
 
 }
 

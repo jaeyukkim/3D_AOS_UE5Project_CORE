@@ -21,8 +21,90 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(AMinions::execOnRep_Mesh)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Mesh();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AMinions::execSetIsMeshChanged)
+	{
+		P_GET_UBOOL(Z_Param_IsMeshChanged);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsMeshChanged(Z_Param_IsMeshChanged);
+		P_NATIVE_END;
+	}
 	void AMinions::StaticRegisterNativesAMinions()
 	{
+		UClass* Class = AMinions::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "OnRep_Mesh", &AMinions::execOnRep_Mesh },
+			{ "SetIsMeshChanged", &AMinions::execSetIsMeshChanged },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMinions, nullptr, "OnRep_Mesh", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMinions_OnRep_Mesh()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMinions_OnRep_Mesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics
+	{
+		struct Minions_eventSetIsMeshChanged_Parms
+		{
+			bool IsMeshChanged;
+		};
+		static void NewProp_IsMeshChanged_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsMeshChanged;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::NewProp_IsMeshChanged_SetBit(void* Obj)
+	{
+		((Minions_eventSetIsMeshChanged_Parms*)Obj)->IsMeshChanged = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::NewProp_IsMeshChanged = { "IsMeshChanged", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Minions_eventSetIsMeshChanged_Parms), &Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::NewProp_IsMeshChanged_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::NewProp_IsMeshChanged,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMinions, nullptr, "SetIsMeshChanged", nullptr, nullptr, Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::Minions_eventSetIsMeshChanged_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::Minions_eventSetIsMeshChanged_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMinions_SetIsMeshChanged()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMinions_SetIsMeshChanged_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMinions);
 	UClass* Z_Construct_UClass_AMinions_NoRegister()
@@ -32,6 +114,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	struct Z_Construct_UClass_AMinions_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -80,6 +163,11 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BlueTeamMesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_BlueTeamMesh;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeshChanged_MetaData[];
+#endif
+		static void NewProp_bIsMeshChanged_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMeshChanged;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -89,6 +177,11 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_AMinions_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMinions_OnRep_Mesh, "OnRep_Mesh" }, // 2220928025
+		{ &Z_Construct_UFunction_AMinions_SetIsMeshChanged, "SetIsMeshChanged" }, // 2674023058
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
@@ -120,13 +213,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData[] = {
 		{ "Category", "Combat" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/*Enemy Interface*/" },
-#endif
 		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Enemy Interface" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget = { "CombatTarget", nullptr, (EPropertyFlags)0x0014000000000004, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, CombatTarget), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData) };
@@ -144,7 +231,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass = { "CharacterClass", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, CharacterClass), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass_MetaData) }; // 2251408729
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass = { "CharacterClass", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, CharacterClass), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_CharacterClass_MetaData) }; // 4018297425
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_HealthBar_MetaData[] = {
 		{ "Category", "UI" },
@@ -180,6 +267,16 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_BlueTeamMesh = { "BlueTeamMesh", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, BlueTeamMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_BlueTeamMesh_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_BlueTeamMesh_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged_MetaData[] = {
+		{ "ModuleRelativePath", "Character/Enemy/Monster/Minions.h" },
+	};
+#endif
+	void Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged_SetBit(void* Obj)
+	{
+		((AMinions*)Obj)->bIsMeshChanged = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged = { "bIsMeshChanged", "OnRep_Mesh", (EPropertyFlags)0x0040000100000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMinions), &Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMinions_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_OnHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_OnMaxHealthChanged,
@@ -193,6 +290,7 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_BehaviorTree,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_RedTeamMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_BlueTeamMesh,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_bIsMeshChanged,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMinions_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AMinions>::IsAbstract,
@@ -202,11 +300,11 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AMinions_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::PropPointers),
 		0,
 		0x009000A5u,
@@ -225,6 +323,16 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	{
 		return AMinions::StaticClass();
 	}
+
+	void AMinions::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_bIsMeshChanged(TEXT("bIsMeshChanged"));
+
+		const bool bIsValid = true
+			&& Name_bIsMeshChanged == ClassReps[(int32)ENetFields_Private::bIsMeshChanged].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AMinions"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMinions);
 	AMinions::~AMinions() {}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics
@@ -232,9 +340,9 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 2201759053U) },
+		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 2546916142U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_4283179924(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_2080433379(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

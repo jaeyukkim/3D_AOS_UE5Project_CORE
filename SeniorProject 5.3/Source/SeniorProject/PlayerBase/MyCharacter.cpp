@@ -90,12 +90,10 @@ void AMyCharacter::InitAbilityActorInfo()
 			DefaultHUD->InitOverlay(MyPlayerController, PlayerStateBase, AbilitySystemComponent, AttributeSet);
 		}
 	}
+	
 	InitializeDefaultAttributes();
-
-	if(HasAuthority())
-	{
-		SetPlayerTeamName_Implementation(PlayerStateBase);
-	}
+	SetTeamNameByPlayerState_Implementation(PlayerStateBase);
+	
 }
 
 
@@ -224,17 +222,29 @@ void AMyCharacter::Die()
 }
 
 
-void AMyCharacter::SetPlayerTeamName_Implementation(APlayerState* PS)
+void AMyCharacter::SetTeamNameByPlayerState_Implementation(APlayerState* PS)
 {
-	checkf(PS, TEXT("PlayerState Not Initialize"));
-	if (PS->GetPlayerId() % 2 == 0)
+
+	if(HasAuthority())
 	{
-		TeamName = FGameplayTagsBase::Get().GameRule_TeamName_RedTeam;
+		checkf(PS, TEXT("PlayerState Not Initialize"));
+
+
+		FString UniqueIdStr = PS->GetUniqueId()->ToString();
+
+		// Unique ID 문자열의 마지막 자리를 기반으로 팀을 나누는 로직 (예: 마지막 문자의 아스키 코드값 사용)
+		int32 LastChar = UniqueIdStr[UniqueIdStr.Len() - 1];
+		
+		if (LastChar % 2 == 0)
+		{
+			TeamName = FGameplayTagsBase::Get().GameRule_TeamName_RedTeam;
+		}
+		else
+		{
+			TeamName = FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam;
+		}
 	}
-	else
-	{
-		TeamName = FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam;
-	}
+	
 }
 
 

@@ -21,17 +21,17 @@ struct FGameplayTag;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_13_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_GameRuleInterface_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual FGameplayTag GetTurretLevelTag_Implementation() const { return FGameplayTag(); }; \
-	virtual void SetLineTag_Implementation(FGameplayTag NewTeamName) {}; \
+	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) {}; \
 	virtual FGameplayTag GetLineTag_Implementation() const { return FGameplayTag(); }; \
-	virtual void SetMinionTeamName_Implementation(FGameplayTag NewTeamName) {}; \
-	virtual void SetPlayerTeamName_Implementation(APlayerState* PS) {}; \
+	virtual void SetTeamNameByTag_Implementation(FGameplayTag NewTeamName) {}; \
+	virtual void SetTeamNameByPlayerState_Implementation(APlayerState* PS) {}; \
 	virtual FGameplayTag GetTeamName_Implementation() const { return FGameplayTag(); }; \
  \
 	DECLARE_FUNCTION(execGetTurretLevelTag); \
 	DECLARE_FUNCTION(execSetLineTag); \
 	DECLARE_FUNCTION(execGetLineTag); \
-	DECLARE_FUNCTION(execSetMinionTeamName); \
-	DECLARE_FUNCTION(execSetPlayerTeamName); \
+	DECLARE_FUNCTION(execSetTeamNameByTag); \
+	DECLARE_FUNCTION(execSetTeamNameByPlayerState); \
 	DECLARE_FUNCTION(execGetTeamName);
 
 
@@ -77,9 +77,9 @@ public: \
 	static FGameplayTag Execute_GetLineTag(const UObject* O); \
 	static FGameplayTag Execute_GetTeamName(const UObject* O); \
 	static FGameplayTag Execute_GetTurretLevelTag(const UObject* O); \
-	static void Execute_SetLineTag(UObject* O, FGameplayTag NewTeamName); \
-	static void Execute_SetMinionTeamName(UObject* O, FGameplayTag NewTeamName); \
-	static void Execute_SetPlayerTeamName(UObject* O, APlayerState* PS); \
+	static void Execute_SetLineTag(UObject* O, FGameplayTag NewLineTag); \
+	static void Execute_SetTeamNameByPlayerState(UObject* O, APlayerState* PS); \
+	static void Execute_SetTeamNameByTag(UObject* O, FGameplayTag NewTeamName); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
