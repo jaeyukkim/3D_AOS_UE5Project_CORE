@@ -47,11 +47,11 @@
 			"MeleeAttackBase.gen.cpp.obj",
 			"MinionAIController.gen.cpp.obj",
 			"MinionAnimInstance.gen.cpp.obj",
-			"Minions.gen.cpp.obj",
-			"MovementComponentBase.gen.cpp.obj",
-			"MyAnimInstance.gen.cpp.obj"
+			"Minions.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"MovementComponentBase.gen.cpp.obj",
+			"MyAnimInstance.gen.cpp.obj",
 			"MyCharacter.gen.cpp.obj",
 			"MyCharacterStatComponent.gen.cpp.obj",
 			"MyCharacterWidget.gen.cpp.obj",
@@ -72,7 +72,9 @@
 			"SeniorProject.init.gen.cpp.obj",
 			"Spawner.gen.cpp.obj",
 			"Stage1Potal.gen.cpp.obj",
-			"TargetDataAim.gen.cpp.obj",
+			"TargetDataAim.gen.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"TitleSceneController.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
 			"MeleeAttackBase.cpp.obj",
@@ -89,9 +91,7 @@
 			"AbilitySystemGlobalsBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
 			"DamageActorBase.cpp.obj",
-			"EffectActorBase.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"EffectActorBase.cpp.obj",
 			"Spawner.cpp.obj",
 			"HomingProjectile.cpp.obj",
 			"ProjectileBase.cpp.obj",

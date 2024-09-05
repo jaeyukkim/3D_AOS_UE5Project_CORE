@@ -20,6 +20,7 @@ class UObject;
 #define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execSetRotationToPlayer); \
 	DECLARE_FUNCTION(execSetWidgetController);
 
 

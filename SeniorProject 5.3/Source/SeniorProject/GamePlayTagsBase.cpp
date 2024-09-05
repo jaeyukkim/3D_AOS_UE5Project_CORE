@@ -144,6 +144,11 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("SecondTurret"));
 	GameplayTags.GameRule_Turret_ThirdTurret = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.ThirdTurret"),
 		FString("ThirdTurret"));
+
+	GameplayTags.GameRule_Turret_Inhibitor = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.Inhibitor"),
+		FString("Inhibitor"));
+	GameplayTags.GameRule_Turret_Nexus = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.Nexus"),
+		FString("Nexus"));
 	/* end GameRuleTag */
 
 	

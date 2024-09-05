@@ -19,7 +19,7 @@ AAIControllerBase::AAIControllerBase(const FObjectInitializer& ObjectInitializer
 		CrowdFollowingComponent->SetCrowdSeparation(true);
 		CrowdFollowingComponent->SetCrowdSeparationWeight(800.f);
 		CrowdFollowingComponent->SetCrowdAvoidanceRangeMultiplier(1.1f);
-		CrowdFollowingComponent->SetCrowdAvoidanceQuality(ECrowdAvoidanceQuality::Good);
+		CrowdFollowingComponent->SetCrowdAvoidanceQuality(ECrowdAvoidanceQuality::Low);
 		CrowdFollowingComponent->SetCrowdAnticipateTurns(true);
 	}
 

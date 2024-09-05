@@ -35,11 +35,11 @@ AMinions::AMinions()
 
 	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBar->SetupAttachment(GetRootComponent());
-	HealthBar->SetWidgetSpace(EWidgetSpace::Screen);
+	HealthBar->SetWidgetSpace(EWidgetSpace::World);
 	HealthBar->SetDrawSize(FVector2D(150.0f, 50.0f));
-
+	HealthBar->SetCullDistance(5000.f);
 	
-	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Player"));
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 
 
@@ -48,7 +48,7 @@ AMinions::AMinions()
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
-	GetCharacterMovement()->MaxWalkSpeed = 400.0f;
+	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	
 

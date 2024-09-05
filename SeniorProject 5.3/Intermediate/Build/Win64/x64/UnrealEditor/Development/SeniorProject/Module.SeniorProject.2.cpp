@@ -26,5 +26,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MinionAIController.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MinionAnimInstance.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Minions.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MovementComponentBase.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MyAnimInstance.gen.cpp"

@@ -88,9 +88,7 @@ public:
 	FGameplayTag GameRule_Turret_SecondTurret;
 	FGameplayTag GameRule_Turret_ThirdTurret;
 	
-	FGameplayTag GameRule_Turret_TopInhibitor;
-	FGameplayTag GameRule_Turret_MidInhibitor;
-	FGameplayTag GameRule_Turret_BottomInhibitor;
+	FGameplayTag GameRule_Turret_Inhibitor;
 	FGameplayTag GameRule_Turret_Nexus;
 
 

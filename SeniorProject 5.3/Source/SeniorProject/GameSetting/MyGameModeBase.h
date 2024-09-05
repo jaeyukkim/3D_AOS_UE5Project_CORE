@@ -53,7 +53,7 @@ protected:
 	float RecurringSpawnTime = 30.f;
 
 	//공성 미니언 스폰 주기
-	int32 SiegeMinionSpawnCycle = 3;
+	int32 SiegeMinionSpawnCycle = 0;
 	
 private:
 

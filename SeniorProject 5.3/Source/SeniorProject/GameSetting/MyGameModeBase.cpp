@@ -48,7 +48,7 @@ void AMyGameModeBase::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag Turr
 		{
 			Mask = 1 << 10;  // 탑 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_TopInhibitor)
+		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
 		{
 			Mask = 1 << 9;  // 탑 억제기 타워
 		}
@@ -67,7 +67,7 @@ void AMyGameModeBase::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag Turr
 		{
 			Mask = 1 << 6;  // 미드 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_MidInhibitor)
+		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
 		{
 			Mask = 1 << 5;  // 미드 억제기 타워
 		}
@@ -86,7 +86,7 @@ void AMyGameModeBase::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag Turr
 		{
 			Mask = 1 << 2;  // 바텀 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_BottomInhibitor)
+		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
 		{
 			Mask = 1 << 1;  // 바텀 억제기 타워
 		}
@@ -107,6 +107,8 @@ FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGamepl
 {
 	 const uint16 TurretStates = (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
 
+	
+	
     // 라인에 따른 비트 위치 및 TowerLevelTag 반환
     if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Top)
     {
@@ -125,7 +127,7 @@ FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGamepl
         }
     	else if (!(TurretStates & (1 << 9)))  // 탑 억제기 타워가 파괴되지 않은 경우
     	{
-    		return FGameplayTagsBase::Get().GameRule_Turret_TopInhibitor;
+    		return FGameplayTagsBase::Get().GameRule_Turret_Inhibitor;
     	}
     }
     else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Mid)
@@ -145,7 +147,7 @@ FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGamepl
         }
     	else if (!(TurretStates & (1 << 5)))  // 미드 억제기 타워가 파괴되지 않은 경우
     	{
-    		return FGameplayTagsBase::Get().GameRule_Turret_MidInhibitor;
+    		return FGameplayTagsBase::Get().GameRule_Turret_Inhibitor;
     	}
     }
     else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Bottom)
@@ -165,9 +167,14 @@ FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGamepl
         }
     	else if (!(TurretStates & (1 << 1)))  // 미드 억제기 타워가 파괴되지 않은 경우
     	{
-    		return FGameplayTagsBase::Get().GameRule_Turret_BottomInhibitor;
+    		return FGameplayTagsBase::Get().GameRule_Turret_Inhibitor;
     	}
     }
+
+	if (!(TurretStates & (1 << 0)))  // 넥서스가 파괴되지 않은 경우
+	{
+		return FGameplayTagsBase::Get().GameRule_Turret_Nexus;
+	}
 
     // 모든 타워가 파괴된 경우 nullptr 또는 비어 있는 태그 반환
     return FGameplayTag();
@@ -196,6 +203,9 @@ void AMyGameModeBase::BeginPlay()
 
 void AMyGameModeBase::SpawnMinion()
 {
+	// 공성미니언 생성 주기 카운터 증가
+	SiegeMinionSpawnCycle++;
+
 	
 	// 모든 스포너를 찾습니다.
 	TArray<AActor*> Spawners;
@@ -211,13 +221,15 @@ void AMyGameModeBase::SpawnMinion()
 				FGameplayTag SpawnerTeam = EachSpawnerInterface->Execute_GetTeamName(EachSpawner);
 				FGameplayTag SpawnerLine = EachSpawnerInterface->Execute_GetLineTag(EachSpawner);
 
+				
+				
 				// 억제기가 파괴되었는지 확인합니다.
 				if (IsInhibitorDestroyed(SpawnerTeam, SpawnerLine))
 				{
 					// 억제기가 파괴되었다면, 해당 스포너에 슈퍼 미니언을 생성하도록 지시합니다.
 					EachSpawner->SetIsSpawnSuperMinion(true);
 				}
-				else if (SiegeMinionSpawnCycle / 3 == 0)
+				else if ((SiegeMinionSpawnCycle % 3) == 0)
 				{
 					// SiegeMinionSpawnCycle 주기에 따라 공성 미니언을 생성합니다.
 					EachSpawner->SetIsSpawnSiegeMinion(true);
@@ -233,8 +245,8 @@ void AMyGameModeBase::SpawnMinion()
 	// 30초 후에 다시 호출되도록 타이머를 설정합니다.
 	GetWorld()->GetTimerManager().SetTimer(RecurringSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, RecurringSpawnTime, false);
 
-	// 공성미니언 생성 주기 카운터 증가
-	SiegeMinionSpawnCycle++;
+	
+	
 	
 }
 

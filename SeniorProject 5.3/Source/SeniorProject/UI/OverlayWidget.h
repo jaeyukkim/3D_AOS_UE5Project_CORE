@@ -18,14 +18,19 @@ class SENIORPROJECT_API UOverlayWidget : public UUserWidget
 public:
 	
 	
+	
 	UFUNCTION(BlueprintCallable)
 		void SetWidgetController(UObject* InWidgetController);
 
 	UPROPERTY(BlueprintReadOnly)
 		TObjectPtr<UObject> WidgetController;
 protected:
-	UFUNCTION(BlueprintImplementableEvent)
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
 		void WidgetControllerSet();
 
+	UFUNCTION(BlueprintCallable)
+		void SetRotationToPlayer();
 
+private:
+	
 };
