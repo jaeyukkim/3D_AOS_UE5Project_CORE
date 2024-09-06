@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "DefaultBase/CharacterBase.h"
+// IWYU pragma: private, include "Character/CharacterBase.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,18 +14,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_CharacterBase_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void MulticastHandleDeath_Implementation(); \
  \
 	DECLARE_FUNCTION(execMulticastHandleDeath);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_CALLBACK_WRAPPERS
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_CALLBACK_WRAPPERS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACharacterBase(); \
 	friend struct Z_Construct_UClass_ACharacterBase_Statics; \
@@ -42,7 +42,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACharacterBase(ACharacterBase&&); \
@@ -54,18 +54,18 @@ public: \
 	NO_API virtual ~ACharacterBase();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_22_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_22_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_CALLBACK_WRAPPERS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h_25_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_CALLBACK_WRAPPERS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_25_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -73,7 +73,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class ACharacterBase>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_CharacterBase_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

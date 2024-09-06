@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Enemy/Monster/Melee.h"
+#include "SeniorProject/Character/Enemy/Melee.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMelee() {}
 // Cross Module References
@@ -42,8 +42,8 @@ void EmptyLinkFunctionForGeneratedCodeMelee() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Character/Enemy/Monster/Melee.h" },
-		{ "ModuleRelativePath", "Character/Enemy/Monster/Melee.h" },
+		{ "IncludePath", "Character/Enemy/Melee.h" },
+		{ "ModuleRelativePath", "Character/Enemy/Melee.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AMelee_Statics::StaticCppClassTypeInfo = {
@@ -78,15 +78,15 @@ void EmptyLinkFunctionForGeneratedCodeMelee() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMelee);
 	AMelee::~AMelee() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMelee, AMelee::StaticClass, TEXT("AMelee"), &Z_Registration_Info_UClass_AMelee, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMelee), 2690232692U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AMelee, AMelee::StaticClass, TEXT("AMelee"), &Z_Registration_Info_UClass_AMelee, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMelee), 4049123311U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_488569125(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_2096028963(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

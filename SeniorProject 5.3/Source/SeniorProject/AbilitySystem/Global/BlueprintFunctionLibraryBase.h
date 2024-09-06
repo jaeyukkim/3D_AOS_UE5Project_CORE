@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
-#include "SeniorProject/UI/AttributeMenuWidgetController.h"
-#include "SeniorProject/UI/OverlayWidgetController.h"
+#include "SeniorProject/UI/AttributeMenu/AttributeMenuWidgetController.h"
+#include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 #include "BlueprintFunctionLibraryBase.generated.h"
 

@@ -4,7 +4,7 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "Animation/AnimInstance.h"
-#include "CharacterBase.h"
+#include "SeniorProject/Character/CharacterBase.h"
 #include "AnimInstanceBase.generated.h"
 
 /**

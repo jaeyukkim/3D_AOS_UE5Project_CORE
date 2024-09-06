@@ -4,7 +4,7 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "SeniorProject/DefaultBase/AnimInstanceBase.h"
-#include "SeniorProject/PlayerBase/MyCharacter.h"
+#include "SeniorProject/Character/Player/MyCharacter.h"
 
 #include "Sound/SoundCue.h"
 #include "MyAnimInstance.generated.h"
@@ -28,60 +28,12 @@ public:
 	UFUNCTION()
 		void AnimNotify_RunStop();
 
-	UFUNCTION()
-		void AnimNotify_CanAttack();
-
-	UFUNCTION()
-		void AnimNotify_CanNotAttack();
-
-	UFUNCTION()
-		void AnimNotify_CastingOn();
-
-	UFUNCTION()
-		void AnimNotify_CastingOff();
-
-
-	UFUNCTION()
-		void AnimNotify_FootStep();
-
-
-	
 	
 	UFUNCTION()
 		void AnimNotify_HideSword();
 	UFUNCTION()
 		void AnimNotify_UnHideSword();
-	UFUNCTION()
-		void AnimNotify_HideKwangSword();
-	UFUNCTION()
-		void AnimNotify_UnHideKwangSword();
-
 	
-	
-	UFUNCTION()
-		void AnimNotify_Ability_Q_Cooldown();
-
-	UFUNCTION()
-		void AnimNotify_Attack_Q();
-
-
-	UFUNCTION()
-		void AnimNotify_Attack_RMB();
-
-	UFUNCTION()
-		void AnimNotify_Attack_RMB_NoWep();
-
-
-	UFUNCTION()
-		void AnimNotify_Ability_RMB_Cooldown();
-
-
-	UFUNCTION()
-		void AnimNotify_MoveToSword();
-	UFUNCTION()
-		void AnimNotify_Attack_R();
-	UFUNCTION()
-		void AnimNotify_Ability_R_Cooldown();
 
 
 

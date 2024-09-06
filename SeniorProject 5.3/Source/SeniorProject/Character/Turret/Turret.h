@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "SeniorProject/Character/Enemy/Monster/Minions.h"
+#include "SeniorProject/Character/Enemy/Minions.h"
 #include "Turret.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FTurretDestroyedDelegate, FGameplayTag, LineTag, FGameplayTag, TurretLevelTag, FGameplayTag, TeamName );

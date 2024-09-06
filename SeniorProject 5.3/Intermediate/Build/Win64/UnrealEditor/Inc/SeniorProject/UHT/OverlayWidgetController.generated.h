@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "UI/OverlayWidgetController.h"
+// IWYU pragma: private, include "UI/OverlayWidget/OverlayWidgetController.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -15,7 +15,7 @@ struct FUIWidgetRow;
 #endif
 #define SENIORPROJECT_OverlayWidgetController_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_13_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_13_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FUIWidgetRow_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -23,28 +23,28 @@ struct FUIWidgetRow;
 
 template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FUIWidgetRow>();
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_29_DELEGATE \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_29_DELEGATE \
 SENIORPROJECT_API void FOnAttributeChangedSignature_DelegateWrapper(const FMulticastScriptDelegate& OnAttributeChangedSignature, float NewValue);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_30_DELEGATE \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_30_DELEGATE \
 SENIORPROJECT_API void FOnLevelChangedSignature_DelegateWrapper(const FMulticastScriptDelegate& OnLevelChangedSignature, int32 NewLevel);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_31_DELEGATE \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_31_DELEGATE \
 SENIORPROJECT_API void FOnAdditionalAttributeMenuSignature_DelegateWrapper(const FMulticastScriptDelegate& OnAdditionalAttributeMenuSignature, bool bIsActive);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_32_DELEGATE \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_32_DELEGATE \
 SENIORPROJECT_API void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& MessageWidgetRowSignature, FUIWidgetRow Row);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUOverlayWidgetController(); \
 	friend struct Z_Construct_UClass_UOverlayWidgetController_Statics; \
@@ -53,7 +53,7 @@ public: \
 	DECLARE_SERIALIZER(UOverlayWidgetController)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UOverlayWidgetController(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -67,17 +67,17 @@ public: \
 	NO_API virtual ~UOverlayWidgetController();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_42_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_42_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h_45_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_45_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -85,7 +85,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class UOverlayWidgetController>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidgetController_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

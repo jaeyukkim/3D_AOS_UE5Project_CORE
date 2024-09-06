@@ -19,23 +19,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_19_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execAnimNotify_Ability_R_Cooldown); \
-	DECLARE_FUNCTION(execAnimNotify_Attack_R); \
-	DECLARE_FUNCTION(execAnimNotify_MoveToSword); \
-	DECLARE_FUNCTION(execAnimNotify_Ability_RMB_Cooldown); \
-	DECLARE_FUNCTION(execAnimNotify_Attack_RMB_NoWep); \
-	DECLARE_FUNCTION(execAnimNotify_Attack_RMB); \
-	DECLARE_FUNCTION(execAnimNotify_Attack_Q); \
-	DECLARE_FUNCTION(execAnimNotify_Ability_Q_Cooldown); \
-	DECLARE_FUNCTION(execAnimNotify_UnHideKwangSword); \
-	DECLARE_FUNCTION(execAnimNotify_HideKwangSword); \
 	DECLARE_FUNCTION(execAnimNotify_UnHideSword); \
 	DECLARE_FUNCTION(execAnimNotify_HideSword); \
-	DECLARE_FUNCTION(execAnimNotify_FootStep); \
-	DECLARE_FUNCTION(execAnimNotify_CastingOff); \
-	DECLARE_FUNCTION(execAnimNotify_CastingOn); \
-	DECLARE_FUNCTION(execAnimNotify_CanNotAttack); \
-	DECLARE_FUNCTION(execAnimNotify_CanAttack); \
 	DECLARE_FUNCTION(execAnimNotify_RunStop);
 
 

@@ -19,9 +19,11 @@ class AActor;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_EnemyInterface_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void SetTargetPlayer_Implementation(AActor* Target) {}; \
 	virtual AActor* GetCombatTarget_Implementation() const { return NULL; }; \
 	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) {}; \
  \
+	DECLARE_FUNCTION(execSetTargetPlayer); \
 	DECLARE_FUNCTION(execGetCombatTarget); \
 	DECLARE_FUNCTION(execSetCombatTarget);
 
@@ -67,6 +69,7 @@ public: \
 	typedef IEnemyInterface ThisClass; \
 	static AActor* Execute_GetCombatTarget(const UObject* O); \
 	static void Execute_SetCombatTarget(UObject* O, AActor* InCombatTarget); \
+	static void Execute_SetTargetPlayer(UObject* O, AActor* Target); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

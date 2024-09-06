@@ -219,68 +219,101 @@
     <ClInclude Include="..\..\Source\SeniorProject\AI\AIControllerBase.h">
       <Filter>Source\SeniorProject\AI</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AI\CustomBehaviorTree">
+      <UniqueIdentifier>{F1F0DBC4-B9BF-3246-9831-4885D70BE8E4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTDecorator_IsInAttackRange.cpp">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTDecorator_IsInAttackRange.h">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTS_Detect.cpp">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTS_Detect.h">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTTask_FindPatrolPos.cpp">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTTask_FindPatrolPos.h">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTTask_TurnToTarget.cpp">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AI\CustomBehaviorTree\BTTask_TurnToTarget.h">
+      <Filter>Source\SeniorProject\AI\CustomBehaviorTree</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character">
       <UniqueIdentifier>{E2ADD259-DA64-31ED-85F0-72602C63FECB}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\CharacterBase.cpp">
+      <Filter>Source\SeniorProject\Character</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\CharacterBase.h">
+      <Filter>Source\SeniorProject\Character</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Character\Enemy">
       <UniqueIdentifier>{725547F9-EE18-3F67-9465-F391BFC34DF3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\SeniorProject\Character\Enemy\Monster">
-      <UniqueIdentifier>{810058BC-0829-3E77-B4ED-EA84CF2734EF}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Crunch.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Crunch.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Crunch.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Crunch.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\KallariAI.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\KallariAI.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\KallariAI.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\KallariAI.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Kwang.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Kwang.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Kwang.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Kwang.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\LaneSuper.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\LaneSuper.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\LaneSuper.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\LaneSuper.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Melee.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Melee.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Melee.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Melee.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Minions.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Minions.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Minions.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Minions.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Ranged.cpp">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Enemy\Ranged.cpp">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Monster\Ranged.h">
-      <Filter>Source\SeniorProject\Character\Enemy\Monster</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Enemy\Ranged.h">
+      <Filter>Source\SeniorProject\Character\Enemy</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Character\Player">
       <UniqueIdentifier>{1E621B4A-EF42-3D1A-B3C5-4B87FDA963B4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\SeniorProject\Character\Player\Character">
-      <UniqueIdentifier>{FB7E4A12-F7FC-3D75-8C63-7F0FBB47B451}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\Character\Player\Character\KwangPlayer.cpp">
-      <Filter>Source\SeniorProject\Character\Player\Character</Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Player\KwangPlayer.cpp">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\Character\Player\Character\KwangPlayer.h">
-      <Filter>Source\SeniorProject\Character\Player\Character</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Player\KwangPlayer.h">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Player\MyCharacter.cpp">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Player\MyCharacter.h">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Character\Turret">
       <UniqueIdentifier>{DF69177D-59DE-3C28-9770-54DEB66677DA}</UniqueIdentifier>
@@ -300,16 +333,10 @@
     <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\AnimInstanceBase.h">
       <Filter>Source\SeniorProject\DefaultBase</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\AttackTraceLoop.cpp">
+    <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\MinionAnimInstance.cpp">
       <Filter>Source\SeniorProject\DefaultBase</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\AttackTraceLoop.h">
-      <Filter>Source\SeniorProject\DefaultBase</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\CharacterBase.cpp">
-      <Filter>Source\SeniorProject\DefaultBase</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\CharacterBase.h">
+    <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\MinionAnimInstance.h">
       <Filter>Source\SeniorProject\DefaultBase</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\MovementComponentBase.cpp">
@@ -318,94 +345,13 @@
     <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\MovementComponentBase.h">
       <Filter>Source\SeniorProject\DefaultBase</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\DefaultBase\PlayerStateBase.cpp">
-      <Filter>Source\SeniorProject\DefaultBase</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\DefaultBase\PlayerStateBase.h">
-      <Filter>Source\SeniorProject\DefaultBase</Filter>
-    </ClInclude>
-    <Filter Include="Source\SeniorProject\EnemyBase">
-      <UniqueIdentifier>{9D247104-EB83-3F97-A872-4EE04954E013}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\SeniorProject\EnemyBase\AISetting">
-      <UniqueIdentifier>{EE040051-6739-33AF-B2C9-F9FDC959B6A1}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\AISetting\MinionAIController.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\AISetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\AISetting\MinionAIController.h">
-      <Filter>Source\SeniorProject\EnemyBase\AISetting</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\AISetting\MinionAnimInstance.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\AISetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\AISetting\MinionAnimInstance.h">
-      <Filter>Source\SeniorProject\EnemyBase\AISetting</Filter>
-    </ClInclude>
-    <Filter Include="Source\SeniorProject\EnemyBase\CustomBehaviorTree">
-      <UniqueIdentifier>{C9752647-5074-3293-9180-A2B503E0AAF7}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTDecorator_IsInAttackRange.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTDecorator_IsInAttackRange.h">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTService_Detect.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTService_Detect.h">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_Attack.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_Attack.h">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_FindPatrolPos.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_FindPatrolPos.h">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_TurnToTarget.cpp">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\EnemyBase\CustomBehaviorTree\BTTask_TurnToTarget.h">
-      <Filter>Source\SeniorProject\EnemyBase\CustomBehaviorTree</Filter>
-    </ClInclude>
     <Filter Include="Source\SeniorProject\GameSetting">
       <UniqueIdentifier>{27A5F520-9169-3569-AD92-7A626B5B2CAB}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\DeadZone.cpp">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\DeadZone.h">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyGameInstance.cpp">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGameInstance.h">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.h">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MySaveGame.cpp">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MySaveGame.h">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.cpp">
-      <Filter>Source\SeniorProject\GameSetting</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\Stage1Potal.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Input">
@@ -447,28 +393,10 @@
     <Filter Include="Source\SeniorProject\PlayerBase">
       <UniqueIdentifier>{CF67A7E2-C755-3C6C-B774-6BCBDC96F5D4}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\AbilityComponent.cpp">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\AbilityComponent.h">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\MyAnimInstance.cpp">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\MyAnimInstance.h">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\MyCharacter.cpp">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\MyCharacter.h">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\MyCharacterStatComponent.cpp">
-      <Filter>Source\SeniorProject\PlayerBase</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\MyCharacterStatComponent.h">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\MyPlayerController.cpp">
@@ -477,68 +405,29 @@
     <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\MyPlayerController.h">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\MyPlayerState.cpp">
+    <ClCompile Include="..\..\Source\SeniorProject\PlayerBase\PlayerStateBase.cpp">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\MyPlayerState.h">
+    <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\PlayerStateBase.h">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\UI">
       <UniqueIdentifier>{0774CF93-CC69-3E8D-8376-09C009D5B38F}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\AttributeMenuWidgetController.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\AttributeMenuWidgetController.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\DefaultHUD.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\DefaultHUD.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\UI\DefaultWidgetController.cpp">
       <Filter>Source\SeniorProject\UI</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\UI\DefaultWidgetController.h">
       <Filter>Source\SeniorProject\UI</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\MyCharacterWidget.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
+    <Filter Include="Source\SeniorProject\UI\AttributeMenu">
+      <UniqueIdentifier>{B426E6F9-2635-3158-980B-14B21C37AE4A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\AttributeMenu\AttributeMenuWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI\AttributeMenu</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\MyCharacterWidget.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\MyGamePlayWidget.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\MyGamePlayWidget.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\MyMenuWidget.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\MyMenuWidget.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\OverlayWidget.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\OverlayWidget.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\OverlayWidgetController.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\OverlayWidgetController.h">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\UI\TitleSceneController.cpp">
-      <Filter>Source\SeniorProject\UI</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\UI\TitleSceneController.h">
-      <Filter>Source\SeniorProject\UI</Filter>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\AttributeMenu\AttributeMenuWidgetController.h">
+      <Filter>Source\SeniorProject\UI\AttributeMenu</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\UI\Damage">
       <UniqueIdentifier>{5AA6C50E-EC05-3C6E-A94C-86A42896A8E5}</UniqueIdentifier>
@@ -548,6 +437,30 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\UI\Damage\DamageTextComponent.h">
       <Filter>Source\SeniorProject\UI\Damage</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\HUD">
+      <UniqueIdentifier>{BFB2DF48-0994-3D33-95D8-7CEE869A4726}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\HUD\DefaultHUD.cpp">
+      <Filter>Source\SeniorProject\UI\HUD</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\HUD\DefaultHUD.h">
+      <Filter>Source\SeniorProject\UI\HUD</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\OverlayWidget">
+      <UniqueIdentifier>{BC94E96C-2FB4-3449-8CD8-09D701700C43}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\OverlayWidget\OverlayWidget.cpp">
+      <Filter>Source\SeniorProject\UI\OverlayWidget</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\OverlayWidget\OverlayWidget.h">
+      <Filter>Source\SeniorProject\UI\OverlayWidget</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\OverlayWidget\OverlayWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI\OverlayWidget</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\OverlayWidget\OverlayWidgetController.h">
+      <Filter>Source\SeniorProject\UI\OverlayWidget</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

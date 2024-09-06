@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "SeniorProject/Character/Enemy/Monster/Kwang.h"
+#include "SeniorProject/Character/Enemy/Kwang.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeKwang() {}
 // Cross Module References
@@ -42,8 +42,8 @@ void EmptyLinkFunctionForGeneratedCodeKwang() {}
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Character/Enemy/Monster/Kwang.h" },
-		{ "ModuleRelativePath", "Character/Enemy/Monster/Kwang.h" },
+		{ "IncludePath", "Character/Enemy/Kwang.h" },
+		{ "ModuleRelativePath", "Character/Enemy/Kwang.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AKwang_Statics::StaticCppClassTypeInfo = {
@@ -78,15 +78,15 @@ void EmptyLinkFunctionForGeneratedCodeKwang() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AKwang);
 	AKwang::~AKwang() {}
-	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics
+	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Kwang_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AKwang, AKwang::StaticClass, TEXT("AKwang"), &Z_Registration_Info_UClass_AKwang, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwang), 3873033026U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Kwang_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AKwang, AKwang::StaticClass, TEXT("AKwang"), &Z_Registration_Info_UClass_AKwang, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwang), 1853427172U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_1574326477(TEXT("/Script/SeniorProject"),
-		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Kwang_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Kwang_h_1657511442(TEXT("/Script/SeniorProject"),
+		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Kwang_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Kwang_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -76,6 +76,7 @@ public:
 	
 	/* GameRuleTag */
 	
+	
 	FGameplayTag GameRule_TeamName_BlueTeam;
 	FGameplayTag GameRule_TeamName_RedTeam;
 	FGameplayTag GameRule_TeamName_NeutralityTeam;

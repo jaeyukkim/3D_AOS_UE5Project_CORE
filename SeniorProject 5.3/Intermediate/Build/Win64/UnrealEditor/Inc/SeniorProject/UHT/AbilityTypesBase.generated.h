@@ -14,14 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_AbilityTypesBase_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_10_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FDamageEffectParams_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct();
 
 
 template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FDamageEffectParams>();
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_56_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_57_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct(); \
 	typedef FGameplayEffectContext Super;

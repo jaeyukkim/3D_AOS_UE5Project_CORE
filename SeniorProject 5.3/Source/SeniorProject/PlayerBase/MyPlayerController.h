@@ -37,22 +37,13 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = UI)
-		TSubclassOf<class UMyMenuWidget> MenuWidgetClass;
-	
+
 	UPROPERTY(EditDefaultsOnly)
 		TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
 
 
 private:
-
-	UPROPERTY(EditDefaultsOnly)
-		class UMyMenuWidget* MenuWidget;
-
-
-	UPROPERTY(EditDefaultsOnly)
-		class AMyPlayerState* MyPlayerState;
-
+	
 
 	FInputModeGameOnly GameInputMode;
 	FInputModeUIOnly UIInputMode;

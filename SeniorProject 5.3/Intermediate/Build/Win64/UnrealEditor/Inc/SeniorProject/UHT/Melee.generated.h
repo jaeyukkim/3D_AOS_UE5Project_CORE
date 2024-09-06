@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Character/Enemy/Monster/Melee.h"
+// IWYU pragma: private, include "Character/Enemy/Melee.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,12 +14,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_Melee_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMelee(); \
 	friend struct Z_Construct_UClass_AMelee_Statics; \
@@ -28,7 +28,7 @@ public: \
 	DECLARE_SERIALIZER(AMelee)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMelee(AMelee&&); \
@@ -40,17 +40,17 @@ public: \
 	NO_API virtual ~AMelee();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_12_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_12_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h_15_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -58,7 +58,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class AMelee>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Melee_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Melee_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

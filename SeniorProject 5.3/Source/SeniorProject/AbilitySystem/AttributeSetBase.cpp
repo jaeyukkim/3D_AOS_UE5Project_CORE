@@ -8,6 +8,7 @@
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "Kismet/GameplayStatics.h"
+#include "SeniorProject/Character/Enemy/Minions.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 
 class ICombatInterface;
@@ -139,6 +140,7 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 			const bool bCriticalHit = UBlueprintFunctionLibraryBase::IsCriticalHit(Props.EffectContextHandle);
 			const bool bMagicalDamage = UBlueprintFunctionLibraryBase::IsMagicalDamage(Props.EffectContextHandle);
 
+			NotifyMinionTarget(Props.TargetAvatarActor, Props.SourceAvatarActor);
 			ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
 		}
 	}
@@ -187,6 +189,39 @@ void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float D
 			PC->ShowDamageNumber(Damage, Props.TargetCharacter, bCriticalHit, bMagicalDamage);
 		}
 	}
+}
+
+void UAttributeSetBase::NotifyMinionTarget(AActor* DamagedActor, AActor* Instigator)
+{
+	//데미지를 주고 받은 사람이 플레이어가 아닐 경우 미니언에게 타겟 정보를 보낼 이유가 없음
+	if(!(DamagedActor->ActorHasTag("Player") && Instigator->ActorHasTag("Player"))) return;
+
+	UWorld* World = DamagedActor->GetWorld();
+	if (!World) return;
+
+	FVector ActorLocation = DamagedActor->GetActorLocation();
+	TArray<FOverlapResult> Overlaps;
+
+	// 일정 범위 내에서 미니언을 탐색 (구체 형태의 충돌 탐지)
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(1000.0f); // 범위는 상황에 따라 조정
+
+	World->OverlapMultiByChannel(Overlaps, ActorLocation, FQuat::Identity, ECC_Pawn, Sphere);
+
+	for (FOverlapResult& Overlap : Overlaps)
+	{
+		if(Overlap.GetActor()->ActorHasTag("Minion"))
+		{
+			
+			if (UBlueprintFunctionLibraryBase::IsFriends(DamagedActor, Overlap.GetActor()) &&
+				!UBlueprintFunctionLibraryBase::IsFriends(Instigator, Overlap.GetActor()))  
+			{
+				if(IEnemyInterface* Minion = Cast<IEnemyInterface>(Overlap.GetActor()))
+					Minion->Execute_SetTargetPlayer(Overlap.GetActor(), Instigator);
+			}
+		}
+		
+	}
+	
 }
 
 /* OnRep_VitalAttributes */

@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Character/Enemy/Monster/Minions.h"
+// IWYU pragma: private, include "Character/Enemy/Minions.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -14,17 +14,17 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SENIORPROJECT_Minions_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnRep_Mesh); \
 	DECLARE_FUNCTION(execSetIsMeshChanged);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMinions(); \
 	friend struct Z_Construct_UClass_AMinions_Statics; \
@@ -39,7 +39,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AMinions(AMinions&&); \
@@ -51,17 +51,17 @@ public: \
 	NO_API virtual ~AMinions();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_17_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_17_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h_21_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -69,7 +69,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SENIORPROJECT_API UClass* StaticClass<class AMinions>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Monster_Minions_h
+#define CURRENT_FILE_ID FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
