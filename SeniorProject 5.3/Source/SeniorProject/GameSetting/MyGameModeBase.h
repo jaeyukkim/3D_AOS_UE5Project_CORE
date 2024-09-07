@@ -9,12 +9,9 @@
 #include "MyGameModeBase.generated.h"
 
 class UCharacterClassInfo;
+class ATurret;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateMinionTargetsSignature);
-
-/**
- * 
- */
 
 
 
@@ -32,8 +29,14 @@ public:
 
 	UFUNCTION()
 	void OnTurretDestroyed(const FGameplayTag LineTag, const FGameplayTag TurretLevelTag, const FGameplayTag TeamTag);
-	void UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag);
+	
+	UFUNCTION()
+	void UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bisdestroyed);
+	
+	// 포탑이 게임 모드에 자신을 등록할 때 호출
+	void OnTurretSpawned(ATurret* SpawnedTurret);
 
+	
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
 	
@@ -47,28 +50,32 @@ protected:
 	virtual void BeginPlay() override;
 
 	//첫 미니언 스폰 타임
-	float InitialSpawnTime = 8.f;
+	float InitialSpawnTime = 30.f;
 
 	// 미니언 스폰 타임 주기
-	float RecurringSpawnTime = 30.f;
+	float RecurringSpawnTime = 45.f;
 
 	//공성 미니언 스폰 주기
 	int32 SiegeMinionSpawnCycle = 0;
 	
 private:
 
+
+	// 일정 시간마다 미니언 스폰하는 함수
 	UFUNCTION()
 	void SpawnMinion();
 
 	UFUNCTION()
 	bool IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag LineTag) const;
 	
-	
+
+	/* 초기화는 모두 파괴되어있는 상태 */
 	uint16 BlueTeamTurretStates = 0;
-	
-	
 	uint16 RedTeamTurretStates = 0;
 	
 	FTimerHandle InitialSpawnTimerHandle;
 	FTimerHandle RecurringSpawnTimerHandle;
+
+
+	
 };

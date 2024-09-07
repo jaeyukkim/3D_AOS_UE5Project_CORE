@@ -6,6 +6,9 @@
         "PCH": "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\seniorprojecteditor\\debuggame\\unrealed\\sharedpch.unrealed.nonoptimized.cpp20.inclorderunreal5_0.h.pch",
         "Includes": [
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\seniorproject\\definitions.seniorproject.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.gen.cpp",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\data\\characterclassinfo.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\interface\\combatinterface.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\combatinterface.generated.h",
@@ -232,8 +235,6 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagassetinterface.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagassetinterface.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\overlaywidgetcontroller.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\data\\characterclassinfo.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\characterclassinfo.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\minions.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\crunch.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\damageactorbase.gen.cpp",
@@ -525,10 +526,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mycharacter.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mygamemodebase.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\gamesetting\\mygamemodebase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mygamemodebase.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\myplayercontroller.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\playerbase\\myplayercontroller.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\myplayercontroller.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mygamemodebase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

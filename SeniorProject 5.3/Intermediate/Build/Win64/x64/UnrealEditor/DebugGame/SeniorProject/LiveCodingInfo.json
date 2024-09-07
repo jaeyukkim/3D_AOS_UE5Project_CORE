@@ -7,17 +7,19 @@
 			"AbilityTypesBase.gen.cpp.obj",
 			"AIControllerBase.gen.cpp.obj",
 			"AnimInstanceBase.gen.cpp.obj",
+			"AssetManagerBase.gen.cpp.obj",
 			"AttributeInfo.gen.cpp.obj",
 			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
 			"BlueprintFunctionLibraryBase.gen.cpp.obj",
 			"BTDecorator_IsInAttackRange.gen.cpp.obj",
+			"BTS_Detect.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
 			"BTTask_TurnToTarget.gen.cpp.obj",
-			"CharacterBase.gen.cpp.obj",
-			"CharacterClassInfo.gen.cpp.obj"
+			"CharacterBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
 			"DamageActorBase.gen.cpp.obj",
@@ -44,10 +46,10 @@
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
 			"MyCharacter.gen.cpp.obj",
-			"MyGameModeBase.gen.cpp.obj",
-			"MyPlayerController.gen.cpp.obj"
+			"MyGameModeBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
@@ -79,8 +81,10 @@
 			"ProjectileBase.cpp.obj",
 			"AIControllerBase.cpp.obj",
 			"BTDecorator_IsInAttackRange.cpp.obj",
+			"BTS_Detect.cpp.obj",
 			"BTTask_FindPatrolPos.cpp.obj",
 			"BTTask_TurnToTarget.cpp.obj",
+			"AssetManagerBase.cpp.obj",
 			"CharacterBase.cpp.obj",
 			"Crunch.cpp.obj",
 			"KallariAI.cpp.obj",

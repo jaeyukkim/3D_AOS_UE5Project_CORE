@@ -3,10 +3,31 @@
 
 #include "Turret.h"
 
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
+
 ATurret::ATurret()
 {
 	Tags.Add(TEXT("Turret"));
 	
+}
+
+void ATurret::BeginPlay()
+{
+	Super::BeginPlay();
+
+
+	RegisterWithGameMode();
+	
+}
+
+void ATurret::RegisterWithGameMode()
+{
+	
+	if (AMyGameModeBase* GameMode = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(GetWorld())))
+	{
+		// 게임 모드에 자신을 등록
+		GameMode->OnTurretSpawned(this);
+	}
 }
 
 void ATurret::Die()
