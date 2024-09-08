@@ -2,6 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.SeniorProject.1.cpp.obj": [
+			"AbilityInfo.gen.cpp.obj",
 			"AbilitySystemComponentBase.gen.cpp.obj",
 			"AbilitySystemGlobalsBase.gen.cpp.obj",
 			"AbilityTypesBase.gen.cpp.obj",
@@ -69,6 +70,7 @@
 			"TargetDataAim.cpp.obj",
 			"AbilityTypesBase.cpp.obj",
 			"AttributeSetBase.cpp.obj",
+			"AbilityInfo.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
 			"ExecCalc_Damage.cpp.obj",

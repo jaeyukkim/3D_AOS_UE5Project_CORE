@@ -151,7 +151,13 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Nexus"));
 	/* end GameRuleTag */
 
-	
+
+	/* CharacterTag */
+	GameplayTags.Character_Kwang = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Character.Kwang"),
+		FString("Character.Kwang"));
+	/* End CharacterTag */
+
+
 	
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
 			FName("Effects.HitReact"),FString("Tag granted when Hit Reacting"));

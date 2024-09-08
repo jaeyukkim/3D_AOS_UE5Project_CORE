@@ -22,6 +22,7 @@ class SENIORPROJECT_API UAttributeMenuWidgetController : public UDefaultWidgetCo
 public:
 	
 	virtual void BindCallbacksToDependencies() override;
+	
 	UFUNCTION(BlueprintCallable)
 	virtual void BroadcastInitialValues() override;
 

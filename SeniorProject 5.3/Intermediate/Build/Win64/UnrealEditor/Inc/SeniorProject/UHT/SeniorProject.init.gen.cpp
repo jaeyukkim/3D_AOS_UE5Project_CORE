@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AimTargetDataSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AttributeInfoSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature();
@@ -23,6 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 		if (!Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton)
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AimTargetDataSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AttributeInfoSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature,
@@ -39,13 +41,13 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x812CADD0,
-				0xC3BC3B58,
+				0x7F4E80B3,
+				0x007C8DD2,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x812CADD0, 0xC3BC3B58));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x7F4E80B3, 0x007C8DD2));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

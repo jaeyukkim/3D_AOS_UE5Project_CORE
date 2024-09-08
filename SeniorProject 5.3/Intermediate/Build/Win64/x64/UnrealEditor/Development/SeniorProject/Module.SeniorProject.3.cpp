@@ -19,6 +19,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilityTypesBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/AbilityInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/AttributeInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp"

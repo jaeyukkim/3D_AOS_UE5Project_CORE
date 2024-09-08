@@ -76,7 +76,6 @@ public:
 	
 	/* GameRuleTag */
 	
-	
 	FGameplayTag GameRule_TeamName_BlueTeam;
 	FGameplayTag GameRule_TeamName_RedTeam;
 	FGameplayTag GameRule_TeamName_NeutralityTeam;
@@ -91,12 +90,16 @@ public:
 	
 	FGameplayTag GameRule_Turret_Inhibitor;
 	FGameplayTag GameRule_Turret_Nexus;
-
-
+	
 	/* End GameRuleTag */
 
 
+	/* Character Tag */
+	FGameplayTag Character_Kwang;
+	/* End Character Tag */
+
 protected:
+	
 private:
 	
 };

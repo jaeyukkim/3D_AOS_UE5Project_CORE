@@ -4,6 +4,7 @@
 #include "OverlayWidgetController.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/AbilitySystem/Data/AbilityInfo.h"
 
 void UOverlayWidgetController::BroadcastInitialValues()
 {
@@ -15,6 +16,8 @@ void UOverlayWidgetController::BroadcastInitialValues()
 	OnNextExpChanged.Broadcast(GetMyAS()->GetNextExp());
 	OnExpChanged.Broadcast(GetMyAS()->GetExp());
 	//OnLevelChanged.Broadcast(GetMyAS()->GetLevel());
+
+
 }
 
 void UOverlayWidgetController::BindCallbacksToDependencies()
@@ -57,24 +60,53 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 		OnExpChanged.Broadcast(Data.NewValue);
 	});
 
-
-	
-	Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
-	[this](const FGameplayTagContainer& AssetTags)
+	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
-		for (const FGameplayTag& Tag : AssetTags)
+		if (ASCBase->bStartupAbilitiesGiven)
 		{
-			// For example, say that Tag = Message.HealthPotion
-				// "Message.HealthPotion".MatchesTag("Message") will return True, "Message".MatchesTag("Message.HealthPotion") will return False
-				FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
-				if (Tag.MatchesTag(MessageTag))
-				{
-					const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
-					MessageWidgetRowDelegate.Broadcast(*Row);
-				}
+			OnInitializeStartupAbilities(ASCBase);
 		}
-	});
+		else
+		{
+			ASCBase->AbilitiesGivenDelegate.AddUObject(this, &UOverlayWidgetController::OnInitializeStartupAbilities);
+		}
 
+
+		ASCBase->EffectAssetTags.AddLambda(
+	[this](const FGameplayTagContainer& AssetTags)
+		{
+			for (const FGameplayTag& Tag : AssetTags)
+			{
+				// For example, say that Tag = Message.HealthPotion
+				// "Message.HealthPotion".MatchesTag("Message") will return True, "Message".MatchesTag("Message.HealthPotion") will return False
+					FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
+					if (Tag.MatchesTag(MessageTag))
+					{
+						const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+						MessageWidgetRowDelegate.Broadcast(*Row);
+					}
+			}
+		});
+		
+	}
+	
+
+}
+
+void UOverlayWidgetController::OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase)
+{
+	//Get information about all given abilities, look up their Ability Info, and broadcast it to widgets.
+	if (!AbilitySystemComponentBase->bStartupAbilitiesGiven) return;
+
+	FForEachAbility BroadcastDelegate;
+	BroadcastDelegate.BindLambda([this, AbilitySystemComponentBase](const FGameplayAbilitySpec& AbilitySpec)
+	{
+		
+		FAbilityInfoBase Info = AbilityInfo->FindAbilityInfoForTag(AbilitySystemComponentBase->GetAbilityTagFromSpec(AbilitySpec));
+		Info.InputTag = AbilitySystemComponentBase->GetInputTagFromSpec(AbilitySpec);
+		AbilityInfoDelegate.Broadcast(Info);
+	});
+	AbilitySystemComponentBase->ForEachAbility(BroadcastDelegate);
 }
 
 

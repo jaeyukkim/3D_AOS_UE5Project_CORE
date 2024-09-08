@@ -7,7 +7,10 @@
 #include "AbilitySystemComponentBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
+DECLARE_MULTICAST_DELEGATE_OneParam(FAbilitiesGiven, UAbilitySystemComponentBase*);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackEndSignatures);
+DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
+
 /**
  * 
  */
@@ -22,11 +25,20 @@ public:
 	
 	UPROPERTY(BlueprintAssignable, Category = "Combat")
 	FOnAttackEndSignatures AttackEndSignature;
-	
+
+	FAbilitiesGiven AbilitiesGivenDelegate;
+	bool bStartupAbilitiesGiven = false;
 	
 	void AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility);
 	void AbilityInputTagHeld(const FGameplayTag& InputTag);
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);
+
+	void ForEachAbility(const FForEachAbility& Delegate);
+
+	static FGameplayTag GetAbilityTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
+	static FGameplayTag GetInputTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
+	virtual void OnRep_ActivateAbilities() override;
+	
 protected:
 
     UFUNCTION(Client, Reliable)

@@ -4,8 +4,11 @@
 
 #include "SeniorProject/SeniorProject.h"
 #include "SeniorProject/UI/DefaultWidgetController.h"
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "GameplayTags.h"
 #include "OverlayWidgetController.generated.h"
+
+struct FAuraAbilityInfo;
 
 USTRUCT(BlueprintType)
 struct FUIWidgetRow : public FTableRowBase
@@ -25,16 +28,16 @@ struct FUIWidgetRow : public FTableRowBase
 	UTexture2D* Image = nullptr;
 };
 
+class UOverlayWidget;
+class UAbilityInfo;
+class UAbilitySystemComponentBase;
+
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLevelChangedSignature, int32, NewLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAdditionalAttributeMenuSignature, bool, bIsActive);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMessageWidgetRowSignature, FUIWidgetRow, Row);
-
-class UOverlayWidget;
-
-
-
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAbilityInfoSignature, const FAbilityInfoBase&, Info);
 
 /**
  *
@@ -74,14 +77,22 @@ public:
 	
 	UPROPERTY(BlueprintAssignable, Category="GAS|Messages")
 		FMessageWidgetRowSignature MessageWidgetRowDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category="GAS|Ability")
+	FAbilityInfoSignature AbilityInfoDelegate;
 	
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
 	TObjectPtr<UDataTable> MessageWidgetDataTable;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
+	TObjectPtr<UAbilityInfo> AbilityInfo;
 	
 	template<typename T>
 	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);
+
+	void OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase);
 	
 };
 template <typename T>

@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "GameplayTagContainer.h"
+#include "SeniorProject/AbilitySystem/Data/AbilityInfo.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeOverlayWidgetController() {}
 // Cross Module References
@@ -15,14 +16,17 @@ void EmptyLinkFunctionForGeneratedCodeOverlayWidgetController() {}
 	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilityInfo_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UDefaultWidgetController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidget_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidgetController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidgetController_NoRegister();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAdditionalAttributeMenuSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttributeChangedSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnLevelChangedSignature__DelegateSignature();
+	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FAbilityInfoBase();
 	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FUIWidgetRow();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
@@ -314,6 +318,58 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 	Parms.Row=Row;
 	MessageWidgetRowSignature.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	struct Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics
+	{
+		struct _Script_SeniorProject_eventAbilityInfoSignature_Parms
+		{
+			FAbilityInfoBase Info;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Info_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Info;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::NewProp_Info_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventAbilityInfoSignature_Parms, Info), Z_Construct_UScriptStruct_FAbilityInfoBase, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::NewProp_Info_MetaData), Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::NewProp_Info_MetaData) }; // 84626540
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::NewProp_Info,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "AbilityInfoSignature__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::_Script_SeniorProject_eventAbilityInfoSignature_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::_Script_SeniorProject_eventAbilityInfoSignature_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& AbilityInfoSignature, FAbilityInfoBase const& Info)
+{
+	struct _Script_SeniorProject_eventAbilityInfoSignature_Parms
+	{
+		FAbilityInfoBase Info;
+	};
+	_Script_SeniorProject_eventAbilityInfoSignature_Parms Parms;
+	Parms.Info=Info;
+	AbilityInfoSignature.ProcessMulticastDelegate<UObject>(&Parms);
+}
 	void UOverlayWidgetController::StaticRegisterNativesUOverlayWidgetController()
 	{
 	}
@@ -365,9 +421,17 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_MessageWidgetRowDelegate;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityInfoDelegate_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_AbilityInfoDelegate;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MessageWidgetDataTable_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MessageWidgetDataTable;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityInfo_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilityInfo;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -452,12 +516,26 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetRowDelegate = { "MessageWidgetRowDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidgetController, MessageWidgetRowDelegate), Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetRowDelegate_MetaData), Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetRowDelegate_MetaData) }; // 1438003612
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfoDelegate_MetaData[] = {
+		{ "Category", "GAS|Ability" },
+		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfoDelegate = { "AbilityInfoDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidgetController, AbilityInfoDelegate), Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfoDelegate_MetaData), Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfoDelegate_MetaData) }; // 431568684
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetDataTable_MetaData[] = {
 		{ "Category", "Widget Data" },
 		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetDataTable = { "MessageWidgetDataTable", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidgetController, MessageWidgetDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetDataTable_MetaData), Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetDataTable_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfo_MetaData[] = {
+		{ "Category", "Widget Data" },
+		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfo = { "AbilityInfo", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UOverlayWidgetController, AbilityInfo), Z_Construct_UClass_UAbilityInfo_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfo_MetaData), Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfo_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UOverlayWidgetController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_OnHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_OnMaxHealthChanged,
@@ -468,7 +546,9 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_OnLevelChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_OnAdditionalAttributeMenu,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetRowDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfoDelegate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_MessageWidgetDataTable,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UOverlayWidgetController_Statics::NewProp_AbilityInfo,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UOverlayWidgetController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UOverlayWidgetController>::IsAbstract,
@@ -513,9 +593,9 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 		{ FUIWidgetRow::StaticStruct, Z_Construct_UScriptStruct_FUIWidgetRow_Statics::NewStructOps, TEXT("UIWidgetRow"), &Z_Registration_Info_UScriptStruct_UIWidgetRow, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUIWidgetRow), 4119755805U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 4061846062U) },
+		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 767115063U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_234276675(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_3097092465(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo),
 		nullptr, 0);
