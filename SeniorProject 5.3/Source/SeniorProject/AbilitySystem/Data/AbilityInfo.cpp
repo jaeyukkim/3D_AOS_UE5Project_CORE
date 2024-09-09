@@ -3,11 +3,11 @@
 
 #include "AbilityInfo.h"
 
-FAbilityInfoBase UAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& CharacterTag, bool bLogNotFound) const
+FAbilityInfoBase UAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound) const
 {
 	for (const FAbilityInfoBase& Info : AbilityInformation)
 	{
-		if (Info.CharacterTag == CharacterTag)
+		if (Info.AbilityTag == AbilityTag)
 		{
 			return Info;
 		}
@@ -15,7 +15,7 @@ FAbilityInfoBase UAbilityInfo::FindAbilityInfoForTag(const FGameplayTag& Charact
 
 	if (bLogNotFound)
 	{
-		UE_LOG(LogTemp, Error, TEXT("Can't find info for AbilityTag [%s] on AbilityInfo [%s]"), *CharacterTag.ToString(), *GetNameSafe(this));
+		UE_LOG(LogTemp, Error, TEXT("Can't find info for AbilityTag [%s] on AbilityInfo [%s]"), *AbilityTag.ToString(), *GetNameSafe(this));
 	}
 
 	return FAbilityInfoBase();

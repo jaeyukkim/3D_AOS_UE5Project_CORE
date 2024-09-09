@@ -51,11 +51,12 @@ public:
 	FORCEINLINE virtual bool IsDead_Implementation() const override {return bDead;}
 	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;};
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
+	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() override;;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
 	virtual void Die() override;
-	UFUNCTION(BlueprintImplementableEvent)
-	void DieAction();
+	
+	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
 	/* end CombatInterface*/
@@ -139,6 +140,9 @@ private:
 
 	UPROPERTY(EditAnywhere,  Category="Combat")
 	TArray<TObjectPtr<UAnimMontage>> AttackMontage;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UAnimationAsset> DieAnimationAsset;
 
 	int32 MaxAttackCombo = 0;
 	int32 CurrentCombo = 0;

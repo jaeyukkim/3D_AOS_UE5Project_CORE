@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+class UAnimationAsset;
 class UAnimMontage;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_CombatInterface_generated_h
@@ -25,6 +26,7 @@ struct FGameplayTag;
 	virtual bool IsAttacking_Implementation() { return false; }; \
 	virtual AActor* GetAvatar_Implementation() { return NULL; }; \
 	virtual bool IsDead_Implementation() const { return false; }; \
+	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetAttackMontage_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
 	virtual FVector GetCombatSocketLocation_Implementation(FGameplayTag const& MontageTag) { return FVector(ForceInit); }; \
@@ -33,6 +35,7 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execIsAttacking); \
 	DECLARE_FUNCTION(execGetAvatar); \
 	DECLARE_FUNCTION(execIsDead); \
+	DECLARE_FUNCTION(execGetDieAnimationAsset); \
 	DECLARE_FUNCTION(execGetAttackMontage); \
 	DECLARE_FUNCTION(execGetHitReactMontage); \
 	DECLARE_FUNCTION(execGetCombatSocketLocation);
@@ -80,6 +83,7 @@ public: \
 	static UAnimMontage* Execute_GetAttackMontage(UObject* O); \
 	static AActor* Execute_GetAvatar(UObject* O); \
 	static FVector Execute_GetCombatSocketLocation(UObject* O, FGameplayTag const& MontageTag); \
+	static UAnimationAsset* Execute_GetDieAnimationAsset(UObject* O); \
 	static UAnimMontage* Execute_GetHitReactMontage(UObject* O); \
 	static bool Execute_IsAttacking(UObject* O); \
 	static bool Execute_IsDead(const UObject* O); \

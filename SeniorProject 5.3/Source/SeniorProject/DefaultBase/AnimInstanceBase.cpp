@@ -107,17 +107,15 @@ void UAnimInstanceBase::AnimNotify_ResetCombo()
 
 }
 
-//�̵��� ������ �� ����������� �̵��ϰ� �־����� ��ġ���� ����
 
 
-// ���� �� ���ݽ� ������ �����ϴ� ���� ���������� ����
 void UAnimInstanceBase::AnimNotify_RightAttack()
 {
 
 
 }
 
-// ���� �� ���ݽ� ������ �����ϴ� �� �� �޼����� ����
+
 void UAnimInstanceBase::AnimNotify_LeftAttack()
 {
 

@@ -14,7 +14,7 @@ struct FAbilityInfoBase
 	GENERATED_BODY()
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-	FGameplayTag CharacterTag = FGameplayTag();
+	FGameplayTag AbilityTag = FGameplayTag();
 
 	UPROPERTY(BlueprintReadOnly)
 	FGameplayTag InputTag = FGameplayTag();
@@ -39,7 +39,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AbilityInformation")
 	TArray<FAbilityInfoBase> AbilityInformation;
 
-	FAbilityInfoBase FindAbilityInfoForTag(const FGameplayTag& CharacterTag, bool bLogNotFound = false) const;
+	FAbilityInfoBase FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound = false) const;
 	
 	
 };

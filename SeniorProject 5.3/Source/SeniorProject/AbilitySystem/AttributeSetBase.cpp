@@ -129,6 +129,10 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 				{
 					CombatInterface->Die();
 				}
+
+				FGameplayTagContainer TagContainer;
+				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
+				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
 			}
 			
 			else

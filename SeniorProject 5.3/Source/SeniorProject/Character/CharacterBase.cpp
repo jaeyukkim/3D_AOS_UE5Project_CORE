@@ -79,6 +79,11 @@ UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
 	return HitReactMontage;
 }
 
+UAnimationAsset* ACharacterBase::GetDieAnimationAsset_Implementation()
+{
+	return DieAnimationAsset;
+}
+
 UAnimMontage* ACharacterBase::GetAttackMontage_Implementation()
 {
 	return AttackMontage[GetCurrentCombo()];
@@ -119,8 +124,10 @@ void ACharacterBase::Die()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
+	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	
-	DieAction();
 	bDead = true;
 	
 }

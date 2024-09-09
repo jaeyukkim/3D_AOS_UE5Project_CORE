@@ -83,7 +83,7 @@ FGameplayTag UAbilitySystemComponentBase::GetAbilityTagFromSpec(const FGameplayA
 	{
 		for (FGameplayTag Tag : AbilitySpec.Ability.Get()->AbilityTags)
 		{
-			if (Tag.MatchesTag(FGameplayTag::RequestGameplayTag(FName("CharacterTags"))))
+			if (Tag.MatchesTag(FGameplayTag::RequestGameplayTag(FName("Abilities"))))
 			{
 				return Tag;
 			}
@@ -97,7 +97,7 @@ FGameplayTag UAbilitySystemComponentBase::GetInputTagFromSpec(const FGameplayAbi
 {
 	for (FGameplayTag Tag : AbilitySpec.DynamicAbilityTags)
 	{
-		if (Tag.MatchesTag(FGameplayTag::RequestGameplayTag(FName("InputTag"))))
+		if (Tag.MatchesTag(FGameplayTag::RequestGameplayTag(FName("Input"))))
 		{
 			return Tag;
 		}
@@ -108,6 +108,7 @@ FGameplayTag UAbilitySystemComponentBase::GetInputTagFromSpec(const FGameplayAbi
 void UAbilitySystemComponentBase::OnRep_ActivateAbilities()
 {
 	Super::OnRep_ActivateAbilities();
+	
 	if (!bStartupAbilitiesGiven)
 	{
 		bStartupAbilitiesGiven = true;

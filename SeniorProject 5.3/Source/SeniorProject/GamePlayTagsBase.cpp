@@ -81,6 +81,12 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 			FString("Input Tag for Q Keyboard Button"));
 	GameplayTags.Input_R =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.R"),
 			FString("Input Tag for R Keyboard Button"));
+	GameplayTags.Input_SHIFT =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.SHIFT"),
+			FString("Input Tag for SHIFT Keyboard Button"));
+	GameplayTags.Input_F =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.F"),
+			FString("Input Tag for F Keyboard Button"));
+	GameplayTags.Input_B =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.B"),
+			FString("Input Tag for B Keyboard Button"));
 	/* end Input Tag */
 
 
@@ -94,7 +100,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	/* End Damage Tag */
 
 	
-	/* Combat Tag */
+	/* Abilities Tag */
 	GameplayTags.Abilities_Combat_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.Attack"),
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_MeleeAttack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.MeleeAttack"),
@@ -105,7 +111,21 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_ResetCombo = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.ResetCombo"),
 		FString("Attack Ability Tag"));
-	/* end Combat Tag */
+
+
+	GameplayTags.Abilities_AbilityQ = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityQ"),
+		FString("AbilityQ Tag"));
+	GameplayTags.Abilities_AbilityRMB = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityRMB"),
+		FString("AbilityRMB Tag"));
+	GameplayTags.Abilities_AbilityR = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityR"),
+		FString("AbilityR Tag"));
+	GameplayTags.Abilities_AbilitySHIFT = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilitySHIFT"),
+		FString("AbilitySHIFT Tag"));
+	GameplayTags.Abilities_AbilityF = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityF"),
+		FString("AbilityF Tag"));
+	GameplayTags.Abilities_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.NONE"),
+		FString("NONE Tag"));
+	/* end Abilities Tag */
 	
 	
 	/* Combat Sockets */
@@ -151,14 +171,11 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Nexus"));
 	/* end GameRuleTag */
 
-
-	/* CharacterTag */
-	GameplayTags.Character_Kwang = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Character.Kwang"),
-		FString("Character.Kwang"));
-	/* End CharacterTag */
-
+	
 
 	
 	GameplayTags.Effects_HitReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
 			FName("Effects.HitReact"),FString("Tag granted when Hit Reacting"));
+	GameplayTags.Effects_DieReact = UGameplayTagsManager::Get().AddNativeGameplayTag(
+			FName("Effects.DieReact"),FString("Tag granted when Die DieReact"));
 }

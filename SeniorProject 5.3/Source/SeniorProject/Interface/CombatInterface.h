@@ -44,6 +44,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetAttackMontage();
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UAnimationAsset* GetDieAnimationAsset();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool IsDead() const;

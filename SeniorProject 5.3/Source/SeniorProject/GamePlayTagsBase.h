@@ -53,18 +53,15 @@ public:
 	FGameplayTag Input_RMB;
 	FGameplayTag Input_Q;
 	FGameplayTag Input_R;
+	FGameplayTag Input_SHIFT;
+	FGameplayTag Input_F;
+	FGameplayTag Input_B;
 	/* Input Tag */
 
 	FGameplayTag PhysicalDamage;
 	FGameplayTag MagicalDamage;
-	FGameplayTag Effects_HitReact;
 	TArray<FGameplayTag> DamageTypes;
-
-	FGameplayTag Abilities_Combat_Attack;
-	FGameplayTag Abilities_Combat_MeleeAttack;
-	FGameplayTag Abilities_Combat_RangeAttack;
-	FGameplayTag Abilities_Combat_ResetCombo;
-	FGameplayTag Abilities_Combat_SaveCombo;
+	
 
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
@@ -94,13 +91,27 @@ public:
 	/* End GameRuleTag */
 
 
-	/* Character Tag */
-	FGameplayTag Character_Kwang;
-	/* End Character Tag */
+	/* Abilities */
+	FGameplayTag Abilities_Combat_Attack;
+	FGameplayTag Abilities_Combat_MeleeAttack;
+	FGameplayTag Abilities_Combat_RangeAttack;
+	FGameplayTag Abilities_Combat_ResetCombo;
+	FGameplayTag Abilities_Combat_SaveCombo;
 
-protected:
-	
-private:
-	
+	FGameplayTag Abilities_AbilityQ;
+	FGameplayTag Abilities_AbilityRMB;
+	FGameplayTag Abilities_AbilityR;
+	FGameplayTag Abilities_AbilityF;
+	FGameplayTag Abilities_AbilitySHIFT;
+	FGameplayTag Abilities_NONE;
+
+	/* End Abilities */
+
+
+	/* Effect */
+	FGameplayTag Effects_HitReact;
+	FGameplayTag Effects_DieReact;
+	/* End Effect */
+
 };
 
