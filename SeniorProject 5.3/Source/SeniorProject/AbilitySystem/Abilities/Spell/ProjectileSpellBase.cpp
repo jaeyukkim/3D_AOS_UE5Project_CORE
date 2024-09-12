@@ -23,6 +23,7 @@ void UProjectileSpellBase::SpawnProjectileAimLocation(const FVector& AimLocation
 	
 	const bool bIsServer = GetAvatarActorFromActorInfo()->HasAuthority();
 	if (!bIsServer) return;
+	
 	FTransform SpawnTransform;
 	SpawnTransform.SetLocation(AimLocation + AdditiveSpawnLocation);
 	//TODO: Set the Projectile Rotation

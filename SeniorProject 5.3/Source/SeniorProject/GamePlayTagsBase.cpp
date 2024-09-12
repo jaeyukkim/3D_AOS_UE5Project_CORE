@@ -126,7 +126,25 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.Abilities_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.NONE"),
 		FString("NONE Tag"));
 	/* end Abilities Tag */
+
+
+
 	
+	/* Cool Down*/
+	GameplayTags.Cooldown_AbilityQ = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Cooldown.AbilityQ"),
+		FString("AbilityQ Cooldown Tag"));
+	GameplayTags.Cooldown_AbilityRMB = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Cooldown.AbilityRMB"),
+	FString("AbilityRMB Cooldown Tag"));
+	GameplayTags.Cooldown_AbilityR = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Cooldown.AbilityR"),
+	FString("AbilityR Cooldown Tag"));
+	GameplayTags.Cooldown_AbilitySHIFT = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Cooldown.AbilitySHIFT"),
+	FString("AbilitySHIFT Cooldown Tag"));
+	GameplayTags.Cooldown_AbilityF = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Cooldown.AbilityF"),
+	FString("AbilityF Cooldown Tag"));
+	/* End Cool Down*/
+
+
+
 	
 	/* Combat Sockets */
 	GameplayTags.CombatSocket_Weapon = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.Weapon"),

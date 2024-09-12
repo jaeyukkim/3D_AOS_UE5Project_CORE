@@ -108,6 +108,15 @@ public:
 	/* End Abilities */
 
 
+	/* Cool Down*/
+	FGameplayTag Cooldown_AbilityQ;
+	FGameplayTag Cooldown_AbilityRMB;
+	FGameplayTag Cooldown_AbilityR;
+	FGameplayTag Cooldown_AbilityF;
+	FGameplayTag Cooldown_AbilitySHIFT;
+	/* End Cool Down*/
+
+
 	/* Effect */
 	FGameplayTag Effects_HitReact;
 	FGameplayTag Effects_DieReact;

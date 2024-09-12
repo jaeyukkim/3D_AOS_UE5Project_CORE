@@ -77,7 +77,7 @@ void AMyPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 
 void AMyPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
-	
+	if (GetASC()) GetASC()->AbilityInputTagReleased(InputTag);
 }
 
 void AMyPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)

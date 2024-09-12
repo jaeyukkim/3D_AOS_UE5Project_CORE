@@ -34,11 +34,11 @@ void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGamepl
 
 void UAbilitySystemComponentBase::AbilityInputTagHeld(const FGameplayTag& InputTag)
 {
-	if(!InputTag.IsValid()) return;
-
-	for(FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	if (!InputTag.IsValid()) return;
+	FScopedAbilityListLock ActiveScopeLoc(*this);
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if(AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
 		{
 			AbilitySpecInputPressed(AbilitySpec);
 			if (!AbilitySpec.IsActive())
@@ -46,22 +46,38 @@ void UAbilitySystemComponentBase::AbilityInputTagHeld(const FGameplayTag& InputT
 				TryActivateAbility(AbilitySpec.Handle);
 			}
 		}
-		
 	}
 	
 }
 
 void UAbilitySystemComponentBase::AbilityInputTagReleased(const FGameplayTag& InputTag)
 {
-	if(!InputTag.IsValid()) return;
-
-	for(FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	if (!InputTag.IsValid()) return;
+	FScopedAbilityListLock ActiveScopeLoc(*this);
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if(AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag) && AbilitySpec.IsActive())
 		{
 			AbilitySpecInputReleased(AbilitySpec);
+			InvokeReplicatedEvent(EAbilityGenericReplicatedEvent::InputReleased, AbilitySpec.Handle, AbilitySpec.ActivationInfo.GetActivationPredictionKey());
 		}
-		
+	}
+}
+
+void UAbilitySystemComponentBase::AbilityInputTagPressed(const FGameplayTag& InputTag)
+{
+	if (!InputTag.IsValid()) return;
+	FScopedAbilityListLock ActiveScopeLoc(*this);
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		{
+			AbilitySpecInputPressed(AbilitySpec);
+			if (AbilitySpec.IsActive())
+			{
+				InvokeReplicatedEvent(EAbilityGenericReplicatedEvent::InputPressed, AbilitySpec.Handle, AbilitySpec.ActivationInfo.GetActivationPredictionKey());
+			}
+		}
 	}
 }
 
