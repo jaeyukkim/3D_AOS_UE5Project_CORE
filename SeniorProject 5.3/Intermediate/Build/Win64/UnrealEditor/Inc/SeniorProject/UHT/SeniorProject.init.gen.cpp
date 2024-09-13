@@ -10,6 +10,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AimTargetDataSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AttributeInfoSignature__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_CooldownChangeSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAdditionalAttributeMenuSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature();
@@ -27,6 +28,7 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AimTargetDataSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_AttributeInfoSignature__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_CooldownChangeSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_MessageWidgetRowSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_OnAdditionalAttributeMenuSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature,
@@ -41,13 +43,13 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x9FBC3EEF,
-				0x007C8DD2,
+				0x6B5C02B1,
+				0x32419DD7,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9FBC3EEF, 0x007C8DD2));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x6B5C02B1, 0x32419DD7));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

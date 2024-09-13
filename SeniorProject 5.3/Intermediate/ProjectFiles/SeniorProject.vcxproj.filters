@@ -129,6 +129,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AbilityTask\TargetDataAim.h">
       <Filter>Source\SeniorProject\AbilitySystem\AbilityTask</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\AsyncTasks">
+      <UniqueIdentifier>{55CDA8D6-842E-3408-A656-08F3C7D39888}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\AsyncTasks\WaitCooldownChange.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\AsyncTasks</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\AsyncTasks\WaitCooldownChange.h">
+      <Filter>Source\SeniorProject\AbilitySystem\AsyncTasks</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\Data">
       <UniqueIdentifier>{B6143FE6-F6B8-392F-8560-D8DDEB0CC3BC}</UniqueIdentifier>
     </Filter>

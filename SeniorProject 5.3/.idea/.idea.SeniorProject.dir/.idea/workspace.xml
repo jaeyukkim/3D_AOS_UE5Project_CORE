@@ -7,44 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-0C3365874AF33755898E26AC886E9ED8/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-12F2DFAD4703B220F30C9F8E763F5F83/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-1436481E4F744BBEAED7A596E4993EB5/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-1AADD0FD44743E7DC311E093D18A5F50/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-26C3E7354E498AE3F577A086D88AED09/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-6B1876DF41853600ACE39EB95BBF4277/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-6E9001EB40355D37EF04188888FFD11C/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-73E9CABD4E9823D933692E93A56A0BBF/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-7941692242460D6070A7DDB314202E23/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-82135AF84953ADC17B145196FACAD5AD/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-89A656314B9D0B7695A42CA5FBCC17A6/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-944803184F4E672A94EEFAB9DEDFF544/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-BEF730CF4F7CD666D74D8788433256D3/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-D6DDF54545178F3B00D1FF96BC5ABD2C/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-D9E40B2745323C20DBF77EAA967FFD02/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F1CF9E8C4FA724EAC7B3439AC48B5AD6/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F7C2F25142893BFC1E13209EFB7788E1/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-F98557AB429122ACE3086288EE873EED/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/GameplayTagsEditorState.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/GameplayTagsEditorState.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Input.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Input.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/PlayerStateBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/PlayerBase/PlayerStateBase.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://1" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://14" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -224,6 +187,7 @@
       <workItem from="1725974504974" duration="1245000" />
       <workItem from="1726128056804" duration="21114000" />
       <workItem from="1726160949330" duration="2425000" />
+      <workItem from="1726242371030" duration="6970000" />
     </task>
     <servers />
   </component>
