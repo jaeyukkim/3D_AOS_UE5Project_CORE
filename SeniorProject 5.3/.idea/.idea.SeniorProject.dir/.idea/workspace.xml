@@ -17,7 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://14" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://26" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -188,6 +188,7 @@
       <workItem from="1726128056804" duration="21114000" />
       <workItem from="1726160949330" duration="2425000" />
       <workItem from="1726242371030" duration="6970000" />
+      <workItem from="1726295214839" duration="15609000" />
     </task>
     <servers />
   </component>

@@ -12,7 +12,6 @@ void EmptyLinkFunctionForGeneratedCodeAbilityInfo() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_UDataAsset();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilityInfo();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilityInfo_NoRegister();
@@ -51,13 +50,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FAbilityInfoBase>()
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_InputTag;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Icon_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ICon_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Icon;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BackgroundMaterial_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_BackgroundMaterial;
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ICon;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -93,27 +88,18 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FAbilityInfoBase>()
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_InputTag = { "InputTag", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityInfoBase, InputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_InputTag_MetaData), Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_InputTag_MetaData) }; // 2083603574
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_Icon_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_ICon_MetaData[] = {
 		{ "Category", "AbilityInfoBase" },
 		{ "ModuleRelativePath", "AbilitySystem/Data/AbilityInfo.h" },
 		{ "NativeConstTemplateArg", "" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_Icon = { "Icon", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityInfoBase, Icon), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_Icon_MetaData), Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_Icon_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_BackgroundMaterial_MetaData[] = {
-		{ "Category", "AbilityInfoBase" },
-		{ "ModuleRelativePath", "AbilitySystem/Data/AbilityInfo.h" },
-		{ "NativeConstTemplateArg", "" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_BackgroundMaterial = { "BackgroundMaterial", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityInfoBase, BackgroundMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_BackgroundMaterial_MetaData), Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_BackgroundMaterial_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_ICon = { "ICon", nullptr, (EPropertyFlags)0x0014000000010015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FAbilityInfoBase, ICon), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_ICon_MetaData), Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_ICon_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_AbilityTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_CooldownTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_InputTag,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_Icon,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_BackgroundMaterial,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewProp_ICon,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
@@ -174,14 +160,14 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FAbilityInfoBase>()
 		{ "ModuleRelativePath", "AbilitySystem/Data/AbilityInfo.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_Inner = { "AbilityInformation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FAbilityInfoBase, METADATA_PARAMS(0, nullptr) }; // 2449776877
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_Inner = { "AbilityInformation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FAbilityInfoBase, METADATA_PARAMS(0, nullptr) }; // 4048124778
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_MetaData[] = {
 		{ "Category", "AbilityInformation" },
 		{ "ModuleRelativePath", "AbilitySystem/Data/AbilityInfo.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation = { "AbilityInformation", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityInfo, AbilityInformation), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_MetaData), Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_MetaData) }; // 2449776877
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation = { "AbilityInformation", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAbilityInfo, AbilityInformation), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_MetaData), Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_MetaData) }; // 4048124778
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAbilityInfo_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAbilityInfo_Statics::NewProp_AbilityInformation,
@@ -226,12 +212,12 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FAbilityInfoBase>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ScriptStructInfo[] = {
-		{ FAbilityInfoBase::StaticStruct, Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewStructOps, TEXT("AbilityInfoBase"), &Z_Registration_Info_UScriptStruct_AbilityInfoBase, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAbilityInfoBase), 2449776877U) },
+		{ FAbilityInfoBase::StaticStruct, Z_Construct_UScriptStruct_FAbilityInfoBase_Statics::NewStructOps, TEXT("AbilityInfoBase"), &Z_Registration_Info_UScriptStruct_AbilityInfoBase, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAbilityInfoBase), 4048124778U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilityInfo, UAbilityInfo::StaticClass, TEXT("UAbilityInfo"), &Z_Registration_Info_UClass_UAbilityInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityInfo), 1555075234U) },
+		{ Z_Construct_UClass_UAbilityInfo, UAbilityInfo::StaticClass, TEXT("UAbilityInfo"), &Z_Registration_Info_UClass_UAbilityInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilityInfo), 1266961017U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_692530237(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_3146868199(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_AbilityInfo_h_Statics::ScriptStructInfo),
 		nullptr, 0);
