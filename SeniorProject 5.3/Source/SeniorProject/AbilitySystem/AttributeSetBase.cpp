@@ -129,7 +129,9 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 				{
 					CombatInterface->Die();
 				}
-
+				
+				SendXPEvent(Props);
+				
 				FGameplayTagContainer TagContainer;
 				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
 				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
@@ -148,6 +150,14 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 			ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
 		}
 	}
+
+	if (Data.EvaluatedData.Attribute == GetIncomingXPAttribute())
+	{
+		const float LocalIncomingXP = GetIncomingXP();
+		SetIncomingXP(0.f);
+		UE_LOG(LogTemp, Log, TEXT("Incoming XP: %f"), LocalIncomingXP);
+	}
+	
 	
 }
 
@@ -226,6 +236,21 @@ void UAttributeSetBase::NotifyMinionTarget(AActor* DamagedActor, AActor* Instiga
 		
 	}
 	
+}
+
+void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
+{
+	if (ICombatInterface* CombatInterface = Cast<ICombatInterface>(Props.TargetCharacter))
+	{
+		const int32 TargetLevel = CombatInterface->GetPlayerLevel();
+		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
+		const int32 XPReward = UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(Props.TargetCharacter, TargetClass, TargetLevel);
+		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+		FGameplayEventData Payload;
+		Payload.EventTag = GameplayTags.Attributes_Meta_IncomingXP;
+		Payload.EventMagnitude = XPReward;
+		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Props.SourceCharacter, GameplayTags.Attributes_Meta_IncomingXP, Payload);
+	}
 }
 
 /* OnRep_VitalAttributes */

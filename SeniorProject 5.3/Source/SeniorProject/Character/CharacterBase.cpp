@@ -122,6 +122,11 @@ void ACharacterBase::Die()
 	MulticastHandleDeath();
 }
 
+ECharacterClass ACharacterBase::GetCharacterClass_Implementation()
+{
+	return CharacterClass;
+}
+
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
 	GetMesh()->SetSimulatePhysics(true);
@@ -158,4 +163,5 @@ void ACharacterBase::AddCharacterAbility()
 
 	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
 	ASCBase->AddCharacterAbility(GameplayAbility);
+	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
 }

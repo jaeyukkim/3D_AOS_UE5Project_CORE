@@ -12,6 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class UAbilitySystemComponent;
 class UAttributeMenuWidgetController;
+class UCharacterClassInfo;
 class UObject;
 class UOverlayWidgetController;
 enum class ECharacterClass : uint8;
@@ -38,6 +39,7 @@ struct FGameplayEffectSpecHandle;
 	DECLARE_FUNCTION(execIsCriticalHit); \
 	DECLARE_FUNCTION(execGiveStartupAbilities); \
 	DECLARE_FUNCTION(execInitializeDefaultAttributes); \
+	DECLARE_FUNCTION(execGetCharacterClassInfo); \
 	DECLARE_FUNCTION(execGetUAttributeMenuWidgetController); \
 	DECLARE_FUNCTION(execGetOverlayWidgetController);
 

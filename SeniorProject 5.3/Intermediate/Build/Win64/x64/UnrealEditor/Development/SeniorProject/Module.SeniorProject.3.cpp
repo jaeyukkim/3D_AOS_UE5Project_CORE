@@ -24,6 +24,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/AbilityInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/AttributeInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Data/LevelUpInfo.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Global/AbilitySystemGlobalsBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.cpp"

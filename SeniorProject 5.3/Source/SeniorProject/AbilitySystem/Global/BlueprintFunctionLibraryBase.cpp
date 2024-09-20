@@ -49,14 +49,21 @@ UAttributeMenuWidgetController* UBlueprintFunctionLibraryBase::GetUAttributeMenu
 	return nullptr;
 }
 
-void UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(const UObject* WorldContextObject,
-	ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)
+UCharacterClassInfo* UBlueprintFunctionLibraryBase::GetCharacterClassInfo(const UObject* WorldContextObject)
 {
 	AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
-	if(MyGameModeBase == nullptr) return;
+	if(MyGameModeBase == nullptr) return nullptr;
 
+	return MyGameModeBase->CharacterClassInfo;
+}
+
+void UBlueprintFunctionLibraryBase::InitializeDefaultAttributes(const UObject* WorldContextObject,
+                                                                ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC)
+{
+	
 	AActor* AvatarActor = ASC->GetAvatarActor();
-	UCharacterClassInfo* CharacterClassInfo = MyGameModeBase->CharacterClassInfo;
+	
+	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
 	if(CharacterClassInfo == nullptr) return;
 
 	
@@ -221,4 +228,16 @@ FGameplayEffectContextHandle UBlueprintFunctionLibraryBase::ApplyDamageEffect(
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, DamageEffectParams.DamageType, DamageEffectParams.AppliedCoefficientDamage);
 	DamageEffectParams.TargetAbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data);
 	return EffectContextHandle;
+}
+
+int32 UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(const UObject* WorldContextObject,
+	ECharacterClass CharacterClass, int32 CharacterLevel)
+{
+	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
+	if (CharacterClassInfo == nullptr) return 0;
+	
+	const FCharacterClassDefaultInfo& Info = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+	const float XPReward = Info.XPReward.GetValueAtLevel(CharacterLevel);
+	
+	return static_cast<int32>(XPReward);
 }

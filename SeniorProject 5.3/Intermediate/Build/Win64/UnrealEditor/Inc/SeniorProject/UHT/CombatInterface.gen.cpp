@@ -18,8 +18,16 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UCombatInterface();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UCombatInterface_NoRegister();
+	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(ICombatInterface::execGetCharacterClass)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(ECharacterClass*)Z_Param__Result=P_THIS->GetCharacterClass_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ICombatInterface::execSetIsAttacking)
 	{
 		P_GET_UBOOL(Z_Param_bIsAttacking);
@@ -98,6 +106,16 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		{
 		}
 	};
+	struct CombatInterface_eventGetCharacterClass_Parms
+	{
+		ECharacterClass ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		CombatInterface_eventGetCharacterClass_Parms()
+			: ReturnValue((ECharacterClass)0)
+		{
+		}
+	};
 	struct CombatInterface_eventGetCombatSocketLocation_Parms
 	{
 		FGameplayTag MontageTag;
@@ -165,6 +183,12 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		CombatInterface_eventGetAvatar_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	ECharacterClass ICombatInterface::GetCharacterClass()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetCharacterClass instead.");
+		CombatInterface_eventGetCharacterClass_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	FVector ICombatInterface::GetCombatSocketLocation(FGameplayTag const& MontageTag)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetCombatSocketLocation instead.");
@@ -205,6 +229,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetAttackMontage", &ICombatInterface::execGetAttackMontage },
 			{ "GetAvatar", &ICombatInterface::execGetAvatar },
+			{ "GetCharacterClass", &ICombatInterface::execGetCharacterClass },
 			{ "GetCombatSocketLocation", &ICombatInterface::execGetCombatSocketLocation },
 			{ "GetDieAnimationAsset", &ICombatInterface::execGetDieAnimationAsset },
 			{ "GetHitReactMontage", &ICombatInterface::execGetHitReactMontage },
@@ -271,6 +296,39 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_GetAvatar_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics
+	{
+		static const UECodeGen_Private::FBytePropertyParams NewProp_ReturnValue_Underlying;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::NewProp_ReturnValue_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CombatInterface_eventGetCharacterClass_Parms, ReturnValue), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(0, nullptr) }; // 4018297425
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::NewProp_ReturnValue_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/CombatInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatInterface, nullptr, "GetCharacterClass", nullptr, nullptr, Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::PropPointers), sizeof(CombatInterface_eventGetCharacterClass_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CombatInterface_eventGetCharacterClass_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCombatInterface_GetCharacterClass()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_GetCharacterClass_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -503,6 +561,7 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCombatInterface_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UCombatInterface_GetAttackMontage, "GetAttackMontage" }, // 2248308404
 		{ &Z_Construct_UFunction_UCombatInterface_GetAvatar, "GetAvatar" }, // 4221870183
+		{ &Z_Construct_UFunction_UCombatInterface_GetCharacterClass, "GetCharacterClass" }, // 499379811
 		{ &Z_Construct_UFunction_UCombatInterface_GetCombatSocketLocation, "GetCombatSocketLocation" }, // 4132511811
 		{ &Z_Construct_UFunction_UCombatInterface_GetDieAnimationAsset, "GetDieAnimationAsset" }, // 1771998961
 		{ &Z_Construct_UFunction_UCombatInterface_GetHitReactMontage, "GetHitReactMontage" }, // 2363863605
@@ -581,6 +640,23 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		else if (auto I = (ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
 		{
 			Parms.ReturnValue = I->GetAvatar_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UCombatInterface_GetCharacterClass = FName(TEXT("GetCharacterClass"));
+	ECharacterClass ICombatInterface::Execute_GetCharacterClass(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UCombatInterface::StaticClass()));
+		CombatInterface_eventGetCharacterClass_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UCombatInterface_GetCharacterClass);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetCharacterClass_Implementation();
 		}
 		return Parms.ReturnValue;
 	}
@@ -692,9 +768,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 2113326845U) },
+		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 3166237650U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_3986931803(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_1690736630(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

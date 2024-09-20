@@ -64,9 +64,7 @@ protected:
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
 	virtual int32 GetPlayerLevel() override;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
-	ECharacterClass CharacterClass;
-	
+
 private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")

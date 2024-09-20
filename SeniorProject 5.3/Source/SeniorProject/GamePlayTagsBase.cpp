@@ -70,8 +70,19 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.Attributes_GamePlay_DropGold =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.GamePlay.DropGold"),
 			FString("When you die, you raise your enemy's Gold by this point"));
 	/* end GamePlay Attribute Tags*/
+
 	
 
+	/* Meta Attribute Tags*/
+
+	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Attributes.Meta.IncomingXP"),
+		FString("Incoming XP Meta Attribute")
+		);
+	/* Meta Attribute Tags*/
+
+
+	
 	/* Input Tag */
 	GameplayTags.Input_LMB =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.LMB"),
 			FString("Input Tag for Left Mouse Button"));

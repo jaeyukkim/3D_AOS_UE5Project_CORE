@@ -12,16 +12,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class UAnimationAsset;
 class UAnimMontage;
+enum class ECharacterClass : uint8;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_CombatInterface_generated_h
 #error "CombatInterface.generated.h already included, missing '#pragma once' in CombatInterface.h"
 #endif
 #define SENIORPROJECT_CombatInterface_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual ECharacterClass GetCharacterClass_Implementation() { return (ECharacterClass)0; }; \
 	virtual void SetIsAttacking_Implementation(bool bIsAttacking) {}; \
 	virtual bool IsAttacking_Implementation() { return false; }; \
 	virtual AActor* GetAvatar_Implementation() { return NULL; }; \
@@ -31,6 +33,7 @@ struct FGameplayTag;
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
 	virtual FVector GetCombatSocketLocation_Implementation(FGameplayTag const& MontageTag) { return FVector(ForceInit); }; \
  \
+	DECLARE_FUNCTION(execGetCharacterClass); \
 	DECLARE_FUNCTION(execSetIsAttacking); \
 	DECLARE_FUNCTION(execIsAttacking); \
 	DECLARE_FUNCTION(execGetAvatar); \
@@ -41,9 +44,9 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetCombatSocketLocation);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_CALLBACK_WRAPPERS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_CALLBACK_WRAPPERS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	SENIORPROJECT_API UCombatInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -57,7 +60,7 @@ public: \
 	SENIORPROJECT_API virtual ~UCombatInterface();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_GENERATED_UINTERFACE_BODY() \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUCombatInterface(); \
 	friend struct Z_Construct_UClass_UCombatInterface_Statics; \
@@ -66,15 +69,15 @@ public: \
 	DECLARE_SERIALIZER(UCombatInterface)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_GENERATED_UINTERFACE_BODY() \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_GENERATED_UINTERFACE_BODY() \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~ICombatInterface() {} \
 public: \
@@ -82,6 +85,7 @@ public: \
 	typedef ICombatInterface ThisClass; \
 	static UAnimMontage* Execute_GetAttackMontage(UObject* O); \
 	static AActor* Execute_GetAvatar(UObject* O); \
+	static ECharacterClass Execute_GetCharacterClass(UObject* O); \
 	static FVector Execute_GetCombatSocketLocation(UObject* O, FGameplayTag const& MontageTag); \
 	static UAnimationAsset* Execute_GetDieAnimationAsset(UObject* O); \
 	static UAnimMontage* Execute_GetHitReactMontage(UObject* O); \
@@ -91,17 +95,17 @@ public: \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_13_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_25_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_14_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_CALLBACK_WRAPPERS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_16_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_CALLBACK_WRAPPERS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

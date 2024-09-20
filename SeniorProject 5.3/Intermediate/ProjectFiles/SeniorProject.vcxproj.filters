@@ -159,6 +159,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\CharacterClassInfo.h">
       <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Data\LevelUpInfo.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\LevelUpInfo.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\ExecCalc">
       <UniqueIdentifier>{18DF8854-DD41-34D3-81CA-62EF5D48CF7B}</UniqueIdentifier>
     </Filter>

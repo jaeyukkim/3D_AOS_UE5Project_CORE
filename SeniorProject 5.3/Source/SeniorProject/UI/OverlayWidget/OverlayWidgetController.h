@@ -79,7 +79,10 @@ public:
 		FMessageWidgetRowSignature MessageWidgetRowDelegate;
 
 	UPROPERTY(BlueprintAssignable, Category="GAS|Ability")
-	FAbilityInfoSignature AbilityInfoDelegate;
+		FAbilityInfoSignature AbilityInfoDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category="GAS|XP")
+		FOnAttributeChangedSignature OnXPPercentChangedDelegate;
 	
 protected:
 
@@ -93,6 +96,8 @@ protected:
 	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);
 
 	void OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase);
+
+	void OnXPChanged(int32 NewXP) const;
 	
 };
 template <typename T>

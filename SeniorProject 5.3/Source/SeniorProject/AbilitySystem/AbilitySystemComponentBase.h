@@ -30,6 +30,7 @@ public:
 	bool bStartupAbilitiesGiven = false;
 	
 	void AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility);
+	void AddCharacterPassiveAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupPassiveAbilities);
 	
 	void AbilityInputTagHeld(const FGameplayTag& InputTag);
 	void AbilityInputTagReleased(const FGameplayTag& InputTag);

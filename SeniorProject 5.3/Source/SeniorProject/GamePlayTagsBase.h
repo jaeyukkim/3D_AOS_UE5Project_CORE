@@ -47,6 +47,10 @@ public:
 	FGameplayTag Attributes_GamePlay_DropGold;
 	/* GamePlay Attribute Tags*/
 
+	
+
+	FGameplayTag Attributes_Meta_IncomingXP;
+	
 
 	/* Input Tag */
 	FGameplayTag Input_LMB;
@@ -122,5 +126,8 @@ public:
 	FGameplayTag Effects_DieReact;
 	/* End Effect */
 
+
+	
+	
 };
 

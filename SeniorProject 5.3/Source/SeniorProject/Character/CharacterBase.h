@@ -59,6 +59,8 @@ public:
 	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
+
+	virtual ECharacterClass GetCharacterClass_Implementation() override;
 	/* end CombatInterface*/
 
 	
@@ -91,6 +93,10 @@ public:
 
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag LineTag;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
+	ECharacterClass CharacterClass;
+	
 protected:
 	
 	virtual void BeginPlay() override;
@@ -134,6 +140,10 @@ private:
 	UPROPERTY(EditAnywhere, Category="Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
 
+	UPROPERTY(EditAnywhere, Category = "Abilities")
+	TArray<TSubclassOf<UGameplayAbility>> StartupPassiveAbilities;
+
+	
 	/*Combat Interface*/
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	TObjectPtr<UAnimMontage> HitReactMontage;
