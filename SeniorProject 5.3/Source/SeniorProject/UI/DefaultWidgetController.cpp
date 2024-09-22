@@ -4,6 +4,7 @@
 #include "DefaultWidgetController.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
+#include "SeniorProject/PlayerBase/PlayerStateBase.h"
 
 
 void UDefaultWidgetController::SetWidgetControllerParams(const FWidgetControllerParams& WCParams)
@@ -29,4 +30,13 @@ UAttributeSetBase* UDefaultWidgetController::GetMyAS()
 		AttributeSetBase = Cast<UAttributeSetBase>(AttributeSet);
 	}
 	return AttributeSetBase;
+}
+
+APlayerStateBase* UDefaultWidgetController::GetMyPS()
+{
+	if (PlayerStateBase == nullptr)
+	{
+		PlayerStateBase = Cast<APlayerStateBase>(PlayerState);
+	}
+	return PlayerStateBase;
 }

@@ -25,6 +25,14 @@ void UOverlayWidgetController::BroadcastInitialValues()
 void UOverlayWidgetController::BindCallbacksToDependencies()
 {
 
+	GetMyPS()->OnXPChangedDelegate.AddUObject(this, &UOverlayWidgetController::OnXPChanged);
+	/*GetMyPS()->OnLevelChangedDelegate.AddLambda(
+		[this](int32 NewLevel, bool bLevelUp)
+		{
+			OnPlayerLevelChangedDelegate.Broadcast(NewLevel, bLevelUp);
+		}
+	);*/
+	
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 	GetMyAS()->GetHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
@@ -113,8 +121,8 @@ void UOverlayWidgetController::OnInitializeStartupAbilities(UAbilitySystemCompon
 
 void UOverlayWidgetController::OnXPChanged(int32 NewXP) const
 {
-	const APlayerStateBase* PlayerStateBase = CastChecked<APlayerStateBase>(PlayerState);
-	const ULevelUpInfo* LevelUpInfo = PlayerStateBase->LevelUpInfo;
+	const APlayerStateBase* MyPlayerStateBase = CastChecked<APlayerStateBase>(PlayerState);
+	const ULevelUpInfo* LevelUpInfo = MyPlayerStateBase->LevelUpInfo;
 	checkf(LevelUpInfo, TEXT("Unabled to find LevelUpInfo. Please fill out AuraPlayerState Blueprint"));
 	
 	const int32 Level = LevelUpInfo->FindLevelForXP(NewXP);

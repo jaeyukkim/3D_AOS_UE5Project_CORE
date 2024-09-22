@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultWidgetController() {}
 	ENGINE_API UClass* Z_Construct_UClass_APlayerState_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAttributeSetBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UDefaultWidgetController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UDefaultWidgetController_NoRegister();
@@ -216,6 +217,10 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FWidgetControllerParams
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttributeSetBase_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AttributeSetBase;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerStateBase_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_PlayerStateBase;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -276,12 +281,20 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FWidgetControllerParams
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AttributeSetBase = { "AttributeSetBase", nullptr, (EPropertyFlags)0x002408000008001c, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDefaultWidgetController, AttributeSetBase), Z_Construct_UClass_UAttributeSetBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AttributeSetBase_MetaData), Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AttributeSetBase_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerStateBase_MetaData[] = {
+		{ "Category", "WidgetController" },
+		{ "ModuleRelativePath", "UI/DefaultWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerStateBase = { "PlayerStateBase", nullptr, (EPropertyFlags)0x0024080000000014, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDefaultWidgetController, PlayerStateBase), Z_Construct_UClass_APlayerStateBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerStateBase_MetaData), Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerStateBase_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDefaultWidgetController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerState,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_AttributeSetBase,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDefaultWidgetController_Statics::NewProp_PlayerStateBase,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UDefaultWidgetController_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UDefaultWidgetController>::IsAbstract,
@@ -326,9 +339,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FWidgetControllerParams
 		{ FWidgetControllerParams::StaticStruct, Z_Construct_UScriptStruct_FWidgetControllerParams_Statics::NewStructOps, TEXT("WidgetControllerParams"), &Z_Registration_Info_UScriptStruct_WidgetControllerParams, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FWidgetControllerParams), 1237295490U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDefaultWidgetController, UDefaultWidgetController::StaticClass, TEXT("UDefaultWidgetController"), &Z_Registration_Info_UClass_UDefaultWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDefaultWidgetController), 2984483999U) },
+		{ Z_Construct_UClass_UDefaultWidgetController, UDefaultWidgetController::StaticClass, TEXT("UDefaultWidgetController"), &Z_Registration_Info_UClass_UDefaultWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDefaultWidgetController), 2898494466U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_403710143(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_363803723(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_DefaultWidgetController_h_Statics::ScriptStructInfo),
 		nullptr, 0);

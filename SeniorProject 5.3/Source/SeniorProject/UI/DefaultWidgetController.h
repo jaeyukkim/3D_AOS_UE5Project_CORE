@@ -6,6 +6,7 @@
 /**
  *
  */
+class APlayerStateBase;
 class UAttributeSetBase;
 class UAttributeSet;
 class UAbilitySystemComponent;
@@ -65,5 +66,9 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
 		TObjectPtr<UAttributeSetBase> AttributeSetBase;
 
+	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
+		TObjectPtr<APlayerStateBase> PlayerStateBase;
+	
 	UAttributeSetBase* GetMyAS();
+	APlayerStateBase* GetMyPS();
 };

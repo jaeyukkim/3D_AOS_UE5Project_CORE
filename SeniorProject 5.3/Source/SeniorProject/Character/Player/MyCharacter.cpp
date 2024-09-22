@@ -248,6 +248,13 @@ void AMyCharacter::SetTeamNameByPlayerState_Implementation(APlayerState* PS)
 	
 }
 
+void AMyCharacter::AddToXP_Implementation(int32 InXP)
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	PlayerStateBase->AddToXP(InXP);
+}
+
 
 int32 AMyCharacter::GetPlayerLevel()
 {

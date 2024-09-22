@@ -9,6 +9,7 @@
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "Kismet/GameplayStatics.h"
 #include "SeniorProject/Character/Enemy/Minions.h"
+#include "SeniorProject/Interface/PlayerInterface.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 
 class ICombatInterface;
@@ -155,7 +156,12 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		const float LocalIncomingXP = GetIncomingXP();
 		SetIncomingXP(0.f);
-		UE_LOG(LogTemp, Log, TEXT("Incoming XP: %f"), LocalIncomingXP);
+
+		if (Props.SourceCharacter->Implements<UPlayerInterface>())
+		{
+			IPlayerInterface::Execute_AddToXP(Props.SourceCharacter, LocalIncomingXP);
+		}
+		
 	}
 	
 	
@@ -240,17 +246,50 @@ void UAttributeSetBase::NotifyMinionTarget(AActor* DamagedActor, AActor* Instiga
 
 void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 {
-	if (ICombatInterface* CombatInterface = Cast<ICombatInterface>(Props.TargetCharacter))
+	
+	UWorld* World = Props.TargetCharacter->GetWorld();
+	if (!World) return;
+	
+	FVector ActorLocation = Props.TargetCharacter->GetActorLocation();
+	TArray<FOverlapResult> Overlaps;
+
+	// 일정 범위 내에서 적 플레이어 탐색 (구체 형태의 충돌 탐지)
+	FCollisionShape Sphere = FCollisionShape::MakeSphere(1500.0f); // 범위는 상황에 따라 조정
+
+	World->OverlapMultiByChannel(Overlaps, ActorLocation, FQuat::Identity, ECC_Pawn, Sphere);
+
+	/*
+	 *  사망 시에 사망 캐릭터로 부터 Sphere 반경 내에 있는 적 플레이어 탐지하여 OverlapActors에 저장
+	 */
+	TArray<TObjectPtr<AActor>> OverlapActors;
+	for (FOverlapResult& Overlap : Overlaps)
 	{
+		if (Overlap.GetActor()->ActorHasTag("Player") && !UBlueprintFunctionLibraryBase::IsFriends(Overlap.GetActor(), Props.TargetCharacter))
+		{
+			OverlapActors.Add(Overlap.GetActor());
+		}
+	}
+
+	/*
+	 *  탐지된 적 플레이어들에게 경험치 전달
+	 *  ex1)  경험치 100 적플레이어 1명 = 100 전달
+	 *  ex2)  경험치 100 적 플레이어 2명 = 50 전달
+	 */
+	
+	for(AActor* EnemyPlayer : OverlapActors)
+	{
+		ICombatInterface* CombatInterface = CastChecked<ICombatInterface>(Props.TargetCharacter);
+			
 		const int32 TargetLevel = CombatInterface->GetPlayerLevel();
 		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
 		const int32 XPReward = UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(Props.TargetCharacter, TargetClass, TargetLevel);
 		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
 		FGameplayEventData Payload;
 		Payload.EventTag = GameplayTags.Attributes_Meta_IncomingXP;
-		Payload.EventMagnitude = XPReward;
-		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Props.SourceCharacter, GameplayTags.Attributes_Meta_IncomingXP, Payload);
+		Payload.EventMagnitude = XPReward / OverlapActors.Num();
+		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(EnemyPlayer, GameplayTags.Attributes_Meta_IncomingXP, Payload);
 	}
+	
 }
 
 /* OnRep_VitalAttributes */

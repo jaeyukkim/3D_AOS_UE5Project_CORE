@@ -47,13 +47,14 @@
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
-			"MyCharacter.gen.cpp.obj",
-			"MyGameModeBase.gen.cpp.obj"
+			"MyCharacter.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"MyGameModeBase.gen.cpp.obj",
 			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
+			"PlayerInterface.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
@@ -105,13 +106,16 @@
 			"AnimInstanceBase.cpp.obj",
 			"MinionAnimInstance.cpp.obj",
 			"MovementComponentBase.cpp.obj",
-			"GamePlayTagsBase.cpp.obj",
+			"GamePlayTagsBase.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"MyGameModeBase.cpp.obj",
 			"InputActionData.cpp.obj",
 			"InputComponentBase.cpp.obj",
 			"CombatInterface.cpp.obj",
 			"EnemyInterface.cpp.obj",
 			"GameRuleInterface.cpp.obj",
+			"PlayerInterface.cpp.obj",
 			"MyAnimInstance.cpp.obj",
 			"MyPlayerController.cpp.obj",
 			"PlayerStateBase.cpp.obj",

@@ -10,6 +10,7 @@
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 
 #include "InputActionValue.h"
+#include "SeniorProject/Interface/PlayerInterface.h"
 #include "MyCharacter.generated.h"
 
 
@@ -22,7 +23,7 @@ class UAudioComponent;
 class AMyPlayerController;
 
 UCLASS(abstract)
-class SENIORPROJECT_API AMyCharacter : public ACharacterBase
+class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
 {
 	GENERATED_BODY()
 
@@ -56,9 +57,13 @@ public:
 	/* end CombatInterface */
 
 	/* Enemy Interface */
-	
 	virtual void SetTeamNameByPlayerState_Implementation(APlayerState* PS) override;
 	/* end Enemy Interface */
+
+
+	/** Players Interface */
+	virtual void AddToXP_Implementation(int32 InXP) override;
+	/** end Player Interface */
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );

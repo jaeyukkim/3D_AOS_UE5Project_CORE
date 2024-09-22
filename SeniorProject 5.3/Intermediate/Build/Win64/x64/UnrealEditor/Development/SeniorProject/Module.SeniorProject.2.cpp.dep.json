@@ -510,6 +510,8 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwangplayer.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\player\\kwangplayer.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\player\\mycharacter.h",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\interface\\playerinterface.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\playerinterface.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mycharacter.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\kwangplayer.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\lanesuper.gen.cpp",
@@ -540,10 +542,7 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\soundnode.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\soundcue.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\myaniminstance.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mycharacter.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mygamemodebase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\gamesetting\\mygamemodebase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mygamemodebase.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\mycharacter.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -411,6 +411,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\Interface\GameRuleInterface.h">
       <Filter>Source\SeniorProject\Interface</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Interface\PlayerInterface.cpp">
+      <Filter>Source\SeniorProject\Interface</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Interface\PlayerInterface.h">
+      <Filter>Source\SeniorProject\Interface</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\PlayerBase">
       <UniqueIdentifier>{CF67A7E2-C755-3C6C-B774-6BCBDC96F5D4}</UniqueIdentifier>
     </Filter>
