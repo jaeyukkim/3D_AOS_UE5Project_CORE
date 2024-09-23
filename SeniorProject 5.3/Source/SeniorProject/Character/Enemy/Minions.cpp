@@ -132,12 +132,12 @@ void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 
 
 
-void AMinions::Die()
+void AMinions::Die_Implementation()
 {
 	SetLifeSpan(LifeSpan);
 	AIControllerBase->StopAI();
 	
-	Super::Die();
+	Super::Die_Implementation();
 }
 
 void AMinions::SetCombatTarget_Implementation(AActor* InCombatTarget)

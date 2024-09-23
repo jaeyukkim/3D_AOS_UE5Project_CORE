@@ -19,11 +19,17 @@ public:
 	
 	AProjectileBase();
 	
+	void SetOwnerActor(AActor* NewOwner);
+
+	UFUNCTION(BlueprintCallable)
+	AActor* GetOwnerActor();
+	
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn = true))
 	FDamageEffectParams DamageEffectParams;
+	
 protected:
 
 	virtual void BeginPlay() override;
@@ -43,5 +49,6 @@ protected:
 
 private:
 	
+	TObjectPtr<AActor> OwnerAvatarActor;
 
 };

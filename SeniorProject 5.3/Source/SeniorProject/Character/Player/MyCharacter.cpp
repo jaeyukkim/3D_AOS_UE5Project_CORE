@@ -17,6 +17,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/AbilitySystem/Data/LevelUpInfo.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
@@ -44,6 +45,10 @@ AMyCharacter::AMyCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));\
 	Camera->SetupAttachment(SpringArm);
 
+	LevelUpParticleComponent = CreateDefaultSubobject<UParticleSystemComponent>("LevelUpParticleComponent");
+	LevelUpParticleComponent->SetupAttachment(GetRootComponent());
+	LevelUpParticleComponent->bAutoActivate = false;
+	
 	
 	ThisActor = nullptr;
 	LastActor = nullptr;
@@ -196,6 +201,8 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 
 void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 {
+
+	if(!IsValid(PlayerController)) return;
 	
 	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
 	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*AbilityDistance;
@@ -216,9 +223,9 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 
 }
 
-void AMyCharacter::Die()
+void AMyCharacter::Die_Implementation()
 {
-	Super::Die();
+	Super::Die_Implementation();
 	
 }
 
@@ -255,13 +262,64 @@ void AMyCharacter::AddToXP_Implementation(int32 InXP)
 	PlayerStateBase->AddToXP(InXP);
 }
 
+void AMyCharacter::LevelUp_Implementation()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	MulticastLevelUpParticles();
+}
 
-int32 AMyCharacter::GetPlayerLevel()
+void AMyCharacter::MulticastLevelUpParticles_Implementation() const
+{
+	if(IsValid(LevelUpParticleComponent))
+		LevelUpParticleComponent->Activate(true);
+}
+
+
+int32 AMyCharacter::GetXP_Implementation() const
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->GetXP();
+}
+
+int32 AMyCharacter::FindLevelForXP_Implementation(int32 InXP) const
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->LevelUpInfo->FindLevelForXP(InXP);
+}
+
+
+int32 AMyCharacter::GetSpellPointsReward_Implementation(int32 Level) const
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->LevelUpInfo->LevelUpInformation[Level].SpellPointAward;
+}
+
+void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	PlayerStateBase->AddToLevel(InPlayerLevel);
+}
+
+
+void AMyCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
+{
+	// TODO: Add SpellPoints to PlayerState
+}
+
+
+int32 AMyCharacter::GetPlayerLevel_Implementation()
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	return PlayerStateBase->GetPlayerLevel();
 }
+
+
 
 void AMyCharacter::AimTrace()
 {

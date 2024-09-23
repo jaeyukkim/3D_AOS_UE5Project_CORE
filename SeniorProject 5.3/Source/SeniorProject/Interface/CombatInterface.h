@@ -27,7 +27,9 @@ class SENIORPROJECT_API ICombatInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	FORCEINLINE virtual int32 GetPlayerLevel() {return 1;}
+	UFUNCTION(BlueprintNativeEvent)
+	int32 GetPlayerLevel();
+	
 	FORCEINLINE virtual void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult) {HitResult = FHitResult(); return;}
 
 	
@@ -63,8 +65,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	ECharacterClass GetCharacterClass();
-	
-	virtual void Die() = 0;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void Die();
 
 	
 	

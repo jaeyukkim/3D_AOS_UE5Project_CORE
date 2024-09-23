@@ -9,6 +9,7 @@
 			"AIControllerBase.gen.cpp.obj",
 			"AnimInstanceBase.gen.cpp.obj",
 			"AssetManagerBase.gen.cpp.obj",
+			"AttackRangeDecal.gen.cpp.obj",
 			"AttributeInfo.gen.cpp.obj",
 			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
@@ -81,6 +82,7 @@
 			"ExecCalc_Damage.cpp.obj",
 			"AbilitySystemGlobalsBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
+			"AttackRangeDecal.cpp.obj",
 			"DamageActorBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"Spawner.cpp.obj",
@@ -97,7 +99,9 @@
 			"KallariAI.cpp.obj",
 			"Kwang.cpp.obj",
 			"LaneSuper.cpp.obj",
-			"Melee.cpp.obj",
+			"Melee.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"Minions.cpp.obj",
 			"Ranged.cpp.obj",
 			"KwangPlayer.cpp.obj",
@@ -106,9 +110,7 @@
 			"AnimInstanceBase.cpp.obj",
 			"MinionAnimInstance.cpp.obj",
 			"MovementComponentBase.cpp.obj",
-			"GamePlayTagsBase.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"GamePlayTagsBase.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"InputActionData.cpp.obj",
 			"InputComponentBase.cpp.obj",

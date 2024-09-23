@@ -30,11 +30,11 @@ void ATurret::RegisterWithGameMode()
 	}
 }
 
-void ATurret::Die()
+void ATurret::Die_Implementation()
 {
 	if(HasAuthority())
 	{
 		OnTurretDestroyed.Broadcast(LineTag, TurretLevelTag, TeamName);
 	}
-	Super::Die();
+	Super::Die_Implementation();
 }

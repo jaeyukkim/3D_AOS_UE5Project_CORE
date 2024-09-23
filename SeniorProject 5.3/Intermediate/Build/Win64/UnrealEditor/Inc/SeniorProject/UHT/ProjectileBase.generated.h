@@ -22,7 +22,8 @@ struct FHitResult;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnCapsuleOverlap);
+	DECLARE_FUNCTION(execOnCapsuleOverlap); \
+	DECLARE_FUNCTION(execGetOwnerActor);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_16_ACCESSORS

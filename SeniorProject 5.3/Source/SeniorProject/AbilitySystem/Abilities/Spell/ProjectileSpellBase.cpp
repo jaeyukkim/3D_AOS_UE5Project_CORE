@@ -29,6 +29,8 @@ void UProjectileSpellBase::SpawnProjectileAimLocation(const FVector& AimLocation
 	//TODO: Set the Projectile Rotation
 
 	SpawnAtLocation(SpawnTransform);
+
+	
 	
 }
 
@@ -65,5 +67,8 @@ void UProjectileSpellBase::SpawnAtLocation(const FTransform SpawnTransform)
 		ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
 	Projectile->DamageEffectParams = MakeDamageEffectParamsFromClassDefaults();
+	Projectile->SetOwnerActor(GetAvatarActorFromActorInfo());
 	Projectile->FinishSpawning(SpawnTransform);
+	
+	
 }

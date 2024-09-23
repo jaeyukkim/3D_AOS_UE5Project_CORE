@@ -117,7 +117,7 @@ FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTa
 	return FVector();
 }
 
-void ACharacterBase::Die()
+void ACharacterBase::Die_Implementation()
 {
 	MulticastHandleDeath();
 }

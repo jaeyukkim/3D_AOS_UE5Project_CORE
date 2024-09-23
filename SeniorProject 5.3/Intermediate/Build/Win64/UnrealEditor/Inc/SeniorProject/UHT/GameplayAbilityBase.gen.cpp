@@ -10,7 +10,9 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase_NoRegister();
@@ -34,6 +36,19 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_StartupInputTag_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_StartupInputTag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CastingTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CastingTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsNeedCasting_MetaData[];
+#endif
+		static void NewProp_IsNeedCasting_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsNeedCasting;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CastingEffect_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_CastingEffect;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -59,8 +74,36 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag = { "StartupInputTag", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGameplayAbilityBase, StartupInputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingTime_MetaData[] = {
+		{ "Category", "Casting" },
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/GameplayAbilityBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingTime = { "CastingTime", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGameplayAbilityBase, CastingTime), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingTime_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingTime_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting_MetaData[] = {
+		{ "Category", "Casting" },
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/GameplayAbilityBase.h" },
+	};
+#endif
+	void Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting_SetBit(void* Obj)
+	{
+		((UGameplayAbilityBase*)Obj)->IsNeedCasting = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting = { "IsNeedCasting", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UGameplayAbilityBase), &Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingEffect_MetaData[] = {
+		{ "Category", "Casting" },
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/GameplayAbilityBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingEffect = { "CastingEffect", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UGameplayAbilityBase, CastingEffect), Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingEffect_MetaData), Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingEffect_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UGameplayAbilityBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_StartupInputTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_IsNeedCasting,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UGameplayAbilityBase_Statics::NewProp_CastingEffect,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UGameplayAbilityBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UGameplayAbilityBase>::IsAbstract,
@@ -101,9 +144,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 345116909U) },
+		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 900876519U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_3411284172(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_1513502335(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

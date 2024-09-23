@@ -192,6 +192,15 @@
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\SeniorProject\Actor\Decal">
+      <UniqueIdentifier>{2F223EE5-2A8D-37A5-97DB-9837543BD733}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\Decal\AttackRangeDecal.cpp">
+      <Filter>Source\SeniorProject\Actor\Decal</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\Decal\AttackRangeDecal.h">
+      <Filter>Source\SeniorProject\Actor\Decal</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Actor\Default">
       <UniqueIdentifier>{1ED48833-F756-3AF3-A103-6D5D7FAFFD86}</UniqueIdentifier>
     </Filter>

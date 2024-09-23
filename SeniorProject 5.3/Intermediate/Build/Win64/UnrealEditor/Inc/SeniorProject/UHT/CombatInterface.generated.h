@@ -23,6 +23,7 @@ struct FGameplayTag;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void Die_Implementation() {}; \
 	virtual ECharacterClass GetCharacterClass_Implementation() { return (ECharacterClass)0; }; \
 	virtual void SetIsAttacking_Implementation(bool bIsAttacking) {}; \
 	virtual bool IsAttacking_Implementation() { return false; }; \
@@ -32,7 +33,9 @@ struct FGameplayTag;
 	virtual UAnimMontage* GetAttackMontage_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
 	virtual FVector GetCombatSocketLocation_Implementation(FGameplayTag const& MontageTag) { return FVector(ForceInit); }; \
+	virtual int32 GetPlayerLevel_Implementation() { return 0; }; \
  \
+	DECLARE_FUNCTION(execDie); \
 	DECLARE_FUNCTION(execGetCharacterClass); \
 	DECLARE_FUNCTION(execSetIsAttacking); \
 	DECLARE_FUNCTION(execIsAttacking); \
@@ -41,7 +44,8 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetDieAnimationAsset); \
 	DECLARE_FUNCTION(execGetAttackMontage); \
 	DECLARE_FUNCTION(execGetHitReactMontage); \
-	DECLARE_FUNCTION(execGetCombatSocketLocation);
+	DECLARE_FUNCTION(execGetCombatSocketLocation); \
+	DECLARE_FUNCTION(execGetPlayerLevel);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_17_ACCESSORS
@@ -83,12 +87,14 @@ protected: \
 public: \
 	typedef UCombatInterface UClassType; \
 	typedef ICombatInterface ThisClass; \
+	static void Execute_Die(UObject* O); \
 	static UAnimMontage* Execute_GetAttackMontage(UObject* O); \
 	static AActor* Execute_GetAvatar(UObject* O); \
 	static ECharacterClass Execute_GetCharacterClass(UObject* O); \
 	static FVector Execute_GetCombatSocketLocation(UObject* O, FGameplayTag const& MontageTag); \
 	static UAnimationAsset* Execute_GetDieAnimationAsset(UObject* O); \
 	static UAnimMontage* Execute_GetHitReactMontage(UObject* O); \
+	static int32 Execute_GetPlayerLevel(UObject* O); \
 	static bool Execute_IsAttacking(UObject* O); \
 	static bool Execute_IsDead(const UObject* O); \
 	static void Execute_SetIsAttacking(UObject* O, bool bIsAttacking); \

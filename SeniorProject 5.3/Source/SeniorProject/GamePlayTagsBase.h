@@ -14,8 +14,6 @@ public:
 	/* Vital Attribute Tags*/
 	FGameplayTag Attributes_Vital_Health;
 	FGameplayTag Attributes_Vital_Mana;
-	FGameplayTag Attributes_Vital_Exp;
-
 	/* Vital Attribute Tags*/
 
 	/* SecondaryAttributes Tags */
@@ -35,7 +33,6 @@ public:
 	FGameplayTag Attributes_AdditionalVital_HealthRegeneration;
 	FGameplayTag Attributes_AdditionalVital_MaxMana;
 	FGameplayTag Attributes_AdditionalVital_ManaRegeneration;
-	FGameplayTag Attributes_AdditionalVital_NextExp;
 	FGameplayTag Attributes_AdditionalVital_Lethality;
 	FGameplayTag Attributes_AdditionalVital_MagicPenetration;
 	FGameplayTag Attributes_AdditionalVital_LifeSteal;
@@ -101,6 +98,9 @@ public:
 	FGameplayTag Abilities_Combat_RangeAttack;
 	FGameplayTag Abilities_Combat_ResetCombo;
 	FGameplayTag Abilities_Combat_SaveCombo;
+	FGameplayTag Abilities_Combat_CastingOn;
+
+
 
 	FGameplayTag Abilities_AbilityQ;
 	FGameplayTag Abilities_AbilityRMB;

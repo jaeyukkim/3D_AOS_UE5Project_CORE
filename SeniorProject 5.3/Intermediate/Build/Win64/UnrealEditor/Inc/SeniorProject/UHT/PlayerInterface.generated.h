@@ -18,9 +18,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) {}; \
+	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) {}; \
+	virtual void LevelUp_Implementation() {}; \
 	virtual void AddToXP_Implementation(int32 InXP) {}; \
+	virtual int32 GetSpellPointsReward_Implementation(int32 Level) const { return 0; }; \
+	virtual int32 GetXP_Implementation() const { return 0; }; \
+	virtual int32 FindLevelForXP_Implementation(int32 InXP) const { return 0; }; \
  \
-	DECLARE_FUNCTION(execAddToXP);
+	DECLARE_FUNCTION(execAddToSpellPoints); \
+	DECLARE_FUNCTION(execAddToPlayerLevel); \
+	DECLARE_FUNCTION(execLevelUp); \
+	DECLARE_FUNCTION(execAddToXP); \
+	DECLARE_FUNCTION(execGetSpellPointsReward); \
+	DECLARE_FUNCTION(execGetXP); \
+	DECLARE_FUNCTION(execFindLevelForXP);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_ACCESSORS
@@ -62,7 +74,13 @@ protected: \
 public: \
 	typedef UPlayerInterface UClassType; \
 	typedef IPlayerInterface ThisClass; \
+	static void Execute_AddToPlayerLevel(UObject* O, int32 InPlayerLevel); \
+	static void Execute_AddToSpellPoints(UObject* O, int32 InSpellPoints); \
 	static void Execute_AddToXP(UObject* O, int32 InXP); \
+	static int32 Execute_FindLevelForXP(const UObject* O, int32 InXP); \
+	static int32 Execute_GetSpellPointsReward(const UObject* O, int32 Level); \
+	static int32 Execute_GetXP(const UObject* O); \
+	static void Execute_LevelUp(UObject* O); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

@@ -21,6 +21,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(ICombatInterface::execDie)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Die_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ICombatInterface::execGetCharacterClass)
 	{
 		P_FINISH;
@@ -86,6 +93,13 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		*(FVector*)Z_Param__Result=P_THIS->GetCombatSocketLocation_Implementation(Z_Param_Out_MontageTag);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ICombatInterface::execGetPlayerLevel)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetPlayerLevel_Implementation();
+		P_NATIVE_END;
+	}
 	struct CombatInterface_eventGetAttackMontage_Parms
 	{
 		UAnimMontage* ReturnValue;
@@ -147,6 +161,16 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		{
 		}
 	};
+	struct CombatInterface_eventGetPlayerLevel_Parms
+	{
+		int32 ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		CombatInterface_eventGetPlayerLevel_Parms()
+			: ReturnValue(0)
+		{
+		}
+	};
 	struct CombatInterface_eventIsAttacking_Parms
 	{
 		bool ReturnValue;
@@ -171,6 +195,10 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	{
 		bool bIsAttacking;
 	};
+	void ICombatInterface::Die()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_Die instead.");
+	}
 	UAnimMontage* ICombatInterface::GetAttackMontage()
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetAttackMontage instead.");
@@ -207,6 +235,12 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		CombatInterface_eventGetHitReactMontage_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	int32 ICombatInterface::GetPlayerLevel()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetPlayerLevel instead.");
+		CombatInterface_eventGetPlayerLevel_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	bool ICombatInterface::IsAttacking()
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_IsAttacking instead.");
@@ -227,17 +261,41 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	{
 		UClass* Class = UCombatInterface::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Die", &ICombatInterface::execDie },
 			{ "GetAttackMontage", &ICombatInterface::execGetAttackMontage },
 			{ "GetAvatar", &ICombatInterface::execGetAvatar },
 			{ "GetCharacterClass", &ICombatInterface::execGetCharacterClass },
 			{ "GetCombatSocketLocation", &ICombatInterface::execGetCombatSocketLocation },
 			{ "GetDieAnimationAsset", &ICombatInterface::execGetDieAnimationAsset },
 			{ "GetHitReactMontage", &ICombatInterface::execGetHitReactMontage },
+			{ "GetPlayerLevel", &ICombatInterface::execGetPlayerLevel },
 			{ "IsAttacking", &ICombatInterface::execIsAttacking },
 			{ "IsDead", &ICombatInterface::execIsDead },
 			{ "SetIsAttacking", &ICombatInterface::execSetIsAttacking },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCombatInterface_Die_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_Die_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/CombatInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatInterface_Die_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatInterface, nullptr, "Die", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_Die_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatInterface_Die_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UCombatInterface_Die()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_Die_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UCombatInterface_GetAttackMontage_Statics
 	{
@@ -433,6 +491,36 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CombatInterface_eventGetPlayerLevel_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/CombatInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatInterface, nullptr, "GetPlayerLevel", nullptr, nullptr, Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::PropPointers), sizeof(CombatInterface_eventGetPlayerLevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CombatInterface_eventGetPlayerLevel_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCombatInterface_GetPlayerLevel()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_GetPlayerLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCombatInterface_IsAttacking_Statics
 	{
 		static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -559,12 +647,14 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatInterface_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCombatInterface_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCombatInterface_Die, "Die" }, // 2654240991
 		{ &Z_Construct_UFunction_UCombatInterface_GetAttackMontage, "GetAttackMontage" }, // 2248308404
 		{ &Z_Construct_UFunction_UCombatInterface_GetAvatar, "GetAvatar" }, // 4221870183
 		{ &Z_Construct_UFunction_UCombatInterface_GetCharacterClass, "GetCharacterClass" }, // 499379811
 		{ &Z_Construct_UFunction_UCombatInterface_GetCombatSocketLocation, "GetCombatSocketLocation" }, // 4132511811
 		{ &Z_Construct_UFunction_UCombatInterface_GetDieAnimationAsset, "GetDieAnimationAsset" }, // 1771998961
 		{ &Z_Construct_UFunction_UCombatInterface_GetHitReactMontage, "GetHitReactMontage" }, // 2363863605
+		{ &Z_Construct_UFunction_UCombatInterface_GetPlayerLevel, "GetPlayerLevel" }, // 2154733322
 		{ &Z_Construct_UFunction_UCombatInterface_IsAttacking, "IsAttacking" }, // 3795256593
 		{ &Z_Construct_UFunction_UCombatInterface_IsDead, "IsDead" }, // 3147900906
 		{ &Z_Construct_UFunction_UCombatInterface_SetIsAttacking, "SetIsAttacking" }, // 4252487587
@@ -609,6 +699,21 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 	UCombatInterface::UCombatInterface(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UCombatInterface);
 	UCombatInterface::~UCombatInterface() {}
+	static FName NAME_UCombatInterface_Die = FName(TEXT("Die"));
+	void ICombatInterface::Execute_Die(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UCombatInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_UCombatInterface_Die);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
+		{
+			I->Die_Implementation();
+		}
+	}
 	static FName NAME_UCombatInterface_GetAttackMontage = FName(TEXT("GetAttackMontage"));
 	UAnimMontage* ICombatInterface::Execute_GetAttackMontage(UObject* O)
 	{
@@ -712,6 +817,23 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UCombatInterface_GetPlayerLevel = FName(TEXT("GetPlayerLevel"));
+	int32 ICombatInterface::Execute_GetPlayerLevel(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UCombatInterface::StaticClass()));
+		CombatInterface_eventGetPlayerLevel_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UCombatInterface_GetPlayerLevel);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetPlayerLevel_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UCombatInterface_IsAttacking = FName(TEXT("IsAttacking"));
 	bool ICombatInterface::Execute_IsAttacking(UObject* O)
 	{
@@ -768,9 +890,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 3166237650U) },
+		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 3858920975U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_1690736630(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_990195299(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

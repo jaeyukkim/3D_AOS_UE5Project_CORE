@@ -125,13 +125,18 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 
 			if (bFatal)
 			{
-				ICombatInterface* CombatInterface = Cast<ICombatInterface>(Props.TargetAvatarActor);
-				if (CombatInterface)
+				if(Props.TargetAvatarActor->Implements<UCombatInterface>())
 				{
-					CombatInterface->Die();
+					//죽었을 때 한번만 경험치 전달
+					if(!ICombatInterface::Execute_IsDead(Props.TargetAvatarActor))
+					{
+						SendXPEvent(Props);
+					}
+					ICombatInterface::Execute_Die(Props.TargetAvatarActor);
+	
 				}
 				
-				SendXPEvent(Props);
+				
 				
 				FGameplayTagContainer TagContainer;
 				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
@@ -157,6 +162,22 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 		const float LocalIncomingXP = GetIncomingXP();
 		SetIncomingXP(0.f);
 
+		// Source Character is the owner, since GA_ListenForEvents applies GE_EventBasedEffect, adding to IncomingXP
+		if (Props.SourceCharacter->Implements<UPlayerInterface>() && Props.SourceCharacter->Implements<UCombatInterface>())
+		{
+			const int32 CurrentLevel = ICombatInterface::Execute_GetPlayerLevel(Props.SourceCharacter);
+			const int32 CurrentXP = IPlayerInterface::Execute_GetXP(Props.SourceCharacter);
+			const int32 NewLevel = IPlayerInterface::Execute_FindLevelForXP(Props.SourceCharacter, CurrentXP + LocalIncomingXP);
+			const int32 NumLevelUps = NewLevel - CurrentLevel;
+			if (NumLevelUps > 0)
+			{
+				const int32 SpellPointsReward = IPlayerInterface::Execute_GetSpellPointsReward(Props.SourceCharacter, CurrentLevel);
+				IPlayerInterface::Execute_AddToPlayerLevel(Props.SourceCharacter, NumLevelUps);
+				IPlayerInterface::Execute_AddToSpellPoints(Props.SourceCharacter, SpellPointsReward);
+				IPlayerInterface::Execute_LevelUp(Props.SourceCharacter);
+			}
+		}
+		
 		if (Props.SourceCharacter->Implements<UPlayerInterface>())
 		{
 			IPlayerInterface::Execute_AddToXP(Props.SourceCharacter, LocalIncomingXP);
@@ -278,16 +299,19 @@ void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 	
 	for(AActor* EnemyPlayer : OverlapActors)
 	{
-		ICombatInterface* CombatInterface = CastChecked<ICombatInterface>(Props.TargetCharacter);
+		if(Props.TargetCharacter->Implements<UCombatInterface>())
+		{
 			
-		const int32 TargetLevel = CombatInterface->GetPlayerLevel();
-		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
-		const int32 XPReward = UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(Props.TargetCharacter, TargetClass, TargetLevel);
-		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
-		FGameplayEventData Payload;
-		Payload.EventTag = GameplayTags.Attributes_Meta_IncomingXP;
-		Payload.EventMagnitude = XPReward / OverlapActors.Num();
-		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(EnemyPlayer, GameplayTags.Attributes_Meta_IncomingXP, Payload);
+			const int32 TargetLevel = ICombatInterface::Execute_GetPlayerLevel(Props.TargetCharacter);
+			const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
+			const int32 XPReward = UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(Props.TargetCharacter, TargetClass, TargetLevel);
+			const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+			FGameplayEventData Payload;
+			Payload.EventTag = GameplayTags.Attributes_Meta_IncomingXP;
+			Payload.EventMagnitude = XPReward / OverlapActors.Num();
+			UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(EnemyPlayer, GameplayTags.Attributes_Meta_IncomingXP, Payload);
+		}
+		
 	}
 	
 }

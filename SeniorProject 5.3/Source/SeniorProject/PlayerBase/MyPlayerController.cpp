@@ -71,13 +71,14 @@ void AMyPlayerController::SetupInputComponent()
 void AMyPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 {
 	if (GetASC() == nullptr) return;
-		GetASC()->AbilityInputTagReleased(InputTag);
+		GetASC()->AbilityInputTagPressed(InputTag);
 	
 }
 
 void AMyPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
-	if (GetASC()) GetASC()->AbilityInputTagReleased(InputTag);
+	if (GetASC())
+		GetASC()->AbilityInputTagReleased(InputTag);
 }
 
 void AMyPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)

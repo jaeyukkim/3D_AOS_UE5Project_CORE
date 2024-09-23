@@ -63,14 +63,7 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
 		FOnAttributeChangedSignature OnMaxManaChanged;
 
-	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnExpChanged;
 
-	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnAttributeChangedSignature OnNextExpChanged;
-
-	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
-		FOnLevelChangedSignature OnLevelChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
 		FOnAdditionalAttributeMenuSignature OnAdditionalAttributeMenu;
@@ -83,6 +76,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category="GAS|XP")
 		FOnAttributeChangedSignature OnXPPercentChangedDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
+		FOnLevelChangedSignature OnLevelChanged;
 	
 protected:
 

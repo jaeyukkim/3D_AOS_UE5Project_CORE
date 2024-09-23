@@ -36,8 +36,21 @@ AProjectileBase::AProjectileBase()
 	
 
 	
-	
-	
+}
+
+void AProjectileBase::SetOwnerActor(AActor* NewOwner)
+{
+	if(IsValid(NewOwner))
+		OwnerAvatarActor = NewOwner;
+}
+
+AActor* AProjectileBase::GetOwnerActor()
+{
+	if(IsValid(OwnerAvatarActor))
+		return OwnerAvatarActor;
+
+	return nullptr;
+
 }
 
 
@@ -75,10 +88,6 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 		}
 	}
 	
-	
-	
-
-
 	
 }
 

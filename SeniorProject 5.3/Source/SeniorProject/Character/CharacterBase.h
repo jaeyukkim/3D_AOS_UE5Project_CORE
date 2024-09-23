@@ -54,7 +54,7 @@ public:
 	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() override;;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
-	virtual void Die() override;
+	virtual void Die_Implementation() override;
 	
 	
 	UFUNCTION(NetMulticast, Reliable)

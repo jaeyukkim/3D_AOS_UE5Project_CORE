@@ -37,11 +37,11 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 5.f;
-	virtual void Die() override;
+	virtual void Die_Implementation() override;
 
 
 	
-	FORCEINLINE virtual int32 GetPlayerLevel() override {return Level;};
+	FORCEINLINE virtual int32 GetPlayerLevel_Implementation() override {return Level;};
 
 	
 

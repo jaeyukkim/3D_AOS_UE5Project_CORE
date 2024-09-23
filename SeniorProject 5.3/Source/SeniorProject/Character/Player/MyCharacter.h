@@ -16,6 +16,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+//class UParticleSystemComponent;
 class UInputMappingContext;
 class UInputAction;
 class USoundCue;
@@ -53,7 +54,7 @@ public:
 
 	/* CombatInterface */
 	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
-	virtual void Die() override;
+	virtual void Die_Implementation() override;
 	/* end CombatInterface */
 
 	/* Enemy Interface */
@@ -63,15 +64,28 @@ public:
 
 	/** Players Interface */
 	virtual void AddToXP_Implementation(int32 InXP) override;
+	virtual void LevelUp_Implementation() override;
+	virtual int32 GetXP_Implementation() const override;
+	virtual int32 FindLevelForXP_Implementation(int32 InXP) const override;
+	virtual int32 GetSpellPointsReward_Implementation(int32 Level) const override;
+	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) override;
+	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) override;
 	/** end Player Interface */
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
-	virtual int32 GetPlayerLevel() override;
+	virtual int32 GetPlayerLevel_Implementation() override;
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastLevelUpParticles() const;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
+	
 private:
 
+	
+	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputMappingContext> PlayerContext;
 

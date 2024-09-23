@@ -25,7 +25,7 @@ public:
 
 	
 	/* Combat Interface */
-	virtual void Die() override;
+	virtual void Die_Implementation() override;
 	/* end Combat Interface */
 
 	/* GameRule Interface */

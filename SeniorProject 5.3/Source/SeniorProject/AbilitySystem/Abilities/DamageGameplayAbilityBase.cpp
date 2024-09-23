@@ -10,6 +10,13 @@
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 
 
+void UDamageGameplayAbilityBase::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+	const FGameplayEventData* TriggerEventData)
+{
+	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+}
+
 void UDamageGameplayAbilityBase::CauseDamage(AActor* TargetActor)
 {
 	UBlueprintFunctionLibraryBase::ApplyDamageEffect(MakeDamageEffectParamsFromClassDefaults(TargetActor));
