@@ -2,12 +2,14 @@
 	"RemapUnityFiles": 
 	{
 		"Module.SeniorProject.1.cpp.obj": [
+			"AbilityInfo.gen.cpp.obj",
 			"AbilitySystemComponentBase.gen.cpp.obj",
 			"AbilitySystemGlobalsBase.gen.cpp.obj",
 			"AbilityTypesBase.gen.cpp.obj",
 			"AIControllerBase.gen.cpp.obj",
 			"AnimInstanceBase.gen.cpp.obj",
 			"AssetManagerBase.gen.cpp.obj",
+			"AttackRangeDecal.gen.cpp.obj",
 			"AttributeInfo.gen.cpp.obj",
 			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
@@ -15,10 +17,10 @@
 			"BTDecorator_IsInAttackRange.gen.cpp.obj",
 			"BTS_Detect.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
-			"BTTask_TurnToTarget.gen.cpp.obj",
-			"CharacterBase.gen.cpp.obj"
+			"BTTask_TurnToTarget.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"CharacterBase.gen.cpp.obj",
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
@@ -39,6 +41,9 @@
 			"Kwang.gen.cpp.obj",
 			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
+			"LevelUpInfo.gen.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"Melee.gen.cpp.obj",
 			"MeleeAttackBase.gen.cpp.obj",
 			"MinionAnimInstance.gen.cpp.obj",
@@ -46,12 +51,11 @@
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
 			"MyCharacter.gen.cpp.obj",
-			"MyGameModeBase.gen.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"MyGameModeBase.gen.cpp.obj",
 			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
+			"PlayerInterface.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
@@ -61,6 +65,9 @@
 			"Spawner.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
+			"WaitCooldownChange.gen.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"MeleeAttackBase.cpp.obj",
 			"DamageGameplayAbilityBase.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
@@ -68,12 +75,16 @@
 			"AbilitySystemComponentBase.cpp.obj",
 			"TargetDataAim.cpp.obj",
 			"AbilityTypesBase.cpp.obj",
+			"WaitCooldownChange.cpp.obj",
 			"AttributeSetBase.cpp.obj",
+			"AbilityInfo.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
+			"LevelUpInfo.cpp.obj",
 			"ExecCalc_Damage.cpp.obj",
 			"AbilitySystemGlobalsBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",
+			"AttackRangeDecal.cpp.obj",
 			"DamageActorBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"Spawner.cpp.obj",
@@ -106,6 +117,7 @@
 			"CombatInterface.cpp.obj",
 			"EnemyInterface.cpp.obj",
 			"GameRuleInterface.cpp.obj",
+			"PlayerInterface.cpp.obj",
 			"MyAnimInstance.cpp.obj",
 			"MyPlayerController.cpp.obj",
 			"PlayerStateBase.cpp.obj",

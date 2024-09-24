@@ -12,6 +12,7 @@
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
 
 #include "AbilitySystemComponent.h"
+#include "EditorDirectories.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 #include "EnhancedInputSubsystems.h"
@@ -267,6 +268,10 @@ void AMyCharacter::LevelUp_Implementation()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	MulticastLevelUpParticles();
+
+	if(HasAuthority())
+		ApplyEffectToSelf(LevelUpReward, 1.f);
+	
 }
 
 void AMyCharacter::MulticastLevelUpParticles_Implementation() const
@@ -317,8 +322,14 @@ int32 AMyCharacter::GetPlayerLevel_Implementation()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	return PlayerStateBase->GetPlayerLevel();
+
+
 }
 
+void AMyCharacter::GetLevelUpReward()
+{
+	ApplyEffectToSelf(LevelUpReward, 1.f);
+}
 
 
 void AMyCharacter::AimTrace()

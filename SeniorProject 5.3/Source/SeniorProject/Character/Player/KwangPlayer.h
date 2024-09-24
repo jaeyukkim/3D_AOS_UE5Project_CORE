@@ -6,6 +6,9 @@
 #include "SeniorProject/Character/Player/MyCharacter.h"
 #include "KwangPlayer.generated.h"
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSwordDestroyDelegate);
+
 class AAttackRangeDecal;
 /**
  * 
@@ -26,12 +29,16 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void HideMagicCircle();
+	
 
 	UFUNCTION(BlueprintCallable)
-	void SetSwordObject(AActor* Sword);
+	FVector GetSwordLocation();
 
 	UFUNCTION(BlueprintCallable)
-	void DestroySwordObject();
+	void SetSwordLocation(FVector NewSwordLocation);
+
+	UFUNCTION(BlueprintCallable)
+	void DestroySword();
 	
 	UFUNCTION(BlueprintCallable)
 	bool GetbActiveWep();
@@ -39,7 +46,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetbActiveWep(bool nbActiveWep);
 
-	
+	UPROPERTY(BlueprintAssignable, Category="Kwang")
+	FSwordDestroyDelegate SwordDestroyDelegate;
+
+
 	
 protected:
 
@@ -55,12 +65,13 @@ protected:
 
 	FHitResult AbilityRangeTraceResult;
 
-	UPROPERTY()
-	TObjectPtr<AActor> KwangSword;
 	
 private:
 	UPROPERTY(Replicated)
 	bool bActiveWep = true;
+
+	UPROPERTY(Replicated)
+	FVector SwordLocation;
 
 	
 };

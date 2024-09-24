@@ -13,16 +13,16 @@ void UGameplayAbilityBase::ActivateAbility(const FGameplayAbilitySpecHandle Hand
                                            const FGameplayEventData* TriggerEventData)
 {
 	
-	// 스킬 사용 중 다른 스킬사용을 CastingTime 만큼 막음으로써 캔슬 방지
-	// 캐스팅이 필요 한 스킬인지 CastingEffect가 설정되어 있는지 확인
+	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+}
+
+void UGameplayAbilityBase::ActivateCasting()
+{
 	if(IsNeedCasting && CastingEffect)
 	{
-		
 		// GameplayEffect를 대상 액터에게 적용
 		FGameplayEffectSpecHandle SpecHandle = MakeOutgoingGameplayEffectSpec(CastingEffect, 1);
 		SpecHandle.Data->SetSetByCallerMagnitude(FGameplayTagsBase::Get().Abilities_Combat_CastingOn, CastingTime);
-		ActorInfo->AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+		GetAbilitySystemComponentFromActorInfo()->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
 	}
-	
-	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 }

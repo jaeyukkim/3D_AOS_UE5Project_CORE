@@ -89,9 +89,10 @@ void UBlueprintFunctionLibraryBase::GiveStartupAbilities(const UObject* WorldCon
 	UAbilitySystemComponent* ASC, ECharacterClass CharacterClass)
 {
 	AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
+	
 	if (MyGameModeBase == nullptr) return;
-
 	UCharacterClassInfo* CharacterClassInfo = MyGameModeBase->CharacterClassInfo;
+	
 	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->StartupAbilities)
 	{
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
@@ -108,6 +109,8 @@ void UBlueprintFunctionLibraryBase::GiveStartupAbilities(const UObject* WorldCon
 		}
 	}
 }
+
+
 
 
 bool UBlueprintFunctionLibraryBase::IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle)

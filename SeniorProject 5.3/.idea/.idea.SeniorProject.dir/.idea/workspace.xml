@@ -7,48 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CharacterBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Crunch.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Crunch.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KallariAI.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KallariAI.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Kwang.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Kwang.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KwangPlayer.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/KwangPlayer.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/LaneSuper.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/LaneSuper.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Melee.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Melee.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Minions.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Minions.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MyCharacter.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/MyCharacter.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/OverlayWidgetController.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/OverlayWidgetController.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Ranged.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Ranged.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Turret.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Turret.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/SourceControl/UncontrolledChangelists.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Minions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Minions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Minions.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Enemy/Minions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Turret/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Character/Turret/Turret.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/CombatInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/PlayerInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/Interface/PlayerInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.h" afterDir="false" />
-    </list>
+    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +92,174 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://30" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://37" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/CombatInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.h" root0="FORCE_HIGHLIGHTING" />
@@ -144,6 +270,7 @@
     <setting file="file://$PROJECT_DIR$/Source/SeniorProject/SeniorProject.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../GameplayAbilitySystem_Aura-main/Source/Aura/Private/AbilitySystem/Abilities/AuraProjectileSpell.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../GameplayAbilitySystem_Aura-main/Source/Aura/Private/UI/Widget/AuraUserWidget.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../GameplayAbilitySystem_Aura-main/Source/Aura/Private/UI/WidgetController/AttributeMenuWidgetController.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../GameplayAbilitySystem_Aura-main/Source/Aura/Public/UI/Widget/AuraUserWidget.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -312,6 +439,7 @@
       <workItem from="1727019163462" duration="6652000" />
       <workItem from="1727065696621" duration="6555000" />
       <workItem from="1727074905541" duration="23948000" />
+      <workItem from="1727153705168" duration="32808000" />
     </task>
     <servers />
   </component>

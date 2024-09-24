@@ -20,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void MulticastLevelUpParticles_Implementation() const; \
  \
+	DECLARE_FUNCTION(execGetLevelUpReward); \
 	DECLARE_FUNCTION(execMulticastLevelUpParticles);
 
 

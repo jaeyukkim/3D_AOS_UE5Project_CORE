@@ -202,6 +202,10 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 #endif
 		static void NewProp_bIsAblePenetration_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsAblePenetration;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwnerAvatarActor_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_OwnerAvatarActor;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -230,7 +234,7 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData) };
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement = { "ProjectileMovement", nullptr, (EPropertyFlags)0x001400000008000d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, ProjectileMovement), Z_Construct_UClass_UProjectileMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams_MetaData[] = {
 		{ "Category", "ProjectileBase" },
@@ -266,12 +270,19 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		((AProjectileBase*)Obj)->bIsAblePenetration = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration = { "bIsAblePenetration", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AProjectileBase), &Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProjectileBase_Statics::NewProp_OwnerAvatarActor_MetaData[] = {
+		{ "ModuleRelativePath", "Actor/Projectile/ProjectileBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AProjectileBase_Statics::NewProp_OwnerAvatarActor = { "OwnerAvatarActor", nullptr, (EPropertyFlags)0x0024080000000020, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AProjectileBase, OwnerAvatarActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AProjectileBase_Statics::NewProp_OwnerAvatarActor_MetaData), Z_Construct_UClass_AProjectileBase_Statics::NewProp_OwnerAvatarActor_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProjectileBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_ProjectileMovement,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_DamageEffectParams,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_Mesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_SphereComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_bIsAblePenetration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProjectileBase_Statics::NewProp_OwnerAvatarActor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProjectileBase_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProjectileBase>::IsAbstract,
@@ -304,6 +315,16 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 	{
 		return AProjectileBase::StaticClass();
 	}
+
+	void AProjectileBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_OwnerAvatarActor(TEXT("OwnerAvatarActor"));
+
+		const bool bIsValid = true
+			&& Name_OwnerAvatarActor == ClassReps[(int32)ENetFields_Private::OwnerAvatarActor].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AProjectileBase"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AProjectileBase);
 	AProjectileBase::~AProjectileBase() {}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics
@@ -311,9 +332,9 @@ void EmptyLinkFunctionForGeneratedCodeProjectileBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 1517865299U) },
+		{ Z_Construct_UClass_AProjectileBase, AProjectileBase::StaticClass, TEXT("AProjectileBase"), &Z_Registration_Info_UClass_AProjectileBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AProjectileBase), 2653673656U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_509349041(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_376063981(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

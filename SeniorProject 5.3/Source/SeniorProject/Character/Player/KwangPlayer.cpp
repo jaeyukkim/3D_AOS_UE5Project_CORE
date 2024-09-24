@@ -20,6 +20,8 @@ void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(AKwangPlayer, bActiveWep);
+	DOREPLIFETIME(AKwangPlayer, SwordLocation);
+	
 }
 
 
@@ -62,15 +64,25 @@ void AKwangPlayer::HideMagicCircle()
 	}
 }
 
-void AKwangPlayer::SetSwordObject(AActor* Sword)
+FVector AKwangPlayer::GetSwordLocation()
 {
-	KwangSword = Sword;
+	return SwordLocation;
 }
 
-void AKwangPlayer::DestroySwordObject()
+void AKwangPlayer::SetSwordLocation(FVector NewSwordLocation)
 {
-	KwangSword->Destroy();
+	if(HasAuthority())
+		SwordLocation = NewSwordLocation;
 }
+
+
+void AKwangPlayer::DestroySword()
+{
+	
+	SwordDestroyDelegate.Broadcast();
+	
+}
+
 
 bool AKwangPlayer::GetbActiveWep()
 {
@@ -79,7 +91,8 @@ bool AKwangPlayer::GetbActiveWep()
 
 void AKwangPlayer::SetbActiveWep(bool nbActiveWep)
 {
-	bActiveWep = nbActiveWep;
+	if(HasAuthority())
+		bActiveWep = nbActiveWep;
 }
 
 

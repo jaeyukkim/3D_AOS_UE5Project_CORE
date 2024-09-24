@@ -31,4 +31,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category="Casting")
 	TSubclassOf<UGameplayEffect> CastingEffect;
+
+	UFUNCTION(BlueprintCallable)
+	void ActivateCasting();
 };

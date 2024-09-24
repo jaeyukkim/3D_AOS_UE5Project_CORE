@@ -16,7 +16,8 @@ class SENIORPROJECT_API AProjectileBase : public ADamageActorBase
 	GENERATED_BODY()
 	
 public:	
-	
+
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	AProjectileBase();
 	
 	void SetOwnerActor(AActor* NewOwner);
@@ -24,11 +25,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	AActor* GetOwnerActor();
 	
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
 
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn = true))
 	FDamageEffectParams DamageEffectParams;
+
 	
 protected:
 
@@ -46,9 +48,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attack")
 	bool bIsAblePenetration = false;
-
-private:
 	
+
+	UPROPERTY(Replicated)
 	TObjectPtr<AActor> OwnerAvatarActor;
 
 };

@@ -33,7 +33,13 @@ private: \
 	friend struct Z_Construct_UClass_AProjectileBase_Statics; \
 public: \
 	DECLARE_CLASS(AProjectileBase, ADamageActorBase, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
-	DECLARE_SERIALIZER(AProjectileBase)
+	DECLARE_SERIALIZER(AProjectileBase) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		OwnerAvatarActor=NETFIELD_REP_START, \
+		NETFIELD_REP_END=OwnerAvatarActor	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_Actor_Projectile_ProjectileBase_h_16_ENHANCED_CONSTRUCTORS \

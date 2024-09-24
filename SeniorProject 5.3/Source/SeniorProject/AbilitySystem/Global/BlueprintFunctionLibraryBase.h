@@ -36,6 +36,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="AbilitySystemLibraryBase|CharacterClassDefaults")
 	static void GiveStartupAbilities(const UObject* WorldContextObject, UAbilitySystemComponent* ASC, ECharacterClass CharacterClass);
 
+
+	
 	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static bool IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle);
 

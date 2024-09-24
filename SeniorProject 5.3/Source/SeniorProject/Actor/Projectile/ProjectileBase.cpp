@@ -6,8 +6,16 @@
 #include "AbilitySystemComponent.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/AbilitySystem/Global/AbilitySystemGlobalsBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+
+
+void AProjectileBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AProjectileBase, OwnerAvatarActor);
+}
 
 // Sets default values
 AProjectileBase::AProjectileBase()
@@ -41,7 +49,9 @@ AProjectileBase::AProjectileBase()
 void AProjectileBase::SetOwnerActor(AActor* NewOwner)
 {
 	if(IsValid(NewOwner))
+	{
 		OwnerAvatarActor = NewOwner;
+	}
 }
 
 AActor* AProjectileBase::GetOwnerActor()
@@ -90,5 +100,6 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 	
 	
 }
+
 
 

@@ -81,6 +81,12 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
+
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "LevelUp")
+	TSubclassOf<UGameplayEffect> LevelUpReward;
+
+	UFUNCTION()
+	void GetLevelUpReward();
 	
 private:
 

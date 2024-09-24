@@ -18,8 +18,42 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(UGameplayAbilityBase::execActivateCasting)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ActivateCasting();
+		P_NATIVE_END;
+	}
 	void UGameplayAbilityBase::StaticRegisterNativesUGameplayAbilityBase()
 	{
+		UClass* Class = UGameplayAbilityBase::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "ActivateCasting", &UGameplayAbilityBase::execActivateCasting },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/Abilities/GameplayAbilityBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameplayAbilityBase, nullptr, "ActivateCasting", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UGameplayAbilityBase);
 	UClass* Z_Construct_UClass_UGameplayAbilityBase_NoRegister()
@@ -29,6 +63,7 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 	struct Z_Construct_UClass_UGameplayAbilityBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -58,6 +93,10 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UGameplayAbilityBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UGameplayAbilityBase_ActivateCasting, "ActivateCasting" }, // 1050350180
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UGameplayAbilityBase_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
@@ -113,11 +152,11 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UGameplayAbilityBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UGameplayAbilityBase_Statics::PropPointers),
 		0,
 		0x001000A0u,
@@ -144,9 +183,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayAbilityBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 900876519U) },
+		{ Z_Construct_UClass_UGameplayAbilityBase, UGameplayAbilityBase::StaticClass, TEXT("UGameplayAbilityBase"), &Z_Registration_Info_UClass_UGameplayAbilityBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameplayAbilityBase), 1401203438U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_1513502335(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_3720868344(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_GameplayAbilityBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
