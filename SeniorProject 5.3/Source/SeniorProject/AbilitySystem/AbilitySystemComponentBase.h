@@ -42,7 +42,9 @@ public:
 	static FGameplayTag GetInputTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
 	virtual void OnRep_ActivateAbilities() override;
 
-
+	UFUNCTION(BlueprintCallable, Category="Abilities")
+	int32 GetAbilityLevel(FGameplayTag AbilityTag);
+	
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	void IncreaseAbilityLevel(FGameplayTag AbilityTag);
 	

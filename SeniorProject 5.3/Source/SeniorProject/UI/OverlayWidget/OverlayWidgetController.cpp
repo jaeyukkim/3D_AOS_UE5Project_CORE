@@ -30,6 +30,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 			OnLevelChanged.Broadcast(NewLevel);
 		}
 	);
+
 	
 
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
@@ -60,16 +61,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
-		if (ASCBase->bStartupAbilitiesGiven)
-		{
-			OnInitializeStartupAbilities(ASCBase);
-		}
-		else
-		{
-			ASCBase->AbilitiesGivenDelegate.AddUObject(this, &UOverlayWidgetController::OnInitializeStartupAbilities);
-		}
-
-
+		
 		ASCBase->EffectAssetTags.AddLambda(
 	[this](const FGameplayTagContainer& AssetTags)
 		{
@@ -91,21 +83,6 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 }
 
-void UOverlayWidgetController::OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase)
-{
-	//Get information about all given abilities, look up their Ability Info, and broadcast it to widgets.
-	if (!AbilitySystemComponentBase->bStartupAbilitiesGiven) return;
-
-	FForEachAbility BroadcastDelegate;
-	BroadcastDelegate.BindLambda([this, AbilitySystemComponentBase](const FGameplayAbilitySpec& AbilitySpec)
-	{
-		
-		FAbilityInfoBase Info = AbilityInfo->FindAbilityInfoForTag(AbilitySystemComponentBase->GetAbilityTagFromSpec(AbilitySpec));
-		Info.InputTag = AbilitySystemComponentBase->GetInputTagFromSpec(AbilitySpec);
-		AbilityInfoDelegate.Broadcast(Info);
-	});
-	AbilitySystemComponentBase->ForEachAbility(BroadcastDelegate);
-}
 
 void UOverlayWidgetController::OnXPChanged(int32 NewXP) const
 {
@@ -126,14 +103,3 @@ void UOverlayWidgetController::OnXPChanged(int32 NewXP) const
 		OnXPPercentChangedDelegate.Broadcast(XPBarPercent);
 	}
 }
-
-void UOverlayWidgetController::UpgradeSpell(const FGameplayTag& AbilityTag)
-{
-	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
-	{
-		ASCBase->IncreaseAbilityLevel(AbilityTag);
-	}
-}
-
-
-

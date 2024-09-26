@@ -38,10 +38,6 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FLevelUpInfoBase>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LevelUpRequirement_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_LevelUpRequirement;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpellPointAward_MetaData[];
-#endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_SpellPointAward;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -62,16 +58,8 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FLevelUpInfoBase>()
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_LevelUpRequirement = { "LevelUpRequirement", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLevelUpInfoBase, LevelUpRequirement), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_LevelUpRequirement_MetaData), Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_LevelUpRequirement_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_SpellPointAward_MetaData[] = {
-		{ "Category", "LevelUpInfoBase" },
-		{ "ModuleRelativePath", "AbilitySystem/Data/LevelUpInfo.h" },
-	};
-#endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_SpellPointAward = { "SpellPointAward", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FLevelUpInfoBase, SpellPointAward), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_SpellPointAward_MetaData), Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_SpellPointAward_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_LevelUpRequirement,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewProp_SpellPointAward,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
@@ -132,14 +120,14 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FLevelUpInfoBase>()
 		{ "ModuleRelativePath", "AbilitySystem/Data/LevelUpInfo.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_Inner = { "LevelUpInformation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FLevelUpInfoBase, METADATA_PARAMS(0, nullptr) }; // 1061652275
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_Inner = { "LevelUpInformation", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FLevelUpInfoBase, METADATA_PARAMS(0, nullptr) }; // 385057410
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_MetaData[] = {
 		{ "Category", "LevelUpInfo" },
 		{ "ModuleRelativePath", "AbilitySystem/Data/LevelUpInfo.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation = { "LevelUpInformation", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelUpInfo, LevelUpInformation), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_MetaData), Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_MetaData) }; // 1061652275
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation = { "LevelUpInformation", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ULevelUpInfo, LevelUpInformation), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_MetaData), Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_MetaData) }; // 385057410
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ULevelUpInfo_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ULevelUpInfo_Statics::NewProp_LevelUpInformation,
@@ -184,12 +172,12 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FLevelUpInfoBase>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ScriptStructInfo[] = {
-		{ FLevelUpInfoBase::StaticStruct, Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewStructOps, TEXT("LevelUpInfoBase"), &Z_Registration_Info_UScriptStruct_LevelUpInfoBase, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLevelUpInfoBase), 1061652275U) },
+		{ FLevelUpInfoBase::StaticStruct, Z_Construct_UScriptStruct_FLevelUpInfoBase_Statics::NewStructOps, TEXT("LevelUpInfoBase"), &Z_Registration_Info_UScriptStruct_LevelUpInfoBase, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLevelUpInfoBase), 385057410U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ULevelUpInfo, ULevelUpInfo::StaticClass, TEXT("ULevelUpInfo"), &Z_Registration_Info_UClass_ULevelUpInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelUpInfo), 1758926077U) },
+		{ Z_Construct_UClass_ULevelUpInfo, ULevelUpInfo::StaticClass, TEXT("ULevelUpInfo"), &Z_Registration_Info_UClass_ULevelUpInfo, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ULevelUpInfo), 3598720967U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_3999760690(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_4069028259(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Data_LevelUpInfo_h_Statics::ScriptStructInfo),
 		nullptr, 0);

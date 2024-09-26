@@ -143,6 +143,26 @@ void UAbilitySystemComponentBase::OnRep_ActivateAbilities()
 	}
 }
 
+int32 UAbilitySystemComponentBase::GetAbilityLevel(FGameplayTag AbilityTag)
+{
+	
+	
+	const TArray<FGameplayAbilitySpec>& AllAbilities = GetActivatableAbilities();
+
+	for (const FGameplayAbilitySpec& Spec : AllAbilities)
+	{
+		if (Spec.Ability && Spec.Ability->AbilityTags.HasTag(AbilityTag))
+		{
+			return Spec.Level;
+		}
+	}
+
+	
+
+	return -1;
+}
+
+
 void UAbilitySystemComponentBase::IncreaseAbilityLevel(FGameplayTag AbilityTag)
 {
 
@@ -154,15 +174,10 @@ void UAbilitySystemComponentBase::IncreaseAbilityLevel(FGameplayTag AbilityTag)
 		}
 	}
 	
-	
 }
 
 void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
 {
-	if (GetAvatarActor()->Implements<UPlayerInterface>())
-	{
-		IPlayerInterface::Execute_AddToSpellPoints(GetAvatarActor(), -1);
-	}
 	
 	TArray<FGameplayAbilitySpec*> Abilities;
 	GetActivatableGameplayAbilitySpecsByAllMatchingTags(AbilityTag.GetSingleTagContainer(), Abilities);
@@ -176,9 +191,13 @@ void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGa
 			Spec->Level += 1;
 			UE_LOG(LogTemp, Log, TEXT("Increased Ability Level: %s to Level %d"), *Spec->Ability->GetName(), Spec->Level);
 
-			// 능력 레벨이 업데이트되었음을 AbilitySystemComponent에 알림
+			// ability 레벨이 업데이트되었음을 AbilitySystemComponent에 알림
 			MarkAbilitySpecDirty(*Spec);
 		}
+	}
+	if (GetAvatarActor()->Implements<UPlayerInterface>())
+	{
+		IPlayerInterface::Execute_AddToSpellPoints(GetAvatarActor(), -1);
 	}
 	
 }

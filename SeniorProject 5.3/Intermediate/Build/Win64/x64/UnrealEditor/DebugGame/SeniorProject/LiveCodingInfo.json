@@ -16,10 +16,10 @@
 			"BlueprintFunctionLibraryBase.gen.cpp.obj",
 			"BTDecorator_IsInAttackRange.gen.cpp.obj",
 			"BTS_Detect.gen.cpp.obj",
-			"BTTask_FindPatrolPos.gen.cpp.obj",
-			"BTTask_TurnToTarget.gen.cpp.obj"
+			"BTTask_FindPatrolPos.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"BTTask_TurnToTarget.gen.cpp.obj",
 			"CharacterBase.gen.cpp.obj",
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
@@ -63,11 +63,12 @@
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Spawner.gen.cpp.obj",
+			"SpellMenuWidgetController.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
-			"Turret.gen.cpp.obj",
-			"WaitCooldownChange.gen.cpp.obj"
+			"Turret.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"WaitCooldownChange.gen.cpp.obj",
 			"MeleeAttackBase.cpp.obj",
 			"DamageGameplayAbilityBase.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
@@ -127,7 +128,8 @@
 			"DefaultWidgetController.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"OverlayWidget.cpp.obj",
-			"OverlayWidgetController.cpp.obj"
+			"OverlayWidgetController.cpp.obj",
+			"SpellMenuWidgetController.cpp.obj"
 		]
 	}
 }

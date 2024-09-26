@@ -13,10 +13,7 @@ struct FLevelUpInfoBase
 	GENERATED_BODY()
 	UPROPERTY(EditDefaultsOnly)
 	int32 LevelUpRequirement = 0;
-
 	
-	UPROPERTY(EditDefaultsOnly)
-	int32 SpellPointAward = 1;
 };
 
 /**

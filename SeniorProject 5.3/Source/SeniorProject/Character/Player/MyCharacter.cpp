@@ -296,13 +296,6 @@ int32 AMyCharacter::FindLevelForXP_Implementation(int32 InXP) const
 }
 
 
-int32 AMyCharacter::GetSpellPointsReward_Implementation(int32 Level) const
-{
-	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-	check(PlayerStateBase);
-	return PlayerStateBase->LevelUpInfo->LevelUpInformation[Level].SpellPointAward;
-}
-
 void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();

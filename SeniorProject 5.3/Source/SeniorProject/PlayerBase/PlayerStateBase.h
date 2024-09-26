@@ -46,6 +46,8 @@ public:
 	void SetXP(int32 InXP);
 	void SetLevel(int32 InLevel);
 	void SetSpellPoints(int32 InPoints);
+
+	
 //	virtual void Die() override;
 	
 protected:
@@ -62,7 +64,7 @@ protected:
 	int32 XP = 1;
 
 	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_SpellPoints)
-	int32 SpellPoints = 0;
+	int32 SpellPoints = 1;
 	
 	UFUNCTION()
 	void OnRep_Level(int32 OldLevel);

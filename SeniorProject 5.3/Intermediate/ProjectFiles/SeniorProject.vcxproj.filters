@@ -498,5 +498,14 @@
     <ClInclude Include="..\..\Source\SeniorProject\UI\OverlayWidget\OverlayWidgetController.h">
       <Filter>Source\SeniorProject\UI\OverlayWidget</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\SpellMenu">
+      <UniqueIdentifier>{E9BE545F-5DA5-3808-859B-A82B90F23451}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\SpellMenu\SpellMenuWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI\SpellMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\SpellMenu\SpellMenuWidgetController.h">
+      <Filter>Source\SeniorProject\UI\SpellMenu</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

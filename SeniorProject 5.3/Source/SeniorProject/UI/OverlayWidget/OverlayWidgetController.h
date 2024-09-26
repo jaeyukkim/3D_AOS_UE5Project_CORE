@@ -8,7 +8,7 @@
 #include "GameplayTags.h"
 #include "OverlayWidgetController.generated.h"
 
-struct FAuraAbilityInfo;
+struct FAbilityInfoBase;
 
 USTRUCT(BlueprintType)
 struct FUIWidgetRow : public FTableRowBase
@@ -37,7 +37,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAttributeChangedSignature, float,
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnLevelChangedSignature, int32, NewLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAdditionalAttributeMenuSignature, bool, bIsActive);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMessageWidgetRowSignature, FUIWidgetRow, Row);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAbilityInfoSignature, const FAbilityInfoBase&, Info);
+
 
 /**
  *
@@ -71,32 +71,29 @@ public:
 	UPROPERTY(BlueprintAssignable, Category="GAS|Messages")
 		FMessageWidgetRowSignature MessageWidgetRowDelegate;
 
-	UPROPERTY(BlueprintAssignable, Category="GAS|Ability")
-		FAbilityInfoSignature AbilityInfoDelegate;
+	
 
 	UPROPERTY(BlueprintAssignable, Category="GAS|XP")
 		FOnAttributeChangedSignature OnXPPercentChangedDelegate;
 
-	UPROPERTY(BlueprintAssignable, Category = "GAS|Attributes")
+	UPROPERTY(BlueprintAssignable, Category = "GAS|XP")
 		FOnLevelChangedSignature OnLevelChanged;
+
+	
 	
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
 	TObjectPtr<UDataTable> MessageWidgetDataTable;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widget Data")
-	TObjectPtr<UAbilityInfo> AbilityInfo;
+	
 	
 	template<typename T>
 	T* GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag);
 
-	void OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase);
-
 	void OnXPChanged(int32 NewXP) const;
 
-	UFUNCTION(BlueprintCallable)
-	void UpgradeSpell(const FGameplayTag& AbilityTag);
+
 };
 template <typename T>
 T* UOverlayWidgetController::GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag)

@@ -7,6 +7,7 @@
 #include "SeniorProject/UI/AttributeMenu/AttributeMenuWidgetController.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+#include "SeniorProject/UI/SpellMenu/SpellMenuWidgetController.h"
 #include "BlueprintFunctionLibraryBase.generated.h"
 
 class UAbilitySystemComponent;
@@ -26,6 +27,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
 	static UAttributeMenuWidgetController* GetUAttributeMenuWidgetController(const UObject* WorldContextObject);
+
+	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	static USpellMenuWidgetController* GetSpellMenuWidgetController(const UObject* WorldContextObject);
 
 	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemLibrary|CharacterClassDefaults")
 	static UCharacterClassInfo* GetCharacterClassInfo(const UObject* WorldContextObject);
@@ -53,7 +57,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static void GetLivePlayersWithinRadius(const UObject* WorldContextObject,TArray<AActor*>& OutOverlappingActors,
 		const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin);
-
+	
 	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static bool IsFriends(AActor* FirstActor, AActor* SecondActor);
 

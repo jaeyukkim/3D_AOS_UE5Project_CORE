@@ -33,7 +33,8 @@ SENIORPROJECT_API void FOnAttackEndSignatures_DelegateWrapper(const FMulticastSc
 	DECLARE_FUNCTION(execBroadCastAttackEnd); \
 	DECLARE_FUNCTION(execClientEffectApplied); \
 	DECLARE_FUNCTION(execServerSpendSpellPoint); \
-	DECLARE_FUNCTION(execIncreaseAbilityLevel);
+	DECLARE_FUNCTION(execIncreaseAbilityLevel); \
+	DECLARE_FUNCTION(execGetAbilityLevel);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_20_ACCESSORS

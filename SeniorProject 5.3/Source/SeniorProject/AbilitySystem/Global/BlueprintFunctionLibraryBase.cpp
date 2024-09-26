@@ -49,6 +49,25 @@ UAttributeMenuWidgetController* UBlueprintFunctionLibraryBase::GetUAttributeMenu
 	return nullptr;
 }
 
+USpellMenuWidgetController* UBlueprintFunctionLibraryBase::GetSpellMenuWidgetController(
+	const UObject* WorldContextObject)
+{
+	if(APlayerController* PC = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
+	{
+		if(ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(PC->GetHUD()))
+		{
+			APlayerStateBase* PS = PC->GetPlayerState<APlayerStateBase>();
+			UAbilitySystemComponent* ASC = PS->GetAbilitySystemComponent();
+			UAttributeSet* AS = PS->GetAttributeSet();
+			const FWidgetControllerParams WCParam = FWidgetControllerParams(PC, PS, ASC, AS);
+			return DefaultHUD->GetSpellMenuWidgetController(WCParam);
+		}
+	}
+
+	return nullptr;
+}
+
+
 UCharacterClassInfo* UBlueprintFunctionLibraryBase::GetCharacterClassInfo(const UObject* WorldContextObject)
 {
 	AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(WorldContextObject));
