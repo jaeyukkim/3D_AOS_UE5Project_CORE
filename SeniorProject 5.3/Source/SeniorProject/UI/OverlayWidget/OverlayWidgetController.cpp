@@ -127,5 +127,13 @@ void UOverlayWidgetController::OnXPChanged(int32 NewXP) const
 	}
 }
 
+void UOverlayWidgetController::UpgradeSpell(const FGameplayTag& AbilityTag)
+{
+	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
+	{
+		ASCBase->IncreaseAbilityLevel(AbilityTag);
+	}
+}
+
 
 

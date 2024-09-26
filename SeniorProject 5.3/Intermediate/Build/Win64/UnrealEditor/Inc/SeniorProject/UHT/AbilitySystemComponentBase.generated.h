@@ -12,6 +12,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UAbilitySystemComponent;
 struct FActiveGameplayEffectHandle;
 struct FGameplayEffectSpec;
+struct FGameplayTag;
 #ifdef SENIORPROJECT_AbilitySystemComponentBase_generated_h
 #error "AbilitySystemComponentBase.generated.h already included, missing '#pragma once' in AbilitySystemComponentBase.h"
 #endif
@@ -27,9 +28,12 @@ SENIORPROJECT_API void FOnAttackEndSignatures_DelegateWrapper(const FMulticastSc
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void BroadCastAttackEnd_Implementation(); \
 	virtual void ClientEffectApplied_Implementation(UAbilitySystemComponent* AbilitySystemComponent, FGameplayEffectSpec const& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle); \
+	virtual void ServerSpendSpellPoint_Implementation(FGameplayTag const& AbilityTag); \
  \
 	DECLARE_FUNCTION(execBroadCastAttackEnd); \
-	DECLARE_FUNCTION(execClientEffectApplied);
+	DECLARE_FUNCTION(execClientEffectApplied); \
+	DECLARE_FUNCTION(execServerSpendSpellPoint); \
+	DECLARE_FUNCTION(execIncreaseAbilityLevel);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_20_ACCESSORS

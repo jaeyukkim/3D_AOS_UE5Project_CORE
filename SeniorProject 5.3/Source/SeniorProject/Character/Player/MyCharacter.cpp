@@ -313,7 +313,16 @@ void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 
 void AMyCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
 {
-	// TODO: Add SpellPoints to PlayerState
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	PlayerStateBase->AddToSpellPoints(InSpellPoints);
+}
+
+int32 AMyCharacter::GetSpellPoints_Implementation() const
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->GetSpellPoints();
 }
 
 

@@ -45,6 +45,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		P_THIS->AddToXP_Implementation(Z_Param_InXP);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(IPlayerInterface::execGetSpellPoints)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetSpellPoints_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execGetSpellPointsReward)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_Level);
@@ -91,6 +98,16 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 		}
 	};
+	struct PlayerInterface_eventGetSpellPoints_Parms
+	{
+		int32 ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventGetSpellPoints_Parms()
+			: ReturnValue(0)
+		{
+		}
+	};
 	struct PlayerInterface_eventGetSpellPointsReward_Parms
 	{
 		int32 Level;
@@ -130,6 +147,12 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		PlayerInterface_eventFindLevelForXP_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	int32 IPlayerInterface::GetSpellPoints() const
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetSpellPoints instead.");
+		PlayerInterface_eventGetSpellPoints_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	int32 IPlayerInterface::GetSpellPointsReward(int32 Level) const
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetSpellPointsReward instead.");
@@ -154,6 +177,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			{ "AddToSpellPoints", &IPlayerInterface::execAddToSpellPoints },
 			{ "AddToXP", &IPlayerInterface::execAddToXP },
 			{ "FindLevelForXP", &IPlayerInterface::execFindLevelForXP },
+			{ "GetSpellPoints", &IPlayerInterface::execGetSpellPoints },
 			{ "GetSpellPointsReward", &IPlayerInterface::execGetSpellPointsReward },
 			{ "GetXP", &IPlayerInterface::execGetXP },
 			{ "LevelUp", &IPlayerInterface::execLevelUp },
@@ -283,6 +307,36 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetSpellPoints_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetSpellPoints", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::PropPointers), sizeof(PlayerInterface_eventGetSpellPoints_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x48020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetSpellPoints_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetSpellPoints()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetSpellPoints_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UPlayerInterface_GetSpellPointsReward_Statics
 	{
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Level;
@@ -393,6 +447,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToSpellPoints, "AddToSpellPoints" }, // 4156170471
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToXP, "AddToXP" }, // 1711502672
 		{ &Z_Construct_UFunction_UPlayerInterface_FindLevelForXP, "FindLevelForXP" }, // 1067225906
+		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPoints, "GetSpellPoints" }, // 2299189408
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPointsReward, "GetSpellPointsReward" }, // 815528352
 		{ &Z_Construct_UFunction_UPlayerInterface_GetXP, "GetXP" }, // 3622837887
 		{ &Z_Construct_UFunction_UPlayerInterface_LevelUp, "LevelUp" }, // 2471005374
@@ -505,6 +560,23 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UPlayerInterface_GetSpellPoints = FName(TEXT("GetSpellPoints"));
+	int32 IPlayerInterface::Execute_GetSpellPoints(const UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetSpellPoints_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetSpellPoints);
+		if (Func)
+		{
+			const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetSpellPoints_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UPlayerInterface_GetSpellPointsReward = FName(TEXT("GetSpellPointsReward"));
 	int32 IPlayerInterface::Execute_GetSpellPointsReward(const UObject* O, int32 Level)
 	{
@@ -560,9 +632,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 3764036393U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 2934769578U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_2034794599(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_2000094854(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

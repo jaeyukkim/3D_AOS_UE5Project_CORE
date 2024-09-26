@@ -5,6 +5,7 @@
 
 #include "SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h"
 #include "SeniorProject/GameplayTagsBase.h"
+#include "SeniorProject/Interface/PlayerInterface.h"
 
 void UAbilitySystemComponentBase::AbilityActorInfoSet()
 {
@@ -140,6 +141,46 @@ void UAbilitySystemComponentBase::OnRep_ActivateAbilities()
 		bStartupAbilitiesGiven = true;
 		AbilitiesGivenDelegate.Broadcast(this);
 	}
+}
+
+void UAbilitySystemComponentBase::IncreaseAbilityLevel(FGameplayTag AbilityTag)
+{
+
+	if (GetAvatarActor()->Implements<UPlayerInterface>())
+	{
+		if (IPlayerInterface::Execute_GetSpellPoints(GetAvatarActor()) > 0)
+		{
+			ServerSpendSpellPoint_Implementation(AbilityTag);
+		}
+	}
+	
+	
+}
+
+void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
+{
+	if (GetAvatarActor()->Implements<UPlayerInterface>())
+	{
+		IPlayerInterface::Execute_AddToSpellPoints(GetAvatarActor(), -1);
+	}
+	
+	TArray<FGameplayAbilitySpec*> Abilities;
+	GetActivatableGameplayAbilitySpecsByAllMatchingTags(AbilityTag.GetSingleTagContainer(), Abilities);
+	
+	// 해당 태그에 맞는 능력 찾기
+	for (FGameplayAbilitySpec* Spec : Abilities)
+	{
+		if (Spec)
+		{
+			// 스킬 레벨을 Amount만큼 증가
+			Spec->Level += 1;
+			UE_LOG(LogTemp, Log, TEXT("Increased Ability Level: %s to Level %d"), *Spec->Ability->GetName(), Spec->Level);
+
+			// 능력 레벨이 업데이트되었음을 AbilitySystemComponent에 알림
+			MarkAbilitySpecDirty(*Spec);
+		}
+	}
+	
 }
 
 

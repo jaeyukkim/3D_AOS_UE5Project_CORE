@@ -41,6 +41,13 @@ public:
 	static FGameplayTag GetAbilityTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
 	static FGameplayTag GetInputTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
 	virtual void OnRep_ActivateAbilities() override;
+
+
+	UFUNCTION(BlueprintCallable, Category="Abilities")
+	void IncreaseAbilityLevel(FGameplayTag AbilityTag);
+	
+	UFUNCTION(Server, Reliable)
+	void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);
 	
 protected:
 

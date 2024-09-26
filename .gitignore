@@ -113,14 +113,29 @@ DerivedDataCache/*
 
 */Content/UI
 
-*/Content
+*/Content/Turret
 
-*/.umap
+*/Content/__ExternalActors__
+
+*/Content/__ExternalObjects__
+
+*/Content/AI
+
+*/Content/ICON
+
+*/Content/Assets
+
+*/Content/Maps
+
+*/Content/NextGenUI
+
+*/Content/SkillsIcons
+
 
 *.pdb
 
 *.bmp
-*.uasset
+
 
 *.old
 
@@ -136,5 +151,6 @@ DerivedDataCache/*
 
 #################
 
+*/.svn
 */.vs
 SeniorProject/Saved/Autosaves/Game/ModularGothicFantasyEnvironment/Maps/DemoMapDay_Auto1.umap

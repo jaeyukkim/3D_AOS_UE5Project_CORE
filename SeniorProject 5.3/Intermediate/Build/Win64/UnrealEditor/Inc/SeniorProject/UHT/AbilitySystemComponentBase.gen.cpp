@@ -8,6 +8,7 @@
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "ActiveGameplayEffectHandle.h"
 #include "GameplayEffect.h"
+#include "GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 // Cross Module References
@@ -15,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FActiveGameplayEffectHandle();
 	GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayEffectSpec();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature();
@@ -63,11 +65,31 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		P_THIS->ClientEffectApplied_Implementation(Z_Param_AbilitySystemComponent,Z_Param_EffectSpec,Z_Param_ActiveEffectHandle);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UAbilitySystemComponentBase::execServerSpendSpellPoint)
+	{
+		P_GET_STRUCT(FGameplayTag,Z_Param_AbilityTag);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerSpendSpellPoint_Implementation(Z_Param_AbilityTag);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAbilitySystemComponentBase::execIncreaseAbilityLevel)
+	{
+		P_GET_STRUCT(FGameplayTag,Z_Param_AbilityTag);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->IncreaseAbilityLevel(Z_Param_AbilityTag);
+		P_NATIVE_END;
+	}
 	struct AbilitySystemComponentBase_eventClientEffectApplied_Parms
 	{
 		UAbilitySystemComponent* AbilitySystemComponent;
 		FGameplayEffectSpec EffectSpec;
 		FActiveGameplayEffectHandle ActiveEffectHandle;
+	};
+	struct AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms
+	{
+		FGameplayTag AbilityTag;
 	};
 	static FName NAME_UAbilitySystemComponentBase_BroadCastAttackEnd = FName(TEXT("BroadCastAttackEnd"));
 	void UAbilitySystemComponentBase::BroadCastAttackEnd()
@@ -83,12 +105,21 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		Parms.ActiveEffectHandle=ActiveEffectHandle;
 		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_ClientEffectApplied),&Parms);
 	}
+	static FName NAME_UAbilitySystemComponentBase_ServerSpendSpellPoint = FName(TEXT("ServerSpendSpellPoint"));
+	void UAbilitySystemComponentBase::ServerSpendSpellPoint(FGameplayTag const& AbilityTag)
+	{
+		AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms Parms;
+		Parms.AbilityTag=AbilityTag;
+		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_ServerSpendSpellPoint),&Parms);
+	}
 	void UAbilitySystemComponentBase::StaticRegisterNativesUAbilitySystemComponentBase()
 	{
 		UClass* Class = UAbilitySystemComponentBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BroadCastAttackEnd", &UAbilitySystemComponentBase::execBroadCastAttackEnd },
 			{ "ClientEffectApplied", &UAbilitySystemComponentBase::execClientEffectApplied },
+			{ "IncreaseAbilityLevel", &UAbilitySystemComponentBase::execIncreaseAbilityLevel },
+			{ "ServerSpendSpellPoint", &UAbilitySystemComponentBase::execServerSpendSpellPoint },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -166,6 +197,79 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics
+	{
+		struct AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms
+		{
+			FGameplayTag AbilityTag;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_AbilityTag;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::NewProp_AbilityTag = { "AbilityTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms, AbilityTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::NewProp_AbilityTag,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Abilities" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "IncreaseAbilityLevel", nullptr, nullptr, Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_AbilityTag;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::NewProp_AbilityTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::NewProp_AbilityTag = { "AbilityTag", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms, AbilityTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::NewProp_AbilityTag_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::NewProp_AbilityTag_MetaData) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::NewProp_AbilityTag,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "ServerSpendSpellPoint", nullptr, nullptr, Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::PropPointers), sizeof(AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::PropPointers) < 2048);
+	static_assert(sizeof(AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UAbilitySystemComponentBase);
 	UClass* Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister()
 	{
@@ -194,6 +298,8 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 	const FClassFunctionLinkInfo Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd, "BroadCastAttackEnd" }, // 2447331622
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied, "ClientEffectApplied" }, // 4212018037
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel, "IncreaseAbilityLevel" }, // 611681983
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint, "ServerSpendSpellPoint" }, // 1812849322
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -255,9 +361,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 1533360885U) },
+		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 686288061U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_3326769762(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_1918597872(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

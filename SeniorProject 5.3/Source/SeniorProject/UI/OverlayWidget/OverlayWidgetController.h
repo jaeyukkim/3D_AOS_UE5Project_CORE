@@ -94,7 +94,9 @@ protected:
 	void OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase);
 
 	void OnXPChanged(int32 NewXP) const;
-	
+
+	UFUNCTION(BlueprintCallable)
+	void UpgradeSpell(const FGameplayTag& AbilityTag);
 };
 template <typename T>
 T* UOverlayWidgetController::GetDataTableRowByTag(UDataTable* DataTable, const FGameplayTag& Tag)

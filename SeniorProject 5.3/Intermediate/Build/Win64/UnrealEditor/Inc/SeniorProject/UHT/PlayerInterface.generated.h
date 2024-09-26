@@ -22,6 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) {}; \
 	virtual void LevelUp_Implementation() {}; \
 	virtual void AddToXP_Implementation(int32 InXP) {}; \
+	virtual int32 GetSpellPoints_Implementation() const { return 0; }; \
 	virtual int32 GetSpellPointsReward_Implementation(int32 Level) const { return 0; }; \
 	virtual int32 GetXP_Implementation() const { return 0; }; \
 	virtual int32 FindLevelForXP_Implementation(int32 InXP) const { return 0; }; \
@@ -30,6 +31,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execAddToPlayerLevel); \
 	DECLARE_FUNCTION(execLevelUp); \
 	DECLARE_FUNCTION(execAddToXP); \
+	DECLARE_FUNCTION(execGetSpellPoints); \
 	DECLARE_FUNCTION(execGetSpellPointsReward); \
 	DECLARE_FUNCTION(execGetXP); \
 	DECLARE_FUNCTION(execFindLevelForXP);
@@ -78,6 +80,7 @@ public: \
 	static void Execute_AddToSpellPoints(UObject* O, int32 InSpellPoints); \
 	static void Execute_AddToXP(UObject* O, int32 InXP); \
 	static int32 Execute_FindLevelForXP(const UObject* O, int32 InXP); \
+	static int32 Execute_GetSpellPoints(const UObject* O); \
 	static int32 Execute_GetSpellPointsReward(const UObject* O, int32 Level); \
 	static int32 Execute_GetXP(const UObject* O); \
 	static void Execute_LevelUp(UObject* O); \

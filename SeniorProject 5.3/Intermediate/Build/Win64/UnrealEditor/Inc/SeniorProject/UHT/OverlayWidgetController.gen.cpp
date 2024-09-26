@@ -370,8 +370,63 @@ void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& Abili
 	Parms.Info=Info;
 	AbilityInfoSignature.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	DEFINE_FUNCTION(UOverlayWidgetController::execUpgradeSpell)
+	{
+		P_GET_STRUCT_REF(FGameplayTag,Z_Param_Out_AbilityTag);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->UpgradeSpell(Z_Param_Out_AbilityTag);
+		P_NATIVE_END;
+	}
 	void UOverlayWidgetController::StaticRegisterNativesUOverlayWidgetController()
 	{
+		UClass* Class = UOverlayWidgetController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "UpgradeSpell", &UOverlayWidgetController::execUpgradeSpell },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics
+	{
+		struct OverlayWidgetController_eventUpgradeSpell_Parms
+		{
+			FGameplayTag AbilityTag;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_AbilityTag;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::NewProp_AbilityTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::NewProp_AbilityTag = { "AbilityTag", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(OverlayWidgetController_eventUpgradeSpell_Parms, AbilityTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::NewProp_AbilityTag_MetaData), Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::NewProp_AbilityTag_MetaData) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::NewProp_AbilityTag,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UOverlayWidgetController, nullptr, "UpgradeSpell", nullptr, nullptr, Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::PropPointers), sizeof(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::OverlayWidgetController_eventUpgradeSpell_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04480401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::Function_MetaDataParams), Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::OverlayWidgetController_eventUpgradeSpell_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UOverlayWidgetController);
 	UClass* Z_Construct_UClass_UOverlayWidgetController_NoRegister()
@@ -381,6 +436,7 @@ void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& Abili
 	struct Z_Construct_UClass_UOverlayWidgetController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -437,6 +493,10 @@ void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& Abili
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UOverlayWidgetController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UOverlayWidgetController_UpgradeSpell, "UpgradeSpell" }, // 333747603
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidgetController_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
@@ -546,11 +606,11 @@ void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& Abili
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UOverlayWidgetController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::PropPointers),
 		0,
 		0x009000A0u,
@@ -581,9 +641,9 @@ void FAbilityInfoSignature_DelegateWrapper(const FMulticastScriptDelegate& Abili
 		{ FUIWidgetRow::StaticStruct, Z_Construct_UScriptStruct_FUIWidgetRow_Statics::NewStructOps, TEXT("UIWidgetRow"), &Z_Registration_Info_UScriptStruct_UIWidgetRow, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUIWidgetRow), 4119755805U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 2465842594U) },
+		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 3743955606U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_1423970088(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_1493016913(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo),
 		nullptr, 0);

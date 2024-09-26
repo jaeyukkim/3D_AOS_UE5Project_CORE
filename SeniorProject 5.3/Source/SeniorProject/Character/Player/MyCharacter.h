@@ -70,6 +70,7 @@ public:
 	virtual int32 GetSpellPointsReward_Implementation(int32 Level) const override;
 	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) override;
 	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) override;
+	virtual int32 GetSpellPoints_Implementation() const override;
 	/** end Player Interface */
 protected:
 	
