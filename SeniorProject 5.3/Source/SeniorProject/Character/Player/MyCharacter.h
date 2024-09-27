@@ -8,7 +8,7 @@
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/Character/CharacterBase.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
-
+#include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "InputActionValue.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
 #include "MyCharacter.generated.h"
@@ -16,12 +16,12 @@
 
 class USpringArmComponent;
 class UCameraComponent;
-//class UParticleSystemComponent;
 class UInputMappingContext;
 class UInputAction;
 class USoundCue;
 class UAudioComponent;
 class AMyPlayerController;
+class UWidgetComponent;
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
@@ -72,11 +72,23 @@ public:
 	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) override;
 	virtual int32 GetSpellPoints_Implementation() const override;
 	/** end Player Interface */
+
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnManaChanged;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnMaxManaChanged;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnLevelChangedSignature OnLevelChanged;
+	
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
 	virtual int32 GetPlayerLevel_Implementation() override;
+	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastLevelUpParticles() const;
 
@@ -88,7 +100,10 @@ protected:
 
 	UFUNCTION()
 	void GetLevelUpReward();
-	
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
+	TObjectPtr<UWidgetComponent> HealthBarWidget;
+
 private:
 
 	

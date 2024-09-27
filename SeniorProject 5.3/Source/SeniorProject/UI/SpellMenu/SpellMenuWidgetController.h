@@ -13,6 +13,7 @@ struct FAbilityInfoBase;
  */
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSpellPointChangedDelegate, int32, NewSpellPoint);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FAbilityLevelChangedDelegate, FGameplayTag, AbilityTag, int32, NewAbilityLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAbilityInfoDelegate, const FAbilityInfoBase&, Info);
 
 class UAbilityInfo;
@@ -35,6 +36,12 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category="GAS|Spell")
 	FAbilityInfoDelegate AbilityInfoDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category="GAS|Spell")
+	FAbilityLevelChangedDelegate AbilityLevelChangedDelegate;
+
+	UPROPERTY(BlueprintAssignable, Category="GAS|Spell")
+	FAbilityLevelChangedDelegate AbilityUnLocked;
 
 	
 protected:

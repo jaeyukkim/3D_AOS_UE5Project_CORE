@@ -8,6 +8,7 @@
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/Interface/GameRuleInterface.h"
+#include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "CharacterBase.generated.h"
 
 
@@ -96,6 +97,13 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
 	ECharacterClass CharacterClass;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnHealthChanged;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnMaxHealthChanged;
+
 	
 protected:
 	
@@ -129,6 +137,8 @@ protected:
 	
 	UPROPERTY(BlueprintReadOnly)
 	bool bDead = false;
+
+	
 	
 public:	
 	

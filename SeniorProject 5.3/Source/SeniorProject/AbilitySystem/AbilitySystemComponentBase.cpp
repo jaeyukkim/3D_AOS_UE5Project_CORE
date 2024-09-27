@@ -14,16 +14,29 @@ void UAbilitySystemComponentBase::AbilityActorInfoSet()
 }
 
 
-
+/*
+ *
+ * Abilities_AbilityQ, Abilities_AbilityRMB, Abilities_AbilityR 스킬의 경우 기본적으로 잠김 상태에서 게임 시작
+ */
 void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& StartupAbilities)
 {
 	
 	for(const TSubclassOf<UGameplayAbility> ability : StartupAbilities)
 	{
-		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(ability, 1);
+		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(ability, 0);
 
 		if(const UGameplayAbilityBase* AbilityBase = Cast<UGameplayAbilityBase>(AbilitySpec.Ability))
 		{
+			if (! AbilitySpec.Ability)  return;
+
+			if(AbilitySpec.Ability->AbilityTags.HasTag(FGameplayTagsBase::Get().Abilities_AbilityQ) ||
+				AbilitySpec.Ability->AbilityTags.HasTag(FGameplayTagsBase::Get().Abilities_AbilityRMB) ||
+				AbilitySpec.Ability->AbilityTags.HasTag(FGameplayTagsBase::Get().Abilities_AbilityR))
+			{
+				AbilitySpec.DynamicAbilityTags.AddTag(FGameplayTagsBase::Get().Abilities_Status_Locked);
+			}
+
+
 			AbilitySpec.DynamicAbilityTags.AddTag(AbilityBase->StartupInputTag);
 			GiveAbility(AbilitySpec);
 		}
@@ -31,6 +44,7 @@ void UAbilitySystemComponentBase::AddCharacterAbility(TArray<TSubclassOf<UGamepl
 	bStartupAbilitiesGiven = true;
 	AbilitiesGivenDelegate.Broadcast(this);
 }
+
 
 void UAbilitySystemComponentBase::AddCharacterPassiveAbilities(
 	const TArray<TSubclassOf<UGameplayAbility>>& StartupPassiveAbilities)
@@ -49,7 +63,7 @@ void UAbilitySystemComponentBase::AbilityInputTagHeld(const FGameplayTag& InputT
 	FScopedAbilityListLock ActiveScopeLoc(*this);
 	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag) && !AbilitySpec.DynamicAbilityTags.HasTagExact(FGameplayTagsBase::Get().Abilities_Status_Locked))
 		{
 			AbilitySpecInputPressed(AbilitySpec);
 			if (!AbilitySpec.IsActive())
@@ -67,7 +81,7 @@ void UAbilitySystemComponentBase::AbilityInputTagReleased(const FGameplayTag& In
 	FScopedAbilityListLock ActiveScopeLoc(*this);
 	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag) && AbilitySpec.IsActive())
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag) && AbilitySpec.IsActive() && !AbilitySpec.DynamicAbilityTags.HasTagExact(FGameplayTagsBase::Get().Abilities_Status_Locked))
 		{
 			AbilitySpecInputReleased(AbilitySpec);
 			InvokeReplicatedEvent(EAbilityGenericReplicatedEvent::InputReleased, AbilitySpec.Handle, AbilitySpec.ActivationInfo.GetActivationPredictionKey());
@@ -81,7 +95,7 @@ void UAbilitySystemComponentBase::AbilityInputTagPressed(const FGameplayTag& Inp
 	FScopedAbilityListLock ActiveScopeLoc(*this);
 	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
 	{
-		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag))
+		if (AbilitySpec.DynamicAbilityTags.HasTagExact(InputTag) && !AbilitySpec.DynamicAbilityTags.HasTagExact(FGameplayTagsBase::Get().Abilities_Status_Locked))
 		{
 			AbilitySpecInputPressed(AbilitySpec);
 			if (AbilitySpec.IsActive())
@@ -132,6 +146,19 @@ FGameplayTag UAbilitySystemComponentBase::GetInputTagFromSpec(const FGameplayAbi
 	return FGameplayTag();
 }
 
+FGameplayTag UAbilitySystemComponentBase::GetStatusFromSpec(const FGameplayAbilitySpec& AbilitySpec)
+{
+	for (FGameplayTag StatusTag : AbilitySpec.DynamicAbilityTags)
+	{
+		if (StatusTag.MatchesTag(FGameplayTag::RequestGameplayTag(FName("Abilities.Status"))))
+		{
+			return StatusTag;
+		}
+	}
+	return FGameplayTag();
+}
+
+
 void UAbilitySystemComponentBase::OnRep_ActivateAbilities()
 {
 	Super::OnRep_ActivateAbilities();
@@ -176,25 +203,58 @@ void UAbilitySystemComponentBase::IncreaseAbilityLevel(FGameplayTag AbilityTag)
 	
 }
 
-void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
+TArray<FGameplayAbilitySpec*> UAbilitySystemComponentBase::GetSpecFromAbilityTag(const FGameplayTag& AbilityTag)
 {
-	
-	TArray<FGameplayAbilitySpec*> Abilities;
-	GetActivatableGameplayAbilitySpecsByAllMatchingTags(AbilityTag.GetSingleTagContainer(), Abilities);
-	
-	// 해당 태그에 맞는 능력 찾기
-	for (FGameplayAbilitySpec* Spec : Abilities)
-	{
-		if (Spec)
-		{
-			// 스킬 레벨을 Amount만큼 증가
-			Spec->Level += 1;
-			UE_LOG(LogTemp, Log, TEXT("Increased Ability Level: %s to Level %d"), *Spec->Ability->GetName(), Spec->Level);
+	FScopedAbilityListLock ActiveScopeLoc(*this);
 
-			// ability 레벨이 업데이트되었음을 AbilitySystemComponent에 알림
-			MarkAbilitySpecDirty(*Spec);
+	TArray<FGameplayAbilitySpec*> Specs;
+	
+	for (FGameplayAbilitySpec& AbilitySpec : GetActivatableAbilities())
+	{
+		for (FGameplayTag Tag : AbilitySpec.Ability.Get()->AbilityTags)
+		{
+			if (Tag.MatchesTag(AbilityTag))
+			{
+				Specs.Add(&AbilitySpec);
+			}
 		}
 	}
+
+	
+	return Specs;
+}
+
+
+
+
+void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
+{
+
+	TArray<FGameplayAbilitySpec*> MatchedAbilitySpecs = GetSpecFromAbilityTag(AbilityTag);
+	
+	
+	
+	for(FGameplayAbilitySpec* AbilitySpec : MatchedAbilitySpecs)
+	{
+		if (AbilitySpec)
+		{
+			
+			const FGameplayTagsBase GameplayTags = FGameplayTagsBase::Get();
+			FGameplayTag Status = GetStatusFromSpec(*AbilitySpec);
+			if (Status.MatchesTagExact(GameplayTags.Abilities_Status_Locked))
+			{
+				AbilitySpec->DynamicAbilityTags.RemoveTag(GameplayTags.Abilities_Status_Locked);
+			
+			}
+		
+			AbilitySpec->Level += 1;
+		
+			ClientUpdateAbilityLevel(AbilityTag, AbilitySpec->Level);
+			MarkAbilitySpecDirty(*AbilitySpec);
+			
+		}
+	}
+	
 	if (GetAvatarActor()->Implements<UPlayerInterface>())
 	{
 		IPlayerInterface::Execute_AddToSpellPoints(GetAvatarActor(), -1);
@@ -202,6 +262,10 @@ void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGa
 	
 }
 
+void UAbilitySystemComponentBase::ClientUpdateAbilityLevel_Implementation(const FGameplayTag& AbilityTag, int32 AbilityLevel)
+{
+	AbilityLevelChanged.Broadcast(AbilityTag, AbilityLevel);
+}
 
 void UAbilitySystemComponentBase::BroadCastAttackEnd_Implementation()
 {
@@ -212,7 +276,6 @@ void UAbilitySystemComponentBase::ClientEffectApplied_Implementation(UAbilitySys
                                                                      const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
 	FGameplayTagContainer TagContainer;
-	//EffectSpec.GetAllAssetTags(TagContainer);
 	EffectSpec.GetAllGrantedTags(TagContainer);
 	EffectAssetTags.Broadcast(TagContainer);
 }

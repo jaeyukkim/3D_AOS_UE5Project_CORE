@@ -83,9 +83,9 @@ void EmptyLinkFunctionForGeneratedCodeMeleeAttackBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMeleeAttackBase, UMeleeAttackBase::StaticClass, TEXT("UMeleeAttackBase"), &Z_Registration_Info_UClass_UMeleeAttackBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMeleeAttackBase), 395762751U) },
+		{ Z_Construct_UClass_UMeleeAttackBase, UMeleeAttackBase::StaticClass, TEXT("UMeleeAttackBase"), &Z_Registration_Info_UClass_UMeleeAttackBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMeleeAttackBase), 4192847378U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_831873506(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_3137059590(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Abilities_Attack_MeleeAttackBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

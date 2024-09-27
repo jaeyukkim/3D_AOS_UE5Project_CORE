@@ -25,6 +25,7 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 		SpellPointsChanged.Broadcast(SpellPoints);
 	});
 
+	
 	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
 		if (ASCBase->bStartupAbilitiesGiven)
@@ -35,6 +36,16 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 		{
 			ASCBase->AbilitiesGivenDelegate.AddUObject(this, &USpellMenuWidgetController::OnInitializeStartupAbilities);
 		}
+
+		ASCBase->AbilityLevelChanged.AddLambda([this](const FGameplayTag& AbilityTag, int32 NewLevel)
+		{
+			AbilityLevelChangedDelegate.Broadcast(AbilityTag, NewLevel);
+			/* Ability 레벨이 올랐을경우 (스킬을 처음 찍었을 때) */
+			if(NewLevel == 1)
+			{
+				AbilityUnLocked.Broadcast(AbilityTag, NewLevel);
+			}
+		});
 	}
 }
 
@@ -70,32 +81,36 @@ bool USpellMenuWidgetController::CanUpgradeSpell(FGameplayTag AbilityTag)
 	int32 PlayerLevel = MyPlayerStateBase->GetPlayerLevel();
 	int32 SpellLevel = ASCBase->GetAbilityLevel(AbilityTag);
 
-	// 일반 스킬의 경우 스킬레벨 5가 최대
-	if(SpellLevel >= 5)
+	// 일반 스킬의 경우 스킬레벨 7이 최대
+	if(SpellLevel >= 7)
 		return false;
 
 
 	/* 
 	 * 궁극기 스킬의 경우 6레벨 ,11레벨, 16레벨 달성 시 업그레이드 가능하며 3레벨이 최고레벨
 	 *	ex) 플레이어 레벨 = 8 AND 궁극기 레벨 1 = false
-	 *	ex) 플레이어 레벨 = 15  AND 궁극기 레벨 1 = true
-	 *	ex) 플레이어 레벨 = 11 AND 궁극기 레벨 1 = true
-	 *	ex) 플레이어 레벨 = 18 AND 궁극기 레벨 2 = true
+	 *	ex) 플레이어 레벨 = 9  AND 궁극기 레벨 1 = true
+	 *	ex) 플레이어 레벨 = 11 AND 궁극기 레벨 2 = false
+	 *	ex) 플레이어 레벨 = 18 AND 궁극기 레벨 3 = true
 	*/
 	
 	if(AbilityTag == FGameplayTagsBase::Get().Abilities_AbilityR)
 	{
-		if(SpellLevel >= 3) return false;
+		if(SpellLevel >= 4) return false;
 		
-		if(PlayerLevel >= 6 && PlayerLevel < 11 && SpellLevel < 1)
+		if(PlayerLevel >= 5 && PlayerLevel < 9 && SpellLevel < 1)
 		{
 			return true;
 		}
-		else if(PlayerLevel >= 11 && PlayerLevel < 16 && SpellLevel < 2)
+		if(PlayerLevel >= 9 && PlayerLevel < 13 && SpellLevel < 2)
 		{
 			return true;
 		}
-		else if(PlayerLevel >= 16 && PlayerLevel < 19 && SpellLevel < 3)
+		else if(PlayerLevel >= 13 && PlayerLevel < 17 && SpellLevel < 3)
+		{
+			return true;
+		}
+		else if(PlayerLevel >= 17 && PlayerLevel < 19 && SpellLevel < 4)
 		{
 			return true;
 		}

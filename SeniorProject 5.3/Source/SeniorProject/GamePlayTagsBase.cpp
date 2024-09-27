@@ -133,6 +133,9 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("AbilityF Tag"));
 	GameplayTags.Abilities_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.NONE"),
 		FString("NONE Tag"));
+
+	GameplayTags.Abilities_Status_Locked = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Status.Locked"),
+		FString("If ability has this tag, the ability is NonActivative"));
 	/* end Abilities Tag */
 
 

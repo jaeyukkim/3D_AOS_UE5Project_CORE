@@ -3,6 +3,7 @@
 #include "Spawner.h"
 #include "Components/BoxComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "Particles/ParticleSystemComponent.h"
 
 ASpawner::ASpawner()
 {
@@ -13,6 +14,9 @@ ASpawner::ASpawner()
 	SetRootComponent(BoxComponent);
 	Mesh->SetupAttachment(BoxComponent);
 
+	ParticleComponent = CreateDefaultSubobject<UParticleSystemComponent>("LevelUpParticleComponent");
+	ParticleComponent->SetupAttachment(GetRootComponent());
+	ParticleComponent->bAutoActivate = false;
 	
 }
 
@@ -33,6 +37,19 @@ void ASpawner::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ASpawner::SpawnParticle()
+{
+	if(HasAuthority())
+		MulticastLevelUpParticles();
+}
+
+
+void ASpawner::MulticastLevelUpParticles_Implementation() const
+{
+	if(IsValid(ParticleComponent))
+		ParticleComponent->Activate(true);
 }
 
 

@@ -5,22 +5,20 @@
 #include "CharacterBase.h"
 
 #include "AbilitySystemComponent.h"
+
 #include "SeniorProject/DefaultBase/MovementComponentBase.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
-
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 
 
 
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
 {
-
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
-	
-	
 }
 
 
@@ -28,6 +26,8 @@ void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 	MaxAttackCombo = AttackMontage.Num()-1;
+
+	
 	
 }
 

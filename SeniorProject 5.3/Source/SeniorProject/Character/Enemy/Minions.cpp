@@ -2,11 +2,11 @@
 
 
 #include "Minions.h"
-#include "Components/WidgetComponent.h"
+
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
-#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
+
 #include "SeniorProject/DefaultBase/MinionAnimInstance.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
@@ -14,7 +14,9 @@
 #include "SeniorProject/AI/AIControllerBase.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 
 
 // Sets default values
@@ -33,11 +35,13 @@ AMinions::AMinions()
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 	AttributeSet = CreateDefaultSubobject<UAttributeSetBase>("AttributeSet");
 
-	HealthBar = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
-	HealthBar->SetupAttachment(GetRootComponent());
-	HealthBar->SetWidgetSpace(EWidgetSpace::World);
-	HealthBar->SetDrawSize(FVector2D(150.0f, 50.0f));
-	HealthBar->SetCullDistance(3000.f);
+
+	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
+	HealthBarWidget->SetupAttachment(GetRootComponent());
+	HealthBarWidget->SetWidgetSpace(EWidgetSpace::World);
+	HealthBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
+	HealthBarWidget->SetCullDistance(3000.f);
+
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
@@ -79,15 +83,16 @@ void AMinions::BeginPlay()
 	Super::BeginPlay();
 
 	
-	
 	InitAbilityActorInfo();
 	
 	if(HasAuthority())
 	{
 		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 	}
+	
+	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(this,&AMinions::HitReactTagChanged);
 
-	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBar->GetUserWidgetObject()))
+	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
 	}
@@ -107,14 +112,9 @@ void AMinions::BeginPlay()
 			}
 		);
 
-		AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(this,&AMinions::HitReactTagChanged);
-		
-		
 		OnHealthChanged.Broadcast(AS->GetHealth());
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
-	
-	
 
 }
 

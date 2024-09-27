@@ -10,6 +10,7 @@
  * 
  */
 
+
 UCLASS()
 class SENIORPROJECT_API UGameplayAbilityBase : public UGameplayAbility
 {
@@ -34,4 +35,14 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ActivateCasting();
+
+	
+	UFUNCTION(BlueprintCallable)
+	void SpawnParticleAtLocation(FVector Location, UParticleSystem* ParticleSystem);
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastSpawnParticleAtLocation(FVector Location, UParticleSystem* ParticleSystem);
+	
+
+	
 };

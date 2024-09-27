@@ -12,14 +12,18 @@
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
 
 #include "AbilitySystemComponent.h"
-#include "EditorDirectories.h"
+
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Data/LevelUpInfo.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
+#include "Components/WidgetComponent.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
 
@@ -49,7 +53,14 @@ AMyCharacter::AMyCharacter()
 	LevelUpParticleComponent = CreateDefaultSubobject<UParticleSystemComponent>("LevelUpParticleComponent");
 	LevelUpParticleComponent->SetupAttachment(GetRootComponent());
 	LevelUpParticleComponent->bAutoActivate = false;
+
+	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
+	HealthBarWidget->SetupAttachment(GetRootComponent());
+	HealthBarWidget->SetWidgetSpace(EWidgetSpace::World);
+	HealthBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
+	HealthBarWidget->SetCullDistance(4500.f);
 	
+
 	
 	ThisActor = nullptr;
 	LastActor = nullptr;
@@ -118,6 +129,59 @@ void AMyCharacter::BeginPlay()
 			Subsystem->AddMappingContext(PlayerContext, 0);
 	}
 
+	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
+	{
+		OverlayUserWidget->SetWidgetController(this);
+	}
+
+	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+	{
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnManaChanged.Broadcast(Data.NewValue);
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnMaxManaChanged.Broadcast(Data.NewValue);
+			}
+		);
+
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				OnMaxHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
+
+		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+		OnHealthChanged.Broadcast(AS->GetHealth());
+		
+		OnMaxManaChanged.Broadcast(AS->GetMaxHealth());
+		OnManaChanged.Broadcast(AS->GetHealth());
+	}
+
+	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
+	{
+		PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 SpellPoints)
+		{
+			OnLevelChanged.Broadcast(SpellPoints);
+		});
+		
+		OnMaxManaChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+	}
+	
+
+	
+	
 
 }
 
@@ -278,6 +342,7 @@ void AMyCharacter::MulticastLevelUpParticles_Implementation() const
 {
 	if(IsValid(LevelUpParticleComponent))
 		LevelUpParticleComponent->Activate(true);
+	
 }
 
 

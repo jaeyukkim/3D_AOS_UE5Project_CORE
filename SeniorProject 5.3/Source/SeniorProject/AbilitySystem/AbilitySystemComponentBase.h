@@ -10,6 +10,7 @@ DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContaine
 DECLARE_MULTICAST_DELEGATE_OneParam(FAbilitiesGiven, UAbilitySystemComponentBase*);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackEndSignatures);
 DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
+DECLARE_MULTICAST_DELEGATE_TwoParams(FAbilityLevelChanged, const FGameplayTag& /*AbilityTag*/, int32 /*AbilityLevel*/);
 
 /**
  * 
@@ -21,13 +22,16 @@ class SENIORPROJECT_API UAbilitySystemComponentBase : public UAbilitySystemCompo
 
 public:
 	void AbilityActorInfoSet();
-	FEffectAssetTags EffectAssetTags;
+	
 	
 	UPROPERTY(BlueprintAssignable, Category = "Combat")
 	FOnAttackEndSignatures AttackEndSignature;
-
+	FEffectAssetTags EffectAssetTags;
+	FAbilityLevelChanged AbilityLevelChanged;
 	FAbilitiesGiven AbilitiesGivenDelegate;
-	bool bStartupAbilitiesGiven = false;
+	
+	
+
 	
 	void AddCharacterAbility(TArray<TSubclassOf<UGameplayAbility>>& CharacterAbility);
 	void AddCharacterPassiveAbilities(const TArray<TSubclassOf<UGameplayAbility>>& StartupPassiveAbilities);
@@ -40,6 +44,8 @@ public:
 
 	static FGameplayTag GetAbilityTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
 	static FGameplayTag GetInputTagFromSpec(const FGameplayAbilitySpec& AbilitySpec);
+	static FGameplayTag GetStatusFromSpec(const FGameplayAbilitySpec& AbilitySpec);
+
 	virtual void OnRep_ActivateAbilities() override;
 
 	UFUNCTION(BlueprintCallable, Category="Abilities")
@@ -50,12 +56,18 @@ public:
 	
 	UFUNCTION(Server, Reliable)
 	void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);
+
+	TArray<FGameplayAbilitySpec*> GetSpecFromAbilityTag(const FGameplayTag& AbilityTag);
 	
+	bool bStartupAbilitiesGiven = false;
 protected:
 
     UFUNCTION(Client, Reliable)
 	void ClientEffectApplied(UAbilitySystemComponent* AbilitySystemComponent, const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle);
 
+	UFUNCTION(Client, Reliable)
+	void ClientUpdateAbilityLevel(const FGameplayTag& AbilityTag, int32 AbilityLevel);
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void BroadCastAttackEnd();
 	

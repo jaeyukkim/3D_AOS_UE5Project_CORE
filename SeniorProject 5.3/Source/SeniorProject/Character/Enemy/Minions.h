@@ -3,15 +3,15 @@
 #pragma once
 
 #include "SeniorProject/Character/CharacterBase.h"
-#include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 #include "Minions.generated.h"
 
 
 
-class UWidgetComponent;
+
 class AAIControllerBase;
 class UBehaviorTree;
+class UWidgetComponent;
 
 
 UCLASS(abstract, Blueprintable)
@@ -29,11 +29,7 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
 	
-	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnHealthChanged;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnMaxHealthChanged;
+	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 5.f;
@@ -75,9 +71,9 @@ protected:
 	int32 Level = 1;
 
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
+	TObjectPtr<UWidgetComponent> HealthBarWidget;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="UI")
-	TObjectPtr<UWidgetComponent> HealthBar;
 
 	UPROPERTY()
 	TObjectPtr<AAIControllerBase> AIControllerBase;

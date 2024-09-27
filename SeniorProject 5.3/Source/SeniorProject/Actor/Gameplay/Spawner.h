@@ -14,6 +14,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMinionSpawnSignature);
 
 
 class UBoxComponent;
+class UParticleSystemComponent;
 
 UCLASS()
 class SENIORPROJECT_API ASpawner : public AActor, public IGameRuleInterface
@@ -54,6 +55,15 @@ protected:
 
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> ParticleComponent;
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastLevelUpParticles() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SpawnParticle();
+	
 private:
 
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")

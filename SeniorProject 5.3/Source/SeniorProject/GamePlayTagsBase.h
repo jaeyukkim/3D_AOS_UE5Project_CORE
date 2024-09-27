@@ -108,7 +108,8 @@ public:
 	FGameplayTag Abilities_AbilityF;
 	FGameplayTag Abilities_AbilitySHIFT;
 	FGameplayTag Abilities_NONE;
-
+	
+	FGameplayTag Abilities_Status_Locked;
 	/* End Abilities */
 
 

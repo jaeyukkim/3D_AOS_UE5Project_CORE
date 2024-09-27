@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeSpellMenuWidgetController() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_USpellMenuWidgetController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_USpellMenuWidgetController_NoRegister();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoDelegate__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSpellPointChangedDelegate__DelegateSignature();
 	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FAbilityInfoBase();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -67,6 +68,56 @@ void FOnSpellPointChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate
 	_Script_SeniorProject_eventOnSpellPointChangedDelegate_Parms Parms;
 	Parms.NewSpellPoint=NewSpellPoint;
 	OnSpellPointChangedDelegate.ProcessMulticastDelegate<UObject>(&Parms);
+}
+	struct Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics
+	{
+		struct _Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms
+		{
+			FGameplayTag AbilityTag;
+			int32 NewAbilityLevel;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_AbilityTag;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewAbilityLevel;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::NewProp_AbilityTag = { "AbilityTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms, AbilityTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::NewProp_NewAbilityLevel = { "NewAbilityLevel", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms, NewAbilityLevel), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::NewProp_AbilityTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::NewProp_NewAbilityLevel,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/SpellMenu/SpellMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "AbilityLevelChangedDelegate__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::_Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::_Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FAbilityLevelChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& AbilityLevelChangedDelegate, FGameplayTag AbilityTag, int32 NewAbilityLevel)
+{
+	struct _Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms
+	{
+		FGameplayTag AbilityTag;
+		int32 NewAbilityLevel;
+	};
+	_Script_SeniorProject_eventAbilityLevelChangedDelegate_Parms Parms;
+	Parms.AbilityTag=AbilityTag;
+	Parms.NewAbilityLevel=NewAbilityLevel;
+	AbilityLevelChangedDelegate.ProcessMulticastDelegate<UObject>(&Parms);
 }
 	struct Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoDelegate__DelegateSignature_Statics
 	{
@@ -282,6 +333,14 @@ void FAbilityInfoDelegate_DelegateWrapper(const FMulticastScriptDelegate& Abilit
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_AbilityInfoDelegate;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityLevelChangedDelegate_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_AbilityLevelChangedDelegate;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityUnLocked_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_AbilityUnLocked;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilityInfo_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilityInfo;
@@ -323,6 +382,20 @@ void FAbilityInfoDelegate_DelegateWrapper(const FMulticastScriptDelegate& Abilit
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfoDelegate = { "AbilityInfoDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpellMenuWidgetController, AbilityInfoDelegate), Z_Construct_UDelegateFunction_SeniorProject_AbilityInfoDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfoDelegate_MetaData), Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfoDelegate_MetaData) }; // 2645499936
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityLevelChangedDelegate_MetaData[] = {
+		{ "Category", "GAS|Spell" },
+		{ "ModuleRelativePath", "UI/SpellMenu/SpellMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityLevelChangedDelegate = { "AbilityLevelChangedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpellMenuWidgetController, AbilityLevelChangedDelegate), Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityLevelChangedDelegate_MetaData), Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityLevelChangedDelegate_MetaData) }; // 3310921986
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityUnLocked_MetaData[] = {
+		{ "Category", "GAS|Spell" },
+		{ "ModuleRelativePath", "UI/SpellMenu/SpellMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityUnLocked = { "AbilityUnLocked", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USpellMenuWidgetController, AbilityUnLocked), Z_Construct_UDelegateFunction_SeniorProject_AbilityLevelChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityUnLocked_MetaData), Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityUnLocked_MetaData) }; // 3310921986
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfo_MetaData[] = {
 		{ "Category", "Widget Data" },
 		{ "ModuleRelativePath", "UI/SpellMenu/SpellMenuWidgetController.h" },
@@ -332,6 +405,8 @@ void FAbilityInfoDelegate_DelegateWrapper(const FMulticastScriptDelegate& Abilit
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USpellMenuWidgetController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_SpellPointsChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfoDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityLevelChangedDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityUnLocked,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USpellMenuWidgetController_Statics::NewProp_AbilityInfo,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USpellMenuWidgetController_Statics::StaticCppClassTypeInfo = {
@@ -373,9 +448,9 @@ void FAbilityInfoDelegate_DelegateWrapper(const FMulticastScriptDelegate& Abilit
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USpellMenuWidgetController, USpellMenuWidgetController::StaticClass, TEXT("USpellMenuWidgetController"), &Z_Registration_Info_UClass_USpellMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpellMenuWidgetController), 1006309339U) },
+		{ Z_Construct_UClass_USpellMenuWidgetController, USpellMenuWidgetController::StaticClass, TEXT("USpellMenuWidgetController"), &Z_Registration_Info_UClass_USpellMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpellMenuWidgetController), 1854750843U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_1248554578(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_3391246034(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
