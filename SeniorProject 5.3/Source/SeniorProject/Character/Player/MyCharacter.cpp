@@ -57,7 +57,7 @@ AMyCharacter::AMyCharacter()
 	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBarWidget->SetupAttachment(GetRootComponent());
 	HealthBarWidget->SetWidgetSpace(EWidgetSpace::World);
-	HealthBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
+	HealthBarWidget->SetDrawSize(FVector2D(250.0f, 50.0f));
 	HealthBarWidget->SetCullDistance(4500.f);
 	
 
@@ -111,24 +111,12 @@ void AMyCharacter::InitAbilityActorInfo()
 	
 	InitializeDefaultAttributes();
 	SetTeamNameByPlayerState_Implementation(PlayerStateBase);
+	InitializeHealthBarWidget();
 	
 }
 
-
-void AMyCharacter::BeginPlay()
+void AMyCharacter::InitializeHealthBarWidget()
 {
-	Super::BeginPlay();
-
-	PlayerController = Cast<AMyPlayerController>(GetController());
-	if (PlayerController != nullptr)
-	{
-		UEnhancedInputLocalPlayerSubsystem* Subsystem =
-			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
-		
-		if(Subsystem)
-			Subsystem->AddMappingContext(PlayerContext, 0);
-	}
-
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
@@ -165,8 +153,8 @@ void AMyCharacter::BeginPlay()
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 		OnHealthChanged.Broadcast(AS->GetHealth());
 		
-		OnMaxManaChanged.Broadcast(AS->GetMaxHealth());
-		OnManaChanged.Broadcast(AS->GetHealth());
+		OnMaxManaChanged.Broadcast(AS->GetMaxMana());
+		OnManaChanged.Broadcast(AS->GetMana());
 	}
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
@@ -176,13 +164,27 @@ void AMyCharacter::BeginPlay()
 			OnLevelChanged.Broadcast(SpellPoints);
 		});
 		
-		OnMaxManaChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+		OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
 	}
 	
 
-	
-	
+}
 
+
+void AMyCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PlayerController = Cast<AMyPlayerController>(GetController());
+	if (PlayerController != nullptr)
+	{
+		UEnhancedInputLocalPlayerSubsystem* Subsystem =
+			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+		
+		if(Subsystem)
+			Subsystem->AddMappingContext(PlayerContext, 0);
+	}
+	
 }
 
 // Called every frame

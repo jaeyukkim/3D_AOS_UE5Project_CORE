@@ -87,6 +87,7 @@ protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
+	void InitializeHealthBarWidget();
 	virtual int32 GetPlayerLevel_Implementation() override;
 	
 	UFUNCTION(NetMulticast, Reliable)
