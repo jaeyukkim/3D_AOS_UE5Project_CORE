@@ -314,8 +314,42 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 	Parms.Row=Row;
 	MessageWidgetRowSignature.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	DEFINE_FUNCTION(UOverlayWidgetController::execBroadcastInitialValues)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BroadcastInitialValues();
+		P_NATIVE_END;
+	}
 	void UOverlayWidgetController::StaticRegisterNativesUOverlayWidgetController()
 	{
+		UClass* Class = UOverlayWidgetController::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "BroadcastInitialValues", &UOverlayWidgetController::execBroadcastInitialValues },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/OverlayWidget/OverlayWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UOverlayWidgetController, nullptr, "BroadcastInitialValues", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics::Function_MetaDataParams), Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UOverlayWidgetController);
 	UClass* Z_Construct_UClass_UOverlayWidgetController_NoRegister()
@@ -325,6 +359,7 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 	struct Z_Construct_UClass_UOverlayWidgetController_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -373,6 +408,10 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UOverlayWidgetController_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UOverlayWidgetController_BroadcastInitialValues, "BroadcastInitialValues" }, // 13525486
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UOverlayWidgetController_Statics::Class_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
@@ -466,11 +505,11 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UOverlayWidgetController_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UOverlayWidgetController_Statics::PropPointers),
 		0,
 		0x009000A0u,
@@ -501,9 +540,9 @@ void FMessageWidgetRowSignature_DelegateWrapper(const FMulticastScriptDelegate& 
 		{ FUIWidgetRow::StaticStruct, Z_Construct_UScriptStruct_FUIWidgetRow_Statics::NewStructOps, TEXT("UIWidgetRow"), &Z_Registration_Info_UScriptStruct_UIWidgetRow, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUIWidgetRow), 4119755805U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 3066959730U) },
+		{ Z_Construct_UClass_UOverlayWidgetController, UOverlayWidgetController::StaticClass, TEXT("UOverlayWidgetController"), &Z_Registration_Info_UClass_UOverlayWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOverlayWidgetController), 3595632727U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_3951118064(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_1702230534(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_OverlayWidget_OverlayWidgetController_h_Statics::ScriptStructInfo),
 		nullptr, 0);

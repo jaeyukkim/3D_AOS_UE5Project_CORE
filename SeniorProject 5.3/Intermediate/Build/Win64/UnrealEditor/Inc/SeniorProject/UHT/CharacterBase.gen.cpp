@@ -319,7 +319,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	{
 		((ACharacterBase*)Obj)->bDead = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead = { "bDead", nullptr, (EPropertyFlags)0x0020080000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead = { "bDead", nullptr, (EPropertyFlags)0x0020080000000034, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting_MetaData[] = {
 		{ "Category", "Combat" },
@@ -446,10 +446,12 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	{
 		static const FName Name_TeamName(TEXT("TeamName"));
 		static const FName Name_LineTag(TEXT("LineTag"));
+		static const FName Name_bDead(TEXT("bDead"));
 
 		const bool bIsValid = true
 			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName()
-			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName();
+			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName()
+			&& Name_bDead == ClassReps[(int32)ENetFields_Private::bDead].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ACharacterBase"));
 	}
@@ -460,9 +462,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 3115636363U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1823959665U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_1627245751(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_3200097014(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

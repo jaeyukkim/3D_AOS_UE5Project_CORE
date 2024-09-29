@@ -3,7 +3,7 @@
 #pragma once
 
 #include "MyCharacter.h"
-
+#include "SeniorProject/SeniorProject.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/PlayerBase/MyAnimInstance.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
@@ -87,6 +87,23 @@ void AMyCharacter::OnRep_PlayerState()
 	
 }
 
+void AMyCharacter::BroadcastInitialValues()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
+
+	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
+	checkf(AS, TEXT("AttibuteSet Class uninitialized"));
+
+	
+	OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+	OnHealthChanged.Broadcast(AS->GetHealth());
+		
+	OnMaxManaChanged.Broadcast(AS->GetMaxMana());
+	OnManaChanged.Broadcast(AS->GetMana());
+	OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+}
+
 void AMyCharacter::InitAbilityActorInfo()
 {
 	
@@ -150,11 +167,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 			}
 		);
 
-		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
-		OnHealthChanged.Broadcast(AS->GetHealth());
 		
-		OnMaxManaChanged.Broadcast(AS->GetMaxMana());
-		OnManaChanged.Broadcast(AS->GetMana());
 	}
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
@@ -164,7 +177,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 			OnLevelChanged.Broadcast(SpellPoints);
 		});
 		
-		OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+		
 	}
 	
 
@@ -276,14 +289,14 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 		
 	TraceEndLocation += CameraLocation;
 
-	//Chrunch
+
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation,
-	 ECollisionChannel::ECC_Visibility);
+	ECC_RangeTrace);
 		
 	if (!bHit)
 	{
 		FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
-		bool bFloorHit = GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_Visibility);
+		bool bFloorHit = GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
 
 	}
 

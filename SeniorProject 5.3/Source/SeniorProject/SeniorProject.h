@@ -4,7 +4,7 @@
 
 #include "EngineMinimal.h"
 #define CUSTOM_DEPTH_RED 100
-
+#define ECC_RangeTrace ECC_GameTraceChannel3
 UENUM(BlueprintType)
 
 enum class ECharacterState : uint8

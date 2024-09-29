@@ -135,7 +135,7 @@ protected:
 	virtual void InitializeDefaultAttributes() const;
 	void AddCharacterAbility();
 	
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadOnly, Replicated)
 	bool bDead = false;
 
 	

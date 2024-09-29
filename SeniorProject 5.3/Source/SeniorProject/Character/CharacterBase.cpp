@@ -48,6 +48,8 @@ void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(ACharacterBase, TeamName);
 	DOREPLIFETIME(ACharacterBase, LineTag);
+	DOREPLIFETIME(ACharacterBase, bDead);
+
 	
 }
 

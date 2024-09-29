@@ -48,6 +48,7 @@ class SENIORPROJECT_API UOverlayWidgetController : public UDefaultWidgetControll
 	GENERATED_BODY()
 
 public:
+	UFUNCTION(BlueprintCallable)
 	virtual void BroadcastInitialValues() override;
 	virtual void BindCallbacksToDependencies() override;
 
