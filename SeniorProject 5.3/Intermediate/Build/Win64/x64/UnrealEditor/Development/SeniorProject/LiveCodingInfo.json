@@ -14,13 +14,13 @@
 			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
 			"BlueprintFunctionLibraryBase.gen.cpp.obj",
-			"BTDecorator_IsInAttackRange.gen.cpp.obj",
+			"BTDecorator_IsInAttackRange.gen.cpp.obj"
+		],
+		"Module.SeniorProject.2.cpp.obj": [
 			"BTS_Detect.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
 			"BTTask_TurnToTarget.gen.cpp.obj",
-			"CharacterBase.gen.cpp.obj"
-		],
-		"Module.SeniorProject.2.cpp.obj": [
+			"CharacterBase.gen.cpp.obj",
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
@@ -39,7 +39,9 @@
 			"InputComponentBase.gen.cpp.obj",
 			"KallariAI.gen.cpp.obj",
 			"Kwang.gen.cpp.obj",
-			"KwangPlayer.gen.cpp.obj",
+			"KwangPlayer.gen.cpp.obj"
+		],
+		"Module.SeniorProject.3.cpp.obj": [
 			"LaneSuper.gen.cpp.obj",
 			"LevelUpInfo.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
@@ -48,9 +50,7 @@
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
-			"MyCharacter.gen.cpp.obj"
-		],
-		"Module.SeniorProject.3.cpp.obj": [
+			"MyCharacter.gen.cpp.obj",
 			"MyGameModeBase.gen.cpp.obj",
 			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
@@ -63,6 +63,9 @@
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Spawner.gen.cpp.obj",
+			"SpellMenuWidgetController.gen.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"TargetDataAim.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
 			"WaitCooldownChange.gen.cpp.obj",
@@ -99,9 +102,7 @@
 			"KallariAI.cpp.obj",
 			"Kwang.cpp.obj",
 			"LaneSuper.cpp.obj",
-			"Melee.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"Melee.cpp.obj",
 			"Minions.cpp.obj",
 			"Ranged.cpp.obj",
 			"KwangPlayer.cpp.obj",
@@ -127,7 +128,8 @@
 			"DefaultWidgetController.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"OverlayWidget.cpp.obj",
-			"OverlayWidgetController.cpp.obj"
+			"OverlayWidgetController.cpp.obj",
+			"SpellMenuWidgetController.cpp.obj"
 		]
 	}
 }

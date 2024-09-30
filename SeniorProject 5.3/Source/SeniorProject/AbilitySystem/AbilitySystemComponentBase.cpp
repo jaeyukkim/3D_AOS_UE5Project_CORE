@@ -197,7 +197,7 @@ void UAbilitySystemComponentBase::IncreaseAbilityLevel(FGameplayTag AbilityTag)
 	{
 		if (IPlayerInterface::Execute_GetSpellPoints(GetAvatarActor()) > 0)
 		{
-			ServerSpendSpellPoint_Implementation(AbilityTag);
+			ServerSpendSpellPoint(AbilityTag);
 		}
 	}
 	
@@ -230,9 +230,21 @@ TArray<FGameplayAbilitySpec*> UAbilitySystemComponentBase::GetSpecFromAbilityTag
 void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
 {
 
+	
+	// 서버에서만 실행할 로직
+	FString DebugMessage = FString::Printf(TEXT("Spell point spent for ability: %s"), *AbilityTag.ToString());
+	
+	if (GetAvatarActor()->HasAuthority())  // 서버에서 실행 중인지 확인
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, DebugMessage);
+	}
+
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, DebugMessage);
+	}
+	
 	TArray<FGameplayAbilitySpec*> MatchedAbilitySpecs = GetSpecFromAbilityTag(AbilityTag);
-	
-	
 	
 	for(FGameplayAbilitySpec* AbilitySpec : MatchedAbilitySpecs)
 	{

@@ -172,9 +172,9 @@ void AMyCharacter::InitializeHealthBarWidget()
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 	{
-		PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 SpellPoints)
+		PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 Level)
 		{
-			OnLevelChanged.Broadcast(SpellPoints);
+			OnLevelChanged.Broadcast(Level);
 		});
 		
 		
@@ -348,8 +348,7 @@ void AMyCharacter::LevelUp_Implementation()
 	check(PlayerStateBase);
 	MulticastLevelUpParticles();
 
-	if(HasAuthority())
-		ApplyEffectToSelf(LevelUpReward, 1.f);
+	
 	
 }
 
@@ -381,6 +380,16 @@ void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	PlayerStateBase->AddToLevel(InPlayerLevel);
+
+	if(HasAuthority())
+	{
+		for(int i = 0 ; i<InPlayerLevel ; i++)
+		{
+			ApplyEffectToSelf(LevelUpReward, 1.f);
+		}
+	}
+	
+	
 }
 
 

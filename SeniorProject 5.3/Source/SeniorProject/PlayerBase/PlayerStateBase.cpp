@@ -9,6 +9,8 @@
 
 APlayerStateBase::APlayerStateBase()
 {
+	bReplicates = true;
+	
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
