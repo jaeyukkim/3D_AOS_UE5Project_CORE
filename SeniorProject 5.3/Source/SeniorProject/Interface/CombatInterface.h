@@ -5,10 +5,13 @@
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+#include "AbilitySystemComponent.h"
 #include "CombatInterface.generated.h"
 
 class UAnimMontage;
+class UAbilitySystemComponent;
 
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnASCRegistered, UAbilitySystemComponent*);
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI, BlueprintType)
@@ -69,6 +72,6 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void Die();
 
-	
+	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() = 0;
 	
 };

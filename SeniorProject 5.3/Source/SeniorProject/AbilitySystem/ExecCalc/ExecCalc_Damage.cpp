@@ -48,13 +48,12 @@ void UExecCalc_Damage::DetermineDebuff(const FGameplayEffectCustomExecutionParam
 	const FGameplayEffectSpec& Spec, FAggregatorEvaluateParameters EvaluationParameters) const
 {
 	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	FGameplayEffectContextHandle ContextHandle = Spec.GetContext();
 	
-	
-	for(FGameplayTag DebuffType : GameplayTags.DebuffTypes)
+	if(UBlueprintFunctionLibraryBase::GetIsDebuffValid(ContextHandle))
 	{
-		FGameplayEffectContextHandle ContextHandle = Spec.GetContext();
 		
-		UBlueprintFunctionLibraryBase::SetDebuffType(ContextHandle, DebuffType);
+	//	UBlueprintFunctionLibraryBase::SetDebuffType(ContextHandle, DebuffType);
 		
 		const float DebuffCoefficient = Spec.GetSetByCallerMagnitude(GameplayTags.Debuff_DebuffCoefficient, false, -1.f);
 		const float DebuffDuration = Spec.GetSetByCallerMagnitude(GameplayTags.Debuff_Duration, false, -1.f);
@@ -82,18 +81,18 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	
 	const FGameplayTagContainer* SourceTags = Spec.CapturedSourceTags.GetAggregatedTags();
 	const FGameplayTagContainer* TargetTags = Spec.CapturedTargetTags.GetAggregatedTags();
-	FAggregatorEvaluateParameters EvaluationParameters;
 	
+	FAggregatorEvaluateParameters EvaluationParameters;
 	EvaluationParameters.SourceTags = SourceTags;
 	EvaluationParameters.TargetTags = TargetTags;
-
-
+	
 	DetermineDebuff(ExecutionParams, Spec, EvaluationParameters);
+
+
 	
 	float PhysicalDamage = 0.f;
 	float MagicalDamage = 0.f;
 
-	
 	
 
 	for (FGameplayTag DamageTypeTag : FGameplayTagsBase::Get().DamageTypes)

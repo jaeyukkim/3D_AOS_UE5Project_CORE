@@ -7,40 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/.idea/.idea.SeniorProject.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Binaries/Win64/UnrealEditor.modules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Content/BP/UI/HealthBar/WBP_HUDHpMpBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Content/BP/UI/HealthBar/WBP_HUDHpMpBar.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Content/BP/UI/OverlayWidget/WBP_OverlayWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Content/BP/UI/OverlayWidget/WBP_OverlayWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/SourceFileCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/ActionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/Development/SeniorProjectEditor.uhtmanifest" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/SeniorProjectEditor/Development/SeniorProjectEditor.uhtmanifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.generated.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.generated.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SeniorProject.init.gen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Timestamp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Timestamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/Build/Win64/x64/SeniorProjectEditor/Development/DependencyCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Intermediate/CachedAssetRegistry_0.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Autosaves/Game/BP/UI/OverlayWidget/WBP_OverlayWidget_Auto1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Autosaves/Game/BP/UI/OverlayWidget/WBP_OverlayWidget_Auto1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-15EB28BC4489AE9513971391FCB8EAD5/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-35C1617046D0A4B3E2DB968A785DA9B8/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-3899B0EE43645AD90EB8218C50320398/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-478A9976429EB284C2F2BBAEF89520EE/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-4C84EF9346CDD9253927ACA3ED6B8476/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-512F58BF45AAB6B316F950AB2E5356E4/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-A5D239064BD7761795DEB982798B6345/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-AA48235C4788E9DB680EE3899DED803A/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-B487CC054D0BF0CC55B0F7BAD4B5B88D/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-E364612A41D8DF69CDA1299970AC2CD4/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-E71F099A4C16908FD00B40BFD0A277D8/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/CrashReportClient/UECC-Windows-FCC884BE48792206B2D124AE65EFDCF7/CrashReportClient.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/EditorPerProjectUserSettings.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Saved/Config/WindowsEditor/Engine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/SpellMenu/SpellMenuWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject 5.3/Source/SeniorProject/UI/SpellMenu/SpellMenuWidgetController.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="bf77e039-8c74-43c7-bbdb-581ef90440cb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +17,41 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -123,27 +125,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Uproject.SeniorProject.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Uproject.SeniorProject.executor": "Debug",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CppUnrealEngineOptionsId",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\77\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\77\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="SeniorProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1>
@@ -294,6 +297,7 @@
       <workItem from="1727716508610" duration="1976000" />
       <workItem from="1727721853974" duration="2850000" />
       <workItem from="1727849464431" duration="12454000" />
+      <workItem from="1727871829609" duration="21492000" />
     </task>
     <servers />
   </component>
@@ -310,5 +314,9 @@
         <watch expression="$rax" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

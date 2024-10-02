@@ -35,7 +35,8 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 	Params.ADCoefficient = ADCoefficient;
 	Params.APCoefficient = APCoefficient;
 	Params.DamageType = DamageType;
-
+	
+	Params.bDebuffValid = bDebuffValid;
 	Params.DebuffType = DebuffType;
 	Params.DebuffCoefficient = DebuffCoefficient;
 	Params.DebuffDuration = DebuffDuration;

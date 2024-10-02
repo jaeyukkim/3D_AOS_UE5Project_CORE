@@ -202,6 +202,7 @@ void AMinions::InitAbilityActorInfo()
 	{
 		InitializeDefaultAttributes();
 	}
+	OnAscRegistered.Broadcast(AbilitySystemComponent);
 }
 
 void AMinions::InitializeDefaultAttributes() const

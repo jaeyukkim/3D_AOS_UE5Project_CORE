@@ -58,14 +58,19 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 12;
 		}
-		if (DebuffType.IsValid())
+		if (bDebuffValid)
 		{
 			RepBits |= 1 << 13;
 		}
+		if (DebuffType.IsValid())
+		{
+			RepBits |= 1 << 14;
+		}
+		
 		
 	}
 
-	Ar.SerializeBits(&RepBits, 14);
+	Ar.SerializeBits(&RepBits, 15);
 
 	if (RepBits & (1 << 0))
 	{
@@ -128,6 +133,10 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		Ar << DebuffFrequency;
 	}
 	if (RepBits & (1 << 13))
+	{
+		Ar << bDebuffValid;
+	}
+	if (RepBits & (1 << 14))
 	{
 		if (Ar.IsLoading())
 		{

@@ -23,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UCombatInterface_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UDebuffParticleComponent_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UEnemyInterface_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameRuleInterface_NoRegister();
 	SENIORPROJECT_API UEnum* Z_Construct_UEnum_SeniorProject_ECharacterClass();
@@ -58,7 +59,13 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics::Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* end CombatInterface*/" },
+#endif
 		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "end CombatInterface" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterBase, nullptr, "MulticastHandleDeath", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics::Function_MetaDataParams) };
@@ -112,6 +119,10 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CharacterClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_CharacterClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BurnDebuffComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_BurnDebuffComponent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnHealthChanged_MetaData[];
 #endif
@@ -188,7 +199,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath, "MulticastHandleDeath" }, // 1182417542
+		{ &Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath, "MulticastHandleDeath" }, // 1213367709
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -255,6 +266,14 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass = { "CharacterClass", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, CharacterClass), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_MetaData) }; // 4018297425
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData[] = {
+		{ "Category", "CharacterBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent = { "BurnDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, BurnDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnHealthChanged_MetaData[] = {
 		{ "ModuleRelativePath", "Character/CharacterBase.h" },
@@ -384,6 +403,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnMaxHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent,
@@ -462,9 +482,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1823959665U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 4070703757U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_3200097014(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_4275531437(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

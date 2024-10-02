@@ -3,6 +3,7 @@
 
 #include "AttributeSetBase.h"
 
+#include "AbilityTypesBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
@@ -11,6 +12,7 @@
 #include "SeniorProject/Character/Enemy/Minions.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
+#include "GameplayEffectComponents/TargetTagsGameplayEffectComponent.h"
 
 class ICombatInterface;
 
@@ -135,6 +137,9 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
 
+	if(Props.TargetCharacter->Implements<UCombatInterface>() && ICombatInterface::Execute_IsDead(Props.TargetCharacter)) return;
+
+	
 	if(Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
@@ -202,6 +207,12 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 
 		NotifyMinionTarget(Props.TargetAvatarActor, Props.SourceAvatarActor);
 		ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
+
+		if (UBlueprintFunctionLibraryBase::GetIsDebuffValid(Props.EffectContextHandle))
+		{
+			Debuff(Props);
+		}
+		
 	}
 }
 
@@ -234,6 +245,66 @@ void UAttributeSetBase::HandleIncomingXP(const FEffectProperties& Props)
 
 void UAttributeSetBase::Debuff(const FEffectProperties& Props)
 {
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	FGameplayEffectContextHandle EffectContext = Props.SourceASC->MakeEffectContext();
+	EffectContext.AddSourceObject(Props.SourceAvatarActor);
+
+	const FGameplayTag DebuffType = UBlueprintFunctionLibraryBase::GetDebuffType(Props.EffectContextHandle);
+	const float DebuffCoefficient = UBlueprintFunctionLibraryBase::GetDebuffCoefficient(Props.EffectContextHandle);
+	const float DebuffDuration = UBlueprintFunctionLibraryBase::GetDebuffDuration(Props.EffectContextHandle);
+	const float DebuffFrequency = UBlueprintFunctionLibraryBase::GetDebuffFrequency(Props.EffectContextHandle);
+
+	FString DebuffName = FString::Printf(TEXT("DynamicDebuff_%s"), *DebuffType.ToString());
+	UGameplayEffect* Effect = NewObject<UGameplayEffect>(GetTransientPackage(), FName(DebuffName));
+
+	Effect->DurationPolicy = EGameplayEffectDurationType::HasDuration;
+	Effect->Period = DebuffFrequency;
+	Effect->DurationMagnitude = FScalableFloat(DebuffDuration);
+
+	FInheritedTagContainer TagContainer = FInheritedTagContainer();
+	UTargetTagsGameplayEffectComponent& Component = Effect->FindOrAddComponent<UTargetTagsGameplayEffectComponent>();
+	TagContainer.Added.AddTag(DebuffType);
+	//TagContainer.CombinedTags.AddTag(DebuffType);
+	Component.SetAndApplyTargetTagChanges(TagContainer);
+	
+	//Effect->InheritableOwnedTagsContainer.AddTag(DebuffType);
+	/*
+	if (DebuffTag.MatchesTagExact(GameplayTags.Debuff_Stun))
+	{
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_CursorTrace);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputHeld);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputPressed);
+		Effect->InheritableOwnedTagsContainer.AddTag(GameplayTags.Player_Block_InputReleased);
+	}
+	*/
+	
+	//Effect->StackingType = EGameplayEffectStackingType::AggregateBySource;
+	//Effect->StackLimitCount = 1;
+	
+	const int32 Index = Effect->Modifiers.Num();
+	Effect->Modifiers.Add(FGameplayModifierInfo());
+	
+	FGameplayModifierInfo& ModifierInfo = Effect->Modifiers[Index];
+
+	if (DebuffType.MatchesTagExact(GameplayTags.Debuff_Type_DebuffDamage))
+	{
+		Effect->bExecutePeriodicEffectOnApplication = false;
+		if (FGameplayEffectSpec* MutableSpec = new FGameplayEffectSpec(Effect, EffectContext, 1.f))
+		{
+			FGameplayEffectBaseContext* ContextBase = static_cast<FGameplayEffectBaseContext*>(MutableSpec->GetContext().Get());
+			ModifierInfo.ModifierMagnitude = FScalableFloat(DebuffCoefficient);
+			ModifierInfo.ModifierOp = EGameplayModOp::Additive;
+			ModifierInfo.Attribute = UAttributeSetBase::GetIncomingDamageAttribute();
+			
+			
+			ContextBase->SetIsMagicalDamage(true);
+			Props.TargetASC->ApplyGameplayEffectSpecToSelf(*MutableSpec);
+		}
+
+	}
+	
+	
+
 }
 
 

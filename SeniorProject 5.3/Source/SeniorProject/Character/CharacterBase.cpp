@@ -11,7 +11,7 @@
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
-
+#include "SeniorProject/AbilitySystem/Debuff/DebuffParticleComponent.h"
 
 
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
@@ -19,6 +19,12 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 {
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
+	
+
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	BurnDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("BurnDebuffComponent");
+	BurnDebuffComponent->SetupAttachment(GetRootComponent());
+	BurnDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_DebuffDamage;
 }
 
 
@@ -129,6 +135,11 @@ ECharacterClass ACharacterBase::GetCharacterClass_Implementation()
 	return CharacterClass;
 }
 
+FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
+{
+	return OnAscRegistered;
+}
+
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
 	GetMesh()->SetSimulatePhysics(true);
@@ -136,6 +147,7 @@ void ACharacterBase::MulticastHandleDeath_Implementation()
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	
 	bDead = true;
+	BurnDebuffComponent->Deactivate();
 	
 }
 

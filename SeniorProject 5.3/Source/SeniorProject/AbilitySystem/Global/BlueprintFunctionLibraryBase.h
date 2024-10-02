@@ -48,6 +48,9 @@ public:
 	static void SetIsMagicalDamage(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool bInIsCriticalHit);
 
 	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	static void SetDebuffValid(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool InDebuffValid);
+	
+	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
 	static void SetDebuffType(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, const FGameplayTag& InDebuffType);
 	
 	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
@@ -60,7 +63,6 @@ public:
 	static void SetDebuffFrequency(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, float InFrequency);
 
 	
-
 	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
 	static bool IsMagicalDamage(const FGameplayEffectContextHandle& EffectContextHandle);
 
@@ -69,6 +71,9 @@ public:
 	
 	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
 	static FGameplayTag GetDebuffType(const FGameplayEffectContextHandle& EffectContextHandle);
+
+	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	static bool GetIsDebuffValid(const FGameplayEffectContextHandle& EffectContextHandle);
 	
 	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
 	static float GetDebuffCoefficient(const FGameplayEffectContextHandle& EffectContextHandle);

@@ -48,17 +48,19 @@ struct FDamageEffectParams
 	UPROPERTY(BlueprintReadWrite)
 	float SourceAttackDamage = 1.f;
 
+	UPROPERTY(BlueprintReadWrite)
+	FGameplayTag DebuffType = FGameplayTag();
 	
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite)
+	bool bDebuffValid = false;
+	
+	UPROPERTY(BlueprintReadWrite)
 	float DebuffFrequency = 0.f;
 	
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite)
 	float DebuffDuration = 0.f;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Damage")
-	FGameplayTag DebuffType = FGameplayTag();
-
-	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	
+	UPROPERTY(BlueprintReadWrite)
 	float DebuffCoefficient = 0.f;
 	
 	
@@ -77,7 +79,7 @@ public:
 	float GetDebuffCoefficient() const { return DebuffCoefficient; }
 	float GetDebuffDuration() const { return DebuffDuration; }
 	float GetDebuffFrequency() const { return DebuffFrequency; }
-
+	bool GetIsDebuffValid() const { return bDebuffValid; }
 	
 	void SetIsMagicalDamage(bool bInIsMagicalDamage) {bIsMagicalDamage = bInIsMagicalDamage;}
 	void SetIsCriticalHit(bool bInIsCriticalHit) {bIsCriticalHit = bInIsCriticalHit;}
@@ -86,6 +88,8 @@ public:
 	void SetDebuffCoefficient(float InDebuffCoefficient) {DebuffCoefficient = InDebuffCoefficient;}
 	void SetDebuffDuration(float InDuration) { DebuffDuration = InDuration; }
 	void SetDebuffFrequency(float InFrequency) { DebuffFrequency = InFrequency; }
+	void SetDebuffValid(bool InbDebuffValid) { bDebuffValid = InbDebuffValid; }
+
 
 
 	
@@ -129,7 +133,9 @@ protected:
 
 	UPROPERTY()
 	float BaseDamage = 0.f;
-
+	
+	bool bDebuffValid = false;
+	
 	TSharedPtr<FGameplayTag> DebuffType;
 	
 	UPROPERTY()

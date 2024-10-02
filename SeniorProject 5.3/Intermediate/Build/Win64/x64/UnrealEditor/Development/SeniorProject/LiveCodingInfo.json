@@ -13,10 +13,10 @@
 			"AttributeInfo.gen.cpp.obj",
 			"AttributeMenuWidgetController.gen.cpp.obj",
 			"AttributeSetBase.gen.cpp.obj",
-			"BlueprintFunctionLibraryBase.gen.cpp.obj",
-			"BTDecorator_IsInAttackRange.gen.cpp.obj"
+			"BlueprintFunctionLibraryBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.2.cpp.obj": [
+			"BTDecorator_IsInAttackRange.gen.cpp.obj",
 			"BTS_Detect.gen.cpp.obj",
 			"BTTask_FindPatrolPos.gen.cpp.obj",
 			"BTTask_TurnToTarget.gen.cpp.obj",
@@ -27,6 +27,7 @@
 			"DamageActorBase.gen.cpp.obj",
 			"DamageGameplayAbilityBase.gen.cpp.obj",
 			"DamageTextComponent.gen.cpp.obj",
+			"DebuffParticleComponent.gen.cpp.obj",
 			"DefaultHUD.gen.cpp.obj",
 			"DefaultWidgetController.gen.cpp.obj",
 			"EffectActorBase.gen.cpp.obj",
@@ -37,11 +38,11 @@
 			"HomingProjectile.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
-			"KallariAI.gen.cpp.obj",
-			"Kwang.gen.cpp.obj",
-			"KwangPlayer.gen.cpp.obj"
+			"KallariAI.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"Kwang.gen.cpp.obj",
+			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
 			"LevelUpInfo.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
@@ -62,10 +63,10 @@
 			"Ranged.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
-			"Spawner.gen.cpp.obj",
-			"SpellMenuWidgetController.gen.cpp.obj"
+			"Spawner.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"SpellMenuWidgetController.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
 			"WaitCooldownChange.gen.cpp.obj",
@@ -82,6 +83,7 @@
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
 			"LevelUpInfo.cpp.obj",
+			"DebuffParticleComponent.cpp.obj",
 			"ExecCalc_Damage.cpp.obj",
 			"AbilitySystemGlobalsBase.cpp.obj",
 			"BlueprintFunctionLibraryBase.cpp.obj",

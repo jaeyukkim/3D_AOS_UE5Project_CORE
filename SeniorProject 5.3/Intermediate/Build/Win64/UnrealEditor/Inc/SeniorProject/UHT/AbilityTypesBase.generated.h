@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FDamageEffectParams>();
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_70_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_72_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct(); \
 	typedef FGameplayEffectContext Super;

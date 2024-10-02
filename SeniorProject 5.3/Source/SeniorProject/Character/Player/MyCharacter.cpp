@@ -114,7 +114,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	 
 	AbilitySystemComponent = PlayerStateBase->GetAbilitySystemComponent();
 	AttributeSet = PlayerStateBase->GetAttributeSet();
-
+	OnAscRegistered.Broadcast(AbilitySystemComponent);
 
 	checkf(AttributeSet, TEXT("PlayerStateBase Class uninitialized"));
 

@@ -41,6 +41,9 @@ public:
 	float ADCoefficient = 0.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	bool bDebuffValid = false;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	FGameplayTag DebuffType;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")

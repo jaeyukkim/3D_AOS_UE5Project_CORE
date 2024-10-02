@@ -38,6 +38,7 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetDebuffFrequency); \
 	DECLARE_FUNCTION(execGetDebuffDuration); \
 	DECLARE_FUNCTION(execGetDebuffCoefficient); \
+	DECLARE_FUNCTION(execGetIsDebuffValid); \
 	DECLARE_FUNCTION(execGetDebuffType); \
 	DECLARE_FUNCTION(execIsCriticalHit); \
 	DECLARE_FUNCTION(execIsMagicalDamage); \
@@ -45,6 +46,7 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execSetDebuffDuration); \
 	DECLARE_FUNCTION(execSetDebuffCoefficient); \
 	DECLARE_FUNCTION(execSetDebuffType); \
+	DECLARE_FUNCTION(execSetDebuffValid); \
 	DECLARE_FUNCTION(execSetIsMagicalDamage); \
 	DECLARE_FUNCTION(execSetIsCriticalHit); \
 	DECLARE_FUNCTION(execGiveStartupAbilities); \

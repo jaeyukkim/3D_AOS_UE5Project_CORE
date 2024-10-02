@@ -17,6 +17,7 @@ class UAttributeSet;
 class UGameplayEffect;
 class UGameplayAbility;
 class UAnimMontage;
+class UDebuffParticleComponent;
 
 
 
@@ -56,14 +57,15 @@ public:
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
 	virtual void Die_Implementation() override;
-	
+	virtual ECharacterClass GetCharacterClass_Implementation() override;
+
+	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() override;
+
+	FOnASCRegistered OnAscRegistered;
+	/* end CombatInterface*/
 	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
-
-	virtual ECharacterClass GetCharacterClass_Implementation() override;
-	/* end CombatInterface*/
-
 	
 
 	/* GameRuleInterface*/
@@ -98,6 +100,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
 	ECharacterClass CharacterClass;
 
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> BurnDebuffComponent;
+	
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
 

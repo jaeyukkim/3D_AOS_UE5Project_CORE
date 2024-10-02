@@ -165,6 +165,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\LevelUpInfo.h">
       <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Debuff">
+      <UniqueIdentifier>{163CAC85-2622-3B65-AD1C-645A89A13029}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Debuff\DebuffParticleComponent.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Debuff</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Debuff\DebuffParticleComponent.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Debuff</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\AbilitySystem\ExecCalc">
       <UniqueIdentifier>{18DF8854-DD41-34D3-81CA-62EF5D48CF7B}</UniqueIdentifier>
     </Filter>
