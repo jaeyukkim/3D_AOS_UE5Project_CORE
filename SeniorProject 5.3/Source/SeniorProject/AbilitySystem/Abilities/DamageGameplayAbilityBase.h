@@ -39,7 +39,22 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	float ADCoefficient = 0.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	FGameplayTag DebuffType;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float DebuffCoefficient = 0.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float DebuffDuration = 0.f;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float DebuffFrequency = 0.f;
 	
 	
+
 	
+	
+
 };

@@ -105,6 +105,40 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.DamageTypes.Add(GameplayTags.MagicalDamage);
 	/* End Damage Tag */
 
+
+	/*Debuff Tag*/
+	GameplayTags.Debuff_Duration = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Duration"),
+		FString("Debuff Duration"));
+	GameplayTags.Debuff_Frequency = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Frequency"),
+		FString("Debuff Tick Frequency"));
+	GameplayTags.Debuff_DebuffCoefficient = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.DebuffCoefficient"),
+			FString("DebuffCoefficient"));
+	
+	GameplayTags.Debuff_Type_Physical = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.Physical"),
+			FString("Physical Debuff   ex) pushed"));
+	GameplayTags.Debuff_Type_Stun = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.Stun"),
+		FString("the Character granted this tag can't move and attack"));
+	GameplayTags.Debuff_Type_MovementSlow = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.MovementSlow"),
+		FString("the Character granted this tag is decreased MovementSpeed"));
+	GameplayTags.Debuff_Type_AttackSpeedSlow = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.AttackSpeedSlow"),
+		FString("the Character granted this tag is decreased AttackSpeed"));
+	GameplayTags.Debuff_Type_ArmorDecrease = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.ArmorDecrease"),
+		FString("the Character granted this tag is decreased Armor"));
+	GameplayTags.Debuff_Type_MagicResistanceDecrease = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.MagicResistanceDecrease"),
+		FString("the Character granted this tag is decreased MagicResistance"));
+	GameplayTags.Debuff_Type_DebuffDamage = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Debuff.Type.DebuffDamage"),
+		FString("DebuffDamage"));
+
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_Physical);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_Stun);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_MovementSlow);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_AttackSpeedSlow);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_ArmorDecrease);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_MagicResistanceDecrease);
+	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_DebuffDamage);
+	
+	/*End Debuff Tag*/
+
 	
 	/* Abilities Tag */
 	GameplayTags.Abilities_Combat_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.Attack"),
@@ -170,6 +204,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.CombatSocket_Tail = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("CombatSocket.Tail"),
 		FString("Tail"));
 	/* end Combat Sockets */
+
 
 	
 	/* GameRuleTag */

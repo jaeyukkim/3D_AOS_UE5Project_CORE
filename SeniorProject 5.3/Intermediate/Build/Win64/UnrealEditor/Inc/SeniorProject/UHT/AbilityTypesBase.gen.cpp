@@ -87,6 +87,22 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SourceAttackDamage_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_SourceAttackDamage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffFrequency_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffFrequency;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffDuration_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffDuration;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffType_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DebuffType;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffCoefficient_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffCoefficient;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -186,6 +202,34 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_SourceAttackDamage = { "SourceAttackDamage", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, SourceAttackDamage), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_SourceAttackDamage_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_SourceAttackDamage_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffFrequency_MetaData[] = {
+		{ "Category", "DamageEffectParams" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffFrequency = { "DebuffFrequency", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, DebuffFrequency), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffFrequency_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffFrequency_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffDuration_MetaData[] = {
+		{ "Category", "DamageEffectParams" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffDuration = { "DebuffDuration", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, DebuffDuration), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffDuration_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffDuration_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffType_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffType = { "DebuffType", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, DebuffType), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffType_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffType_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffCoefficient_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffCoefficient = { "DebuffCoefficient", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, DebuffCoefficient), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffCoefficient_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffCoefficient_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FDamageEffectParams_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_WorldContextObject,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DamageGameplayEffectClass,
@@ -199,6 +243,10 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_AbilityLevel,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_SourceAbilityPower,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_SourceAttackDamage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffFrequency,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffDuration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DebuffCoefficient,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
@@ -263,6 +311,18 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BaseDamage_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_BaseDamage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffFrequency_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffFrequency;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffDuration_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffDuration;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffCoefficient_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_DebuffCoefficient;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FStructParams ReturnStructParams;
 	};
@@ -312,11 +372,32 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage = { "BaseDamage", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FGameplayEffectBaseContext, BaseDamage), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency_MetaData[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency = { "DebuffFrequency", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FGameplayEffectBaseContext, DebuffFrequency), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration_MetaData[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration = { "DebuffDuration", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FGameplayEffectBaseContext, DebuffDuration), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffCoefficient_MetaData[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffCoefficient = { "DebuffCoefficient", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FGameplayEffectBaseContext, DebuffCoefficient), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffCoefficient_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffCoefficient_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsCriticalHit,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsMagicalDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffCoefficient,
 	};
 	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::ReturnStructParams = {
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
@@ -345,10 +426,10 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo[] = {
-		{ FDamageEffectParams::StaticStruct, Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewStructOps, TEXT("DamageEffectParams"), &Z_Registration_Info_UScriptStruct_DamageEffectParams, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDamageEffectParams), 4036095010U) },
-		{ FGameplayEffectBaseContext::StaticStruct, Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewStructOps, TEXT("GameplayEffectBaseContext"), &Z_Registration_Info_UScriptStruct_GameplayEffectBaseContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGameplayEffectBaseContext), 3057721664U) },
+		{ FDamageEffectParams::StaticStruct, Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewStructOps, TEXT("DamageEffectParams"), &Z_Registration_Info_UScriptStruct_DamageEffectParams, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDamageEffectParams), 222576205U) },
+		{ FGameplayEffectBaseContext::StaticStruct, Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewStructOps, TEXT("GameplayEffectBaseContext"), &Z_Registration_Info_UScriptStruct_GameplayEffectBaseContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGameplayEffectBaseContext), 1955232541U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_2865461056(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_2574233506(TEXT("/Script/SeniorProject"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo),
 		nullptr, 0);

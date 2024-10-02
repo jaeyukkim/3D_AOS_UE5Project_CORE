@@ -35,6 +35,14 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 	Params.ADCoefficient = ADCoefficient;
 	Params.APCoefficient = APCoefficient;
 	Params.DamageType = DamageType;
+
+	Params.DebuffType = DebuffType;
+	Params.DebuffCoefficient = DebuffCoefficient;
+	Params.DebuffDuration = DebuffDuration;
+	Params.DebuffFrequency = DebuffFrequency;
+
+	
+	
 	
 	if (const UAttributeSetBase* SourceAttributes = Params.SourceAbilitySystemComponent ? Params.SourceAbilitySystemComponent->GetSet<UAttributeSetBase>() : nullptr)
 	{
@@ -44,6 +52,8 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 
 	Params.AppliedCoefficientDamage = Params.BaseDamage + (Params.SourceAttackDamage * Params.ADCoefficient) + (Params.SourceAbilityPower * Params.APCoefficient);
 
+	
+	
 	return Params;
 	
 }

@@ -80,6 +80,39 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	/* GamePlay Attribute */
 }
 
+void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const
+{
+	
+	Props.EffectContextHandle = Data.EffectSpec.GetContext();
+	Props.SourceASC = Props.EffectContextHandle.GetOriginalInstigatorAbilitySystemComponent();
+
+	if (IsValid(Props.SourceASC) && Props.SourceASC->AbilityActorInfo.IsValid() && Props.SourceASC->AbilityActorInfo->AvatarActor.IsValid())
+	{
+		Props.SourceAvatarActor = Props.SourceASC->AbilityActorInfo->AvatarActor.Get();
+		Props.SourceController = Props.SourceASC->AbilityActorInfo->PlayerController.Get();
+		if (Props.SourceController == nullptr && Props.SourceAvatarActor != nullptr)
+		{
+			if (const APawn* Pawn = Cast<APawn>(Props.SourceAvatarActor))
+			{
+				Props.SourceController = Pawn->GetController();
+			}
+		}
+
+		if (Props.SourceController)
+		{
+			Props.SourceCharacter = Cast<ACharacter>(Props.SourceController->GetPawn());
+			if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
+			{
+				Props.TargetAvatarActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
+				Props.TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
+				Props.TargetCharacter = Cast<ACharacter>(Props.TargetAvatarActor);
+				Props.TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Props.TargetAvatarActor);
+			}
+		}
+
+	}
+}
+
 void UAttributeSetBase::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 {
 	Super::PreAttributeChange(Attribute, NewValue);
@@ -114,116 +147,96 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		SetExp(FMath::Clamp(GetExp(), 0.f, GetNextExp()));
 	}
-
 	if (Data.EvaluatedData.Attribute == GetIncomingDamageAttribute())
 	{
-		const float LocalIncomingDamage = GetIncomingDamage();
-		SetIncomingDamage(0.f);
-		
-		if (LocalIncomingDamage > 0.f)
-		{
-			const float NewHealth = GetHealth() - LocalIncomingDamage;
-			SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
-
-			const bool bFatal = NewHealth <= 0.f;
-
-			if (bFatal)
-			{
-				if(Props.TargetAvatarActor->Implements<UCombatInterface>())
-				{
-					//죽었을 때 한번만 경험치 전달
-					if(!ICombatInterface::Execute_IsDead(Props.TargetAvatarActor))
-					{
-						SendXPEvent(Props);
-					}
-					ICombatInterface::Execute_Die(Props.TargetAvatarActor);
-	
-				}
-				
-				
-				
-				FGameplayTagContainer TagContainer;
-				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
-				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
-			}
-			
-			else
-			{
-				FGameplayTagContainer TagContainer;
-				TagContainer.AddTag(FGameplayTagsBase::Get().Effects_HitReact);
-				Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
-			}
-			const bool bCriticalHit = UBlueprintFunctionLibraryBase::IsCriticalHit(Props.EffectContextHandle);
-			const bool bMagicalDamage = UBlueprintFunctionLibraryBase::IsMagicalDamage(Props.EffectContextHandle);
-
-			NotifyMinionTarget(Props.TargetAvatarActor, Props.SourceAvatarActor);
-			ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
-		}
+		HandleIncomingDamage(Props);
 	}
 
 	if (Data.EvaluatedData.Attribute == GetIncomingXPAttribute())
 	{
-		const float LocalIncomingXP = GetIncomingXP();
-		SetIncomingXP(0.f);
-
-		// Source Character is the owner, since GA_ListenForEvents applies GE_EventBasedEffect, adding to IncomingXP
-		if (Props.SourceCharacter->Implements<UPlayerInterface>() && Props.SourceCharacter->Implements<UCombatInterface>())
-		{
-			const int32 CurrentLevel = ICombatInterface::Execute_GetPlayerLevel(Props.SourceCharacter);
-			const int32 CurrentXP = IPlayerInterface::Execute_GetXP(Props.SourceCharacter);
-			const int32 NewLevel = IPlayerInterface::Execute_FindLevelForXP(Props.SourceCharacter, CurrentXP + LocalIncomingXP);
-			const int32 NumLevelUps = NewLevel - CurrentLevel;
-			if (NumLevelUps > 0)
-			{
-			
-				IPlayerInterface::Execute_AddToPlayerLevel(Props.SourceCharacter, NumLevelUps);
-				IPlayerInterface::Execute_AddToSpellPoints(Props.SourceCharacter, NumLevelUps);
-				IPlayerInterface::Execute_LevelUp(Props.SourceCharacter);
-			}
-		}
-		
-		if (Props.SourceCharacter->Implements<UPlayerInterface>())
-		{
-			IPlayerInterface::Execute_AddToXP(Props.SourceCharacter, LocalIncomingXP);
-		}
-		
+		HandleIncomingXP(Props);
 	}
 	
 	
 }
-
-void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const
+void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 {
-	
-	Props.EffectContextHandle = Data.EffectSpec.GetContext();
-	Props.SourceASC = Props.EffectContextHandle.GetOriginalInstigatorAbilitySystemComponent();
-
-	if (IsValid(Props.SourceASC) && Props.SourceASC->AbilityActorInfo.IsValid() && Props.SourceASC->AbilityActorInfo->AvatarActor.IsValid())
+	const float LocalIncomingDamage = GetIncomingDamage();
+	SetIncomingDamage(0.f);
+		
+	if (LocalIncomingDamage > 0.f)
 	{
-		Props.SourceAvatarActor = Props.SourceASC->AbilityActorInfo->AvatarActor.Get();
-		Props.SourceController = Props.SourceASC->AbilityActorInfo->PlayerController.Get();
-		if (Props.SourceController == nullptr && Props.SourceAvatarActor != nullptr)
-		{
-			if (const APawn* Pawn = Cast<APawn>(Props.SourceAvatarActor))
-			{
-				Props.SourceController = Pawn->GetController();
-			}
-		}
+		const float NewHealth = GetHealth() - LocalIncomingDamage;
+		SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
 
-		if (Props.SourceController)
-		{
-			Props.SourceCharacter = Cast<ACharacter>(Props.SourceController->GetPawn());
-			if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
-			{
-				Props.TargetAvatarActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
-				Props.TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
-				Props.TargetCharacter = Cast<ACharacter>(Props.TargetAvatarActor);
-				Props.TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(Props.TargetAvatarActor);
-			}
-		}
+		const bool bFatal = NewHealth <= 0.f;
 
+		if (bFatal)
+		{
+			if(Props.TargetAvatarActor->Implements<UCombatInterface>())
+			{
+				//죽었을 때 한번만 경험치 전달
+				if(!ICombatInterface::Execute_IsDead(Props.TargetAvatarActor))
+				{
+					SendXPEvent(Props);
+				}
+				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
+	
+			}
+				
+				
+				
+			FGameplayTagContainer TagContainer;
+			TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
+			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+		}
+			
+		else
+		{
+			FGameplayTagContainer TagContainer;
+			TagContainer.AddTag(FGameplayTagsBase::Get().Effects_HitReact);
+			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
+		}
+		const bool bCriticalHit = UBlueprintFunctionLibraryBase::IsCriticalHit(Props.EffectContextHandle);
+		const bool bMagicalDamage = UBlueprintFunctionLibraryBase::IsMagicalDamage(Props.EffectContextHandle);
+
+		NotifyMinionTarget(Props.TargetAvatarActor, Props.SourceAvatarActor);
+		ShowFloatingText(Props, LocalIncomingDamage, bCriticalHit, bMagicalDamage);
 	}
 }
+
+void UAttributeSetBase::HandleIncomingXP(const FEffectProperties& Props)
+{
+	const float LocalIncomingXP = GetIncomingXP();
+	SetIncomingXP(0.f);
+
+	// Source Character is the owner, since GA_ListenForEvents applies GE_EventBasedEffect, adding to IncomingXP
+	if (Props.SourceCharacter->Implements<UPlayerInterface>() && Props.SourceCharacter->Implements<UCombatInterface>())
+	{
+		const int32 CurrentLevel = ICombatInterface::Execute_GetPlayerLevel(Props.SourceCharacter);
+		const int32 CurrentXP = IPlayerInterface::Execute_GetXP(Props.SourceCharacter);
+		const int32 NewLevel = IPlayerInterface::Execute_FindLevelForXP(Props.SourceCharacter, CurrentXP + LocalIncomingXP);
+		const int32 NumLevelUps = NewLevel - CurrentLevel;
+		if (NumLevelUps > 0)
+		{
+			
+			IPlayerInterface::Execute_AddToPlayerLevel(Props.SourceCharacter, NumLevelUps);
+			IPlayerInterface::Execute_AddToSpellPoints(Props.SourceCharacter, NumLevelUps);
+			IPlayerInterface::Execute_LevelUp(Props.SourceCharacter);
+		}
+	}
+		
+	if (Props.SourceCharacter->Implements<UPlayerInterface>())
+	{
+		IPlayerInterface::Execute_AddToXP(Props.SourceCharacter, LocalIncomingXP);
+	}
+}
+
+void UAttributeSetBase::Debuff(const FEffectProperties& Props)
+{
+}
+
+
 
 void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const
 {
@@ -319,6 +332,7 @@ void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 	}
 	
 }
+
 
 /* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const

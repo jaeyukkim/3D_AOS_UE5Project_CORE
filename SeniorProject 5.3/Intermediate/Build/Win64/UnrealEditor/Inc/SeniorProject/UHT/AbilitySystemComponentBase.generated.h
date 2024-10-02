@@ -35,7 +35,6 @@ SENIORPROJECT_API void FOnAttackEndSignatures_DelegateWrapper(const FMulticastSc
 	DECLARE_FUNCTION(execClientUpdateAbilityLevel); \
 	DECLARE_FUNCTION(execClientEffectApplied); \
 	DECLARE_FUNCTION(execServerSpendSpellPoint); \
-	DECLARE_FUNCTION(execIncreaseAbilityLevel); \
 	DECLARE_FUNCTION(execGetAbilityLevel);
 
 

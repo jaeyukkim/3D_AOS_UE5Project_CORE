@@ -51,8 +51,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	int32 GetAbilityLevel(FGameplayTag AbilityTag);
 	
-	UFUNCTION(BlueprintCallable, Category="Abilities")
-	void IncreaseAbilityLevel(FGameplayTag AbilityTag);
+	
 	
 	UFUNCTION(Server, Reliable)
 	void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);

@@ -82,14 +82,6 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		P_THIS->ServerSpendSpellPoint_Implementation(Z_Param_AbilityTag);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UAbilitySystemComponentBase::execIncreaseAbilityLevel)
-	{
-		P_GET_STRUCT(FGameplayTag,Z_Param_AbilityTag);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->IncreaseAbilityLevel(Z_Param_AbilityTag);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(UAbilitySystemComponentBase::execGetAbilityLevel)
 	{
 		P_GET_STRUCT(FGameplayTag,Z_Param_AbilityTag);
@@ -150,7 +142,6 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 			{ "ClientEffectApplied", &UAbilitySystemComponentBase::execClientEffectApplied },
 			{ "ClientUpdateAbilityLevel", &UAbilitySystemComponentBase::execClientUpdateAbilityLevel },
 			{ "GetAbilityLevel", &UAbilitySystemComponentBase::execGetAbilityLevel },
-			{ "IncreaseAbilityLevel", &UAbilitySystemComponentBase::execIncreaseAbilityLevel },
 			{ "ServerSpendSpellPoint", &UAbilitySystemComponentBase::execServerSpendSpellPoint },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -309,41 +300,6 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics
-	{
-		struct AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms
-		{
-			FGameplayTag AbilityTag;
-		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_AbilityTag;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::NewProp_AbilityTag = { "AbilityTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms, AbilityTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::NewProp_AbilityTag,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Abilities" },
-		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "IncreaseAbilityLevel", nullptr, nullptr, Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::AbilitySystemComponentBase_eventIncreaseAbilityLevel_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint_Statics
 	{
 #if WITH_METADATA
@@ -412,7 +368,6 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied, "ClientEffectApplied" }, // 4212018037
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateAbilityLevel, "ClientUpdateAbilityLevel" }, // 569880212
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_GetAbilityLevel, "GetAbilityLevel" }, // 1429693080
-		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_IncreaseAbilityLevel, "IncreaseAbilityLevel" }, // 611681983
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint, "ServerSpendSpellPoint" }, // 1812849322
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo) < 2048);
@@ -475,9 +430,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 1888921177U) },
+		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 2272118874U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_437363196(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_70579126(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

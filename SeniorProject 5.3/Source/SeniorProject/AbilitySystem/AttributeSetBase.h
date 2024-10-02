@@ -276,5 +276,7 @@ private:
 	void ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const;
 	void NotifyMinionTarget(AActor* DamagedActor, AActor* Instigator); // 적 플레이어에 의해 플레이어 피격시 주변의 팀 미니언들에게 적 플레이어를 타겟팅 하도록 함
 	void SendXPEvent(const FEffectProperties& Props);
-	
+	void HandleIncomingDamage(const FEffectProperties& Props);
+	void HandleIncomingXP(const FEffectProperties& Props);
+	void Debuff(const FEffectProperties& Props);
 };

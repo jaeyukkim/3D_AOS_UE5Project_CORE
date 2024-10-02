@@ -16,7 +16,7 @@ void UOverlayWidgetController::BroadcastInitialValues()
 	OnManaChanged.Broadcast(GetMyAS()->GetMana());
 	OnMaxManaChanged.Broadcast(GetMyAS()->GetMaxMana());
 	OnLevelChanged.Broadcast(GetMyPS()->GetPlayerLevel());
-
+	
 
 }
 

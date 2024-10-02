@@ -11,6 +11,9 @@ public:
 	static const FGameplayTagsBase& Get() { return GameplayTags;}
 	static void InitializeNativeGameplayTags();
 
+	static FGameplayTagsBase GameplayTags;
+
+	
 	/* Vital Attribute Tags*/
 	FGameplayTag Attributes_Vital_Health;
 	FGameplayTag Attributes_Vital_Mana;
@@ -62,18 +65,35 @@ public:
 	FGameplayTag PhysicalDamage;
 	FGameplayTag MagicalDamage;
 	TArray<FGameplayTag> DamageTypes;
+
+
+	/*Debuff Tag*/
+	FGameplayTag Debuff_Duration;
+	FGameplayTag Debuff_Frequency;
+	FGameplayTag Debuff_DebuffCoefficient;
+
+	FGameplayTag Debuff_Type_Stun;
+	FGameplayTag Debuff_Type_MovementSlow;
+	FGameplayTag Debuff_Type_AttackSpeedSlow;
+	FGameplayTag Debuff_Type_Physical;
+	FGameplayTag Debuff_Type_ArmorDecrease;
+	FGameplayTag Debuff_Type_MagicResistanceDecrease;
+	FGameplayTag Debuff_Type_DebuffDamage;
+	TArray<FGameplayTag> DebuffTypes;
+	/*Debuff Tag*/
+
 	
 
+	/*CombatSocket Tag*/
 	FGameplayTag CombatSocket_Weapon;
 	FGameplayTag CombatSocket_RightHand;
 	FGameplayTag CombatSocket_LeftHand;
 	FGameplayTag CombatSocket_Tail;
-	
-	static FGameplayTagsBase GameplayTags;
+	/*CombatSocket Tag*/
+
 
 	
 	/* GameRuleTag */
-	
 	FGameplayTag GameRule_TeamName_BlueTeam;
 	FGameplayTag GameRule_TeamName_RedTeam;
 	FGameplayTag GameRule_TeamName_NeutralityTeam;
@@ -88,9 +108,9 @@ public:
 	
 	FGameplayTag GameRule_Turret_Inhibitor;
 	FGameplayTag GameRule_Turret_Nexus;
-	
 	/* End GameRuleTag */
 
+	
 
 	/* Abilities */
 	FGameplayTag Abilities_Combat_Attack;

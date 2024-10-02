@@ -20,6 +20,7 @@ enum class ECharacterClass : uint8;
 struct FDamageEffectParams;
 struct FGameplayEffectContextHandle;
 struct FGameplayEffectSpecHandle;
+struct FGameplayTag;
 #ifdef SENIORPROJECT_BlueprintFunctionLibraryBase_generated_h
 #error "BlueprintFunctionLibraryBase.generated.h already included, missing '#pragma once' in BlueprintFunctionLibraryBase.h"
 #endif
@@ -34,10 +35,18 @@ struct FGameplayEffectSpecHandle;
 	DECLARE_FUNCTION(execGetOwnerActorFromSpecHandle); \
 	DECLARE_FUNCTION(execIsFriends); \
 	DECLARE_FUNCTION(execGetLivePlayersWithinRadius); \
-	DECLARE_FUNCTION(execSetIsMagicalDamage); \
-	DECLARE_FUNCTION(execIsMagicalDamage); \
-	DECLARE_FUNCTION(execSetIsCriticalHit); \
+	DECLARE_FUNCTION(execGetDebuffFrequency); \
+	DECLARE_FUNCTION(execGetDebuffDuration); \
+	DECLARE_FUNCTION(execGetDebuffCoefficient); \
+	DECLARE_FUNCTION(execGetDebuffType); \
 	DECLARE_FUNCTION(execIsCriticalHit); \
+	DECLARE_FUNCTION(execIsMagicalDamage); \
+	DECLARE_FUNCTION(execSetDebuffFrequency); \
+	DECLARE_FUNCTION(execSetDebuffDuration); \
+	DECLARE_FUNCTION(execSetDebuffCoefficient); \
+	DECLARE_FUNCTION(execSetDebuffType); \
+	DECLARE_FUNCTION(execSetIsMagicalDamage); \
+	DECLARE_FUNCTION(execSetIsCriticalHit); \
 	DECLARE_FUNCTION(execGiveStartupAbilities); \
 	DECLARE_FUNCTION(execInitializeDefaultAttributes); \
 	DECLARE_FUNCTION(execGetCharacterClassInfo); \

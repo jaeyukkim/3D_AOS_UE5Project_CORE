@@ -170,8 +170,81 @@ void UBlueprintFunctionLibraryBase::SetIsMagicalDamage(FGameplayEffectContextHan
 	}
 }
 
+void UBlueprintFunctionLibraryBase::SetDebuffType(FGameplayEffectContextHandle& EffectContextHandle,
+	const FGameplayTag& InDebuffType)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		const TSharedPtr<FGameplayTag> DebuffType = MakeShared<FGameplayTag>(InDebuffType);
+		EffectContext->SetDebuffType(DebuffType);
+	}
+}
+
+void UBlueprintFunctionLibraryBase::SetDebuffCoefficient(FGameplayEffectContextHandle& EffectContextHandle,
+	float InDebuffCoefficient)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetDebuffCoefficient(InDebuffCoefficient);
+	}
+}
+
+void UBlueprintFunctionLibraryBase::SetDebuffDuration(FGameplayEffectContextHandle& EffectContextHandle,
+	float InDuration)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetDebuffDuration(InDuration);
+	}
+}
+
+void UBlueprintFunctionLibraryBase::SetDebuffFrequency(FGameplayEffectContextHandle& EffectContextHandle,
+	float InFrequency)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetDebuffFrequency(InFrequency);
+	}
+}
+
+FGameplayTag UBlueprintFunctionLibraryBase::GetDebuffType(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return *EffectContext->GetDebuffType();
+	}
+	return FGameplayTag();
+}
+
+float UBlueprintFunctionLibraryBase::GetDebuffCoefficient(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->GetDebuffCoefficient();
+	}
+	return 0.f;
+}
+
+float UBlueprintFunctionLibraryBase::GetDebuffDuration(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->GetDebuffDuration();
+	}
+	return 0.f;
+}
+
+float UBlueprintFunctionLibraryBase::GetDebuffFrequency(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->GetDebuffFrequency();
+	}
+	return 0.f;
+}
+
 void UBlueprintFunctionLibraryBase::GetLivePlayersWithinRadius(const UObject* WorldContextObject,
-	TArray<AActor*>& OutOverlappingActors, const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin)
+                                                               TArray<AActor*>& OutOverlappingActors, const TArray<AActor*>& ActorsToIgnore, float Radius, const FVector& SphereOrigin)
 {
 	FCollisionQueryParams SphereParams;
 	SphereParams.AddIgnoredActors(ActorsToIgnore);
@@ -248,6 +321,12 @@ FGameplayEffectContextHandle UBlueprintFunctionLibraryBase::ApplyDamageEffect(
 	const FGameplayEffectSpecHandle SpecHandle = DamageEffectParams.SourceAbilitySystemComponent->MakeOutgoingSpec(DamageEffectParams.DamageGameplayEffectClass, DamageEffectParams.AbilityLevel, EffectContextHandle);
 
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, DamageEffectParams.DamageType, DamageEffectParams.AppliedCoefficientDamage);
+
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, DamageEffectParams.DebuffType, DamageEffectParams.DebuffCoefficient);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Debuff_Duration, DamageEffectParams.DebuffDuration);
+	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Debuff_Frequency, DamageEffectParams.DebuffFrequency);
+
+	
 	DamageEffectParams.TargetAbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data);
 	return EffectContextHandle;
 }

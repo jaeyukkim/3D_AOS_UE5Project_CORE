@@ -69,7 +69,7 @@ void USpellMenuWidgetController::UpgradeSpell(const FGameplayTag& AbilityTag)
 {
 	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
-		ASCBase->IncreaseAbilityLevel(AbilityTag);
+		ASCBase->ServerSpendSpellPoint(AbilityTag);
 	}
 }
 

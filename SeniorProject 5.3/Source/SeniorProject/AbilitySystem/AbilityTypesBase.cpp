@@ -46,9 +46,26 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 9;
 		}
+		if (DebuffCoefficient > 0.f)
+		{
+			RepBits |= 1 << 10;
+		}
+		if (DebuffDuration > 0.f)
+		{
+			RepBits |= 1 << 11;
+		}
+		if (DebuffFrequency > 0.f)
+		{
+			RepBits |= 1 << 12;
+		}
+		if (DebuffType.IsValid())
+		{
+			RepBits |= 1 << 13;
+		}
+		
 	}
 
-	Ar.SerializeBits(&RepBits, 11);
+	Ar.SerializeBits(&RepBits, 14);
 
 	if (RepBits & (1 << 0))
 	{
@@ -97,6 +114,29 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 	if(RepBits & (1 << 9))
 	{
 		Ar << bIsPhysicalDamage;
+	}
+	if (RepBits & (1 << 10))
+	{
+		Ar << DebuffCoefficient;
+	}
+	if (RepBits & (1 << 11))
+	{
+		Ar << DebuffDuration;
+	}
+	if (RepBits & (1 << 12))
+	{
+		Ar << DebuffFrequency;
+	}
+	if (RepBits & (1 << 13))
+	{
+		if (Ar.IsLoading())
+		{
+			if (!DebuffType.IsValid())
+			{
+				DebuffType = TSharedPtr<FGameplayTag>(new FGameplayTag());
+			}
+		}
+		DebuffType->NetSerialize(Ar, Map, bOutSuccess);
 	}
 	else
 	{
