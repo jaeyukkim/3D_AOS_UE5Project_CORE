@@ -25,6 +25,7 @@ void UGameplayAbilityBase::ActivateCasting()
 		FGameplayEffectSpecHandle SpecHandle = MakeOutgoingGameplayEffectSpec(CastingEffect, 1);
 		SpecHandle.Data->SetSetByCallerMagnitude(FGameplayTagsBase::Get().Abilities_Combat_CastingOn, CastingTime);
 		GetAbilitySystemComponentFromActorInfo()->ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+		
 	}
 }
 

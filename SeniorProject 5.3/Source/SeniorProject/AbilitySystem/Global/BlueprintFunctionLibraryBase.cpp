@@ -252,6 +252,8 @@ float UBlueprintFunctionLibraryBase::GetDebuffDuration(const FGameplayEffectCont
 		return EffectContext->GetDebuffDuration();
 	}
 	return 0.f;
+
+	
 }
 
 float UBlueprintFunctionLibraryBase::GetDebuffFrequency(const FGameplayEffectContextHandle& EffectContextHandle)
@@ -259,6 +261,7 @@ float UBlueprintFunctionLibraryBase::GetDebuffFrequency(const FGameplayEffectCon
 	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
 	{
 		return EffectContext->GetDebuffFrequency();
+		
 	}
 	return 0.f;
 }

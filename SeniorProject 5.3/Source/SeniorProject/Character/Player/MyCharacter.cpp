@@ -115,7 +115,10 @@ void AMyCharacter::InitAbilityActorInfo()
 	AbilitySystemComponent = PlayerStateBase->GetAbilitySystemComponent();
 	AttributeSet = PlayerStateBase->GetAttributeSet();
 	OnAscRegistered.Broadcast(AbilitySystemComponent);
-
+	
+	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Debuff_Type_Stun,
+		EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AMyCharacter::Stunned);
+	
 	checkf(AttributeSet, TEXT("PlayerStateBase Class uninitialized"));
 
 	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
@@ -166,8 +169,13 @@ void AMyCharacter::InitializeHealthBarWidget()
 				OnMaxHealthChanged.Broadcast(Data.NewValue);
 			}
 		);
-
-		
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
+			}
+		);
+	
 	}
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
@@ -420,6 +428,25 @@ int32 AMyCharacter::GetPlayerLevel_Implementation()
 void AMyCharacter::GetLevelUpReward()
 {
 	ApplyEffectToSelf(LevelUpReward, 1.f);
+}
+
+
+void AMyCharacter::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
+	{
+		if(NewCount > 0)
+		{
+			DisableInput(MyPlayerController);
+			bIsStunned = true;
+		}
+		else
+		{
+			EnableInput(MyPlayerController);
+			bIsStunned = false;
+		}
+	}
+	
 }
 
 

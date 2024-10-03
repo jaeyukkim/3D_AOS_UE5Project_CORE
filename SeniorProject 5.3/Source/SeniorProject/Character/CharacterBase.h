@@ -20,7 +20,6 @@ class UAnimMontage;
 class UDebuffParticleComponent;
 
 
-
 UCLASS(abstract)
 class SENIORPROJECT_API ACharacterBase : public ACharacter, public IAbilitySystemInterface, public IEnemyInterface, public ICombatInterface, public IGameRuleInterface
 {
@@ -44,8 +43,8 @@ public:
 
 	
 	/* CombatInterface */
+	virtual void ApplyDebuffEffect_Implementation(const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency) override;
 	virtual UAnimMontage* GetAttackMontage_Implementation() override;
-
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) override { CurrentCombo = NewCurrentCombo; }
 	FORCEINLINE virtual int32 GetCurrentCombo() const override { return CurrentCombo; }
 	FORCEINLINE virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
@@ -99,16 +98,24 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
 	ECharacterClass CharacterClass;
-
-	UPROPERTY(VisibleAnywhere)
-	TObjectPtr<UDebuffParticleComponent> BurnDebuffComponent;
 	
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnHealthChanged;
 
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnMaxHealthChanged;
+	
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> StunDebuffComponent;
 
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> MovementSlowDebuffComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> ArmorDecreaseDebuffComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> MagicResistanceDecreaseDebuffComponent;
 	
 protected:
 	
@@ -145,13 +152,35 @@ protected:
 
 	
 	
+	/*
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TSubclassOf<UGameplayEffect> StunEffect;
+
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TSubclassOf<UGameplayEffect> AttackSpeedSlowEffect;
+
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TSubclassOf<UGameplayEffect> MovementSlowEffect;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TSubclassOf<UGameplayEffect> ArmorDecreaseEffect;
+
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TSubclassOf<UGameplayEffect> MagicResistanceDecreaseEffect;
+	*/
+	UPROPERTY(EditDefaultsOnly, Category="Debuff")
+	TMap<FGameplayTag, TSubclassOf<UGameplayEffect>> DebuffClassMap;
+	
+	
 public:	
 	
 	
 	int32 AttackRange;
 	UPROPERTY(BlueprintReadOnly, Category = "Combat")
 	bool bHitReacting = false;
-	
+
+	UPROPERTY(BlueprintReadOnly, Replicated ,Category = "Combat")
+	bool bIsStunned;
 	
 private:
 	UPROPERTY(EditAnywhere, Category="Abilities")

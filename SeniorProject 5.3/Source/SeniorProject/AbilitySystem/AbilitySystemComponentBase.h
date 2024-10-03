@@ -51,7 +51,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	int32 GetAbilityLevel(FGameplayTag AbilityTag);
 	
-	
+	UFUNCTION()
+	void ApplyDebuffEffectSelf(TSubclassOf<UGameplayEffect> DebuffEffectClass, const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency);
 	
 	UFUNCTION(Server, Reliable)
 	void ServerSpendSpellPoint(const FGameplayTag& AbilityTag);

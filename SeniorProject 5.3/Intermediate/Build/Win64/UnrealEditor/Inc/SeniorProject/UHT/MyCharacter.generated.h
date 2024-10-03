@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FGameplayTag;
 #ifdef SENIORPROJECT_MyCharacter_generated_h
 #error "MyCharacter.generated.h already included, missing '#pragma once' in MyCharacter.h"
 #endif
@@ -20,6 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void MulticastLevelUpParticles_Implementation() const; \
  \
+	DECLARE_FUNCTION(execStunned); \
 	DECLARE_FUNCTION(execGetLevelUpReward); \
 	DECLARE_FUNCTION(execMulticastLevelUpParticles); \
 	DECLARE_FUNCTION(execBroadcastInitialValues);

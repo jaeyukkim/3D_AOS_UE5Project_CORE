@@ -189,6 +189,29 @@ int32 UAbilitySystemComponentBase::GetAbilityLevel(FGameplayTag AbilityTag)
 	return -1;
 }
 
+void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEffect> DebuffEffectClass,
+	const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency)
+{
+	if(DebuffEffectClass == nullptr) return;
+
+	FGameplayTagsBase GameplayTags = FGameplayTagsBase::Get();
+	
+	FGameplayEffectContextHandle EffectContextHandle = MakeEffectContext();
+	EffectContextHandle.AddSourceObject(GetAvatarActor());
+	
+
+	FGameplayEffectSpecHandle SpecHandle = MakeOutgoingSpec(DebuffEffectClass, 1, EffectContextHandle);
+	//SpecHandle.Data.Get()->SetDuration(DebuffDuration, false);
+	//SpecHandle.Data.Get()->Period = DebuffFrequency;
+	//SpecHandle.Data.Get()->Def.Get()->Period = FScalableFloat(DebuffFrequency);
+	SpecHandle.Data->SetSetByCallerMagnitude(DebuffTag, DebuffCoefficient);
+	SpecHandle.Data->SetSetByCallerMagnitude(GameplayTags.Debuff_Frequency, DebuffFrequency);
+	SpecHandle.Data->SetSetByCallerMagnitude(GameplayTags.Debuff_Duration, DebuffDuration);
+
+
+	ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+	
+}
 
 
 
@@ -274,6 +297,7 @@ void UAbilitySystemComponentBase::BroadCastAttackEnd_Implementation()
 void UAbilitySystemComponentBase::ClientEffectApplied_Implementation(UAbilitySystemComponent* AbilitySystemComponent,
                                                                      const FGameplayEffectSpec& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
+	
 	FGameplayTagContainer TagContainer;
 	EffectSpec.GetAllGrantedTags(TagContainer);
 	EffectAssetTags.Broadcast(TagContainer);

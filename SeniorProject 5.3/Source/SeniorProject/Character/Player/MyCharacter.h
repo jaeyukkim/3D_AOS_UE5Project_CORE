@@ -107,6 +107,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
 
+	UFUNCTION()
+	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 private:
 
 	

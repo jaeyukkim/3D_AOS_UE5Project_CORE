@@ -74,7 +74,6 @@ void APlayerStateBase::SetSpellPoints(int32 InPoints)
 }
 
 
-
 void APlayerStateBase::OnRep_Level(int32 OldLevel)
 {
 	OnLevelChangedDelegate.Broadcast(Level);

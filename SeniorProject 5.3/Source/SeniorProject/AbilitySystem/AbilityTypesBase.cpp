@@ -46,7 +46,7 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 9;
 		}
-		if (DebuffCoefficient > 0.f)
+		if (DebuffCoefficient != 0.f)
 		{
 			RepBits |= 1 << 10;
 		}

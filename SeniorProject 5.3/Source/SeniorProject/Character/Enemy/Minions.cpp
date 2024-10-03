@@ -52,7 +52,7 @@ AMinions::AMinions()
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
-	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
+	
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	
 
@@ -109,6 +109,12 @@ void AMinions::BeginPlay()
 			[this](const FOnAttributeChangeData& Data)
 			{
 				OnMaxHealthChanged.Broadcast(Data.NewValue);
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
 			}
 		);
 
@@ -192,7 +198,6 @@ void AMinions::OnRep_Mesh()
 
 
 
-
 void AMinions::InitAbilityActorInfo()
 {
 	
@@ -203,6 +208,8 @@ void AMinions::InitAbilityActorInfo()
 		InitializeDefaultAttributes();
 	}
 	OnAscRegistered.Broadcast(AbilitySystemComponent);
+	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Debuff_Type_Stun,
+		EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AMinions::Stunned);
 }
 
 void AMinions::InitializeDefaultAttributes() const
@@ -219,3 +226,24 @@ void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount
 
 }
 
+
+void AMinions::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
+{
+	
+	if(AIControllerBase && AIControllerBase->GetBlackboardComponent())
+	{
+		if(NewCount > 0)
+		{
+			AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("Stunned"), true);
+			bIsStunned = true;
+		}
+		else
+		{
+			AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("Stunned"), false);
+			bIsStunned = false;
+
+		}
+		
+	}
+		
+}

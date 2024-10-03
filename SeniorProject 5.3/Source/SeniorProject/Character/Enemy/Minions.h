@@ -94,6 +94,8 @@ protected:
 	UFUNCTION()
 	void OnRep_Mesh();
 
+	UFUNCTION()
+	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 private:
 	UPROPERTY(ReplicatedUsing = OnRep_Mesh)
 	bool bIsMeshChanged = false;

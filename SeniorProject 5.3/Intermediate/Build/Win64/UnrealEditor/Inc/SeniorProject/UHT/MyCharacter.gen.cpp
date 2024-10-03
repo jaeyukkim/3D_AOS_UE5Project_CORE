@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/Character/Player/MyCharacter.h"
+#include "GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 // Cross Module References
@@ -16,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ACharacterBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyCharacter();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
@@ -27,6 +29,15 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(AMyCharacter::execStunned)
+	{
+		P_GET_STRUCT(FGameplayTag,Z_Param_CallbackTag);
+		P_GET_PROPERTY(FIntProperty,Z_Param_NewCount);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Stunned(Z_Param_CallbackTag,Z_Param_NewCount);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMyCharacter::execGetLevelUpReward)
 	{
 		P_FINISH;
@@ -60,6 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 			{ "BroadcastInitialValues", &AMyCharacter::execBroadcastInitialValues },
 			{ "GetLevelUpReward", &AMyCharacter::execGetLevelUpReward },
 			{ "MulticastLevelUpParticles", &AMyCharacter::execMulticastLevelUpParticles },
+			{ "Stunned", &AMyCharacter::execStunned },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -126,6 +138,52 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_MulticastLevelUpParticles_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMyCharacter_Stunned_Statics
+	{
+		struct MyCharacter_eventStunned_Parms
+		{
+			FGameplayTag CallbackTag;
+			int32 NewCount;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CallbackTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_CallbackTag;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_NewCount;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_CallbackTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_CallbackTag = { "CallbackTag", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventStunned_Parms, CallbackTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_CallbackTag_MetaData), Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_CallbackTag_MetaData) }; // 2083603574
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_NewCount = { "NewCount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventStunned_Parms, NewCount), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_Stunned_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_CallbackTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_Stunned_Statics::NewProp_NewCount,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_Stunned_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_Stunned_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "Stunned", nullptr, nullptr, Z_Construct_UFunction_AMyCharacter_Stunned_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::MyCharacter_eventStunned_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_Stunned_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AMyCharacter_Stunned_Statics::MyCharacter_eventStunned_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMyCharacter_Stunned()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_Stunned_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -235,6 +293,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		{ &Z_Construct_UFunction_AMyCharacter_BroadcastInitialValues, "BroadcastInitialValues" }, // 1010278090
 		{ &Z_Construct_UFunction_AMyCharacter_GetLevelUpReward, "GetLevelUpReward" }, // 73750975
 		{ &Z_Construct_UFunction_AMyCharacter_MulticastLevelUpParticles, "MulticastLevelUpParticles" }, // 35581685
+		{ &Z_Construct_UFunction_AMyCharacter_Stunned, "Stunned" }, // 490782088
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -453,9 +512,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 1085585699U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 946344666U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_2912262613(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_4236304463(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

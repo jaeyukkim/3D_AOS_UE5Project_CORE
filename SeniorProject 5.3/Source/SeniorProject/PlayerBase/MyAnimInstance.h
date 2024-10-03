@@ -49,12 +49,11 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		bool bIsCasting;
 
-	UPROPERTY()
-		AMyCharacter* PlayerCharacter;
+	
 
 
 public:
-	void SetDamaged();
+	
 	
 	FTimerHandle DamagedTimerHandle = { };
 };

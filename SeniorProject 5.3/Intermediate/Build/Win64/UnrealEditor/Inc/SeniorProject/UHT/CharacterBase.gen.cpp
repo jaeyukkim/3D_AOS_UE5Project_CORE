@@ -120,10 +120,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #endif
 		static const UECodeGen_Private::FEnumPropertyParams NewProp_CharacterClass;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_BurnDebuffComponent_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_BurnDebuffComponent;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnHealthChanged_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnHealthChanged;
@@ -131,6 +127,22 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnMaxHealthChanged_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnMaxHealthChanged;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_StunDebuffComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_StunDebuffComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MovementSlowDebuffComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MovementSlowDebuffComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ArmorDecreaseDebuffComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ArmorDecreaseDebuffComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MagicResistanceDecreaseDebuffComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MagicResistanceDecreaseDebuffComponent;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
@@ -160,11 +172,22 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #endif
 		static void NewProp_bDead_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bDead;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_DebuffClassMap_ValueProp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_DebuffClassMap_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DebuffClassMap_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_DebuffClassMap;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_bHitReacting_MetaData[];
 #endif
 		static void NewProp_bHitReacting_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bHitReacting;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsStunned_MetaData[];
+#endif
+		static void NewProp_bIsStunned_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStunned;
 		static const UECodeGen_Private::FClassPropertyParams NewProp_GameplayAbility_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_GameplayAbility_MetaData[];
@@ -267,14 +290,6 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 #endif
 	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass = { "CharacterClass", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, CharacterClass), Z_Construct_UEnum_SeniorProject_ECharacterClass, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_MetaData) }; // 4018297425
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData[] = {
-		{ "Category", "CharacterBase" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/CharacterBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent = { "BurnDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, BurnDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnHealthChanged_MetaData[] = {
 		{ "ModuleRelativePath", "Character/CharacterBase.h" },
 	};
@@ -286,6 +301,38 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnMaxHealthChanged = { "OnMaxHealthChanged", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, OnMaxHealthChanged), Z_Construct_UDelegateFunction_SeniorProject_OnAttributeChangedSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnMaxHealthChanged_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnMaxHealthChanged_MetaData) }; // 4281681911
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_StunDebuffComponent_MetaData[] = {
+		{ "Category", "CharacterBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_StunDebuffComponent = { "StunDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, StunDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_StunDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_StunDebuffComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_MovementSlowDebuffComponent_MetaData[] = {
+		{ "Category", "CharacterBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_MovementSlowDebuffComponent = { "MovementSlowDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, MovementSlowDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_MovementSlowDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_MovementSlowDebuffComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_ArmorDecreaseDebuffComponent_MetaData[] = {
+		{ "Category", "CharacterBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_ArmorDecreaseDebuffComponent = { "ArmorDecreaseDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, ArmorDecreaseDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_ArmorDecreaseDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_ArmorDecreaseDebuffComponent_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_MagicResistanceDecreaseDebuffComponent_MetaData[] = {
+		{ "Category", "CharacterBase" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_MagicResistanceDecreaseDebuffComponent = { "MagicResistanceDecreaseDebuffComponent", nullptr, (EPropertyFlags)0x00140000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, MagicResistanceDecreaseDebuffComponent), Z_Construct_UClass_UDebuffParticleComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_MagicResistanceDecreaseDebuffComponent_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_MagicResistanceDecreaseDebuffComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "EditInline", "true" },
@@ -339,6 +386,21 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		((ACharacterBase*)Obj)->bDead = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead = { "bDead", nullptr, (EPropertyFlags)0x0020080000000034, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_ValueProp = { "DebuffClassMap", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_Key_KeyProp = { "DebuffClassMap_Key", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_MetaData[] = {
+		{ "Category", "Debuff" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/*\n\x09UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\n\x09TSubclassOf<UGameplayEffect> StunEffect;\n\n\x09UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\n\x09TSubclassOf<UGameplayEffect> AttackSpeedSlowEffect;\n\n\x09UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\n\x09TSubclassOf<UGameplayEffect> MovementSlowEffect;\n\x09\n\x09UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\n\x09TSubclassOf<UGameplayEffect> ArmorDecreaseEffect;\n\n\x09UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\n\x09TSubclassOf<UGameplayEffect> MagicResistanceDecreaseEffect;\n\x09*/" },
+#endif
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\nTSubclassOf<UGameplayEffect> StunEffect;\n\nUPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\nTSubclassOf<UGameplayEffect> AttackSpeedSlowEffect;\n\nUPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\nTSubclassOf<UGameplayEffect> MovementSlowEffect;\n\nUPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\nTSubclassOf<UGameplayEffect> ArmorDecreaseEffect;\n\nUPROPERTY(EditDefaultsOnly, Category=\"Debuff\")\nTSubclassOf<UGameplayEffect> MagicResistanceDecreaseEffect;" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap = { "DebuffClassMap", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacterBase, DebuffClassMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_MetaData) }; // 2083603574
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting_MetaData[] = {
 		{ "Category", "Combat" },
@@ -350,6 +412,17 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		((ACharacterBase*)Obj)->bHitReacting = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting = { "bHitReacting", nullptr, (EPropertyFlags)0x0010000000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	void Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned_SetBit(void* Obj)
+	{
+		((ACharacterBase*)Obj)->bIsStunned = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned = { "bIsStunned", nullptr, (EPropertyFlags)0x0010000000000034, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACharacterBase), &Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned_MetaData), Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned_MetaData) };
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ACharacterBase_Statics::NewProp_GameplayAbility_Inner = { "GameplayAbility", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayAbility_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACharacterBase_Statics::NewProp_GameplayAbility_MetaData[] = {
@@ -403,9 +476,12 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_LineTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_CharacterClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_BurnDebuffComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnHealthChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_OnMaxHealthChanged,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_StunDebuffComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_MovementSlowDebuffComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_ArmorDecreaseDebuffComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_MagicResistanceDecreaseDebuffComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DefaultVitalAttributes,
@@ -413,7 +489,11 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DefaultSecondaryAttributes,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DefaultGamePlayAttributes,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_bDead,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_DebuffClassMap,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_bHitReacting,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_bIsStunned,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_GameplayAbility_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_GameplayAbility,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacterBase_Statics::NewProp_StartupPassiveAbilities_Inner,
@@ -426,7 +506,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IAbilitySystemInterface), false },  // 3195502011
 			{ Z_Construct_UClass_UEnemyInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IEnemyInterface), false },  // 3564215506
-			{ Z_Construct_UClass_UCombatInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, ICombatInterface), false },  // 3858920975
+			{ Z_Construct_UClass_UCombatInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, ICombatInterface), false },  // 3909449494
 			{ Z_Construct_UClass_UGameRuleInterface_NoRegister, (int32)VTABLE_OFFSET(ACharacterBase, IGameRuleInterface), false },  // 2803433548
 		};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::InterfaceParams) < 64);
@@ -467,11 +547,13 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FName Name_TeamName(TEXT("TeamName"));
 		static const FName Name_LineTag(TEXT("LineTag"));
 		static const FName Name_bDead(TEXT("bDead"));
+		static const FName Name_bIsStunned(TEXT("bIsStunned"));
 
 		const bool bIsValid = true
 			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName()
 			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName()
-			&& Name_bDead == ClassReps[(int32)ENetFields_Private::bDead].Property->GetFName();
+			&& Name_bDead == ClassReps[(int32)ENetFields_Private::bDead].Property->GetFName()
+			&& Name_bIsStunned == ClassReps[(int32)ENetFields_Private::bIsStunned].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ACharacterBase"));
 	}
@@ -482,9 +564,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 4070703757U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 976438120U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_4275531437(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_2397095932(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

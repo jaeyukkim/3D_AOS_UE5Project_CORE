@@ -7,6 +7,7 @@
 // IWYU pragma: private, include "DefaultBase/AnimInstanceBase.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
+#include "Net/Core/PushModel/PushModelMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #ifdef SENIORPROJECT_AnimInstanceBase_generated_h
@@ -17,15 +18,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_SPARSE_DATA
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execSetDead); \
-	DECLARE_FUNCTION(execAnimNotify_LeftAttack); \
-	DECLARE_FUNCTION(execAnimNotify_RightAttack); \
-	DECLARE_FUNCTION(execAnimNotify_ResetCombo); \
-	DECLARE_FUNCTION(execAnimNotify_SaveAttack);
-
-
+#define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_INCLASS_NO_PURE_DECLS \
 private: \
@@ -33,7 +26,16 @@ private: \
 	friend struct Z_Construct_UClass_UAnimInstanceBase_Statics; \
 public: \
 	DECLARE_CLASS(UAnimInstanceBase, UAnimInstance, COMPILED_IN_FLAGS(0 | CLASS_Transient), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
-	DECLARE_SERIALIZER(UAnimInstanceBase)
+	DECLARE_SERIALIZER(UAnimInstanceBase) \
+	enum class ENetFields_Private : uint16 \
+	{ \
+		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
+		bIsStunned=NETFIELD_REP_START, \
+		NETFIELD_REP_END=bIsStunned	}; \
+	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \
+private: \
+	REPLICATED_BASE_CLASS(UAnimInstanceBase) \
+public:
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_ENHANCED_CONSTRUCTORS \

@@ -17,162 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAnimInstanceBase_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
-	DEFINE_FUNCTION(UAnimInstanceBase::execSetDead)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->SetDead();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UAnimInstanceBase::execAnimNotify_LeftAttack)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_LeftAttack();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UAnimInstanceBase::execAnimNotify_RightAttack)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_RightAttack();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UAnimInstanceBase::execAnimNotify_ResetCombo)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_ResetCombo();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(UAnimInstanceBase::execAnimNotify_SaveAttack)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->AnimNotify_SaveAttack();
-		P_NATIVE_END;
-	}
 	void UAnimInstanceBase::StaticRegisterNativesUAnimInstanceBase()
 	{
-		UClass* Class = UAnimInstanceBase::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "AnimNotify_LeftAttack", &UAnimInstanceBase::execAnimNotify_LeftAttack },
-			{ "AnimNotify_ResetCombo", &UAnimInstanceBase::execAnimNotify_ResetCombo },
-			{ "AnimNotify_RightAttack", &UAnimInstanceBase::execAnimNotify_RightAttack },
-			{ "AnimNotify_SaveAttack", &UAnimInstanceBase::execAnimNotify_SaveAttack },
-			{ "SetDead", &UAnimInstanceBase::execSetDead },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_LeftAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_ResetCombo", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_RightAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "AnimNotify_SaveAttack", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAnimInstanceBase, nullptr, "SetDead", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UAnimInstanceBase_SetDead()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAnimInstanceBase_SetDead_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UAnimInstanceBase);
 	UClass* Z_Construct_UClass_UAnimInstanceBase_NoRegister()
@@ -182,7 +28,6 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	struct Z_Construct_UClass_UAnimInstanceBase_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -191,14 +36,14 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Character;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsDamaged_MetaData[];
-#endif
-		static void NewProp_IsDamaged_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsDamaged;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_EnemyDirection_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_EnemyDirection;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsStunned_MetaData[];
+#endif
+		static void NewProp_bIsStunned_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStunned;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Speed_MetaData[];
 #endif
@@ -273,14 +118,6 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::DependentSingletons) < 16);
-	const FClassFunctionLinkInfo Z_Construct_UClass_UAnimInstanceBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_LeftAttack, "AnimNotify_LeftAttack" }, // 2773554804
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_ResetCombo, "AnimNotify_ResetCombo" }, // 2678926706
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_RightAttack, "AnimNotify_RightAttack" }, // 212464118
-		{ &Z_Construct_UFunction_UAnimInstanceBase_AnimNotify_SaveAttack, "AnimNotify_SaveAttack" }, // 3947051961
-		{ &Z_Construct_UFunction_UAnimInstanceBase_SetDead, "SetDead" }, // 991805515
-	};
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
@@ -298,18 +135,6 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Character), Z_Construct_UClass_ACharacterBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_MetaData[] = {
-		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Pawn" },
-		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
-	};
-#endif
-	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_SetBit(void* Obj)
-	{
-		((UAnimInstanceBase*)Obj)->IsDamaged = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged = { "IsDamaged", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UAnimInstanceBase), &Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
@@ -317,6 +142,18 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection = { "EnemyDirection", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, EnemyDirection), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData[] = {
+		{ "AllowPrivateAccess", "TRUE" },
+		{ "Category", "Pawn" },
+		{ "ModuleRelativePath", "DefaultBase/AnimInstanceBase.h" },
+	};
+#endif
+	void Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_SetBit(void* Obj)
+	{
+		((UAnimInstanceBase*)Obj)->bIsStunned = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned = { "bIsStunned", nullptr, (EPropertyFlags)0x0020080000000035, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UAnimInstanceBase), &Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
@@ -459,8 +296,8 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction = { "Direction", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAnimInstanceBase, Direction), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Direction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAnimInstanceBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Character,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_IsDamaged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_EnemyDirection,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Roll,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Pitch,
@@ -485,11 +322,11 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_UAnimInstanceBase_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::PropPointers),
 		0,
 		0x009000A8u,
@@ -508,6 +345,16 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	{
 		return UAnimInstanceBase::StaticClass();
 	}
+
+	void UAnimInstanceBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+	{
+		static const FName Name_bIsStunned(TEXT("bIsStunned"));
+
+		const bool bIsValid = true
+			&& Name_bIsStunned == ClassReps[(int32)ENetFields_Private::bIsStunned].Property->GetFName();
+
+		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in UAnimInstanceBase"));
+	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UAnimInstanceBase);
 	UAnimInstanceBase::~UAnimInstanceBase() {}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics
@@ -515,9 +362,9 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 506178458U) },
+		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 343203170U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_3477478477(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_1197022675(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

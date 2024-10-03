@@ -43,6 +43,9 @@ public:
 	FORCEINLINE virtual int32 GetAttackRange() const {return 100;}
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void ApplyDebuffEffect(const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency);
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	FVector GetCombatSocketLocation(const FGameplayTag& MontageTag);
 	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)

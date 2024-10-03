@@ -7,7 +7,7 @@
 AAttackRangeDecal::AAttackRangeDecal()
 {
  	
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	MagicCircleDecal = CreateDefaultSubobject<UDecalComponent>("MagicCircleDecal");
 	MagicCircleDecal->SetupAttachment(GetRootComponent());

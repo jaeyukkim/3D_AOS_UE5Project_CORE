@@ -17,36 +17,16 @@ class SENIORPROJECT_API UAnimInstanceBase : public UAnimInstance
 
 public:
 	UAnimInstanceBase();
-
 	void NativeInitializeAnimation() override;
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
-
-
 	FRotator NormalizedDeltaRotator(FRotator A, FRotator B);
-
-	UFUNCTION()
-		void AnimNotify_SaveAttack();
-	UFUNCTION()
-		void AnimNotify_ResetCombo();
-
-
-
-	UFUNCTION()
-		void AnimNotify_RightAttack();
-
-	UFUNCTION()
-		void AnimNotify_LeftAttack();
-
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	
+	void SetStunned(bool InbIsStunned);
 	
 	UPROPERTY()
 		ACharacterBase* Character;
-
-	UFUNCTION()
-		void SetDead() { IsDead = true; }
-
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		bool IsDamaged;
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float EnemyDirection;
@@ -54,7 +34,9 @@ public:
 protected:
 
 
-
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+		bool bIsStunned;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float Speed;
 
@@ -97,10 +79,5 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float Direction;
 
-
-
-public:
-	void SetDamaged();
-
-	FTimerHandle DamagedTimerHandle = { };
+	
 };

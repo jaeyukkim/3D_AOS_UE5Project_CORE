@@ -21,7 +21,7 @@ void UDebuffParticleComponent::BeginPlay()
 	{
 		ASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::NewOrRemoved).AddUObject(this, &UDebuffParticleComponent::DebuffTagChanged);
 	}
-	else if (CombatInterface)
+	if (CombatInterface)
 	{
 		CombatInterface->GetOnASCRegisteredDelegate().AddWeakLambda(this, [this](UAbilitySystemComponent* InASC)
 		{

@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class UAbilitySystemComponent;
+class UGameplayEffect;
 struct FActiveGameplayEffectHandle;
 struct FGameplayEffectSpec;
 struct FGameplayTag;
@@ -35,6 +36,7 @@ SENIORPROJECT_API void FOnAttackEndSignatures_DelegateWrapper(const FMulticastSc
 	DECLARE_FUNCTION(execClientUpdateAbilityLevel); \
 	DECLARE_FUNCTION(execClientEffectApplied); \
 	DECLARE_FUNCTION(execServerSpendSpellPoint); \
+	DECLARE_FUNCTION(execApplyDebuffEffectSelf); \
 	DECLARE_FUNCTION(execGetAbilityLevel);
 
 

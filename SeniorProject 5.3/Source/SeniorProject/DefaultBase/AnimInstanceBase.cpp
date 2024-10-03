@@ -4,21 +4,28 @@
 #include "AnimInstanceBase.h"
 
 #include "KismetAnimationLibrary.h"
+#include "Net/UnrealNetwork.h"
 
 
 UAnimInstanceBase::UAnimInstanceBase()
 {
+	
 	Speed = 0.0f;
 	IsInAir = false;
 	Roll = 0.0f;
 	Pitch = 0.0f;
 	Yaw = 0.0f;
 	YawDelta = 0.0f;
-	IsDead = false;
-	IsDamaged = false;
+	bIsStunned = false;
 }
 
 
+void UAnimInstanceBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(UAnimInstanceBase, bIsStunned);
+	
+}
 
 void UAnimInstanceBase::NativeInitializeAnimation()
 {
@@ -26,8 +33,12 @@ void UAnimInstanceBase::NativeInitializeAnimation()
 	auto Pawn = TryGetPawnOwner();
 
 	if (::IsValid(Pawn))
+	{
 		Character = Cast<ACharacterBase>(Pawn);
+		
+	}
 
+	
 	if (!IsValid(Character))
 		return;
 }
@@ -40,10 +51,12 @@ void UAnimInstanceBase::NativeUpdateAnimation(float DeltaSeconds)
 
 	if (IsValid(Character))
 	{
-
+		bIsStunned = Character->bIsStunned;
+		
 		Speed = Character->GetVelocity().Size();
 		AimRotation = Character->GetBaseAimRotation();
 		ActorRotation = Character->GetActorRotation();
+		
 		DeltaRotator = NormalizedDeltaRotator(AimRotation, ActorRotation);
 		Roll = DeltaRotator.Roll;
 		Pitch = DeltaRotator.Pitch;
@@ -70,17 +83,13 @@ void UAnimInstanceBase::NativeUpdateAnimation(float DeltaSeconds)
 				IsAccelerating = true;
 			else
 				IsAccelerating = false;
-
-
 		}
 
 		if (GetCurveValue("FullBody") > 0)
 			FullBody = true;
 		else
 			FullBody = false;
-
-
-
+		
 	}
 
 
@@ -93,44 +102,12 @@ FRotator UAnimInstanceBase::NormalizedDeltaRotator(FRotator A, FRotator B)
 	return Delta;
 }
 
-//�޺����� ����
-void UAnimInstanceBase::AnimNotify_SaveAttack()
+
+
+void UAnimInstanceBase::SetStunned(bool InbIsStunned)
 {
-
-
-
-}
-
-//�޺����� �ʱ�ȭ
-void UAnimInstanceBase::AnimNotify_ResetCombo()
-{
-
+	bIsStunned = InbIsStunned;
 }
 
 
-
-void UAnimInstanceBase::AnimNotify_RightAttack()
-{
-
-
-}
-
-
-void UAnimInstanceBase::AnimNotify_LeftAttack()
-{
-
-
-}
-
-// ������ ó��
-void UAnimInstanceBase::SetDamaged()
-{
-	IsDamaged = true;
-	GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
-		void
-		{
-			IsDamaged = false;
-
-		}), 0.1f, false);
-}
 

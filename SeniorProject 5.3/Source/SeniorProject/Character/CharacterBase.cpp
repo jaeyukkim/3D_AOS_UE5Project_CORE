@@ -22,10 +22,26 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	
 
 	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
-	BurnDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("BurnDebuffComponent");
-	BurnDebuffComponent->SetupAttachment(GetRootComponent());
-	BurnDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_DebuffDamage;
+	
+	StunDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("StunDebuffComponent");
+	StunDebuffComponent->SetupAttachment(GetRootComponent());
+	StunDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_Stun;
+
+	MovementSlowDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("MovementSlowDebuffComponent");
+	MovementSlowDebuffComponent->SetupAttachment(GetRootComponent());
+	MovementSlowDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_MovementSlow;
+
+	ArmorDecreaseDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("ArmorDecreaseDebuffComponent");
+	ArmorDecreaseDebuffComponent->SetupAttachment(GetRootComponent());
+	ArmorDecreaseDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_ArmorDecrease;
+
+	MagicResistanceDecreaseDebuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("MagicResistanceDecreaseDebuffComponent");
+	MagicResistanceDecreaseDebuffComponent->SetupAttachment(GetRootComponent());
+	MagicResistanceDecreaseDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_MagicResistanceDecrease;
+
+	
 }
+
 
 
 void ACharacterBase::BeginPlay()
@@ -55,7 +71,8 @@ void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	DOREPLIFETIME(ACharacterBase, TeamName);
 	DOREPLIFETIME(ACharacterBase, LineTag);
 	DOREPLIFETIME(ACharacterBase, bDead);
-
+	DOREPLIFETIME(ACharacterBase, bIsStunned);
+	
 	
 }
 
@@ -80,6 +97,19 @@ void ACharacterBase::HighlightActor()
 void ACharacterBase::UnHighlightActor()
 {
 	GetMesh()->SetRenderCustomDepth(false);
+}
+
+void ACharacterBase::ApplyDebuffEffect_Implementation(const FGameplayTag& DebuffTag, const float DebuffCoefficient,
+	const float DebuffDuration, const float DebuffFrequency)
+{
+	if(UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
+	{
+		if(DebuffClassMap.Contains(DebuffTag))
+		{
+			ASCBase->ApplyDebuffEffectSelf(DebuffClassMap[DebuffTag], DebuffTag, DebuffCoefficient, DebuffDuration, DebuffFrequency);
+		}
+		
+	}
 }
 
 UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
@@ -147,7 +177,11 @@ void ACharacterBase::MulticastHandleDeath_Implementation()
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	
 	bDead = true;
-	BurnDebuffComponent->Deactivate();
+	
+	StunDebuffComponent->Deactivate();
+	ArmorDecreaseDebuffComponent->Deactivate();
+	MagicResistanceDecreaseDebuffComponent->Deactivate();
+	MovementSlowDebuffComponent->Deactivate();
 	
 }
 
@@ -179,3 +213,5 @@ void ACharacterBase::AddCharacterAbility()
 	ASCBase->AddCharacterAbility(GameplayAbility);
 	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
 }
+
+

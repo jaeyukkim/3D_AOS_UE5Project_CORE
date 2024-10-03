@@ -33,6 +33,7 @@ struct FGameplayTag;
 	virtual UAnimMontage* GetAttackMontage_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetHitReactMontage_Implementation() { return NULL; }; \
 	virtual FVector GetCombatSocketLocation_Implementation(FGameplayTag const& MontageTag) { return FVector(ForceInit); }; \
+	virtual void ApplyDebuffEffect_Implementation(FGameplayTag const& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency) {}; \
 	virtual int32 GetPlayerLevel_Implementation() { return 0; }; \
  \
 	DECLARE_FUNCTION(execDie); \
@@ -45,6 +46,7 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetAttackMontage); \
 	DECLARE_FUNCTION(execGetHitReactMontage); \
 	DECLARE_FUNCTION(execGetCombatSocketLocation); \
+	DECLARE_FUNCTION(execApplyDebuffEffect); \
 	DECLARE_FUNCTION(execGetPlayerLevel);
 
 
@@ -87,6 +89,7 @@ protected: \
 public: \
 	typedef UCombatInterface UClassType; \
 	typedef ICombatInterface ThisClass; \
+	static void Execute_ApplyDebuffEffect(UObject* O, FGameplayTag const& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency); \
 	static void Execute_Die(UObject* O); \
 	static UAnimMontage* Execute_GetAttackMontage(UObject* O); \
 	static AActor* Execute_GetAvatar(UObject* O); \

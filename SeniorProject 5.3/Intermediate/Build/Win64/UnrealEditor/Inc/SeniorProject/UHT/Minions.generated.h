@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FGameplayTag;
 #ifdef SENIORPROJECT_Minions_generated_h
 #error "Minions.generated.h already included, missing '#pragma once' in Minions.h"
 #endif
@@ -19,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execStunned); \
 	DECLARE_FUNCTION(execOnRep_Mesh); \
 	DECLARE_FUNCTION(execSetIsMeshChanged);
 

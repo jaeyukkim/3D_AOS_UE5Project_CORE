@@ -9,20 +9,14 @@ UMyAnimInstance::UMyAnimInstance()
 {
 
 	bIsNoWep = false;
-	bIsCasting = false;
+
 }
 
 
 void UMyAnimInstance::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
-	auto Pawn = TryGetPawnOwner();
-
-	if (::IsValid(Pawn))
-		PlayerCharacter = Cast<AMyCharacter>(Pawn);
-
-	if (!IsValid(PlayerCharacter))
-		return;
+	
 }
 
 
@@ -31,11 +25,9 @@ void UMyAnimInstance::AnimNotify_RunStop()
 	DirectionOnStop = Direction;
 }
 
-
-
 void UMyAnimInstance::AnimNotify_HideSword()
 {
-	if (IsValid(PlayerCharacter))
+	if (AMyCharacter* PlayerCharacter = Cast<AMyCharacter>(TryGetPawnOwner()))
 	{
 		PlayerCharacter->GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_Term);
 	}
@@ -46,7 +38,7 @@ void UMyAnimInstance::AnimNotify_HideSword()
 
 void UMyAnimInstance::AnimNotify_UnHideSword()
 {
-	if (IsValid(PlayerCharacter))
+	if (AMyCharacter* PlayerCharacter = Cast<AMyCharacter>(TryGetPawnOwner()))
 	{
 		PlayerCharacter->GetMesh()->UnHideBoneByName(TEXT("weapon_r"));
 	}
@@ -55,15 +47,4 @@ void UMyAnimInstance::AnimNotify_UnHideSword()
 	bIsNoWep = false;
 }
 
-
-void UMyAnimInstance::SetDamaged()
-{
-	IsDamaged = true;
-	GetWorld()->GetTimerManager().SetTimer(DamagedTimerHandle, FTimerDelegate::CreateLambda([this]() ->
-		void
-		{
-			IsDamaged = false;
-
-		}), 0.1f, false);
-}
 
