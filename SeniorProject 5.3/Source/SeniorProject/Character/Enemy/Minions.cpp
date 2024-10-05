@@ -142,6 +142,7 @@ void AMinions::Die_Implementation()
 {
 	SetLifeSpan(LifeSpan);
 	AIControllerBase->StopAI();
+	HealthBarWidget->SetVisibility(false);
 	
 	Super::Die_Implementation();
 }

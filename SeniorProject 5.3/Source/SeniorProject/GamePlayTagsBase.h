@@ -48,8 +48,11 @@ public:
 	/* GamePlay Attribute Tags*/
 
 	
-
+	/* GamePlay Attribute Meta Tags*/
 	FGameplayTag Attributes_Meta_IncomingXP;
+	FGameplayTag Attributes_Meta_IncomingGold;
+	/* GamePlay Attribute Meta Tags*/
+
 	
 
 	/* Input Tag */

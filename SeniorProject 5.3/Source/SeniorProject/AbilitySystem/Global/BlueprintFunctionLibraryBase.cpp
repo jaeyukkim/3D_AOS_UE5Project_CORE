@@ -67,6 +67,23 @@ USpellMenuWidgetController* UBlueprintFunctionLibraryBase::GetSpellMenuWidgetCon
 	return nullptr;
 }
 
+UItemMenuWidgetController* UBlueprintFunctionLibraryBase::GetItemMenuWidgetController(const UObject* WorldContextObject)
+{
+	if(APlayerController* PC = UGameplayStatics::GetPlayerController(WorldContextObject, 0))
+	{
+		if(ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(PC->GetHUD()))
+		{
+			APlayerStateBase* PS = PC->GetPlayerState<APlayerStateBase>();
+			UAbilitySystemComponent* ASC = PS->GetAbilitySystemComponent();
+			UAttributeSet* AS = PS->GetAttributeSet();
+			const FWidgetControllerParams WCParam = FWidgetControllerParams(PC, PS, ASC, AS);
+			return DefaultHUD->GetItemMenuWidgetController(WCParam);
+		}
+	}
+
+	return nullptr;
+}
+
 
 UCharacterClassInfo* UBlueprintFunctionLibraryBase::GetCharacterClassInfo(const UObject* WorldContextObject)
 {
@@ -366,4 +383,16 @@ int32 UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(const UObject* 
 	const float XPReward = Info.XPReward.GetValueAtLevel(CharacterLevel);
 	
 	return static_cast<int32>(XPReward);
+}
+
+int32 UBlueprintFunctionLibraryBase::GetGoldRewardForClassAndLevel(const UObject* WorldContextObject,
+	ECharacterClass CharacterClass)
+{
+	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
+	if (CharacterClassInfo == nullptr) return 0;
+	
+	const FCharacterClassDefaultInfo& Info = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+	const float GoldReward = Info.GoldReward;
+	
+	return GoldReward;
 }

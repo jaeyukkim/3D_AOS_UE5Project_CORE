@@ -26,6 +26,7 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(APlayerStateBase, Level);
 	DOREPLIFETIME(APlayerStateBase, XP);
+	DOREPLIFETIME(APlayerStateBase, Gold);
 	DOREPLIFETIME(APlayerStateBase, SpellPoints);
 	
 }
@@ -33,6 +34,14 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
+}
+
+void APlayerStateBase::BroadcastPlayerStat() const
+{
+	OnXPChangedDelegate.Broadcast(XP);
+	OnLevelChangedDelegate.Broadcast(Level);
+	OnGoldChangedDelegate.Broadcast(Gold);
+	OnSpellPointsChangedDelegate.Broadcast(SpellPoints);
 }
 
 
@@ -46,6 +55,12 @@ void APlayerStateBase::AddToLevel(int32 InLevel)
 {
 	Level += InLevel;
 	OnLevelChangedDelegate.Broadcast(Level);
+}
+
+void APlayerStateBase::AddToGold(int32 InGold)
+{
+	Gold += InGold;
+	OnGoldChangedDelegate.Broadcast(Gold);
 }
 
 void APlayerStateBase::AddToSpellPoints(int32 InPoints)
@@ -66,6 +81,12 @@ void APlayerStateBase::SetLevel(int32 InLevel)
 	OnLevelChangedDelegate.Broadcast(Level);
 }
 
+void APlayerStateBase::SetGold(int32 InGold)
+{
+	InGold = Gold;
+	OnGoldChangedDelegate.Broadcast(Gold);
+}
+
 void APlayerStateBase::SetSpellPoints(int32 InPoints)
 {
 	SpellPoints = InPoints;
@@ -82,6 +103,11 @@ void APlayerStateBase::OnRep_Level(int32 OldLevel)
 void APlayerStateBase::OnRep_XP(int32 OldXP)
 {
 	OnXPChangedDelegate.Broadcast(XP);
+}
+
+void APlayerStateBase::OnRep_Gold(int32 OldSpellPoints)
+{
+	OnGoldChangedDelegate.Broadcast(Gold);
 }
 
 void APlayerStateBase::OnRep_SpellPoints(int32 OldSpellPoints)

@@ -6,6 +6,7 @@
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "AbilitySystemComponent.h"
 #include "SeniorProject/UI/AttributeMenu/AttributeMenuWidgetController.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 #include "SeniorProject/UI/SpellMenu/SpellMenuWidgetController.h"
 
 UOverlayWidgetController* ADefaultHUD::GetOverlayWidgetController(const FWidgetControllerParams& WCParams)
@@ -46,6 +47,19 @@ USpellMenuWidgetController* ADefaultHUD::GetSpellMenuWidgetController(const FWid
 	return SpellMenuWidgetController;
 }
 
+UItemMenuWidgetController* ADefaultHUD::GetItemMenuWidgetController(const FWidgetControllerParams& WCParams)
+{
+	
+	if (ItemMenuWidgetController == nullptr)
+	{
+		ItemMenuWidgetController = NewObject<UItemMenuWidgetController>(this, ItemMenuWidgetControllerClass);
+		ItemMenuWidgetController->SetWidgetControllerParams(WCParams);
+		ItemMenuWidgetController->BindCallbacksToDependencies();
+
+	}
+	return ItemMenuWidgetController;
+}
+
 
 void ADefaultHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS)
 {
@@ -58,6 +72,7 @@ void ADefaultHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilityS
 
 	const FWidgetControllerParams WidgetControllerParams(PC, PS, ASC, AS);
 	UOverlayWidgetController* WidgetController = GetOverlayWidgetController(WidgetControllerParams);
+	
 
 	OverlayWidget->SetWidgetController(WidgetController);
 	WidgetController->BroadcastInitialValues();

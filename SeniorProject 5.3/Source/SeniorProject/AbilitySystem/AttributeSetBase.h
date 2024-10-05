@@ -85,10 +85,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category="Vital Attribute")
 		FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Mana);
-		
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Exp, Category="Vital Attribute")
-	FGameplayAttributeData Exp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Exp);
+	
 	/* Vital Attribute */
 
 	
@@ -137,10 +134,6 @@ public:
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Additional Vital Attribute")
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_NextExp, Category="Additional Vital Attribute")
-	FGameplayAttributeData NextExp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, NextExp);
 	
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_HealthRegeneration, Category="Additional Vital Attribute")
 		FGameplayAttributeData HealthRegeneration;
@@ -164,17 +157,7 @@ public:
 	/* Additional Vital Attribute */
 
 	
-
-	/* GamePlay Attribute */
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropExp, Category="GamePlay Attribute")
-	FGameplayAttributeData DropExp;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropExp);
-
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_DropGold, Category="GamePlay Attribute")
-	FGameplayAttributeData DropGold;
-	ATTRIBUTE_ACCESSORS(UAttributeSetBase, DropGold);
-	/* GamePlay Attribute */
-
+	
 
 	/*
 	 * Meta Attributes
@@ -187,6 +170,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
 	FGameplayAttributeData IncomingXP;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingXP);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
+	FGameplayAttributeData IncomingGold;
+	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingGold);
 	
 /* -------------------------OnRep---------------------------------*/
 
@@ -197,9 +184,7 @@ public:
 	
 	UFUNCTION()
 	void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
-	
-	UFUNCTION()
-	void OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const;
+
 	/* Vital Attribute */
 
 	
@@ -256,17 +241,7 @@ public:
 	/* Additional Vital Attribute */
 
 
-	
-	/* GamePlay Attribute */
-	UFUNCTION()
-	void OnRep_Exp(const FGameplayAttributeData& OldExp) const;
-	
-	UFUNCTION()
-	void OnRep_DropGold(const FGameplayAttributeData& OldDropGold) const;
-	
-	UFUNCTION()
-	void OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const;
-	/* GamePlay Attribute */
+
 
 
 	
@@ -274,9 +249,12 @@ private:
 
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
 	void ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const;
+	void ShowGoldAmountText(const FEffectProperties& Props, float GoldAmount) const;
 	void NotifyMinionTarget(AActor* DamagedActor, AActor* Instigator); // 적 플레이어에 의해 플레이어 피격시 주변의 팀 미니언들에게 적 플레이어를 타겟팅 하도록 함
 	void SendXPEvent(const FEffectProperties& Props);
+	void SendGoldEvent(const FEffectProperties& Props);
 	void HandleIncomingDamage(const FEffectProperties& Props);
 	void HandleIncomingXP(const FEffectProperties& Props);
+	void HandleIncomingGold(const FEffectProperties& Props);
 	void Debuff(const FEffectProperties& Props);
 };

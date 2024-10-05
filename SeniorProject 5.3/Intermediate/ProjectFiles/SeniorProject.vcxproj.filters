@@ -483,6 +483,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\UI\Damage\DamageTextComponent.h">
       <Filter>Source\SeniorProject\UI\Damage</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\GoldReward">
+      <UniqueIdentifier>{0B13ADBC-83DF-37B1-BB31-0558082559A0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\GoldReward\GoldRewardWidgetComponent.cpp">
+      <Filter>Source\SeniorProject\UI\GoldReward</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\GoldReward\GoldRewardWidgetComponent.h">
+      <Filter>Source\SeniorProject\UI\GoldReward</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\UI\HUD">
       <UniqueIdentifier>{BFB2DF48-0994-3D33-95D8-7CEE869A4726}</UniqueIdentifier>
     </Filter>
@@ -491,6 +500,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\UI\HUD\DefaultHUD.h">
       <Filter>Source\SeniorProject\UI\HUD</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\ItemMenu">
+      <UniqueIdentifier>{3DECD0A6-F31D-3940-B667-EF4C619F4D33}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\ItemMenu\ItemMenuWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI\ItemMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\ItemMenu\ItemMenuWidgetController.h">
+      <Filter>Source\SeniorProject\UI\ItemMenu</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\UI\OverlayWidget">
       <UniqueIdentifier>{BC94E96C-2FB4-3449-8CD8-09D701700C43}</UniqueIdentifier>

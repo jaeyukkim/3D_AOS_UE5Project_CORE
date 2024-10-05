@@ -7,7 +7,6 @@
 // IWYU pragma: private, include "DefaultBase/AnimInstanceBase.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
-#include "Net/Core/PushModel/PushModelMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #ifdef SENIORPROJECT_AnimInstanceBase_generated_h
@@ -26,16 +25,7 @@ private: \
 	friend struct Z_Construct_UClass_UAnimInstanceBase_Statics; \
 public: \
 	DECLARE_CLASS(UAnimInstanceBase, UAnimInstance, COMPILED_IN_FLAGS(0 | CLASS_Transient), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
-	DECLARE_SERIALIZER(UAnimInstanceBase) \
-	enum class ENetFields_Private : uint16 \
-	{ \
-		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		bIsStunned=NETFIELD_REP_START, \
-		NETFIELD_REP_END=bIsStunned	}; \
-	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \
-private: \
-	REPLICATED_BASE_CLASS(UAnimInstanceBase) \
-public:
+	DECLARE_SERIALIZER(UAnimInstanceBase)
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_16_ENHANCED_CONSTRUCTORS \

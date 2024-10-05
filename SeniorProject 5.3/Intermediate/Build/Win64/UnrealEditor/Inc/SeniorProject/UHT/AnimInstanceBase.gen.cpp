@@ -153,7 +153,7 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	{
 		((UAnimInstanceBase*)Obj)->bIsStunned = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned = { "bIsStunned", nullptr, (EPropertyFlags)0x0020080000000035, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UAnimInstanceBase), &Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned = { "bIsStunned", nullptr, (EPropertyFlags)0x0020080000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UAnimInstanceBase), &Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData), Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_bIsStunned_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAnimInstanceBase_Statics::NewProp_Speed_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
@@ -345,16 +345,6 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 	{
 		return UAnimInstanceBase::StaticClass();
 	}
-
-	void UAnimInstanceBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
-	{
-		static const FName Name_bIsStunned(TEXT("bIsStunned"));
-
-		const bool bIsValid = true
-			&& Name_bIsStunned == ClassReps[(int32)ENetFields_Private::bIsStunned].Property->GetFName();
-
-		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in UAnimInstanceBase"));
-	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UAnimInstanceBase);
 	UAnimInstanceBase::~UAnimInstanceBase() {}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics
@@ -362,9 +352,9 @@ void EmptyLinkFunctionForGeneratedCodeAnimInstanceBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 343203170U) },
+		{ Z_Construct_UClass_UAnimInstanceBase, UAnimInstanceBase::StaticClass, TEXT("UAnimInstanceBase"), &Z_Registration_Info_UClass_UAnimInstanceBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAnimInstanceBase), 3992887826U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_1197022675(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_3702259982(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_DefaultBase_AnimInstanceBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

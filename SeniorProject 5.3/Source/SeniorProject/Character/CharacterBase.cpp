@@ -173,8 +173,10 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
 	GetMesh()->SetSimulatePhysics(true);
+	GetMesh()->SetEnableGravity(true);
 	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
+	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	
 	bDead = true;
 	

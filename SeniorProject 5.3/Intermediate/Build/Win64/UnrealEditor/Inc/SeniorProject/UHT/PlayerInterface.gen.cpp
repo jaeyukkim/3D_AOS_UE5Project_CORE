@@ -37,6 +37,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		P_THIS->LevelUp_Implementation();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(IPlayerInterface::execAddToGold)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_InGold);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddToGold_Implementation(Z_Param_InGold);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execAddToXP)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_InXP);
@@ -60,6 +68,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		*(int32*)Z_Param__Result=P_THIS->GetSpellPointsReward_Implementation(Z_Param_Level);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(IPlayerInterface::execGetGold)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(int32*)Z_Param__Result=P_THIS->GetGold_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execGetXP)
 	{
 		P_FINISH;
@@ -75,6 +90,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		*(int32*)Z_Param__Result=P_THIS->FindLevelForXP_Implementation(Z_Param_InXP);
 		P_NATIVE_END;
 	}
+	struct PlayerInterface_eventAddToGold_Parms
+	{
+		int32 InGold;
+	};
 	struct PlayerInterface_eventAddToPlayerLevel_Parms
 	{
 		int32 InPlayerLevel;
@@ -94,6 +113,16 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 
 		/** Constructor, initializes return property only **/
 		PlayerInterface_eventFindLevelForXP_Parms()
+			: ReturnValue(0)
+		{
+		}
+	};
+	struct PlayerInterface_eventGetGold_Parms
+	{
+		int32 ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventGetGold_Parms()
 			: ReturnValue(0)
 		{
 		}
@@ -129,6 +158,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 		}
 	};
+	void IPlayerInterface::AddToGold(int32 InGold)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToGold instead.");
+	}
 	void IPlayerInterface::AddToPlayerLevel(int32 InPlayerLevel)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToPlayerLevel instead.");
@@ -145,6 +178,12 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_FindLevelForXP instead.");
 		PlayerInterface_eventFindLevelForXP_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	int32 IPlayerInterface::GetGold() const
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetGold instead.");
+		PlayerInterface_eventGetGold_Parms Parms;
 		return Parms.ReturnValue;
 	}
 	int32 IPlayerInterface::GetSpellPoints() const
@@ -173,16 +212,48 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		UClass* Class = UPlayerInterface::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddToGold", &IPlayerInterface::execAddToGold },
 			{ "AddToPlayerLevel", &IPlayerInterface::execAddToPlayerLevel },
 			{ "AddToSpellPoints", &IPlayerInterface::execAddToSpellPoints },
 			{ "AddToXP", &IPlayerInterface::execAddToXP },
 			{ "FindLevelForXP", &IPlayerInterface::execFindLevelForXP },
+			{ "GetGold", &IPlayerInterface::execGetGold },
 			{ "GetSpellPoints", &IPlayerInterface::execGetSpellPoints },
 			{ "GetSpellPointsReward", &IPlayerInterface::execGetSpellPointsReward },
 			{ "GetXP", &IPlayerInterface::execGetXP },
 			{ "LevelUp", &IPlayerInterface::execLevelUp },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_InGold;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::NewProp_InGold = { "InGold", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventAddToGold_Parms, InGold), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::NewProp_InGold,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "AddToGold", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::PropPointers), sizeof(PlayerInterface_eventAddToGold_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventAddToGold_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_AddToGold()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UPlayerInterface_AddToPlayerLevel_Statics
 	{
@@ -304,6 +375,36 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_FindLevelForXP_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetGold_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetGold_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetGold", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::PropPointers), sizeof(PlayerInterface_eventGetGold_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x48020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetGold_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetGold()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetGold_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -443,10 +544,12 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UPlayerInterface_AddToGold, "AddToGold" }, // 749253225
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToPlayerLevel, "AddToPlayerLevel" }, // 1819615132
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToSpellPoints, "AddToSpellPoints" }, // 4156170471
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToXP, "AddToXP" }, // 1711502672
 		{ &Z_Construct_UFunction_UPlayerInterface_FindLevelForXP, "FindLevelForXP" }, // 1067225906
+		{ &Z_Construct_UFunction_UPlayerInterface_GetGold, "GetGold" }, // 358061602
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPoints, "GetSpellPoints" }, // 2299189408
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPointsReward, "GetSpellPointsReward" }, // 815528352
 		{ &Z_Construct_UFunction_UPlayerInterface_GetXP, "GetXP" }, // 3622837887
@@ -491,6 +594,23 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	UPlayerInterface::UPlayerInterface(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UPlayerInterface);
 	UPlayerInterface::~UPlayerInterface() {}
+	static FName NAME_UPlayerInterface_AddToGold = FName(TEXT("AddToGold"));
+	void IPlayerInterface::Execute_AddToGold(UObject* O, int32 InGold)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventAddToGold_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_AddToGold);
+		if (Func)
+		{
+			Parms.InGold=InGold;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			I->AddToGold_Implementation(InGold);
+		}
+	}
 	static FName NAME_UPlayerInterface_AddToPlayerLevel = FName(TEXT("AddToPlayerLevel"));
 	void IPlayerInterface::Execute_AddToPlayerLevel(UObject* O, int32 InPlayerLevel)
 	{
@@ -557,6 +677,23 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
 		{
 			Parms.ReturnValue = I->FindLevelForXP_Implementation(InXP);
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_GetGold = FName(TEXT("GetGold"));
+	int32 IPlayerInterface::Execute_GetGold(const UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetGold_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetGold);
+		if (Func)
+		{
+			const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetGold_Implementation();
 		}
 		return Parms.ReturnValue;
 	}
@@ -632,9 +769,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 2934769578U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 182651448U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_2000094854(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_1146591896(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

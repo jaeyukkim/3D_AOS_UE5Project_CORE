@@ -25,6 +25,9 @@ public:
 	
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetXP() const;
+
+	UFUNCTION(BlueprintNativeEvent)
+	int32 GetGold() const;
 	
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetSpellPointsReward(int32 Level) const;
@@ -35,6 +38,9 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	void AddToXP(int32 InXP);
 
+	UFUNCTION(BlueprintNativeEvent)
+	void AddToGold(int32 InGold);
+	
 	UFUNCTION(BlueprintNativeEvent)
 	void LevelUp();
 

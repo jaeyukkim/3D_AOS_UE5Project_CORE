@@ -20,7 +20,7 @@ public:
 	void NativeInitializeAnimation() override;
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 	FRotator NormalizedDeltaRotator(FRotator A, FRotator B);
-	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 	
 	void SetStunned(bool InbIsStunned);
 	
@@ -34,7 +34,7 @@ public:
 protected:
 
 
-	UPROPERTY(EditAnywhere, Replicated, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		bool bIsStunned;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))

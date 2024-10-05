@@ -28,9 +28,6 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FEffectPropertie
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_65_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AttributeSetBase_h_65_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execOnRep_DropExp); \
-	DECLARE_FUNCTION(execOnRep_DropGold); \
-	DECLARE_FUNCTION(execOnRep_Exp); \
 	DECLARE_FUNCTION(execOnRep_MagicPenetration); \
 	DECLARE_FUNCTION(execOnRep_Lethality); \
 	DECLARE_FUNCTION(execOnRep_LifeSteal); \
@@ -46,7 +43,6 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FEffectPropertie
 	DECLARE_FUNCTION(execOnRep_Armor); \
 	DECLARE_FUNCTION(execOnRep_AbilityPower); \
 	DECLARE_FUNCTION(execOnRep_AttackDamage); \
-	DECLARE_FUNCTION(execOnRep_NextExp); \
 	DECLARE_FUNCTION(execOnRep_Mana); \
 	DECLARE_FUNCTION(execOnRep_Health);
 
@@ -64,7 +60,6 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		Health=NETFIELD_REP_START, \
 		Mana, \
-		Exp, \
 		AttackDamage, \
 		AbilityPower, \
 		Armor, \
@@ -75,15 +70,12 @@ public: \
 		MovementSpeed, \
 		MaxHealth, \
 		MaxMana, \
-		NextExp, \
 		HealthRegeneration, \
 		ManaRegeneration, \
 		Lethality, \
 		MagicPenetration, \
 		LifeSteal, \
-		DropExp, \
-		DropGold, \
-		NETFIELD_REP_END=DropGold	}; \
+		NETFIELD_REP_END=LifeSteal	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override; \
 private: \
 	REPLICATED_BASE_CLASS(UAttributeSetBase) \

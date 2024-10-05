@@ -48,7 +48,7 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	/* Vital Attribute */
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Health, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Mana, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Exp, COND_None, REPNOTIFY_Always);
+
 	/* Vital Attribute */
 
 	
@@ -67,7 +67,6 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	/* Additional Vital Attribute */
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxHealth, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, MaxMana, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, NextExp, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, HealthRegeneration, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, ManaRegeneration, COND_None, REPNOTIFY_Always);
 	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, Lethality, COND_None, REPNOTIFY_Always);
@@ -76,10 +75,7 @@ void UAttributeSetBase::GetLifetimeReplicatedProps(TArray<class FLifetimePropert
 	/* Additional Vital Attribute */
 
 	
-	/* GamePlay Attribute */
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropExp, COND_None, REPNOTIFY_Always);
-	DOREPLIFETIME_CONDITION_NOTIFY(UAttributeSetBase, DropGold, COND_None, REPNOTIFY_Always);
-	/* GamePlay Attribute */
+	
 }
 
 void UAttributeSetBase::SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const
@@ -137,6 +133,7 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
 
+	if(Props.TargetCharacter == nullptr) return;
 	if(Props.TargetCharacter->Implements<UCombatInterface>() && ICombatInterface::Execute_IsDead(Props.TargetCharacter)) return;
 
 	
@@ -148,10 +145,6 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		SetMana(FMath::Clamp(GetMana(), 0.f, GetMaxMana()));
 	}
-	if(Data.EvaluatedData.Attribute == GetExpAttribute())
-	{
-		SetExp(FMath::Clamp(GetExp(), 0.f, GetNextExp()));
-	}
 	if (Data.EvaluatedData.Attribute == GetIncomingDamageAttribute())
 	{
 		HandleIncomingDamage(Props);
@@ -161,6 +154,12 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	{
 		HandleIncomingXP(Props);
 	}
+
+	if (Data.EvaluatedData.Attribute == GetIncomingGoldAttribute())
+	{
+		HandleIncomingGold(Props);
+	}
+	
 	
 	
 }
@@ -184,6 +183,7 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 				if(!ICombatInterface::Execute_IsDead(Props.TargetAvatarActor))
 				{
 					SendXPEvent(Props);
+					SendGoldEvent(Props);
 				}
 				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
 	
@@ -243,6 +243,21 @@ void UAttributeSetBase::HandleIncomingXP(const FEffectProperties& Props)
 	}
 }
 
+void UAttributeSetBase::HandleIncomingGold(const FEffectProperties& Props)
+{
+	if(Props.SourceCharacter == nullptr) return;
+	
+	const float LocalIncomingGold = GetIncomingGold();
+	SetIncomingGold(0.f);
+		
+	if (Props.SourceCharacter->Implements<UPlayerInterface>())
+	{
+		IPlayerInterface::Execute_AddToGold(Props.SourceCharacter, LocalIncomingGold);
+	}
+	
+
+}
+
 void UAttributeSetBase::Debuff(const FEffectProperties& Props)
 {
 	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
@@ -271,6 +286,17 @@ void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float D
 		if(AMyPlayerController* PC = Cast<AMyPlayerController>(Props.SourceCharacter->Controller))
 		{
 			PC->ShowDamageNumber(Damage, Props.TargetCharacter, bCriticalHit, bMagicalDamage);
+		}
+	}
+}
+
+void UAttributeSetBase::ShowGoldAmountText(const FEffectProperties& Props, float GoldAmount) const
+{
+	if (Props.SourceCharacter != Props.TargetCharacter)
+	{
+		if(AMyPlayerController* PC = Cast<AMyPlayerController>(Props.SourceCharacter->Controller))
+		{
+			PC->ShowGoldAmount(GoldAmount, Props.TargetCharacter);
 		}
 	}
 }
@@ -310,6 +336,7 @@ void UAttributeSetBase::NotifyMinionTarget(AActor* DamagedActor, AActor* Instiga
 
 void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 {
+	if(Props.TargetCharacter == nullptr) return;
 	
 	UWorld* World = Props.TargetCharacter->GetWorld();
 	if (!World) return;
@@ -359,6 +386,25 @@ void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 	
 }
 
+void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
+{
+	if(Props.TargetCharacter == nullptr) return;
+
+	if(Props.TargetCharacter->Implements<UCombatInterface>())
+	{
+		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
+		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+		const int32 GoldReward = UBlueprintFunctionLibraryBase::GetGoldRewardForClassAndLevel(Props.TargetCharacter, TargetClass);
+		FGameplayEventData Payload;
+		Payload.EventTag = GameplayTags.Attributes_Meta_IncomingGold;
+		Payload.EventMagnitude = GoldReward;
+		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Props.SourceAvatarActor, GameplayTags.Attributes_Meta_IncomingGold, Payload);
+		ShowGoldAmountText(Props, GoldReward);
+	}
+
+	
+}
+
 
 /* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const
@@ -368,10 +414,6 @@ void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) co
 void UAttributeSetBase::OnRep_Mana(const FGameplayAttributeData& OldMana) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Mana, OldMana);
-}
-void UAttributeSetBase::OnRep_Exp(const FGameplayAttributeData& OldExp) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Exp, OldExp);
 }
 
 /* OnRep_VitalAttributes */
@@ -427,10 +469,7 @@ void UAttributeSetBase::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) 
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MaxMana, OldMaxMana);
 }
-void UAttributeSetBase::OnRep_NextExp(const FGameplayAttributeData& OldNextExp) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, NextExp, OldNextExp);
-}
+
 void UAttributeSetBase::OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Mana, HealthRegeneration);
@@ -452,18 +491,3 @@ void UAttributeSetBase::OnRep_MagicPenetration(const FGameplayAttributeData& Old
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MagicPenetration, OldMagicPenetration);
 }
 
-/* OnRep_ Additional VitalAttributes */
-
-
-
-/*  OnRep_ GamePlay VitalAttributes */
-
-void UAttributeSetBase::OnRep_DropGold(const FGameplayAttributeData& OldDropGold) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, DropGold, OldDropGold);
-}
-void UAttributeSetBase::OnRep_DropExp(const FGameplayAttributeData& OldDropExp) const
-{
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, DropExp, OldDropExp);
-}
-/* GamePlay OnRep */

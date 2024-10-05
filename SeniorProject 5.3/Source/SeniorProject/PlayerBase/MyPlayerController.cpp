@@ -7,7 +7,7 @@
 #include "SeniorProject/Input/InputComponentBase.h"
 #include "GameFramework/Character.h"
 #include "SeniorProject/UI/Damage/DamageTextComponent.h"
-
+#include "SeniorProject/UI/GoldReward/GoldRewardWidgetComponent.h"
 
 
 AMyPlayerController::AMyPlayerController()
@@ -43,6 +43,18 @@ void AMyPlayerController::ShowDamageNumber_Implementation(float DamageAmount, AC
 	}
 }
 
+
+void AMyPlayerController::ShowGoldAmount_Implementation(int32 GoldAmount, AActor* TargetCharacter)
+{
+	if(IsValid(TargetCharacter) && GoldRewardWidgetClass && IsLocalController())
+	{
+		UGoldRewardWidgetComponent* GoldRewardText = NewObject<UGoldRewardWidgetComponent>(TargetCharacter, GoldRewardWidgetClass);
+		GoldRewardText->RegisterComponent();
+		GoldRewardText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+		GoldRewardText->DetachFromComponent(FDetachmentTransformRules::KeepWorldTransform);
+		GoldRewardText->SetGoldRewardText(GoldAmount);
+	}
+}
 
 void AMyPlayerController::BeginPlay()
 {

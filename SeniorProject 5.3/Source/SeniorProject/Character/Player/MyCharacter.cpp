@@ -33,7 +33,8 @@ AMyCharacter::AMyCharacter()
 	Tags.Add(TEXT("Player"));
 	
 	PrimaryActorTick.bCanEverTick = true;
-
+	
+	
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 	
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
@@ -102,6 +103,7 @@ void AMyCharacter::BroadcastInitialValues()
 	OnMaxManaChanged.Broadcast(AS->GetMaxMana());
 	OnManaChanged.Broadcast(AS->GetMana());
 	OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+	PlayerStateBase->BroadcastPlayerStat();
 }
 
 void AMyCharacter::InitAbilityActorInfo()
@@ -132,7 +134,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	InitializeDefaultAttributes();
 	SetTeamNameByPlayerState_Implementation(PlayerStateBase);
 	InitializeHealthBarWidget();
-	
+	BroadcastInitialValues();
 }
 
 void AMyCharacter::InitializeHealthBarWidget()
@@ -195,7 +197,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	PlayerController = Cast<AMyPlayerController>(GetController());
 	if (PlayerController != nullptr)
 	{
@@ -205,6 +207,7 @@ void AMyCharacter::BeginPlay()
 		if(Subsystem)
 			Subsystem->AddMappingContext(PlayerContext, 0);
 	}
+	
 	
 }
 
@@ -314,6 +317,11 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 void AMyCharacter::Die_Implementation()
 {
 	Super::Die_Implementation();
+	HealthBarWidget->SetVisibility(false);
+	if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
+	{
+		DisableInput(MyPlayerController);
+	}
 	
 }
 
@@ -375,6 +383,13 @@ int32 AMyCharacter::GetXP_Implementation() const
 	return PlayerStateBase->GetXP();
 }
 
+int32 AMyCharacter::GetGold_Implementation() const
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->GetGold();
+}
+
 int32 AMyCharacter::FindLevelForXP_Implementation(int32 InXP) const
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -406,6 +421,13 @@ void AMyCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	PlayerStateBase->AddToSpellPoints(InSpellPoints);
+}
+
+void AMyCharacter::AddToGold_Implementation(int32 InGold)
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	PlayerStateBase->AddToGold(InGold);
 }
 
 int32 AMyCharacter::GetSpellPoints_Implementation() const

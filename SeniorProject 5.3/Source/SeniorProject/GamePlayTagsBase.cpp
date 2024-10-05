@@ -72,7 +72,10 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 
 	GameplayTags.Attributes_Meta_IncomingXP = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("Attributes.Meta.IncomingXP"),
-		FString("Incoming XP Meta Attribute")
+		FString("Incoming XP Meta Attribute"));
+	GameplayTags.Attributes_Meta_IncomingGold = UGameplayTagsManager::Get().AddNativeGameplayTag(
+		FName("Attributes.Meta.IncomingGold"),
+		FString("Incoming Gold Meta Attribute")
 		);
 	/* Meta Attribute Tags*/
 

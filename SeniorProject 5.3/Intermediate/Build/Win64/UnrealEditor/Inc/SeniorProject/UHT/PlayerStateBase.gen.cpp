@@ -26,6 +26,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		P_THIS->OnRep_SpellPoints(Z_Param_OldSpellPoints);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayerStateBase::execOnRep_Gold)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_OldSpellPoints);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnRep_Gold(Z_Param_OldSpellPoints);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayerStateBase::execOnRep_XP)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_OldXP);
@@ -42,15 +50,80 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		P_THIS->OnRep_Level(Z_Param_OldLevel);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(APlayerStateBase::execBroadcastPlayerStat)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->BroadcastPlayerStat();
+		P_NATIVE_END;
+	}
 	void APlayerStateBase::StaticRegisterNativesAPlayerStateBase()
 	{
 		UClass* Class = APlayerStateBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "BroadcastPlayerStat", &APlayerStateBase::execBroadcastPlayerStat },
+			{ "OnRep_Gold", &APlayerStateBase::execOnRep_Gold },
 			{ "OnRep_Level", &APlayerStateBase::execOnRep_Level },
 			{ "OnRep_SpellPoints", &APlayerStateBase::execOnRep_SpellPoints },
 			{ "OnRep_XP", &APlayerStateBase::execOnRep_XP },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerStateBase, nullptr, "BroadcastPlayerStat", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics
+	{
+		struct PlayerStateBase_eventOnRep_Gold_Parms
+		{
+			int32 OldSpellPoints;
+		};
+		static const UECodeGen_Private::FIntPropertyParams NewProp_OldSpellPoints;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::NewProp_OldSpellPoints = { "OldSpellPoints", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerStateBase_eventOnRep_Gold_Parms, OldSpellPoints), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::NewProp_OldSpellPoints,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerStateBase, nullptr, "OnRep_Gold", nullptr, nullptr, Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PropPointers), sizeof(Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PlayerStateBase_eventOnRep_Gold_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::PlayerStateBase_eventOnRep_Gold_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_APlayerStateBase_OnRep_Gold()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerStateBase_OnRep_Gold_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_APlayerStateBase_OnRep_Level_Statics
 	{
@@ -190,6 +263,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpellPoints_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_SpellPoints;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Gold_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_Gold;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -201,6 +278,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayerStateBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_APlayerStateBase_BroadcastPlayerStat, "BroadcastPlayerStat" }, // 3593496932
+		{ &Z_Construct_UFunction_APlayerStateBase_OnRep_Gold, "OnRep_Gold" }, // 235441158
 		{ &Z_Construct_UFunction_APlayerStateBase_OnRep_Level, "OnRep_Level" }, // 3244574131
 		{ &Z_Construct_UFunction_APlayerStateBase_OnRep_SpellPoints, "OnRep_SpellPoints" }, // 2163666508
 		{ &Z_Construct_UFunction_APlayerStateBase_OnRep_XP, "OnRep_XP" }, // 946217991
@@ -260,6 +339,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_SpellPoints = { "SpellPoints", "OnRep_SpellPoints", (EPropertyFlags)0x0020080100020021, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, SpellPoints), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_SpellPoints_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_SpellPoints_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold_MetaData[] = {
+		{ "Category", "PlayerStateBase" },
+		{ "ModuleRelativePath", "PlayerBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold = { "Gold", "OnRep_Gold", (EPropertyFlags)0x0020080100020021, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, Gold), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerStateBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent,
@@ -267,6 +353,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Level,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_XP,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_SpellPoints,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_APlayerStateBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(APlayerStateBase, IAbilitySystemInterface), false },  // 3195502011
@@ -309,11 +396,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FName Name_Level(TEXT("Level"));
 		static const FName Name_XP(TEXT("XP"));
 		static const FName Name_SpellPoints(TEXT("SpellPoints"));
+		static const FName Name_Gold(TEXT("Gold"));
 
 		const bool bIsValid = true
 			&& Name_Level == ClassReps[(int32)ENetFields_Private::Level].Property->GetFName()
 			&& Name_XP == ClassReps[(int32)ENetFields_Private::XP].Property->GetFName()
-			&& Name_SpellPoints == ClassReps[(int32)ENetFields_Private::SpellPoints].Property->GetFName();
+			&& Name_SpellPoints == ClassReps[(int32)ENetFields_Private::SpellPoints].Property->GetFName()
+			&& Name_Gold == ClassReps[(int32)ENetFields_Private::Gold].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in APlayerStateBase"));
 	}
@@ -324,9 +413,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 3094192252U) },
+		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 3346883903U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_373718533(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_190602721(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

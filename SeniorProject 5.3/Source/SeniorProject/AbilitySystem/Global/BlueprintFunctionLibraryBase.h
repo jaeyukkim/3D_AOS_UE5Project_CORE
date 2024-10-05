@@ -7,6 +7,7 @@
 #include "SeniorProject/UI/AttributeMenu/AttributeMenuWidgetController.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 #include "SeniorProject/UI/SpellMenu/SpellMenuWidgetController.h"
 #include "BlueprintFunctionLibraryBase.generated.h"
 
@@ -31,6 +32,9 @@ public:
 	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
 	static USpellMenuWidgetController* GetSpellMenuWidgetController(const UObject* WorldContextObject);
 
+	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	static UItemMenuWidgetController* GetItemMenuWidgetController(const UObject* WorldContextObject);
+	
 	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemLibrary|CharacterClassDefaults")
 	static UCharacterClassInfo* GetCharacterClassInfo(const UObject* WorldContextObject);
 
@@ -101,5 +105,7 @@ public:
 	static FGameplayEffectContextHandle ApplyDamageEffect(const FDamageEffectParams& DamageEffectParams);
 
 	static int32 GetXPRewardForClassAndLevel(const UObject* WorldContextObject, ECharacterClass CharacterClass, int32 CharacterLevel);
+	static int32 GetGoldRewardForClassAndLevel(const UObject* WorldContextObject, ECharacterClass CharacterClass);
+
 	
 };

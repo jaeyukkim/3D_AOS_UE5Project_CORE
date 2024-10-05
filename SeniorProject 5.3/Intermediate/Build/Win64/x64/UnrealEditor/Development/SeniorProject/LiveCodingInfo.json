@@ -35,12 +35,14 @@
 			"ExecCalc_Damage.gen.cpp.obj",
 			"GameplayAbilityBase.gen.cpp.obj",
 			"GameRuleInterface.gen.cpp.obj",
-			"HomingProjectile.gen.cpp.obj",
-			"InputActionData.gen.cpp.obj",
-			"InputComponentBase.gen.cpp.obj",
-			"KallariAI.gen.cpp.obj"
+			"GoldRewardWidgetComponent.gen.cpp.obj",
+			"HomingProjectile.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"InputActionData.gen.cpp.obj",
+			"InputComponentBase.gen.cpp.obj",
+			"ItemMenuWidgetController.gen.cpp.obj",
+			"KallariAI.gen.cpp.obj",
 			"Kwang.gen.cpp.obj",
 			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
@@ -59,13 +61,13 @@
 			"PlayerInterface.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
-			"ProjectileSpellBase.gen.cpp.obj",
+			"ProjectileSpellBase.gen.cpp.obj"
+		],
+		"Module.SeniorProject.4.cpp.obj": [
 			"Ranged.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
-			"Spawner.gen.cpp.obj"
-		],
-		"Module.SeniorProject.4.cpp.obj": [
+			"Spawner.gen.cpp.obj",
 			"SpellMenuWidgetController.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
@@ -128,7 +130,9 @@
 			"AttributeMenuWidgetController.cpp.obj",
 			"DamageTextComponent.cpp.obj",
 			"DefaultWidgetController.cpp.obj",
+			"GoldRewardWidgetComponent.cpp.obj",
 			"DefaultHUD.cpp.obj",
+			"ItemMenuWidgetController.cpp.obj",
 			"OverlayWidget.cpp.obj",
 			"OverlayWidgetController.cpp.obj",
 			"SpellMenuWidgetController.cpp.obj"

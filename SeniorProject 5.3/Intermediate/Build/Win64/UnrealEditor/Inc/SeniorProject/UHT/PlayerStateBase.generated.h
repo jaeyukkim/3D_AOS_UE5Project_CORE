@@ -20,8 +20,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnRep_SpellPoints); \
+	DECLARE_FUNCTION(execOnRep_Gold); \
 	DECLARE_FUNCTION(execOnRep_XP); \
-	DECLARE_FUNCTION(execOnRep_Level);
+	DECLARE_FUNCTION(execOnRep_Level); \
+	DECLARE_FUNCTION(execBroadcastPlayerStat);
 
 
 #define FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_22_ACCESSORS
@@ -39,7 +41,8 @@ public: \
 		Level=NETFIELD_REP_START, \
 		XP, \
 		SpellPoints, \
-		NETFIELD_REP_END=SpellPoints	}; \
+		Gold, \
+		NETFIELD_REP_END=Gold	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 

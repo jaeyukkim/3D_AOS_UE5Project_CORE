@@ -10,15 +10,26 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyPlayerController_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UDamageTextComponent_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UGoldRewardWidgetComponent_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UInputActionData_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(AMyPlayerController::execShowGoldAmount)
+	{
+		P_GET_PROPERTY(FIntProperty,Z_Param_GoldAmount);
+		P_GET_OBJECT(AActor,Z_Param_TargetCharacter);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ShowGoldAmount_Implementation(Z_Param_GoldAmount,Z_Param_TargetCharacter);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AMyPlayerController::execShowDamageNumber)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_DamageAmount);
@@ -37,6 +48,11 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		bool bCriticalHit;
 		bool bMagicalDamage;
 	};
+	struct MyPlayerController_eventShowGoldAmount_Parms
+	{
+		int32 GoldAmount;
+		AActor* TargetCharacter;
+	};
 	static FName NAME_AMyPlayerController_ShowDamageNumber = FName(TEXT("ShowDamageNumber"));
 	void AMyPlayerController::ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage)
 	{
@@ -47,11 +63,20 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		Parms.bMagicalDamage=bMagicalDamage ? true : false;
 		ProcessEvent(FindFunctionChecked(NAME_AMyPlayerController_ShowDamageNumber),&Parms);
 	}
+	static FName NAME_AMyPlayerController_ShowGoldAmount = FName(TEXT("ShowGoldAmount"));
+	void AMyPlayerController::ShowGoldAmount(int32 GoldAmount, AActor* TargetCharacter)
+	{
+		MyPlayerController_eventShowGoldAmount_Parms Parms;
+		Parms.GoldAmount=GoldAmount;
+		Parms.TargetCharacter=TargetCharacter;
+		ProcessEvent(FindFunctionChecked(NAME_AMyPlayerController_ShowGoldAmount),&Parms);
+	}
 	void AMyPlayerController::StaticRegisterNativesAMyPlayerController()
 	{
 		UClass* Class = AMyPlayerController::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ShowDamageNumber", &AMyPlayerController::execShowDamageNumber },
+			{ "ShowGoldAmount", &AMyPlayerController::execShowGoldAmount },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -104,6 +129,39 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics
+	{
+		static const UECodeGen_Private::FIntPropertyParams NewProp_GoldAmount;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetCharacter;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::NewProp_GoldAmount = { "GoldAmount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPlayerController_eventShowGoldAmount_Parms, GoldAmount), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::NewProp_TargetCharacter = { "TargetCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPlayerController_eventShowGoldAmount_Parms, TargetCharacter), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::NewProp_GoldAmount,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::NewProp_TargetCharacter,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "PlayerBase/MyPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPlayerController, nullptr, "ShowGoldAmount", nullptr, nullptr, Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::PropPointers), sizeof(MyPlayerController_eventShowGoldAmount_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::PropPointers) < 2048);
+	static_assert(sizeof(MyPlayerController_eventShowGoldAmount_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AMyPlayerController);
 	UClass* Z_Construct_UClass_AMyPlayerController_NoRegister()
 	{
@@ -120,6 +178,10 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DamageTextComponentClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_DamageTextComponentClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_GoldRewardWidgetClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_GoldRewardWidgetClass;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_InputData_MetaData[];
 #endif
@@ -139,6 +201,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyPlayerController_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyPlayerController_ShowDamageNumber, "ShowDamageNumber" }, // 2203302998
+		{ &Z_Construct_UFunction_AMyPlayerController_ShowGoldAmount, "ShowGoldAmount" }, // 3412774834
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -156,6 +219,13 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_DamageTextComponentClass = { "DamageTextComponentClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, DamageTextComponentClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UDamageTextComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_DamageTextComponentClass_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_DamageTextComponentClass_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::NewProp_GoldRewardWidgetClass_MetaData[] = {
+		{ "Category", "MyPlayerController" },
+		{ "ModuleRelativePath", "PlayerBase/MyPlayerController.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_GoldRewardWidgetClass = { "GoldRewardWidgetClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, GoldRewardWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UGoldRewardWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_GoldRewardWidgetClass_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_GoldRewardWidgetClass_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData_MetaData[] = {
 		{ "Category", "Input" },
 		{ "ModuleRelativePath", "PlayerBase/MyPlayerController.h" },
@@ -171,6 +241,7 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyPlayerController_Statics::NewProp_AbilityComponentBase = { "AbilityComponentBase", nullptr, (EPropertyFlags)0x0044000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyPlayerController, AbilityComponentBase), Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyPlayerController_Statics::NewProp_AbilityComponentBase_MetaData), Z_Construct_UClass_AMyPlayerController_Statics::NewProp_AbilityComponentBase_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyPlayerController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_DamageTextComponentClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_GoldRewardWidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_InputData,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyPlayerController_Statics::NewProp_AbilityComponentBase,
 	};
@@ -212,9 +283,9 @@ void EmptyLinkFunctionForGeneratedCodeMyPlayerController() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 3898102402U) },
+		{ Z_Construct_UClass_AMyPlayerController, AMyPlayerController::StaticClass, TEXT("AMyPlayerController"), &Z_Registration_Info_UClass_AMyPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPlayerController), 938234642U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_2408223156(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_246108657(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyPlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

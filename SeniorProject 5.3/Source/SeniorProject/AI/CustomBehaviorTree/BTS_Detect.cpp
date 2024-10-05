@@ -35,7 +35,7 @@ void UBTS_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
     if (TargetPlayer != nullptr)
     {
         float DistanceToTargetCharacter = (ControlledPawn->GetActorLocation() - TargetPlayer->GetActorLocation()).Size();
-        if (DistanceToTargetCharacter <= 1200.0f)
+        if (DistanceToTargetCharacter <= DetectRange)
         {
             BlackboardComp->SetValueAsObject("Target", TargetPlayer);
             return;
@@ -58,7 +58,7 @@ void UBTS_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
     if (TargetTower && !ControlledPawn->ActorHasTag("Turret"))
     {
         float DistanceToTargetTower = (ControlledPawn->GetActorLocation() - TargetTower->GetActorLocation()).Size();
-        if (DistanceToTargetTower <= 1200.0f)
+        if (DistanceToTargetTower <= DetectRange)
         {
             BlackboardComp->SetValueAsObject("Target", TargetTower);
             return;
@@ -88,7 +88,7 @@ void UBTS_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
                if(Minion->Implements<UCombatInterface>() && !ICombatInterface::Execute_IsDead(Minion))
                {
                    float DistanceToMinion = (ControlledPawn->GetActorLocation() - Minion->GetActorLocation()).Size();
-                   if (DistanceToMinion < MinDistance && DistanceToMinion <= 1000.0f)
+                   if (DistanceToMinion < MinDistance && DistanceToMinion <= losingTargetRange)
                    {
                        MinDistance = DistanceToMinion;
                        ClosestMinion = Minion;
@@ -124,7 +124,7 @@ void UBTS_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
             if(Player->Implements<UCombatInterface>() && !ICombatInterface::Execute_IsDead(Player))
             {
                 float DistanceToMinion = (ControlledPawn->GetActorLocation() - Player->GetActorLocation()).Size();
-                if (DistanceToMinion < MinDistance && DistanceToMinion <= 1000.0f)
+                if (DistanceToMinion < MinDistance && DistanceToMinion <= losingTargetRange)
                 {
                     MinDistance = DistanceToMinion;
                     ClosestPlayer = Player;

@@ -4,7 +4,7 @@
 #include "AnimInstanceBase.h"
 
 #include "KismetAnimationLibrary.h"
-#include "Net/UnrealNetwork.h"
+
 
 
 UAnimInstanceBase::UAnimInstanceBase()
@@ -20,12 +20,7 @@ UAnimInstanceBase::UAnimInstanceBase()
 }
 
 
-void UAnimInstanceBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(UAnimInstanceBase, bIsStunned);
-	
-}
+
 
 void UAnimInstanceBase::NativeInitializeAnimation()
 {

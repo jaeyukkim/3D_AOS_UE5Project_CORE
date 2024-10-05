@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ADefaultHUD();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ADefaultHUD_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAttributeMenuWidgetController_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemMenuWidgetController_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidget_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UOverlayWidgetController_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_USpellMenuWidgetController_NoRegister();
@@ -65,6 +66,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpellMenuWidgetControllerClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_SpellMenuWidgetControllerClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemMenuWidgetController_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ItemMenuWidgetController;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemMenuWidgetControllerClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_ItemMenuWidgetControllerClass;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -138,6 +147,19 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_SpellMenuWidgetControllerClass = { "SpellMenuWidgetControllerClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, SpellMenuWidgetControllerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_USpellMenuWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_SpellMenuWidgetControllerClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_SpellMenuWidgetControllerClass_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetController_MetaData[] = {
+		{ "ModuleRelativePath", "UI/HUD/DefaultHUD.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetController = { "ItemMenuWidgetController", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, ItemMenuWidgetController), Z_Construct_UClass_UItemMenuWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetController_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetController_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetControllerClass_MetaData[] = {
+		{ "Category", "DefaultHUD" },
+		{ "ModuleRelativePath", "UI/HUD/DefaultHUD.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetControllerClass = { "ItemMenuWidgetControllerClass", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultHUD, ItemMenuWidgetControllerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UItemMenuWidgetController_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetControllerClass_MetaData), Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetControllerClass_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultHUD_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_OverlayWidgetClass,
@@ -147,6 +169,8 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_AttributeMenuWidgetControllerClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_SpellMenuWidgetController,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_SpellMenuWidgetControllerClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetController,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultHUD_Statics::NewProp_ItemMenuWidgetControllerClass,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultHUD_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultHUD>::IsAbstract,
@@ -187,9 +211,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultHUD() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_HUD_DefaultHUD_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultHUD, ADefaultHUD::StaticClass, TEXT("ADefaultHUD"), &Z_Registration_Info_UClass_ADefaultHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultHUD), 1736547828U) },
+		{ Z_Construct_UClass_ADefaultHUD, ADefaultHUD::StaticClass, TEXT("ADefaultHUD"), &Z_Registration_Info_UClass_ADefaultHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultHUD), 526248474U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_HUD_DefaultHUD_h_692556154(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_HUD_DefaultHUD_h_4053748242(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_HUD_DefaultHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_HUD_DefaultHUD_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

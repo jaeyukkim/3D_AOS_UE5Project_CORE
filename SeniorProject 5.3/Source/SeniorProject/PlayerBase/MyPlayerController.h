@@ -16,6 +16,7 @@
 class UInputActionData;
 class UAbilitySystemComponentBase;
 class UDamageTextComponent;
+class UGoldRewardWidgetComponent;
 
 UCLASS()
 class SENIORPROJECT_API AMyPlayerController : public APlayerController
@@ -32,6 +33,9 @@ public:
 
 	UFUNCTION(Client, Reliable)
 	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage);
+	UFUNCTION(Client, Reliable)
+	void ShowGoldAmount(int32 GoldAmount, AActor* TargetCharacter);
+
 	
 protected:
 	virtual void BeginPlay() override;
@@ -40,7 +44,8 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly)
 		TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
-
+	UPROPERTY(EditDefaultsOnly)
+		TSubclassOf<UGoldRewardWidgetComponent> GoldRewardWidgetClass;
 
 private:
 	
