@@ -27,6 +27,9 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputmappingquery.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedinputcomponent.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\inputcomponentbase.generated.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\iteminfo.gen.cpp",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\data\\iteminfo.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\iteminfo.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\itemmenuwidgetcontroller.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\ui\\itemmenu\\itemmenuwidgetcontroller.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\ui\\defaultwidgetcontroller.h",
@@ -527,10 +530,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\abilitytypesbase.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\default\\damageactorbase.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\damageactorbase.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\projectilebase.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\projectilespellbase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilities\\spell\\projectilespellbase.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\projectilespellbase.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\projectilebase.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

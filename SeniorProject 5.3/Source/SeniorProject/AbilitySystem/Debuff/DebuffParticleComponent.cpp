@@ -10,6 +10,7 @@
 UDebuffParticleComponent::UDebuffParticleComponent()
 {
 	bAutoActivate = false;
+
 }
 
 void UDebuffParticleComponent::BeginPlay()

@@ -6,9 +6,9 @@
 UMovementComponentBase::UMovementComponentBase()
 {
 	bUseAccelerationForPaths = true;
-	NetworkSmoothingMode = ENetworkSmoothingMode::Linear;
+//	NetworkSmoothingMode = ENetworkSmoothingMode::Linear;
 
-	NetworkNoSmoothUpdateDistance = 500.0f;
-	NetworkMaxSmoothUpdateDistance = 250.0f;
-
+//	NetworkNoSmoothUpdateDistance = 500.0f;
+//	NetworkMaxSmoothUpdateDistance = 250.0f;
+	
 }

@@ -135,6 +135,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	SetTeamNameByPlayerState_Implementation(PlayerStateBase);
 	InitializeHealthBarWidget();
 	BroadcastInitialValues();
+	GetMesh()->SetSimulatePhysics(false);
 }
 
 void AMyCharacter::InitializeHealthBarWidget()
@@ -174,7 +175,11 @@ void AMyCharacter::InitializeHealthBarWidget()
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
 			[this](const FOnAttributeChangeData& Data)
 			{
-				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
+				if(HasAuthority())
+				{
+					GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
+					MulticastSetMaxWalkSpeed(Data.NewValue);
+				}
 			}
 		);
 	
@@ -197,7 +202,8 @@ void AMyCharacter::InitializeHealthBarWidget()
 void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+
 	PlayerController = Cast<AMyPlayerController>(GetController());
 	if (PlayerController != nullptr)
 	{

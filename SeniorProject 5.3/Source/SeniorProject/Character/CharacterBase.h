@@ -143,6 +143,9 @@ protected:
 
 
 
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastSetMaxWalkSpeed(float NewSpeed);
+	
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	virtual void InitializeDefaultAttributes() const;
 	void AddCharacterAbility();

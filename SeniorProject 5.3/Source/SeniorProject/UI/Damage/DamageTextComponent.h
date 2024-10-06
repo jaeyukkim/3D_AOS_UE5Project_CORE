@@ -15,7 +15,7 @@ class SENIORPROJECT_API UDamageTextComponent : public UWidgetComponent
 	GENERATED_BODY()
 
 public:
-	
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void SetDamageText(float Damage, bool bCriticalHit, bool bMagicalDamage);
 	

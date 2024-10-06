@@ -18,8 +18,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_26_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_26_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void MulticastSetMaxWalkSpeed_Implementation(float NewSpeed); \
 	virtual void MulticastHandleDeath_Implementation(); \
  \
+	DECLARE_FUNCTION(execMulticastSetMaxWalkSpeed); \
 	DECLARE_FUNCTION(execMulticastHandleDeath);
 
 

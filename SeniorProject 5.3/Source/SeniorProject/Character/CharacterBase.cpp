@@ -172,8 +172,8 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
-	GetMesh()->SetSimulatePhysics(true);
-	GetMesh()->SetEnableGravity(true);
+	//GetMesh()->SetSimulatePhysics(true);
+	//GetMesh()->SetEnableGravity(true);
 	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
 	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -185,6 +185,11 @@ void ACharacterBase::MulticastHandleDeath_Implementation()
 	MagicResistanceDecreaseDebuffComponent->Deactivate();
 	MovementSlowDebuffComponent->Deactivate();
 	
+}
+
+void ACharacterBase::MulticastSetMaxWalkSpeed_Implementation(float NewSpeed)
+{
+	GetCharacterMovement()->MaxWalkSpeed = NewSpeed; 
 }
 
 void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const

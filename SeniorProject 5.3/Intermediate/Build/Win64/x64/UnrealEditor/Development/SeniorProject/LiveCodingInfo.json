@@ -41,6 +41,7 @@
 		"Module.SeniorProject.3.cpp.obj": [
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
+			"ItemInfo.gen.cpp.obj",
 			"ItemMenuWidgetController.gen.cpp.obj",
 			"KallariAI.gen.cpp.obj",
 			"Kwang.gen.cpp.obj",
@@ -60,10 +61,10 @@
 			"OverlayWidgetController.gen.cpp.obj",
 			"PlayerInterface.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
-			"ProjectileBase.gen.cpp.obj",
-			"ProjectileSpellBase.gen.cpp.obj"
+			"ProjectileBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"ProjectileSpellBase.gen.cpp.obj",
 			"Ranged.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
@@ -84,6 +85,7 @@
 			"AbilityInfo.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
+			"ItemInfo.cpp.obj",
 			"LevelUpInfo.cpp.obj",
 			"DebuffParticleComponent.cpp.obj",
 			"ExecCalc_Damage.cpp.obj",

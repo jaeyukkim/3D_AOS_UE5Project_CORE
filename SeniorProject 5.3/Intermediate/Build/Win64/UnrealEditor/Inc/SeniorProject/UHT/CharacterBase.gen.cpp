@@ -30,6 +30,14 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttributeChangedSignature__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(ACharacterBase::execMulticastSetMaxWalkSpeed)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_NewSpeed);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->MulticastSetMaxWalkSpeed_Implementation(Z_Param_NewSpeed);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ACharacterBase::execMulticastHandleDeath)
 	{
 		P_FINISH;
@@ -37,16 +45,28 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		P_THIS->MulticastHandleDeath_Implementation();
 		P_NATIVE_END;
 	}
+	struct CharacterBase_eventMulticastSetMaxWalkSpeed_Parms
+	{
+		float NewSpeed;
+	};
 	static FName NAME_ACharacterBase_MulticastHandleDeath = FName(TEXT("MulticastHandleDeath"));
 	void ACharacterBase::MulticastHandleDeath()
 	{
 		ProcessEvent(FindFunctionChecked(NAME_ACharacterBase_MulticastHandleDeath),NULL);
+	}
+	static FName NAME_ACharacterBase_MulticastSetMaxWalkSpeed = FName(TEXT("MulticastSetMaxWalkSpeed"));
+	void ACharacterBase::MulticastSetMaxWalkSpeed(float NewSpeed)
+	{
+		CharacterBase_eventMulticastSetMaxWalkSpeed_Parms Parms;
+		Parms.NewSpeed=NewSpeed;
+		ProcessEvent(FindFunctionChecked(NAME_ACharacterBase_MulticastSetMaxWalkSpeed),&Parms);
 	}
 	void ACharacterBase::StaticRegisterNativesACharacterBase()
 	{
 		UClass* Class = ACharacterBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "MulticastHandleDeath", &ACharacterBase::execMulticastHandleDeath },
+			{ "MulticastSetMaxWalkSpeed", &ACharacterBase::execMulticastSetMaxWalkSpeed },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -75,6 +95,36 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics
+	{
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_NewSpeed;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::NewProp_NewSpeed = { "NewSpeed", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CharacterBase_eventMulticastSetMaxWalkSpeed_Parms, NewSpeed), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::NewProp_NewSpeed,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/CharacterBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacterBase, nullptr, "MulticastSetMaxWalkSpeed", nullptr, nullptr, Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::PropPointers), sizeof(CharacterBase_eventMulticastSetMaxWalkSpeed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00084CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CharacterBase_eventMulticastSetMaxWalkSpeed_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -223,6 +273,7 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACharacterBase_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACharacterBase_MulticastHandleDeath, "MulticastHandleDeath" }, // 1213367709
+		{ &Z_Construct_UFunction_ACharacterBase_MulticastSetMaxWalkSpeed, "MulticastSetMaxWalkSpeed" }, // 3942331787
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacterBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -564,9 +615,9 @@ void EmptyLinkFunctionForGeneratedCodeCharacterBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 976438120U) },
+		{ Z_Construct_UClass_ACharacterBase, ACharacterBase::StaticClass, TEXT("ACharacterBase"), &Z_Registration_Info_UClass_ACharacterBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacterBase), 1995997752U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_2397095932(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_4192517477(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_CharacterBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
