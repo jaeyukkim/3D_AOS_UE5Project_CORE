@@ -10,6 +10,7 @@ class APlayerStateBase;
 class UAttributeSetBase;
 class UAttributeSet;
 class UAbilitySystemComponent;
+class UAbilitySystemComponentBase;
 
 USTRUCT(BlueprintType)
 struct FWidgetControllerParams
@@ -69,6 +70,10 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
 		TObjectPtr<APlayerStateBase> PlayerStateBase;
 	
+	UPROPERTY(BlueprintReadOnly, Category = "WidgetController")
+		TObjectPtr<UAbilitySystemComponentBase> AbilitySystemComponentBase;
+	
 	UAttributeSetBase* GetMyAS();
 	APlayerStateBase* GetMyPS();
+	UAbilitySystemComponentBase* GetMyASC();
 };

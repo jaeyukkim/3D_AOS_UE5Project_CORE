@@ -159,12 +159,6 @@
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\CharacterClassInfo.h">
       <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Data\ItemInfo.cpp">
-      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Data\ItemInfo.h">
-      <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Data\LevelUpInfo.cpp">
       <Filter>Source\SeniorProject\AbilitySystem\Data</Filter>
     </ClCompile>
@@ -203,6 +197,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Global\BlueprintFunctionLibraryBase.h">
       <Filter>Source\SeniorProject\AbilitySystem\Global</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\AbilitySystem\Item">
+      <UniqueIdentifier>{E4C14651-A53A-31E1-8C34-48631C0DF7FA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\AbilitySystem\Item\ItemAbility.cpp">
+      <Filter>Source\SeniorProject\AbilitySystem\Item</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\AbilitySystem\Item\ItemAbility.h">
+      <Filter>Source\SeniorProject\AbilitySystem\Item</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\Actor">
       <UniqueIdentifier>{691BE660-7E07-38EB-9C08-5EB50842228C}</UniqueIdentifier>

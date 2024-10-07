@@ -7,7 +7,7 @@
 #include "AbilitySystemComponentBase.generated.h"
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FEffectAssetTags, const FGameplayTagContainer& /*AssetTags*/);
-DECLARE_MULTICAST_DELEGATE_OneParam(FAbilitiesGiven, UAbilitySystemComponentBase*);
+DECLARE_MULTICAST_DELEGATE(FAbilitiesGiven);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnAttackEndSignatures);
 DECLARE_DELEGATE_OneParam(FForEachAbility, const FGameplayAbilitySpec&);
 DECLARE_MULTICAST_DELEGATE_TwoParams(FAbilityLevelChanged, const FGameplayTag& /*AbilityTag*/, int32 /*AbilityLevel*/);

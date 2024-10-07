@@ -40,3 +40,12 @@ APlayerStateBase* UDefaultWidgetController::GetMyPS()
 	}
 	return PlayerStateBase;
 }
+
+UAbilitySystemComponentBase* UDefaultWidgetController::GetMyASC()
+{
+	if (AbilitySystemComponentBase == nullptr)
+	{
+		AbilitySystemComponentBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent);
+	}
+	return AbilitySystemComponentBase;
+}

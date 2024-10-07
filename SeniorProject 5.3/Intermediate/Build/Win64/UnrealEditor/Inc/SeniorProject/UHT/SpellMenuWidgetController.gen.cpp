@@ -448,9 +448,9 @@ void FAbilityInfoDelegate_DelegateWrapper(const FMulticastScriptDelegate& Abilit
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USpellMenuWidgetController, USpellMenuWidgetController::StaticClass, TEXT("USpellMenuWidgetController"), &Z_Registration_Info_UClass_USpellMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpellMenuWidgetController), 1854750843U) },
+		{ Z_Construct_UClass_USpellMenuWidgetController, USpellMenuWidgetController::StaticClass, TEXT("USpellMenuWidgetController"), &Z_Registration_Info_UClass_USpellMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USpellMenuWidgetController), 2407118080U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_3391246034(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_1309621136(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_SpellMenu_SpellMenuWidgetController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

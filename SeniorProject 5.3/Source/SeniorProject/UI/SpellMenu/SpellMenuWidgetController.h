@@ -46,7 +46,7 @@ public:
 	
 protected:
 	
-	void OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase);
+	void OnInitializeStartupAbilities();
 
 	UFUNCTION(BlueprintCallable)
 	void UpgradeSpell(const FGameplayTag& AbilityTag);

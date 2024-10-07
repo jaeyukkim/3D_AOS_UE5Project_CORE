@@ -30,7 +30,7 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 	{
 		if (ASCBase->bStartupAbilitiesGiven)
 		{
-			OnInitializeStartupAbilities(ASCBase);
+			OnInitializeStartupAbilities();
 		}
 		else
 		{
@@ -49,15 +49,15 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 	}
 }
 
-void USpellMenuWidgetController::OnInitializeStartupAbilities(UAbilitySystemComponentBase* AbilitySystemComponentBase)
+void USpellMenuWidgetController::OnInitializeStartupAbilities()
 {
+	if(GetMyASC() == nullptr) return;
 	//Get information about all given abilities, look up their Ability Info, and broadcast it to widgets.
 	if (!AbilitySystemComponentBase->bStartupAbilitiesGiven) return;
 
 	FForEachAbility BroadcastDelegate;
-	BroadcastDelegate.BindLambda([this, AbilitySystemComponentBase](const FGameplayAbilitySpec& AbilitySpec)
+	BroadcastDelegate.BindLambda([this](const FGameplayAbilitySpec& AbilitySpec)
 	{
-		
 		FAbilityInfoBase Info = AbilityInfo->FindAbilityInfoForTag(AbilitySystemComponentBase->GetAbilityTagFromSpec(AbilitySpec));
 		Info.InputTag = AbilitySystemComponentBase->GetInputTagFromSpec(AbilitySpec);
 		AbilityInfoDelegate.Broadcast(Info);
