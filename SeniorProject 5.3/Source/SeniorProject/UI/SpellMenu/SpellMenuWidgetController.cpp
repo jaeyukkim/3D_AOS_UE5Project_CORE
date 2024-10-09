@@ -24,7 +24,6 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 	{
 		SpellPointsChanged.Broadcast(SpellPoints);
 	});
-
 	
 	if (UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
@@ -48,6 +47,7 @@ void USpellMenuWidgetController::BindCallbacksToDependencies()
 		});
 	}
 }
+
 
 void USpellMenuWidgetController::OnInitializeStartupAbilities()
 {

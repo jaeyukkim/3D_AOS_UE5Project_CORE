@@ -108,7 +108,6 @@ void ACharacterBase::ApplyDebuffEffect_Implementation(const FGameplayTag& Debuff
 		{
 			ASCBase->ApplyDebuffEffectSelf(DebuffClassMap[DebuffTag], DebuffTag, DebuffCoefficient, DebuffDuration, DebuffFrequency);
 		}
-		
 	}
 }
 

@@ -3,9 +3,15 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "GameplayTagContainer.h"
 #include "PlayerInterface.generated.h"
 
-UINTERFACE(MinimalAPI)
+
+struct FItemInformation;
+
+UINTERFACE
+
+(MinimalAPI)
 class UPlayerInterface : public UInterface
 {
 	GENERATED_BODY()
@@ -50,5 +56,18 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	void AddToSpellPoints(int32 InSpellPoints);
 	
-	
+	UFUNCTION(BlueprintNativeEvent)
+	void AddToItem(const FItemInformation& InOwnedItem);
+
+	UFUNCTION(BlueprintNativeEvent)
+	FGameplayTag GetEmptyItemSlot();
+
+	UFUNCTION(BlueprintNativeEvent)
+	TArray<FItemInformation> GetAllItem();
+
+	UFUNCTION(BlueprintNativeEvent)
+	bool DeleteItem(FGameplayTag ItemInputTag);
+
+	UFUNCTION(BlueprintNativeEvent)
+	void SortingItem();
 };

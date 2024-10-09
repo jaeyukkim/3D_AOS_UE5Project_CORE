@@ -24,6 +24,7 @@
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "Components/WidgetComponent.h"
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
 
@@ -67,6 +68,14 @@ AMyCharacter::AMyCharacter()
 	LastActor = nullptr;
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
+}
+
+
+void AMyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AMyCharacter, OwnedItems);
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -373,6 +382,77 @@ void AMyCharacter::LevelUp_Implementation()
 	
 	
 }
+
+void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
+{
+	OwnedItems.Add(InOwnedItem);
+
+}
+
+bool AMyCharacter::DeleteItem_Implementation(FGameplayTag ItemInputTag)
+{
+	// 배열에서 해당 태그를 가진 아이템을 모두 삭제
+	int32 RemovedCount = OwnedItems.RemoveAll([&](const FItemInformation& Info)
+	{
+		return Info.InputTag.MatchesTag(ItemInputTag);
+	});
+
+	// 삭제된 항목이 있으면 true 반환
+	return RemovedCount > 0;
+}
+
+void AMyCharacter::SortingItem_Implementation()
+{
+	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
+	{
+		UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent());
+
+		for(FItemInformation& OwnedItem : OwnedItems)
+		{
+			FGameplayTag PrevInputTag = OwnedItem.InputTag;
+			FGameplayTag NextInputTag = GetEmptyItemSlot_Implementation();
+
+			OwnedItem.InputTag = NextInputTag;
+			ASCBase->ChangeGrantedTagToEffect(PrevInputTag, NextInputTag, OwnedItem.ItemEffect);
+		}
+		
+	}
+}
+
+FGameplayTag AMyCharacter::GetEmptyItemSlot_Implementation()
+{
+	
+	// 게임플레이 태그 데이터베이스 가져오기
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+    
+	// OwnedItems 배열에서 사용 중인 InputTag들을 수집합니다.
+	TSet<FGameplayTag> UsedTags;
+	for (const FItemInformation& Item : OwnedItems)
+	{
+		if (Item.InputTag.IsValid())
+		{
+			UsedTags.Add(Item.InputTag);
+		}
+	}
+
+	// 사용되지 않은 태그를 찾아 반환합니다.
+	for (const FGameplayTag& InputTag : GameplayTags.ItemInputTags)
+	{
+		if (!UsedTags.Contains(InputTag))
+		{
+			return InputTag; // 사용되지 않은 첫 번째 태그 반환
+		}
+	}
+
+	// 사용 가능한 태그가 없을 경우 NONE 태그 반환
+	return GameplayTags.Input_NONE;
+}
+
+TArray<FItemInformation> AMyCharacter::GetAllItem_Implementation()
+{
+	return OwnedItems;
+}
+
 
 void AMyCharacter::MulticastLevelUpParticles_Implementation() const
 {

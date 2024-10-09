@@ -59,11 +59,11 @@
 			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
-			"PlayerInterface.gen.cpp.obj",
-			"PlayerStateBase.gen.cpp.obj",
-			"ProjectileBase.gen.cpp.obj"
+			"PlayerInterface.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"PlayerStateBase.gen.cpp.obj",
+			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
 			"Ranged.gen.cpp.obj",
 			"SeniorProject.gen.cpp.obj",
@@ -127,7 +127,9 @@
 			"PlayerInterface.cpp.obj",
 			"MyAnimInstance.cpp.obj",
 			"MyPlayerController.cpp.obj",
-			"PlayerStateBase.cpp.obj",
+			"PlayerStateBase.cpp.obj"
+		],
+		"Module.SeniorProject.5.cpp.obj": [
 			"SeniorProject.cpp.obj",
 			"AttributeMenuWidgetController.cpp.obj",
 			"DamageTextComponent.cpp.obj",

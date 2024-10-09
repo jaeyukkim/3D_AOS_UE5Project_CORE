@@ -74,7 +74,7 @@ protected:
 	int32 SpellPoints = 1;
 
 	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_Gold)
-	int32 Gold = 500;
+	int32 Gold = 5000;
 	
 	UFUNCTION()
 	void OnRep_Level(int32 OldLevel);

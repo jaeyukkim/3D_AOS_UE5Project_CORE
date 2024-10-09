@@ -9,6 +9,7 @@
 #include "ActiveGameplayEffectHandle.h"
 #include "GameplayEffect.h"
 #include "GameplayTagContainer.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 // Cross Module References
@@ -22,6 +23,7 @@ void EmptyLinkFunctionForGeneratedCodeAbilitySystemComponentBase() {}
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UAbilitySystemComponentBase_NoRegister();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature();
+	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FItemInformation();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_SeniorProject_OnAttackEndSignatures__DelegateSignature_Statics
@@ -57,6 +59,14 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		P_THIS->BroadCastAttackEnd_Implementation();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UAbilitySystemComponentBase::execClientUpdateItem)
+	{
+		P_GET_STRUCT(FItemInformation,Z_Param_ClickedItemInfo);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ClientUpdateItem_Implementation(Z_Param_ClickedItemInfo);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UAbilitySystemComponentBase::execClientUpdateAbilityLevel)
 	{
 		P_GET_STRUCT(FGameplayTag,Z_Param_AbilityTag);
@@ -82,6 +92,14 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->ServerSpendSpellPoint_Implementation(Z_Param_AbilityTag);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UAbilitySystemComponentBase::execServerBuyItem)
+	{
+		P_GET_STRUCT(FItemInformation,Z_Param_ClickedItemInfo);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ServerBuyItem_Implementation(Z_Param_ClickedItemInfo);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UAbilitySystemComponentBase::execApplyDebuffEffectSelf)
@@ -115,6 +133,14 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		FGameplayTag AbilityTag;
 		int32 AbilityLevel;
 	};
+	struct AbilitySystemComponentBase_eventClientUpdateItem_Parms
+	{
+		FItemInformation ClickedItemInfo;
+	};
+	struct AbilitySystemComponentBase_eventServerBuyItem_Parms
+	{
+		FItemInformation ClickedItemInfo;
+	};
 	struct AbilitySystemComponentBase_eventServerSpendSpellPoint_Parms
 	{
 		FGameplayTag AbilityTag;
@@ -141,6 +167,20 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		Parms.AbilityLevel=AbilityLevel;
 		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_ClientUpdateAbilityLevel),&Parms);
 	}
+	static FName NAME_UAbilitySystemComponentBase_ClientUpdateItem = FName(TEXT("ClientUpdateItem"));
+	void UAbilitySystemComponentBase::ClientUpdateItem(FItemInformation const& ClickedItemInfo)
+	{
+		AbilitySystemComponentBase_eventClientUpdateItem_Parms Parms;
+		Parms.ClickedItemInfo=ClickedItemInfo;
+		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_ClientUpdateItem),&Parms);
+	}
+	static FName NAME_UAbilitySystemComponentBase_ServerBuyItem = FName(TEXT("ServerBuyItem"));
+	void UAbilitySystemComponentBase::ServerBuyItem(FItemInformation const& ClickedItemInfo)
+	{
+		AbilitySystemComponentBase_eventServerBuyItem_Parms Parms;
+		Parms.ClickedItemInfo=ClickedItemInfo;
+		ProcessEvent(FindFunctionChecked(NAME_UAbilitySystemComponentBase_ServerBuyItem),&Parms);
+	}
 	static FName NAME_UAbilitySystemComponentBase_ServerSpendSpellPoint = FName(TEXT("ServerSpendSpellPoint"));
 	void UAbilitySystemComponentBase::ServerSpendSpellPoint(FGameplayTag const& AbilityTag)
 	{
@@ -156,7 +196,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 			{ "BroadCastAttackEnd", &UAbilitySystemComponentBase::execBroadCastAttackEnd },
 			{ "ClientEffectApplied", &UAbilitySystemComponentBase::execClientEffectApplied },
 			{ "ClientUpdateAbilityLevel", &UAbilitySystemComponentBase::execClientUpdateAbilityLevel },
+			{ "ClientUpdateItem", &UAbilitySystemComponentBase::execClientUpdateItem },
 			{ "GetAbilityLevel", &UAbilitySystemComponentBase::execGetAbilityLevel },
+			{ "ServerBuyItem", &UAbilitySystemComponentBase::execServerBuyItem },
 			{ "ServerSpendSpellPoint", &UAbilitySystemComponentBase::execServerSpendSpellPoint },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -358,6 +400,44 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClickedItemInfo_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ClickedItemInfo;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventClientUpdateItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 2464813800
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "ClientUpdateItem", nullptr, nullptr, Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::PropPointers), sizeof(AbilitySystemComponentBase_eventClientUpdateItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01080CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(AbilitySystemComponentBase_eventClientUpdateItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UAbilitySystemComponentBase_GetAbilityLevel_Statics
 	{
 		struct AbilitySystemComponentBase_eventGetAbilityLevel_Parms
@@ -394,6 +474,44 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_GetAbilityLevel_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ClickedItemInfo_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ClickedItemInfo;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerBuyItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 2464813800
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilitySystemComponentBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAbilitySystemComponentBase, nullptr, "ServerBuyItem", nullptr, nullptr, Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::PropPointers), sizeof(AbilitySystemComponentBase_eventServerBuyItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(AbilitySystemComponentBase_eventServerBuyItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -465,7 +583,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_BroadCastAttackEnd, "BroadCastAttackEnd" }, // 2447331622
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied, "ClientEffectApplied" }, // 4212018037
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateAbilityLevel, "ClientUpdateAbilityLevel" }, // 569880212
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem, "ClientUpdateItem" }, // 1980331325
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_GetAbilityLevel, "GetAbilityLevel" }, // 1429693080
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem, "ServerBuyItem" }, // 2309525785
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint, "ServerSpendSpellPoint" }, // 1812849322
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo) < 2048);
@@ -528,9 +648,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 3227994444U) },
+		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 1174638446U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_3005708868(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_3683199922(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

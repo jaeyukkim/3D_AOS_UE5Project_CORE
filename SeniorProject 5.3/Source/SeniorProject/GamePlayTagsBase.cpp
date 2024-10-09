@@ -96,6 +96,30 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 			FString("Input Tag for F Keyboard Button"));
 	GameplayTags.Input_B =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.B"),
 			FString("Input Tag for B Keyboard Button"));
+	GameplayTags.Input_1 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.1"),
+			FString("Input Tag for 1 Keyboard Button"));
+	GameplayTags.Input_2 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.2"),
+			FString("Input Tag for 2 Keyboard Button"));
+	GameplayTags.Input_3 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.3"),
+			FString("Input Tag for 3 Keyboard Button"));
+	GameplayTags.Input_4 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.4"),
+			FString("Input Tag for 4 Keyboard Button"));
+	GameplayTags.Input_5 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.5"),
+			FString("Input Tag for 5 Keyboard Button"));
+	GameplayTags.Input_6 =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.6"),
+			FString("Input Tag for 6 Keyboard Button"));
+	GameplayTags.Input_NONE =UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Input.NONE"),
+			FString("Input NONE"));
+	
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_1);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_2);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_3);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_4);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_5);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_6);
+	GameplayTags.ItemInputTags.Add(GameplayTags.Input_NONE);
+
+
 	/* end Input Tag */
 
 

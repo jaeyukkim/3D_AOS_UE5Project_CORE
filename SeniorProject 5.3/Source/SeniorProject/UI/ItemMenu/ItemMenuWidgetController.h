@@ -6,23 +6,34 @@
 #include "GameplayTagContainer.h"
 #include "SeniorProject/UI/DefaultWidgetController.h"
 #include "SeniorProject/AbilitySystem/Item/ItemAbility.h"
+#include "GameplayEffect.h"
 #include "ItemMenuWidgetController.generated.h"
 
 
-
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGoldChangedSignature, int32, NewGold);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBuyButtonChangedDelegate, bool, bIsBuyable);
 
 USTRUCT(BlueprintType)
 struct FItemInformation
 {
 	GENERATED_BODY()
+	FItemInformation()
+		: ItemTag(FGameplayTag())
+		, InputTag(FGameplayTag())
+		, ItemPrice(0)
+		, ItemImg(nullptr)
+		, ItemAbility(nullptr)
+		, ItemEffect(nullptr)
+		, bHasBought(false)
+	{
+	}
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FGameplayTag ItemTag = FGameplayTag();
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	int32 RequiredGold = 100000;
+	FGameplayTag InputTag = FGameplayTag();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	int32 ItemPrice = 0;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TObjectPtr<UTexture> ItemImg = nullptr;
@@ -31,9 +42,21 @@ struct FItemInformation
 	TSubclassOf<UItemAbility> ItemAbility = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TSubclassOf<UGameplayEffect> ItemEffect = nullptr;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool bHasBought = false;
+
+	
+	
 	
 };
+
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGoldChangedSignature, int32, NewGold);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBuyButtonChangedDelegate, bool, bIsBuyable);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemStateChangedDelegate, const FItemInformation&, Info);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemDeletedDelegate, const FGameplayTag&, ItemInputTag);
 
 
 /**
@@ -48,19 +71,53 @@ class SENIORPROJECT_API UItemMenuWidgetController : public UDefaultWidgetControl
 	GENERATED_BODY()
 public:
 	UFUNCTION(BlueprintCallable)
+
 	
 	virtual void BroadcastInitialValues() override;
 	virtual void BindCallbacksToDependencies() override;
+
+	UFUNCTION(BlueprintCallable)
 	void OnInitializeShopItem();
 	
 	UFUNCTION(BlueprintCallable)
 	void UpdateClickedItem(FItemInformation Info);
+
+	UFUNCTION(BlueprintCallable)
+	void ShopClickedItem(FItemInformation Info);
+
+	UFUNCTION(BlueprintCallable)
+	void ShopClickedPlayerItem(FGameplayTag ItemInputTag);
 	
-	UPROPERTY(BlueprintAssignable)
-	FBuyButtonChangedDelegate BuyButtonChangedDelegate;
+	UFUNCTION(BlueprintCallable)
+	void BuyItem();
+
+	UFUNCTION(BlueprintCallable)
+	void SellItem();
+
+	UFUNCTION(BlueprintCallable)
+	void InitializeShopPlayerItem();
 	
 	UPROPERTY(BlueprintAssignable)
 	FGoldChangedSignature GoldChanged;
+	
+	UPROPERTY(BlueprintAssignable)
+	FBuyButtonChangedDelegate BuyButtonChangedDelegate;
+
+	UPROPERTY(BlueprintAssignable)
+	FBuyButtonChangedDelegate SellButtonChangedDelegate;
+
+	UPROPERTY(BlueprintAssignable)
+	FItemStateChangedDelegate PlayerItemChangedDelegate;
+
+	UPROPERTY(BlueprintAssignable)
+	FItemStateChangedDelegate ShopPlayerItemInitializeDelegate;
+
+	UPROPERTY(BlueprintAssignable)
+	FItemStateChangedDelegate ShowItemInfoDelegate;
+
+	UPROPERTY(BlueprintAssignable)
+	FItemDeletedDelegate ItemDeletedDelegate;
+
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ItemInformation")
 	TObjectPtr<UDataTable> ItemTagData;

@@ -31,6 +31,7 @@ public:
 	virtual void BindCallbacksToDependencies() override;
 
 	
+	
 	UPROPERTY(BlueprintAssignable, Category = "GAS|Spell")
 	FOnSpellPointChangedDelegate SpellPointsChanged;
 

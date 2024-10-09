@@ -9,15 +9,20 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FGameplayTag;
+struct FItemInformation;
 #ifdef SENIORPROJECT_PlayerInterface_generated_h
 #error "PlayerInterface.generated.h already included, missing '#pragma once' in PlayerInterface.h"
 #endif
 #define SENIORPROJECT_PlayerInterface_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual TArray<FItemInformation> GetAllItem_Implementation() { return TArray<FItemInformation>(); }; \
+	virtual FGameplayTag GetEmptyItemSlot_Implementation() { return FGameplayTag(); }; \
+	virtual void AddToItem_Implementation(FItemInformation const& InOwnedItem) {}; \
 	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) {}; \
 	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) {}; \
 	virtual void LevelUp_Implementation() {}; \
@@ -29,6 +34,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual int32 GetXP_Implementation() const { return 0; }; \
 	virtual int32 FindLevelForXP_Implementation(int32 InXP) const { return 0; }; \
  \
+	DECLARE_FUNCTION(execGetAllItem); \
+	DECLARE_FUNCTION(execGetEmptyItemSlot); \
+	DECLARE_FUNCTION(execAddToItem); \
 	DECLARE_FUNCTION(execAddToSpellPoints); \
 	DECLARE_FUNCTION(execAddToPlayerLevel); \
 	DECLARE_FUNCTION(execLevelUp); \
@@ -41,9 +49,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execFindLevelForXP);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_CALLBACK_WRAPPERS
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_CALLBACK_WRAPPERS
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	SENIORPROJECT_API UPlayerInterface(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -57,7 +65,7 @@ public: \
 	SENIORPROJECT_API virtual ~UPlayerInterface();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_GENERATED_UINTERFACE_BODY() \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUPlayerInterface(); \
 	friend struct Z_Construct_UClass_UPlayerInterface_Statics; \
@@ -66,25 +74,28 @@ public: \
 	DECLARE_SERIALIZER(UPlayerInterface)
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_GENERATED_UINTERFACE_BODY() \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_GENERATED_UINTERFACE_BODY() \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~IPlayerInterface() {} \
 public: \
 	typedef UPlayerInterface UClassType; \
 	typedef IPlayerInterface ThisClass; \
 	static void Execute_AddToGold(UObject* O, int32 InGold); \
+	static void Execute_AddToItem(UObject* O, FItemInformation const& InOwnedItem); \
 	static void Execute_AddToPlayerLevel(UObject* O, int32 InPlayerLevel); \
 	static void Execute_AddToSpellPoints(UObject* O, int32 InSpellPoints); \
 	static void Execute_AddToXP(UObject* O, int32 InXP); \
 	static int32 Execute_FindLevelForXP(const UObject* O, int32 InXP); \
+	static TArray<FItemInformation> Execute_GetAllItem(UObject* O); \
+	static FGameplayTag Execute_GetEmptyItemSlot(UObject* O); \
 	static int32 Execute_GetGold(const UObject* O); \
 	static int32 Execute_GetSpellPoints(const UObject* O); \
 	static int32 Execute_GetSpellPointsReward(const UObject* O, int32 Level); \
@@ -93,17 +104,17 @@ public: \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_8_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_19_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_14_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_25_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_CALLBACK_WRAPPERS \
-	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_11_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_CALLBACK_WRAPPERS \
+	FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

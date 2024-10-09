@@ -5,7 +5,9 @@
 
 #include "SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h"
 #include "SeniorProject/GameplayTagsBase.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 
 void UAbilitySystemComponentBase::AbilityActorInfoSet()
 {
@@ -118,6 +120,17 @@ void UAbilitySystemComponentBase::ForEachAbility(const FForEachAbility& Delegate
 	}
 }
 
+void UAbilitySystemComponentBase::UpdateForEachItem()
+{
+	if(!GetAvatarActor()->Implements<UPlayerInterface>()) return;
+
+	TArray<FItemInformation> Information = IPlayerInterface::Execute_GetAllItem(GetAvatarActor());
+	for(FItemInformation Info : Information)
+	{
+		OwnedItemChangedDelegate.Broadcast(Info);
+	}
+}
+
 FGameplayTag UAbilitySystemComponentBase::GetAbilityTagFromSpec(const FGameplayAbilitySpec& AbilitySpec)
 {
 	if (AbilitySpec.Ability)
@@ -215,6 +228,114 @@ void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEff
 
 
 
+void UAbilitySystemComponentBase::ServerSellItem_Implementation(const FGameplayTag& ItemInputTag,  const int32 ItemPrice)
+{
+	if (!GetAvatarActor()->Implements<UPlayerInterface>()) return;
+	
+
+	if(IPlayerInterface::Execute_DeleteItem(GetAvatarActor(), ItemInputTag))
+	{
+		FGameplayTagContainer InputTag;
+		InputTag.AddTag(ItemInputTag);
+		int32 RemovedEffects = RemoveActiveEffectsWithTags(InputTag);
+		IPlayerInterface::Execute_AddToGold(GetAvatarActor(), ItemPrice);
+
+		
+		/* 빈 아이템으로 다시 교체 */
+	//	FItemInformation ItemInfo = FItemInformation();
+	//	ItemInfo.InputTag = ItemInputTag;
+		//IPlayerInterface::Execute_SortingItem(GetAvatarActor());
+	//	ClientUpdateItem(ItemInfo);
+	}
+	
+}
+
+
+void UAbilitySystemComponentBase::ChangeGrantedTagToEffect_Implementation(FGameplayTag PrevTag, FGameplayTag NextTag, TSubclassOf<UGameplayEffect> Effect)
+{
+
+	
+	FGameplayTagContainer InputTag;
+	InputTag.AddTag(PrevTag);
+	RemoveActiveEffectsWithTags(InputTag);
+	
+	FGameplayEffectContextHandle ItemEffectContextHandle = MakeEffectContext();
+	ItemEffectContextHandle.AddSourceObject(GetAvatarActor());
+	FGameplayEffectSpecHandle ItemSpecHandle = MakeOutgoingSpec(Effect, 1, ItemEffectContextHandle);
+	ItemSpecHandle.Data->DynamicGrantedTags.AddTag(NextTag);
+	ItemSpecHandle.Data->AddDynamicAssetTag(NextTag);
+	ApplyGameplayEffectSpecToSelf(*ItemSpecHandle.Data.Get());
+	
+}
+
+void UAbilitySystemComponentBase::ServerBuyItem_Implementation(FItemInformation ClickedItemInfo)
+{
+	if (!GetAvatarActor()->Implements<UPlayerInterface>() || IPlayerInterface::Execute_GetGold(GetAvatarActor()) < ClickedItemInfo.ItemPrice) return;
+	if(ClickedItemInfo.ItemEffect == nullptr) return;
+
+	
+	
+	/* 비어있는 아이템 슬롯 반환 */
+	FGameplayTag EmptyItemSlotTag = IPlayerInterface::Execute_GetEmptyItemSlot(GetAvatarActor());
+
+	/* 비어있는 아이템 슬롯이 없을 경우 */
+	if(EmptyItemSlotTag == FGameplayTagsBase::Get().Input_NONE) return;
+
+	ClickedItemInfo.InputTag = EmptyItemSlotTag;
+	
+	FGameplayEffectContextHandle ItemEffectContextHandle = MakeEffectContext();
+	ItemEffectContextHandle.AddSourceObject(GetAvatarActor());
+	FGameplayEffectSpecHandle ItemSpecHandle = MakeOutgoingSpec(ClickedItemInfo.ItemEffect, 1, ItemEffectContextHandle);
+	ItemSpecHandle.Data->DynamicGrantedTags.AddTag(ClickedItemInfo.InputTag);
+	ItemSpecHandle.Data->AddDynamicAssetTag(ClickedItemInfo.InputTag);
+	ApplyGameplayEffectSpecToSelf(*ItemSpecHandle.Data.Get());
+
+	
+	
+	
+	IPlayerInterface::Execute_AddToItem(GetAvatarActor(), ClickedItemInfo);
+	IPlayerInterface::Execute_AddToGold(GetAvatarActor(), -ClickedItemInfo.ItemPrice);
+	ClientUpdateItem(ClickedItemInfo);
+	
+}
+
+void UAbilitySystemComponentBase::ClientUpdateItem_Implementation(const FItemInformation& ClickedItemInfo)
+{
+	OwnedItemChangedDelegate.Broadcast(ClickedItemInfo);
+}
+
+
+
+
+const FItemInformation UAbilitySystemComponentBase::GetPlayerItem(FGameplayTag ItemInputTag)
+{
+	if(!GetAvatarActor()->Implements<UPlayerInterface>()) return FItemInformation();
+
+	TArray<FItemInformation> ItemInformations = IPlayerInterface::Execute_GetAllItem(GetAvatarActor());
+
+	for(FItemInformation Info : ItemInformations)
+	{
+		if(Info.InputTag.MatchesTag(ItemInputTag))
+		{
+			return Info;
+		}
+	}
+
+
+	return FItemInformation();
+}
+
+const TArray<FItemInformation> UAbilitySystemComponentBase::GetAllPlayerItem()
+{
+	if(!GetAvatarActor()->Implements<UPlayerInterface>())
+	{
+		TArray<FItemInformation> Info;
+		return Info;
+	}
+	
+	return IPlayerInterface::Execute_GetAllItem(GetAvatarActor());
+}
+
 TArray<FGameplayAbilitySpec*> UAbilitySystemComponentBase::GetSpecFromAbilityTag(const FGameplayTag& AbilityTag)
 {
 	FScopedAbilityListLock ActiveScopeLoc(*this);
@@ -241,17 +362,13 @@ TArray<FGameplayAbilitySpec*> UAbilitySystemComponentBase::GetSpecFromAbilityTag
 
 void UAbilitySystemComponentBase::ServerSpendSpellPoint_Implementation(const FGameplayTag& AbilityTag)
 {
-
-	
 	// 서버에서만 실행할 로직
-
-	if (GetAvatarActor()->Implements<UPlayerInterface>())
+	
+	if (!GetAvatarActor()->Implements<UPlayerInterface>() && IPlayerInterface::Execute_GetSpellPoints(GetAvatarActor()) <= 0)
 	{
-		if (IPlayerInterface::Execute_GetSpellPoints(GetAvatarActor()) <= 0)
-		{
-			return;
-		}
+		return;
 	}
+	
 	
 	
 	TArray<FGameplayAbilitySpec*> MatchedAbilitySpecs = GetSpecFromAbilityTag(AbilityTag);

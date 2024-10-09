@@ -6,14 +6,40 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
+#include "GameplayTagContainer.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UPlayerInterface();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UPlayerInterface_NoRegister();
+	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FItemInformation();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(IPlayerInterface::execGetAllItem)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(TArray<FItemInformation>*)Z_Param__Result=P_THIS->GetAllItem_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execGetEmptyItemSlot)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FGameplayTag*)Z_Param__Result=P_THIS->GetEmptyItemSlot_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execAddToItem)
+	{
+		P_GET_STRUCT_REF(FItemInformation,Z_Param_Out_InOwnedItem);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddToItem_Implementation(Z_Param_Out_InOwnedItem);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execAddToSpellPoints)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_InSpellPoints);
@@ -94,6 +120,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		int32 InGold;
 	};
+	struct PlayerInterface_eventAddToItem_Parms
+	{
+		FItemInformation InOwnedItem;
+	};
 	struct PlayerInterface_eventAddToPlayerLevel_Parms
 	{
 		int32 InPlayerLevel;
@@ -116,6 +146,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			: ReturnValue(0)
 		{
 		}
+	};
+	struct PlayerInterface_eventGetAllItem_Parms
+	{
+		TArray<FItemInformation> ReturnValue;
+	};
+	struct PlayerInterface_eventGetEmptyItemSlot_Parms
+	{
+		FGameplayTag ReturnValue;
 	};
 	struct PlayerInterface_eventGetGold_Parms
 	{
@@ -162,6 +200,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToGold instead.");
 	}
+	void IPlayerInterface::AddToItem(FItemInformation const& InOwnedItem)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToItem instead.");
+	}
 	void IPlayerInterface::AddToPlayerLevel(int32 InPlayerLevel)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToPlayerLevel instead.");
@@ -178,6 +220,18 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_FindLevelForXP instead.");
 		PlayerInterface_eventFindLevelForXP_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	TArray<FItemInformation> IPlayerInterface::GetAllItem()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetAllItem instead.");
+		PlayerInterface_eventGetAllItem_Parms Parms;
+		return Parms.ReturnValue;
+	}
+	FGameplayTag IPlayerInterface::GetEmptyItemSlot()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetEmptyItemSlot instead.");
+		PlayerInterface_eventGetEmptyItemSlot_Parms Parms;
 		return Parms.ReturnValue;
 	}
 	int32 IPlayerInterface::GetGold() const
@@ -213,10 +267,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		UClass* Class = UPlayerInterface::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AddToGold", &IPlayerInterface::execAddToGold },
+			{ "AddToItem", &IPlayerInterface::execAddToItem },
 			{ "AddToPlayerLevel", &IPlayerInterface::execAddToPlayerLevel },
 			{ "AddToSpellPoints", &IPlayerInterface::execAddToSpellPoints },
 			{ "AddToXP", &IPlayerInterface::execAddToXP },
 			{ "FindLevelForXP", &IPlayerInterface::execFindLevelForXP },
+			{ "GetAllItem", &IPlayerInterface::execGetAllItem },
+			{ "GetEmptyItemSlot", &IPlayerInterface::execGetEmptyItemSlot },
 			{ "GetGold", &IPlayerInterface::execGetGold },
 			{ "GetSpellPoints", &IPlayerInterface::execGetSpellPoints },
 			{ "GetSpellPointsReward", &IPlayerInterface::execGetSpellPointsReward },
@@ -252,6 +309,44 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_AddToGold_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InOwnedItem_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InOwnedItem;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem = { "InOwnedItem", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventAddToItem_Parms, InOwnedItem), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData), Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData) }; // 2464813800
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "AddToItem", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::PropPointers), sizeof(PlayerInterface_eventAddToItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08420C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventAddToItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_AddToItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -375,6 +470,69 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_FindLevelForXP_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics
+	{
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue_Inner;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 2464813800
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetAllItem_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) }; // 2464813800
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetAllItem", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::PropPointers), sizeof(PlayerInterface_eventGetAllItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetAllItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetAllItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics
+	{
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetEmptyItemSlot_Parms, ReturnValue), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "GetEmptyItemSlot", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::PropPointers), sizeof(PlayerInterface_eventGetEmptyItemSlot_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventGetEmptyItemSlot_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -545,10 +703,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToGold, "AddToGold" }, // 749253225
+		{ &Z_Construct_UFunction_UPlayerInterface_AddToItem, "AddToItem" }, // 992970507
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToPlayerLevel, "AddToPlayerLevel" }, // 1819615132
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToSpellPoints, "AddToSpellPoints" }, // 4156170471
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToXP, "AddToXP" }, // 1711502672
 		{ &Z_Construct_UFunction_UPlayerInterface_FindLevelForXP, "FindLevelForXP" }, // 1067225906
+		{ &Z_Construct_UFunction_UPlayerInterface_GetAllItem, "GetAllItem" }, // 325662687
+		{ &Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot, "GetEmptyItemSlot" }, // 336718263
 		{ &Z_Construct_UFunction_UPlayerInterface_GetGold, "GetGold" }, // 358061602
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPoints, "GetSpellPoints" }, // 2299189408
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPointsReward, "GetSpellPointsReward" }, // 815528352
@@ -609,6 +770,23 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
 		{
 			I->AddToGold_Implementation(InGold);
+		}
+	}
+	static FName NAME_UPlayerInterface_AddToItem = FName(TEXT("AddToItem"));
+	void IPlayerInterface::Execute_AddToItem(UObject* O, FItemInformation const& InOwnedItem)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventAddToItem_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_AddToItem);
+		if (Func)
+		{
+			Parms.InOwnedItem=InOwnedItem;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			I->AddToItem_Implementation(InOwnedItem);
 		}
 	}
 	static FName NAME_UPlayerInterface_AddToPlayerLevel = FName(TEXT("AddToPlayerLevel"));
@@ -677,6 +855,40 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		else if (auto I = (const IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
 		{
 			Parms.ReturnValue = I->FindLevelForXP_Implementation(InXP);
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_GetAllItem = FName(TEXT("GetAllItem"));
+	TArray<FItemInformation> IPlayerInterface::Execute_GetAllItem(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetAllItem_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetAllItem);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetAllItem_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
+	static FName NAME_UPlayerInterface_GetEmptyItemSlot = FName(TEXT("GetEmptyItemSlot"));
+	FGameplayTag IPlayerInterface::Execute_GetEmptyItemSlot(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventGetEmptyItemSlot_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_GetEmptyItemSlot);
+		if (Func)
+		{
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->GetEmptyItemSlot_Implementation();
 		}
 		return Parms.ReturnValue;
 	}
@@ -769,9 +981,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 182651448U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 3255003103U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_1146591896(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_3576146734(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

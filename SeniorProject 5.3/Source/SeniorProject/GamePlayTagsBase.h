@@ -63,6 +63,14 @@ public:
 	FGameplayTag Input_SHIFT;
 	FGameplayTag Input_F;
 	FGameplayTag Input_B;
+	FGameplayTag Input_1;
+	FGameplayTag Input_2;
+	FGameplayTag Input_3;
+	FGameplayTag Input_4;
+	FGameplayTag Input_5;
+	FGameplayTag Input_6;
+	FGameplayTag Input_NONE;
+	TArray<FGameplayTag> ItemInputTags;
 	/* Input Tag */
 
 	FGameplayTag PhysicalDamage;

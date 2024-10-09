@@ -8,6 +8,7 @@
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/Character/CharacterBase.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+#include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "InputActionValue.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
@@ -32,6 +33,8 @@ public:
 	// Sets default values for this character's properties
 	AMyCharacter();
 	
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
@@ -69,14 +72,19 @@ public:
 	virtual int32 GetXP_Implementation() const override;
 	virtual int32 GetGold_Implementation() const override;
 	virtual int32 FindLevelForXP_Implementation(int32 InXP) const override;
-
-	
 	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) override;
 	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) override;
 	virtual void AddToGold_Implementation(int32 InGold) override;
 	virtual void AddToXP_Implementation(int32 InXP) override;
 	virtual void LevelUp_Implementation() override;
+	virtual void AddToItem_Implementation(const FItemInformation& InOwnedItem) override;
+	virtual bool DeleteItem_Implementation(FGameplayTag ItemInputTag) override;
+	virtual void SortingItem_Implementation() override;
+	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
+	TArray<FItemInformation> GetAllItem_Implementation() override;
+	
 	/** end Player Interface */
+	
 
 
 	UPROPERTY(BlueprintAssignable)
@@ -112,6 +120,10 @@ protected:
 
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
+
+	UPROPERTY(Replicated)
+	TArray<FItemInformation> OwnedItems;
+	
 private:
 
 	
