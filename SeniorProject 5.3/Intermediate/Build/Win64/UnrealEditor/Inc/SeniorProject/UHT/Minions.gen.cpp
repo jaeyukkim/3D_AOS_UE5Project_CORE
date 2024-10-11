@@ -183,6 +183,14 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_CombatTarget;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TeamName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TeamName;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LineTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_LineTag;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Level_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Level;
@@ -250,6 +258,26 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget = { "CombatTarget", nullptr, (EPropertyFlags)0x0014000000000004, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, CombatTarget), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_TeamName_MetaData[] = {
+		{ "Category", "GameRule" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/* end GameplayInterface */" },
+#endif
+		{ "ModuleRelativePath", "Character/Enemy/Minions.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "end GameplayInterface" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_TeamName = { "TeamName", nullptr, (EPropertyFlags)0x0010000000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, TeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_TeamName_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_TeamName_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_LineTag_MetaData[] = {
+		{ "Category", "GameRule" },
+		{ "ModuleRelativePath", "Character/Enemy/Minions.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AMinions_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMinions, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMinions_Statics::NewProp_LineTag_MetaData), Z_Construct_UClass_AMinions_Statics::NewProp_LineTag_MetaData) }; // 2083603574
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMinions_Statics::NewProp_Level_MetaData[] = {
 		{ "Category", "Defalut Character Setting" },
 		{ "ModuleRelativePath", "Character/Enemy/Minions.h" },
@@ -304,6 +332,8 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMinions_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_LifeSpan,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_CombatTarget,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_TeamName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_LineTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_Level,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_HealthBarWidget,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMinions_Statics::NewProp_AIControllerBase,
@@ -346,9 +376,13 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 
 	void AMinions::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
+		static const FName Name_TeamName(TEXT("TeamName"));
+		static const FName Name_LineTag(TEXT("LineTag"));
 		static const FName Name_bIsMeshChanged(TEXT("bIsMeshChanged"));
 
 		const bool bIsValid = true
+			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName()
+			&& Name_LineTag == ClassReps[(int32)ENetFields_Private::LineTag].Property->GetFName()
 			&& Name_bIsMeshChanged == ClassReps[(int32)ENetFields_Private::bIsMeshChanged].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in AMinions"));
@@ -360,9 +394,9 @@ void EmptyLinkFunctionForGeneratedCodeMinions() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 3294017829U) },
+		{ Z_Construct_UClass_AMinions, AMinions::StaticClass, TEXT("AMinions"), &Z_Registration_Info_UClass_AMinions, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMinions), 615992431U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_3368829586(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_1229506403(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Enemy_Minions_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

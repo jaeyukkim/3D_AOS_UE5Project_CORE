@@ -20,6 +20,8 @@ struct FItemInformation;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void SortingItem_Implementation() {}; \
+	virtual bool DeleteItem_Implementation(FGameplayTag ItemInputTag) { return false; }; \
 	virtual TArray<FItemInformation> GetAllItem_Implementation() { return TArray<FItemInformation>(); }; \
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() { return FGameplayTag(); }; \
 	virtual void AddToItem_Implementation(FItemInformation const& InOwnedItem) {}; \
@@ -34,6 +36,8 @@ struct FItemInformation;
 	virtual int32 GetXP_Implementation() const { return 0; }; \
 	virtual int32 FindLevelForXP_Implementation(int32 InXP) const { return 0; }; \
  \
+	DECLARE_FUNCTION(execSortingItem); \
+	DECLARE_FUNCTION(execDeleteItem); \
 	DECLARE_FUNCTION(execGetAllItem); \
 	DECLARE_FUNCTION(execGetEmptyItemSlot); \
 	DECLARE_FUNCTION(execAddToItem); \
@@ -93,6 +97,7 @@ public: \
 	static void Execute_AddToPlayerLevel(UObject* O, int32 InPlayerLevel); \
 	static void Execute_AddToSpellPoints(UObject* O, int32 InSpellPoints); \
 	static void Execute_AddToXP(UObject* O, int32 InXP); \
+	static bool Execute_DeleteItem(UObject* O, FGameplayTag ItemInputTag); \
 	static int32 Execute_FindLevelForXP(const UObject* O, int32 InXP); \
 	static TArray<FItemInformation> Execute_GetAllItem(UObject* O); \
 	static FGameplayTag Execute_GetEmptyItemSlot(UObject* O); \
@@ -101,6 +106,7 @@ public: \
 	static int32 Execute_GetSpellPointsReward(const UObject* O, int32 Level); \
 	static int32 Execute_GetXP(const UObject* O); \
 	static void Execute_LevelUp(UObject* O); \
+	static void Execute_SortingItem(UObject* O); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

@@ -4,6 +4,7 @@
 #include "PlayerStateBase.h"
 
 #include "Net/UnrealNetwork.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 
@@ -11,6 +12,8 @@ APlayerStateBase::APlayerStateBase()
 {
 	bReplicates = true;
 	
+	TeamName = FGameplayTagsBase::Get().GameRule_TeamName_NONE;
+
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
@@ -28,6 +31,7 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(APlayerStateBase, XP);
 	DOREPLIFETIME(APlayerStateBase, Gold);
 	DOREPLIFETIME(APlayerStateBase, SpellPoints);
+	DOREPLIFETIME(APlayerStateBase, TeamName);
 	
 }
 

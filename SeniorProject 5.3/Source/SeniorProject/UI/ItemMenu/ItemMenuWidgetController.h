@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
 #include "SeniorProject/UI/DefaultWidgetController.h"
-#include "SeniorProject/AbilitySystem/Item/ItemAbility.h"
 #include "GameplayEffect.h"
 #include "ItemMenuWidgetController.generated.h"
 
@@ -39,7 +38,7 @@ struct FItemInformation
 	TObjectPtr<UTexture> ItemImg = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TSubclassOf<UItemAbility> ItemAbility = nullptr;
+	TSubclassOf<UGameplayAbility> ItemAbility = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<UGameplayEffect> ItemEffect = nullptr;

@@ -228,18 +228,34 @@ void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEff
 
 
 
-void UAbilitySystemComponentBase::ServerSellItem_Implementation(const FGameplayTag& ItemInputTag,  const int32 ItemPrice)
+void UAbilitySystemComponentBase::ServerSellItem_Implementation(const FItemInformation& ClickedItemInfo)
 {
 	if (!GetAvatarActor()->Implements<UPlayerInterface>()) return;
 	
 
-	if(IPlayerInterface::Execute_DeleteItem(GetAvatarActor(), ItemInputTag))
+	if(IPlayerInterface::Execute_DeleteItem(GetAvatarActor(), ClickedItemInfo.InputTag))
 	{
 		FGameplayTagContainer InputTag;
-		InputTag.AddTag(ItemInputTag);
+		InputTag.AddTag(ClickedItemInfo.InputTag);
 		int32 RemovedEffects = RemoveActiveEffectsWithTags(InputTag);
-		IPlayerInterface::Execute_AddToGold(GetAvatarActor(), ItemPrice);
+		IPlayerInterface::Execute_AddToGold(GetAvatarActor(), ClickedItemInfo.ItemPrice);
 
+
+		if(ClickedItemInfo.ItemAbility != nullptr)
+		{
+	
+			TArray<FGameplayAbilitySpec*> FoundAbilities = GetSpecFromAbilityTag(ClickedItemInfo.ItemTag);
+
+			for (FGameplayAbilitySpec* AbilitySpec : FoundAbilities)
+			{
+				if (AbilitySpec && AbilitySpec->DynamicAbilityTags.HasTagExact(ClickedItemInfo.InputTag))
+				{
+					// StartupInputTag가 ClickedItemInfo.InputTag와 일치하는 능력만 제거
+					ClearAbility(AbilitySpec->Handle);
+				}
+			}
+		}
+		
 		
 		/* 빈 아이템으로 다시 교체 */
 	//	FItemInformation ItemInfo = FItemInformation();
@@ -290,6 +306,21 @@ void UAbilitySystemComponentBase::ServerBuyItem_Implementation(FItemInformation 
 	ItemSpecHandle.Data->AddDynamicAssetTag(ClickedItemInfo.InputTag);
 	ApplyGameplayEffectSpecToSelf(*ItemSpecHandle.Data.Get());
 
+	if(ClickedItemInfo.ItemAbility != nullptr)
+	{
+		// ItemAbility의 기본 객체에서 StartupInputTag 설정
+		if (UGameplayAbilityBase* ItemAbilityObject = Cast<UGameplayAbilityBase>(ClickedItemInfo.ItemAbility->GetDefaultObject()))
+		{
+			ItemAbilityObject->StartupInputTag = ClickedItemInfo.InputTag;
+			
+			TArray<TSubclassOf<UGameplayAbility>> AbilitiesToAdd;
+			AbilitiesToAdd.Add(ClickedItemInfo.ItemAbility);  // 설정된 Ability 추가
+			AddCharacterAbility(AbilitiesToAdd);
+		}
+		
+	}
+
+	
 	
 	
 	

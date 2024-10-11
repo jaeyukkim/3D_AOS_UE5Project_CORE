@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
+#include "GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 // Cross Module References
@@ -13,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
+	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ULevelUpInfo_NoRegister();
@@ -267,6 +269,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Gold_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Gold;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TeamName_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_TeamName;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -346,6 +352,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold = { "Gold", "OnRep_Gold", (EPropertyFlags)0x0020080100020021, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, Gold), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName_MetaData[] = {
+		{ "Category", "GameRule" },
+		{ "ModuleRelativePath", "PlayerBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName = { "TeamName", nullptr, (EPropertyFlags)0x0020080000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, TeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName_MetaData) }; // 2083603574
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerStateBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent,
@@ -354,6 +367,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_XP,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_SpellPoints,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Gold,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_APlayerStateBase_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(APlayerStateBase, IAbilitySystemInterface), false },  // 3195502011
@@ -397,12 +411,14 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FName Name_XP(TEXT("XP"));
 		static const FName Name_SpellPoints(TEXT("SpellPoints"));
 		static const FName Name_Gold(TEXT("Gold"));
+		static const FName Name_TeamName(TEXT("TeamName"));
 
 		const bool bIsValid = true
 			&& Name_Level == ClassReps[(int32)ENetFields_Private::Level].Property->GetFName()
 			&& Name_XP == ClassReps[(int32)ENetFields_Private::XP].Property->GetFName()
 			&& Name_SpellPoints == ClassReps[(int32)ENetFields_Private::SpellPoints].Property->GetFName()
-			&& Name_Gold == ClassReps[(int32)ENetFields_Private::Gold].Property->GetFName();
+			&& Name_Gold == ClassReps[(int32)ENetFields_Private::Gold].Property->GetFName()
+			&& Name_TeamName == ClassReps[(int32)ENetFields_Private::TeamName].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in APlayerStateBase"));
 	}
@@ -413,9 +429,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 3346883903U) },
+		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 2046072636U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_190602721(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_2996806561(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

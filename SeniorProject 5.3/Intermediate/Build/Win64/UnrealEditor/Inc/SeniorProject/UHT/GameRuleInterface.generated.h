@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class APlayerState;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_GameRuleInterface_generated_h
 #error "GameRuleInterface.generated.h already included, missing '#pragma once' in GameRuleInterface.h"
@@ -24,14 +23,12 @@ struct FGameplayTag;
 	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) {}; \
 	virtual FGameplayTag GetLineTag_Implementation() const { return FGameplayTag(); }; \
 	virtual void SetTeamNameByTag_Implementation(FGameplayTag NewTeamName) {}; \
-	virtual void SetTeamNameByPlayerState_Implementation(APlayerState* PS) {}; \
 	virtual FGameplayTag GetTeamName_Implementation() const { return FGameplayTag(); }; \
  \
 	DECLARE_FUNCTION(execGetTurretLevelTag); \
 	DECLARE_FUNCTION(execSetLineTag); \
 	DECLARE_FUNCTION(execGetLineTag); \
 	DECLARE_FUNCTION(execSetTeamNameByTag); \
-	DECLARE_FUNCTION(execSetTeamNameByPlayerState); \
 	DECLARE_FUNCTION(execGetTeamName);
 
 
@@ -78,7 +75,6 @@ public: \
 	static FGameplayTag Execute_GetTeamName(const UObject* O); \
 	static FGameplayTag Execute_GetTurretLevelTag(const UObject* O); \
 	static void Execute_SetLineTag(UObject* O, FGameplayTag NewLineTag); \
-	static void Execute_SetTeamNameByPlayerState(UObject* O, APlayerState* PS); \
 	static void Execute_SetTeamNameByTag(UObject* O, FGameplayTag NewTeamName); \
 	virtual UObject* _getUObject() const { return nullptr; }
 

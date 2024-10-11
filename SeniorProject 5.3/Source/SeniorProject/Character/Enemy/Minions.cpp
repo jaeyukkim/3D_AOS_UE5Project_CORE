@@ -128,6 +128,8 @@ void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AMinions, bIsMeshChanged);
+	DOREPLIFETIME(AMinions, TeamName);
+	DOREPLIFETIME(AMinions, LineTag);
 
 	
 }

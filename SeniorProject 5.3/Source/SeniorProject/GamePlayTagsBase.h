@@ -108,6 +108,7 @@ public:
 	FGameplayTag GameRule_TeamName_BlueTeam;
 	FGameplayTag GameRule_TeamName_RedTeam;
 	FGameplayTag GameRule_TeamName_NeutralityTeam;
+	FGameplayTag GameRule_TeamName_NONE;
 
 	FGameplayTag GameRule_Line_Top;
 	FGameplayTag GameRule_Line_Mid;

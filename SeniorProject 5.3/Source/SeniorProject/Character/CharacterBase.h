@@ -68,9 +68,7 @@ public:
 	
 
 	/* GameRuleInterface*/
-	virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
-	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
-	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
+	
 	
 	/* end GameRuleInterface */
 
@@ -87,14 +85,7 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName TailSocketName;
-
 	
-
-	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
-	FGameplayTag TeamName;
-
-	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
-	FGameplayTag LineTag;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Character Class Defaults")
 	ECharacterClass CharacterClass;

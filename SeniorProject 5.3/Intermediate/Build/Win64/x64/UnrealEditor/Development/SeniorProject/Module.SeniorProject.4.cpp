@@ -55,6 +55,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/DefaultBase/MinionAnimInstance.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/DefaultBase/MovementComponentBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/GamePlayTagsBase.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/GameSetting/CoreGameState.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/GameSetting/MyGameModeBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Input/InputActionData.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Input/InputComponentBase.cpp"
@@ -64,4 +65,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/Interface/PlayerInterface.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/PlayerBase/MyPlayerController.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/PlayerBase/PlayerStateBase.cpp"

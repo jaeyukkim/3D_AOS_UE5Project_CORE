@@ -18,6 +18,21 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FItemInformation();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
 // End Cross Module References
+	DEFINE_FUNCTION(IPlayerInterface::execSortingItem)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SortingItem_Implementation();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(IPlayerInterface::execDeleteItem)
+	{
+		P_GET_STRUCT(FGameplayTag,Z_Param_ItemInputTag);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->DeleteItem_Implementation(Z_Param_ItemInputTag);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(IPlayerInterface::execGetAllItem)
 	{
 		P_FINISH;
@@ -136,6 +151,17 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		int32 InXP;
 	};
+	struct PlayerInterface_eventDeleteItem_Parms
+	{
+		FGameplayTag ItemInputTag;
+		bool ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		PlayerInterface_eventDeleteItem_Parms()
+			: ReturnValue(false)
+		{
+		}
+	};
 	struct PlayerInterface_eventFindLevelForXP_Parms
 	{
 		int32 InXP;
@@ -216,6 +242,12 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_AddToXP instead.");
 	}
+	bool IPlayerInterface::DeleteItem(FGameplayTag ItemInputTag)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_DeleteItem instead.");
+		PlayerInterface_eventDeleteItem_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	int32 IPlayerInterface::FindLevelForXP(int32 InXP) const
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_FindLevelForXP instead.");
@@ -262,6 +294,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_LevelUp instead.");
 	}
+	void IPlayerInterface::SortingItem()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SortingItem instead.");
+	}
 	void UPlayerInterface::StaticRegisterNativesUPlayerInterface()
 	{
 		UClass* Class = UPlayerInterface::StaticClass();
@@ -271,6 +307,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			{ "AddToPlayerLevel", &IPlayerInterface::execAddToPlayerLevel },
 			{ "AddToSpellPoints", &IPlayerInterface::execAddToSpellPoints },
 			{ "AddToXP", &IPlayerInterface::execAddToXP },
+			{ "DeleteItem", &IPlayerInterface::execDeleteItem },
 			{ "FindLevelForXP", &IPlayerInterface::execFindLevelForXP },
 			{ "GetAllItem", &IPlayerInterface::execGetAllItem },
 			{ "GetEmptyItemSlot", &IPlayerInterface::execGetEmptyItemSlot },
@@ -279,6 +316,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			{ "GetSpellPointsReward", &IPlayerInterface::execGetSpellPointsReward },
 			{ "GetXP", &IPlayerInterface::execGetXP },
 			{ "LevelUp", &IPlayerInterface::execLevelUp },
+			{ "SortingItem", &IPlayerInterface::execSortingItem },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -329,7 +367,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem = { "InOwnedItem", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventAddToItem_Parms, InOwnedItem), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData), Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem = { "InOwnedItem", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventAddToItem_Parms, InOwnedItem), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData), Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem_MetaData) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_AddToItem_Statics::NewProp_InOwnedItem,
 	};
@@ -440,6 +478,44 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics
+	{
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ItemInputTag;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ItemInputTag = { "ItemInputTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventDeleteItem_Parms, ItemInputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	void Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((PlayerInterface_eventDeleteItem_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(PlayerInterface_eventDeleteItem_Parms), &Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ItemInputTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "DeleteItem", nullptr, nullptr, Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::PropPointers), sizeof(PlayerInterface_eventDeleteItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(PlayerInterface_eventDeleteItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UPlayerInterface_DeleteItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_DeleteItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UPlayerInterface_FindLevelForXP_Statics
 	{
 		static const UECodeGen_Private::FIntPropertyParams NewProp_InXP;
@@ -483,8 +559,8 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 2464813800
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetAllItem_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue_Inner = { "ReturnValue", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 1757429019
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(PlayerInterface_eventGetAllItem_Parms, ReturnValue), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UPlayerInterface_GetAllItem_Statics::NewProp_ReturnValue,
@@ -681,6 +757,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/PlayerInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UPlayerInterface, nullptr, "SortingItem", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UPlayerInterface_SortingItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UPlayerInterface_SortingItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UPlayerInterface);
 	UClass* Z_Construct_UClass_UPlayerInterface_NoRegister()
 	{
@@ -703,18 +801,20 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToGold, "AddToGold" }, // 749253225
-		{ &Z_Construct_UFunction_UPlayerInterface_AddToItem, "AddToItem" }, // 992970507
+		{ &Z_Construct_UFunction_UPlayerInterface_AddToItem, "AddToItem" }, // 3631784902
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToPlayerLevel, "AddToPlayerLevel" }, // 1819615132
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToSpellPoints, "AddToSpellPoints" }, // 4156170471
 		{ &Z_Construct_UFunction_UPlayerInterface_AddToXP, "AddToXP" }, // 1711502672
+		{ &Z_Construct_UFunction_UPlayerInterface_DeleteItem, "DeleteItem" }, // 161747729
 		{ &Z_Construct_UFunction_UPlayerInterface_FindLevelForXP, "FindLevelForXP" }, // 1067225906
-		{ &Z_Construct_UFunction_UPlayerInterface_GetAllItem, "GetAllItem" }, // 325662687
+		{ &Z_Construct_UFunction_UPlayerInterface_GetAllItem, "GetAllItem" }, // 1655941376
 		{ &Z_Construct_UFunction_UPlayerInterface_GetEmptyItemSlot, "GetEmptyItemSlot" }, // 336718263
 		{ &Z_Construct_UFunction_UPlayerInterface_GetGold, "GetGold" }, // 358061602
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPoints, "GetSpellPoints" }, // 2299189408
 		{ &Z_Construct_UFunction_UPlayerInterface_GetSpellPointsReward, "GetSpellPointsReward" }, // 815528352
 		{ &Z_Construct_UFunction_UPlayerInterface_GetXP, "GetXP" }, // 3622837887
 		{ &Z_Construct_UFunction_UPlayerInterface_LevelUp, "LevelUp" }, // 2471005374
+		{ &Z_Construct_UFunction_UPlayerInterface_SortingItem, "SortingItem" }, // 2339663229
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UPlayerInterface_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -839,6 +939,24 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 		{
 			I->AddToXP_Implementation(InXP);
 		}
+	}
+	static FName NAME_UPlayerInterface_DeleteItem = FName(TEXT("DeleteItem"));
+	bool IPlayerInterface::Execute_DeleteItem(UObject* O, FGameplayTag ItemInputTag)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		PlayerInterface_eventDeleteItem_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_DeleteItem);
+		if (Func)
+		{
+			Parms.ItemInputTag=ItemInputTag;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->DeleteItem_Implementation(ItemInputTag);
+		}
+		return Parms.ReturnValue;
 	}
 	static FName NAME_UPlayerInterface_FindLevelForXP = FName(TEXT("FindLevelForXP"));
 	int32 IPlayerInterface::Execute_FindLevelForXP(const UObject* O, int32 InXP)
@@ -976,14 +1094,29 @@ void EmptyLinkFunctionForGeneratedCodePlayerInterface() {}
 			I->LevelUp_Implementation();
 		}
 	}
+	static FName NAME_UPlayerInterface_SortingItem = FName(TEXT("SortingItem"));
+	void IPlayerInterface::Execute_SortingItem(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UPlayerInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_UPlayerInterface_SortingItem);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
+		}
+		else if (auto I = (IPlayerInterface*)(O->GetNativeInterfaceAddress(UPlayerInterface::StaticClass())))
+		{
+			I->SortingItem_Implementation();
+		}
+	}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 3255003103U) },
+		{ Z_Construct_UClass_UPlayerInterface, UPlayerInterface::StaticClass, TEXT("UPlayerInterface"), &Z_Registration_Info_UClass_UPlayerInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPlayerInterface), 2295845386U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_3576146734(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_2687123365(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_PlayerInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

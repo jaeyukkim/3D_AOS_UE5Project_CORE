@@ -33,13 +33,17 @@ SENIORPROJECT_API void FOnAttackEndSignatures_DelegateWrapper(const FMulticastSc
 	virtual void ClientUpdateAbilityLevel_Implementation(FGameplayTag const& AbilityTag, int32 AbilityLevel); \
 	virtual void ClientEffectApplied_Implementation(UAbilitySystemComponent* AbilitySystemComponent, FGameplayEffectSpec const& EffectSpec, FActiveGameplayEffectHandle ActiveEffectHandle); \
 	virtual void ServerSpendSpellPoint_Implementation(FGameplayTag const& AbilityTag); \
-	virtual void ServerBuyItem_Implementation(FItemInformation const& ClickedItemInfo); \
+	virtual void ChangeGrantedTagToEffect_Implementation(FGameplayTag PrevTag, FGameplayTag NextTag, TSubclassOf<UGameplayEffect>  Effect); \
+	virtual void ServerSellItem_Implementation(FItemInformation const& ClickedItemInfo); \
+	virtual void ServerBuyItem_Implementation(FItemInformation ClickedItemInfo); \
  \
 	DECLARE_FUNCTION(execBroadCastAttackEnd); \
 	DECLARE_FUNCTION(execClientUpdateItem); \
 	DECLARE_FUNCTION(execClientUpdateAbilityLevel); \
 	DECLARE_FUNCTION(execClientEffectApplied); \
 	DECLARE_FUNCTION(execServerSpendSpellPoint); \
+	DECLARE_FUNCTION(execChangeGrantedTagToEffect); \
+	DECLARE_FUNCTION(execServerSellItem); \
 	DECLARE_FUNCTION(execServerBuyItem); \
 	DECLARE_FUNCTION(execApplyDebuffEffectSelf); \
 	DECLARE_FUNCTION(execGetAbilityLevel);

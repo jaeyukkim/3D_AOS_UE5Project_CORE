@@ -13,14 +13,15 @@ void EmptyLinkFunctionForGeneratedCodeItemMenuWidgetController() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UTexture_NoRegister();
+	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UDefaultWidgetController();
-	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemAbility_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemMenuWidgetController();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemMenuWidgetController_NoRegister();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_BuyButtonChangedDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_GoldChangedSignature__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature();
 	SENIORPROJECT_API UScriptStruct* Z_Construct_UScriptStruct_FItemInformation();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -53,9 +54,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FItemInformation>()
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_InputTag;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_RequiredGold_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemPrice_MetaData[];
 #endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_RequiredGold;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_ItemPrice;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemImg_MetaData[];
 #endif
@@ -101,12 +102,12 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FItemInformation>()
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_InputTag = { "InputTag", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemInformation, InputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_InputTag_MetaData), Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_InputTag_MetaData) }; // 2083603574
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_RequiredGold_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemPrice_MetaData[] = {
 		{ "Category", "ItemInformation" },
 		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_RequiredGold = { "RequiredGold", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemInformation, RequiredGold), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_RequiredGold_MetaData), Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_RequiredGold_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemPrice = { "ItemPrice", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemInformation, ItemPrice), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemPrice_MetaData), Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemPrice_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemImg_MetaData[] = {
 		{ "Category", "ItemInformation" },
@@ -120,7 +121,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FItemInformation>()
 		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
 	};
 #endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility = { "ItemAbility", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemInformation, ItemAbility), Z_Construct_UClass_UClass, Z_Construct_UClass_UItemAbility_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility_MetaData), Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility = { "ItemAbility", nullptr, (EPropertyFlags)0x0014000000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemInformation, ItemAbility), Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayAbility_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility_MetaData), Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemEffect_MetaData[] = {
 		{ "Category", "ItemInformation" },
@@ -142,7 +143,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FItemInformation>()
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FItemInformation_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemTag,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_InputTag,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_RequiredGold,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemPrice,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemImg,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemAbility,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FItemInformation_Statics::NewProp_ItemEffect,
@@ -284,7 +285,7 @@ void FBuyButtonChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& B
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventItemStateChangedDelegate_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info_MetaData), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info_MetaData) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventItemStateChangedDelegate_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info_MetaData), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info_MetaData) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature_Statics::NewProp_Info,
 	};
@@ -315,11 +316,85 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 	Parms.Info=Info;
 	ItemStateChangedDelegate.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	struct Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics
+	{
+		struct _Script_SeniorProject_eventItemDeletedDelegate_Parms
+		{
+			FGameplayTag ItemInputTag;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemInputTag_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ItemInputTag;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::NewProp_ItemInputTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::NewProp_ItemInputTag = { "ItemInputTag", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_SeniorProject_eventItemDeletedDelegate_Parms, ItemInputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::NewProp_ItemInputTag_MetaData), Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::NewProp_ItemInputTag_MetaData) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::NewProp_ItemInputTag,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_SeniorProject, nullptr, "ItemDeletedDelegate__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::_Script_SeniorProject_eventItemDeletedDelegate_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::_Script_SeniorProject_eventItemDeletedDelegate_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FItemDeletedDelegate_DelegateWrapper(const FMulticastScriptDelegate& ItemDeletedDelegate, FGameplayTag const& ItemInputTag)
+{
+	struct _Script_SeniorProject_eventItemDeletedDelegate_Parms
+	{
+		FGameplayTag ItemInputTag;
+	};
+	_Script_SeniorProject_eventItemDeletedDelegate_Parms Parms;
+	Parms.ItemInputTag=ItemInputTag;
+	ItemDeletedDelegate.ProcessMulticastDelegate<UObject>(&Parms);
+}
+	DEFINE_FUNCTION(UItemMenuWidgetController::execInitializeShopPlayerItem)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->InitializeShopPlayerItem();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UItemMenuWidgetController::execSellItem)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SellItem();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UItemMenuWidgetController::execBuyItem)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->BuyItem();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UItemMenuWidgetController::execShopClickedPlayerItem)
+	{
+		P_GET_STRUCT(FGameplayTag,Z_Param_ItemInputTag);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->ShopClickedPlayerItem(Z_Param_ItemInputTag);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UItemMenuWidgetController::execShopClickedItem)
@@ -358,8 +433,11 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BroadcastInitialValues", &UItemMenuWidgetController::execBroadcastInitialValues },
 			{ "BuyItem", &UItemMenuWidgetController::execBuyItem },
+			{ "InitializeShopPlayerItem", &UItemMenuWidgetController::execInitializeShopPlayerItem },
 			{ "OnInitializeShopItem", &UItemMenuWidgetController::execOnInitializeShopItem },
+			{ "SellItem", &UItemMenuWidgetController::execSellItem },
 			{ "ShopClickedItem", &UItemMenuWidgetController::execShopClickedItem },
+			{ "ShopClickedPlayerItem", &UItemMenuWidgetController::execShopClickedPlayerItem },
 			{ "UpdateClickedItem", &UItemMenuWidgetController::execUpdateClickedItem },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -408,6 +486,28 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UItemMenuWidgetController, nullptr, "InitializeShopPlayerItem", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UItemMenuWidgetController_OnInitializeShopItem_Statics
 	{
 #if WITH_METADATA
@@ -430,6 +530,28 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UItemMenuWidgetController, nullptr, "SellItem", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UItemMenuWidgetController_SellItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UItemMenuWidgetController_SellItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem_Statics
 	{
 		struct ItemMenuWidgetController_eventShopClickedItem_Parms
@@ -443,7 +565,7 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemMenuWidgetController_eventShopClickedItem_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemMenuWidgetController_eventShopClickedItem_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem_Statics::NewProp_Info,
 	};
@@ -464,6 +586,40 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics
+	{
+		struct ItemMenuWidgetController_eventShopClickedPlayerItem_Parms
+		{
+			FGameplayTag ItemInputTag;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ItemInputTag;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::NewProp_ItemInputTag = { "ItemInputTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemMenuWidgetController_eventShopClickedPlayerItem_Parms, ItemInputTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::NewProp_ItemInputTag,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UItemMenuWidgetController, nullptr, "ShopClickedPlayerItem", nullptr, nullptr, Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::PropPointers), sizeof(Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::ItemMenuWidgetController_eventShopClickedPlayerItem_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::Function_MetaDataParams), Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::ItemMenuWidgetController_eventShopClickedPlayerItem_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem_Statics
 	{
 		struct ItemMenuWidgetController_eventUpdateClickedItem_Parms
@@ -477,7 +633,7 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemMenuWidgetController_eventUpdateClickedItem_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem_Statics::NewProp_Info = { "Info", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ItemMenuWidgetController_eventUpdateClickedItem_Parms, Info), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem_Statics::NewProp_Info,
 	};
@@ -519,13 +675,25 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_BuyButtonChangedDelegate;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SellButtonChangedDelegate_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_SellButtonChangedDelegate;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerItemChangedDelegate_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_PlayerItemChangedDelegate;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShopPlayerItemInitializeDelegate_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_ShopPlayerItemInitializeDelegate;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShowItemInfoDelegate_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_ShowItemInfoDelegate;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemDeletedDelegate_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_ItemDeletedDelegate;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ItemTagData_MetaData[];
 #endif
@@ -546,9 +714,12 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 	const FClassFunctionLinkInfo Z_Construct_UClass_UItemMenuWidgetController_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UItemMenuWidgetController_BroadcastInitialValues, "BroadcastInitialValues" }, // 3844572844
 		{ &Z_Construct_UFunction_UItemMenuWidgetController_BuyItem, "BuyItem" }, // 3701576931
+		{ &Z_Construct_UFunction_UItemMenuWidgetController_InitializeShopPlayerItem, "InitializeShopPlayerItem" }, // 1281931556
 		{ &Z_Construct_UFunction_UItemMenuWidgetController_OnInitializeShopItem, "OnInitializeShopItem" }, // 398999314
-		{ &Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem, "ShopClickedItem" }, // 2530993719
-		{ &Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem, "UpdateClickedItem" }, // 454700617
+		{ &Z_Construct_UFunction_UItemMenuWidgetController_SellItem, "SellItem" }, // 3158261841
+		{ &Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedItem, "ShopClickedItem" }, // 2644435587
+		{ &Z_Construct_UFunction_UItemMenuWidgetController_ShopClickedPlayerItem, "ShopClickedPlayerItem" }, // 3607195588
+		{ &Z_Construct_UFunction_UItemMenuWidgetController_UpdateClickedItem, "UpdateClickedItem" }, // 1297561207
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -572,17 +743,35 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_BuyButtonChangedDelegate = { "BuyButtonChangedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, BuyButtonChangedDelegate), Z_Construct_UDelegateFunction_SeniorProject_BuyButtonChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_BuyButtonChangedDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_BuyButtonChangedDelegate_MetaData) }; // 3728400177
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_SellButtonChangedDelegate_MetaData[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_SellButtonChangedDelegate = { "SellButtonChangedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, SellButtonChangedDelegate), Z_Construct_UDelegateFunction_SeniorProject_BuyButtonChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_SellButtonChangedDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_SellButtonChangedDelegate_MetaData) }; // 3728400177
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate_MetaData[] = {
 		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate = { "PlayerItemChangedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, PlayerItemChangedDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate_MetaData) }; // 453566302
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate = { "PlayerItemChangedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, PlayerItemChangedDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate_MetaData) }; // 1612539818
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShopPlayerItemInitializeDelegate_MetaData[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShopPlayerItemInitializeDelegate = { "ShopPlayerItemInitializeDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ShopPlayerItemInitializeDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShopPlayerItemInitializeDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShopPlayerItemInitializeDelegate_MetaData) }; // 1612539818
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate_MetaData[] = {
 		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate = { "ShowItemInfoDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ShowItemInfoDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate_MetaData) }; // 453566302
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate = { "ShowItemInfoDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ShowItemInfoDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemStateChangedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate_MetaData) }; // 1612539818
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemDeletedDelegate_MetaData[] = {
+		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemDeletedDelegate = { "ItemDeletedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ItemDeletedDelegate), Z_Construct_UDelegateFunction_SeniorProject_ItemDeletedDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemDeletedDelegate_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemDeletedDelegate_MetaData) }; // 2122445564
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemTagData_MetaData[] = {
 		{ "Category", "ItemInformation" },
@@ -595,12 +784,15 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		{ "ModuleRelativePath", "UI/ItemMenu/ItemMenuWidgetController.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo_MetaData) }; // 2464813800
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemMenuWidgetController, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo_MetaData) }; // 1757429019
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UItemMenuWidgetController_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_GoldChanged,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_BuyButtonChangedDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_SellButtonChangedDelegate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_PlayerItemChangedDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShopPlayerItemInitializeDelegate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ShowItemInfoDelegate,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemDeletedDelegate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ItemTagData,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemMenuWidgetController_Statics::NewProp_ClickedItemInfo,
 	};
@@ -644,12 +836,12 @@ void FItemStateChangedDelegate_DelegateWrapper(const FMulticastScriptDelegate& I
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ScriptStructInfo[] = {
-		{ FItemInformation::StaticStruct, Z_Construct_UScriptStruct_FItemInformation_Statics::NewStructOps, TEXT("ItemInformation"), &Z_Registration_Info_UScriptStruct_ItemInformation, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemInformation), 2464813800U) },
+		{ FItemInformation::StaticStruct, Z_Construct_UScriptStruct_FItemInformation_Statics::NewStructOps, TEXT("ItemInformation"), &Z_Registration_Info_UScriptStruct_ItemInformation, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemInformation), 1757429019U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UItemMenuWidgetController, UItemMenuWidgetController::StaticClass, TEXT("UItemMenuWidgetController"), &Z_Registration_Info_UClass_UItemMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemMenuWidgetController), 1520461423U) },
+		{ Z_Construct_UClass_UItemMenuWidgetController, UItemMenuWidgetController::StaticClass, TEXT("UItemMenuWidgetController"), &Z_Registration_Info_UClass_UItemMenuWidgetController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemMenuWidgetController), 828072861U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_3840397358(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_3783739085(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_UI_ItemMenu_ItemMenuWidgetController_h_Statics::ScriptStructInfo),
 		nullptr, 0);

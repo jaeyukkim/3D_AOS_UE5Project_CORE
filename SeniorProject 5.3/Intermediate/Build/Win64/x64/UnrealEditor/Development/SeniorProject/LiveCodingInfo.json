@@ -23,6 +23,7 @@
 			"CharacterBase.gen.cpp.obj",
 			"CharacterClassInfo.gen.cpp.obj",
 			"CombatInterface.gen.cpp.obj",
+			"CoreGameState.gen.cpp.obj",
 			"Crunch.gen.cpp.obj",
 			"DamageActorBase.gen.cpp.obj",
 			"DamageGameplayAbilityBase.gen.cpp.obj",
@@ -118,6 +119,7 @@
 			"MinionAnimInstance.cpp.obj",
 			"MovementComponentBase.cpp.obj",
 			"GamePlayTagsBase.cpp.obj",
+			"CoreGameState.cpp.obj",
 			"MyGameModeBase.cpp.obj",
 			"InputActionData.cpp.obj",
 			"InputComponentBase.cpp.obj",
@@ -126,10 +128,10 @@
 			"GameRuleInterface.cpp.obj",
 			"PlayerInterface.cpp.obj",
 			"MyAnimInstance.cpp.obj",
-			"MyPlayerController.cpp.obj",
-			"PlayerStateBase.cpp.obj"
+			"MyPlayerController.cpp.obj"
 		],
 		"Module.SeniorProject.5.cpp.obj": [
+			"PlayerStateBase.cpp.obj",
 			"SeniorProject.cpp.obj",
 			"AttributeMenuWidgetController.cpp.obj",
 			"DamageTextComponent.cpp.obj",

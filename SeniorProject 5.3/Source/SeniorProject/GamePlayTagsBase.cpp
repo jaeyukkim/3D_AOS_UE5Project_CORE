@@ -241,6 +241,9 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("RedTeam"));
 	GameplayTags.GameRule_TeamName_NeutralityTeam = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.TeamName.NeutralityTeam"),
 		FString("NeutralityTeam"));
+	GameplayTags.GameRule_TeamName_NONE= UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.TeamName.NONE"),
+		FString("Default Team Name"));
+	
 		
 	GameplayTags.GameRule_Line_Top = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.Top"),
 		FString("TopLine"));

@@ -42,7 +42,8 @@ public: \
 		XP, \
 		SpellPoints, \
 		Gold, \
-		NETFIELD_REP_END=Gold	}; \
+		TeamName, \
+		NETFIELD_REP_END=TeamName	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 

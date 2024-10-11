@@ -103,7 +103,7 @@ void UItemMenuWidgetController::SellItem()
 {
 	if(GetMyASC() == nullptr || ClickedItemInfo.ItemEffect == nullptr) return;
 
-	AbilitySystemComponentBase->ServerSellItem(ClickedItemInfo.InputTag, ClickedItemInfo.ItemPrice);
+	AbilitySystemComponentBase->ServerSellItem(ClickedItemInfo);
 	ItemDeletedDelegate.Broadcast(ClickedItemInfo.InputTag);
 	SellButtonChangedDelegate.Broadcast(false);
 }

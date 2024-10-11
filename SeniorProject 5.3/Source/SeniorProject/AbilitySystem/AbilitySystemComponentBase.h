@@ -61,7 +61,7 @@ public:
 	void ServerBuyItem(FItemInformation ClickedItemInfo);
 	
 	UFUNCTION(Server, Reliable)
-	void ServerSellItem(const FGameplayTag& ItemInputTag, const int32 ItemPrice);
+	void ServerSellItem(const FItemInformation& ClickedItemInfo);
 
 	UFUNCTION(Server, Reliable)
 	void ChangeGrantedTagToEffect(FGameplayTag PrevTag, FGameplayTag NextTag, TSubclassOf<UGameplayEffect> Effect);

@@ -63,7 +63,8 @@ public:
 	/* end CombatInterface */
 
 	/* Enemy Interface */
-	virtual void SetTeamNameByPlayerState_Implementation(APlayerState* PS) override;
+	
+	virtual FGameplayTag GetTeamName_Implementation() const override;
 	/* end Enemy Interface */
 
 
@@ -151,6 +152,21 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> R_Ability;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item1_Ability;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item2_Ability;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item3_Ability;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item4_Ability;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item5_Ability;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Item6_Ability;
+
+
 	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> ShowAdditionalAttribute;

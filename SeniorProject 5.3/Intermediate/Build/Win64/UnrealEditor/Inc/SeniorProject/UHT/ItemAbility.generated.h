@@ -32,7 +32,7 @@ private: \
 	static void StaticRegisterNativesUItemAbility(); \
 	friend struct Z_Construct_UClass_UItemAbility_Statics; \
 public: \
-	DECLARE_CLASS(UItemAbility, UGameplayAbility, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
+	DECLARE_CLASS(UItemAbility, UGameplayAbilityBase, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/SeniorProject"), NO_API) \
 	DECLARE_SERIALIZER(UItemAbility)
 
 

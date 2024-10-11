@@ -38,9 +38,7 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		TeamName=NETFIELD_REP_START, \
-		LineTag, \
-		bDead, \
+		bDead=NETFIELD_REP_START, \
 		bIsStunned, \
 		NETFIELD_REP_END=bIsStunned	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;

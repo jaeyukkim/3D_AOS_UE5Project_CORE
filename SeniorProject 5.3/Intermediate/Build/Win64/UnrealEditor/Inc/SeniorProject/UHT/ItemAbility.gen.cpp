@@ -10,8 +10,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeItemAbility() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayAbility();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_UGameplayAbilityBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemAbility();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_UItemAbility_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_SeniorProject();
@@ -169,7 +169,7 @@ void EmptyLinkFunctionForGeneratedCodeItemAbility() {}
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
 	UObject* (*const Z_Construct_UClass_UItemAbility_Statics::DependentSingletons[])() = {
-		(UObject* (*)())Z_Construct_UClass_UGameplayAbility,
+		(UObject* (*)())Z_Construct_UClass_UGameplayAbilityBase,
 		(UObject* (*)())Z_Construct_UPackage__Script_SeniorProject,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UItemAbility_Statics::DependentSingletons) < 16);
@@ -251,9 +251,9 @@ void EmptyLinkFunctionForGeneratedCodeItemAbility() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Item_ItemAbility_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UItemAbility, UItemAbility::StaticClass, TEXT("UItemAbility"), &Z_Registration_Info_UClass_UItemAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemAbility), 4075258415U) },
+		{ Z_Construct_UClass_UItemAbility, UItemAbility::StaticClass, TEXT("UItemAbility"), &Z_Registration_Info_UClass_UItemAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemAbility), 1439028763U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Item_ItemAbility_h_1501923451(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Item_ItemAbility_h_540111366(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Item_ItemAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_Item_ItemAbility_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

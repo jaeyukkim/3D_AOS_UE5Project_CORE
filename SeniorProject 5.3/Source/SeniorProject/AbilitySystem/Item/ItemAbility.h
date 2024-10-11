@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Abilities/GameplayAbility.h"
+#include "SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h"
 #include "ItemAbility.generated.h"
 
 /**
@@ -14,7 +14,7 @@
 
 
 UCLASS(BlueprintType, Blueprintable)
-class SENIORPROJECT_API UItemAbility : public UGameplayAbility
+class SENIORPROJECT_API UItemAbility : public UGameplayAbilityBase
 {
 	GENERATED_BODY()
 

@@ -68,8 +68,7 @@ void ACharacterBase::Tick(float DeltaTime)
 void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(ACharacterBase, TeamName);
-	DOREPLIFETIME(ACharacterBase, LineTag);
+	
 	DOREPLIFETIME(ACharacterBase, bDead);
 	DOREPLIFETIME(ACharacterBase, bIsStunned);
 	

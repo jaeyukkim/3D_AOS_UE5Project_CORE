@@ -23,9 +23,6 @@ class SENIORPROJECT_API IGameRuleInterface
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FORCEINLINE FGameplayTag GetTeamName() const;
-	
-	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-	FORCEINLINE void SetTeamNameByPlayerState(APlayerState* PS);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FORCEINLINE void SetTeamNameByTag(FGameplayTag NewTeamName);

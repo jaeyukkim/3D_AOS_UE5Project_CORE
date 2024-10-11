@@ -42,6 +42,7 @@ public:
 	
 
 	/* Enemy Interface */
+	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
 	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) override;
 	virtual AActor* GetCombatTarget_Implementation() const override;
 	virtual void SetTargetPlayer_Implementation(AActor* Target) override;
@@ -52,12 +53,16 @@ public:
 
 	/* GameplayInterface */
 	virtual void SetTeamNameByTag_Implementation(FGameplayTag NewTeamName) override;
-
+	virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
+	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
 	/* end GameplayInterface */
 
 	
+	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
+	FGameplayTag TeamName;
 	
-
+	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
+	FGameplayTag LineTag;
 	
 protected:
 	virtual void SetDefaultSetting() {};
@@ -81,7 +86,8 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "AI")
 	TObjectPtr<UBehaviorTree> BehaviorTree;
 
-
+	
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
 	TObjectPtr<USkeletalMesh> RedTeamMesh;
 	

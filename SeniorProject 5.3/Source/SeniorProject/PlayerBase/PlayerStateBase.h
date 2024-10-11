@@ -54,6 +54,8 @@ public:
 	void SetGold(int32 InGold);
 	void SetSpellPoints(int32 InPoints);
 
+	FORCEINLINE const FGameplayTag& GetTeamName() {return TeamName;}
+	FORCEINLINE void SetTeamName(const FGameplayTag& InTeamName) {TeamName = InTeamName;}
 	
 //	virtual void Die() override;
 	
@@ -88,5 +90,7 @@ protected:
 	UFUNCTION()
 	void OnRep_SpellPoints(int32 OldSpellPoints);
 
+	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
+	FGameplayTag TeamName;
 	
 };
