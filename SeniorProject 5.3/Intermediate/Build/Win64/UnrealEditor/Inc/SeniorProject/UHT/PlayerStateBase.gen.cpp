@@ -10,11 +10,13 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 // Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerState();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAttributeSet_NoRegister();
 	GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
+	SENIORPROJECT_API UClass* Z_Construct_UClass_AMyCharacter_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_APlayerStateBase_NoRegister();
 	SENIORPROJECT_API UClass* Z_Construct_UClass_ULevelUpInfo_NoRegister();
@@ -246,6 +248,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_LevelUpInfo;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerCharacterClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_PlayerCharacterClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_AbilitySystemComponent;
@@ -310,6 +316,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo = { "LevelUpInfo", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, LevelUpInfo), Z_Construct_UClass_ULevelUpInfo_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_PlayerCharacterClass_MetaData[] = {
+		{ "Category", "PlayerStateBase" },
+		{ "ModuleRelativePath", "PlayerBase/PlayerStateBase.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_PlayerCharacterClass = { "PlayerCharacterClass", nullptr, (EPropertyFlags)0x0014000000000025, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, PlayerCharacterClass), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_PlayerCharacterClass_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_PlayerCharacterClass_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent_MetaData[] = {
 		{ "Category", "PlayerStateBase" },
 		{ "EditInline", "true" },
@@ -361,6 +374,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName = { "TeamName", nullptr, (EPropertyFlags)0x0020080000000021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerStateBase, TeamName), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName_MetaData), Z_Construct_UClass_APlayerStateBase_Statics::NewProp_TeamName_MetaData) }; // 2083603574
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerStateBase_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_LevelUpInfo,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_PlayerCharacterClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_AttributeSet,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerStateBase_Statics::NewProp_Level,
@@ -407,6 +421,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 
 	void APlayerStateBase::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
+		static const FName Name_PlayerCharacterClass(TEXT("PlayerCharacterClass"));
 		static const FName Name_Level(TEXT("Level"));
 		static const FName Name_XP(TEXT("XP"));
 		static const FName Name_SpellPoints(TEXT("SpellPoints"));
@@ -414,6 +429,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FName Name_TeamName(TEXT("TeamName"));
 
 		const bool bIsValid = true
+			&& Name_PlayerCharacterClass == ClassReps[(int32)ENetFields_Private::PlayerCharacterClass].Property->GetFName()
 			&& Name_Level == ClassReps[(int32)ENetFields_Private::Level].Property->GetFName()
 			&& Name_XP == ClassReps[(int32)ENetFields_Private::XP].Property->GetFName()
 			&& Name_SpellPoints == ClassReps[(int32)ENetFields_Private::SpellPoints].Property->GetFName()
@@ -429,9 +445,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerStateBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 2046072636U) },
+		{ Z_Construct_UClass_APlayerStateBase, APlayerStateBase::StaticClass, TEXT("APlayerStateBase"), &Z_Registration_Info_UClass_APlayerStateBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerStateBase), 2773126141U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_2996806561(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_3284633395(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_PlayerStateBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

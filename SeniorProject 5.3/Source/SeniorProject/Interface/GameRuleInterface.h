@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "GameplayTagContainer.h"
 #include "GameRuleInterface.generated.h"
+
 
 
 UINTERFACE(MinimalAPI)

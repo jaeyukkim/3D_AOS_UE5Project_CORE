@@ -34,12 +34,12 @@
 			"EffectActorBase.gen.cpp.obj",
 			"EnemyInterface.gen.cpp.obj",
 			"ExecCalc_Damage.gen.cpp.obj",
-			"GameplayAbilityBase.gen.cpp.obj",
-			"GameRuleInterface.gen.cpp.obj",
-			"GoldRewardWidgetComponent.gen.cpp.obj",
-			"HomingProjectile.gen.cpp.obj"
+			"GameplayAbilityBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"GameRuleInterface.gen.cpp.obj",
+			"GoldRewardWidgetComponent.gen.cpp.obj",
+			"HomingProjectile.gen.cpp.obj",
 			"InputActionData.gen.cpp.obj",
 			"InputComponentBase.gen.cpp.obj",
 			"ItemAbility.gen.cpp.obj",
@@ -49,6 +49,8 @@
 			"KwangPlayer.gen.cpp.obj",
 			"LaneSuper.gen.cpp.obj",
 			"LevelUpInfo.gen.cpp.obj",
+			"LobbyCharacter.gen.cpp.obj",
+			"LobbyWidgetController.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
 			"MeleeAttackBase.gen.cpp.obj",
 			"MinionAnimInstance.gen.cpp.obj",
@@ -57,12 +59,12 @@
 			"MyAnimInstance.gen.cpp.obj",
 			"MyCharacter.gen.cpp.obj",
 			"MyGameModeBase.gen.cpp.obj",
-			"MyPlayerController.gen.cpp.obj",
-			"OverlayWidget.gen.cpp.obj",
-			"OverlayWidgetController.gen.cpp.obj",
-			"PlayerInterface.gen.cpp.obj"
+			"MyPlayerController.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"OverlayWidget.gen.cpp.obj",
+			"OverlayWidgetController.gen.cpp.obj",
+			"PlayerInterface.gen.cpp.obj",
 			"PlayerStateBase.gen.cpp.obj",
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
@@ -82,7 +84,9 @@
 			"TargetDataAim.cpp.obj",
 			"AbilityTypesBase.cpp.obj",
 			"WaitCooldownChange.cpp.obj",
-			"AttributeSetBase.cpp.obj",
+			"AttributeSetBase.cpp.obj"
+		],
+		"Module.SeniorProject.5.cpp.obj": [
 			"AbilityInfo.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
@@ -113,6 +117,7 @@
 			"Minions.cpp.obj",
 			"Ranged.cpp.obj",
 			"KwangPlayer.cpp.obj",
+			"LobbyCharacter.cpp.obj",
 			"MyCharacter.cpp.obj",
 			"Turret.cpp.obj",
 			"AnimInstanceBase.cpp.obj",
@@ -128,9 +133,7 @@
 			"GameRuleInterface.cpp.obj",
 			"PlayerInterface.cpp.obj",
 			"MyAnimInstance.cpp.obj",
-			"MyPlayerController.cpp.obj"
-		],
-		"Module.SeniorProject.5.cpp.obj": [
+			"MyPlayerController.cpp.obj",
 			"PlayerStateBase.cpp.obj",
 			"SeniorProject.cpp.obj",
 			"AttributeMenuWidgetController.cpp.obj",
@@ -139,6 +142,7 @@
 			"GoldRewardWidgetComponent.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"ItemMenuWidgetController.cpp.obj",
+			"LobbyWidgetController.cpp.obj",
 			"OverlayWidget.cpp.obj",
 			"OverlayWidgetController.cpp.obj",
 			"SpellMenuWidgetController.cpp.obj"

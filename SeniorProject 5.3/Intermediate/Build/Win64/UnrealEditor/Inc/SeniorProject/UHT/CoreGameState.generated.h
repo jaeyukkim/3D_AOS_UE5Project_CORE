@@ -9,26 +9,38 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AMyPlayerController;
+class UTexture;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_CoreGameState_generated_h
 #error "CoreGameState.generated.h already included, missing '#pragma once' in CoreGameState.h"
 #endif
 #define SENIORPROJECT_CoreGameState_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_14_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FPlayerInfo_Statics; \
+	SENIORPROJECT_API static class UScriptStruct* StaticStruct();
+
+
+template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FPlayerInfo>();
+
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execPlayerCharacterChanged); \
 	DECLARE_FUNCTION(execIsInhibitorDestroyed); \
 	DECLARE_FUNCTION(execGetValidTargetTurret); \
 	DECLARE_FUNCTION(execUpdateTurretStates); \
+	DECLARE_FUNCTION(execOnRep_BlueTeam); \
+	DECLARE_FUNCTION(execOnRep_RedTeam); \
 	DECLARE_FUNCTION(execOnRep_BlueTeamScore); \
 	DECLARE_FUNCTION(execOnRep_RedTeamScore);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACoreGameState(); \
 	friend struct Z_Construct_UClass_ACoreGameState_Statics; \
@@ -38,13 +50,15 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		RedTeamScore=NETFIELD_REP_START, \
+		RedTeam=NETFIELD_REP_START, \
+		BlueTeam, \
+		RedTeamScore, \
 		BlueTeamScore, \
 		NETFIELD_REP_END=BlueTeamScore	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACoreGameState(ACoreGameState&&); \
@@ -56,17 +70,17 @@ public: \
 	NO_API virtual ~ACoreGameState();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_14_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_36_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

@@ -23,9 +23,12 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnLevelChangedSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnMinionSpawnSignature__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_OnSpellPointChangedDelegate__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_PlayerChangedDelegate__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_SelectedCharacterChangedDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_SwordDestroyDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_TurretDestroyedDelegate__DelegateSignature();
 	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_UpdateMinionTargetsSignature__DelegateSignature();
+	SENIORPROJECT_API UFunction* Z_Construct_UDelegateFunction_SeniorProject_UpdateSelectedCharacterDelegate__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_SeniorProject;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_SeniorProject()
 	{
@@ -48,22 +51,25 @@ void EmptyLinkFunctionForGeneratedCodeSeniorProject_init() {}
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_OnLevelChangedSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_OnMinionSpawnSignature__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_OnSpellPointChangedDelegate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_PlayerChangedDelegate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_SelectedCharacterChangedDelegate__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_SwordDestroyDelegate__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_TurretDestroyedDelegate__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_UpdateMinionTargetsSignature__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_SeniorProject_UpdateSelectedCharacterDelegate__DelegateSignature,
 			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/SeniorProject",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xBE5DF240,
-				0xBC9FD18E,
+				0x3BE1BA5A,
+				0xAB657887,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_SeniorProject.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xBE5DF240, 0xBC9FD18E));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_SeniorProject(Z_Construct_UPackage__Script_SeniorProject, TEXT("/Script/SeniorProject"), Z_Registration_Info_UPackage__Script_SeniorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x3BE1BA5A, 0xAB657887));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

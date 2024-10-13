@@ -31,6 +31,5 @@ protected:
 	UFUNCTION(BlueprintCallable)
 		void SetRotationToPlayer();
 
-private:
-	
+
 };

@@ -28,18 +28,22 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 	if(CoreGameState)
 	{
 		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-		APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
-		if (PlayerStateBase && PlayerStateBase->GetTeamName() == TagsBase.GameRule_TeamName_NONE)
+		APlayerStateBase* PS = NewPlayer->GetPlayerState<APlayerStateBase>();
+		if (PS && PS->GetTeamName() == TagsBase.GameRule_TeamName_NONE)
 		{
+			
 			if (CoreGameState->BlueTeam.Num() >= CoreGameState->RedTeam.Num())
 			{
-				CoreGameState->RedTeam.AddUnique(PlayerStateBase);
-				PlayerStateBase->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
+				
+				CoreGameState->RedTeam.AddUnique(PS);
+				PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
+				
 			}
 			else
 			{
-				CoreGameState->BlueTeam.AddUnique(PlayerStateBase);
-				PlayerStateBase->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
+				
+				CoreGameState->BlueTeam.AddUnique(PS);
+				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
 			}
 		}
 	}
@@ -76,7 +80,7 @@ void AMyGameModeBase::BeginPlay()
 
 	
 	// InitialSpawnTime 후 미니언 생성
-//	GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
+	GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
 	
 	
 }
@@ -112,13 +116,13 @@ void AMyGameModeBase::OnTurretDestroyed(const FGameplayTag LineTag, const FGamep
 
 
 
+
 FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag)
 {
 	if(CoreGameState == nullptr) return FGameplayTag();
 	
 	return CoreGameState->GetValidTargetTurret(TeamTag, LineTag);
 }
-
 
 
 

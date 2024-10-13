@@ -8,6 +8,7 @@
 #include "GameFramework/Character.h"
 #include "SeniorProject/UI/Damage/DamageTextComponent.h"
 #include "SeniorProject/UI/GoldReward/GoldRewardWidgetComponent.h"
+#include "SeniorProject/UI/Lobby/LobbyWidgetController.h"
 
 
 AMyPlayerController::AMyPlayerController()
@@ -55,6 +56,7 @@ void AMyPlayerController::ShowGoldAmount_Implementation(int32 GoldAmount, AActor
 		GoldRewardText->SetGoldRewardText(GoldAmount);
 	}
 }
+
 
 void AMyPlayerController::BeginPlay()
 {

@@ -4,7 +4,9 @@
 #include "CoreGameState.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "GameplayTagContainer.h"
+#include "GameFramework/PlayerState.h"
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
 
 ACoreGameState::ACoreGameState()
 {
@@ -30,6 +32,11 @@ void ACoreGameState::BlueTeamScores()
 {
 }
 
+void ACoreGameState::NewPlayerEntranced(AMyPlayerController* PC, FGameplayTag TeamName, FString UserName)
+{
+	NewPlayerEntrancedDelegate.Broadcast(TeamName, PC,  UserName, nullptr);
+}
+
 void ACoreGameState::OnRep_RedTeamScore()
 {
 }
@@ -38,6 +45,13 @@ void ACoreGameState::OnRep_BlueTeamScore()
 {
 }
 
+void ACoreGameState::OnRep_RedTeam()
+{
+}
+
+void ACoreGameState::OnRep_BlueTeam()
+{
+}
 
 
 void ACoreGameState::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bIsDestroy)
@@ -228,4 +242,14 @@ bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag Lin
 	}
 
 	return false;
+}
+
+void ACoreGameState::PlayerCharacterChanged(const FGameplayTag& TeamName, const AMyPlayerController* PC, const UTexture* CharacterImg)
+{
+	if(APlayerState* PS = PC->GetPlayerState<APlayerState>())
+	{
+		FString UserName = PS->GetPlayerName();
+		PlayerCharacterChangedDelegate.Broadcast(TeamName, PC, UserName, CharacterImg);
+	}
+	
 }

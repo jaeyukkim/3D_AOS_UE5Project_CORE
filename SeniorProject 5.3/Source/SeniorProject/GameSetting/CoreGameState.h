@@ -4,10 +4,32 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameState.h"
+#include "GameplayTagContainer.h"
 #include "CoreGameState.generated.h"
+
+
+USTRUCT(Blueprintable, BlueprintType)
+struct FPlayerInfo
+{
+	GENERATED_BODY()
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TObjectPtr<UTexture> CharacterIcon;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TObjectPtr<APlayerState> PS;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FString PlayerName;
+};
 
 class ATurret;
 class APlayerStateBase;
+class AMyPlayerController;
+
+DECLARE_MULTICAST_DELEGATE_FourParams(FPlayerCharacterChangedDelegate, const FGameplayTag&, const AMyPlayerController*, const FString&, const UTexture*);
+
+
 /**
  * 
  */
@@ -24,8 +46,11 @@ public:
 
 	void RedTeamScores();
 	void BlueTeamScores();
+	void NewPlayerEntranced(AMyPlayerController* PC, FGameplayTag TeamName, FString UserName);
 
+	UPROPERTY(ReplicatedUsing = OnRep_RedTeam)
 	TArray<TObjectPtr<APlayerStateBase>> RedTeam;
+	UPROPERTY(ReplicatedUsing = OnRep_BlueTeam)
 	TArray<TObjectPtr<APlayerStateBase>> BlueTeam;
 
 	UPROPERTY(ReplicatedUsing = OnRep_RedTeamScore)
@@ -41,7 +66,10 @@ public:
 	void OnRep_BlueTeamScore();
 
 
-	
+	UFUNCTION()
+	void OnRep_RedTeam();
+	UFUNCTION()
+	void OnRep_BlueTeam();
 	
 
 	
@@ -56,12 +84,17 @@ public:
 	UFUNCTION()
 	bool IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag LineTag) const;
 	
+
+	UFUNCTION()
+	void PlayerCharacterChanged(const FGameplayTag& TeamName, const AMyPlayerController*  PC, const UTexture* CharacterImg);
 	
 	
-private:
+	FPlayerCharacterChangedDelegate PlayerCharacterChangedDelegate;
 
 	
+	FPlayerCharacterChangedDelegate NewPlayerEntrancedDelegate;
 	
+private:
 
 	
 	/*

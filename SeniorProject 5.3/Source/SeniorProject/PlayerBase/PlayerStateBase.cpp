@@ -32,6 +32,8 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(APlayerStateBase, Gold);
 	DOREPLIFETIME(APlayerStateBase, SpellPoints);
 	DOREPLIFETIME(APlayerStateBase, TeamName);
+	DOREPLIFETIME(APlayerStateBase, PlayerCharacterClass);
+
 	
 }
 
@@ -97,6 +99,7 @@ void APlayerStateBase::SetSpellPoints(int32 InPoints)
 	OnSpellPointsChangedDelegate.Broadcast(SpellPoints);
 
 }
+
 
 
 void APlayerStateBase::OnRep_Level(int32 OldLevel)

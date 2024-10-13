@@ -405,6 +405,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\Character\Player\KwangPlayer.h">
       <Filter>Source\SeniorProject\Character\Player</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Character\Player\LobbyCharacter.cpp">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Character\Player\LobbyCharacter.h">
+      <Filter>Source\SeniorProject\Character\Player</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\Character\Player\MyCharacter.cpp">
       <Filter>Source\SeniorProject\Character\Player</Filter>
     </ClCompile>
@@ -572,6 +578,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\UI\ItemMenu\ItemMenuWidgetController.h">
       <Filter>Source\SeniorProject\UI\ItemMenu</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\UI\Lobby">
+      <UniqueIdentifier>{3078CC90-8829-3D6F-B113-F4C2FF936CAE}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\Lobby\LobbyWidgetController.cpp">
+      <Filter>Source\SeniorProject\UI\Lobby</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\Lobby\LobbyWidgetController.h">
+      <Filter>Source\SeniorProject\UI\Lobby</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\UI\OverlayWidget">
       <UniqueIdentifier>{BC94E96C-2FB4-3449-8CD8-09D701700C43}</UniqueIdentifier>

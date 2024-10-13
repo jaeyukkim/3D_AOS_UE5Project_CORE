@@ -529,14 +529,7 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\gameplayeffectcalculation.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\gameplayeffectexecutioncalculation.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\execcalc_damage.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\gameplayabilitybase.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\gameruleinterface.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\goldrewardwidgetcomponent.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\ui\\goldreward\\goldrewardwidgetcomponent.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\goldrewardwidgetcomponent.generated.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\homingprojectile.gen.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\projectile\\homingprojectile.h",
-            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\homingprojectile.generated.h"
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\gameplayabilitybase.gen.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

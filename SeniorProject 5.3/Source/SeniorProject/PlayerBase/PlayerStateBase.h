@@ -5,6 +5,7 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
+#include "SeniorProject/Character/Player/MyCharacter.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "PlayerStateBase.generated.h"
 
@@ -57,12 +58,16 @@ public:
 	FORCEINLINE const FGameplayTag& GetTeamName() {return TeamName;}
 	FORCEINLINE void SetTeamName(const FGameplayTag& InTeamName) {TeamName = InTeamName;}
 	
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite)
+	TSubclassOf<AMyCharacter> PlayerCharacterClass;
+
+	
 //	virtual void Die() override;
 	
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
-
+	
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
 

@@ -9,10 +9,13 @@
 #include "GameFramework/GameMode.h"
 #include "MyGameModeBase.generated.h"
 
+class AMyPlayerController;
+class AMyCharacter;
 class UCharacterClassInfo;
 class ATurret;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateMinionTargetsSignature);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateSelectedCharacterDelegate, APlayerStateBase*, PS);
 
 
 
@@ -30,15 +33,16 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
 
-	
-
 	UPROPERTY(BlueprintAssignable, Category="GameRule")
 	FUpdateMinionTargetsSignature UpdateMinionTargets;
 
 	UFUNCTION()
 	void OnTurretSpawned(ATurret* SpawnedTurret);
+	
 	UFUNCTION()
 	void OnTurretDestroyed(const FGameplayTag LineTag, const FGameplayTag TurretLevelTag, const FGameplayTag TeamTag);
+	
+	
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
 
@@ -58,8 +62,9 @@ protected:
 	UPROPERTY()
 	TObjectPtr<ACoreGameState> CoreGameState;
 
-	UPROPERTY()
-	TMap<TObjectPtr<ACoreGameState>, >
+	int32 RedTeamPlayerNumber = 0;
+	int32 BlueTeamPlayerNumber = 0;
+	
 private:
 	
 	// 일정 시간마다 미니언 스폰하는 함수

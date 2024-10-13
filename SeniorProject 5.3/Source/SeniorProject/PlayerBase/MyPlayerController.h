@@ -36,6 +36,8 @@ public:
 	UFUNCTION(Client, Reliable)
 	void ShowGoldAmount(int32 GoldAmount, AActor* TargetCharacter);
 
+
+	
 	
 protected:
 	virtual void BeginPlay() override;
@@ -48,7 +50,7 @@ protected:
 		TSubclassOf<UGoldRewardWidgetComponent> GoldRewardWidgetClass;
 
 private:
-	
+
 
 	FInputModeGameOnly GameInputMode;
 	FInputModeUIOnly UIInputMode;
@@ -59,6 +61,7 @@ private:
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponentBase> AbilityComponentBase;
 
+	
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
 	void AbilityInputTagHeld(FGameplayTag InputTag);

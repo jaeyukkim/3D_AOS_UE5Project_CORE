@@ -24,6 +24,8 @@ class UAudioComponent;
 class AMyPlayerController;
 class UWidgetComponent;
 
+
+
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
 {
@@ -96,6 +98,8 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnLevelChangedSignature OnLevelChanged;
+
+	
 	
 protected:
 	
