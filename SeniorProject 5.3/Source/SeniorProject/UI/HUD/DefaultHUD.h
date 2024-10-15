@@ -16,6 +16,7 @@ class UOverlayWidget;
 class UAttributeMenuWidgetController;
 class USpellMenuWidgetController;
 class UItemMenuWidgetController;
+class ALobbyCharacter;
 /**
  * 
  */
@@ -29,6 +30,8 @@ public:
 
 	UPROPERTY()
 		TObjectPtr<UOverlayWidget>  OverlayWidget;
+	UPROPERTY()
+		TObjectPtr<UOverlayWidget>  CharacterSelectWidget;
 
 	UOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);
 	UAttributeMenuWidgetController* GetAttributeMenuWidgetController(const FWidgetControllerParams& WCParams);
@@ -38,6 +41,7 @@ public:
 
 	
 	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
+	void InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter);
 
 
 private:
@@ -69,4 +73,6 @@ private:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UItemMenuWidgetController> ItemMenuWidgetControllerClass;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UOverlayWidget> CharacterSelectWidgetClass;
 };

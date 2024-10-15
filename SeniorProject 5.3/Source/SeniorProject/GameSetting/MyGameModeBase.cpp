@@ -29,21 +29,16 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 	{
 		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 		APlayerStateBase* PS = NewPlayer->GetPlayerState<APlayerStateBase>();
-		if (PS && PS->GetTeamName() == TagsBase.GameRule_TeamName_NONE)
+		if (PS)
 		{
 			
 			if (CoreGameState->BlueTeam.Num() >= CoreGameState->RedTeam.Num())
 			{
-				
 				CoreGameState->RedTeam.AddUnique(PS);
-				PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
-				
 			}
 			else
 			{
-				
 				CoreGameState->BlueTeam.AddUnique(PS);
-				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
 			}
 		}
 	}

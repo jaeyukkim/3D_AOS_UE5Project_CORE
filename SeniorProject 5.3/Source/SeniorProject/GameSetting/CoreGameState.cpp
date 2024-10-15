@@ -5,8 +5,10 @@
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "GameplayTagContainer.h"
 #include "GameFramework/PlayerState.h"
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
+#include "SeniorProject/PlayerBase/PlayerStateBase.h"
 
 ACoreGameState::ACoreGameState()
 {
@@ -18,40 +20,118 @@ ACoreGameState::ACoreGameState()
 void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ACoreGameState, PlayerInfos);
+	DOREPLIFETIME(ACoreGameState, RedTeam);
+	DOREPLIFETIME(ACoreGameState, BlueTeam);
+	DOREPLIFETIME(ACoreGameState, ReadyUsers);
+	DOREPLIFETIME(ACoreGameState, RedTeamTurretStates);
+	DOREPLIFETIME(ACoreGameState, BlueTeamTurretStates);
 }
 
-void ACoreGameState::UpdateTopScore(ABlasterPlayerState* ScoringPlayer)
+
+
+
+void ACoreGameState::PlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg)
 {
+	for (FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		// 일치하는 PlayerInfo를 찾으면 반환
+		if (PlayerInfo.PS == InPS)
+		{
+			PlayerInfo.CharacterImg = CharacterImg;
+			PlayerInfo.SelectedCharacter = SelectedCharacter;
+			PlayerCharacterChangedDelegate.Broadcast(PlayerInfo);
+		}
+	}
 }
 
-void ACoreGameState::RedTeamScores()
+
+void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
 {
+	for(FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		NewPlayerEntrancedDelegate.Broadcast(PlayerInfo);
+	}
+
 }
 
-void ACoreGameState::BlueTeamScores()
+
+void ACoreGameState::PlayerReady_Implementation(APlayerState* ReadyUser)
 {
+	ReadyUsers.AddUnique(ReadyUser);
+
+	if(PlayerInfos.Num() == ReadyUsers.Num())
+	{
+		AllPlayerReadyCompletedDelegate.Broadcast();
+	}
 }
 
-void ACoreGameState::NewPlayerEntranced(AMyPlayerController* PC, FGameplayTag TeamName, FString UserName)
+
+void ACoreGameState::MulticastPlayerReady_Implementation(APlayerState* InPS)
 {
-	NewPlayerEntrancedDelegate.Broadcast(TeamName, PC,  UserName, nullptr);
+	for (FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		// 일치하는 PlayerInfo를 찾으면 반환
+		if (PlayerInfo.PS == InPS)
+		{
+			PlayerReadyCompletedDelegate.Broadcast(PlayerInfo);
+		}
+	}
 }
 
-void ACoreGameState::OnRep_RedTeamScore()
+TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ACoreGameState::GetSelectedPlayerClass(FGameplayTag TeamName)
 {
+	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> RedTeamSeletedPlayerClass;
+	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> BlueTeamSeletedPlayerClass;
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	for (FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		if(PlayerInfo.PlayerTeamName == TagsBase.GameRule_TeamName_RedTeam)
+			RedTeamSeletedPlayerClass.Add(PlayerInfo.SelectedCharacter, PlayerInfo.PlayerTeamName);
+		else if(PlayerInfo.PlayerTeamName == TagsBase.GameRule_TeamName_BlueTeam)
+			BlueTeamSeletedPlayerClass.Add(PlayerInfo.SelectedCharacter, PlayerInfo.PlayerTeamName);
+	}
+
+	if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
+		return RedTeamSeletedPlayerClass;
+	
+	return BlueTeamSeletedPlayerClass;
 }
 
-void ACoreGameState::OnRep_BlueTeamScore()
+void ACoreGameState::AddPlayerInfo(FPlayerInfo& Info)
 {
+	
+	FPlayerInfo PlayerInformation;
+	
+	PlayerInformation.PC = Info.PC;
+	PlayerInformation.PS = Info.PS;
+	PlayerInformation.PlayerTeamName = Info.PlayerTeamName;
+	PlayerInformation.PlayerName = Info.PlayerName;
+	
+	// 중복된 PS가 없다면 추가
+	PlayerInfos.Add(PlayerInformation);
+
 }
 
-void ACoreGameState::OnRep_RedTeam()
+bool ACoreGameState::SetPlayerTeam(APlayerStateBase* PS)
 {
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if(RedTeam.Contains(PS))
+	{
+		PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
+		return true;
+	}
+	else if (BlueTeam.Contains(PS))
+	{
+		PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
+		return true;
+	}
+	return false;
+
 }
 
-void ACoreGameState::OnRep_BlueTeam()
-{
-}
+
 
 
 void ACoreGameState::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bIsDestroy)
@@ -244,12 +324,4 @@ bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag Lin
 	return false;
 }
 
-void ACoreGameState::PlayerCharacterChanged(const FGameplayTag& TeamName, const AMyPlayerController* PC, const UTexture* CharacterImg)
-{
-	if(APlayerState* PS = PC->GetPlayerState<APlayerState>())
-	{
-		FString UserName = PS->GetPlayerName();
-		PlayerCharacterChangedDelegate.Broadcast(TeamName, PC, UserName, CharacterImg);
-	}
-	
-}
+

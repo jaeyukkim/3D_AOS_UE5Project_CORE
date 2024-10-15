@@ -63,7 +63,7 @@ public:
 
 	
 //	virtual void Die() override;
-	
+
 protected:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;

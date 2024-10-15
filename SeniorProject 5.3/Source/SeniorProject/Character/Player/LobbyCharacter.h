@@ -3,8 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/Character.h"
+#include "SeniorProject/GameSetting/CoreGameState.h"
 #include "LobbyCharacter.generated.h"
+
+
+struct FGameplayTag;
+
+
 
 class APlayerStateBase;
 class AMyPlayerController;
@@ -13,8 +20,9 @@ class UOverlayWidget;
 class AMyCharacter;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSelectedCharacterChangedDelegate ,const UTexture*, CharacterImage);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FPlayerChangedDelegate, const FGameplayTag&, TeamName, const AMyPlayerController*,  PC, const FString&, UserName, const UTexture*, CharacterImg);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerChangedDelegate, const FPlayerInfo&, Info);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPlayerReadyCompleted);
 
 UCLASS()
 class SENIORPROJECT_API ALobbyCharacter : public ACharacter
@@ -26,46 +34,48 @@ public:
 	ALobbyCharacter();
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
 	
 	void InitLobbyWidget();
 	void InitPlayerInfo();
 	void BindCallbacksToDependencies();
-	UFUNCTION(BlueprintCallable)
+	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void BroadcastCharacterSelectWidget();
-	
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	void SetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	void Ready();
 	UFUNCTION(BlueprintCallable)
-	void SetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter,  const UTexture* CharacterImg);
+	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass();
 	
+	
+	UPROPERTY(BlueprintAssignable)
+	FSelectedCharacterChangedDelegate CharacterChangedDelegate;
+	UPROPERTY(BlueprintAssignable)
+	FPlayerChangedDelegate PlayerCharacterChanged;
+	UPROPERTY(BlueprintAssignable)
+	FPlayerChangedDelegate NewPlayerEntranced;
+	UPROPERTY(BlueprintAssignable)
+	FPlayerChangedDelegate PlayerReadyCompleted;
+	UPROPERTY(BlueprintAssignable)
+	FPlayerReadyCompleted AllPlayerReadyCompleted;
+
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UOverlayWidget> CharacterSelectWidget;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<AMyPlayerController> PC;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TObjectPtr<APlayerStateBase> PS;
-
-
-	UPROPERTY(BlueprintAssignable)
-	FSelectedCharacterChangedDelegate CharacterChangedDelegate;
-
-	
-	UPROPERTY(BlueprintAssignable)
-	FPlayerChangedDelegate PlayerCharacterChanged;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FPlayerInfo PlayerInformation;
+	UFUNCTION(BlueprintCallable)
+	FGameplayTag GetPlayerTeamName();
 	
 
-	UPROPERTY(BlueprintAssignable)
-	FPlayerChangedDelegate NewPlayerEntranced;
-	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	
 private:
-	UPROPERTY(EditAnywhere, Category="Widget")
-	TSubclassOf<UOverlayWidget> CharacterSelectWidgetClass;
+	FTimerHandle InitPlayerInfoRetryTimerHandle;
 	
 };

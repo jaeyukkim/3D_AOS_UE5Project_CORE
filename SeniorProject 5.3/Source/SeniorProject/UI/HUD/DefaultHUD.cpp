@@ -5,6 +5,7 @@
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "AbilitySystemComponent.h"
+#include "SeniorProject/Character/Player/LobbyCharacter.h"
 #include "SeniorProject/UI/AttributeMenu/AttributeMenuWidgetController.h"
 #include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
 #include "SeniorProject/UI/SpellMenu/SpellMenuWidgetController.h"
@@ -77,5 +78,28 @@ void ADefaultHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilityS
 	OverlayWidget->SetWidgetController(WidgetController);
 	WidgetController->BroadcastInitialValues();
 	Widget->AddToViewport();
+}
+
+void ADefaultHUD::InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter)
+{
+	checkf(CharacterSelectWidgetClass, TEXT("CharacterSelect uninitialized, please fill out BP_DefaultHUD"));
+	if(LobbyCharacter == nullptr) return;
+	
+	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), CharacterSelectWidgetClass);
+	CharacterSelectWidget = Cast<UOverlayWidget>(Widget);
+	LobbyCharacter->BindCallbacksToDependencies();
+	
+	CharacterSelectWidget->SetWidgetController(LobbyCharacter);
+	CharacterSelectWidget->AddToViewport();
+
+	if (CharacterSelectWidget)
+	{
+		FInputModeUIOnly InputMode;
+		InputMode.SetWidgetToFocus(CharacterSelectWidget->TakeWidget());
+		GetOwningPlayerController()->SetInputMode(InputMode);
+		GetOwningPlayerController()->bShowMouseCursor = true;
+	
+	}
+	
 }
 

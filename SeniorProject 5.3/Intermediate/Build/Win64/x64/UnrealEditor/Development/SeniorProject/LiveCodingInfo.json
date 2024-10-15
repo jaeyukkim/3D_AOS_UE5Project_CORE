@@ -50,6 +50,7 @@
 			"LaneSuper.gen.cpp.obj",
 			"LevelUpInfo.gen.cpp.obj",
 			"LobbyCharacter.gen.cpp.obj",
+			"LobbyWidget.gen.cpp.obj",
 			"LobbyWidgetController.gen.cpp.obj",
 			"Melee.gen.cpp.obj",
 			"MeleeAttackBase.gen.cpp.obj",
@@ -58,10 +59,10 @@
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
 			"MyCharacter.gen.cpp.obj",
-			"MyGameModeBase.gen.cpp.obj",
-			"MyPlayerController.gen.cpp.obj"
+			"MyGameModeBase.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
 			"PlayerInterface.gen.cpp.obj",
@@ -81,12 +82,12 @@
 			"GameplayAbilityBase.cpp.obj",
 			"ProjectileSpellBase.cpp.obj",
 			"AbilitySystemComponentBase.cpp.obj",
-			"TargetDataAim.cpp.obj",
-			"AbilityTypesBase.cpp.obj",
-			"WaitCooldownChange.cpp.obj",
-			"AttributeSetBase.cpp.obj"
+			"TargetDataAim.cpp.obj"
 		],
 		"Module.SeniorProject.5.cpp.obj": [
+			"AbilityTypesBase.cpp.obj",
+			"WaitCooldownChange.cpp.obj",
+			"AttributeSetBase.cpp.obj",
 			"AbilityInfo.cpp.obj",
 			"AttributeInfo.cpp.obj",
 			"CharacterClassInfo.cpp.obj",
@@ -142,6 +143,7 @@
 			"GoldRewardWidgetComponent.cpp.obj",
 			"DefaultHUD.cpp.obj",
 			"ItemMenuWidgetController.cpp.obj",
+			"LobbyWidget.cpp.obj",
 			"LobbyWidgetController.cpp.obj",
 			"OverlayWidget.cpp.obj",
 			"OverlayWidgetController.cpp.obj",

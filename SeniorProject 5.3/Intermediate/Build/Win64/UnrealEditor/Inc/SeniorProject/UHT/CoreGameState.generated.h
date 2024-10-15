@@ -9,7 +9,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AMyPlayerController;
+class AMyCharacter;
+class AMyCharacter; struct FGameplayTag;
+class APlayerState;
 class UTexture;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_CoreGameState_generated_h
@@ -17,30 +19,35 @@ struct FGameplayTag;
 #endif
 #define SENIORPROJECT_CoreGameState_generated_h
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_14_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_17_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FPlayerInfo_Statics; \
 	SENIORPROJECT_API static class UScriptStruct* StaticStruct();
 
 
 template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FPlayerInfo>();
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_SPARSE_DATA
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void PlayerReady_Implementation(APlayerState* ReadyUser); \
+	virtual void MulticastPlayerReady_Implementation(APlayerState* InPS); \
+	virtual void PlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg); \
+	virtual void MulticastNewPlayerEntranced_Implementation(); \
  \
-	DECLARE_FUNCTION(execPlayerCharacterChanged); \
 	DECLARE_FUNCTION(execIsInhibitorDestroyed); \
 	DECLARE_FUNCTION(execGetValidTargetTurret); \
 	DECLARE_FUNCTION(execUpdateTurretStates); \
-	DECLARE_FUNCTION(execOnRep_BlueTeam); \
-	DECLARE_FUNCTION(execOnRep_RedTeam); \
-	DECLARE_FUNCTION(execOnRep_BlueTeamScore); \
-	DECLARE_FUNCTION(execOnRep_RedTeamScore);
+	DECLARE_FUNCTION(execGetSelectedPlayerClass); \
+	DECLARE_FUNCTION(execPlayerReady); \
+	DECLARE_FUNCTION(execMulticastPlayerReady); \
+	DECLARE_FUNCTION(execPlayerCharacterChanged); \
+	DECLARE_FUNCTION(execMulticastNewPlayerEntranced);
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ACCESSORS
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_INCLASS_NO_PURE_DECLS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_ACCESSORS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_CALLBACK_WRAPPERS
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACoreGameState(); \
 	friend struct Z_Construct_UClass_ACoreGameState_Statics; \
@@ -52,13 +59,15 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		RedTeam=NETFIELD_REP_START, \
 		BlueTeam, \
-		RedTeamScore, \
-		BlueTeamScore, \
-		NETFIELD_REP_END=BlueTeamScore	}; \
+		PlayerInfos, \
+		ReadyUsers, \
+		BlueTeamTurretStates, \
+		RedTeamTurretStates, \
+		NETFIELD_REP_END=RedTeamTurretStates	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ENHANCED_CONSTRUCTORS \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACoreGameState(ACoreGameState&&); \
@@ -70,17 +79,18 @@ public: \
 	NO_API virtual ~ACoreGameState();
 
 
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_36_PROLOG
-#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_GENERATED_BODY \
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_61_PROLOG
+#define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ACCESSORS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_INCLASS_NO_PURE_DECLS \
-	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_39_ENHANCED_CONSTRUCTORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_SPARSE_DATA \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_ACCESSORS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_CALLBACK_WRAPPERS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_INCLASS_NO_PURE_DECLS \
+	FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_64_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

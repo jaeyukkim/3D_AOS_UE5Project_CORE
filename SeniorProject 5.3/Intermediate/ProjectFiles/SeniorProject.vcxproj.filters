@@ -582,6 +582,12 @@
     <Filter Include="Source\SeniorProject\UI\Lobby">
       <UniqueIdentifier>{3078CC90-8829-3D6F-B113-F4C2FF936CAE}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\UI\Lobby\LobbyWidget.cpp">
+      <Filter>Source\SeniorProject\UI\Lobby</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\UI\Lobby\LobbyWidget.h">
+      <Filter>Source\SeniorProject\UI\Lobby</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\UI\Lobby\LobbyWidgetController.cpp">
       <Filter>Source\SeniorProject\UI\Lobby</Filter>
     </ClCompile>

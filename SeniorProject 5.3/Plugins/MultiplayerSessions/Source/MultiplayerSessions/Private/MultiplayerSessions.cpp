@@ -6,13 +6,12 @@
 
 void FMultiplayerSessionsModule::StartupModule()
 {
-	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
+	// 모듈이 메모리에 업로드 될 때
 }
 
 void FMultiplayerSessionsModule::ShutdownModule()
 {
-	// This function may be called during shutdown to clean up your module.  For modules that support dynamic reloading,
-	// we call this function before unloading the module.
+	// 셧다운 시에 모듈 클리어
 }
 
 #undef LOCTEXT_NAMESPACE

@@ -3,11 +3,13 @@
 
 #include "LobbyCharacter.h"
 
-#include "Blueprint/UserWidget.h"
-#include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
-#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
+#include "SeniorProject/UI/HUD/DefaultHUD.h"
+#include "GameplayTagContainer.h"
+#include "Net/UnrealNetwork.h"
+#include "SeniorProject/GameSetting/CoreGameState.h"
+
 
 
 ALobbyCharacter::ALobbyCharacter()
@@ -34,6 +36,12 @@ void ALobbyCharacter::OnRep_PlayerState()
 	
 }
 
+void ALobbyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	
+}
+
 
 void ALobbyCharacter::BeginPlay()
 {
@@ -41,18 +49,38 @@ void ALobbyCharacter::BeginPlay()
 	
 }
 
+/*
+ * 클라이언트의 경우 서버에서 팀 배치를 하기 전에 이미 InitPlayerInfo가 실행됨.
+ *  따라서 클라이언트는 서버에서 팀 배치 이후 팀 정보가 다시 initialize되도록 설정함.
+ */
 void ALobbyCharacter::InitPlayerInfo()
 {
-	PS = GetPlayerState<APlayerStateBase>();
-	if(PS != nullptr)
+	ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
+	APlayerStateBase* PS = GetPlayerState<APlayerStateBase>();
+	APlayerController* PC = Cast<APlayerController>(GetController());
+
+	if(PS ==nullptr && PC == nullptr || CoreGameState == nullptr) return;
+
+	
+	if(CoreGameState->SetPlayerTeam(PS))
 	{
-		PC = Cast<AMyPlayerController>(GetController());
-		if(PC != nullptr)
-		{
-			InitLobbyWidget();
-			
-		}
+		
+		FPlayerInfo Info;
+		Info.PC = PC;
+		Info.PS = PS;
+		Info.PlayerTeamName = PS->GetTeamName();
+		Info.PlayerName = PS->GetPlayerName();
+		PlayerInformation = Info;
+		CoreGameState->AddPlayerInfo(Info);
+		InitLobbyWidget();
+	
 	}
+	else
+	{
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
+	
+	}
+	
 }
 
 void ALobbyCharacter::BindCallbacksToDependencies()
@@ -60,55 +88,94 @@ void ALobbyCharacter::BindCallbacksToDependencies()
 	ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld()));
 	if(CoreGameState != nullptr)
 	{
-		CoreGameState->NewPlayerEntrancedDelegate.AddLambda([this](const FGameplayTag& Team_Name, const AMyPlayerController* PController, const FString& UserName, const UTexture* CharacterImg)
+		CoreGameState->NewPlayerEntrancedDelegate.AddLambda([this](const FPlayerInfo& Info)
 		{
-			NewPlayerEntranced.Broadcast(Team_Name, PController, UserName, CharacterImg);
+			NewPlayerEntranced.Broadcast(Info);
 		});
 
-		CoreGameState->PlayerCharacterChangedDelegate.AddLambda([this](const FGameplayTag& Team_Name, const AMyPlayerController* PController, const FString& UserName, const UTexture* CharacterImg)
+		CoreGameState->PlayerCharacterChangedDelegate.AddLambda([this](const FPlayerInfo& Info)
 		{
-			PlayerCharacterChanged.Broadcast(Team_Name, PController, UserName, CharacterImg);
+			PlayerCharacterChanged.Broadcast(Info);
 		});
+		CoreGameState->PlayerReadyCompletedDelegate.AddLambda([this](const FPlayerInfo& Info)
+		{
+			PlayerReadyCompleted.Broadcast(Info);
+		});
+		CoreGameState->AllPlayerReadyCompletedDelegate.AddLambda([this]()
+		{
+			AllPlayerReadyCompleted.Broadcast();
+		});
+		
 	}
 }
 
-void ALobbyCharacter::BroadcastCharacterSelectWidget()
+TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ALobbyCharacter::GetSelectedPlayerClass()
 {
-	ACoreGameState* CoreGameState = Cast<ACoreGameState>(GetWorld()->GetGameState());
-	PC = Cast<AMyPlayerController>(GetController());
-	PS = GetPlayerState<APlayerStateBase>();
-	if(CoreGameState && PC && PS)
+	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> SeletedPlayerClass;
+
+	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
-		CoreGameState->NewPlayerEntranced(PC, PS->GetTeamName(), PS->GetPlayerName());
+		return CoreGameState->GetSelectedPlayerClass(GetPlayerTeamName());
 	}
+	return SeletedPlayerClass;
+}
+
+void ALobbyCharacter::Ready_Implementation()
+{
+	if(PlayerInformation.PS == nullptr) return;
+	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
+
+
+	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
+	{
+		CoreGameState->PlayerReady(PlayerInformation.PS);
+		CoreGameState->MulticastPlayerReady(PlayerInformation.PS);
+	}
+}
+
+
+void ALobbyCharacter::SetPlayerCharacterClass_Implementation(TSubclassOf<AMyCharacter> SelectedCharacter,
+                                                             UTexture* CharacterImg)
+{
+	if(PlayerInformation.PC == nullptr || PlayerInformation.PS == nullptr) return;
+	
+	PlayerInformation.PS->PlayerCharacterClass = SelectedCharacter;
+	
+	
+	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
+	{
+		CoreGameState->PlayerCharacterChanged(PlayerInformation.PS, SelectedCharacter, CharacterImg);
+	}
+}
+
+void ALobbyCharacter::BroadcastCharacterSelectWidget_Implementation()
+{
+	if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(GetWorld()->GetGameState()))
+	{
+		CoreGameState->MulticastNewPlayerEntranced();
+
+	};
 }
 
 
 void ALobbyCharacter::InitLobbyWidget()
 {
-	if(CharacterSelectWidgetClass != nullptr && CharacterSelectWidget == nullptr)
+	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
 	{
-		CharacterSelectWidget = NewObject<UOverlayWidget>(this, CharacterSelectWidgetClass);
-		BindCallbacksToDependencies();
-		CharacterSelectWidget->AddToViewport(0);
-		CharacterSelectWidget->SetWidgetController(this);
-		
+		if (ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
+		{
+			DefaultHUD->InitCharacterSelectWidget(this);
+			
+		}
 	}
 }
 
-
-
-void ALobbyCharacter::SetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter, const UTexture* CharacterImg)
+FGameplayTag ALobbyCharacter::GetPlayerTeamName()
 {
-	if(PC == nullptr || PS == nullptr) return;
-
-	
-
-	PS->PlayerCharacterClass = SelectedCharacter;
-	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
+	if(PlayerInformation.PS != nullptr)
 	{
-		CoreGameState->PlayerCharacterChanged(PS->GetTeamName(), PC, CharacterImg);
+		return PlayerInformation.PS->GetTeamName();
 	}
-	
+	return FGameplayTag();
 }
 
