@@ -213,10 +213,11 @@ void ACharacterBase::InitializeDefaultAttributes() const
 void ACharacterBase::AddCharacterAbility()
 {
 	if(!HasAuthority()) return;
-
+	
 	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
 	ASCBase->AddCharacterAbility(GameplayAbility);
 	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
+	
 }
 
 

@@ -12,6 +12,7 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Spawner.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/SpellMenuWidgetController.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/TargetDataAim.gen.cpp"
+#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/TeamPlayerStart.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Turret.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/WaitCooldownChange.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/Attack/MeleeAttackBase.cpp"
@@ -19,4 +20,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp"

@@ -7,6 +7,8 @@
 #include "EngineMinimal.h"
 #include "GameplayTagContainer.h"
 #include "GameFramework/GameMode.h"
+#include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
+#include "SeniorProject/PlayerBase/PlayerStateBase.h"
 #include "MyGameModeBase.generated.h"
 
 class AMyPlayerController;
@@ -28,21 +30,21 @@ public:
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	virtual void Logout(AController* Exiting) override;
 	virtual void StartPlay() override;
+	virtual void StartMatch() override;
 	
+	
+	void SetupPlayerCharacterClass(APlayerController* NewPlayer);
+
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
-
 	UPROPERTY(BlueprintAssignable, Category="GameRule")
 	FUpdateMinionTargetsSignature UpdateMinionTargets;
 
 	UFUNCTION()
 	void OnTurretSpawned(ATurret* SpawnedTurret);
-	
 	UFUNCTION()
 	void OnTurretDestroyed(const FGameplayTag LineTag, const FGameplayTag TurretLevelTag, const FGameplayTag TeamTag);
-	
-	
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
 
@@ -75,3 +77,5 @@ private:
 	FTimerHandle InitialSpawnTimerHandle;
 	FTimerHandle RecurringSpawnTimerHandle;
 };
+
+

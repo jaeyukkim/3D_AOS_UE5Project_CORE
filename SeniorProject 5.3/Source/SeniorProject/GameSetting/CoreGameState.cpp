@@ -27,12 +27,14 @@ void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	DOREPLIFETIME(ACoreGameState, ReadyUsers);
 	DOREPLIFETIME(ACoreGameState, RedTeamTurretStates);
 	DOREPLIFETIME(ACoreGameState, BlueTeamTurretStates);
+	DOREPLIFETIME(ACoreGameState, GameProcess);
+
 }
 
 
 
 
-void ACoreGameState::PlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg)
+void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg)
 {
 	for (FPlayerInfo& PlayerInfo : PlayerInfos)
 	{
@@ -57,7 +59,7 @@ void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
 }
 
 
-void ACoreGameState::PlayerReady_Implementation(APlayerState* ReadyUser)
+void ACoreGameState::ServerPlayerReady_Implementation(APlayerState* ReadyUser)
 {
 	ReadyUsers.AddUnique(ReadyUser);
 
@@ -116,17 +118,23 @@ void ACoreGameState::AddPlayerInfo(FPlayerInfo& Info)
 
 bool ACoreGameState::SetPlayerTeam(APlayerStateBase* PS)
 {
+	if(PS == nullptr) return false;
+		
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-	if(RedTeam.Contains(PS))
+	if(PS->GetTeamName() != TagsBase.GameRule_TeamName_NONE)
 	{
-		PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
-		return true;
+		if(RedTeam.Contains(PS))
+		{
+			PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
+			return true;
+		}
+		else if (BlueTeam.Contains(PS))
+		{
+			PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
+			return true;
+		}
 	}
-	else if (BlueTeam.Contains(PS))
-	{
-		PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
-		return true;
-	}
+	
 	return false;
 
 }

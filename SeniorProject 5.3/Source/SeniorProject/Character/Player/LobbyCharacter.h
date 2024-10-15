@@ -41,11 +41,11 @@ public:
 	void InitPlayerInfo();
 	void BindCallbacksToDependencies();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void BroadcastCharacterSelectWidget();
+	void ServerBroadcastCharacterSelectWidget();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void SetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
+	void ServerSetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
 	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void Ready();
+	void ServerReady();
 	UFUNCTION(BlueprintCallable)
 	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass();
 	
@@ -68,7 +68,8 @@ public:
 	FPlayerInfo PlayerInformation;
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetPlayerTeamName();
-	
+
+	int32 retrycnt = 0;
 
 protected:
 	// Called when the game starts or when spawned

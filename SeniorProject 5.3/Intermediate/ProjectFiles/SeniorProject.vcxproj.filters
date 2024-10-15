@@ -291,6 +291,15 @@
     <ClInclude Include="..\..\Source\SeniorProject\Actor\Gameplay\Spawner.h">
       <Filter>Source\SeniorProject\Actor\Gameplay</Filter>
     </ClInclude>
+    <Filter Include="Source\SeniorProject\Actor\PlayerStart">
+      <UniqueIdentifier>{24D835AC-5EFF-3071-ABC8-00C2DACDCE34}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Actor\PlayerStart\TeamPlayerStart.cpp">
+      <Filter>Source\SeniorProject\Actor\PlayerStart</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Actor\PlayerStart\TeamPlayerStart.h">
+      <Filter>Source\SeniorProject\Actor\PlayerStart</Filter>
+    </ClInclude>
     <Filter Include="Source\SeniorProject\Actor\Projectile">
       <UniqueIdentifier>{C566D13C-D30B-33BB-A46E-F61168CB16AA}</UniqueIdentifier>
     </Filter>

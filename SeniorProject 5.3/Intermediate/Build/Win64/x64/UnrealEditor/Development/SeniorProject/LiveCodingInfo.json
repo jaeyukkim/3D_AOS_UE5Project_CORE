@@ -75,16 +75,17 @@
 			"Spawner.gen.cpp.obj",
 			"SpellMenuWidgetController.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
+			"TeamPlayerStart.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
 			"WaitCooldownChange.gen.cpp.obj",
 			"MeleeAttackBase.cpp.obj",
 			"DamageGameplayAbilityBase.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
 			"ProjectileSpellBase.cpp.obj",
-			"AbilitySystemComponentBase.cpp.obj",
-			"TargetDataAim.cpp.obj"
+			"AbilitySystemComponentBase.cpp.obj"
 		],
 		"Module.SeniorProject.5.cpp.obj": [
+			"TargetDataAim.cpp.obj",
 			"AbilityTypesBase.cpp.obj",
 			"WaitCooldownChange.cpp.obj",
 			"AttributeSetBase.cpp.obj",
@@ -101,6 +102,7 @@
 			"DamageActorBase.cpp.obj",
 			"EffectActorBase.cpp.obj",
 			"Spawner.cpp.obj",
+			"TeamPlayerStart.cpp.obj",
 			"HomingProjectile.cpp.obj",
 			"ProjectileBase.cpp.obj",
 			"AIControllerBase.cpp.obj",

@@ -59,7 +59,12 @@ void ALobbyCharacter::InitPlayerInfo()
 	APlayerStateBase* PS = GetPlayerState<APlayerStateBase>();
 	APlayerController* PC = Cast<APlayerController>(GetController());
 
-	if(PS ==nullptr && PC == nullptr || CoreGameState == nullptr) return;
+	if(PS ==nullptr || PC == nullptr || CoreGameState == nullptr)
+	{
+		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
+		return;
+	}
 
 	
 	if(CoreGameState->SetPlayerTeam(PS))
@@ -73,12 +78,14 @@ void ALobbyCharacter::InitPlayerInfo()
 		PlayerInformation = Info;
 		CoreGameState->AddPlayerInfo(Info);
 		InitLobbyWidget();
-	
+		
 	}
 	else
 	{
+		retrycnt++;
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Failed to set player team after %d attempts."), retrycnt));
+		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
 		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
-	
 	}
 	
 }
@@ -120,7 +127,7 @@ TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ALobbyCharacter::GetSelectedPlayer
 	return SeletedPlayerClass;
 }
 
-void ALobbyCharacter::Ready_Implementation()
+void ALobbyCharacter::ServerReady_Implementation()
 {
 	if(PlayerInformation.PS == nullptr) return;
 	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
@@ -128,13 +135,13 @@ void ALobbyCharacter::Ready_Implementation()
 
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
-		CoreGameState->PlayerReady(PlayerInformation.PS);
+		CoreGameState->ServerPlayerReady(PlayerInformation.PS);
 		CoreGameState->MulticastPlayerReady(PlayerInformation.PS);
 	}
 }
 
 
-void ALobbyCharacter::SetPlayerCharacterClass_Implementation(TSubclassOf<AMyCharacter> SelectedCharacter,
+void ALobbyCharacter::ServerSetPlayerCharacterClass_Implementation(TSubclassOf<AMyCharacter> SelectedCharacter,
                                                              UTexture* CharacterImg)
 {
 	if(PlayerInformation.PC == nullptr || PlayerInformation.PS == nullptr) return;
@@ -144,11 +151,11 @@ void ALobbyCharacter::SetPlayerCharacterClass_Implementation(TSubclassOf<AMyChar
 	
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
-		CoreGameState->PlayerCharacterChanged(PlayerInformation.PS, SelectedCharacter, CharacterImg);
+		CoreGameState->MulticastPlayerCharacterChanged(PlayerInformation.PS, SelectedCharacter, CharacterImg);
 	}
 }
 
-void ALobbyCharacter::BroadcastCharacterSelectWidget_Implementation()
+void ALobbyCharacter::ServerBroadcastCharacterSelectWidget_Implementation()
 {
 	if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(GetWorld()->GetGameState()))
 	{
@@ -164,9 +171,13 @@ void ALobbyCharacter::InitLobbyWidget()
 	{
 		if (ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
 		{
+			ServerBroadcastCharacterSelectWidget();
 			DefaultHUD->InitCharacterSelectWidget(this);
-			
 		}
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Failed InitLobbyWidget")));
 	}
 }
 

@@ -22,6 +22,7 @@ class UInputAction;
 class USoundCue;
 class UAudioComponent;
 class AMyPlayerController;
+class APlayerStateBase;
 class UWidgetComponent;
 
 
@@ -36,14 +37,12 @@ public:
 	AMyCharacter();
 	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
-
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
-	
+	void SetSpawnPoint();
 	UFUNCTION(BlueprintCallable)
 	void BroadcastInitialValues();
 	
@@ -58,18 +57,20 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category="Input")
 		TObjectPtr<AMyPlayerController> PlayerController;
+	
 
 	/* CombatInterface */
 	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
 	virtual void Die_Implementation() override;
 	/* end CombatInterface */
 
-	/* Enemy Interface */
 	
+	/* Enemy Interface */
 	virtual FGameplayTag GetTeamName_Implementation() const override;
 	/* end Enemy Interface */
 
 
+	
 	/** Players Interface */
 	virtual int32 GetSpellPoints_Implementation() const override;
 	virtual int32 GetXP_Implementation() const override;
@@ -85,17 +86,14 @@ public:
 	virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	TArray<FItemInformation> GetAllItem_Implementation() override;
-	
 	/** end Player Interface */
 	
 
 
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnManaChanged;
-
 	UPROPERTY(BlueprintAssignable)
 	FOnAttributeChangedSignature OnMaxManaChanged;
-
 	UPROPERTY(BlueprintAssignable)
 	FOnLevelChangedSignature OnLevelChanged;
 
@@ -105,6 +103,7 @@ protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
+
 	void InitializeHealthBarWidget();
 	virtual int32 GetPlayerLevel_Implementation() override;
 	
@@ -189,4 +188,6 @@ private:
 
 		void AimTrace();
 
+
+	
 };

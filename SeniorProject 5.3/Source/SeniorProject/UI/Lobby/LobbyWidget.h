@@ -15,6 +15,6 @@ class SENIORPROJECT_API ULobbyWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
-
+	
 
 };

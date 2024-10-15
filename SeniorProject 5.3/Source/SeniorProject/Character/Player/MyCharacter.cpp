@@ -25,6 +25,7 @@
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
 
@@ -205,6 +206,39 @@ void AMyCharacter::InitializeHealthBarWidget()
 	}
 	
 
+}
+
+
+void AMyCharacter::SetSpawnPoint()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+
+	if (PlayerStateBase == nullptr) return;
+
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+
+	if (HasAuthority() && PlayerStateBase->GetTeamName() != TagsBase.GameRule_TeamName_NONE)
+	{
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(this, ATeamPlayerStart::StaticClass(), PlayerStarts);
+		TArray<ATeamPlayerStart*> TeamPlayerStarts;
+
+		for (auto Start : PlayerStarts)
+		{
+			ATeamPlayerStart* TeamStart = Cast<ATeamPlayerStart>(Start);
+			if (TeamStart && TeamStart->TeamName == PlayerStateBase->GetTeamName())
+			{
+				TeamPlayerStarts.Add(TeamStart);
+			}
+		}
+		if (TeamPlayerStarts.Num() > 0)
+		{
+			ATeamPlayerStart* ChosenPlayerStart = TeamPlayerStarts[FMath::RandRange(0, TeamPlayerStarts.Num() - 1)];
+			SetActorLocationAndRotation(
+				ChosenPlayerStart->GetActorLocation(),
+				ChosenPlayerStart->GetActorRotation());
+		}
+	}
 }
 
 

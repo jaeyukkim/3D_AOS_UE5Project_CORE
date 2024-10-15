@@ -169,85 +169,63 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 		*(TMap<TSubclassOf<AMyCharacter> ,FGameplayTag>*)Z_Param__Result=P_THIS->GetSelectedPlayerClass();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ALobbyCharacter::execReady)
+	DEFINE_FUNCTION(ALobbyCharacter::execServerReady)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->Ready_Implementation();
+		P_THIS->ServerReady_Implementation();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ALobbyCharacter::execSetPlayerCharacterClass)
+	DEFINE_FUNCTION(ALobbyCharacter::execServerSetPlayerCharacterClass)
 	{
 		P_GET_OBJECT(UClass,Z_Param_SelectedCharacter);
 		P_GET_OBJECT(UTexture,Z_Param_CharacterImg);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SetPlayerCharacterClass_Implementation(Z_Param_SelectedCharacter,Z_Param_CharacterImg);
+		P_THIS->ServerSetPlayerCharacterClass_Implementation(Z_Param_SelectedCharacter,Z_Param_CharacterImg);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ALobbyCharacter::execBroadcastCharacterSelectWidget)
+	DEFINE_FUNCTION(ALobbyCharacter::execServerBroadcastCharacterSelectWidget)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->BroadcastCharacterSelectWidget_Implementation();
+		P_THIS->ServerBroadcastCharacterSelectWidget_Implementation();
 		P_NATIVE_END;
 	}
-	struct LobbyCharacter_eventSetPlayerCharacterClass_Parms
+	struct LobbyCharacter_eventServerSetPlayerCharacterClass_Parms
 	{
 		TSubclassOf<AMyCharacter>  SelectedCharacter;
 		UTexture* CharacterImg;
 	};
-	static FName NAME_ALobbyCharacter_BroadcastCharacterSelectWidget = FName(TEXT("BroadcastCharacterSelectWidget"));
-	void ALobbyCharacter::BroadcastCharacterSelectWidget()
+	static FName NAME_ALobbyCharacter_ServerBroadcastCharacterSelectWidget = FName(TEXT("ServerBroadcastCharacterSelectWidget"));
+	void ALobbyCharacter::ServerBroadcastCharacterSelectWidget()
 	{
-		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_BroadcastCharacterSelectWidget),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_ServerBroadcastCharacterSelectWidget),NULL);
 	}
-	static FName NAME_ALobbyCharacter_Ready = FName(TEXT("Ready"));
-	void ALobbyCharacter::Ready()
+	static FName NAME_ALobbyCharacter_ServerReady = FName(TEXT("ServerReady"));
+	void ALobbyCharacter::ServerReady()
 	{
-		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_Ready),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_ServerReady),NULL);
 	}
-	static FName NAME_ALobbyCharacter_SetPlayerCharacterClass = FName(TEXT("SetPlayerCharacterClass"));
-	void ALobbyCharacter::SetPlayerCharacterClass(TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg)
+	static FName NAME_ALobbyCharacter_ServerSetPlayerCharacterClass = FName(TEXT("ServerSetPlayerCharacterClass"));
+	void ALobbyCharacter::ServerSetPlayerCharacterClass(TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg)
 	{
-		LobbyCharacter_eventSetPlayerCharacterClass_Parms Parms;
+		LobbyCharacter_eventServerSetPlayerCharacterClass_Parms Parms;
 		Parms.SelectedCharacter=SelectedCharacter;
 		Parms.CharacterImg=CharacterImg;
-		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_SetPlayerCharacterClass),&Parms);
+		ProcessEvent(FindFunctionChecked(NAME_ALobbyCharacter_ServerSetPlayerCharacterClass),&Parms);
 	}
 	void ALobbyCharacter::StaticRegisterNativesALobbyCharacter()
 	{
 		UClass* Class = ALobbyCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "BroadcastCharacterSelectWidget", &ALobbyCharacter::execBroadcastCharacterSelectWidget },
 			{ "GetPlayerTeamName", &ALobbyCharacter::execGetPlayerTeamName },
 			{ "GetSelectedPlayerClass", &ALobbyCharacter::execGetSelectedPlayerClass },
-			{ "Ready", &ALobbyCharacter::execReady },
-			{ "SetPlayerCharacterClass", &ALobbyCharacter::execSetPlayerCharacterClass },
+			{ "ServerBroadcastCharacterSelectWidget", &ALobbyCharacter::execServerBroadcastCharacterSelectWidget },
+			{ "ServerReady", &ALobbyCharacter::execServerReady },
+			{ "ServerSetPlayerCharacterClass", &ALobbyCharacter::execServerSetPlayerCharacterClass },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics
-	{
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/LobbyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "BroadcastCharacterSelectWidget", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ALobbyCharacter_GetPlayerTeamName_Statics
 	{
@@ -323,7 +301,7 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ALobbyCharacter_Ready_Statics
+	struct Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -331,21 +309,43 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_Ready_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Character/Player/LobbyCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_Ready_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "Ready", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_Ready_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_Ready_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_ALobbyCharacter_Ready()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "ServerBroadcastCharacterSelectWidget", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_Ready_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics
+	struct Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character/Player/LobbyCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "ServerReady", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_ALobbyCharacter_ServerReady()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_ServerReady_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics
 	{
 		static const UECodeGen_Private::FClassPropertyParams NewProp_SelectedCharacter;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterImg;
@@ -355,26 +355,26 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::NewProp_SelectedCharacter = { "SelectedCharacter", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LobbyCharacter_eventSetPlayerCharacterClass_Parms, SelectedCharacter), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::NewProp_CharacterImg = { "CharacterImg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LobbyCharacter_eventSetPlayerCharacterClass_Parms, CharacterImg), Z_Construct_UClass_UTexture_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::NewProp_SelectedCharacter,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::NewProp_CharacterImg,
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::NewProp_SelectedCharacter = { "SelectedCharacter", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LobbyCharacter_eventServerSetPlayerCharacterClass_Parms, SelectedCharacter), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::NewProp_CharacterImg = { "CharacterImg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(LobbyCharacter_eventServerSetPlayerCharacterClass_Parms, CharacterImg), Z_Construct_UClass_UTexture_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::NewProp_SelectedCharacter,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::NewProp_CharacterImg,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Character/Player/LobbyCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "SetPlayerCharacterClass", nullptr, nullptr, Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::PropPointers), sizeof(LobbyCharacter_eventSetPlayerCharacterClass_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::PropPointers) < 2048);
-	static_assert(sizeof(LobbyCharacter_eventSetPlayerCharacterClass_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ALobbyCharacter, nullptr, "ServerSetPlayerCharacterClass", nullptr, nullptr, Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::PropPointers), sizeof(LobbyCharacter_eventServerSetPlayerCharacterClass_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::Function_MetaDataParams), Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::PropPointers) < 2048);
+	static_assert(sizeof(LobbyCharacter_eventServerSetPlayerCharacterClass_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -428,11 +428,11 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ALobbyCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ALobbyCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ALobbyCharacter_BroadcastCharacterSelectWidget, "BroadcastCharacterSelectWidget" }, // 3256723108
 		{ &Z_Construct_UFunction_ALobbyCharacter_GetPlayerTeamName, "GetPlayerTeamName" }, // 3893587083
 		{ &Z_Construct_UFunction_ALobbyCharacter_GetSelectedPlayerClass, "GetSelectedPlayerClass" }, // 4278647229
-		{ &Z_Construct_UFunction_ALobbyCharacter_Ready, "Ready" }, // 2177823958
-		{ &Z_Construct_UFunction_ALobbyCharacter_SetPlayerCharacterClass, "SetPlayerCharacterClass" }, // 252628973
+		{ &Z_Construct_UFunction_ALobbyCharacter_ServerBroadcastCharacterSelectWidget, "ServerBroadcastCharacterSelectWidget" }, // 3947966513
+		{ &Z_Construct_UFunction_ALobbyCharacter_ServerReady, "ServerReady" }, // 3744688173
+		{ &Z_Construct_UFunction_ALobbyCharacter_ServerSetPlayerCharacterClass, "ServerSetPlayerCharacterClass" }, // 1414602801
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ALobbyCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -534,9 +534,9 @@ void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScriptDelegate& Playe
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ALobbyCharacter, ALobbyCharacter::StaticClass, TEXT("ALobbyCharacter"), &Z_Registration_Info_UClass_ALobbyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ALobbyCharacter), 3698335433U) },
+		{ Z_Construct_UClass_ALobbyCharacter, ALobbyCharacter::StaticClass, TEXT("ALobbyCharacter"), &Z_Registration_Info_UClass_ALobbyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ALobbyCharacter), 3796064333U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_192236625(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_2165768703(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

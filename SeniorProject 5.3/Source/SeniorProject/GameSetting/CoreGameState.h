@@ -9,6 +9,13 @@
 #include "CoreGameState.generated.h"
 
 
+UENUM(BlueprintType)
+enum class EGameProcess : uint8
+{
+	CharacterSelectSession UMETA(DisplayName = "CharacterSelectSession"),
+	GameStartSession UMETA(DisplayName = "GameStartSession"),
+	GameEndSession UMETA(DisplayName = "GameEndSession")
+};
 
 
 USTRUCT(BlueprintType)
@@ -78,11 +85,11 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastNewPlayerEntranced();
 	UFUNCTION(NetMulticast, Reliable)
-	void PlayerCharacterChanged(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
+	void MulticastPlayerCharacterChanged(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayerReady(APlayerState* InPS);
 	UFUNCTION(Server, Reliable)
-	void PlayerReady(APlayerState* ReadyUser);
+	void ServerPlayerReady(APlayerState* ReadyUser);
 	UFUNCTION(BlueprintCallable)
 	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass(FGameplayTag TeamName);
 	
@@ -91,11 +98,6 @@ public:
 	
 	
 
-	UPROPERTY(Replicated)
-	TArray<TObjectPtr<APlayerStateBase>> RedTeam;
-	UPROPERTY(Replicated)
-	TArray<TObjectPtr<APlayerStateBase>> BlueTeam;
-	
 	
 	UFUNCTION()
 	void UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bIsDestroy);
@@ -107,9 +109,13 @@ public:
 	
 	UPROPERTY(Replicated)
 	TArray<FPlayerInfo> PlayerInfos;
-	
 	UPROPERTY(Replicated)
 	TArray<TObjectPtr<APlayerState>> ReadyUsers;
+	UPROPERTY(Replicated)
+	TArray<TObjectPtr<APlayerStateBase>> RedTeam;
+	UPROPERTY(Replicated)
+	TArray<TObjectPtr<APlayerStateBase>> BlueTeam;
+
 
 	
 	/*
@@ -118,11 +124,10 @@ public:
 	 */
 	UPROPERTY(Replicated)
 	uint16 BlueTeamTurretStates = 0;
-	
 	UPROPERTY(Replicated)
 	uint16 RedTeamTurretStates = 0;
-
-	
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	EGameProcess GameProcess = EGameProcess::CharacterSelectSession;
 };
 
 

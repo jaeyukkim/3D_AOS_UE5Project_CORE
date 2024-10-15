@@ -491,6 +491,13 @@
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\source\\gameplayabilities\\public\\abilities\\tasks\\abilitytask.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\plugins\\runtime\\gameplayabilities\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplayabilities\\uht\\abilitytask.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\targetdataaim.generated.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\teamplayerstart.gen.cpp",
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\actor\\playerstart\\teamplayerstart.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\playerstart.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\engine\\navigationobjectbase.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\navigationobjectbase.generated.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\playerstart.generated.h",
+            "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\teamplayerstart.generated.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\turret.gen.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\character\\turret\\turret.h",
             "d:\\capstone-project\\seniorproject 5.3\\intermediate\\build\\win64\\unrealeditor\\inc\\seniorproject\\uht\\turret.generated.h",
@@ -517,8 +524,7 @@
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilities\\gameplayabilitybase.cpp",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\gameplaytagsbase.h",
             "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilities\\spell\\projectilespellbase.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilitysystemcomponentbase.cpp",
-            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilitytask\\targetdataaim.cpp"
+            "d:\\capstone-project\\seniorproject 5.3\\source\\seniorproject\\abilitysystem\\abilitysystemcomponentbase.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

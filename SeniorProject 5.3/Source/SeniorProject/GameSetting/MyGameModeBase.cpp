@@ -27,6 +27,11 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 	}
 	if(CoreGameState)
 	{
+		if(CoreGameState->GameProcess == EGameProcess::GameStartSession)
+		{
+			SetupPlayerCharacterClass(NewPlayer);
+			return;
+		}
 		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 		APlayerStateBase* PS = NewPlayer->GetPlayerState<APlayerStateBase>();
 		if (PS)
@@ -35,15 +40,65 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 			if (CoreGameState->BlueTeam.Num() >= CoreGameState->RedTeam.Num())
 			{
 				CoreGameState->RedTeam.AddUnique(PS);
+				PS->SetTeamName(TagsBase.GameRule_TeamName_RedTeam);
 			}
 			else
 			{
 				CoreGameState->BlueTeam.AddUnique(PS);
+				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
+				
 			}
 		}
 	}
 	
 }
+
+/*
+ * 게임 시작 시 PlayerState에 저장된(캐릭터 선택창에서 선택한) 캐릭터로 스폰
+ *  각 플레이어는 본인 진영에 맞는 PlayerStart에서 시작하게됨
+ */
+
+void AMyGameModeBase::SetupPlayerCharacterClass(APlayerController* NewPlayer)
+{
+	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
+	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
+	{
+		
+		AActor* OldPawn = NewPlayer->GetPawn();
+		if(OldPawn != nullptr) OldPawn->Destroy();
+
+		// 기존의 PlayerCharacterClass에서 스폰할 캐릭터 클래스를 설정
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(this, ATeamPlayerStart::StaticClass(), PlayerStarts);
+		TArray<ATeamPlayerStart*> TeamPlayerStarts;
+
+		for (auto Start : PlayerStarts)
+		{
+			ATeamPlayerStart* TeamStart = Cast<ATeamPlayerStart>(Start);
+			if (TeamStart && TeamStart->TeamName == PlayerStateBase->GetTeamName())
+			{
+				TeamPlayerStarts.Add(TeamStart);
+			}
+		}
+		
+		if (TeamPlayerStarts.Num() > 0)
+		{
+			ATeamPlayerStart* ChosenPlayerStart = TeamPlayerStarts[FMath::RandRange(0, TeamPlayerStarts.Num() - 1)];
+			FTransform SpawnLocation = ChosenPlayerStart->GetActorTransform();
+			
+			AMyCharacter* NewCharacter = GetWorld()->SpawnActor<AMyCharacter>(PlayerStateBase->PlayerCharacterClass, SpawnLocation);
+			if (NewCharacter)
+			{
+				// 새로 스폰한 캐릭터를 플레이어에게 할당
+				NewPlayer->Possess(NewCharacter);
+			
+			}
+		}
+		
+		
+	}
+}
+
 
 void AMyGameModeBase::Logout(AController* Exiting)
 {
@@ -68,6 +123,13 @@ void AMyGameModeBase::StartPlay()
 {
 	Super::StartPlay();
 }
+
+void AMyGameModeBase::StartMatch()
+{
+	Super::StartMatch();
+	
+}
+
 
 void AMyGameModeBase::BeginPlay()
 {
