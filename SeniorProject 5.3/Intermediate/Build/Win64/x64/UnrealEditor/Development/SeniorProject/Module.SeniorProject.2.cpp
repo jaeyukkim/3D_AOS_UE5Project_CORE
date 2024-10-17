@@ -17,4 +17,3 @@
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EffectActorBase.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/EnemyInterface.gen.cpp"
 #include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/ExecCalc_Damage.gen.cpp"
-#include "D:/Capstone-project/SeniorProject 5.3/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/GameplayAbilityBase.gen.cpp"

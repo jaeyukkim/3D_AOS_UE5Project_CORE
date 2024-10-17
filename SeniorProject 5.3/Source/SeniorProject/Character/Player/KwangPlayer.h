@@ -48,9 +48,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category="Kwang")
 	FSwordDestroyDelegate SwordDestroyDelegate;
-
-
 	
+	virtual void MulticastReSpawn() override;
+	virtual void Die_Implementation() override;
 protected:
 
 	virtual void Tick(float DeltaSeconds) override;

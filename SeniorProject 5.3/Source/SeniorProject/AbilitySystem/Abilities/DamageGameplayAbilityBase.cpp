@@ -30,12 +30,12 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 	Params.DamageGameplayEffectClass = DamageEffectClass;
 	Params.SourceAbilitySystemComponent = GetAbilitySystemComponentFromActorInfo();
 	Params.TargetAbilitySystemComponent = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetActor);
+	Params.bIsBasicAttack = bIsBasicAttack;
 	Params.BaseDamage = BaseDamage.GetValueAtLevel(GetAbilityLevel());
 	Params.AbilityLevel = GetAbilityLevel();
 	Params.ADCoefficient = ADCoefficient;
 	Params.APCoefficient = APCoefficient;
 	Params.DamageType = DamageType;
-	
 	Params.bDebuffValid = bDebuffValid;
 	Params.DebuffType = DebuffType;
 	Params.DebuffCoefficient = DebuffCoefficient;

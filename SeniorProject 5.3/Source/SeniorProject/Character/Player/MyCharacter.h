@@ -42,7 +42,20 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
-	void SetSpawnPoint();
+
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastPlayerDie();
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastReSpawn();
+	UFUNCTION(Server, Reliable)
+	void ServerSetSpawnPoint();
+	UFUNCTION(Client, Reliable)
+	void ClientSwitchCameraToAnotherCharacter();
+	UFUNCTION(Server, Reliable)
+	void ServerSetCameraRotation(float Pitch, float Yaw, float Roll);
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastSetCameraRotation(float Pitch, float Yaw, float Roll);
+
 	UFUNCTION(BlueprintCallable)
 	void BroadcastInitialValues();
 	
@@ -86,6 +99,7 @@ public:
 	virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	TArray<FItemInformation> GetAllItem_Implementation() override;
+	
 	/** end Player Interface */
 	
 
@@ -186,8 +200,13 @@ private:
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> ThisActor;
 
-		void AimTrace();
+	UPROPERTY()
+	TObjectPtr<AMyCharacter> SpectatorCharacter;
 
+	void AimTrace();
+
+	FTimerHandle InitPlayerHealthBarHandle;
+	FTimerHandle InitReSpawnHandle;
 
 	
 };

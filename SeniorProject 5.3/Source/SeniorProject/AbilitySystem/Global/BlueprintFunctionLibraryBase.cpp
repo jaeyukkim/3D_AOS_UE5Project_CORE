@@ -178,6 +178,15 @@ bool UBlueprintFunctionLibraryBase::IsMagicalDamage(const FGameplayEffectContext
 	return false;
 }
 
+bool UBlueprintFunctionLibraryBase::GetIsBasicAttack(const FGameplayEffectContextHandle& EffectContextHandle)
+{
+	if (const FGameplayEffectBaseContext* EffectContext = static_cast<const FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		return EffectContext->IsBasicAttack();
+	}
+	return false;
+}
+
 void UBlueprintFunctionLibraryBase::SetIsMagicalDamage(FGameplayEffectContextHandle& EffectContextHandle,
                                                        bool bInIsMagicalDamage)
 {
@@ -187,8 +196,17 @@ void UBlueprintFunctionLibraryBase::SetIsMagicalDamage(FGameplayEffectContextHan
 	}
 }
 
+void UBlueprintFunctionLibraryBase::SetIsBasicAttack(FGameplayEffectContextHandle& EffectContextHandle,
+	bool InIsBasicAttack)
+{
+	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
+	{
+		EffectContext->SetIsBasicAttack(InIsBasicAttack);
+	}
+}
+
 void UBlueprintFunctionLibraryBase::SetDebuffValid(FGameplayEffectContextHandle& EffectContextHandle,
-	bool InDebuffValid)
+                                                   bool InDebuffValid)
 {
 	if (FGameplayEffectBaseContext* EffectContext = static_cast<FGameplayEffectBaseContext*>(EffectContextHandle.Get()))
 	{
@@ -361,7 +379,7 @@ FGameplayEffectContextHandle UBlueprintFunctionLibraryBase::ApplyDamageEffect(
 
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, DamageEffectParams.DamageType, DamageEffectParams.AppliedCoefficientDamage);
 
-	
+	SetIsBasicAttack(EffectContextHandle, DamageEffectParams.bIsBasicAttack);
 	SetDebuffValid(EffectContextHandle, DamageEffectParams.bDebuffValid);
 	SetDebuffType(EffectContextHandle, DamageEffectParams.DebuffType);
 	UAbilitySystemBlueprintLibrary::AssignTagSetByCallerMagnitude(SpecHandle, GameplayTags.Debuff_DebuffCoefficient, DamageEffectParams.DebuffCoefficient);

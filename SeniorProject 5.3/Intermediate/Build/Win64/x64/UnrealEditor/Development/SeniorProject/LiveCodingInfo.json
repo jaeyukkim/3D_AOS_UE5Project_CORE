@@ -33,10 +33,10 @@
 			"DefaultWidgetController.gen.cpp.obj",
 			"EffectActorBase.gen.cpp.obj",
 			"EnemyInterface.gen.cpp.obj",
-			"ExecCalc_Damage.gen.cpp.obj",
-			"GameplayAbilityBase.gen.cpp.obj"
+			"ExecCalc_Damage.gen.cpp.obj"
 		],
 		"Module.SeniorProject.3.cpp.obj": [
+			"GameplayAbilityBase.gen.cpp.obj",
 			"GameRuleInterface.gen.cpp.obj",
 			"GoldRewardWidgetComponent.gen.cpp.obj",
 			"HomingProjectile.gen.cpp.obj",
@@ -58,10 +58,10 @@
 			"Minions.gen.cpp.obj",
 			"MovementComponentBase.gen.cpp.obj",
 			"MyAnimInstance.gen.cpp.obj",
-			"MyCharacter.gen.cpp.obj",
-			"MyGameModeBase.gen.cpp.obj"
+			"MyCharacter.gen.cpp.obj"
 		],
 		"Module.SeniorProject.4.cpp.obj": [
+			"MyGameModeBase.gen.cpp.obj",
 			"MyPlayerController.gen.cpp.obj",
 			"OverlayWidget.gen.cpp.obj",
 			"OverlayWidgetController.gen.cpp.obj",
@@ -70,21 +70,20 @@
 			"ProjectileBase.gen.cpp.obj",
 			"ProjectileSpellBase.gen.cpp.obj",
 			"Ranged.gen.cpp.obj",
-			"SeniorProject.gen.cpp.obj",
 			"SeniorProject.init.gen.cpp.obj",
 			"Spawner.gen.cpp.obj",
 			"SpellMenuWidgetController.gen.cpp.obj",
 			"TargetDataAim.gen.cpp.obj",
 			"TeamPlayerStart.gen.cpp.obj",
 			"Turret.gen.cpp.obj",
-			"WaitCooldownChange.gen.cpp.obj",
+			"WaitCooldownChange.gen.cpp.obj"
+		],
+		"Module.SeniorProject.5.cpp.obj": [
 			"MeleeAttackBase.cpp.obj",
 			"DamageGameplayAbilityBase.cpp.obj",
 			"GameplayAbilityBase.cpp.obj",
 			"ProjectileSpellBase.cpp.obj",
-			"AbilitySystemComponentBase.cpp.obj"
-		],
-		"Module.SeniorProject.5.cpp.obj": [
+			"AbilitySystemComponentBase.cpp.obj",
 			"TargetDataAim.cpp.obj",
 			"AbilityTypesBase.cpp.obj",
 			"WaitCooldownChange.cpp.obj",

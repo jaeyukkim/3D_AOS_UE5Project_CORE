@@ -4,29 +4,7 @@
 
 #include "EngineMinimal.h"
 #define CUSTOM_DEPTH_RED 100
+#define ECC_Character ECC_GameTraceChannel1
 #define ECC_RangeTrace ECC_GameTraceChannel3
-UENUM(BlueprintType)
-
-enum class ECharacterState : uint8
-{
-	PREINT,
-	LOADING,
-	READY,
-	DEAD
-};
-
-UENUM(BlueprintType)
-enum class EMinionState : uint8
-{
-	LOADING,
-	READY,
-	DEAD
-};
-
-UENUM(BlueprintType)
-enum class EAttackDirection : uint8
-{
-	Left,
-	Right
-};
+#define ECC_Die ECC_GameTraceChannel4
 

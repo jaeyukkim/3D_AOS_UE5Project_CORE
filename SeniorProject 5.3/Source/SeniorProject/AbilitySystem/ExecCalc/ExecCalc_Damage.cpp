@@ -118,18 +118,23 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	UBlueprintFunctionLibraryBase::SetIsMagicalDamage(EffectContextHandle, bIsMagicalDamage);
 	
 	/* 크리티컬 데미지 구현 */
-	
-	float SourceCriticalChance = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().CriticalChanceDef, EvaluationParameters, SourceCriticalChance);
-	const bool bCriticalHit = FMath::RandRange(1, 100) < SourceCriticalChance;
-	UBlueprintFunctionLibraryBase::SetIsCriticalHit(EffectContextHandle, bCriticalHit);
-	if(bCriticalHit)	
+	bool bIsBasicAttack = false;
+	bIsBasicAttack = UBlueprintFunctionLibraryBase::GetIsBasicAttack(EffectContextHandle);
+
+	if(bIsBasicAttack)	
 	{
-		PhysicalDamage*=2.f;
-		MagicalDamage*=2.f;
+		float SourceCriticalChance = 0.f;
+		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().CriticalChanceDef, EvaluationParameters, SourceCriticalChance);
+		const bool bCriticalHit = FMath::RandRange(1, 100) < SourceCriticalChance;
+		UBlueprintFunctionLibraryBase::SetIsCriticalHit(EffectContextHandle, bCriticalHit);
+
+		if(bCriticalHit)
+		{
+			PhysicalDamage*=2.f;
+		}
+		
 	}
 	/* 크리티컬 데미지 구현 */
-
 
 	
 	/* 물리 데미지 구현 */
@@ -146,6 +151,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	PhysicalDamage *= 100 / (100+EffectiveArmor);
 
+	
 	const FGameplayModifierEvaluatedData PhysicalEvaluatedData(UAttributeSetBase::GetIncomingDamageAttribute(), EGameplayModOp::Additive, PhysicalDamage);
 	OutExecutionOutput.AddOutputModifier(PhysicalEvaluatedData);
 	
@@ -165,7 +171,8 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	EffectiveMagicResistance = FMath::Clamp(EffectiveMagicResistance, 0.f, TargetMagicResistance);
 
 	MagicalDamage *= 100 / (100+EffectiveMagicResistance);
-
+	
+	
 	const FGameplayModifierEvaluatedData MagicalEvaluatedData(UAttributeSetBase::GetIncomingDamageAttribute(), EGameplayModOp::Additive, MagicalDamage);
 	OutExecutionOutput.AddOutputModifier(MagicalEvaluatedData);
 	

@@ -38,6 +38,12 @@ struct FItemInformation
 	TObjectPtr<UTexture> ItemImg = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FString ItemDescription = FString();
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FString SpecialOption = FString();
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TSubclassOf<UGameplayAbility> ItemAbility = nullptr;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -74,7 +80,8 @@ public:
 	
 	virtual void BroadcastInitialValues() override;
 	virtual void BindCallbacksToDependencies() override;
-
+	FString GetEffectAttributesAsString(const TSubclassOf<UGameplayEffect>& EffectClass);
+	
 	UFUNCTION(BlueprintCallable)
 	void OnInitializeShopItem();
 	

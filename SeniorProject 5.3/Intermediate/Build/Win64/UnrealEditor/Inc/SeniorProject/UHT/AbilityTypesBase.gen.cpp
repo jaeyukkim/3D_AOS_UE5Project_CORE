@@ -64,6 +64,11 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_BaseDamage;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsBasicAttack_MetaData[];
+#endif
+		static void NewProp_bIsBasicAttack_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsBasicAttack;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AppliedCoefficientDamage_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_AppliedCoefficientDamage;
@@ -166,6 +171,17 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_BaseDamage = { "BaseDamage", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FDamageEffectParams, BaseDamage), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_BaseDamage_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_BaseDamage_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack_MetaData[] = {
+		{ "Category", "DamageEffectParams" },
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack_SetBit(void* Obj)
+	{
+		((FDamageEffectParams*)Obj)->bIsBasicAttack = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack = { "bIsBasicAttack", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FDamageEffectParams), &Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack_MetaData), Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_AppliedCoefficientDamage_MetaData[] = {
 		{ "Category", "DamageEffectParams" },
 		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
@@ -253,6 +269,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FDamageEffectParams>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_TargetAbilitySystemComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_DamageType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_BaseDamage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_bIsBasicAttack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_AppliedCoefficientDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_APCoefficient,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewProp_ADCoefficient,
@@ -325,6 +342,11 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 		static void NewProp_bIsPhysicalDamage_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsPhysicalDamage;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsBasicAttack_MetaData[];
+#endif
+		static void NewProp_bIsBasicAttack_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsBasicAttack;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_BaseDamage_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_BaseDamage;
@@ -384,6 +406,16 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage = { "bIsPhysicalDamage", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FGameplayEffectBaseContext), &Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack_MetaData[] = {
+		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
+	};
+#endif
+	void Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack_SetBit(void* Obj)
+	{
+		((FGameplayEffectBaseContext*)Obj)->bIsBasicAttack = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack = { "bIsBasicAttack", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FGameplayEffectBaseContext), &Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack_MetaData), Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage_MetaData[] = {
 		{ "ModuleRelativePath", "AbilitySystem/AbilityTypesBase.h" },
 	};
@@ -411,6 +443,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsCriticalHit,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsMagicalDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsPhysicalDamage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_bIsBasicAttack,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_BaseDamage,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffFrequency,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewProp_DebuffDuration,
@@ -443,10 +476,10 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FGameplayEffectBaseCont
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo[] = {
-		{ FDamageEffectParams::StaticStruct, Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewStructOps, TEXT("DamageEffectParams"), &Z_Registration_Info_UScriptStruct_DamageEffectParams, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDamageEffectParams), 3200521184U) },
-		{ FGameplayEffectBaseContext::StaticStruct, Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewStructOps, TEXT("GameplayEffectBaseContext"), &Z_Registration_Info_UScriptStruct_GameplayEffectBaseContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGameplayEffectBaseContext), 1955232541U) },
+		{ FDamageEffectParams::StaticStruct, Z_Construct_UScriptStruct_FDamageEffectParams_Statics::NewStructOps, TEXT("DamageEffectParams"), &Z_Registration_Info_UScriptStruct_DamageEffectParams, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FDamageEffectParams), 3663713809U) },
+		{ FGameplayEffectBaseContext::StaticStruct, Z_Construct_UScriptStruct_FGameplayEffectBaseContext_Statics::NewStructOps, TEXT("GameplayEffectBaseContext"), &Z_Registration_Info_UScriptStruct_GameplayEffectBaseContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FGameplayEffectBaseContext), 2953009540U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_4156588101(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_3439006163(TEXT("/Script/SeniorProject"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilityTypesBase_h_Statics::ScriptStructInfo),
 		nullptr, 0);

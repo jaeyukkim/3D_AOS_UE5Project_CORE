@@ -23,69 +23,74 @@ class SENIORPROJECT_API UBlueprintFunctionLibraryBase : public UBlueprintFunctio
 
 public:
 	
-	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	UFUNCTION(BlueprintPure, Category="BlueprintFunctionLibraryBase|WidgetController")
 	static UOverlayWidgetController* GetOverlayWidgetController(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	UFUNCTION(BlueprintPure, Category="BlueprintFunctionLibraryBase|WidgetController")
 	static UAttributeMenuWidgetController* GetUAttributeMenuWidgetController(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	UFUNCTION(BlueprintPure, Category="BlueprintFunctionLibraryBase|WidgetController")
 	static USpellMenuWidgetController* GetSpellMenuWidgetController(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintPure, Category="AbilitySystemLibraryBase|WidgetController")
+	UFUNCTION(BlueprintPure, Category="BlueprintFunctionLibraryBase|WidgetController")
 	static UItemMenuWidgetController* GetItemMenuWidgetController(const UObject* WorldContextObject);
 	
-	UFUNCTION(BlueprintCallable, Category="AuraAbilitySystemLibrary|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="BlueprintFunctionLibraryBase|CharacterClassDefaults")
 	static UCharacterClassInfo* GetCharacterClassInfo(const UObject* WorldContextObject);
 
-	UFUNCTION(BlueprintCallable, Category="AbilitySystemLibraryBase|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="BlueprintFunctionLibraryBase|CharacterClassDefaults")
 	static void InitializeDefaultAttributes(const UObject* WorldContextObject, ECharacterClass CharacterClass, float Level, UAbilitySystemComponent* ASC);
 
-	UFUNCTION(BlueprintCallable, Category="AbilitySystemLibraryBase|CharacterClassDefaults")
+	UFUNCTION(BlueprintCallable, Category="BlueprintFunctionLibraryBase|CharacterClassDefaults")
 	static void GiveStartupAbilities(const UObject* WorldContextObject, UAbilitySystemComponent* ASC, ECharacterClass CharacterClass);
 
 
-	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetIsCriticalHit(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool bInIsCriticalHit);
 	
-	UFUNCTION(BlueprintCallable, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetIsMagicalDamage(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool bInIsCriticalHit);
 
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
+	static void SetIsBasicAttack(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool InIsBasicAttack);
+	
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetDebuffValid(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, bool InDebuffValid);
 	
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetDebuffType(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, const FGameplayTag& InDebuffType);
 	
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetDebuffCoefficient(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, float InDebuffCoefficient);
 	
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetDebuffDuration(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, float InDuration);
 	
-	UFUNCTION(BlueprintCallable, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintCallable, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static void SetDebuffFrequency(UPARAM(ref) FGameplayEffectContextHandle& EffectContextHandle, float InFrequency);
-
 	
-	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static bool IsMagicalDamage(const FGameplayEffectContextHandle& EffectContextHandle);
 
-	UFUNCTION(BlueprintPure, Category = "AbilitySystemLibraryBase|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
+	static bool GetIsBasicAttack(const FGameplayEffectContextHandle& EffectContextHandle);
+	
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static bool IsCriticalHit(const FGameplayEffectContextHandle& EffectContextHandle);
 	
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static FGameplayTag GetDebuffType(const FGameplayEffectContextHandle& EffectContextHandle);
 
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static bool GetIsDebuffValid(const FGameplayEffectContextHandle& EffectContextHandle);
 	
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static float GetDebuffCoefficient(const FGameplayEffectContextHandle& EffectContextHandle);
 	
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static float GetDebuffDuration(const FGameplayEffectContextHandle& EffectContextHandle);
 	
-	UFUNCTION(BlueprintPure, Category = "AuraAbilitySystemLibrary|GameplayEffects")
+	UFUNCTION(BlueprintPure, Category = "BlueprintFunctionLibraryBase|GameplayEffects")
 	static float GetDebuffFrequency(const FGameplayEffectContextHandle& EffectContextHandle);
 	
 

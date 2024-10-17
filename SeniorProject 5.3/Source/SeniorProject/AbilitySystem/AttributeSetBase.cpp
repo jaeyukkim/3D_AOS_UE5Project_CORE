@@ -140,6 +140,7 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	if(Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+		
 	}
 	if(Data.EvaluatedData.Attribute == GetManaAttribute())
 	{
@@ -472,7 +473,7 @@ void UAttributeSetBase::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) 
 
 void UAttributeSetBase::OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const
 {
-	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Mana, HealthRegeneration);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, HealthRegeneration, OldHealthRegeneration);
 }
 void UAttributeSetBase::OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const
 {

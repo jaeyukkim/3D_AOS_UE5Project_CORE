@@ -12,7 +12,7 @@
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Debuff/DebuffParticleComponent.h"
-
+#include "SeniorProject/SeniorProject.h"
 
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
@@ -170,12 +170,9 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
-	//GetMesh()->SetSimulatePhysics(true);
-	//GetMesh()->SetEnableGravity(true);
-	GetMesh()->SetCollisionEnabled(ECollisionEnabled::PhysicsOnly);
-	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	
+	GetCapsuleComponent()->SetCollisionObjectType(ECC_Die);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::Type::PhysicsOnly);
+	GetCapsuleComponent()->SetEnableGravity(false);
 	bDead = true;
 	
 	StunDebuffComponent->Deactivate();

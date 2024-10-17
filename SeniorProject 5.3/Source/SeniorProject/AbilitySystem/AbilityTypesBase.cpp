@@ -66,11 +66,15 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 14;
 		}
+		if (bIsBasicAttack)
+		{
+			RepBits |= 1 << 14;
+		}
 		
 		
 	}
 
-	Ar.SerializeBits(&RepBits, 15);
+	Ar.SerializeBits(&RepBits, 16);
 
 	if (RepBits & (1 << 0))
 	{
@@ -137,6 +141,10 @@ bool FGameplayEffectBaseContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		Ar << bDebuffValid;
 	}
 	if (RepBits & (1 << 14))
+	{
+		Ar <<bIsBasicAttack;
+	}
+	if (RepBits & (1 << 15))
 	{
 		if (Ar.IsLoading())
 		{

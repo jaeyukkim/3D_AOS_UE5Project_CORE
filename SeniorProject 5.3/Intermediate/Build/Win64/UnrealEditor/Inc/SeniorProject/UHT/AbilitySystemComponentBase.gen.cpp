@@ -499,7 +499,7 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventClientUpdateItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 1757429019
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventClientUpdateItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 3158792783
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem_Statics::NewProp_ClickedItemInfo,
 	};
@@ -568,7 +568,7 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerBuyItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 1757429019
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerBuyItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(0, nullptr) }; // 3158792783
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem_Statics::NewProp_ClickedItemInfo,
 	};
@@ -606,7 +606,7 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		{ "NativeConst", "" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerSellItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 1757429019
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo = { "ClickedItemInfo", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AbilitySystemComponentBase_eventServerSellItem_Parms, ClickedItemInfo), Z_Construct_UScriptStruct_FItemInformation, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo_MetaData), Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo_MetaData) }; // 3158792783
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem_Statics::NewProp_ClickedItemInfo,
 	};
@@ -696,10 +696,10 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ChangeGrantedTagToEffect, "ChangeGrantedTagToEffect" }, // 4000681034
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientEffectApplied, "ClientEffectApplied" }, // 4212018037
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateAbilityLevel, "ClientUpdateAbilityLevel" }, // 569880212
-		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem, "ClientUpdateItem" }, // 3287430955
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ClientUpdateItem, "ClientUpdateItem" }, // 3588188747
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_GetAbilityLevel, "GetAbilityLevel" }, // 1429693080
-		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem, "ServerBuyItem" }, // 3690020207
-		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem, "ServerSellItem" }, // 463770606
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerBuyItem, "ServerBuyItem" }, // 2901897189
+		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSellItem, "ServerSellItem" }, // 3606759356
 		{ &Z_Construct_UFunction_UAbilitySystemComponentBase_ServerSpendSpellPoint, "ServerSpendSpellPoint" }, // 1812849322
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UAbilitySystemComponentBase_Statics::FuncInfo) < 2048);
@@ -762,9 +762,9 @@ void FOnAttackEndSignatures_DelegateWrapper(const FMulticastScriptDelegate& OnAt
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 348169904U) },
+		{ Z_Construct_UClass_UAbilitySystemComponentBase, UAbilitySystemComponentBase::StaticClass, TEXT("UAbilitySystemComponentBase"), &Z_Registration_Info_UClass_UAbilitySystemComponentBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAbilitySystemComponentBase), 738929659U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_249458923(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_3629775232(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_AbilitySystem_AbilitySystemComponentBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

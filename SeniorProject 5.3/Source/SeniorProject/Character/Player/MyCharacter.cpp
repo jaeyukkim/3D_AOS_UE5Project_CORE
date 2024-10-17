@@ -12,6 +12,7 @@
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
 
 #include "AbilitySystemComponent.h"
+#include "EngineUtils.h"
 
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 
@@ -49,7 +50,7 @@ AMyCharacter::AMyCharacter()
 	SpringArm->bInheritRoll = true;
 	SpringArm->bInheritYaw = true;
 	SpringArm->bDoCollisionTest = true;
-
+	SpringArm->SetIsReplicated(true);
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));\
 	Camera->SetupAttachment(SpringArm);
 
@@ -98,6 +99,9 @@ void AMyCharacter::OnRep_PlayerState()
 	
 }
 
+
+
+
 void AMyCharacter::BroadcastInitialValues()
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -114,6 +118,30 @@ void AMyCharacter::BroadcastInitialValues()
 	OnManaChanged.Broadcast(AS->GetMana());
 	OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
 	PlayerStateBase->BroadcastPlayerStat();
+	HealthBarWidget->UpdateWidget();
+	
+}
+
+void AMyCharacter::ClientSwitchCameraToAnotherCharacter_Implementation()
+{
+	if(PlayerController == nullptr) return;
+
+	for (TActorIterator<AMyCharacter> It(GetWorld()); It; ++It)
+	{
+		AMyCharacter* OtherCharacter = *It;
+		PlayerController->bAutoManageActiveCameraTarget = false;
+		// 본인이나 사망한 캐릭터는 무시하고 다른 캐릭터를 찾음
+		if (OtherCharacter != this)
+		{
+			// 다른 캐릭터를 소유하는 방식이 아니라 카메라만 해당 캐릭터로 이동
+			SpectatorCharacter = OtherCharacter;
+			OtherCharacter->SpringArm->bEnableCameraLag = true;
+			OtherCharacter->SpringArm->bEnableCameraRotationLag = true;
+			OtherCharacter->SpringArm->TargetArmLength = 600.f;
+			PlayerController->SetViewTargetWithBlend(OtherCharacter, 1.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
+			break;
+		}
+	}
 }
 
 void AMyCharacter::InitAbilityActorInfo()
@@ -142,9 +170,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	}
 	
 	InitializeDefaultAttributes();
-	
-	InitializeHealthBarWidget();
-	BroadcastInitialValues();
+	GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::InitializeHealthBarWidget, 5.f, false);
 	GetMesh()->SetSimulatePhysics(false);
 }
 
@@ -153,6 +179,8 @@ void AMyCharacter::InitializeHealthBarWidget()
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
+		if(IsLocallyControlled())
+			HealthBarWidget->SetHiddenInGame(true);
 	}
 
 	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
@@ -161,12 +189,14 @@ void AMyCharacter::InitializeHealthBarWidget()
 			[this](const FOnAttributeChangeData& Data)
 			{
 				OnManaChanged.Broadcast(Data.NewValue);
+				HealthBarWidget->UpdateWidget();
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
+			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				OnMaxManaChanged.Broadcast(Data.NewValue);
+				OnMaxManaChanged.Broadcast(AS->GetMaxMana());
+				HealthBarWidget->UpdateWidget();
 			}
 		);
 
@@ -174,12 +204,14 @@ void AMyCharacter::InitializeHealthBarWidget()
 			[this](const FOnAttributeChangeData& Data)
 			{
 				OnHealthChanged.Broadcast(Data.NewValue);
+				HealthBarWidget->UpdateWidget();
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
+			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				OnMaxHealthChanged.Broadcast(Data.NewValue);
+				OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+				HealthBarWidget->UpdateWidget();
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
@@ -192,7 +224,11 @@ void AMyCharacter::InitializeHealthBarWidget()
 				}
 			}
 		);
-	
+		
+		BroadcastInitialValues();
+		GetWorldTimerManager().ClearTimer(InitPlayerHealthBarHandle);
+
+
 	}
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
@@ -208,9 +244,32 @@ void AMyCharacter::InitializeHealthBarWidget()
 
 }
 
-
-void AMyCharacter::SetSpawnPoint()
+void AMyCharacter::MulticastReSpawn_Implementation()
 {
+	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
+	bDead = false;
+	GetCapsuleComponent()->SetCollisionObjectType(ECC_Character);
+	HealthBarWidget->SetVisibility(true);
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::Type::QueryAndPhysics);
+	GetCapsuleComponent()->SetEnableGravity(true);
+	
+	if(IsLocallyControlled())
+	{
+		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
+		{
+			ServerSetSpawnPoint();
+			EnableInput(MyPlayerController);
+			PlayerController->SetViewTargetWithBlend(this, 1.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
+		}
+	}
+}
+
+
+
+void AMyCharacter::ServerSetSpawnPoint_Implementation()
+{
+	if(!HasAuthority()) return;
+	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 
 	if (PlayerStateBase == nullptr) return;
@@ -310,7 +369,9 @@ void AMyCharacter::Look(const FInputActionValue& InputActionValue)
 
 	AddControllerPitchInput(InputAxisVector.Y);
 	AddControllerYawInput(InputAxisVector.X);
-	
+
+	FRotator Rotator = SpringArm->GetComponentRotation();
+	ServerSetCameraRotation(Rotator.Pitch, Rotator.Yaw, Rotator.Roll);
 
 }
 
@@ -365,13 +426,35 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 
 void AMyCharacter::Die_Implementation()
 {
-	Super::Die_Implementation();
-	HealthBarWidget->SetVisibility(false);
-	if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
+
+	ClientSwitchCameraToAnotherCharacter();
+	
+	
+	MulticastPlayerDie();
+
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	if(PlayerStateBase != nullptr)
 	{
-		DisableInput(MyPlayerController);
+		float DeadTime = PlayerStateBase->GetPlayerLevel() * 1.5 + 10;
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::MulticastReSpawn, DeadTime, false);
 	}
 	
+
+	Super::Die_Implementation();
+}
+
+void AMyCharacter::MulticastPlayerDie_Implementation()
+{
+	
+	HealthBarWidget->SetVisibility(false);
+		
+	if(IsLocallyControlled())
+	{
+		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
+		{
+			DisableInput(MyPlayerController);
+		}
+	}
 }
 
 
@@ -647,4 +730,14 @@ void AMyCharacter::AimTrace()
 		}
 	}
 
+}
+void AMyCharacter::ServerSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll)
+{
+	MulticastSetCameraRotation(Pitch, Yaw, Roll);
+}
+
+void AMyCharacter::MulticastSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll)
+{
+	FRotator CamaraRotator =FRotator(Pitch, Yaw, Roll);
+	SpringArm->SetWorldRotation(CamaraRotator);
 }

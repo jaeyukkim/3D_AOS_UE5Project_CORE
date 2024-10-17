@@ -82,8 +82,7 @@ void ALobbyCharacter::InitPlayerInfo()
 	}
 	else
 	{
-		retrycnt++;
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Failed to set player team after %d attempts."), retrycnt));
+	
 		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
 		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
 	}

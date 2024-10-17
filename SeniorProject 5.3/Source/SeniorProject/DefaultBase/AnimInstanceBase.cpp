@@ -17,6 +17,7 @@ UAnimInstanceBase::UAnimInstanceBase()
 	Yaw = 0.0f;
 	YawDelta = 0.0f;
 	bIsStunned = false;
+	IsDead = false;
 }
 
 
@@ -47,7 +48,7 @@ void UAnimInstanceBase::NativeUpdateAnimation(float DeltaSeconds)
 	if (IsValid(Character))
 	{
 		bIsStunned = Character->bIsStunned;
-		
+		IsDead = Character->bDead;
 		Speed = Character->GetVelocity().Size();
 		AimRotation = Character->GetBaseAimRotation();
 		ActorRotation = Character->GetActorRotation();

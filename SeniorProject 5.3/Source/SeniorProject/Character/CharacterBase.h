@@ -107,6 +107,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UDebuffParticleComponent> MagicResistanceDecreaseDebuffComponent;
+
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	bool bDead = false;
 	
 protected:
 	
@@ -141,8 +144,7 @@ protected:
 	virtual void InitializeDefaultAttributes() const;
 	void AddCharacterAbility();
 	
-	UPROPERTY(BlueprintReadOnly, Replicated)
-	bool bDead = false;
+	
 
 	
 	

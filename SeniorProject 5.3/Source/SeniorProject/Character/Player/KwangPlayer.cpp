@@ -2,7 +2,6 @@
 
 
 #include "KwangPlayer.h"
-
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/Actor/Decal/AttackRangeDecal.h"
 
@@ -25,6 +24,23 @@ void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 }
 
 
+void AKwangPlayer::MulticastReSpawn()
+{
+	Super::MulticastReSpawn();
+
+	
+	bActiveWep = true;
+}
+
+void AKwangPlayer::Die_Implementation()
+{
+	if (IsValid(MagicCircle))
+	{
+		MagicCircle->Destroy();
+	}
+	Super::Die_Implementation();
+	
+}
 
 void AKwangPlayer::Tick(float DeltaSeconds)
 {
@@ -106,3 +122,4 @@ void AKwangPlayer::UpdateMagicCircleLocation()
 	}
 	
 }
+

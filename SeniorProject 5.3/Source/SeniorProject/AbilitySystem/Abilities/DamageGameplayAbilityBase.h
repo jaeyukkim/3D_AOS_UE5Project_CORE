@@ -30,7 +30,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	FGameplayTag DamageType;
-
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	bool bIsBasicAttack = false;
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	FScalableFloat BaseDamage;
 	

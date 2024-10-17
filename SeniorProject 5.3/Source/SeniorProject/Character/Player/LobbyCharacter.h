@@ -69,7 +69,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetPlayerTeamName();
 
-	int32 retrycnt = 0;
+	
 
 protected:
 	// Called when the game starts or when spawned
