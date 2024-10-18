@@ -71,7 +71,8 @@ void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	
 	DOREPLIFETIME(ACharacterBase, bDead);
 	DOREPLIFETIME(ACharacterBase, bIsStunned);
-	
+	DOREPLIFETIME(ACharacterBase, bIsInvincibility);
+
 	
 }
 
@@ -170,8 +171,7 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
-	GetCapsuleComponent()->SetCollisionObjectType(ECC_Die);
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::Type::PhysicsOnly);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Overlap);
 	GetCapsuleComponent()->SetEnableGravity(false);
 	bDead = true;
 	

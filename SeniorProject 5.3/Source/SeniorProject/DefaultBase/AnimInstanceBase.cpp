@@ -26,12 +26,12 @@ UAnimInstanceBase::UAnimInstanceBase()
 void UAnimInstanceBase::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
+	
 	auto Pawn = TryGetPawnOwner();
 
 	if (::IsValid(Pawn))
 	{
 		Character = Cast<ACharacterBase>(Pawn);
-		
 	}
 
 	

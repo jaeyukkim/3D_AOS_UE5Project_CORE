@@ -17,7 +17,7 @@ class SENIORPROJECT_API UAnimInstanceBase : public UAnimInstance
 
 public:
 	UAnimInstanceBase();
-	void NativeInitializeAnimation() override;
+	virtual void NativeInitializeAnimation() override;
 	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 	FRotator NormalizedDeltaRotator(FRotator A, FRotator B);
 

@@ -22,7 +22,8 @@ public:
 	// 게임 모드에 자신을 등록하는 함수
 	void RegisterWithGameMode();
 
-
+	UFUNCTION()
+	void UpdateTurretState();
 	
 	/* Combat Interface */
 	virtual void Die_Implementation() override;

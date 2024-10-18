@@ -53,7 +53,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	//첫 미니언 스폰 타임
-	float InitialSpawnTime = 30.f;
+	float InitialSpawnTime = 3000.f;
 
 	// 미니언 스폰 타임 주기
 	float RecurringSpawnTime = 45.f;

@@ -50,7 +50,9 @@ public:
 	FORCEINLINE virtual int32 GetMaxAttackCombo() const override { return MaxAttackCombo; }
 	FORCEINLINE virtual int32 GetAttackRange() const override {return AttackRange;}
 	FORCEINLINE virtual bool IsDead_Implementation() const override {return bDead;}
-	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;};
+	FORCEINLINE virtual AActor* GetAvatar_Implementation() override {return this;}
+	FORCEINLINE virtual bool IsInvincibility_Implementation() const override {return bIsInvincibility;}
+	FORCEINLINE virtual void SetIsInvincibility_Implementation(const bool InIsInvincibility) override {bIsInvincibility = InIsInvincibility;}
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
 	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() override;;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
@@ -110,7 +112,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	bool bDead = false;
-	
+
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	bool bIsInvincibility = false;
 protected:
 	
 	virtual void BeginPlay() override;

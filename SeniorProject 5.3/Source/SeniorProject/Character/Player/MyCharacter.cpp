@@ -45,12 +45,12 @@ AMyCharacter::AMyCharacter()
 	SpringArm->TargetArmLength = 320.0f;
 	SpringArm->SetRelativeLocation(FVector(0.0f, 0.0f, 115.0f));
 	SpringArm->SetRelativeRotation(FRotator::ZeroRotator);
-	SpringArm->bUsePawnControlRotation = true;
-	SpringArm->bInheritPitch = true;
-	SpringArm->bInheritRoll = true;
-	SpringArm->bInheritYaw = true;
-	SpringArm->bDoCollisionTest = true;
-	SpringArm->SetIsReplicated(true);
+//	SpringArm->bUsePawnControlRotation = true;
+//	SpringArm->bInheritPitch = true;
+//	SpringArm->bInheritRoll = true;
+//	SpringArm->bInheritYaw = true;
+//	SpringArm->bDoCollisionTest = true;
+//	SpringArm->SetIsReplicated(true);
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));\
 	Camera->SetupAttachment(SpringArm);
 
@@ -101,7 +101,6 @@ void AMyCharacter::OnRep_PlayerState()
 
 
 
-
 void AMyCharacter::BroadcastInitialValues()
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -118,31 +117,10 @@ void AMyCharacter::BroadcastInitialValues()
 	OnManaChanged.Broadcast(AS->GetMana());
 	OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
 	PlayerStateBase->BroadcastPlayerStat();
-	HealthBarWidget->UpdateWidget();
+	
 	
 }
 
-void AMyCharacter::ClientSwitchCameraToAnotherCharacter_Implementation()
-{
-	if(PlayerController == nullptr) return;
-
-	for (TActorIterator<AMyCharacter> It(GetWorld()); It; ++It)
-	{
-		AMyCharacter* OtherCharacter = *It;
-		PlayerController->bAutoManageActiveCameraTarget = false;
-		// 본인이나 사망한 캐릭터는 무시하고 다른 캐릭터를 찾음
-		if (OtherCharacter != this)
-		{
-			// 다른 캐릭터를 소유하는 방식이 아니라 카메라만 해당 캐릭터로 이동
-			SpectatorCharacter = OtherCharacter;
-			OtherCharacter->SpringArm->bEnableCameraLag = true;
-			OtherCharacter->SpringArm->bEnableCameraRotationLag = true;
-			OtherCharacter->SpringArm->TargetArmLength = 600.f;
-			PlayerController->SetViewTargetWithBlend(OtherCharacter, 1.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
-			break;
-		}
-	}
-}
 
 void AMyCharacter::InitAbilityActorInfo()
 {
@@ -179,39 +157,44 @@ void AMyCharacter::InitializeHealthBarWidget()
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
+		
 		if(IsLocallyControlled())
-			HealthBarWidget->SetHiddenInGame(true);
+			HealthBarWidget->SetVisibility(false);
 	}
-
+	
 	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 	{
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
 			[this](const FOnAttributeChangeData& Data)
 			{
-				OnManaChanged.Broadcast(Data.NewValue);
-				HealthBarWidget->UpdateWidget();
+				if(OnManaChanged.IsBound())
+					OnManaChanged.Broadcast(Data.NewValue);
+				
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
 			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				OnMaxManaChanged.Broadcast(AS->GetMaxMana());
-				HealthBarWidget->UpdateWidget();
+				if(OnMaxManaChanged.IsBound())
+					OnMaxManaChanged.Broadcast(AS->GetMaxMana());
+				
 			}
 		);
 
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
 			[this](const FOnAttributeChangeData& Data)
 			{
-				OnHealthChanged.Broadcast(Data.NewValue);
-				HealthBarWidget->UpdateWidget();
+				if(OnHealthChanged.IsBound())
+					OnHealthChanged.Broadcast(Data.NewValue);
+				
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
 			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
-				HealthBarWidget->UpdateWidget();
+				if(OnMaxHealthChanged.IsBound())
+					OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+				
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
@@ -246,37 +229,43 @@ void AMyCharacter::InitializeHealthBarWidget()
 
 void AMyCharacter::MulticastReSpawn_Implementation()
 {
-	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
 	bDead = false;
-	GetCapsuleComponent()->SetCollisionObjectType(ECC_Character);
+	
+	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Block);
 	HealthBarWidget->SetVisibility(true);
-	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::Type::QueryAndPhysics);
-	GetCapsuleComponent()->SetEnableGravity(true);
+
 	
 	if(IsLocallyControlled())
 	{
 		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
 		{
-			ServerSetSpawnPoint();
+			ServerReSpawn();
 			EnableInput(MyPlayerController);
-			PlayerController->SetViewTargetWithBlend(this, 1.5f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
+			PlayerController->SetViewTargetWithBlend(this, 1.f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
 		}
 	}
+	
 }
 
 
 
-void AMyCharacter::ServerSetSpawnPoint_Implementation()
+void AMyCharacter::ServerReSpawn_Implementation()
 {
 	if(!HasAuthority()) return;
 	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-
 	if (PlayerStateBase == nullptr) return;
 
-	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+	{
+		AS->SetHealth(AS->GetMaxHealth());
+		AS->SetMana(AS->GetMaxMana());
+	}
 
-	if (HasAuthority() && PlayerStateBase->GetTeamName() != TagsBase.GameRule_TeamName_NONE)
+	
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if (PlayerStateBase->GetTeamName() != TagsBase.GameRule_TeamName_NONE)
 	{
 		TArray<AActor*> PlayerStarts;
 		UGameplayStatics::GetAllActorsOfClass(this, ATeamPlayerStart::StaticClass(), PlayerStarts);
@@ -340,6 +329,7 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyCharacter::Look);
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
 	EnhancedInputComponent->BindAction(ShowAdditionalAttribute, ETriggerEvent::Triggered, this, &AMyCharacter::ShowAdditionalAttributeMenu);
+	EnhancedInputComponent->BindAction(Spectate, ETriggerEvent::Triggered, this, &AMyCharacter::ClientSpectate_Implementation);
 
 
 
@@ -347,6 +337,8 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 
 void AMyCharacter::Move(const FInputActionValue& InputActionValue)
 {
+	if(bDead) return;
+	
 	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
 	const FRotator Rotation = GetControlRotation();
 	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
@@ -363,17 +355,24 @@ void AMyCharacter::Move(const FInputActionValue& InputActionValue)
 
 void AMyCharacter::Look(const FInputActionValue& InputActionValue)
 {
+	if(bDead) return;
 
 	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
 
+	
+	
 
+	FRotator SpringArmRotation = SpringArm->GetComponentRotation();
+	FRotator ControlRotation = GetActorRotation();
+	double NewPitch = FMath::Clamp(SpringArmRotation.Pitch - InputAxisVector.Y, -80.0f, 80.0f);
+	const FRotator Rotator = FRotator(NewPitch, ControlRotation.Yaw, ControlRotation.Roll);
+
+	SpringArm->SetWorldRotation(Rotator);
 	AddControllerPitchInput(InputAxisVector.Y);
 	AddControllerYawInput(InputAxisVector.X);
 
-	FRotator Rotator = SpringArm->GetComponentRotation();
-	ServerSetCameraRotation(Rotator.Pitch, Rotator.Yaw, Rotator.Roll);
-
 }
+
 
 void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue)
 {
@@ -399,6 +398,12 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 	
 }
 
+void AMyCharacter::Jump()
+{
+	if(!bDead)
+		Super::Jump();
+}
+
 
 void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 {
@@ -417,7 +422,7 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 	if (!bHit)
 	{
 		FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
-		bool bFloorHit = GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
+		GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
 
 	}
 
@@ -426,35 +431,51 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 
 void AMyCharacter::Die_Implementation()
 {
+	Super::Die_Implementation();
 
-	ClientSwitchCameraToAnotherCharacter();
-	
-	
 	MulticastPlayerDie();
 
+	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	if(PlayerStateBase != nullptr)
 	{
-		float DeadTime = PlayerStateBase->GetPlayerLevel() * 1.5 + 10;
-		GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::MulticastReSpawn, DeadTime, false);
+		float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
 	}
-	
-
-	Super::Die_Implementation();
 }
+
+
 
 void AMyCharacter::MulticastPlayerDie_Implementation()
 {
+	if(!IsLocallyControlled()) return;
 	
 	HealthBarWidget->SetVisibility(false);
-		
-	if(IsLocallyControlled())
+
+	// 관전 캐릭터 추가
+	if(PlayerController != nullptr)
+	{
+		SpectatedCharacters.Reset();
+		for (TActorIterator<AMyCharacter> It(GetWorld()); It; ++It)
+		{
+			AMyCharacter* OtherCharacter = *It;
+			PlayerController->bAutoManageActiveCameraTarget = false;
+			// 본인은 무시하고 다른 캐릭터를 추가
+			if (OtherCharacter != this)
+			{
+				SpectatedCharacters.AddUnique(OtherCharacter);
+			}
+		}
+	}
+	
+/*	if(IsLocallyControlled())
 	{
 		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
 		{
 			DisableInput(MyPlayerController);
 		}
-	}
+			return;
+	}*/
 }
 
 
@@ -494,6 +515,8 @@ void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
 
 bool AMyCharacter::DeleteItem_Implementation(FGameplayTag ItemInputTag)
 {
+	
+	
 	// 배열에서 해당 태그를 가진 아이템을 모두 삭제
 	int32 RemovedCount = OwnedItems.RemoveAll([&](const FItemInformation& Info)
 	{
@@ -669,7 +692,7 @@ void AMyCharacter::AimTrace()
 	FVector CameraLocation = Camera->GetComponentLocation();
 	FVector CameraForwardVector = Camera->GetComponentRotation().Vector();
 	
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
+	GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, CameraLocation + CameraForwardVector * 2000,
 		 ECollisionChannel::ECC_GameTraceChannel2);
 	
 
@@ -731,13 +754,31 @@ void AMyCharacter::AimTrace()
 	}
 
 }
-void AMyCharacter::ServerSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll)
-{
-	MulticastSetCameraRotation(Pitch, Yaw, Roll);
-}
 
-void AMyCharacter::MulticastSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll)
+void AMyCharacter::ClientSpectate_Implementation()
 {
-	FRotator CamaraRotator =FRotator(Pitch, Yaw, Roll);
-	SpringArm->SetWorldRotation(CamaraRotator);
+	if(!bDead || !IsLocallyControlled()) return;
+
+	int32 MaxSpectateIdx = SpectatedCharacters.Num()-1;
+	
+	if (SpectatedCharacters.IsEmpty()) return; // 관전 대상이 없을 때 종료
+	SpectateIdx = SpectateIdx % SpectatedCharacters.Num();
+
+	TObjectPtr<AMyCharacter> TargetCharacter = SpectatedCharacters[SpectateIdx];
+	if (IsValid(TargetCharacter) && TargetCharacter->SpringArm)
+	{
+		// SpringArm 설정
+		TargetCharacter->SpringArm->bEnableCameraLag = true;
+		TargetCharacter->SpringArm->bEnableCameraRotationLag = true;
+		TargetCharacter->SpringArm->CameraRotationLagSpeed = 20.f;
+		TargetCharacter->SpringArm->CameraLagSpeed = 15.f;
+		TargetCharacter->SpringArm->TargetArmLength = 600.f;
+
+		// 카메라 뷰 전환
+		PlayerController->SetViewTargetWithBlend(TargetCharacter, 0.5f, EViewTargetBlendFunction::VTBlend_Linear, 2.f);
+        
+		// 다음 인덱스로 이동
+		SpectateIdx++;
+	}
+	
 }

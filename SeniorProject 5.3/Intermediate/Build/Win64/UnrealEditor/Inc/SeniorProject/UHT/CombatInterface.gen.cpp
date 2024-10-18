@@ -57,6 +57,21 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		*(AActor**)Z_Param__Result=P_THIS->GetAvatar_Implementation();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ICombatInterface::execSetIsInvincibility)
+	{
+		P_GET_UBOOL(Z_Param_InIsInvincibility);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetIsInvincibility_Implementation(Z_Param_InIsInvincibility);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ICombatInterface::execIsInvincibility)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsInvincibility_Implementation();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ICombatInterface::execIsDead)
 	{
 		P_FINISH;
@@ -209,9 +224,23 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		{
 		}
 	};
+	struct CombatInterface_eventIsInvincibility_Parms
+	{
+		bool ReturnValue;
+
+		/** Constructor, initializes return property only **/
+		CombatInterface_eventIsInvincibility_Parms()
+			: ReturnValue(false)
+		{
+		}
+	};
 	struct CombatInterface_eventSetIsAttacking_Parms
 	{
 		bool bIsAttacking;
+	};
+	struct CombatInterface_eventSetIsInvincibility_Parms
+	{
+		bool InIsInvincibility;
 	};
 	void ICombatInterface::ApplyDebuffEffect(FGameplayTag const& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency)
 	{
@@ -275,9 +304,19 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		CombatInterface_eventIsDead_Parms Parms;
 		return Parms.ReturnValue;
 	}
+	bool ICombatInterface::IsInvincibility() const
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_IsInvincibility instead.");
+		CombatInterface_eventIsInvincibility_Parms Parms;
+		return Parms.ReturnValue;
+	}
 	void ICombatInterface::SetIsAttacking(bool bIsAttacking)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetIsAttacking instead.");
+	}
+	void ICombatInterface::SetIsInvincibility(bool InIsInvincibility)
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_SetIsInvincibility instead.");
 	}
 	void UCombatInterface::StaticRegisterNativesUCombatInterface()
 	{
@@ -294,7 +333,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 			{ "GetPlayerLevel", &ICombatInterface::execGetPlayerLevel },
 			{ "IsAttacking", &ICombatInterface::execIsAttacking },
 			{ "IsDead", &ICombatInterface::execIsDead },
+			{ "IsInvincibility", &ICombatInterface::execIsInvincibility },
 			{ "SetIsAttacking", &ICombatInterface::execSetIsAttacking },
+			{ "SetIsInvincibility", &ICombatInterface::execSetIsInvincibility },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -685,6 +726,41 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics
+	{
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((CombatInterface_eventIsInvincibility_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(CombatInterface_eventIsInvincibility_Parms), &Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/CombatInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatInterface, nullptr, "IsInvincibility", nullptr, nullptr, Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::PropPointers), sizeof(CombatInterface_eventIsInvincibility_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x5C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CombatInterface_eventIsInvincibility_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCombatInterface_IsInvincibility()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_IsInvincibility_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UCombatInterface_SetIsAttacking_Statics
 	{
 		static void NewProp_bIsAttacking_SetBit(void* Obj);
@@ -720,6 +796,49 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InIsInvincibility_MetaData[];
+#endif
+		static void NewProp_InIsInvincibility_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_InIsInvincibility;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	void Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility_SetBit(void* Obj)
+	{
+		((CombatInterface_eventSetIsInvincibility_Parms*)Obj)->InIsInvincibility = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility = { "InIsInvincibility", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(CombatInterface_eventSetIsInvincibility_Parms), &Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility_MetaData), Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::NewProp_InIsInvincibility,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Interface/CombatInterface.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCombatInterface, nullptr, "SetIsInvincibility", nullptr, nullptr, Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::PropPointers), sizeof(CombatInterface_eventSetIsInvincibility_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CombatInterface_eventSetIsInvincibility_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCombatInterface_SetIsInvincibility()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCombatInterface_SetIsInvincibility_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCombatInterface);
 	UClass* Z_Construct_UClass_UCombatInterface_NoRegister()
 	{
@@ -752,7 +871,9 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		{ &Z_Construct_UFunction_UCombatInterface_GetPlayerLevel, "GetPlayerLevel" }, // 2154733322
 		{ &Z_Construct_UFunction_UCombatInterface_IsAttacking, "IsAttacking" }, // 3795256593
 		{ &Z_Construct_UFunction_UCombatInterface_IsDead, "IsDead" }, // 3147900906
+		{ &Z_Construct_UFunction_UCombatInterface_IsInvincibility, "IsInvincibility" }, // 2983605984
 		{ &Z_Construct_UFunction_UCombatInterface_SetIsAttacking, "SetIsAttacking" }, // 4252487587
+		{ &Z_Construct_UFunction_UCombatInterface_SetIsInvincibility, "SetIsInvincibility" }, // 266068222
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCombatInterface_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -983,6 +1104,23 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 		}
 		return Parms.ReturnValue;
 	}
+	static FName NAME_UCombatInterface_IsInvincibility = FName(TEXT("IsInvincibility"));
+	bool ICombatInterface::Execute_IsInvincibility(const UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UCombatInterface::StaticClass()));
+		CombatInterface_eventIsInvincibility_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UCombatInterface_IsInvincibility);
+		if (Func)
+		{
+			const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (const ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
+		{
+			Parms.ReturnValue = I->IsInvincibility_Implementation();
+		}
+		return Parms.ReturnValue;
+	}
 	static FName NAME_UCombatInterface_SetIsAttacking = FName(TEXT("SetIsAttacking"));
 	void ICombatInterface::Execute_SetIsAttacking(UObject* O, bool bIsAttacking)
 	{
@@ -1000,14 +1138,31 @@ void EmptyLinkFunctionForGeneratedCodeCombatInterface() {}
 			I->SetIsAttacking_Implementation(bIsAttacking);
 		}
 	}
+	static FName NAME_UCombatInterface_SetIsInvincibility = FName(TEXT("SetIsInvincibility"));
+	void ICombatInterface::Execute_SetIsInvincibility(UObject* O, bool InIsInvincibility)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(UCombatInterface::StaticClass()));
+		CombatInterface_eventSetIsInvincibility_Parms Parms;
+		UFunction* const Func = O->FindFunction(NAME_UCombatInterface_SetIsInvincibility);
+		if (Func)
+		{
+			Parms.InIsInvincibility=InIsInvincibility;
+			O->ProcessEvent(Func, &Parms);
+		}
+		else if (auto I = (ICombatInterface*)(O->GetNativeInterfaceAddress(UCombatInterface::StaticClass())))
+		{
+			I->SetIsInvincibility_Implementation(InIsInvincibility);
+		}
+	}
 	struct Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 3909449494U) },
+		{ Z_Construct_UClass_UCombatInterface, UCombatInterface::StaticClass, TEXT("UCombatInterface"), &Z_Registration_Info_UClass_UCombatInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCombatInterface), 2426429611U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_3284377793(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_3759847832(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Interface_CombatInterface_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

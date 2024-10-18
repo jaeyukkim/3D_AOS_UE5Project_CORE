@@ -155,7 +155,7 @@ void AMyGameModeBase::OnTurretSpawned(ATurret* SpawnedTurret)
 		// 포탑의 OnTurretDestroyed 델리게이트에 함수 연결
 		SpawnedTurret->OnTurretDestroyed.AddDynamic(this, &AMyGameModeBase::OnTurretDestroyed);
 		
-		// 타워를 파괴 상태에서 alive 상태로 변경
+		// 타워 상태 변경
 		CoreGameState->UpdateTurretStates(LineTag, TurretLevelTag, TeamTag, false);
 	}
 	

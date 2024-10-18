@@ -338,14 +338,6 @@ void FSwordDestroyDelegate_DelegateWrapper(const FMulticastScriptDelegate& Sword
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_SwordDestroyDelegate;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MagicCircleClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_MagicCircleClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_MagicCircle_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MagicCircle;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_bActiveWep_MetaData[];
 #endif
 		static void NewProp_bActiveWep_SetBit(void* Obj);
@@ -354,6 +346,14 @@ void FSwordDestroyDelegate_DelegateWrapper(const FMulticastScriptDelegate& Sword
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SwordLocation_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_SwordLocation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MagicCircleClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_MagicCircleClass;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MagicCircle_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_MagicCircle;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -391,6 +391,22 @@ void FSwordDestroyDelegate_DelegateWrapper(const FMulticastScriptDelegate& Sword
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordDestroyDelegate = { "SwordDestroyDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AKwangPlayer, SwordDestroyDelegate), Z_Construct_UDelegateFunction_SeniorProject_SwordDestroyDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordDestroyDelegate_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordDestroyDelegate_MetaData) }; // 1767799252
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData[] = {
+		{ "ModuleRelativePath", "Character/Player/KwangPlayer.h" },
+	};
+#endif
+	void Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_SetBit(void* Obj)
+	{
+		((AKwangPlayer*)Obj)->bActiveWep = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep = { "bActiveWep", nullptr, (EPropertyFlags)0x0010000000000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AKwangPlayer), &Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData[] = {
+		{ "ModuleRelativePath", "Character/Player/KwangPlayer.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation = { "SwordLocation", nullptr, (EPropertyFlags)0x0010000000000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AKwangPlayer, SwordLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircleClass_MetaData[] = {
 		{ "Category", "Kwang" },
 		{ "ModuleRelativePath", "Character/Player/KwangPlayer.h" },
@@ -403,28 +419,12 @@ void FSwordDestroyDelegate_DelegateWrapper(const FMulticastScriptDelegate& Sword
 	};
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircle = { "MagicCircle", nullptr, (EPropertyFlags)0x0024080000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AKwangPlayer, MagicCircle), Z_Construct_UClass_AAttackRangeDecal_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircle_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircle_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/KwangPlayer.h" },
-	};
-#endif
-	void Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_SetBit(void* Obj)
-	{
-		((AKwangPlayer*)Obj)->bActiveWep = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep = { "bActiveWep", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AKwangPlayer), &Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/KwangPlayer.h" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation = { "SwordLocation", nullptr, (EPropertyFlags)0x0040000000000020, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AKwangPlayer, SwordLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData), Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AKwangPlayer_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordDestroyDelegate,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircleClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircle,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_bActiveWep,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_SwordLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircleClass,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AKwangPlayer_Statics::NewProp_MagicCircle,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AKwangPlayer_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AKwangPlayer>::IsAbstract,
@@ -476,9 +476,9 @@ void FSwordDestroyDelegate_DelegateWrapper(const FMulticastScriptDelegate& Sword
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_KwangPlayer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AKwangPlayer, AKwangPlayer::StaticClass, TEXT("AKwangPlayer"), &Z_Registration_Info_UClass_AKwangPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwangPlayer), 3410846108U) },
+		{ Z_Construct_UClass_AKwangPlayer, AKwangPlayer::StaticClass, TEXT("AKwangPlayer"), &Z_Registration_Info_UClass_AKwangPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AKwangPlayer), 746082827U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_KwangPlayer_h_2560867858(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_KwangPlayer_h_1880892199(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_KwangPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_KwangPlayer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

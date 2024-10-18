@@ -20,10 +20,8 @@ struct FGameplayTag;
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_33_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void MulticastLevelUpParticles_Implementation() const; \
-	virtual void MulticastSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll); \
-	virtual void ServerSetCameraRotation_Implementation(float Pitch, float Yaw, float Roll); \
-	virtual void ClientSwitchCameraToAnotherCharacter_Implementation(); \
-	virtual void ServerSetSpawnPoint_Implementation(); \
+	virtual void ClientSpectate_Implementation(); \
+	virtual void ServerReSpawn_Implementation(); \
 	virtual void MulticastReSpawn_Implementation(); \
 	virtual void MulticastPlayerDie_Implementation(); \
  \
@@ -31,10 +29,8 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetLevelUpReward); \
 	DECLARE_FUNCTION(execMulticastLevelUpParticles); \
 	DECLARE_FUNCTION(execBroadcastInitialValues); \
-	DECLARE_FUNCTION(execMulticastSetCameraRotation); \
-	DECLARE_FUNCTION(execServerSetCameraRotation); \
-	DECLARE_FUNCTION(execClientSwitchCameraToAnotherCharacter); \
-	DECLARE_FUNCTION(execServerSetSpawnPoint); \
+	DECLARE_FUNCTION(execClientSpectate); \
+	DECLARE_FUNCTION(execServerReSpawn); \
 	DECLARE_FUNCTION(execMulticastReSpawn); \
 	DECLARE_FUNCTION(execMulticastPlayerDie);
 

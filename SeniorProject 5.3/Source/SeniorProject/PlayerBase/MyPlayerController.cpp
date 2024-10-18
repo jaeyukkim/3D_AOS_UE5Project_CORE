@@ -6,6 +6,7 @@
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/Input/InputComponentBase.h"
 #include "GameFramework/Character.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/UI/Damage/DamageTextComponent.h"
 #include "SeniorProject/UI/GoldReward/GoldRewardWidgetComponent.h"
 #include "SeniorProject/UI/Lobby/LobbyWidgetController.h"
@@ -86,19 +87,44 @@ void AMyPlayerController::AbilityInputTagPressed(FGameplayTag InputTag)
 {
 	if (GetASC() == nullptr) return;
 		GetASC()->AbilityInputTagPressed(InputTag);
-	
+	if(GetPawn()->Implements<UCombatInterface>())
+	{
+		if(!ICombatInterface::Execute_IsDead(GetPawn()))
+		{
+			GetASC()->AbilityInputTagHeld(InputTag);
+		}
+	}
 }
 
 void AMyPlayerController::AbilityInputTagReleased(FGameplayTag InputTag)
 {
 	if (GetASC())
 		GetASC()->AbilityInputTagReleased(InputTag);
+
+	if(GetPawn()->Implements<UCombatInterface>())
+	{
+		if(!ICombatInterface::Execute_IsDead(GetPawn()))
+		{
+			GetASC()->AbilityInputTagHeld(InputTag);
+
+		}
+	}
 }
 
 void AMyPlayerController::AbilityInputTagHeld(FGameplayTag InputTag)
 {
 	if (GetASC() == nullptr) return;
-		GetASC()->AbilityInputTagHeld(InputTag);
+	
+	if(GetPawn()->Implements<UCombatInterface>())
+	{
+		if(!ICombatInterface::Execute_IsDead(GetPawn()))
+		{
+			GetASC()->AbilityInputTagHeld(InputTag);
+
+		}
+	}
+
+
 }
 
 

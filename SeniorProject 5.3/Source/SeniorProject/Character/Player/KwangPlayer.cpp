@@ -24,22 +24,31 @@ void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 }
 
 
-void AKwangPlayer::MulticastReSpawn()
-{
-	Super::MulticastReSpawn();
-
-	
-	bActiveWep = true;
-}
 
 void AKwangPlayer::Die_Implementation()
 {
-	if (IsValid(MagicCircle))
-	{
-		MagicCircle->Destroy();
-	}
+	HideMagicCircle();
+	
+	
 	Super::Die_Implementation();
 	
+}
+
+void AKwangPlayer::ServerReSpawn()
+{
+	Super::ServerReSpawn();
+	if(HasAuthority())
+	{
+		bActiveWep = true;
+		DestroySword();
+		
+	}
+}
+
+void AKwangPlayer::MulticastReSpawn()
+{
+	Respawned.Broadcast();
+	Super::MulticastReSpawn();
 }
 
 void AKwangPlayer::Tick(float DeltaSeconds)
@@ -94,9 +103,7 @@ void AKwangPlayer::SetSwordLocation(FVector NewSwordLocation)
 
 void AKwangPlayer::DestroySword()
 {
-	
 	SwordDestroyDelegate.Broadcast();
-	
 }
 
 

@@ -9,6 +9,7 @@
 #include "Sound/SoundCue.h"
 #include "MyAnimInstance.generated.h"
 
+class AKwangPlayer;
 /**
  * 
  */
@@ -21,39 +22,27 @@ class SENIORPROJECT_API UMyAnimInstance : public UAnimInstanceBase
 
 public:
 	UMyAnimInstance();
-	void NativeInitializeAnimation() override;
-
+	virtual void NativeInitializeAnimation() override;
+	virtual void NativeUpdateAnimation(float DeltaSeconds) override;
 
 
 	UFUNCTION()
 		void AnimNotify_RunStop();
-
-	
 	UFUNCTION()
 		void AnimNotify_HideSword();
 	UFUNCTION()
 		void AnimNotify_UnHideSword();
 	
-
-
+	UPROPERTY()
+	TObjectPtr<AKwangPlayer> KwangPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		bool bIsNoWep;
+		bool bActiveWep;
 
 private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		float DirectionOnStop;
-
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		bool bIsCasting;
-
-	
+		float DirectionOnStop = 0.f;
 
 
-public:
-	
-	
-	FTimerHandle DamagedTimerHandle = { };
 };

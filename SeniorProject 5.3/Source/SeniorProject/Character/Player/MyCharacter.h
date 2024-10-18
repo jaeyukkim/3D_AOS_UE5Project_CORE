@@ -48,14 +48,13 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastReSpawn();
 	UFUNCTION(Server, Reliable)
-	void ServerSetSpawnPoint();
+	virtual void ServerReSpawn();
 	UFUNCTION(Client, Reliable)
-	void ClientSwitchCameraToAnotherCharacter();
-	UFUNCTION(Server, Reliable)
-	void ServerSetCameraRotation(float Pitch, float Yaw, float Roll);
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastSetCameraRotation(float Pitch, float Yaw, float Roll);
-
+	void ClientSpectate();
+	UPROPERTY()
+	TArray<TObjectPtr<AMyCharacter>> SpectatedCharacters;
+	int32 SpectateIdx = 0;
+	
 	UFUNCTION(BlueprintCallable)
 	void BroadcastInitialValues();
 	
@@ -126,16 +125,15 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
-
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "LevelUp")
 	TSubclassOf<UGameplayEffect> LevelUpReward;
-
+	
 	UFUNCTION()
 	void GetLevelUpReward();
-
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-
+	
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 
@@ -143,7 +141,6 @@ protected:
 	TArray<FItemInformation> OwnedItems;
 	
 private:
-
 	
 	
 	UPROPERTY(EditAnywhere, Category = "Input")
@@ -182,17 +179,16 @@ private:
 	TObjectPtr<UInputAction> Item5_Ability;
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> Item6_Ability;
-
-
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> Spectate;
 	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> ShowAdditionalAttribute;
 	
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
-
 	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);
-	
+	virtual void Jump() override;
 
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> LastActor;
@@ -200,13 +196,13 @@ private:
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> ThisActor;
 
-	UPROPERTY()
-	TObjectPtr<AMyCharacter> SpectatorCharacter;
+	
 
 	void AimTrace();
 
 	FTimerHandle InitPlayerHealthBarHandle;
 	FTimerHandle InitReSpawnHandle;
+	FTimerHandle DeadTimerHandle;
 
 	
 };

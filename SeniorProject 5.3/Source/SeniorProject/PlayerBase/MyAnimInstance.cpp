@@ -1,22 +1,35 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MyAnimInstance.h"
-
-
+#include "SeniorProject/Character/Player/KwangPlayer.h"
 
 
 UMyAnimInstance::UMyAnimInstance()
 {
-
-	bIsNoWep = false;
-
+	bActiveWep = true;
 }
 
 
 void UMyAnimInstance::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
+	auto Pawn = TryGetPawnOwner();
+
+	if (::IsValid(Pawn))
+	{
+		KwangPlayer = Cast<AKwangPlayer>(Pawn);
+		if(KwangPlayer)
+			KwangPlayer->Respawned.AddLambda([this](){AnimNotify_UnHideSword();});
+	}
+}
+
+void UMyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
+{
+	Super::NativeUpdateAnimation(DeltaSeconds);
+
+	if(KwangPlayer == nullptr) return;
 	
+	bActiveWep = KwangPlayer->bActiveWep;
 }
 
 
@@ -27,24 +40,24 @@ void UMyAnimInstance::AnimNotify_RunStop()
 
 void UMyAnimInstance::AnimNotify_HideSword()
 {
-	if (AMyCharacter* PlayerCharacter = Cast<AMyCharacter>(TryGetPawnOwner()))
+	if (KwangPlayer)
 	{
-		PlayerCharacter->GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_Term);
+		KwangPlayer->GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_Term);
 	}
 		
 
-	bIsNoWep = true;
+	bActiveWep = true;
 }
 
 void UMyAnimInstance::AnimNotify_UnHideSword()
 {
-	if (AMyCharacter* PlayerCharacter = Cast<AMyCharacter>(TryGetPawnOwner()))
+	if (KwangPlayer)
 	{
-		PlayerCharacter->GetMesh()->UnHideBoneByName(TEXT("weapon_r"));
+		KwangPlayer->GetMesh()->UnHideBoneByName(TEXT("weapon_r"));
 	}
 	
 
-	bIsNoWep = false;
+	bActiveWep = false;
 }
 
 

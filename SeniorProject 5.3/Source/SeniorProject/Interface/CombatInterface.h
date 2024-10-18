@@ -61,6 +61,12 @@ public:
 	bool IsDead() const;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	bool IsInvincibility() const;
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SetIsInvincibility(const bool InIsInvincibility);
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	AActor* GetAvatar();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)

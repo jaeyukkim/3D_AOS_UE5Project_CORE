@@ -8,6 +8,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSwordDestroyDelegate);
+DECLARE_MULTICAST_DELEGATE(FRespawnedDelegate);
 
 class AAttackRangeDecal;
 /**
@@ -49,8 +50,17 @@ public:
 	UPROPERTY(BlueprintAssignable, Category="Kwang")
 	FSwordDestroyDelegate SwordDestroyDelegate;
 	
-	virtual void MulticastReSpawn() override;
 	virtual void Die_Implementation() override;
+	virtual void ServerReSpawn() override;
+	virtual void MulticastReSpawn() override;
+	UPROPERTY(Replicated)
+	bool bActiveWep = true;
+	
+	UPROPERTY(Replicated)
+	FVector SwordLocation;
+	
+	FRespawnedDelegate Respawned;
+	
 protected:
 
 	virtual void Tick(float DeltaSeconds) override;
@@ -62,16 +72,8 @@ protected:
 	TObjectPtr<AAttackRangeDecal> MagicCircle;
 	
 	void UpdateMagicCircleLocation();
-
 	FHitResult AbilityRangeTraceResult;
-
 	
-private:
-	UPROPERTY(Replicated)
-	bool bActiveWep = true;
-
-	UPROPERTY(Replicated)
-	FVector SwordLocation;
 
 	
 };

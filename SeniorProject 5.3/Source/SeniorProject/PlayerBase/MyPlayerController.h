@@ -57,7 +57,6 @@ private:
 
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	TObjectPtr<UInputActionData> InputData;
-
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponentBase> AbilityComponentBase;
 
@@ -65,8 +64,7 @@ private:
 	void AbilityInputTagPressed(FGameplayTag InputTag);
 	void AbilityInputTagReleased(FGameplayTag InputTag);
 	void AbilityInputTagHeld(FGameplayTag InputTag);
-
-	void OnGamePause();
+	
 
 	
 };

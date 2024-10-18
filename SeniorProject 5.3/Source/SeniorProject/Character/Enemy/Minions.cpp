@@ -172,6 +172,8 @@ void AMinions::SetTeamNameByTag_Implementation(FGameplayTag NewTeamName)
 {
 	Super::SetTeamNameByTag_Implementation(NewTeamName);
 
+	if(BlueTeamMesh == nullptr || RedTeamMesh == nullptr) return;
+	
 	if(HasAuthority())
 	{
 		TeamName = NewTeamName;
@@ -189,6 +191,9 @@ void AMinions::SetTeamNameByTag_Implementation(FGameplayTag NewTeamName)
 
 void AMinions::OnRep_Mesh()
 {
+	if(BlueTeamMesh == nullptr || RedTeamMesh == nullptr) return;
+
+	
 	if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
 	{
 		GetMesh()->SetSkeletalMesh(BlueTeamMesh);

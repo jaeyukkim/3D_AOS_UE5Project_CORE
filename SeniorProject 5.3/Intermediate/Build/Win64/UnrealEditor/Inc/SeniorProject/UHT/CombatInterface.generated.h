@@ -28,6 +28,8 @@ struct FGameplayTag;
 	virtual void SetIsAttacking_Implementation(bool bIsAttacking) {}; \
 	virtual bool IsAttacking_Implementation() { return false; }; \
 	virtual AActor* GetAvatar_Implementation() { return NULL; }; \
+	virtual void SetIsInvincibility_Implementation(bool InIsInvincibility) {}; \
+	virtual bool IsInvincibility_Implementation() const { return false; }; \
 	virtual bool IsDead_Implementation() const { return false; }; \
 	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() { return NULL; }; \
 	virtual UAnimMontage* GetAttackMontage_Implementation() { return NULL; }; \
@@ -41,6 +43,8 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execSetIsAttacking); \
 	DECLARE_FUNCTION(execIsAttacking); \
 	DECLARE_FUNCTION(execGetAvatar); \
+	DECLARE_FUNCTION(execSetIsInvincibility); \
+	DECLARE_FUNCTION(execIsInvincibility); \
 	DECLARE_FUNCTION(execIsDead); \
 	DECLARE_FUNCTION(execGetDieAnimationAsset); \
 	DECLARE_FUNCTION(execGetAttackMontage); \
@@ -100,7 +104,9 @@ public: \
 	static int32 Execute_GetPlayerLevel(UObject* O); \
 	static bool Execute_IsAttacking(UObject* O); \
 	static bool Execute_IsDead(const UObject* O); \
+	static bool Execute_IsInvincibility(const UObject* O); \
 	static void Execute_SetIsAttacking(UObject* O, bool bIsAttacking); \
+	static void Execute_SetIsInvincibility(UObject* O, bool InIsInvincibility); \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 

@@ -61,38 +61,18 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		P_THIS->BroadcastInitialValues();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AMyCharacter::execMulticastSetCameraRotation)
+	DEFINE_FUNCTION(AMyCharacter::execClientSpectate)
 	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Pitch);
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Yaw);
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Roll);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->MulticastSetCameraRotation_Implementation(Z_Param_Pitch,Z_Param_Yaw,Z_Param_Roll);
+		P_THIS->ClientSpectate_Implementation();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AMyCharacter::execServerSetCameraRotation)
-	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Pitch);
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Yaw);
-		P_GET_PROPERTY(FFloatProperty,Z_Param_Roll);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ServerSetCameraRotation_Implementation(Z_Param_Pitch,Z_Param_Yaw,Z_Param_Roll);
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AMyCharacter::execClientSwitchCameraToAnotherCharacter)
+	DEFINE_FUNCTION(AMyCharacter::execServerReSpawn)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->ClientSwitchCameraToAnotherCharacter_Implementation();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AMyCharacter::execServerSetSpawnPoint)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ServerSetSpawnPoint_Implementation();
+		P_THIS->ServerReSpawn_Implementation();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AMyCharacter::execMulticastReSpawn)
@@ -109,22 +89,10 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		P_THIS->MulticastPlayerDie_Implementation();
 		P_NATIVE_END;
 	}
-	struct MyCharacter_eventMulticastSetCameraRotation_Parms
+	static FName NAME_AMyCharacter_ClientSpectate = FName(TEXT("ClientSpectate"));
+	void AMyCharacter::ClientSpectate()
 	{
-		float Pitch;
-		float Yaw;
-		float Roll;
-	};
-	struct MyCharacter_eventServerSetCameraRotation_Parms
-	{
-		float Pitch;
-		float Yaw;
-		float Roll;
-	};
-	static FName NAME_AMyCharacter_ClientSwitchCameraToAnotherCharacter = FName(TEXT("ClientSwitchCameraToAnotherCharacter"));
-	void AMyCharacter::ClientSwitchCameraToAnotherCharacter()
-	{
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_ClientSwitchCameraToAnotherCharacter),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_ClientSpectate),NULL);
 	}
 	static FName NAME_AMyCharacter_MulticastLevelUpParticles = FName(TEXT("MulticastLevelUpParticles"));
 	void AMyCharacter::MulticastLevelUpParticles() const
@@ -141,42 +109,22 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_MulticastReSpawn),NULL);
 	}
-	static FName NAME_AMyCharacter_MulticastSetCameraRotation = FName(TEXT("MulticastSetCameraRotation"));
-	void AMyCharacter::MulticastSetCameraRotation(float Pitch, float Yaw, float Roll)
+	static FName NAME_AMyCharacter_ServerReSpawn = FName(TEXT("ServerReSpawn"));
+	void AMyCharacter::ServerReSpawn()
 	{
-		MyCharacter_eventMulticastSetCameraRotation_Parms Parms;
-		Parms.Pitch=Pitch;
-		Parms.Yaw=Yaw;
-		Parms.Roll=Roll;
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_MulticastSetCameraRotation),&Parms);
-	}
-	static FName NAME_AMyCharacter_ServerSetCameraRotation = FName(TEXT("ServerSetCameraRotation"));
-	void AMyCharacter::ServerSetCameraRotation(float Pitch, float Yaw, float Roll)
-	{
-		MyCharacter_eventServerSetCameraRotation_Parms Parms;
-		Parms.Pitch=Pitch;
-		Parms.Yaw=Yaw;
-		Parms.Roll=Roll;
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_ServerSetCameraRotation),&Parms);
-	}
-	static FName NAME_AMyCharacter_ServerSetSpawnPoint = FName(TEXT("ServerSetSpawnPoint"));
-	void AMyCharacter::ServerSetSpawnPoint()
-	{
-		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_ServerSetSpawnPoint),NULL);
+		ProcessEvent(FindFunctionChecked(NAME_AMyCharacter_ServerReSpawn),NULL);
 	}
 	void AMyCharacter::StaticRegisterNativesAMyCharacter()
 	{
 		UClass* Class = AMyCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "BroadcastInitialValues", &AMyCharacter::execBroadcastInitialValues },
-			{ "ClientSwitchCameraToAnotherCharacter", &AMyCharacter::execClientSwitchCameraToAnotherCharacter },
+			{ "ClientSpectate", &AMyCharacter::execClientSpectate },
 			{ "GetLevelUpReward", &AMyCharacter::execGetLevelUpReward },
 			{ "MulticastLevelUpParticles", &AMyCharacter::execMulticastLevelUpParticles },
 			{ "MulticastPlayerDie", &AMyCharacter::execMulticastPlayerDie },
 			{ "MulticastReSpawn", &AMyCharacter::execMulticastReSpawn },
-			{ "MulticastSetCameraRotation", &AMyCharacter::execMulticastSetCameraRotation },
-			{ "ServerSetCameraRotation", &AMyCharacter::execServerSetCameraRotation },
-			{ "ServerSetSpawnPoint", &AMyCharacter::execServerSetSpawnPoint },
+			{ "ServerReSpawn", &AMyCharacter::execServerReSpawn },
 			{ "Stunned", &AMyCharacter::execStunned },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -203,7 +151,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics
+	struct Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -211,17 +159,17 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "ClientSwitchCameraToAnotherCharacter", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "ClientSpectate", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x01020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMyCharacter_ClientSpectate()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_ClientSpectate_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -313,79 +261,7 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics
-	{
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Pitch;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Yaw;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Roll;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Pitch = { "Pitch", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventMulticastSetCameraRotation_Parms, Pitch), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Yaw = { "Yaw", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventMulticastSetCameraRotation_Parms, Yaw), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Roll = { "Roll", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventMulticastSetCameraRotation_Parms, Roll), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Pitch,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Yaw,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::NewProp_Roll,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "MulticastSetCameraRotation", nullptr, nullptr, Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::PropPointers), sizeof(MyCharacter_eventMulticastSetCameraRotation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00024CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::PropPointers) < 2048);
-	static_assert(sizeof(MyCharacter_eventMulticastSetCameraRotation_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics
-	{
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Pitch;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Yaw;
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_Roll;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Pitch = { "Pitch", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventServerSetCameraRotation_Parms, Pitch), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Yaw = { "Yaw", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventServerSetCameraRotation_Parms, Yaw), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Roll = { "Roll", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyCharacter_eventServerSetCameraRotation_Parms, Roll), METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Pitch,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Yaw,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::NewProp_Roll,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "ServerSetCameraRotation", nullptr, nullptr, Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::PropPointers), sizeof(MyCharacter_eventServerSetCameraRotation_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::PropPointers) < 2048);
-	static_assert(sizeof(MyCharacter_eventServerSetCameraRotation_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics
+	struct Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -393,17 +269,17 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "ServerSetSpawnPoint", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyCharacter, nullptr, "ServerReSpawn", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_AMyCharacter_ServerReSpawn()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyCharacter_ServerReSpawn_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -465,6 +341,11 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_SpectatedCharacters_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpectatedCharacters_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_SpectatedCharacters;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpringArm_MetaData[];
 #endif
@@ -563,6 +444,10 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Item6_Ability;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Spectate_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_Spectate;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ShowAdditionalAttribute_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_ShowAdditionalAttribute;
@@ -574,10 +459,6 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThisActor_MetaData[];
 #endif
 		static const UECodeGen_Private::FInterfacePropertyParams NewProp_ThisActor;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SpectatorCharacter_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_SpectatorCharacter;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -590,14 +471,12 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMyCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AMyCharacter_BroadcastInitialValues, "BroadcastInitialValues" }, // 1010278090
-		{ &Z_Construct_UFunction_AMyCharacter_ClientSwitchCameraToAnotherCharacter, "ClientSwitchCameraToAnotherCharacter" }, // 163913219
+		{ &Z_Construct_UFunction_AMyCharacter_ClientSpectate, "ClientSpectate" }, // 3219082843
 		{ &Z_Construct_UFunction_AMyCharacter_GetLevelUpReward, "GetLevelUpReward" }, // 73750975
 		{ &Z_Construct_UFunction_AMyCharacter_MulticastLevelUpParticles, "MulticastLevelUpParticles" }, // 35581685
 		{ &Z_Construct_UFunction_AMyCharacter_MulticastPlayerDie, "MulticastPlayerDie" }, // 2608363718
 		{ &Z_Construct_UFunction_AMyCharacter_MulticastReSpawn, "MulticastReSpawn" }, // 714095281
-		{ &Z_Construct_UFunction_AMyCharacter_MulticastSetCameraRotation, "MulticastSetCameraRotation" }, // 4253088881
-		{ &Z_Construct_UFunction_AMyCharacter_ServerSetCameraRotation, "ServerSetCameraRotation" }, // 598888922
-		{ &Z_Construct_UFunction_AMyCharacter_ServerSetSpawnPoint, "ServerSetSpawnPoint" }, // 3265026473
+		{ &Z_Construct_UFunction_AMyCharacter_ServerReSpawn, "ServerReSpawn" }, // 2145933567
 		{ &Z_Construct_UFunction_AMyCharacter_Stunned, "Stunned" }, // 490782088
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::FuncInfo) < 2048);
@@ -608,6 +487,13 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
 	};
 #endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters_Inner = { "SpectatedCharacters", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters_MetaData[] = {
+		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters = { "SpectatedCharacters", nullptr, (EPropertyFlags)0x0014000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, SpectatedCharacters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpringArm_MetaData[] = {
 		{ "Category", "Camera" },
@@ -784,6 +670,13 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item6_Ability = { "Item6_Ability", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, Item6_Ability), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item6_Ability_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item6_Ability_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_Spectate_MetaData[] = {
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_Spectate = { "Spectate", nullptr, (EPropertyFlags)0x0044000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, Spectate), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_Spectate_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_Spectate_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute_MetaData[] = {
 		{ "Category", "Input" },
 		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
@@ -802,13 +695,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FInterfacePropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_ThisActor = { "ThisActor", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Interface, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, ThisActor), Z_Construct_UClass_UEnemyInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_ThisActor_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_ThisActor_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatorCharacter_MetaData[] = {
-		{ "ModuleRelativePath", "Character/Player/MyCharacter.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatorCharacter = { "SpectatorCharacter", nullptr, (EPropertyFlags)0x0044000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMyCharacter, SpectatorCharacter), Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatorCharacter_MetaData), Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatorCharacter_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMyCharacter_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatedCharacters,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpringArm,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Camera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_PlayerController,
@@ -834,10 +723,10 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item4_Ability,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item5_Ability,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Item6_Ability,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_Spectate,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_ShowAdditionalAttribute,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_LastActor,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_ThisActor,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMyCharacter_Statics::NewProp_SpectatorCharacter,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AMyCharacter_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UPlayerInterface_NoRegister, (int32)VTABLE_OFFSET(AMyCharacter, IPlayerInterface), false },  // 1742384584
@@ -891,9 +780,9 @@ void EmptyLinkFunctionForGeneratedCodeMyCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 629463627U) },
+		{ Z_Construct_UClass_AMyCharacter, AMyCharacter::StaticClass, TEXT("AMyCharacter"), &Z_Registration_Info_UClass_AMyCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyCharacter), 546003143U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_3370272557(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_2240639280(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_MyCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

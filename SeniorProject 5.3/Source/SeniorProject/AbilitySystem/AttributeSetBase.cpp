@@ -115,6 +115,8 @@ void UAttributeSetBase::PreAttributeChange(const FGameplayAttribute& Attribute, 
 {
 	Super::PreAttributeChange(Attribute, NewValue);
 
+	if(GetOwningActor()->Implements<UCombatInterface>() && ICombatInterface::Execute_IsDead(GetOwningActor())) return;
+
 	if (Attribute == GetHealthAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxHealth());
@@ -132,15 +134,12 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
-
-	if(Props.TargetCharacter == nullptr) return;
-	if(Props.TargetCharacter->Implements<UCombatInterface>() && ICombatInterface::Execute_IsDead(Props.TargetCharacter)) return;
+	if(!bIsNeedToUpdateAttribute(Props)) return;
 
 	
 	if(Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
-		
 	}
 	if(Data.EvaluatedData.Attribute == GetManaAttribute())
 	{
@@ -278,6 +277,29 @@ void UAttributeSetBase::Debuff(const FEffectProperties& Props)
 
 }
 
+/*
+ * 무적상태이거나 attribute를 update 할 수 없을 때 return함.
+ */
+bool UAttributeSetBase::bIsNeedToUpdateAttribute(const FEffectProperties& Props)
+{
+	if(Props.TargetCharacter == nullptr) return false;
+	if(!Props.TargetCharacter->Implements<UCombatInterface>()) return false;
+
+	if(ICombatInterface::Execute_IsInvincibility(Props.TargetCharacter))
+	{
+		return false;
+	}
+	
+	/* 사망시에 리턴 */
+	if(ICombatInterface::Execute_IsDead(Props.TargetCharacter))
+	{
+		SetHealth(0.f);
+		SetMana(0.f);
+		return false;
+	}
+
+	return true;
+}
 
 
 void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const
