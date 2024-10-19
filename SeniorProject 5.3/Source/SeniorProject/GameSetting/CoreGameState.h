@@ -73,7 +73,7 @@ class SENIORPROJECT_API ACoreGameState : public AGameState
 public:
 	ACoreGameState();
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
+	FORCEINLINE void SetGameProcess(EGameProcess InGameProcess) {GameProcess = InGameProcess;}
 	
 
 	FPlayerTeamInitializedDelegate PlayerTeamInitializedDelegate;
@@ -85,7 +85,7 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastNewPlayerEntranced();
 	UFUNCTION(NetMulticast, Reliable)
-	void MulticastPlayerCharacterChanged(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
+	void MulticastPlayerCharacterChanged(APlayerState* InPS, UClass* SelectedCharacter, UTexture* CharacterImg);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayerReady(APlayerState* InPS);
 	UFUNCTION(Server, Reliable)
@@ -99,12 +99,14 @@ public:
 	
 
 	
-	UFUNCTION()
-	void UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bIsDestroy);
+	UFUNCTION(Server, Reliable)
+	void ServerUpdateTurretStates(const FGameplayTag& LineTag, const FGameplayTag& TurretLevelTag, const FGameplayTag& TeamTag, bool bIsDestroy);
+	
 	UFUNCTION(BlueprintCallable)
-	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
+	FGameplayTag GetValidTargetTurret(FGameplayTag& TeamTag, FGameplayTag& LineTag);
+	
 	UFUNCTION()
-	bool IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag LineTag) const;
+	bool IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& LineTag) const;
 	
 	
 	UPROPERTY(Replicated)

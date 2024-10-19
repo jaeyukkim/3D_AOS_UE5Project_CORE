@@ -148,7 +148,7 @@ void EmptyLinkFunctionForGeneratedCodeMenu() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenu_MenuSetup_Statics::Function_MetaDataParams[] = {
 		{ "CPP_Default_LobbyPath", "/Game/ThirdPersonCPP/Maps/Lobby" },
-		{ "CPP_Default_NumberOfPublicConnections", "4" },
+		{ "CPP_Default_NumberOfPublicConnections", "6" },
 		{ "CPP_Default_TypeOfMatch", "FreeForAll" },
 		{ "ModuleRelativePath", "Public/Menu.h" },
 	};
@@ -320,7 +320,7 @@ void EmptyLinkFunctionForGeneratedCodeMenu() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMenu_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMenu_HostButtonClicked, "HostButtonClicked" }, // 475533292
 		{ &Z_Construct_UFunction_UMenu_JoinButtonClicked, "JoinButtonClicked" }, // 2772536340
-		{ &Z_Construct_UFunction_UMenu_MenuSetup, "MenuSetup" }, // 2070144122
+		{ &Z_Construct_UFunction_UMenu_MenuSetup, "MenuSetup" }, // 324370622
 		{ &Z_Construct_UFunction_UMenu_OnCreateSession, "OnCreateSession" }, // 4248984353
 		{ &Z_Construct_UFunction_UMenu_OnDestroySession, "OnDestroySession" }, // 1057662063
 		{ &Z_Construct_UFunction_UMenu_OnStartSession, "OnStartSession" }, // 4182957006
@@ -394,9 +394,9 @@ void EmptyLinkFunctionForGeneratedCodeMenu() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMenu, UMenu::StaticClass, TEXT("UMenu"), &Z_Registration_Info_UClass_UMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMenu), 2571346452U) },
+		{ Z_Construct_UClass_UMenu, UMenu::StaticClass, TEXT("UMenu"), &Z_Registration_Info_UClass_UMenu, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMenu), 1828333772U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_2671274209(TEXT("/Script/MultiplayerSessions"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_12649043(TEXT("/Script/MultiplayerSessions"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Plugins_MultiplayerSessions_Source_MultiplayerSessions_Public_Menu_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

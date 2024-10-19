@@ -6,7 +6,7 @@
 
 UMyAnimInstance::UMyAnimInstance()
 {
-	bActiveWep = true;
+	bIsNoWep = false;
 }
 
 
@@ -29,7 +29,7 @@ void UMyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 
 	if(KwangPlayer == nullptr) return;
 	
-	bActiveWep = KwangPlayer->bActiveWep;
+	bIsNoWep = !KwangPlayer->bActiveWep;
 }
 
 
@@ -46,7 +46,7 @@ void UMyAnimInstance::AnimNotify_HideSword()
 	}
 		
 
-	bActiveWep = true;
+	bIsNoWep = true;
 }
 
 void UMyAnimInstance::AnimNotify_UnHideSword()
@@ -57,7 +57,7 @@ void UMyAnimInstance::AnimNotify_UnHideSword()
 	}
 	
 
-	bActiveWep = false;
+	bIsNoWep = false;
 }
 
 

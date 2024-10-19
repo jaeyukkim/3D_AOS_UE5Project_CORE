@@ -17,6 +17,7 @@
 ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer.SetDefaultSubobjectClass<UMovementComponentBase>(ACharacter::CharacterMovementComponentName))
 {
+	bReplicates = true;
 	PrimaryActorTick.bCanEverTick = false;
 	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 	
@@ -214,6 +215,7 @@ void ACharacterBase::AddCharacterAbility()
 	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
 	ASCBase->AddCharacterAbility(GameplayAbility);
 	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
+	GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green, TEXT("AddCharacterAbility called."));
 	
 }
 

@@ -9,9 +9,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AMyCharacter;
 class AMyCharacter; struct FGameplayTag;
 class APlayerState;
+class UObject;
 class UTexture;
 struct FGameplayTag;
 #ifdef SENIORPROJECT_CoreGameState_generated_h
@@ -30,14 +30,15 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<struct FPlayerInfo>();
 #define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_71_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_71_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_71_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void ServerUpdateTurretStates_Implementation(FGameplayTag const& LineTag, FGameplayTag const& TurretLevelTag, FGameplayTag const& TeamTag, bool bIsDestroy); \
 	virtual void ServerPlayerReady_Implementation(APlayerState* ReadyUser); \
 	virtual void MulticastPlayerReady_Implementation(APlayerState* InPS); \
-	virtual void MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg); \
+	virtual void MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, UClass* SelectedCharacter, UTexture* CharacterImg); \
 	virtual void MulticastNewPlayerEntranced_Implementation(); \
  \
 	DECLARE_FUNCTION(execIsInhibitorDestroyed); \
 	DECLARE_FUNCTION(execGetValidTargetTurret); \
-	DECLARE_FUNCTION(execUpdateTurretStates); \
+	DECLARE_FUNCTION(execServerUpdateTurretStates); \
 	DECLARE_FUNCTION(execGetSelectedPlayerClass); \
 	DECLARE_FUNCTION(execServerPlayerReady); \
 	DECLARE_FUNCTION(execMulticastPlayerReady); \

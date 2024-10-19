@@ -23,6 +23,15 @@ void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	
 }
 
+void AKwangPlayer::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+}
+
+void AKwangPlayer::OnRep_PlayerState()
+{
+	Super::OnRep_PlayerState();
+}
 
 
 void AKwangPlayer::Die_Implementation()

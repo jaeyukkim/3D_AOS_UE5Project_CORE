@@ -34,7 +34,7 @@ void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 
 
 
-void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg)
+void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, UClass* SelectedCharacter, UTexture* CharacterImg)
 {
 	for (FPlayerInfo& PlayerInfo : PlayerInfos)
 	{
@@ -62,6 +62,7 @@ void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
 void ACoreGameState::ServerPlayerReady_Implementation(APlayerState* ReadyUser)
 {
 	ReadyUsers.AddUnique(ReadyUser);
+
 
 	if(PlayerInfos.Num() == ReadyUsers.Num())
 	{
@@ -141,8 +142,7 @@ bool ACoreGameState::SetPlayerTeam(APlayerStateBase* PS)
 
 
 
-
-void ACoreGameState::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag TurretLevelTag, FGameplayTag TeamTag, bool bIsDestroy)
+void ACoreGameState::ServerUpdateTurretStates_Implementation(const FGameplayTag& LineTag, const FGameplayTag& TurretLevelTag, const FGameplayTag& TeamTag, bool bIsDestroy)
 {
 	uint16 Mask = 0;
 
@@ -235,10 +235,9 @@ void ACoreGameState::UpdateTurretStates(FGameplayTag LineTag, FGameplayTag Turre
 }
 
 
-FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag)
+FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGameplayTag& LineTag)
 {
 	 const uint16 TurretStates = (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
-
 	
 	
     // 라인에 따른 비트 위치 및 TowerLevelTag 반환
@@ -312,7 +311,7 @@ FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag TeamTag, FGamepla
     return FGameplayTag();
 }
 
-bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag TeamTag, FGameplayTag LineTag) const
+bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& LineTag) const
 {
 	const uint16 TurretStates = (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
 

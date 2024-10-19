@@ -113,6 +113,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	bool bDead = false;
 
+	// 포탑의 기본은 무적상태이되 첫번째 포탑은 무적이아님
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	bool bIsInvincibility = false;
 protected:

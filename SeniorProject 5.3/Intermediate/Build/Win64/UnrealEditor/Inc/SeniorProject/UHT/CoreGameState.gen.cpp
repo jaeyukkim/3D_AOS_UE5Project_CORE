@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCoreGameState() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AGameState();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerController_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerState_NoRegister();
@@ -212,23 +213,23 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 	}
 	DEFINE_FUNCTION(ACoreGameState::execIsInhibitorDestroyed)
 	{
-		P_GET_STRUCT(FGameplayTag,Z_Param_TeamTag);
-		P_GET_STRUCT(FGameplayTag,Z_Param_LineTag);
+		P_GET_STRUCT_REF(FGameplayTag,Z_Param_Out_TeamTag);
+		P_GET_STRUCT_REF(FGameplayTag,Z_Param_Out_LineTag);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(bool*)Z_Param__Result=P_THIS->IsInhibitorDestroyed(Z_Param_TeamTag,Z_Param_LineTag);
+		*(bool*)Z_Param__Result=P_THIS->IsInhibitorDestroyed(Z_Param_Out_TeamTag,Z_Param_Out_LineTag);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ACoreGameState::execGetValidTargetTurret)
 	{
-		P_GET_STRUCT(FGameplayTag,Z_Param_TeamTag);
-		P_GET_STRUCT(FGameplayTag,Z_Param_LineTag);
+		P_GET_STRUCT_REF(FGameplayTag,Z_Param_Out_TeamTag);
+		P_GET_STRUCT_REF(FGameplayTag,Z_Param_Out_LineTag);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(FGameplayTag*)Z_Param__Result=P_THIS->GetValidTargetTurret(Z_Param_TeamTag,Z_Param_LineTag);
+		*(FGameplayTag*)Z_Param__Result=P_THIS->GetValidTargetTurret(Z_Param_Out_TeamTag,Z_Param_Out_LineTag);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(ACoreGameState::execUpdateTurretStates)
+	DEFINE_FUNCTION(ACoreGameState::execServerUpdateTurretStates)
 	{
 		P_GET_STRUCT(FGameplayTag,Z_Param_LineTag);
 		P_GET_STRUCT(FGameplayTag,Z_Param_TurretLevelTag);
@@ -236,7 +237,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		P_GET_UBOOL(Z_Param_bIsDestroy);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->UpdateTurretStates(Z_Param_LineTag,Z_Param_TurretLevelTag,Z_Param_TeamTag,Z_Param_bIsDestroy);
+		P_THIS->ServerUpdateTurretStates_Implementation(Z_Param_LineTag,Z_Param_TurretLevelTag,Z_Param_TeamTag,Z_Param_bIsDestroy);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ACoreGameState::execGetSelectedPlayerClass)
@@ -283,7 +284,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 	struct CoreGameState_eventMulticastPlayerCharacterChanged_Parms
 	{
 		APlayerState* InPS;
-		TSubclassOf<AMyCharacter>  SelectedCharacter;
+		UClass* SelectedCharacter;
 		UTexture* CharacterImg;
 	};
 	struct CoreGameState_eventMulticastPlayerReady_Parms
@@ -294,13 +295,20 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 	{
 		APlayerState* ReadyUser;
 	};
+	struct CoreGameState_eventServerUpdateTurretStates_Parms
+	{
+		FGameplayTag LineTag;
+		FGameplayTag TurretLevelTag;
+		FGameplayTag TeamTag;
+		bool bIsDestroy;
+	};
 	static FName NAME_ACoreGameState_MulticastNewPlayerEntranced = FName(TEXT("MulticastNewPlayerEntranced"));
 	void ACoreGameState::MulticastNewPlayerEntranced()
 	{
 		ProcessEvent(FindFunctionChecked(NAME_ACoreGameState_MulticastNewPlayerEntranced),NULL);
 	}
 	static FName NAME_ACoreGameState_MulticastPlayerCharacterChanged = FName(TEXT("MulticastPlayerCharacterChanged"));
-	void ACoreGameState::MulticastPlayerCharacterChanged(APlayerState* InPS, TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg)
+	void ACoreGameState::MulticastPlayerCharacterChanged(APlayerState* InPS, UClass* SelectedCharacter, UTexture* CharacterImg)
 	{
 		CoreGameState_eventMulticastPlayerCharacterChanged_Parms Parms;
 		Parms.InPS=InPS;
@@ -322,6 +330,16 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		Parms.ReadyUser=ReadyUser;
 		ProcessEvent(FindFunctionChecked(NAME_ACoreGameState_ServerPlayerReady),&Parms);
 	}
+	static FName NAME_ACoreGameState_ServerUpdateTurretStates = FName(TEXT("ServerUpdateTurretStates"));
+	void ACoreGameState::ServerUpdateTurretStates(FGameplayTag const& LineTag, FGameplayTag const& TurretLevelTag, FGameplayTag const& TeamTag, bool bIsDestroy)
+	{
+		CoreGameState_eventServerUpdateTurretStates_Parms Parms;
+		Parms.LineTag=LineTag;
+		Parms.TurretLevelTag=TurretLevelTag;
+		Parms.TeamTag=TeamTag;
+		Parms.bIsDestroy=bIsDestroy ? true : false;
+	ProcessEvent(FindFunctionChecked(NAME_ACoreGameState_ServerUpdateTurretStates),&Parms);
+	}
 	void ACoreGameState::StaticRegisterNativesACoreGameState()
 	{
 		UClass* Class = ACoreGameState::StaticClass();
@@ -333,7 +351,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 			{ "MulticastPlayerCharacterChanged", &ACoreGameState::execMulticastPlayerCharacterChanged },
 			{ "MulticastPlayerReady", &ACoreGameState::execMulticastPlayerReady },
 			{ "ServerPlayerReady", &ACoreGameState::execServerPlayerReady },
-			{ "UpdateTurretStates", &ACoreGameState::execUpdateTurretStates },
+			{ "ServerUpdateTurretStates", &ACoreGameState::execServerUpdateTurretStates },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -398,8 +416,8 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventGetValidTargetTurret_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventGetValidTargetTurret_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventGetValidTargetTurret_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventGetValidTargetTurret_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventGetValidTargetTurret_Parms, ReturnValue), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::NewProp_TeamTag,
@@ -411,7 +429,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		{ "ModuleRelativePath", "GameSetting/CoreGameState.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "GetValidTargetTurret", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::CoreGameState_eventGetValidTargetTurret_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "GetValidTargetTurret", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::CoreGameState_eventGetValidTargetTurret_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret_Statics::CoreGameState_eventGetValidTargetTurret_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret()
@@ -441,8 +459,8 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventIsInhibitorDestroyed_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventIsInhibitorDestroyed_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventIsInhibitorDestroyed_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventIsInhibitorDestroyed_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
 	void Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 	{
 		((CoreGameState_eventIsInhibitorDestroyed_Parms*)Obj)->ReturnValue = 1;
@@ -458,7 +476,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		{ "ModuleRelativePath", "GameSetting/CoreGameState.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "IsInhibitorDestroyed", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::CoreGameState_eventIsInhibitorDestroyed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "IsInhibitorDestroyed", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::CoreGameState_eventIsInhibitorDestroyed_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed_Statics::CoreGameState_eventIsInhibitorDestroyed_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed()
@@ -504,7 +522,7 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::NewProp_InPS = { "InPS", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventMulticastPlayerCharacterChanged_Parms, InPS), Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::NewProp_SelectedCharacter = { "SelectedCharacter", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventMulticastPlayerCharacterChanged_Parms, SelectedCharacter), Z_Construct_UClass_UClass, Z_Construct_UClass_AMyCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::NewProp_SelectedCharacter = { "SelectedCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventMulticastPlayerCharacterChanged_Parms, SelectedCharacter), Z_Construct_UClass_UClass, Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::NewProp_CharacterImg = { "CharacterImg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventMulticastPlayerCharacterChanged_Parms, CharacterImg), Z_Construct_UClass_UTexture_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged_Statics::NewProp_InPS,
@@ -588,17 +606,19 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics
+	struct Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics
 	{
-		struct CoreGameState_eventUpdateTurretStates_Parms
-		{
-			FGameplayTag LineTag;
-			FGameplayTag TurretLevelTag;
-			FGameplayTag TeamTag;
-			bool bIsDestroy;
-		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LineTag_MetaData[];
+#endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_LineTag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TurretLevelTag_MetaData[];
+#endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_TurretLevelTag;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TeamTag_MetaData[];
+#endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_TeamTag;
 		static void NewProp_bIsDestroy_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsDestroy;
@@ -608,34 +628,49 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventUpdateTurretStates_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_TurretLevelTag = { "TurretLevelTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventUpdateTurretStates_Parms, TurretLevelTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventUpdateTurretStates_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(0, nullptr) }; // 2083603574
-	void Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_bIsDestroy_SetBit(void* Obj)
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_LineTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_LineTag = { "LineTag", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventServerUpdateTurretStates_Parms, LineTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_LineTag_MetaData), Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_LineTag_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TurretLevelTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TurretLevelTag = { "TurretLevelTag", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventServerUpdateTurretStates_Parms, TurretLevelTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TurretLevelTag_MetaData), Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TurretLevelTag_MetaData) }; // 2083603574
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TeamTag_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TeamTag = { "TeamTag", nullptr, (EPropertyFlags)0x0010000008000082, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CoreGameState_eventServerUpdateTurretStates_Parms, TeamTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TeamTag_MetaData), Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TeamTag_MetaData) }; // 2083603574
+	void Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_bIsDestroy_SetBit(void* Obj)
 	{
-		((CoreGameState_eventUpdateTurretStates_Parms*)Obj)->bIsDestroy = 1;
+		((CoreGameState_eventServerUpdateTurretStates_Parms*)Obj)->bIsDestroy = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_bIsDestroy = { "bIsDestroy", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(CoreGameState_eventUpdateTurretStates_Parms), &Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_bIsDestroy_SetBit, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_LineTag,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_TurretLevelTag,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_TeamTag,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::NewProp_bIsDestroy,
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_bIsDestroy = { "bIsDestroy", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(CoreGameState_eventServerUpdateTurretStates_Parms), &Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_bIsDestroy_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_LineTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TurretLevelTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_TeamTag,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::NewProp_bIsDestroy,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "GameSetting/CoreGameState.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "UpdateTurretStates", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::CoreGameState_eventUpdateTurretStates_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::CoreGameState_eventUpdateTurretStates_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_ACoreGameState_UpdateTurretStates()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACoreGameState, nullptr, "ServerUpdateTurretStates", nullptr, nullptr, Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::PropPointers), sizeof(CoreGameState_eventServerUpdateTurretStates_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00220CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::PropPointers) < 2048);
+	static_assert(sizeof(CoreGameState_eventServerUpdateTurretStates_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACoreGameState_UpdateTurretStates_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -695,13 +730,13 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACoreGameState_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ACoreGameState_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACoreGameState_GetSelectedPlayerClass, "GetSelectedPlayerClass" }, // 3987509765
-		{ &Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret, "GetValidTargetTurret" }, // 852579338
-		{ &Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed, "IsInhibitorDestroyed" }, // 2611574157
+		{ &Z_Construct_UFunction_ACoreGameState_GetValidTargetTurret, "GetValidTargetTurret" }, // 2316773805
+		{ &Z_Construct_UFunction_ACoreGameState_IsInhibitorDestroyed, "IsInhibitorDestroyed" }, // 4178557039
 		{ &Z_Construct_UFunction_ACoreGameState_MulticastNewPlayerEntranced, "MulticastNewPlayerEntranced" }, // 1907533640
-		{ &Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged, "MulticastPlayerCharacterChanged" }, // 11013510
+		{ &Z_Construct_UFunction_ACoreGameState_MulticastPlayerCharacterChanged, "MulticastPlayerCharacterChanged" }, // 2567607059
 		{ &Z_Construct_UFunction_ACoreGameState_MulticastPlayerReady, "MulticastPlayerReady" }, // 1095789506
 		{ &Z_Construct_UFunction_ACoreGameState_ServerPlayerReady, "ServerPlayerReady" }, // 944401550
-		{ &Z_Construct_UFunction_ACoreGameState_UpdateTurretStates, "UpdateTurretStates" }, // 3468069402
+		{ &Z_Construct_UFunction_ACoreGameState_ServerUpdateTurretStates, "ServerUpdateTurretStates" }, // 2048862152
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACoreGameState_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -851,9 +886,9 @@ template<> SENIORPROJECT_API UScriptStruct* StaticStruct<FPlayerInfo>()
 		{ FPlayerInfo::StaticStruct, Z_Construct_UScriptStruct_FPlayerInfo_Statics::NewStructOps, TEXT("PlayerInfo"), &Z_Registration_Info_UScriptStruct_PlayerInfo, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPlayerInfo), 3744229311U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACoreGameState, ACoreGameState::StaticClass, TEXT("ACoreGameState"), &Z_Registration_Info_UClass_ACoreGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACoreGameState), 1554782527U) },
+		{ Z_Construct_UClass_ACoreGameState, ACoreGameState::StaticClass, TEXT("ACoreGameState"), &Z_Registration_Info_UClass_ACoreGameState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACoreGameState), 842408359U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_1645218746(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_3582071475(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_GameSetting_CoreGameState_h_Statics::EnumInfo));

@@ -6,6 +6,7 @@
 
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Actor/Gameplay/Spawner.h"
+#include "SeniorProject/Character/Player/LobbyCharacter.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
@@ -21,22 +22,17 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
 
+	
 	if(CoreGameState == nullptr)
 	{
 		CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
 	}
 	if(CoreGameState)
 	{
-		if(CoreGameState->GameProcess == EGameProcess::GameStartSession)
-		{
-			SetupPlayerCharacterClass(NewPlayer);
-			return;
-		}
 		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 		APlayerStateBase* PS = NewPlayer->GetPlayerState<APlayerStateBase>();
-		if (PS)
+		if (PS->GetTeamName().MatchesTagExact(TagsBase.GameRule_TeamName_NONE))
 		{
-			
 			if (CoreGameState->BlueTeam.Num() >= CoreGameState->RedTeam.Num())
 			{
 				CoreGameState->RedTeam.AddUnique(PS);
@@ -46,11 +42,50 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 			{
 				CoreGameState->BlueTeam.AddUnique(PS);
 				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
-				
+			}
+			
+			SetUpPlayerTeam(NewPlayer);
+		}
+		
+	}
+	
+}
+
+
+void AMyGameModeBase::SetUpPlayerTeam(APlayerController* NewPlayer)
+{
+	
+	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
+	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
+	{
+		
+		AActor* OldPawn = NewPlayer->GetPawn();
+		
+		// 기존의 PlayerCharacterClass에서 스폰할 캐릭터 클래스를 설정
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(this, APlayerStart::StaticClass(), PlayerStarts);
+		TArray<APlayerStart*> NewPlayerStarts;
+
+		for (auto Start : PlayerStarts)
+		{
+			APlayerStart* TeamStart = Cast<APlayerStart>(Start);
+			NewPlayerStarts.Add(TeamStart);
+		}
+		
+		if (NewPlayerStarts.Num() > 0)
+		{
+			APlayerStart* ChosenPlayerStart = NewPlayerStarts[FMath::RandRange(0, NewPlayerStarts.Num() - 1)];
+			FTransform SpawnLocation = ChosenPlayerStart->GetActorTransform();
+			
+			ALobbyCharacter* NewCharacter = GetWorld()->SpawnActor<ALobbyCharacter>(PlayerStateBase->LobbyCharacterClass, SpawnLocation);
+			if (NewCharacter)
+			{
+				// 새로 스폰한 캐릭터를 플레이어에게 할당
+				NewPlayer->Possess(NewCharacter);
+				if(OldPawn != nullptr) OldPawn->Destroy();
 			}
 		}
 	}
-	
 }
 
 /*
@@ -91,7 +126,6 @@ void AMyGameModeBase::SetupPlayerCharacterClass(APlayerController* NewPlayer)
 			{
 				// 새로 스폰한 캐릭터를 플레이어에게 할당
 				NewPlayer->Possess(NewCharacter);
-			
 			}
 		}
 		
@@ -130,11 +164,64 @@ void AMyGameModeBase::StartMatch()
 	
 }
 
+void AMyGameModeBase::ServerTravelToBattlefield()
+{
+	UWorld* World = GetWorld();
+	if(World)
+	{
+		if(CoreGameState)
+		{
+			FString GameProcessString = FString::Printf(TEXT("Current GameProcess: %d"), static_cast<int32>(CoreGameState->GameProcess));
+			
+			CoreGameState->GameProcess = EGameProcess::GameStartSession;
+			GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Yellow, GameProcessString);
+			
+			bUseSeamlessTravel = true;
+			World->ServerTravel(FString("/Game/Maps/EQSTestMap?listen"));
+			
+		}
+	}
+}
+
+void AMyGameModeBase::PostSeamlessTravel()
+{
+	Super::PostSeamlessTravel();
+
+	
+	
+/*	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+	{
+		APlayerController* PC = It->Get();
+		if (PC)
+		{
+			
+		}
+	}*/
+	
+	
+}
+
+void AMyGameModeBase::GenericPlayerInitialization(AController* C)
+{
+	Super::GenericPlayerInitialization(C);
+
+	if(APlayerController* PC = Cast<APlayerController>(C))
+	{
+		SetupPlayerCharacterClass(PC);
+	}
+	
+}
+
 
 void AMyGameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
 
+	
+	if(CoreGameState == nullptr)
+	{
+		CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
+	}
 	
 	// InitialSpawnTime 후 미니언 생성
 	GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
@@ -148,32 +235,44 @@ void AMyGameModeBase::OnTurretSpawned(ATurret* SpawnedTurret)
 {
 	if (SpawnedTurret)
 	{
-		FGameplayTag TeamTag = SpawnedTurret->TeamName;
-		FGameplayTag LineTag = SpawnedTurret->LineTag;
-		FGameplayTag TurretLevelTag = SpawnedTurret->TurretLevelTag;
+		FGameplayTag& TeamTag = SpawnedTurret->TeamName;
+		FGameplayTag& LineTag = SpawnedTurret->LineTag;
+		FGameplayTag& TurretLevelTag = SpawnedTurret->TurretLevelTag;
 		
 		// 포탑의 OnTurretDestroyed 델리게이트에 함수 연결
 		SpawnedTurret->OnTurretDestroyed.AddDynamic(this, &AMyGameModeBase::OnTurretDestroyed);
-		
-		// 타워 상태 변경
-		CoreGameState->UpdateTurretStates(LineTag, TurretLevelTag, TeamTag, false);
+
+		if(CoreGameState != nullptr)
+		{
+			CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
+		}
+		else
+		{
+			CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, false);
+		}
 	}
 	
 }
 
 
-void AMyGameModeBase::OnTurretDestroyed(const FGameplayTag LineTag, const FGameplayTag TurretLevelTag, const FGameplayTag TeamTag)
+void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& TurretLevelTag,  FGameplayTag& TeamTag)
 {
 	// 전달받은 태그에 기반하여 타워 상태 업데이트
 	if(CoreGameState == nullptr) return;
-		
-	CoreGameState->UpdateTurretStates(LineTag, TurretLevelTag, TeamTag, true);
+
+	
+	CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, true);
 	UpdateMinionTargets.Broadcast();
+	
+		
 }
 
 
 
-
+/*
+ *  다음 적팀 타워의 타워 레벨을 반환하는 함수
+ *  다음 아군 타워의 타워 레밸을 확인하려면 팀 태그를 반대로 전달하면 됨
+ */
 FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag)
 {
 	if(CoreGameState == nullptr) return FGameplayTag();

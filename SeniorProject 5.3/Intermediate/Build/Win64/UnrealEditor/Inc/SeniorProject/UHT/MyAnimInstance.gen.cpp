@@ -130,10 +130,10 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 #endif
 		static const UECodeGen_Private::FObjectPtrPropertyParams NewProp_KwangPlayer;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_bActiveWep_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsNoWep_MetaData[];
 #endif
-		static void NewProp_bActiveWep_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_bActiveWep;
+		static void NewProp_bIsNoWep_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsNoWep;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_DirectionOnStop_MetaData[];
 #endif
@@ -170,17 +170,17 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 #endif
 	const UECodeGen_Private::FObjectPtrPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_KwangPlayer = { "KwangPlayer", nullptr, (EPropertyFlags)0x0014000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyAnimInstance, KwangPlayer), Z_Construct_UClass_AKwangPlayer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_KwangPlayer_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_KwangPlayer_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
 		{ "Category", "Pawn" },
 		{ "ModuleRelativePath", "PlayerBase/MyAnimInstance.h" },
 	};
 #endif
-	void Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep_SetBit(void* Obj)
+	void Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_SetBit(void* Obj)
 	{
-		((UMyAnimInstance*)Obj)->bActiveWep = 1;
+		((UMyAnimInstance*)Obj)->bIsNoWep = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep = { "bActiveWep", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UMyAnimInstance), &Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep = { "bIsNoWep", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UMyAnimInstance), &Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
@@ -191,7 +191,7 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop = { "DirectionOnStop", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMyAnimInstance, DirectionOnStop), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData), Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMyAnimInstance_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_KwangPlayer,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bActiveWep,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_bIsNoWep,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMyAnimInstance_Statics::NewProp_DirectionOnStop,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UMyAnimInstance_Statics::StaticCppClassTypeInfo = {
@@ -232,9 +232,9 @@ void EmptyLinkFunctionForGeneratedCodeMyAnimInstance() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 3538554721U) },
+		{ Z_Construct_UClass_UMyAnimInstance, UMyAnimInstance::StaticClass, TEXT("UMyAnimInstance"), &Z_Registration_Info_UClass_UMyAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMyAnimInstance), 1707140778U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_2525231543(TEXT("/Script/SeniorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_1357795338(TEXT("/Script/SeniorProject"),
 		Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_SeniorProject_5_3_Source_SeniorProject_PlayerBase_MyAnimInstance_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

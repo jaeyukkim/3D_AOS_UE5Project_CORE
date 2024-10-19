@@ -10,10 +10,10 @@ public class SeniorProject : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "NavigationSystem", "AIModule"
-        ,"GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput", "GameplayAbilities"});
+        ,"GameplayTasks", "GameplayTags", "Niagara", "EnhancedInput", "GameplayAbilities", "OnlineSubsystem", "OnlineSubsystemSteam"});
 
 
-        PrivateDependencyModuleNames.AddRange(new string[] {"GameplayTasks", "GameplayTags", "AnimGraphRuntime"});
+        PrivateDependencyModuleNames.AddRange(new string[] {"GameplayTasks", "GameplayTags", "AnimGraphRuntime", "MultiplayerSessions" });
 
 
         PrivateDependencyModuleNames.AddRange(new string[] { });

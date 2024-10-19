@@ -15,6 +15,7 @@
 #include "MyCharacter.generated.h"
 
 
+
 class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
@@ -43,6 +44,8 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 
+	
+	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastPlayerDie();
 	UFUNCTION(NetMulticast, Reliable)
@@ -97,8 +100,8 @@ public:
 	virtual bool DeleteItem_Implementation(FGameplayTag ItemInputTag) override;
 	virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
-	TArray<FItemInformation> GetAllItem_Implementation() override;
-	
+	virtual TArray<FItemInformation> GetAllItem_Implementation() override;
+	virtual int32 GetPlayerLevel_Implementation() override;
 	/** end Player Interface */
 	
 
@@ -116,10 +119,7 @@ protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
 	virtual void InitAbilityActorInfo() override;
-
 	void InitializeHealthBarWidget();
-	virtual int32 GetPlayerLevel_Implementation() override;
-	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastLevelUpParticles() const;
 
@@ -133,12 +133,14 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-	
+	UPROPERTY(Replicated)
+	TArray<FItemInformation> OwnedItems;
+
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 
-	UPROPERTY(Replicated)
-	TArray<FItemInformation> OwnedItems;
+	
+	bool bAbilityIsGiven = false;
 	
 private:
 	
@@ -203,6 +205,7 @@ private:
 	FTimerHandle InitPlayerHealthBarHandle;
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
+
 
 	
 };

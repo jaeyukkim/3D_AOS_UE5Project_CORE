@@ -9,7 +9,7 @@
 #include "GameplayTagContainer.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
-
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 
 ALobbyCharacter::ALobbyCharacter()
@@ -115,6 +115,24 @@ void ALobbyCharacter::BindCallbacksToDependencies()
 	}
 }
 
+void ALobbyCharacter::GameStart_Implementation()
+{
+	if(!HasAuthority()) return;
+
+	if(AMyGameModeBase* GameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(this)))
+	{
+		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
+		{
+			CoreGameState->SetGameProcess(EGameProcess::GameStartSession);
+			GameModeBase->ServerTravelToBattlefield();
+
+		}
+	}
+
+	
+}
+
+
 TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ALobbyCharacter::GetSelectedPlayerClass()
 {
 	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> SeletedPlayerClass;
@@ -129,8 +147,8 @@ TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ALobbyCharacter::GetSelectedPlayer
 void ALobbyCharacter::ServerReady_Implementation()
 {
 	if(PlayerInformation.PS == nullptr) return;
+	
 	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
-
 
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
@@ -140,12 +158,12 @@ void ALobbyCharacter::ServerReady_Implementation()
 }
 
 
-void ALobbyCharacter::ServerSetPlayerCharacterClass_Implementation(TSubclassOf<AMyCharacter> SelectedCharacter,
+void ALobbyCharacter::ServerSetPlayerCharacterClass_Implementation(UClass* SelectedCharacter,
                                                              UTexture* CharacterImg)
 {
-	if(PlayerInformation.PC == nullptr || PlayerInformation.PS == nullptr) return;
+	if(PlayerInformation.PC == nullptr && PlayerInformation.PS == nullptr) return;
 	
-	PlayerInformation.PS->PlayerCharacterClass = SelectedCharacter;
+	PlayerInformation.SelectedCharacter = SelectedCharacter;
 	
 	
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))

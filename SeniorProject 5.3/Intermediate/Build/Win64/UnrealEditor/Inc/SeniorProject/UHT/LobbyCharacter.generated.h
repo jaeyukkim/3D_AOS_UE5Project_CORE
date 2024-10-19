@@ -9,8 +9,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AMyCharacter;
 class AMyCharacter; struct FGameplayTag;
+class UObject;
 class UTexture;
 struct FGameplayTag;
 struct FPlayerInfo;
@@ -35,12 +35,14 @@ SENIORPROJECT_API void FPlayerReadyCompleted_DelegateWrapper(const FMulticastScr
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_30_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_30_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_SeniorProject_5_3_Source_SeniorProject_Character_Player_LobbyCharacter_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual void GameStart_Implementation(); \
 	virtual void ServerReady_Implementation(); \
-	virtual void ServerSetPlayerCharacterClass_Implementation(TSubclassOf<AMyCharacter>  SelectedCharacter, UTexture* CharacterImg); \
+	virtual void ServerSetPlayerCharacterClass_Implementation(UClass* SelectedCharacter, UTexture* CharacterImg); \
 	virtual void ServerBroadcastCharacterSelectWidget_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetPlayerTeamName); \
 	DECLARE_FUNCTION(execGetSelectedPlayerClass); \
+	DECLARE_FUNCTION(execGameStart); \
 	DECLARE_FUNCTION(execServerReady); \
 	DECLARE_FUNCTION(execServerSetPlayerCharacterClass); \
 	DECLARE_FUNCTION(execServerBroadcastCharacterSelectWidget);

@@ -7,6 +7,7 @@
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/Character/Player/MyCharacter.h"
 
 APlayerStateBase::APlayerStateBase()
 {
@@ -33,8 +34,22 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(APlayerStateBase, SpellPoints);
 	DOREPLIFETIME(APlayerStateBase, TeamName);
 	DOREPLIFETIME(APlayerStateBase, PlayerCharacterClass);
-
+	DOREPLIFETIME(APlayerStateBase, GameProcess);
 	
+}
+
+void APlayerStateBase::CopyProperties(APlayerState* PlayerState)
+{
+	Super::CopyProperties(PlayerState);
+	APlayerStateBase* MyPlayerState = Cast<APlayerStateBase>(PlayerState);
+	if (MyPlayerState)
+	{
+		MyPlayerState->GameProcess = GameProcess;
+		MyPlayerState->TeamName = TeamName;
+		MyPlayerState->LobbyCharacterClass = LobbyCharacterClass;
+		MyPlayerState->PlayerCharacterClass = PlayerCharacterClass;
+
+	}
 }
 
 UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const
@@ -100,6 +115,10 @@ void APlayerStateBase::SetSpellPoints(int32 InPoints)
 
 }
 
+void APlayerStateBase::SetPlayerCharacterClass(UClass* InPlayerCharacterClass)
+{
+	PlayerCharacterClass = InPlayerCharacterClass->GetClass();
+}
 
 
 void APlayerStateBase::OnRep_Level(int32 OldLevel)

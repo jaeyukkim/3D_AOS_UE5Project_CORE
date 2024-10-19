@@ -37,7 +37,7 @@ public:
 	TObjectPtr<AKwangPlayer> KwangPlayer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		bool bActiveWep;
+		bool bIsNoWep = false;
 
 private:
 

@@ -31,10 +31,12 @@ public:
 	virtual void Logout(AController* Exiting) override;
 	virtual void StartPlay() override;
 	virtual void StartMatch() override;
-	
+	virtual void ServerTravelToBattlefield();
+	virtual void PostSeamlessTravel() override;
+	virtual void GenericPlayerInitialization(AController* C) override;
 	
 	void SetupPlayerCharacterClass(APlayerController* NewPlayer);
-
+	void SetUpPlayerTeam(APlayerController* NewPlayer);
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
@@ -44,7 +46,7 @@ public:
 	UFUNCTION()
 	void OnTurretSpawned(ATurret* SpawnedTurret);
 	UFUNCTION()
-	void OnTurretDestroyed(const FGameplayTag LineTag, const FGameplayTag TurretLevelTag, const FGameplayTag TeamTag);
+	void OnTurretDestroyed(FGameplayTag& LineTag, FGameplayTag& TurretLevelTag, FGameplayTag& TeamTag);
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
 
@@ -77,5 +79,4 @@ private:
 	FTimerHandle InitialSpawnTimerHandle;
 	FTimerHandle RecurringSpawnTimerHandle;
 };
-
 

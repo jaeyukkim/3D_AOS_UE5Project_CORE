@@ -27,6 +27,8 @@
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
+#include "SeniorProject/Sound/CoreSoundInstance.h"
+#include "SeniorProject/Sound/CoreSoundManager.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
 
@@ -84,10 +86,15 @@ void AMyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
+	
+	if(!HasAuthority() || bAbilityIsGiven) return;
+	
 	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
 	AddCharacterAbility();
 	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
+	bAbilityIsGiven = true;
+	
 	
 }
 
@@ -104,7 +111,7 @@ void AMyCharacter::OnRep_PlayerState()
 void AMyCharacter::BroadcastInitialValues()
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
+	if(PlayerStateBase == nullptr) return;
 
 	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
 	checkf(AS, TEXT("AttibuteSet Class uninitialized"));
@@ -127,6 +134,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	checkf(PlayerStateBase, TEXT("MyPlayerState Class uninitialized"));
+	
 	PlayerStateBase->GetAbilitySystemComponent()->InitAbilityActorInfo(PlayerStateBase, this);
 	Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent())->AbilityActorInfoSet();
 	 
@@ -141,6 +149,7 @@ void AMyCharacter::InitAbilityActorInfo()
 
 	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
 	{
+		MyPlayerController->PlayerState = PlayerStateBase;
 		if (ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
 		{
 			DefaultHUD->InitOverlay(MyPlayerController, PlayerStateBase, AbilitySystemComponent, AttributeSet);
@@ -226,6 +235,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 	
 
 }
+
 
 void AMyCharacter::MulticastReSpawn_Implementation()
 {
@@ -440,7 +450,7 @@ void AMyCharacter::Die_Implementation()
 	if(PlayerStateBase != nullptr)
 	{
 		float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
-		GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
+		GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
 	}
 }
 

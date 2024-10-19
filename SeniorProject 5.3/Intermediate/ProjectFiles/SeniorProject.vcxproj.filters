@@ -465,6 +465,12 @@
     <ClInclude Include="..\..\Source\SeniorProject\GameSetting\CoreGameState.h">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MainMenuGameMode.cpp">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\GameSetting\MainMenuGameMode.h">
+      <Filter>Source\SeniorProject\GameSetting</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\SeniorProject\GameSetting\MyGameModeBase.cpp">
       <Filter>Source\SeniorProject\GameSetting</Filter>
     </ClCompile>
@@ -533,6 +539,21 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\SeniorProject\PlayerBase\PlayerStateBase.h">
       <Filter>Source\SeniorProject\PlayerBase</Filter>
+    </ClInclude>
+    <Filter Include="Source\SeniorProject\Sound">
+      <UniqueIdentifier>{61751CB7-411D-366B-8DF4-C0E2B92A4FD2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\SeniorProject\Sound\CoreSoundInstance.cpp">
+      <Filter>Source\SeniorProject\Sound</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Sound\CoreSoundInstance.h">
+      <Filter>Source\SeniorProject\Sound</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\SeniorProject\Sound\CoreSoundManager.cpp">
+      <Filter>Source\SeniorProject\Sound</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\SeniorProject\Sound\CoreSoundManager.h">
+      <Filter>Source\SeniorProject\Sound</Filter>
     </ClInclude>
     <Filter Include="Source\SeniorProject\UI">
       <UniqueIdentifier>{0774CF93-CC69-3E8D-8376-09C009D5B38F}</UniqueIdentifier>

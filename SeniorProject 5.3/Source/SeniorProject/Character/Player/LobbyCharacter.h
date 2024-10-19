@@ -43,9 +43,11 @@ public:
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void ServerBroadcastCharacterSelectWidget();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
-	void ServerSetPlayerCharacterClass(TSubclassOf<AMyCharacter> SelectedCharacter, UTexture* CharacterImg);
+	void ServerSetPlayerCharacterClass(UClass* SelectedCharacter, UTexture* CharacterImg);
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void ServerReady();
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	void GameStart();
 	UFUNCTION(BlueprintCallable)
 	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass();
 	

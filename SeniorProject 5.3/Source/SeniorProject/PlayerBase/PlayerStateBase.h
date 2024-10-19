@@ -5,18 +5,24 @@
 #include "SeniorProject/SeniorProject.h"
 #include "GameFramework/PlayerState.h"
 #include "AbilitySystemInterface.h"
+#include "SeniorProject/Character/Player/LobbyCharacter.h"
 #include "SeniorProject/Character/Player/MyCharacter.h"
 #include "SeniorProject/Interface/CombatInterface.h"
+#include "SeniorProject/GameSetting/CoreGameState.h"
 #include "PlayerStateBase.generated.h"
 
 class UAbilitySystemComponent;
 class UAttributeSet;
 class ULevelUpInfo;
 
+
+
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnPlayerStatChanged, int32 /*StatValue*/)
+
 /**
  * 
  */
+
 UCLASS()
 class SENIORPROJECT_API APlayerStateBase : public APlayerState, public IAbilitySystemInterface
 {
@@ -25,8 +31,9 @@ public:
 
 	APlayerStateBase();
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	virtual void CopyProperties(APlayerState* PlayerState) override;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
+	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 	UFUNCTION()
 	void BroadcastPlayerStat() const;
@@ -57,10 +64,15 @@ public:
 
 	FORCEINLINE const FGameplayTag& GetTeamName() {return TeamName;}
 	FORCEINLINE void SetTeamName(const FGameplayTag& InTeamName) {TeamName = InTeamName;}
-	
+
+	UFUNCTION()
+	void SetPlayerCharacterClass(UClass* InPlayerCharacterClass);
 	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite)
 	TSubclassOf<AMyCharacter> PlayerCharacterClass;
-
+	UPROPERTY(EditAnywhere, Replicated, BlueprintReadWrite)
+	TSubclassOf<ALobbyCharacter> LobbyCharacterClass;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	EGameProcess GameProcess = EGameProcess::CharacterSelectSession;
 	
 //	virtual void Die() override;
 
