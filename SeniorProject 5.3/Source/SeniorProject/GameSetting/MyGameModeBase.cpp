@@ -13,6 +13,7 @@
 #include "SeniorProject/Interface/GameRuleInterface.h"
 
 
+
 AMyGameModeBase::AMyGameModeBase()
 {
 	bUseSeamlessTravel = true;
@@ -174,8 +175,6 @@ void AMyGameModeBase::ServerTravelToBattlefield()
 			FString GameProcessString = FString::Printf(TEXT("Current GameProcess: %d"), static_cast<int32>(CoreGameState->GameProcess));
 			
 			CoreGameState->GameProcess = EGameProcess::GameStartSession;
-			GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Yellow, GameProcessString);
-			
 			bUseSeamlessTravel = true;
 			World->ServerTravel(FString("/Game/Maps/EQSTestMap?listen"));
 			
@@ -242,14 +241,13 @@ void AMyGameModeBase::OnTurretSpawned(ATurret* SpawnedTurret)
 		// 포탑의 OnTurretDestroyed 델리게이트에 함수 연결
 		SpawnedTurret->OnTurretDestroyed.AddDynamic(this, &AMyGameModeBase::OnTurretDestroyed);
 
-		if(CoreGameState != nullptr)
+		if(CoreGameState == nullptr)
 		{
 			CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
 		}
-		else
-		{
-			CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, false);
-		}
+	
+		CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, false);
+		
 	}
 	
 }
@@ -288,7 +286,7 @@ void AMyGameModeBase::SpawnMinion()
 	if(CoreGameState == nullptr) return;
 	
 	// 공성미니언 생성 주기 카운터 증가
-	SiegeMinionSpawnCycle++;
+	SiegeMinionSpawnCount++;
 	
 	// 모든 스포너를 찾습니다.
 	TArray<AActor*> Spawners;
@@ -312,7 +310,7 @@ void AMyGameModeBase::SpawnMinion()
 					// 억제기가 파괴되었다면, 해당 스포너에 슈퍼 미니언을 생성하도록 지시합니다.
 					EachSpawner->SetIsSpawnSuperMinion(true);
 				}
-				else if ((SiegeMinionSpawnCycle % 3) == 0)
+				else if ((SiegeMinionSpawnCount % SiegeMinionSpawnCycle) == 0)
 				{
 					// SiegeMinionSpawnCycle 주기에 따라 공성 미니언을 생성합니다.
 					EachSpawner->SetIsSpawnSiegeMinion(true);

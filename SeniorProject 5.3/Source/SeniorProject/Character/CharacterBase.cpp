@@ -215,7 +215,7 @@ void ACharacterBase::AddCharacterAbility()
 	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
 	ASCBase->AddCharacterAbility(GameplayAbility);
 	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
-	GEngine->AddOnScreenDebugMessage(-1, 20.0f, FColor::Green, TEXT("AddCharacterAbility called."));
+
 	
 }
 

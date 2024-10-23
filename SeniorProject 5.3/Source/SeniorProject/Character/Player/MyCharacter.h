@@ -51,7 +51,7 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastReSpawn();
 	UFUNCTION(Server, Reliable)
-	virtual void ServerReSpawn();
+	virtual void ServerReCall();
 	UFUNCTION(Client, Reliable)
 	void ClientSpectate();
 	UPROPERTY()
@@ -102,6 +102,8 @@ public:
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	virtual TArray<FItemInformation> GetAllItem_Implementation() override;
 	virtual int32 GetPlayerLevel_Implementation() override;
+	virtual bool GetIsInShop_Implementation() override;
+	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
 	/** end Player Interface */
 	
 
@@ -112,7 +114,7 @@ public:
 	FOnAttributeChangedSignature OnMaxManaChanged;
 	UPROPERTY(BlueprintAssignable)
 	FOnLevelChangedSignature OnLevelChanged;
-
+	
 	
 	
 protected:
@@ -170,6 +172,9 @@ private:
 		TObjectPtr<UInputAction> R_Ability;
 
 	UPROPERTY(EditAnywhere, Category = "Input")
+		TObjectPtr<UInputAction> B_Recall;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> Item1_Ability;
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> Item2_Ability;
@@ -183,10 +188,12 @@ private:
 	TObjectPtr<UInputAction> Item6_Ability;
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> Spectate;
-	
 	UPROPERTY(EditAnywhere, Category = "Input")
-		TObjectPtr<UInputAction> ShowAdditionalAttribute;
-	
+	TObjectPtr<UInputAction> MouseCursorOp;
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> ShowAdditionalAttribute;
+
+	void SetMouseCursor(const FInputActionValue& InputActionValue);
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);

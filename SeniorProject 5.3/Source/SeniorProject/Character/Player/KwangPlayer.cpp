@@ -43,9 +43,9 @@ void AKwangPlayer::Die_Implementation()
 	
 }
 
-void AKwangPlayer::ServerReSpawn()
+void AKwangPlayer::ServerReCall()
 {
-	Super::ServerReSpawn();
+	Super::ServerReCall();
 	if(HasAuthority())
 	{
 		bActiveWep = true;

@@ -148,7 +148,7 @@ void ALobbyCharacter::ServerReady_Implementation()
 {
 	if(PlayerInformation.PS == nullptr) return;
 	
-	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
+//	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
 
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
@@ -163,7 +163,7 @@ void ALobbyCharacter::ServerSetPlayerCharacterClass_Implementation(UClass* Selec
 {
 	if(PlayerInformation.PC == nullptr && PlayerInformation.PS == nullptr) return;
 	
-	PlayerInformation.SelectedCharacter = SelectedCharacter;
+//	PlayerInformation.SelectedCharacter = SelectedCharacter;
 	
 	
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))

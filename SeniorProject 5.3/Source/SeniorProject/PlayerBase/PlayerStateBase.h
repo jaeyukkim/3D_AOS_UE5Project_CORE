@@ -18,7 +18,7 @@ class ULevelUpInfo;
 
 
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnPlayerStatChanged, int32 /*StatValue*/)
-
+DECLARE_MULTICAST_DELEGATE_OneParam(FChangedShopCustomer, const bool);
 /**
  * 
  */
@@ -46,22 +46,26 @@ public:
 	FOnPlayerStatChanged OnLevelChangedDelegate;
 	FOnPlayerStatChanged OnGoldChangedDelegate;
 	FOnPlayerStatChanged OnSpellPointsChangedDelegate;
+	FChangedShopCustomer ChangedShopCustomer;
 	
 	FORCEINLINE int32 GetPlayerLevel() const {return Level;};
 	FORCEINLINE int32 GetXP() const { return XP; }
 	FORCEINLINE int32 GetGold() const { return Gold; }
 	FORCEINLINE int32 GetSpellPoints() const { return SpellPoints; }
+	FORCEINLINE bool GetIsInShop() const {return bIsInShop;}
 	
 	void AddToXP(int32 InXP);
 	void AddToLevel(int32 InLevel);
 	void AddToGold(int32 InGold);
 	void AddToSpellPoints(int32 InPoints);
 	
+
 	void SetXP(int32 InXP);
 	void SetLevel(int32 InLevel);
 	void SetGold(int32 InGold);
 	void SetSpellPoints(int32 InPoints);
-
+	void SetIsInShop(bool InbIsInShop);
+	
 	FORCEINLINE const FGameplayTag& GetTeamName() {return TeamName;}
 	FORCEINLINE void SetTeamName(const FGameplayTag& InTeamName) {TeamName = InTeamName;}
 
@@ -92,8 +96,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_SpellPoints)
 	int32 SpellPoints = 1;
 
-	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_Gold)
-	int32 Gold = 30000;
+	UPROPERTY(EditAnywhere, ReplicatedUsing=OnRep_Gold)
+	int32 Gold = 500;
+
+	bool bIsInShop = true;
 	
 	UFUNCTION()
 	void OnRep_Level(int32 OldLevel);

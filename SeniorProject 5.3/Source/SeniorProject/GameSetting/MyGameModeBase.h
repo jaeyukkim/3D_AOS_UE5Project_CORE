@@ -18,7 +18,7 @@ class ATurret;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateMinionTargetsSignature);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateSelectedCharacterDelegate, APlayerStateBase*, PS);
-
+DECLARE_MULTICAST_DELEGATE(FStartGameDelegate);
 
 
 UCLASS()
@@ -55,13 +55,14 @@ protected:
 	virtual void BeginPlay() override;
 
 	//첫 미니언 스폰 타임
-	float InitialSpawnTime = 3000.f;
+	const float InitialSpawnTime = 90.f;
 
 	// 미니언 스폰 타임 주기
-	float RecurringSpawnTime = 45.f;
+	const float RecurringSpawnTime = 30.f;
 
-	//공성 미니언 스폰 주기
-	int32 SiegeMinionSpawnCycle = 0;
+	//공성 미니언 스폰 카운터
+	const int32 SiegeMinionSpawnCycle = 3;
+	int32 SiegeMinionSpawnCount = 0;
 
 	UPROPERTY()
 	TObjectPtr<ACoreGameState> CoreGameState;

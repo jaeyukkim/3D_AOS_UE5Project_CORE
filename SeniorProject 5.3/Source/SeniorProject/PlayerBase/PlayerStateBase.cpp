@@ -115,6 +115,12 @@ void APlayerStateBase::SetSpellPoints(int32 InPoints)
 
 }
 
+void APlayerStateBase::SetIsInShop(bool InbIsInShop)
+{
+	bIsInShop = InbIsInShop;
+	ChangedShopCustomer.Broadcast(bIsInShop);
+}
+
 void APlayerStateBase::SetPlayerCharacterClass(UClass* InPlayerCharacterClass)
 {
 	PlayerCharacterClass = InPlayerCharacterClass->GetClass();

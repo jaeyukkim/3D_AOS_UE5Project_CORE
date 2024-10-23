@@ -52,7 +52,7 @@ public:
 	FSwordDestroyDelegate SwordDestroyDelegate;
 	
 	virtual void Die_Implementation() override;
-	virtual void ServerReSpawn() override;
+	virtual void ServerReCall() override;
 	virtual void MulticastReSpawn() override;
 	UPROPERTY(Replicated)
 	bool bActiveWep = true;

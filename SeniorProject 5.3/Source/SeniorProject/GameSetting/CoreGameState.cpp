@@ -42,7 +42,7 @@ void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState
 		if (PlayerInfo.PS == InPS)
 		{
 			PlayerInfo.CharacterImg = CharacterImg;
-			PlayerInfo.SelectedCharacter = SelectedCharacter;
+//			PlayerInfo.SelectedCharacter = SelectedCharacter;
 			PlayerCharacterChangedDelegate.Broadcast(PlayerInfo);
 		}
 	}

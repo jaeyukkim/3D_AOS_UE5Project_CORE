@@ -47,8 +47,6 @@ void ATurret::ServerRegisterWithGameMode_Implementation()
 	ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
 	if(!CoreGameState) return;
 	
-
-	
 	
 	bIsInvincibility = true;
 
@@ -58,7 +56,6 @@ void ATurret::ServerRegisterWithGameMode_Implementation()
 		GameMode->OnTurretSpawned(this);
 		GameMode->UpdateMinionTargets.AddDynamic(this, &ATurret::ServerUpdateTurretState);
 		
-
 		if(TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_FirstTurret))
 			bIsInvincibility = false;
 		GetWorldTimerManager().ClearTimer(TurretInitTimerHandle);

@@ -9,7 +9,7 @@
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/UI/Damage/DamageTextComponent.h"
 #include "SeniorProject/UI/GoldReward/GoldRewardWidgetComponent.h"
-#include "SeniorProject/UI/Lobby/LobbyWidgetController.h"
+
 
 
 AMyPlayerController::AMyPlayerController()

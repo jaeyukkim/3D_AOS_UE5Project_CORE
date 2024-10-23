@@ -124,7 +124,10 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FItemDeletedDelegate ItemDeletedDelegate;
 
+	UPROPERTY(BlueprintAssignable)
+	FBuyButtonChangedDelegate ShopCustomerChangedDelegate;
 
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "ItemInformation")
 	TObjectPtr<UDataTable> ItemTagData;
 

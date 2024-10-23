@@ -168,7 +168,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 		OverlayUserWidget->SetWidgetController(this);
 		
 		if(IsLocallyControlled())
-			HealthBarWidget->SetVisibility(false);
+			HealthBarWidget->SetOwnerNoSee(true);
 	}
 	
 	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
@@ -191,10 +191,10 @@ void AMyCharacter::InitializeHealthBarWidget()
 		);
 
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
+			[this, AS](const FOnAttributeChangeData& Data)
 			{
 				if(OnHealthChanged.IsBound())
-					OnHealthChanged.Broadcast(Data.NewValue);
+					OnHealthChanged.Broadcast(AS->GetHealth());
 				
 			}
 		);
@@ -250,7 +250,7 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	{
 		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
 		{
-			ServerReSpawn();
+			ServerReCall();
 			EnableInput(MyPlayerController);
 			PlayerController->SetViewTargetWithBlend(this, 1.f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
 		}
@@ -260,7 +260,7 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 
 
 
-void AMyCharacter::ServerReSpawn_Implementation()
+void AMyCharacter::ServerReCall_Implementation()
 {
 	if(!HasAuthority()) return;
 	
@@ -340,9 +340,22 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AMyCharacter::Jump);
 	EnhancedInputComponent->BindAction(ShowAdditionalAttribute, ETriggerEvent::Triggered, this, &AMyCharacter::ShowAdditionalAttributeMenu);
 	EnhancedInputComponent->BindAction(Spectate, ETriggerEvent::Triggered, this, &AMyCharacter::ClientSpectate_Implementation);
+	EnhancedInputComponent->BindAction(MouseCursorOp, ETriggerEvent::Triggered, this, &AMyCharacter::SetMouseCursor);
 
+}
 
-
+void AMyCharacter::SetMouseCursor(const FInputActionValue& InputActionValue)
+{
+	if(!PlayerController) return;
+	
+	if(PlayerController->bShowMouseCursor)
+	{
+		PlayerController->bShowMouseCursor = false;
+	}
+	else
+	{
+		PlayerController->bShowMouseCursor = true;
+	}
 }
 
 void AMyCharacter::Move(const FInputActionValue& InputActionValue)
@@ -365,8 +378,8 @@ void AMyCharacter::Move(const FInputActionValue& InputActionValue)
 
 void AMyCharacter::Look(const FInputActionValue& InputActionValue)
 {
-	if(bDead) return;
-
+	if(bDead || !PlayerController || PlayerController->bShowMouseCursor) return;
+	
 	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
 
 	
@@ -407,6 +420,7 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 
 	
 }
+
 
 void AMyCharacter::Jump()
 {
@@ -449,7 +463,7 @@ void AMyCharacter::Die_Implementation()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	if(PlayerStateBase != nullptr)
 	{
-		float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
+		float ReSpawnTime = 1.5f; //PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
 		GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
 	}
 }
@@ -667,6 +681,20 @@ int32 AMyCharacter::GetPlayerLevel_Implementation()
 	return PlayerStateBase->GetPlayerLevel();
 
 
+}
+
+bool AMyCharacter::GetIsInShop_Implementation()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->GetIsInShop();
+}
+
+void AMyCharacter::SetIsInShop_Implementation(bool InbIsInShop)
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	check(PlayerStateBase);
+	return PlayerStateBase->SetIsInShop(InbIsInShop);
 }
 
 void AMyCharacter::GetLevelUpReward()

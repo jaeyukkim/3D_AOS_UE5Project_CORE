@@ -51,7 +51,7 @@ struct FCharacterClassDefaultInfo
 	FScalableFloat XPReward = FScalableFloat();
 
 	UPROPERTY(EditDefaultsOnly, Category = "Class Defaults")
-	int32 GoldReward;
+	int32 GoldReward = 0;
 	
 };
 

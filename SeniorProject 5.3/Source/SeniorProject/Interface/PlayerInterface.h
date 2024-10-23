@@ -68,7 +68,12 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	bool DeleteItem(FGameplayTag ItemInputTag);
 	
-	
 	UFUNCTION(BlueprintNativeEvent)
 	void SortingItem();
+
+	UFUNCTION(BlueprintNativeEvent)
+	void SetIsInShop(bool InbIsInShop);
+
+	UFUNCTION(BlueprintNativeEvent)
+	bool GetIsInShop();
 };

@@ -32,6 +32,13 @@ void UItemMenuWidgetController::BindCallbacksToDependencies()
 	
 	if(GetMyPS() != nullptr)
 		GoldChanged.Broadcast(GetMyPS()->GetGold());
+
+	if(GetMyPS() != nullptr)
+		GetMyPS()->ChangedShopCustomer.AddLambda([this](const bool bIsInShop)
+		{
+			BuyButtonChangedDelegate.Broadcast(bIsInShop);
+			ShopCustomerChangedDelegate.Broadcast(bIsInShop);
+		});
 }
 
 

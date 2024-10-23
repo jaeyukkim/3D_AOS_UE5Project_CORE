@@ -1,9 +1,0 @@
-{
-	"SourceFiles": [
-		"D:\\Capstone-project\\SeniorProject 5.3\\Source\\SeniorProject\\SeniorProject.Build.cs",
-		"D:\\Capstone-project\\SeniorProject 5.3\\Plugins\\MultiplayerSessions\\Source\\MultiplayerSessions\\MultiplayerSessions.Build.cs",
-		"D:\\Capstone-project\\SeniorProject 5.3\\Source\\SeniorProject.Target.cs",
-		"D:\\Capstone-project\\SeniorProject 5.3\\Source\\SeniorProjectEditor.Target.cs"
-	],
-	"EngineVersion": "5.3.2"
-}

@@ -70,7 +70,6 @@ void AProjectileBase::BeginPlay()
 
 	
 	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
-	//Sphere->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
 	
 }
 

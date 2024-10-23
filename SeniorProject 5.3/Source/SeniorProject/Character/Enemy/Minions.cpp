@@ -27,7 +27,7 @@ AMinions::AMinions()
 	PrimaryActorTick.bCanEverTick = false;
 
 	BlueTeamMesh = CreateDefaultSubobject<USkeletalMesh>("BlueTeamMesh");
-	BlueTeamMesh = CreateDefaultSubobject<USkeletalMesh>("RedTeamMesh");
+	RedTeamMesh = CreateDefaultSubobject<USkeletalMesh>("RedTeamMesh");
 
 
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
