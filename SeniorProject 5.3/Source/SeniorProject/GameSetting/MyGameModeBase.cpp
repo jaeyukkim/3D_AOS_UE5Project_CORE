@@ -176,7 +176,7 @@ void AMyGameModeBase::ServerTravelToBattlefield()
 			
 			CoreGameState->GameProcess = EGameProcess::GameStartSession;
 			bUseSeamlessTravel = true;
-			World->ServerTravel(FString("/Game/Maps/EQSTestMap?listen"));
+			World->ServerTravel(FString("/Game/BP/Maps/EQSTestMap?listen"));
 			
 		}
 	}

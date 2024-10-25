@@ -6,6 +6,7 @@
 #include "GameFramework/GameState.h"
 #include "GameplayTagContainer.h"
 #include "SeniorProject/Character/Player/MyCharacter.h"
+#include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 #include "CoreGameState.generated.h"
 
 
@@ -82,6 +83,7 @@ public:
 	FPlayerCharacterChangedDelegate PlayerReadyCompletedDelegate;
 	FPlayerReadyCompletedDelegate AllPlayerReadyCompletedDelegate;
 
+
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastNewPlayerEntranced();
 	UFUNCTION(NetMulticast, Reliable)
@@ -90,6 +92,9 @@ public:
 	void MulticastPlayerReady(APlayerState* InPS);
 	UFUNCTION(Server, Reliable)
 	void ServerPlayerReady(APlayerState* ReadyUser);
+	UFUNCTION(Server, Reliable)
+	void ServerRegisterPlayerToGameState(APlayerStateBase* InPS, ECharacterClass CharacterClass);
+	
 	UFUNCTION(BlueprintCallable)
 	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass(FGameplayTag TeamName);
 	
@@ -109,7 +114,7 @@ public:
 	bool IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& LineTag) const;
 	
 	
-	UPROPERTY(Replicated)
+	UPROPERTY(ReplicatedUsing=OnRep_PlayerInfos)
 	TArray<FPlayerInfo> PlayerInfos;
 	UPROPERTY(Replicated)
 	TArray<TObjectPtr<APlayerState>> ReadyUsers;
@@ -118,7 +123,8 @@ public:
 	UPROPERTY(Replicated)
 	TArray<TObjectPtr<APlayerStateBase>> BlueTeam;
 
-
+	UFUNCTION()
+	void OnRep_PlayerInfos();
 	
 	/*
 	 * 타워 상태를 저장하는 비트마스크
@@ -130,6 +136,19 @@ public:
 	uint16 RedTeamTurretStates = 0;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	EGameProcess GameProcess = EGameProcess::CharacterSelectSession;
+
+	
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	int32 BlueTeamScore = 0;
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	int32 RedTeamScore = 0;
+	UPROPERTY(BlueprintReadOnly, Replicated)
+	int32 TotalTeamScore = 0;
+	UFUNCTION(Server, Reliable)
+	void ServerAddTeamScore(const FGameplayTag& TeamName, bool bIsPlayer);
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastPlayTeamScoreSound(const FGameplayTag& TeamName);
+
 };
 
 

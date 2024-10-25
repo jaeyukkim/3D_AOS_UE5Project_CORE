@@ -52,7 +52,9 @@ struct FCharacterClassDefaultInfo
 
 	UPROPERTY(EditDefaultsOnly, Category = "Class Defaults")
 	int32 GoldReward = 0;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UTexture> CharacterImg = nullptr;
 };
 
 /**

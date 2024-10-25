@@ -76,4 +76,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent)
 	bool GetIsInShop();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UAnimMontage* GetRecallMontage();
 };

@@ -117,10 +117,6 @@ UAnimMontage* ACharacterBase::GetHitReactMontage_Implementation()
 	return HitReactMontage;
 }
 
-UAnimationAsset* ACharacterBase::GetDieAnimationAsset_Implementation()
-{
-	return DieAnimationAsset;
-}
 
 UAnimMontage* ACharacterBase::GetAttackMontage_Implementation()
 {

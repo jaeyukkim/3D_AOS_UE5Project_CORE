@@ -43,17 +43,19 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
-
+	virtual void InitPlayerInfo();
 	
 	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastPlayerDie();
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastReSpawn();
-	UFUNCTION(Server, Reliable)
-	virtual void ServerReCall();
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	virtual void ServerReSpawn();
 	UFUNCTION(Client, Reliable)
 	void ClientSpectate();
+	UFUNCTION(BlueprintCallable)
+	virtual void SetMovementEnable(const bool bIsMovementEnable);
 	UPROPERTY()
 	TArray<TObjectPtr<AMyCharacter>> SpectatedCharacters;
 	int32 SpectateIdx = 0;
@@ -75,7 +77,7 @@ public:
 	
 
 	/* CombatInterface */
-	virtual void GetAimHitResult(float AbilityDistance, FHitResult& HitResult) override;
+	virtual void GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult) override;
 	virtual void Die_Implementation() override;
 	/* end CombatInterface */
 
@@ -104,6 +106,7 @@ public:
 	virtual int32 GetPlayerLevel_Implementation() override;
 	virtual bool GetIsInShop_Implementation() override;
 	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
+	virtual UAnimMontage* GetRecallMontage_Implementation() override;
 	/** end Player Interface */
 	
 
@@ -124,23 +127,24 @@ protected:
 	void InitializeHealthBarWidget();
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastLevelUpParticles() const;
+	UFUNCTION()
+	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
+	UFUNCTION()
+	void GetLevelUpReward();
 
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "LevelUp")
 	TSubclassOf<UGameplayEffect> LevelUpReward;
-	
-	UFUNCTION()
-	void GetLevelUpReward();
-	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	TObjectPtr<UAnimMontage> RecallAnim;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
 	UPROPERTY(Replicated)
 	TArray<FItemInformation> OwnedItems;
 
-	UFUNCTION()
-	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
-
+	
 	
 	bool bAbilityIsGiven = false;
 	
@@ -171,6 +175,9 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> R_Ability;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+		TObjectPtr<UInputAction> Flash_Ability;
+	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> B_Recall;
 
@@ -212,7 +219,6 @@ private:
 	FTimerHandle InitPlayerHealthBarHandle;
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
-
-
+	FTimerHandle InitPlayerInfoHandle;
 	
 };

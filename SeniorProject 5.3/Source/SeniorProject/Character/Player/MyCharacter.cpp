@@ -106,7 +106,46 @@ void AMyCharacter::OnRep_PlayerState()
 	
 }
 
+void AMyCharacter::InitPlayerInfo()
+{
+	ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	
+	if(CoreGameState == nullptr || PlayerStateBase == nullptr) return;
 
+	/*CoreGameState->NewPlayerEntrancedDelegate.AddLambda([this](const FPlayerInfo& Info)
+	{
+		
+	});*/
+	CoreGameState->ServerRegisterPlayerToGameState(PlayerStateBase, CharacterClass);
+
+	GetWorldTimerManager().ClearTimer(InitPlayerInfoHandle);
+
+	
+	
+}
+
+
+/* 캐릭터를 움직이지 못하게 하는 함수
+ *  리콜, 스킬 등 다양한 곳에 활용
+ */
+
+void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
+{
+
+	APlayerController* PC = Cast<APlayerController>(GetController());
+	if(PC == nullptr) return;
+	
+	if (bIsMovementEnable) 
+	{
+		EnableInput(PC);  // 전체 입력 활성화
+	}
+	else 
+	{
+		DisableInput(PC);  // 전체 입력 비활성화
+	}
+	
+}
 
 void AMyCharacter::BroadcastInitialValues()
 {
@@ -157,6 +196,7 @@ void AMyCharacter::InitAbilityActorInfo()
 	}
 	
 	InitializeDefaultAttributes();
+	GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoHandle, this, &AMyCharacter::InitPlayerInfo, 5.f, true);
 	GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::InitializeHealthBarWidget, 5.f, false);
 	GetMesh()->SetSimulatePhysics(false);
 }
@@ -250,8 +290,8 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	{
 		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
 		{
-			ServerReCall();
-			EnableInput(MyPlayerController);
+			ServerReSpawn();
+			SetMovementEnable(true);
 			PlayerController->SetViewTargetWithBlend(this, 1.f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
 		}
 	}
@@ -260,9 +300,12 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 
 
 
-void AMyCharacter::ServerReCall_Implementation()
+void AMyCharacter::ServerReSpawn_Implementation()
 {
 	if(!HasAuthority()) return;
+
+	SetMovementEnable(true);
+
 	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	if (PlayerStateBase == nullptr) return;
@@ -429,9 +472,9 @@ void AMyCharacter::Jump()
 }
 
 
-void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
-{
 
+void AMyCharacter::GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult)
+{
 	if(!IsValid(PlayerController)) return;
 	
 	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
@@ -449,7 +492,6 @@ void AMyCharacter::GetAimHitResult(float AbilityDistance, FHitResult& HitResult)
 		GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
 
 	}
-
 
 }
 
@@ -470,12 +512,14 @@ void AMyCharacter::Die_Implementation()
 
 
 
+
 void AMyCharacter::MulticastPlayerDie_Implementation()
 {
 	if(!IsLocallyControlled()) return;
 	
 	HealthBarWidget->SetVisibility(false);
-
+	SetMovementEnable(false);
+	
 	// 관전 캐릭터 추가
 	if(PlayerController != nullptr)
 	{
@@ -492,14 +536,7 @@ void AMyCharacter::MulticastPlayerDie_Implementation()
 		}
 	}
 	
-/*	if(IsLocallyControlled())
-	{
-		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
-		{
-			DisableInput(MyPlayerController);
-		}
-			return;
-	}*/
+
 }
 
 
@@ -697,6 +734,11 @@ void AMyCharacter::SetIsInShop_Implementation(bool InbIsInShop)
 	return PlayerStateBase->SetIsInShop(InbIsInShop);
 }
 
+UAnimMontage* AMyCharacter::GetRecallMontage_Implementation()
+{
+	return RecallAnim;
+}
+
 void AMyCharacter::GetLevelUpReward()
 {
 	ApplyEffectToSelf(LevelUpReward, 1.f);
@@ -709,12 +751,12 @@ void AMyCharacter::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
 	{
 		if(NewCount > 0)
 		{
-			DisableInput(MyPlayerController);
+			SetMovementEnable(false);
 			bIsStunned = true;
 		}
 		else
 		{
-			EnableInput(MyPlayerController);
+			SetMovementEnable(true);
 			bIsStunned = false;
 		}
 	}

@@ -12,9 +12,19 @@ UTargetDataAim* UTargetDataAim::CreateTargetDataAim(UGameplayAbility* OwningAbil
 	return MyObj;
 }
 
+void UTargetDataAim::SetAimDistance(float InAimDistance)
+{
+	AimDistance = InAimDistance;
+	bIsReadyForActivation = true;
+	Activate();
+}
+
 void UTargetDataAim::Activate()
 {
+
 	const bool bIsLocallyControlled = Ability->GetCurrentActorInfo()->IsLocallyControlled();
+	if(!bIsReadyForActivation && bIsLocallyControlled) return;
+	
 	if (bIsLocallyControlled)
 	{
 		SendAimData();
@@ -40,9 +50,10 @@ void UTargetDataAim::SendAimData()
 	FScopedPredictionWindow ScopedPrediction(AbilitySystemComponent.Get());
 	
 	FHitResult HitResult;
-	ICombatInterface* CombatInterface = Cast<ICombatInterface>(GetAvatarActor());
-	CombatInterface->GetAimHitResult(AimDistance, HitResult);	//Aim에 hitResult가 있으면 저장됩니다.
-	
+	if(GetAvatarActor()->Implements<UCombatInterface>())
+	{
+		ICombatInterface::Execute_GetAimHitResult(GetAvatarActor(), AimDistance, HitResult );
+	}
 
 	
 	FGameplayAbilityTargetDataHandle DataHandle;

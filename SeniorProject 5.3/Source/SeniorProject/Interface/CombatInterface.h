@@ -32,10 +32,11 @@ class SENIORPROJECT_API ICombatInterface
 public:
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetPlayerLevel();
-	
-	FORCEINLINE virtual void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult) {HitResult = FHitResult(); return;}
 
-	
+	UFUNCTION(BlueprintNativeEvent)
+	void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult);
+
+
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
 	FORCEINLINE virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
 	FORCEINLINE virtual int32 GetCurrentCombo() const {return 1;}
@@ -54,8 +55,6 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetAttackMontage();
 	
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	UAnimationAsset* GetDieAnimationAsset();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool IsDead() const;
@@ -80,7 +79,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void Die();
-
+	
 	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() = 0;
 	
 };

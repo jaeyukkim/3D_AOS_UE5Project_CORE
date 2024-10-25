@@ -120,11 +120,11 @@ void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
 	if(GameInstance == nullptr) return;
 
 	
-	UCoreSoundManager* BlueTeamCoreSoundManager = GameInstance->GetCoreSoundManager(TagsBase.GameRule_TeamName_BlueTeam);
-	UCoreSoundManager* RedTeamCoreSoundManager =  GameInstance->GetCoreSoundManager(TagsBase.GameRule_TeamName_RedTeam);
+	
+	UCoreSoundManager* CoreSoundManager =  GameInstance->GetCoreSoundManager();
 	FGameplayTag LocalPlayerTeam = FGameplayTag();
 	
-	if(BlueTeamCoreSoundManager == nullptr || RedTeamCoreSoundManager == nullptr) return;
+	if(CoreSoundManager == nullptr) return;
 
 	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
 	if(PlayerController != nullptr)
@@ -142,11 +142,11 @@ void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
 		
 		if(TurretLevelTag == TagsBase.GameRule_Turret_Inhibitor)
 		{
-			BlueTeamCoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyInhibitorDestroyed);
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyInhibitorDestroyed);
 		}
 		else
 		{
-			BlueTeamCoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyTowerDestroyed);
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyTowerDestroyed);
 		}
 	}
 
@@ -156,12 +156,12 @@ void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
 		
 		if(TurretLevelTag == TagsBase.GameRule_Turret_Inhibitor)
 		{
-			BlueTeamCoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::EnemyInhibitorDestroyed);
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::EnemyInhibitorDestroyed);
 
 		}
 		else
 		{
-			BlueTeamCoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::EnemyTowerDestroyed);
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::EnemyTowerDestroyed);
 
 		}
 	}

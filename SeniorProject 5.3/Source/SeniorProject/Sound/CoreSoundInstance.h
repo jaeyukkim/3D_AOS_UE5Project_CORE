@@ -22,12 +22,12 @@ public:
 	void CleanUpSoundManager();
 	
 	// 전역적으로 사용할 사운드 매니저 반환 함수
-	UCoreSoundManager* GetCoreSoundManager(FGameplayTag TeamType);
+	UCoreSoundManager* GetCoreSoundManager();
 
 
 	// 팀별 사운드 매니저 저장소
 	UPROPERTY()
-	TMap<FGameplayTag, TObjectPtr<UCoreSoundManager>> SoundInstances;
+	TObjectPtr<UCoreSoundManager> SoundInstances;
 
 	
 	// CoreSoundManager의 블루프린트 클래스 참조

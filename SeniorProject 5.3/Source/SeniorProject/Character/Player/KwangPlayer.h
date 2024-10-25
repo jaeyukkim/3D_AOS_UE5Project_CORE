@@ -52,7 +52,7 @@ public:
 	FSwordDestroyDelegate SwordDestroyDelegate;
 	
 	virtual void Die_Implementation() override;
-	virtual void ServerReCall() override;
+	virtual void ServerReSpawn() override;
 	virtual void MulticastReSpawn() override;
 	UPROPERTY(Replicated)
 	bool bActiveWep = true;
@@ -75,6 +75,6 @@ protected:
 	void UpdateMagicCircleLocation();
 	FHitResult AbilityRangeTraceResult;
 	
-
-	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float Ability_Q_Distance = 1500.f;
 };

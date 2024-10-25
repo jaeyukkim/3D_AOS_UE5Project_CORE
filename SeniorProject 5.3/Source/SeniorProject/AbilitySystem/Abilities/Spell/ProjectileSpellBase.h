@@ -17,7 +17,7 @@ class SENIORPROJECT_API UProjectileSpellBase : public UDamageGameplayAbilityBase
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float AbilityDistance;
 
 	

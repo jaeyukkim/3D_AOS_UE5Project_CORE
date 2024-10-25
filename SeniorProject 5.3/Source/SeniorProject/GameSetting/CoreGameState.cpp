@@ -4,11 +4,14 @@
 #include "CoreGameState.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "GameplayTagContainer.h"
+#include "MyGameModeBase.h"
 #include "GameFramework/PlayerState.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
+#include "SeniorProject/Sound/CoreSoundInstance.h"
+#include "SeniorProject/Sound/CoreSoundManager.h"
 
 ACoreGameState::ACoreGameState()
 {
@@ -28,6 +31,9 @@ void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	DOREPLIFETIME(ACoreGameState, RedTeamTurretStates);
 	DOREPLIFETIME(ACoreGameState, BlueTeamTurretStates);
 	DOREPLIFETIME(ACoreGameState, GameProcess);
+	DOREPLIFETIME(ACoreGameState, BlueTeamScore);
+	DOREPLIFETIME(ACoreGameState, RedTeamScore);
+	DOREPLIFETIME(ACoreGameState, TotalTeamScore);
 
 }
 
@@ -48,15 +54,6 @@ void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState
 	}
 }
 
-
-void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
-{
-	for(FPlayerInfo& PlayerInfo : PlayerInfos)
-	{
-		NewPlayerEntrancedDelegate.Broadcast(PlayerInfo);
-	}
-
-}
 
 
 void ACoreGameState::ServerPlayerReady_Implementation(APlayerState* ReadyUser)
@@ -80,6 +77,41 @@ void ACoreGameState::MulticastPlayerReady_Implementation(APlayerState* InPS)
 		{
 			PlayerReadyCompletedDelegate.Broadcast(PlayerInfo);
 		}
+	}
+}
+
+void ACoreGameState::ServerRegisterPlayerToGameState_Implementation(APlayerStateBase* InPS,
+	ECharacterClass CharacterClass)
+{
+
+	if(InPS == nullptr) return;
+	
+	FPlayerInfo PlayerInformation;
+	
+	PlayerInformation.PC = InPS->GetPlayerController();
+	PlayerInformation.PS = InPS;
+	PlayerInformation.PlayerTeamName = InPS->GetTeamName();
+	PlayerInformation.PlayerName = InPS->GetPlayerName();
+
+
+	if (AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(GetWorld())))
+	{
+		UCharacterClassInfo* CharacterClassInfo = MyGameModeBase->CharacterClassInfo;
+		FCharacterClassDefaultInfo Info = CharacterClassInfo->GetClassDefaultInfo(CharacterClass);
+		PlayerInformation.CharacterImg = Info.CharacterImg;
+	}
+	
+	
+	// 중복된 PS가 없다면 추가
+	PlayerInfos.Add(PlayerInformation);
+	
+}
+
+void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
+{
+	for(FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		NewPlayerEntrancedDelegate.Broadcast(PlayerInfo);
 	}
 }
 
@@ -331,4 +363,92 @@ bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& L
 	return false;
 }
 
+void ACoreGameState::OnRep_PlayerInfos()
+{
+	for(FPlayerInfo& PlayerInfo : PlayerInfos)
+	{
+		NewPlayerEntrancedDelegate.Broadcast(PlayerInfo);
+	}
+}
 
+
+
+
+/*
+ * 상대 플레이어를 죽였을 때 그 스코어가 파라미터로 전달됨.
+ */
+
+void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName, bool bIsPlayer)
+{
+	//킬 대상이 플레이어끼리 였을 때만 점수를 더함 사망 사운드는 재생
+	if(!bIsPlayer)
+	{
+		MulticastPlayTeamScoreSound(TeamName);
+		return;
+	}
+
+	
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	
+	
+	if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
+	{
+		RedTeamScore++;
+	}
+
+	else
+	{
+		BlueTeamScore++;
+	}
+
+	TotalTeamScore = RedTeamScore + BlueTeamScore;
+	MulticastPlayTeamScoreSound(TeamName);
+}
+
+void ACoreGameState::MulticastPlayTeamScoreSound_Implementation(const FGameplayTag& TeamName)
+{
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	
+	
+	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
+	if(GameInstance == nullptr) return;
+	
+	UCoreSoundManager* CoreSoundManager =  GameInstance->GetCoreSoundManager();
+	if(CoreSoundManager == nullptr) return;
+
+	FGameplayTag LocalPlayerTeam = TagsBase.GameRule_TeamName_NONE;
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	if(PlayerController != nullptr)
+	{
+		if(APlayerStateBase* PlayerStateBase = PlayerController->GetPlayerState<APlayerStateBase>())
+		{
+			LocalPlayerTeam = PlayerStateBase->GetTeamName();
+		}
+	}
+	
+	
+	if(TeamName.MatchesTagExact(LocalPlayerTeam))
+	{
+		if(TotalTeamScore == 1)
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::FirstBloodAlly);
+		}
+		else
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::EnemyDie);
+		}
+		
+	}
+
+	else
+	{
+		if(TotalTeamScore == 1)
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::FirstBloodEnemy);
+		}
+		else
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyDie);
+		}
+	}
+}

@@ -11,7 +11,7 @@ AKwangPlayer::AKwangPlayer()
 	PrimaryActorTick.bCanEverTick = true;
 	
 	CharacterClass = ECharacterClass::Kwang;
-	SetCharacterSetting();
+	
 }
 
 void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -26,11 +26,13 @@ void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 void AKwangPlayer::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
+	SetCharacterSetting();
 }
 
 void AKwangPlayer::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
+	SetCharacterSetting();
 }
 
 
@@ -43,9 +45,9 @@ void AKwangPlayer::Die_Implementation()
 	
 }
 
-void AKwangPlayer::ServerReCall()
+void AKwangPlayer::ServerReSpawn()
 {
-	Super::ServerReCall();
+	Super::ServerReSpawn();
 	if(HasAuthority())
 	{
 		bActiveWep = true;
@@ -75,8 +77,6 @@ void AKwangPlayer::SetCharacterSetting()
 	bUseControllerRotationYaw = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
-	GetCharacterMovement()->MaxWalkSpeed = 800.0f;
-	
 	
 	AttackRange = 300.0f;
 	
@@ -133,8 +133,11 @@ void AKwangPlayer::UpdateMagicCircleLocation()
 
 	if (IsValid(MagicCircle))
 	{
-		GetAimHitResult(1500 , AbilityRangeTraceResult);
-		MagicCircle->SetActorLocation(AbilityRangeTraceResult.Location);
+		if(this->Implements<UCombatInterface>())
+		{
+			ICombatInterface::Execute_GetAimHitResult(this, Ability_Q_Distance , AbilityRangeTraceResult);
+			MagicCircle->SetActorLocation(AbilityRangeTraceResult.Location);
+		}
 	}
 	
 }

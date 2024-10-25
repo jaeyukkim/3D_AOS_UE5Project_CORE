@@ -192,6 +192,8 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("AbilitySHIFT Tag"));
 	GameplayTags.Abilities_AbilityF = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityF"),
 		FString("AbilityF Tag"));
+	GameplayTags.Abilities_AbilityB = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.AbilityB"),
+		FString("AbilityB Tag"));
 	GameplayTags.Abilities_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.NONE"),
 		FString("NONE Tag"));
 

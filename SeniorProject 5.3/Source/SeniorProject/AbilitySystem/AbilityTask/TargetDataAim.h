@@ -15,6 +15,7 @@ class SENIORPROJECT_API UTargetDataAim : public UAbilityTask
 {
 	GENERATED_BODY()
 public:
+	
 	UFUNCTION(BlueprintCallable, Category="Ability|Tasks", meta = (DisplayName = "TargetDataAim", HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "true"))
 	static UTargetDataAim* CreateTargetDataAim(UGameplayAbility* OwningAbility);
 
@@ -23,9 +24,15 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float AimDistance = 1500.0f;
-private:
 
+	UFUNCTION(BlueprintCallable)
+	void SetAimDistance(float InAimDistance);
+
+	bool bIsReadyForActivation = false;
+private:
+	
 	virtual void Activate() override;
+
 	void SendAimData();
 
 	void OnTargetDataReplicatedCallback(const FGameplayAbilityTargetDataHandle& DataHandle, FGameplayTag ActivationTag);

@@ -13,6 +13,7 @@
 #include "SeniorProject/Interface/PlayerInterface.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "GameplayEffectComponents/TargetTagsGameplayEffectComponent.h"
+#include "SeniorProject/GameSetting/CoreGameState.h"
 
 class ICombatInterface;
 
@@ -184,6 +185,7 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 				{
 					SendXPEvent(Props);
 					SendGoldEvent(Props);
+					SendKillScore(Props);
 				}
 				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
 	
@@ -300,6 +302,7 @@ bool UAttributeSetBase::bIsNeedToUpdateAttribute(const FEffectProperties& Props)
 
 	return true;
 }
+
 
 
 void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const
@@ -423,11 +426,34 @@ void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 		Payload.EventMagnitude = GoldReward;
 		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Props.SourceAvatarActor, GameplayTags.Attributes_Meta_IncomingGold, Payload);
 		ShowGoldAmountText(Props, GoldReward);
+		
 	}
 
 	
 }
 
+/*
+ *  사망한 상대가 플레이어일 경우 스코어를 올림
+ */
+void UAttributeSetBase::SendKillScore(const FEffectProperties& Props)
+{
+	if(Props.TargetCharacter == nullptr) return;
+
+	Props.TargetCharacter->ActorHasTag("Player");
+	if(Props.TargetCharacter->Implements<UGameRuleInterface>())
+	{
+		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
+		{
+			FGameplayTag TeamTag = IGameRuleInterface::Execute_GetTeamName(Props.SourceCharacter);
+			if(Props.SourceCharacter->Implements<UPlayerInterface>() && Props.TargetCharacter->Implements<UPlayerInterface>())
+			{
+				CoreGameState->ServerAddTeamScore(TeamTag, true);
+			}
+			
+			CoreGameState->ServerAddTeamScore(TeamTag, false);
+		}
+	}
+}
 
 /* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const

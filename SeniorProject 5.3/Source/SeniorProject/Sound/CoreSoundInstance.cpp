@@ -20,45 +20,28 @@ void UCoreSoundInstance::Shutdown()
 
 void UCoreSoundInstance::CleanUpSoundManager()
 {
-	for (auto& Elem : SoundInstances)
-	{
-		if (Elem.Value!= nullptr)
-		{
-			Elem.Value->RemoveFromRoot();  // GC 해제 준비
-			Elem.Value->ClearGarbage();  // TObjectPtr 포인터 초기화
-		}
-	}
+	
+	SoundInstances->RemoveFromRoot();  // GC 해제 준비
+	SoundInstances->ClearGarbage();  // TObjectPtr 포인터 초기화
 
-	SoundInstances.Empty();  // 맵 비우기
 }
 
 
 /* 블루팀과 레드팀의 사운드 매니저 생성 */
 void UCoreSoundInstance::InitializeSoundManagers()
 {
-	UCoreSoundManager* BlueTeamSoundManager = NewObject<UCoreSoundManager>(this, CoreSoundManagerBPClass);
-	BlueTeamSoundManager->AddToRoot();  // GC 방지
-	SoundInstances.Add(FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam, BlueTeamSoundManager);
+	SoundInstances = NewObject<UCoreSoundManager>(this, CoreSoundManagerBPClass);
+	
 
-	UCoreSoundManager* RedTeamSoundManager = NewObject<UCoreSoundManager>(this, CoreSoundManagerBPClass);
-	RedTeamSoundManager->AddToRoot(); // GC 방지
-	SoundInstances.Add(FGameplayTagsBase::Get().GameRule_TeamName_RedTeam, RedTeamSoundManager);
-
-	if(BlueTeamSoundManager != nullptr && RedTeamSoundManager != nullptr)
+	if(SoundInstances != nullptr)
 	{
-		BlueTeamSoundManager->InitializeSoundManager();
-		RedTeamSoundManager->InitializeSoundManager();
+		SoundInstances->InitializeSoundManager();
 	}
 }
 
-UCoreSoundManager* UCoreSoundInstance::GetCoreSoundManager(FGameplayTag TeamType)
+UCoreSoundManager* UCoreSoundInstance::GetCoreSoundManager()
 {
-	if (TObjectPtr<UCoreSoundManager>* FoundManager = SoundInstances.Find(TeamType))
-	{
-		return FoundManager->Get();
-	}
-	
-	return nullptr;
+	return SoundInstances;
 }
 
 

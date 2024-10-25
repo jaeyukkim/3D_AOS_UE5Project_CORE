@@ -54,19 +54,17 @@ public:
 	FORCEINLINE virtual bool IsInvincibility_Implementation() const override {return bIsInvincibility;}
 	FORCEINLINE virtual void SetIsInvincibility_Implementation(const bool InIsInvincibility) override {bIsInvincibility = InIsInvincibility;}
 	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
-	virtual UAnimationAsset* GetDieAnimationAsset_Implementation() override;;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 	virtual FVector GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag) override;
 	virtual void Die_Implementation() override;
 	virtual ECharacterClass GetCharacterClass_Implementation() override;
-
 	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() override;
-
 	FOnASCRegistered OnAscRegistered;
-	/* end CombatInterface*/
-	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
+	/* end CombatInterface*/
+	
+	
 	
 
 	/* GameRuleInterface*/
@@ -150,25 +148,7 @@ protected:
 	void AddCharacterAbility();
 	
 	
-
 	
-	
-	/*
-	UPROPERTY(EditDefaultsOnly, Category="Debuff")
-	TSubclassOf<UGameplayEffect> StunEffect;
-
-	UPROPERTY(EditDefaultsOnly, Category="Debuff")
-	TSubclassOf<UGameplayEffect> AttackSpeedSlowEffect;
-
-	UPROPERTY(EditDefaultsOnly, Category="Debuff")
-	TSubclassOf<UGameplayEffect> MovementSlowEffect;
-	
-	UPROPERTY(EditDefaultsOnly, Category="Debuff")
-	TSubclassOf<UGameplayEffect> ArmorDecreaseEffect;
-
-	UPROPERTY(EditDefaultsOnly, Category="Debuff")
-	TSubclassOf<UGameplayEffect> MagicResistanceDecreaseEffect;
-	*/
 	UPROPERTY(EditDefaultsOnly, Category="Debuff")
 	TMap<FGameplayTag, TSubclassOf<UGameplayEffect>> DebuffClassMap;
 	
@@ -198,8 +178,7 @@ private:
 	UPROPERTY(EditAnywhere,  Category="Combat")
 	TArray<TObjectPtr<UAnimMontage>> AttackMontage;
 
-	UPROPERTY(EditAnywhere, Category = "Combat")
-	TObjectPtr<UAnimationAsset> DieAnimationAsset;
+	
 
 	int32 MaxAttackCombo = 0;
 	int32 CurrentCombo = 0;
