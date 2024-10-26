@@ -145,7 +145,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	int32 TotalTeamScore = 0;
 	UFUNCTION(Server, Reliable)
-	void ServerAddTeamScore(const FGameplayTag& TeamName, bool bIsPlayer);
+	void ServerAddTeamScore(const FGameplayTag& TeamName);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayTeamScoreSound(const FGameplayTag& TeamName);
 

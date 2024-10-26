@@ -378,14 +378,10 @@ void ACoreGameState::OnRep_PlayerInfos()
  * 상대 플레이어를 죽였을 때 그 스코어가 파라미터로 전달됨.
  */
 
-void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName, bool bIsPlayer)
+void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName)
 {
 	//킬 대상이 플레이어끼리 였을 때만 점수를 더함 사망 사운드는 재생
-	if(!bIsPlayer)
-	{
-		MulticastPlayTeamScoreSound(TeamName);
-		return;
-	}
+	
 
 	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();

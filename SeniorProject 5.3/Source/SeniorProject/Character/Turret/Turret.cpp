@@ -34,7 +34,10 @@ void ATurret::BeginPlay()
 {
 	Super::BeginPlay();
 
-	GetWorldTimerManager().SetTimer(TurretInitTimerHandle,this, &ATurret::ServerRegisterWithGameMode, InitLoopTime, true);
+	if(HasAuthority())
+	{
+		GetWorldTimerManager().SetTimer(TurretInitTimerHandle,this, &ATurret::ServerRegisterWithGameMode, InitLoopTime, true);
+	}
 
 }
 

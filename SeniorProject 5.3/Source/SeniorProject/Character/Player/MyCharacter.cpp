@@ -64,7 +64,7 @@ AMyCharacter::AMyCharacter()
 	HealthBarWidget->SetupAttachment(GetRootComponent());
 	HealthBarWidget->SetWidgetSpace(EWidgetSpace::World);
 	HealthBarWidget->SetDrawSize(FVector2D(250.0f, 50.0f));
-	HealthBarWidget->SetCullDistance(4500.f);
+	//HealthBarWidget->SetCullDistance(4500.f);
 	
 
 	
@@ -113,10 +113,7 @@ void AMyCharacter::InitPlayerInfo()
 	
 	if(CoreGameState == nullptr || PlayerStateBase == nullptr) return;
 
-	/*CoreGameState->NewPlayerEntrancedDelegate.AddLambda([this](const FPlayerInfo& Info)
-	{
-		
-	});*/
+	
 	CoreGameState->ServerRegisterPlayerToGameState(PlayerStateBase, CharacterClass);
 
 	GetWorldTimerManager().ClearTimer(InitPlayerInfoHandle);
@@ -149,22 +146,22 @@ void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
 
 void AMyCharacter::BroadcastInitialValues()
 {
-	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-	if(PlayerStateBase == nullptr) return;
+	if(HasAuthority())
+	{
+		APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+		if(PlayerStateBase == nullptr) return;
 
-	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
-	checkf(AS, TEXT("AttibuteSet Class uninitialized"));
-
-	
-	OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
-	OnHealthChanged.Broadcast(AS->GetHealth());
+		const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
+		checkf(AS, TEXT("AttibuteSet Class uninitialized"));
 		
-	OnMaxManaChanged.Broadcast(AS->GetMaxMana());
-	OnManaChanged.Broadcast(AS->GetMana());
-	OnLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
-	PlayerStateBase->BroadcastPlayerStat();
-	
-	
+		OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+		OnPlayerBarHealthChanged.Broadcast(AS->GetHealth());
+		
+		OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
+		OnPlayerBarManaChanged.Broadcast(AS->GetMana());
+		OnPlayerBarLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+		PlayerStateBase->BroadcastPlayerStat();
+	}
 }
 
 
@@ -203,49 +200,41 @@ void AMyCharacter::InitAbilityActorInfo()
 
 void AMyCharacter::InitializeHealthBarWidget()
 {
+	
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
-		
-		if(IsLocallyControlled())
-			HealthBarWidget->SetOwnerNoSee(true);
 	}
-	
+
 	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 	{
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
-			{
-				if(OnManaChanged.IsBound())
-					OnManaChanged.Broadcast(Data.NewValue);
-				
-			}
-		);
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
-			[this, AS](const FOnAttributeChangeData& Data)
-			{
-				if(OnMaxManaChanged.IsBound())
-					OnMaxManaChanged.Broadcast(AS->GetMaxMana());
-				
-			}
-		);
-
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
 			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				if(OnHealthChanged.IsBound())
-					OnHealthChanged.Broadcast(AS->GetHealth());
-				
+				OnPlayerBarHealthChanged.Broadcast(AS->GetHealth());
 			}
 		);
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
 			[this, AS](const FOnAttributeChangeData& Data)
 			{
-				if(OnMaxHealthChanged.IsBound())
-					OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
-				
+				OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 			}
 		);
+		
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
+			[this, AS](const FOnAttributeChangeData& Data)
+			{
+				OnPlayerBarManaChanged.Broadcast(AS->GetMana());
+			}
+		);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
+			[this, AS](const FOnAttributeChangeData& Data)
+			{
+				OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
+			}
+		);
+
+		
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
 			[this](const FOnAttributeChangeData& Data)
 			{
@@ -259,19 +248,20 @@ void AMyCharacter::InitializeHealthBarWidget()
 		
 		BroadcastInitialValues();
 		GetWorldTimerManager().ClearTimer(InitPlayerHealthBarHandle);
-
-
+		
 	}
 
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 	{
 		PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 Level)
 		{
-			OnLevelChanged.Broadcast(Level);
+			OnPlayerBarLevelChanged.Broadcast(Level);
 		});
 		
 		
 	}
+	
+	
 	
 
 }
@@ -502,9 +492,25 @@ void AMyCharacter::Die_Implementation()
 	MulticastPlayerDie();
 
 	
-	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-	if(PlayerStateBase != nullptr)
+	
+	
+	//죽었을 때 상대 팀 점수 상승
+	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 	{
+		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
+		{
+			FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+			if(PlayerStateBase->GetTeamName() == TagsBase.GameRule_TeamName_BlueTeam)
+			{
+				CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_RedTeam);
+			}
+			else
+			{
+				CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_BlueTeam);
+			}
+		}
+
+		
 		float ReSpawnTime = 1.5f; //PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
 		GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
 	}

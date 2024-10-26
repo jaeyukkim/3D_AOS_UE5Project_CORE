@@ -55,7 +55,8 @@ protected:
 	virtual void BeginPlay() override;
 
 	//첫 미니언 스폰 타임
-	const float InitialSpawnTime = 90.f;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float InitialSpawnTime = 90.f;
 
 	// 미니언 스폰 타임 주기
 	const float RecurringSpawnTime = 30.f;

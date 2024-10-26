@@ -25,7 +25,7 @@ class UAudioComponent;
 class AMyPlayerController;
 class APlayerStateBase;
 class UWidgetComponent;
-
+class UOverlayWidget;
 
 
 UCLASS(abstract)
@@ -112,12 +112,15 @@ public:
 
 
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnManaChanged;
+	FOnAttributeChangedSignature OnPlayerBarManaChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnMaxManaChanged;
+	FOnAttributeChangedSignature OnPlayerBarMaxManaChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnLevelChangedSignature OnLevelChanged;
-	
+	FOnLevelChangedSignature OnPlayerBarLevelChanged;
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnPlayerBarHealthChanged;
+	UPROPERTY(BlueprintAssignable)
+	FOnAttributeChangedSignature OnPlayerBarMaxHealthChanged;
 	
 	
 protected:
@@ -220,5 +223,6 @@ private:
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
 	FTimerHandle InitPlayerInfoHandle;
+
 	
 };

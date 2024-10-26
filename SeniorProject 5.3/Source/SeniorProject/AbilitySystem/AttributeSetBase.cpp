@@ -185,7 +185,6 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 				{
 					SendXPEvent(Props);
 					SendGoldEvent(Props);
-					SendKillScore(Props);
 				}
 				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
 	
@@ -432,28 +431,7 @@ void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 	
 }
 
-/*
- *  사망한 상대가 플레이어일 경우 스코어를 올림
- */
-void UAttributeSetBase::SendKillScore(const FEffectProperties& Props)
-{
-	if(Props.TargetCharacter == nullptr) return;
 
-	Props.TargetCharacter->ActorHasTag("Player");
-	if(Props.TargetCharacter->Implements<UGameRuleInterface>())
-	{
-		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
-		{
-			FGameplayTag TeamTag = IGameRuleInterface::Execute_GetTeamName(Props.SourceCharacter);
-			if(Props.SourceCharacter->Implements<UPlayerInterface>() && Props.TargetCharacter->Implements<UPlayerInterface>())
-			{
-				CoreGameState->ServerAddTeamScore(TeamTag, true);
-			}
-			
-			CoreGameState->ServerAddTeamScore(TeamTag, false);
-		}
-	}
-}
 
 /* OnRep_VitalAttributes */
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const
