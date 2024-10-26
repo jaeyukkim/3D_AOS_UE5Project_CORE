@@ -7,40 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/CT_SecondaryAttribute_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/CT_SecondaryAttribute_Kwang.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Input/InputAction/InputActionData/DA_InputActionData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Input/InputAction/InputActionData/DA_InputActionData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/CharacterSelectMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/CharacterSelectMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/AbilityBackground_Inst.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/AbilityBackground_Inst.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sound/Kwang_FootStep_Que.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sound/Kwang_FootStep_Que.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/LobbyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/LobbyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/PlayerInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/PlayerInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Sound/CoreSoundInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Sound/CoreSoundInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Sound/CoreSoundInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Sound/CoreSoundInstance.h" afterDir="false" />
-    </list>
+    <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -249,6 +216,7 @@
       <workItem from="1729708849312" duration="5541000" />
       <workItem from="1729756112134" duration="8377000" />
       <workItem from="1729770449000" duration="17311000" />
+      <workItem from="1729852172442" duration="63000" />
     </task>
     <servers />
   </component>
