@@ -48,8 +48,8 @@ void APlayerStateBase::CopyProperties(APlayerState* PlayerState)
 		MyPlayerState->TeamName = TeamName;
 		MyPlayerState->LobbyCharacterClass = LobbyCharacterClass;
 		MyPlayerState->PlayerCharacterClass = PlayerCharacterClass;
-
 	}
+
 }
 
 UAbilitySystemComponent* APlayerStateBase::GetAbilitySystemComponent() const

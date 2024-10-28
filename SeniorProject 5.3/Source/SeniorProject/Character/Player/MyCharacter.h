@@ -7,9 +7,7 @@
 
 #include "SeniorProject/Interface/EnemyInterface.h"
 #include "SeniorProject/Character/CharacterBase.h"
-#include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
 #include "SeniorProject/UI/ItemMenu/ItemMenuWidgetController.h"
-#include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "InputActionValue.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
 #include "MyCharacter.generated.h"
@@ -27,6 +25,8 @@ class APlayerStateBase;
 class UWidgetComponent;
 class UOverlayWidget;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerAttributeChangedSignature, float, NewValue);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerLevelChangedSignature, int32, NewLevel);
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
@@ -44,7 +44,8 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitPlayerInfo();
-	
+	UFUNCTION(Client, Reliable)
+	void ClientInitAbilityActorInfo();
 	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastPlayerDie();
@@ -112,15 +113,15 @@ public:
 
 
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnPlayerBarManaChanged;
+	FPlayerAttributeChangedSignature OnPlayerBarManaChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnPlayerBarMaxManaChanged;
+	FPlayerAttributeChangedSignature OnPlayerBarMaxManaChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnLevelChangedSignature OnPlayerBarLevelChanged;
+	FPlayerLevelChangedSignature OnPlayerBarLevelChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnPlayerBarHealthChanged;
+	FPlayerAttributeChangedSignature OnPlayerBarHealthChanged;
 	UPROPERTY(BlueprintAssignable)
-	FOnAttributeChangedSignature OnPlayerBarMaxHealthChanged;
+	FPlayerAttributeChangedSignature OnPlayerBarMaxHealthChanged;
 	
 	
 protected:
@@ -150,7 +151,29 @@ protected:
 	
 	
 	bool bAbilityIsGiven = false;
+
+
+	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarHp)
+	float PlayerBarHp = 0.f;
+	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMaxHp)
+	float PlayerBarMaxHp = 0.f;
+	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMp)
+	float PlayerBarMp = 0.f;
+	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMaxMp)
+	float PlayerBarMaxMp = 0.f;
+	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarLevel)
+	int32 PlayerBarLevel = 0.f;
 	
+	UFUNCTION()
+	void OnRep_PlayerBarHp(float NewHp);
+	UFUNCTION()
+	void OnRep_PlayerBarMaxHp(float MewMaxHp);
+	UFUNCTION()
+	void OnRep_PlayerBarMp(float NewMp);
+	UFUNCTION()
+	void OnRep_PlayerBarMaxMp(float NewMaxMp);
+	UFUNCTION()
+	void OnRep_PlayerBarLevel(int32 NewLevel);
 private:
 	
 	
@@ -223,6 +246,7 @@ private:
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
 	FTimerHandle InitPlayerInfoHandle;
+	FTimerHandle InitClientAbilityInfoHandle;
 
 	
 };

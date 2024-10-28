@@ -48,7 +48,7 @@ void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState
 		if (PlayerInfo.PS == InPS)
 		{
 			PlayerInfo.CharacterImg = CharacterImg;
-//			PlayerInfo.SelectedCharacter = SelectedCharacter;
+			PlayerInfo.SelectedCharacter = SelectedCharacter;
 			PlayerCharacterChangedDelegate.Broadcast(PlayerInfo);
 		}
 	}
@@ -115,10 +115,10 @@ void ACoreGameState::MulticastNewPlayerEntranced_Implementation()
 	}
 }
 
-TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ACoreGameState::GetSelectedPlayerClass(FGameplayTag TeamName)
+TMap<UClass*, FGameplayTag> ACoreGameState::GetSelectedPlayerClass(FGameplayTag TeamName)
 {
-	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> RedTeamSeletedPlayerClass;
-	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> BlueTeamSeletedPlayerClass;
+	TMap<UClass*, FGameplayTag> RedTeamSeletedPlayerClass;
+	TMap<UClass*, FGameplayTag> BlueTeamSeletedPlayerClass;
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	for (FPlayerInfo& PlayerInfo : PlayerInfos)
 	{

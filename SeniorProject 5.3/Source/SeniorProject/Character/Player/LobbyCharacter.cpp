@@ -133,13 +133,14 @@ void ALobbyCharacter::GameStart_Implementation()
 }
 
 
-TMap<TSubclassOf<AMyCharacter>, FGameplayTag> ALobbyCharacter::GetSelectedPlayerClass()
+TMap<UClass*, FGameplayTag> ALobbyCharacter::GetSelectedPlayerClass()
 {
-	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> SeletedPlayerClass;
+	TMap<UClass*, FGameplayTag> SeletedPlayerClass;
 
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
-		return CoreGameState->GetSelectedPlayerClass(GetPlayerTeamName());
+		SeletedPlayerClass = CoreGameState->GetSelectedPlayerClass(GetPlayerTeamName());
+		return SeletedPlayerClass;
 	}
 	return SeletedPlayerClass;
 }

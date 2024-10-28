@@ -38,9 +38,9 @@ AMinions::AMinions()
 
 	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBarWidget->SetupAttachment(GetRootComponent());
-	HealthBarWidget->SetWidgetSpace(EWidgetSpace::World);
+	HealthBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 	HealthBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
-	HealthBarWidget->SetCullDistance(3000.f);
+	
 
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));

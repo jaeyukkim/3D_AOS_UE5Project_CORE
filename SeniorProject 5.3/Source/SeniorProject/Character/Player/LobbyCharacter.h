@@ -49,7 +49,7 @@ public:
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	void GameStart();
 	UFUNCTION(BlueprintCallable)
-	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass();
+	TMap<UClass*, FGameplayTag> GetSelectedPlayerClass();
 	
 	
 	UPROPERTY(BlueprintAssignable)

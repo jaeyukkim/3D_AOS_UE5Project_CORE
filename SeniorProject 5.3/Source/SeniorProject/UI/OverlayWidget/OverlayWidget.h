@@ -29,7 +29,7 @@ protected:
 		void WidgetControllerSet();
 
 	UFUNCTION(BlueprintCallable)
-		void SetRotationToPlayer();
+		bool IsNearLocalController();
 
 
 };

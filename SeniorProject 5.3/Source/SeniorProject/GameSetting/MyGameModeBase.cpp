@@ -99,6 +99,7 @@ void AMyGameModeBase::SetupPlayerCharacterClass(APlayerController* NewPlayer)
 	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
 	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
 	{
+		NewPlayer->PlayerState = PlayerStateBase;
 		
 		AActor* OldPawn = NewPlayer->GetPawn();
 		if(OldPawn != nullptr) OldPawn->Destroy();

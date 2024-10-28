@@ -96,7 +96,7 @@ public:
 	void ServerRegisterPlayerToGameState(APlayerStateBase* InPS, ECharacterClass CharacterClass);
 	
 	UFUNCTION(BlueprintCallable)
-	TMap<TSubclassOf<AMyCharacter>, FGameplayTag> GetSelectedPlayerClass(FGameplayTag TeamName);
+	TMap<UClass*, FGameplayTag> GetSelectedPlayerClass(FGameplayTag TeamName);
 	
 	void AddPlayerInfo(FPlayerInfo& Info);
 	bool SetPlayerTeam(APlayerStateBase* PS);
