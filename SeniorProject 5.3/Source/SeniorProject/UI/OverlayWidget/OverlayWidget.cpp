@@ -13,7 +13,7 @@ void UOverlayWidget::SetWidgetController(UObject* InWidgetController)
 
 bool UOverlayWidget::IsNearLocalController()
 {
-	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	APlayerController* PlayerController = GetOwningLocalPlayer()->GetPlayerController(GetWorld());
 	AActor* MonsterOwner = Cast<AActor>(WidgetController);
 
 	if (PlayerController != nullptr && MonsterOwner != nullptr)

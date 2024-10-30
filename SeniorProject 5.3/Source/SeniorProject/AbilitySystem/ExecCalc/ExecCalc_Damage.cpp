@@ -6,6 +6,7 @@
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 
 
 struct DamageStatic
@@ -70,12 +71,25 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
                                               FGameplayEffectCustomExecutionOutput& OutExecutionOutput) const
 {
 
+	
+
 	const UAbilitySystemComponent* SourceASC = ExecutionParams.GetSourceAbilitySystemComponent();
 	const UAbilitySystemComponent* TargetASC = ExecutionParams.GetTargetAbilitySystemComponent();
 
 	const AActor* SourceAvatar = SourceASC ? SourceASC->GetAvatarActor() : nullptr;
 	const AActor* TargetAvatar = TargetASC ? TargetASC->GetAvatarActor() : nullptr;
 
+
+	if(TargetAvatar->Implements<UCombatInterface>())
+	{
+		if(ICombatInterface::Execute_IsInvincibility(TargetAvatar))
+		{
+			const FGameplayModifierEvaluatedData MagicalEvaluatedData(UAttributeSetBase::GetIncomingDamageAttribute(), EGameplayModOp::Additive, 0.f);
+			OutExecutionOutput.AddOutputModifier(MagicalEvaluatedData);
+			return;
+		}
+	}
+	
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
 	FGameplayEffectContextHandle EffectContextHandle = Spec.GetContext();
 	

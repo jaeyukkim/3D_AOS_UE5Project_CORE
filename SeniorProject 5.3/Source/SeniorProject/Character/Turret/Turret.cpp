@@ -3,7 +3,11 @@
 
 #include "Turret.h"
 
+
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/AI/AIControllerBase.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
 #include "SeniorProject/Sound/CoreSoundInstance.h"
@@ -12,10 +16,57 @@
 
 ATurret::ATurret()
 {
+	PrimaryActorTick.bCanEverTick = true;
+	
 	Tags.Add(TEXT("Turret"));
+
+
+	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SPRINGARM"));
+	SpringArm->SetupAttachment(GetCapsuleComponent());
+	SpringArm->TargetArmLength = 1000.0f;
+	
+
+	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
+	Camera->SetupAttachment(SpringArm);
+
+	bIsInvincibility = true;
 	
 }
 
+void ATurret::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ATurret, TurretAnimValue);
+	
+}
+
+void ATurret::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	
+	if(!HasAuthority() || !TurretAnimValue.Aiming || TurretAnimValue.TargetCharacter == nullptr) return;
+
+	
+	TurretAnimValue.TargetLocation = FMath::VInterpTo(TurretAnimValue.TargetLocation,
+		TurretAnimValue.TargetCharacter->GetActorLocation(),DeltaSeconds ,10.0f);
+
+	TurretAnimValue.DistanceToTarget = FMath::FInterpTo(TurretAnimValue.DistanceToTarget,
+		FVector::Dist(TurretAnimValue.TargetCharacter->GetActorLocation(), GetActorLocation()), DeltaSeconds, 10.f);
+
+	if(TurretAnimValue.DistanceToTarget > TurretAnimValue.OpenShieldDistance)
+	{
+		TurretAnimValue.OpenShield = true;
+		TurretAnimValue.OpenPanel = true;
+	}
+	else
+	{
+		TurretAnimValue.OpenShield = false;
+		TurretAnimValue.OpenPanel = false;
+	}
+	
+}
 
 /*
  *  서버에서만 실행됨.
@@ -33,13 +84,59 @@ void ATurret::PossessedBy(AController* NewController)
 void ATurret::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if(HasAuthority())
+	
+	ServerRegisterWithGameMode();
+	
+	
+	
+	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 	{
-		GetWorldTimerManager().SetTimer(TurretInitTimerHandle,this, &ATurret::ServerRegisterWithGameMode, InitLoopTime, true);
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetIncomingDamageAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				TurretUnderAttackedSound();
+			}
+		);
+	
 	}
+	
+	
 
+	if(AIControllerBase != nullptr)
+	{
+		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
+		if (BlackboardComp)
+		{
+			// "Target" 키의 ID 가져오기
+			const FBlackboard::FKey TargetKeyID = BlackboardComp->GetKeyID("Target");
+			
+
+			// Target 값이 변경될 때마다 OnBlackboardTargetChanged 호출
+			BlackboardComp->RegisterObserver(TargetKeyID, this,
+				FOnBlackboardChangeNotification::CreateUObject(this, &ATurret::OnBlackboardTargetChanged));
+		}
+	}
+	
+	
 }
+
+
+EBlackboardNotificationResult ATurret::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID)
+{
+	
+	
+	ServerSetTurretAnimValue(BlackboardComp.GetValueAsObject("Target"));
+	
+
+	// EBlackboardNotificationResult::Continue를 반환하여 델리게이트가 계속 유효하도록 함
+	return EBlackboardNotificationResult::ContinueObserving;
+	
+}
+void ATurret::InitializeDefaultAttributes() const
+{
+	Super::InitializeDefaultAttributes();
+}
+
 
 
 
@@ -49,10 +146,8 @@ void ATurret::ServerRegisterWithGameMode_Implementation()
 
 	ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
 	if(!CoreGameState) return;
-	
-	
-	bIsInvincibility = true;
 
+	
 	if (AMyGameModeBase* GameMode = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(GetWorld())))
 	{
 		// 게임 모드에 자신을 등록
@@ -98,16 +193,60 @@ void ATurret::ServerUpdateTurretState_Implementation()
 }
 
 
+
+void ATurret::TurretUnderAttackedSound()
+{
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
+	if(GameInstance == nullptr) return;
+
+	
+	UCoreSoundManager* CoreSoundManager =  GameInstance->GetCoreSoundManager();
+	FGameplayTag LocalPlayerTeam = FGameplayTag();
+	
+	if(CoreSoundManager == nullptr) return;
+
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	if(PlayerController != nullptr)
+	{
+		if(APlayerStateBase* PlayerStateBase = PlayerController->GetPlayerState<APlayerStateBase>())
+		{
+			LocalPlayerTeam = PlayerStateBase->GetTeamName();
+		}
+	}
+	
+	
+	if(TeamName.MatchesTagExact(LocalPlayerTeam))
+	{
+		
+		if(TurretLevelTag == TagsBase.GameRule_Turret_Inhibitor)
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyInhibitorUnderAttack);
+		}
+		else if (TurretLevelTag == TagsBase.GameRule_Turret_Nexus)
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyCoreUnderAttack);
+		}
+		else
+		{
+			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyTowerUnderAttack);
+		}
+	}
+
+	
+}
+
 void ATurret::Die_Implementation()
 {
 	if(HasAuthority())
 	{
 		OnTurretDestroyed.Broadcast(LineTag, TurretLevelTag, TeamName);
 	}
-	MulticastPlayTowerDestroyedSound();
+	PlayTowerDestroyedSound();
 	
 	Super::Die_Implementation();
 }
+
 
 
 /*
@@ -116,7 +255,7 @@ void ATurret::Die_Implementation()
  *  적군 타워면 적군 타워 파괴 사운드 재생
  */
 
-void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
+void ATurret::PlayTowerDestroyedSound()
 {
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
@@ -170,4 +309,25 @@ void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
 	}
 
 	
+}
+
+void ATurret::ServerSetTurretAnimValue(UObject* InTargetCharacter)
+{
+	if(!HasAuthority()) return;
+	
+	if(IsValid(InTargetCharacter))
+	{
+		TurretAnimValue.bIsRecovering = false;
+		TurretAnimValue.Aiming = true;
+		TurretAnimValue.OpenPanel = true;
+		TurretAnimValue.TargetCharacter = CastChecked<APawn>(InTargetCharacter);
+	}
+	else
+	{
+		TurretAnimValue.bIsRecovering = true;
+		TurretAnimValue.Aiming = false;
+		TurretAnimValue.OpenPanel = false;
+		TurretAnimValue.OpenShield = false;
+		TurretAnimValue.TargetCharacter = nullptr;
+	}
 }

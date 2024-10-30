@@ -178,71 +178,71 @@ void ACoreGameState::ServerUpdateTurretStates_Implementation(const FGameplayTag&
 {
 	uint16 Mask = 0;
 
-	if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Top)
+	if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Top))
 	{
-		if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_FirstTurret)
+		if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_FirstTurret))
 		{
 			Mask = 1 << 12;  // 탑 1차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_SecondTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_SecondTurret))
 		{
 			Mask = 1 << 11;  // 탑 2차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret))
 		{
 			Mask = 1 << 10;  // 탑 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_Inhibitor))
 		{
 			Mask = 1 << 9;  // 탑 억제기 타워
 		}
 	}
 	else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Mid)
 	{
-		if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_FirstTurret)
+		if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_FirstTurret))
 		{
 			Mask = 1 << 8;  // 미드 1차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_SecondTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_SecondTurret))
 		{
 			Mask = 1 << 7;  // 미드 2차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret))
 		{
 			Mask = 1 << 6;  // 미드 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_Inhibitor))
 		{
 			Mask = 1 << 5;  // 미드 억제기 타워
 		}
 	}
-	else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Bottom)
+	else if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Bottom))
 	{
-		if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_FirstTurret)
+		if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_FirstTurret))
 		{
 			Mask = 1 << 4;  // 바텀 1차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_SecondTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_SecondTurret))
 		{
 			Mask = 1 << 3;  // 바텀 2차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_ThirdTurret))
 		{
 			Mask = 1 << 2;  // 바텀 3차 타워
 		}
-		else if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Inhibitor)
+		else if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_Inhibitor))
 		{
 			Mask = 1 << 1;  // 바텀 억제기 타워
 		}
 	}
 
-	if (TurretLevelTag == FGameplayTagsBase::Get().GameRule_Turret_Nexus)
+	if (TurretLevelTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Turret_Nexus))
 	{
 		Mask = 1 << 0;  // 넥서스
 	}
 
 	// 비트마스크 업데이트 (파괴 상태 여부에 따라)
-	if (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
+	if (TeamTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam))
 	{
 		if (bIsDestroy)
 		{
@@ -253,7 +253,7 @@ void ACoreGameState::ServerUpdateTurretStates_Implementation(const FGameplayTag&
 			BlueTeamTurretStates &= ~Mask;  // 포탑 복구 또는 새로 생성
 		}
 	}
-	else if (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
+	else if (TeamTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_TeamName_RedTeam))
 	{
 		if (bIsDestroy)
 		{
@@ -273,7 +273,7 @@ FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGamepl
 	
 	
     // 라인에 따른 비트 위치 및 TowerLevelTag 반환
-    if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Top)
+    if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Top))
     {
         // 탑 라인
         if (!(TurretStates & (1 << 12)))  // 탑 1차 타워가 파괴되지 않은 경우
@@ -293,7 +293,7 @@ FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGamepl
     		return FGameplayTagsBase::Get().GameRule_Turret_Inhibitor;
     	}
     }
-    else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Mid)
+    else if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Mid))
     {
         // 미드 라인
         if (!(TurretStates & (1 << 8)))  // 미드 1차 타워가 파괴되지 않은 경우
@@ -313,7 +313,7 @@ FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGamepl
     		return FGameplayTagsBase::Get().GameRule_Turret_Inhibitor;
     	}
     }
-    else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Bottom)
+    else if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Bottom))
     {
         // 바텀 라인
         if (!(TurretStates & (1 << 4)))  // 바텀 1차 타워가 파괴되지 않은 경우
@@ -347,15 +347,15 @@ bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& L
 {
 	const uint16 TurretStates = (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
 
-	if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Top)
+	if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Top))
 	{
 		return (TurretStates & (1 << 9)) != 0;  // 탑 억제기 타워 상태 확인
 	}
-	else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Mid)
+	else if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Mid))
 	{
 		return (TurretStates & (1 << 5)) != 0;  // 미드 억제기 타워 상태 확인
 	}
-	else if (LineTag == FGameplayTagsBase::Get().GameRule_Line_Bottom)
+	else if (LineTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_Line_Bottom))
 	{
 		return (TurretStates & (1 << 1)) != 0;  // 바텀 억제기 타워 상태 확인
 	}

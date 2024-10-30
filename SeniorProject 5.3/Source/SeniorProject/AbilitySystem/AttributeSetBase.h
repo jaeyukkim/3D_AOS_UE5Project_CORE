@@ -10,6 +10,7 @@
 #include "GameplayEffectExtension.h"
 #include "AttributeSetBase.generated.h"
 
+
 #define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
  	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
  	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
@@ -59,6 +60,8 @@ struct FEffectProperties
 /**
  * 
  */
+
+
 UCLASS()
 class SENIORPROJECT_API UAttributeSetBase : public UAttributeSet
 {

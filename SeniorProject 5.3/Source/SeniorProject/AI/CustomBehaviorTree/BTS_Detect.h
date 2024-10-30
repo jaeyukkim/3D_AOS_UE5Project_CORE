@@ -16,12 +16,13 @@ class SENIORPROJECT_API UBTS_Detect : public UBTService
 
 public:
 	
-    virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
-	
+	virtual void TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds) override;
+
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float DetectRange = 1200.f;
    
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float losingTargetRange = 1000.f;
+	
 };

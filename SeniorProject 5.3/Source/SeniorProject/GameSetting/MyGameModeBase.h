@@ -31,18 +31,17 @@ public:
 	virtual void Logout(AController* Exiting) override;
 	virtual void StartPlay() override;
 	virtual void StartMatch() override;
-	virtual void ServerTravelToBattlefield();
-	virtual void PostSeamlessTravel() override;
+	void EndGame(const FGameplayTag& DefeatedTeamName);
 	virtual void GenericPlayerInitialization(AController* C) override;
-	
 	void SetupPlayerCharacterClass(APlayerController* NewPlayer);
-	void SetUpPlayerTeam(APlayerController* NewPlayer);
+	
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
 	UPROPERTY(BlueprintAssignable, Category="GameRule")
 	FUpdateMinionTargetsSignature UpdateMinionTargets;
 
+	
 	UFUNCTION()
 	void OnTurretSpawned(ATurret* SpawnedTurret);
 	UFUNCTION()

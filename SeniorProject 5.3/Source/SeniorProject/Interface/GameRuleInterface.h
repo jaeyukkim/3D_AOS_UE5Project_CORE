@@ -37,4 +37,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	FORCEINLINE FGameplayTag GetTurretLevelTag() const;
+
+
 };

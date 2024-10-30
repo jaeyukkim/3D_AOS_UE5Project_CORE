@@ -44,8 +44,12 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitPlayerInfo();
-	UFUNCTION(Client, Reliable)
-	void ClientInitAbilityActorInfo();
+	
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastEndGame(const FGameplayTag& DefeatedTeam);
+	
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastInitAbilityActorInfo();
 	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastPlayerDie();
@@ -65,7 +69,6 @@ public:
 	void BroadcastInitialValues();
 	
 	
-
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 		TObjectPtr<USpringArmComponent> SpringArm;
@@ -109,8 +112,10 @@ public:
 	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
 	virtual UAnimMontage* GetRecallMontage_Implementation() override;
 	/** end Player Interface */
-	
 
+	
+	
+	
 
 	UPROPERTY(BlueprintAssignable)
 	FPlayerAttributeChangedSignature OnPlayerBarManaChanged;
@@ -153,27 +158,7 @@ protected:
 	bool bAbilityIsGiven = false;
 
 
-	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarHp)
-	float PlayerBarHp = 0.f;
-	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMaxHp)
-	float PlayerBarMaxHp = 0.f;
-	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMp)
-	float PlayerBarMp = 0.f;
-	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarMaxMp)
-	float PlayerBarMaxMp = 0.f;
-	UPROPERTY(ReplicatedUsing = OnRep_PlayerBarLevel)
-	int32 PlayerBarLevel = 0.f;
 	
-	UFUNCTION()
-	void OnRep_PlayerBarHp(float NewHp);
-	UFUNCTION()
-	void OnRep_PlayerBarMaxHp(float MewMaxHp);
-	UFUNCTION()
-	void OnRep_PlayerBarMp(float NewMp);
-	UFUNCTION()
-	void OnRep_PlayerBarMaxMp(float NewMaxMp);
-	UFUNCTION()
-	void OnRep_PlayerBarLevel(int32 NewLevel);
 private:
 	
 	
@@ -246,7 +231,7 @@ private:
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
 	FTimerHandle InitPlayerInfoHandle;
-	FTimerHandle InitClientAbilityInfoHandle;
+
 
 	
 };

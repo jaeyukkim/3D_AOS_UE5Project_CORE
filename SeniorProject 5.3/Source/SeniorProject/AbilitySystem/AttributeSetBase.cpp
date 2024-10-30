@@ -15,6 +15,7 @@
 #include "GameplayEffectComponents/TargetTagsGameplayEffectComponent.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 
+
 class ICombatInterface;
 
 UAttributeSetBase::UAttributeSetBase()
@@ -118,6 +119,7 @@ void UAttributeSetBase::PreAttributeChange(const FGameplayAttribute& Attribute, 
 
 	if(GetOwningActor()->Implements<UCombatInterface>() && ICombatInterface::Execute_IsDead(GetOwningActor())) return;
 
+	
 	if (Attribute == GetHealthAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue, 0.f, GetMaxHealth());
@@ -166,6 +168,7 @@ void UAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffectModCallba
 }
 void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 {
+	
 	const float LocalIncomingDamage = GetIncomingDamage();
 	SetIncomingDamage(0.f);
 		
@@ -286,10 +289,6 @@ bool UAttributeSetBase::bIsNeedToUpdateAttribute(const FEffectProperties& Props)
 	if(Props.TargetCharacter == nullptr) return false;
 	if(!Props.TargetCharacter->Implements<UCombatInterface>()) return false;
 
-	if(ICombatInterface::Execute_IsInvincibility(Props.TargetCharacter))
-	{
-		return false;
-	}
 	
 	/* 사망시에 리턴 */
 	if(ICombatInterface::Execute_IsDead(Props.TargetCharacter))
@@ -434,6 +433,7 @@ void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 
 
 /* OnRep_VitalAttributes */
+
 void UAttributeSetBase::OnRep_Health(const FGameplayAttributeData& OldHealth) const
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, Health, OldHealth);

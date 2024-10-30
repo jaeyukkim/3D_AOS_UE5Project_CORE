@@ -23,13 +23,13 @@ void UTargetDataAim::Activate()
 {
 
 	const bool bIsLocallyControlled = Ability->GetCurrentActorInfo()->IsLocallyControlled();
-	if(!bIsReadyForActivation && bIsLocallyControlled) return;
+	if(!bIsReadyForActivation) return;
 	
-	if (bIsLocallyControlled)
+	if (bIsLocallyControlled && bIsReadyForActivation)
 	{
 		SendAimData();
 	}
-	else
+	else if(!bIsLocallyControlled)
 	{
 		//TODO: We are on the server, so listen for target data.
 		

@@ -27,6 +27,7 @@
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
+#include "SeniorProject/Character/Turret/Turret.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 
 
@@ -45,12 +46,7 @@ AMyCharacter::AMyCharacter()
 	SpringArm->TargetArmLength = 320.0f;
 	SpringArm->SetRelativeLocation(FVector(0.0f, 0.0f, 115.0f));
 	SpringArm->SetRelativeRotation(FRotator::ZeroRotator);
-//	SpringArm->bUsePawnControlRotation = true;
-//	SpringArm->bInheritPitch = true;
-//	SpringArm->bInheritRoll = true;
-//	SpringArm->bInheritYaw = true;
-//	SpringArm->bDoCollisionTest = true;
-//	SpringArm->SetIsReplicated(true);
+
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));\
 	Camera->SetupAttachment(SpringArm);
 
@@ -62,7 +58,7 @@ AMyCharacter::AMyCharacter()
 	HealthBarWidget->SetupAttachment(GetRootComponent());
 	HealthBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 	HealthBarWidget->SetDrawSize(FVector2D(250.0f, 50.0f));
-
+	
 	
 
 	
@@ -78,29 +74,21 @@ void AMyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(AMyCharacter, OwnedItems);
-	DOREPLIFETIME(AMyCharacter, PlayerBarHp);
-	DOREPLIFETIME(AMyCharacter, PlayerBarMaxHp);
-	DOREPLIFETIME(AMyCharacter, PlayerBarMp);
-	DOREPLIFETIME(AMyCharacter, PlayerBarMaxMp);
-	DOREPLIFETIME(AMyCharacter, PlayerBarLevel);
-
+	
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
-
 	
-	if(!HasAuthority() || bAbilityIsGiven) return;
+	
 	
 	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
 	AddCharacterAbility();
 	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 	bAbilityIsGiven = true;
-
-
-	GetWorldTimerManager().SetTimer(InitClientAbilityInfoHandle, this, &AMyCharacter::ClientInitAbilityActorInfo, 5.f,false);
+	
 	
 }
 
@@ -126,7 +114,8 @@ void AMyCharacter::InitPlayerInfo()
 	
 }
 
-void AMyCharacter::ClientInitAbilityActorInfo_Implementation()
+
+void AMyCharacter::MulticastInitAbilityActorInfo_Implementation()
 {
 	if(!HasAuthority())
 	{
@@ -156,27 +145,22 @@ void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
 	
 }
 
+
 void AMyCharacter::BroadcastInitialValues()
 {
+	
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	if(PlayerStateBase == nullptr) return;
 
-	if(HasAuthority())
-	{
-		APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-		if(PlayerStateBase == nullptr) return;
+	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
+	checkf(AS, TEXT("AttibuteSet Class uninitialized"));
 
-		const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
-		checkf(AS, TEXT("AttibuteSet Class uninitialized"));
-	
-		OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
-		OnPlayerBarHealthChanged.Broadcast(AS->GetHealth());
-		OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
-		OnPlayerBarManaChanged.Broadcast(AS->GetMana());
-		OnPlayerBarLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
-		PlayerStateBase->BroadcastPlayerStat();
-		
-	}
-	
-	
+	OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+	OnPlayerBarHealthChanged.Broadcast(AS->GetHealth());
+	OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
+	OnPlayerBarManaChanged.Broadcast(AS->GetMana());
+	OnPlayerBarLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
+	PlayerStateBase->BroadcastPlayerStat();
 }
 
 
@@ -209,93 +193,80 @@ void AMyCharacter::InitAbilityActorInfo()
 	
 	InitializeDefaultAttributes();
 	GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoHandle, this, &AMyCharacter::InitPlayerInfo, 5.f, true);
-	InitializeHealthBarWidget();
+	GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::InitializeHealthBarWidget, 5.f, false);
 	GetMesh()->SetSimulatePhysics(false);
 }
 
 void AMyCharacter::InitializeHealthBarWidget()
 {
+	GetWorldTimerManager().ClearTimer(InitPlayerHealthBarHandle);
 	
 	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
 	{
 		OverlayUserWidget->SetWidgetController(this);
 	}
-
+	
 	if(IsLocallyControlled())
-	{
 		HealthBarWidget->SetVisibility(false);
-	}
 	
-	if(!HasAuthority()) return;
 	
-	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	
+	
+	if(AS == nullptr || PlayerStateBase == nullptr) return;
+	
+		
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
+	[this](const FOnAttributeChangeData& Data)
 	{
-		
-		
-		
-			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
-			{
-				OnPlayerBarHealthChanged.Broadcast(Data.NewValue);
-				PlayerBarHp = Data.NewValue;
-			});
-		
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
-			[this, AS](const FOnAttributeChangeData& Data)
-			{
-				float InMaxHealth = AS->GetMaxHealth();
-				OnPlayerBarMaxHealthChanged.Broadcast(InMaxHealth);
-				PlayerBarMaxHp = InMaxHealth;
-			}
-		);
-		
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
-			{
-				OnPlayerBarManaChanged.Broadcast(Data.NewValue);
-				PlayerBarMp = Data.NewValue;
-			}
-		);
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
-			[this, AS](const FOnAttributeChangeData& Data)
-			{
-				float InMaxMana = AS->GetMaxMana();
-				OnPlayerBarMaxManaChanged.Broadcast(Data.NewValue);
-				PlayerBarMaxMp = InMaxMana;
-			}
-		);
+		OnPlayerBarHealthChanged.Broadcast(Data.NewValue);
 
-		
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
-			{
-				if(HasAuthority())
-				{
-					GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
-					MulticastSetMaxWalkSpeed(Data.NewValue);
-				}
-			}
-		);
-		
-		BroadcastInitialValues();
-		GetWorldTimerManager().ClearTimer(InitPlayerHealthBarHandle);
-		
-	}
-
-	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
-	{
-		PlayerBarLevel = PlayerStateBase->GetPlayerLevel();
-		
-		PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 Level)
+	});
+	
+ 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
+		[this, AS](const FOnAttributeChangeData& Data)
 		{
-			OnPlayerBarLevelChanged.Broadcast(Level);
-		});
+			OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+
+		}
+	);
+	
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			OnPlayerBarManaChanged.Broadcast(Data.NewValue);
+
+		}
+	);
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
+		[this, AS](const FOnAttributeChangeData& Data)
+		{
+			OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
+		}
+	);
+
+	
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
+		[this](const FOnAttributeChangeData& Data)
+		{
+			if(HasAuthority())
+			{
+				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
+				MulticastSetMaxWalkSpeed(Data.NewValue);
+			}
+		}
+	);
+
+	PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 Level)
+	{
+		OnPlayerBarLevelChanged.Broadcast(Level);
+	});
 		
 		
-	}
 	
 	
-	
+	BroadcastInitialValues();
 
 }
 
@@ -306,8 +277,9 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	
 	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Block);
-	
+	SetMovementEnable(true);
 
+	
 	
 	if(IsLocallyControlled())
 	{
@@ -327,7 +299,7 @@ void AMyCharacter::ServerReSpawn_Implementation()
 {
 	if(!HasAuthority()) return;
 
-	SetMovementEnable(true);
+	
 
 	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -782,6 +754,8 @@ UAnimMontage* AMyCharacter::GetRecallMontage_Implementation()
 	return RecallAnim;
 }
 
+
+
 void AMyCharacter::GetLevelUpReward()
 {
 	ApplyEffectToSelf(LevelUpReward, 1.f);
@@ -908,27 +882,34 @@ void AMyCharacter::ClientSpectate_Implementation()
 	
 }
 
-void AMyCharacter::OnRep_PlayerBarHp(float NewHp)
+void AMyCharacter::MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam)
 {
-	OnPlayerBarHealthChanged.Broadcast(NewHp);
-}
+	if(!IsLocallyControlled() || PlayerController == nullptr) return;
 
-void AMyCharacter::OnRep_PlayerBarMaxHp(float MewMaxHp)
-{
-	OnPlayerBarMaxHealthChanged.Broadcast(MewMaxHp);
-}
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	
+	TObjectPtr<AActor> Nexus;
+	
+	SpectatedCharacters.Reset();
+	for (TActorIterator<ATurret> It(GetWorld()); It; ++It)
+	{
+		ATurret* Turret = *It;
+		PlayerController->bAutoManageActiveCameraTarget = false;
 
-void AMyCharacter::OnRep_PlayerBarMp(float NewMp)
-{
-	OnPlayerBarManaChanged.Broadcast(NewMp);
-}
+		if(Turret->Implements<UGameRuleInterface>())
+		{
+			FGameplayTag TurretLevelTag = IGameRuleInterface::Execute_GetTurretLevelTag(Turret);
+			FGameplayTag TurretTeamTag = IGameRuleInterface::Execute_GetTeamName(Turret);
+			if(TurretLevelTag.MatchesTagExact(TagsBase.GameRule_Turret_Nexus) && TurretTeamTag.MatchesTagExact(DefeatedTeam))
+			{
+				Nexus = Turret;
+				break;
+			}
+		}
+	}
 
-void AMyCharacter::OnRep_PlayerBarMaxMp(float NewMaxMp)
-{
-	OnPlayerBarMaxManaChanged.Broadcast(NewMaxMp);
-}
-
-void AMyCharacter::OnRep_PlayerBarLevel(int32 NewLevel)
-{
-	OnPlayerBarLevelChanged.Broadcast(NewLevel);
+	if(Nexus != nullptr)
+	{
+		PlayerController->SetViewTargetWithBlend(Nexus, 1.5f, EViewTargetBlendFunction::VTBlend_Linear, 2.f);
+	}
 }

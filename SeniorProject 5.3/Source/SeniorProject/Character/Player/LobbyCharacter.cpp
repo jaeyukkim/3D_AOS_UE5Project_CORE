@@ -9,7 +9,8 @@
 #include "GameplayTagContainer.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
-#include "SeniorProject/GameSetting/MyGameModeBase.h"
+#include "SeniorProject/GameSetting/LobbyGameMode.h"
+
 
 
 ALobbyCharacter::ALobbyCharacter()
@@ -119,7 +120,7 @@ void ALobbyCharacter::GameStart_Implementation()
 {
 	if(!HasAuthority()) return;
 
-	if(AMyGameModeBase* GameModeBase = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(this)))
+	if(ALobbyGameMode* GameModeBase = Cast<ALobbyGameMode>(UGameplayStatics::GetGameMode(this)))
 	{
 		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 		{

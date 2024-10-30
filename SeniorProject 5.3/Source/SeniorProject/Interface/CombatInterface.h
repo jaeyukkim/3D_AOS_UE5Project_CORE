@@ -33,7 +33,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	int32 GetPlayerLevel();
 
-	UFUNCTION(BlueprintNativeEvent)
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult);
 
 

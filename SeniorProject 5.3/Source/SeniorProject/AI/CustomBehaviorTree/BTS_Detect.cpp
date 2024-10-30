@@ -142,5 +142,6 @@ void UBTS_Detect::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory,
     }
 
     // 모든 조건을 만족하지 못하면 TargetActor를 null로 설정
-    BlackboardComp->SetValueAsObject("Target", nullptr);
+    BlackboardComp->ClearValue("Target");
 }
+

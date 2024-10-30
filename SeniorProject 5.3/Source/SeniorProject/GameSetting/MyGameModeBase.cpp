@@ -16,13 +16,14 @@
 
 AMyGameModeBase::AMyGameModeBase()
 {
-	bUseSeamlessTravel = true;
+	bUseSeamlessTravel = false;
+
 }
 
 void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
-
+	
 	
 	if(CoreGameState == nullptr)
 	{
@@ -45,49 +46,15 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
 			}
 			
-			SetUpPlayerTeam(NewPlayer);
 		}
 		
 	}
 	
-}
-
-
-void AMyGameModeBase::SetUpPlayerTeam(APlayerController* NewPlayer)
-{
+	//setupPlayerCharacterClass(NewPlayer);
 	
-	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
-	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
-	{
-		
-		AActor* OldPawn = NewPlayer->GetPawn();
-		
-		// 기존의 PlayerCharacterClass에서 스폰할 캐릭터 클래스를 설정
-		TArray<AActor*> PlayerStarts;
-		UGameplayStatics::GetAllActorsOfClass(this, APlayerStart::StaticClass(), PlayerStarts);
-		TArray<APlayerStart*> NewPlayerStarts;
-
-		for (auto Start : PlayerStarts)
-		{
-			APlayerStart* TeamStart = Cast<APlayerStart>(Start);
-			NewPlayerStarts.Add(TeamStart);
-		}
-		
-		if (NewPlayerStarts.Num() > 0)
-		{
-			APlayerStart* ChosenPlayerStart = NewPlayerStarts[FMath::RandRange(0, NewPlayerStarts.Num() - 1)];
-			FTransform SpawnLocation = ChosenPlayerStart->GetActorTransform();
-			
-			ALobbyCharacter* NewCharacter = GetWorld()->SpawnActor<ALobbyCharacter>(PlayerStateBase->LobbyCharacterClass, SpawnLocation);
-			if (NewCharacter)
-			{
-				// 새로 스폰한 캐릭터를 플레이어에게 할당
-				NewPlayer->Possess(NewCharacter);
-				if(OldPawn != nullptr) OldPawn->Destroy();
-			}
-		}
-	}
 }
+
+
 
 /*
  * 게임 시작 시 PlayerState에 저장된(캐릭터 선택창에서 선택한) 캐릭터로 스폰
@@ -99,7 +66,6 @@ void AMyGameModeBase::SetupPlayerCharacterClass(APlayerController* NewPlayer)
 	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
 	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
 	{
-		NewPlayer->PlayerState = PlayerStateBase;
 		
 		AActor* OldPawn = NewPlayer->GetPawn();
 		if(OldPawn != nullptr) OldPawn->Destroy();
@@ -166,49 +132,32 @@ void AMyGameModeBase::StartMatch()
 	
 }
 
-void AMyGameModeBase::ServerTravelToBattlefield()
+void AMyGameModeBase::EndGame(const FGameplayTag& DefeatedTeamName)
 {
-	UWorld* World = GetWorld();
-	if(World)
+
+	TArray<AActor*> Players;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMyCharacter::StaticClass(), Players);
+
+	for(AActor* Player : Players)
 	{
-		if(CoreGameState)
-		{
-			FString GameProcessString = FString::Printf(TEXT("Current GameProcess: %d"), static_cast<int32>(CoreGameState->GameProcess));
-			
-			CoreGameState->GameProcess = EGameProcess::GameStartSession;
-			bUseSeamlessTravel = true;
-			World->ServerTravel(FString("/Game/BP/Maps/EQSTestMap?listen"));
-			
-		}
+		AMyCharacter* CorePlayer = Cast<AMyCharacter>(Player);
+		CorePlayer->MulticastEndGame(DefeatedTeamName);
 	}
 }
 
-void AMyGameModeBase::PostSeamlessTravel()
-{
-	Super::PostSeamlessTravel();
 
-	
-	
-/*	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
-	{
-		APlayerController* PC = It->Get();
-		if (PC)
-		{
-			
-		}
-	}*/
-	
-	
-}
 
 void AMyGameModeBase::GenericPlayerInitialization(AController* C)
 {
 	Super::GenericPlayerInitialization(C);
 
-	if(APlayerController* PC = Cast<APlayerController>(C))
+/*
+ *	패키징할 때 사용 에디터에서는 유효하지 않음
+ */
+	/*if(APlayerController* PC = Cast<APlayerController>(C))
 	{
 		SetupPlayerCharacterClass(PC);
-	}
+	}*/
 	
 }
 
@@ -262,7 +211,13 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 	
 	CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, true);
 	UpdateMinionTargets.Broadcast();
-	
+
+
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if(TurretLevelTag == TagsBase.GameRule_Turret_Nexus)
+	{
+		EndGame(TeamTag);
+	}
 		
 }
 

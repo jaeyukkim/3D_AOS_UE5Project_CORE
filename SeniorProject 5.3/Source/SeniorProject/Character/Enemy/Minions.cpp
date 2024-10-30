@@ -218,7 +218,10 @@ void AMinions::InitAbilityActorInfo()
 	OnAscRegistered.Broadcast(AbilitySystemComponent);
 	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Debuff_Type_Stun,
 		EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AMinions::Stunned);
+	
 }
+
+
 
 void AMinions::InitializeDefaultAttributes() const
 {

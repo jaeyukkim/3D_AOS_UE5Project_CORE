@@ -4,16 +4,22 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameMode.h"
-#include "MainMenuGameMode.generated.h"
+#include "LobbyGameMode.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SENIORPROJECT_API AMainMenuGameMode : public AGameMode
+class SENIORPROJECT_API ALobbyGameMode : public AGameMode
 {
 	GENERATED_BODY()
 public:
-	
+	ALobbyGameMode();
+
 	virtual void PostLogin(APlayerController* NewPlayer) override;
+	virtual void Logout(AController* Exiting) override;
+	virtual void ServerTravelToBattlefield();
+
+	UPROPERTY()
+	TObjectPtr<ACoreGameState> CoreGameState;
 };
