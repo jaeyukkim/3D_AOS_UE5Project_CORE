@@ -29,8 +29,14 @@ protected:
 	float DistanceToTarget = 1000.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
+	float PrevDistanceToTarget = 1000.f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
 	FVector TargetLocation;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
+	FVector PrevTargetLocation;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
 	bool OpenPanel = false;
 	
@@ -59,6 +65,7 @@ private:
 	UPROPERTY()
 	FVector DefalutAimLocation;
 	
+	const float OpenShieldDistance = 500.f;
 	
 
 	

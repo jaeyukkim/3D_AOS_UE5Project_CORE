@@ -24,9 +24,11 @@ class AMyPlayerController;
 class APlayerStateBase;
 class UWidgetComponent;
 class UOverlayWidget;
+class UUserWidget;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerLevelChangedSignature, int32, NewLevel);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLeftGame);
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
@@ -47,10 +49,12 @@ public:
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastEndGame(const FGameplayTag& DefeatedTeam);
+	UFUNCTION(Server, Reliable)
+	void ServerLeaveGame();
+
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastInitAbilityActorInfo();
-	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastPlayerDie();
 	UFUNCTION(NetMulticast, Reliable)
@@ -127,7 +131,7 @@ public:
 	FPlayerAttributeChangedSignature OnPlayerBarHealthChanged;
 	UPROPERTY(BlueprintAssignable)
 	FPlayerAttributeChangedSignature OnPlayerBarMaxHealthChanged;
-	
+	FOnLeftGame OnLeftGame;
 	
 protected:
 	
@@ -152,7 +156,9 @@ protected:
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
 	UPROPERTY(Replicated)
 	TArray<FItemInformation> OwnedItems;
-
+	UPROPERTY(EditAnywhere, Category = HUD)
+	TSubclassOf<UUserWidget> EndGameWidgetClass;
+	
 	
 	
 	bool bAbilityIsGiven = false;
@@ -211,15 +217,16 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> ShowAdditionalAttribute;
 
+	
 	void SetMouseCursor(const FInputActionValue& InputActionValue);
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);
 	virtual void Jump() override;
 
+	
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> LastActor;
-
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> ThisActor;
 
@@ -231,7 +238,7 @@ private:
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;
 	FTimerHandle InitPlayerInfoHandle;
+	FTimerHandle PlayerLeftTimerHandle;
 
-
-	
+	float PlayerLeftTime = 3.f;
 };

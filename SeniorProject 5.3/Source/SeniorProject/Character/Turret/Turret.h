@@ -4,48 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "SeniorProject/Character/Enemy/Minions.h"
-#include "BehaviorTree/BlackboardComponent.h"
-#include "BehaviorTree/Blackboard/BlackboardKey.h"
 #include "Turret.generated.h"
 
-
-namespace FBlackboard
-{
-	struct FKey;
-}
-
-
-USTRUCT()
-struct FTurretAnimValue
-{
-	GENERATED_BODY()
-
-	UPROPERTY()
-	float DistanceToTarget = 1000.f;
-
-	UPROPERTY()
-	FVector TargetLocation = FVector();
-
-	UPROPERTY()
-	bool OpenPanel = false;
-	
-	UPROPERTY()
-	bool Aiming = false;
-	
-	UPROPERTY()
-	bool IsHit = false;
-
-	UPROPERTY()
-	bool OpenShield = false;
-
-	UPROPERTY(EditAnywhere)
-	bool bIsRecovering = false;
-	
-	UPROPERTY()
-	TObjectPtr<APawn> TargetCharacter;
-
-	float OpenShieldDistance = 600.f;
-};
 
 enum class EBlackboardNotificationResult : uint8;
 
@@ -68,7 +28,6 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void BeginPlay() override;
 	virtual void InitializeDefaultAttributes() const override;
-	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void Tick(float DeltaSeconds) override;
 
 	
@@ -80,8 +39,7 @@ public:
 	UFUNCTION()
 	void TurretUnderAttackedSound();
 	void PlayTowerDestroyedSound();
-	UFUNCTION()
-	void ServerSetTurretAnimValue(UObject* InTargetCharacter);
+	
 	
 	/* Combat Interface */
 	virtual void Die_Implementation() override;
@@ -94,10 +52,10 @@ public:
 	
 	UPROPERTY(BlueprintAssignable, Category = "Turret")
 	FTurretDestroyedDelegate OnTurretDestroyed;
+	
 	UPROPERTY(BlueprintAssignable)
 	FTargetChangedDelegate OnTargetChanged;
 	
-
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameRule")
 	FGameplayTag TurretLevelTag;
@@ -107,18 +65,11 @@ public:
 
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> Camera;
-	
-	EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
-	
-	UPROPERTY(Replicated)
-	FTurretAnimValue TurretAnimValue;
+
 	
 private:
 	FTimerHandle TurretInitTimerHandle;
 	const float InitLoopTime = 5.f;
 
-	
-
-	
 	
 };

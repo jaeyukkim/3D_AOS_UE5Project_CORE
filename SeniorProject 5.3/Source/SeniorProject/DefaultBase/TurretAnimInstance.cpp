@@ -31,18 +31,43 @@ void UTurretAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	Super::NativeUpdateAnimation(DeltaSeconds);
 	
 	if(!IsValid(Turret)) return;
+
+	
 	
 	bIsDead = Turret->bDead;
 	IsHit = Turret->bHitReacting;
-
 	
-	FTurretAnimValue val = Turret->TurretAnimValue;
-	DistanceToTarget = val.DistanceToTarget;
-	TargetLocation = val.TargetLocation;
-	OpenPanel = val.OpenPanel;
-	Aiming = val.Aiming;
-	OpenShield = val.OpenShield;
-	bIsRecovering = val.bIsRecovering;
+	AActor* CombatTarget = Turret->CombatTarget;
+	if(CombatTarget == nullptr)
+	{
+		Aiming = false;
+		OpenShield = false;
+		OpenPanel = false;
+	}
+	else
+	{
+		Aiming = true;
+		
+		PrevTargetLocation = TargetLocation;
+		TargetLocation = FMath::VInterpTo(PrevTargetLocation,
+			CombatTarget->GetActorLocation(),DeltaSeconds ,10.0f);
+
+		PrevDistanceToTarget = DistanceToTarget;
+		DistanceToTarget = FMath::FInterpTo(PrevDistanceToTarget,
+			FVector::Dist(CombatTarget->GetActorLocation(), Turret->GetActorLocation()), DeltaSeconds, 10.f);
+
+		if(DistanceToTarget > OpenShieldDistance)
+		{
+			OpenShield = true;
+			OpenPanel = true;
+		}
+		else
+		{
+			OpenShield = false;
+			OpenPanel = false;
+		}
+	}
+	
 	
 	
 }

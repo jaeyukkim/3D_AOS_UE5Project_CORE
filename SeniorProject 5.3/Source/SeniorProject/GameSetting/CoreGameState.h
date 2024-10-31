@@ -144,6 +144,7 @@ public:
 	int32 RedTeamScore = 0;
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	int32 TotalTeamScore = 0;
+	
 	UFUNCTION(Server, Reliable)
 	void ServerAddTeamScore(const FGameplayTag& TeamName);
 	UFUNCTION(NetMulticast, Reliable)

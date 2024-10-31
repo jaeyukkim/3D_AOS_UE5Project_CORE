@@ -33,38 +33,13 @@ ATurret::ATurret()
 	
 }
 
-void ATurret::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-	DOREPLIFETIME(ATurret, TurretAnimValue);
-	
-}
 
 void ATurret::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-
 	
-	if(!HasAuthority() || !TurretAnimValue.Aiming || TurretAnimValue.TargetCharacter == nullptr) return;
-
 	
-	TurretAnimValue.TargetLocation = FMath::VInterpTo(TurretAnimValue.TargetLocation,
-		TurretAnimValue.TargetCharacter->GetActorLocation(),DeltaSeconds ,10.0f);
-
-	TurretAnimValue.DistanceToTarget = FMath::FInterpTo(TurretAnimValue.DistanceToTarget,
-		FVector::Dist(TurretAnimValue.TargetCharacter->GetActorLocation(), GetActorLocation()), DeltaSeconds, 10.f);
-
-	if(TurretAnimValue.DistanceToTarget > TurretAnimValue.OpenShieldDistance)
-	{
-		TurretAnimValue.OpenShield = true;
-		TurretAnimValue.OpenPanel = true;
-	}
-	else
-	{
-		TurretAnimValue.OpenShield = false;
-		TurretAnimValue.OpenPanel = false;
-	}
+	
 	
 }
 
@@ -101,37 +76,10 @@ void ATurret::BeginPlay()
 	}
 	
 	
-
-	if(AIControllerBase != nullptr)
-	{
-		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
-		if (BlackboardComp)
-		{
-			// "Target" 키의 ID 가져오기
-			const FBlackboard::FKey TargetKeyID = BlackboardComp->GetKeyID("Target");
-			
-
-			// Target 값이 변경될 때마다 OnBlackboardTargetChanged 호출
-			BlackboardComp->RegisterObserver(TargetKeyID, this,
-				FOnBlackboardChangeNotification::CreateUObject(this, &ATurret::OnBlackboardTargetChanged));
-		}
-	}
-	
-	
 }
 
 
-EBlackboardNotificationResult ATurret::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID)
-{
-	
-	
-	ServerSetTurretAnimValue(BlackboardComp.GetValueAsObject("Target"));
-	
 
-	// EBlackboardNotificationResult::Continue를 반환하여 델리게이트가 계속 유효하도록 함
-	return EBlackboardNotificationResult::ContinueObserving;
-	
-}
 void ATurret::InitializeDefaultAttributes() const
 {
 	Super::InitializeDefaultAttributes();
@@ -189,6 +137,8 @@ void ATurret::ServerUpdateTurretState_Implementation()
 		
 		if(TurretLevelTag.MatchesTagExact(InTurretLevelTag))
 			bIsInvincibility = false;
+
+	
 	}
 }
 
@@ -309,25 +259,4 @@ void ATurret::PlayTowerDestroyedSound()
 	}
 
 	
-}
-
-void ATurret::ServerSetTurretAnimValue(UObject* InTargetCharacter)
-{
-	if(!HasAuthority()) return;
-	
-	if(IsValid(InTargetCharacter))
-	{
-		TurretAnimValue.bIsRecovering = false;
-		TurretAnimValue.Aiming = true;
-		TurretAnimValue.OpenPanel = true;
-		TurretAnimValue.TargetCharacter = CastChecked<APawn>(InTargetCharacter);
-	}
-	else
-	{
-		TurretAnimValue.bIsRecovering = true;
-		TurretAnimValue.Aiming = false;
-		TurretAnimValue.OpenPanel = false;
-		TurretAnimValue.OpenShield = false;
-		TurretAnimValue.TargetCharacter = nullptr;
-	}
 }

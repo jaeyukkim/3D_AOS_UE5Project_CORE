@@ -94,11 +94,10 @@ void ADefaultHUD::InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter)
 
 	if (CharacterSelectWidget)
 	{
-		FInputModeUIOnly InputMode;
-		InputMode.SetWidgetToFocus(CharacterSelectWidget->TakeWidget());
-		GetOwningPlayerController()->SetInputMode(InputMode);
-		GetOwningPlayerController()->bShowMouseCursor = true;
-	
+		FInputModeGameAndUI InputModeData;
+		InputModeData.SetWidgetToFocus(CharacterSelectWidget->TakeWidget());
+		GetOwningPlayerController()->SetInputMode(InputModeData);
+		GetOwningPlayerController()->SetShowMouseCursor(true);
 	}
 	
 }

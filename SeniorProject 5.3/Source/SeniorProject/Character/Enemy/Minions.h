@@ -4,10 +4,15 @@
 
 #include "SeniorProject/Character/CharacterBase.h"
 #include "SeniorProject/AbilitySystem/Data/CharacterClassInfo.h"
+#include "BehaviorTree/BlackboardComponent.h"
+#include "BehaviorTree/Blackboard/BlackboardKey.h"
 #include "Minions.generated.h"
 
-
-
+enum class EBlackboardNotificationResult : uint8;
+namespace FBlackboard
+{
+	struct FKey;
+}
 
 class AAIControllerBase;
 class UBehaviorTree;
@@ -28,13 +33,9 @@ public:
 	virtual void BeginPlay() override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
-	
-	
-	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpan = 5.f;
 	virtual void Die_Implementation() override;
-
 
 	
 	FORCEINLINE virtual int32 GetPlayerLevel_Implementation() override {return Level;};
@@ -43,10 +44,9 @@ public:
 
 	/* Enemy Interface */
 	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
-	virtual void SetCombatTarget_Implementation(AActor* InCombatTarget) override;
 	virtual AActor* GetCombatTarget_Implementation() const override;
 	virtual void SetTargetPlayer_Implementation(AActor* Target) override;
-	UPROPERTY(BlueprintReadWrite, Category = "Combat")
+	UPROPERTY(BlueprintReadWrite, Replicated, Category = "Combat")
 	TObjectPtr<AActor> CombatTarget;
 	/* end Enemy Interface */
 
@@ -69,7 +69,8 @@ protected:
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
-
+	void BindCallbackTargetCharacter();
+	EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
 	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")

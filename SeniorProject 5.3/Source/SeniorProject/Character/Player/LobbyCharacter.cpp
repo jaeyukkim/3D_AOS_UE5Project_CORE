@@ -3,6 +3,7 @@
 
 #include "LobbyCharacter.h"
 
+
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
@@ -10,8 +11,10 @@
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 #include "SeniorProject/GameSetting/LobbyGameMode.h"
-
-
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "Blueprint/UserWidget.h"
+#include "SeniorProject/UI/HUD/ReturnToMainMenu.h"
 
 ALobbyCharacter::ALobbyCharacter()
 {
@@ -43,11 +46,63 @@ void ALobbyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 	
 }
 
+void ALobbyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+	EnhancedInputComponent->BindAction(QuitMenuButton, ETriggerEvent::Triggered, this, &ALobbyCharacter::ShowReturnToMainMenu);
+}
+
 
 void ALobbyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	
+	if (AMyPlayerController* PlayerController = Cast<AMyPlayerController>(GetController()))
+	{
+		UEnhancedInputLocalPlayerSubsystem* Subsystem =
+			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
+		
+		if(Subsystem)
+			Subsystem->AddMappingContext(PlayerContext, 0);
+	}
+	
+}
+
+void ALobbyCharacter::ShowReturnToMainMenu()
+{
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	if(PlayerController == nullptr) return;
+
+	
+	if (ReturnToMainMenuClass == nullptr) return;
+	if (ReturnToMainMenu == nullptr)
+	{
+		ReturnToMainMenu = CreateWidget<UReturnToMainMenu>(PlayerController, ReturnToMainMenuClass);
+		ReturnToMainMenu->AddToViewport();
+		bReturnToMainMenuOpen = true;
+	}
+	if (ReturnToMainMenu)
+	{
+		bReturnToMainMenuOpen = !bReturnToMainMenuOpen;
+		if (bReturnToMainMenuOpen)
+		{
+			ReturnToMainMenu->MenuSetup();
+			
+		}
+		else
+		{
+			ReturnToMainMenu->MenuTearDown();
+		}
+
+		
+		FInputModeGameAndUI InputModeData;
+		PlayerController->SetInputMode(InputModeData);
+		PlayerController->SetShowMouseCursor(true);
+		
+	}
 }
 
 /*
@@ -60,17 +115,18 @@ void ALobbyCharacter::InitPlayerInfo()
 	APlayerStateBase* PS = GetPlayerState<APlayerStateBase>();
 	APlayerController* PC = Cast<APlayerController>(GetController());
 
-	if(PS ==nullptr || PC == nullptr || CoreGameState == nullptr)
+	if(PS == nullptr || PC == nullptr || CoreGameState == nullptr)
 	{
+	
 		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
-		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, true);
 		return;
 	}
 
 	
 	if(CoreGameState->SetPlayerTeam(PS))
 	{
-		
+		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
 		FPlayerInfo Info;
 		Info.PC = PC;
 		Info.PS = PS;
@@ -81,12 +137,7 @@ void ALobbyCharacter::InitPlayerInfo()
 		InitLobbyWidget();
 		
 	}
-	else
-	{
 	
-		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
-		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, false);
-	}
 	
 }
 
@@ -129,9 +180,9 @@ void ALobbyCharacter::GameStart_Implementation()
 
 		}
 	}
-
 	
 }
+
 
 
 TMap<UClass*, FGameplayTag> ALobbyCharacter::GetSelectedPlayerClass()

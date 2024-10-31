@@ -29,7 +29,7 @@
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
-
+#include "SeniorProject/UI/HUD/ReturnToMainMenu.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -111,6 +111,22 @@ void AMyCharacter::InitPlayerInfo()
 	CoreGameState->ServerRegisterPlayerToGameState(PlayerStateBase, CharacterClass);
 
 	GetWorldTimerManager().ClearTimer(InitPlayerInfoHandle);
+	
+}
+
+void AMyCharacter::ServerLeaveGame_Implementation()
+{
+	SetMovementEnable(true);
+	
+
+	GetWorldTimerManager().SetTimer(PlayerLeftTimerHandle, FTimerDelegate::CreateLambda([this]() ->
+		void
+		{
+			UnPossessed();
+			OnLeftGame.Broadcast();
+			Destroy();
+
+		}), PlayerLeftTime, false);
 	
 }
 
@@ -385,14 +401,20 @@ void AMyCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 void AMyCharacter::SetMouseCursor(const FInputActionValue& InputActionValue)
 {
 	if(!PlayerController) return;
+
 	
 	if(PlayerController->bShowMouseCursor)
 	{
-		PlayerController->bShowMouseCursor = false;
+		FInputModeGameOnly InputModeData;
+		PlayerController->SetInputMode(InputModeData);
+		PlayerController->SetShowMouseCursor(false);
 	}
 	else
 	{
-		PlayerController->bShowMouseCursor = true;
+		FInputModeGameAndUI InputModeData;
+		PlayerController->SetInputMode(InputModeData);
+		PlayerController->SetShowMouseCursor(true);
+	
 	}
 }
 
@@ -462,6 +484,8 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 
 	
 }
+
+
 
 
 void AMyCharacter::Jump()
@@ -885,7 +909,7 @@ void AMyCharacter::ClientSpectate_Implementation()
 void AMyCharacter::MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam)
 {
 	if(!IsLocallyControlled() || PlayerController == nullptr) return;
-
+	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	
 	TObjectPtr<AActor> Nexus;
@@ -911,5 +935,18 @@ void AMyCharacter::MulticastEndGame_Implementation(const FGameplayTag& DefeatedT
 	if(Nexus != nullptr)
 	{
 		PlayerController->SetViewTargetWithBlend(Nexus, 1.5f, EViewTargetBlendFunction::VTBlend_Linear, 2.f);
+
+		
+		if (UReturnToMainMenu* EndGameWidget = CreateWidget<UReturnToMainMenu>(PlayerController, EndGameWidgetClass))
+		{
+			if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
+			{
+				EndGameWidget->MenuSetup();
+				EndGameWidget->AddToViewport();
+				EndGameWidget->CreateEndGameWidget(DefeatedTeam.MatchesTagExact(PlayerStateBase->GetTeamName()));
+
+			}
+			
+		}
 	}
 }

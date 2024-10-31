@@ -9,7 +9,7 @@
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "SeniorProject/UI/Damage/DamageTextComponent.h"
 #include "SeniorProject/UI/GoldReward/GoldRewardWidgetComponent.h"
-
+#include "SeniorProject/UI/HUD/ReturnToMainMenu.h"
 
 
 AMyPlayerController::AMyPlayerController()
@@ -65,8 +65,8 @@ void AMyPlayerController::BeginPlay()
 
 
 
-	FInputModeGameOnly InputMode;
-	SetInputMode(InputMode);
+	//FInputModeGameOnly InputMode;
+	//SetInputMode(InputMode);
 
 	
 		
@@ -79,7 +79,31 @@ void AMyPlayerController::SetupInputComponent()
 	UInputComponentBase* InputComponentBase = CastChecked<UInputComponentBase>(InputComponent);
 	InputComponentBase->BindAbilityActions(InputData, this, &ThisClass::AbilityInputTagPressed,
 		&ThisClass::AbilityInputTagReleased, &ThisClass::AbilityInputTagHeld);
-	
+	InputComponentBase->BindAction(QuitMenuButton, ETriggerEvent::Triggered, this, &AMyPlayerController::ShowReturnToMainMenu);
+}
+
+void AMyPlayerController::ShowReturnToMainMenu()
+{
+	if (ReturnToMainMenuClass == nullptr) return;
+	if (ReturnToMainMenu == nullptr)
+	{
+		ReturnToMainMenu = CreateWidget<UReturnToMainMenu>(this, ReturnToMainMenuClass);
+		ReturnToMainMenu->AddToViewport();
+		bReturnToMainMenuOpen = true;
+	}
+	if (ReturnToMainMenu)
+	{
+		bReturnToMainMenuOpen = !bReturnToMainMenuOpen;
+		if (bReturnToMainMenuOpen)
+		{
+			ReturnToMainMenu->MenuSetup();
+			
+		}
+		else
+		{
+			ReturnToMainMenu->MenuTearDown();
+		}
+	}
 }
 
 

@@ -17,6 +17,9 @@ class UInputActionData;
 class UAbilitySystemComponentBase;
 class UDamageTextComponent;
 class UGoldRewardWidgetComponent;
+class UReturnToMainMenu;
+class UUserWidget;
+class UInputAction;
 
 UCLASS()
 class SENIORPROJECT_API AMyPlayerController : public APlayerController
@@ -25,12 +28,10 @@ class SENIORPROJECT_API AMyPlayerController : public APlayerController
 
 public:
 	AMyPlayerController();
-
-	
 	virtual void OnPossess(APawn* InPawn) override;
-
 	UAbilitySystemComponentBase* GetASC();
 
+	
 	UFUNCTION(Client, Reliable)
 	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bCriticalHit, bool bMagicalDamage);
 	UFUNCTION(Client, Reliable)
@@ -42,19 +43,25 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
-
+	void ShowReturnToMainMenu();
 
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
+	TSubclassOf<UDamageTextComponent> DamageTextComponentClass;
 	UPROPERTY(EditDefaultsOnly)
-		TSubclassOf<UGoldRewardWidgetComponent> GoldRewardWidgetClass;
+	TSubclassOf<UGoldRewardWidgetComponent> GoldRewardWidgetClass;
+	UPROPERTY(EditAnywhere, Category = HUD)
+	TSubclassOf<UReturnToMainMenu> ReturnToMainMenuClass;
+	UPROPERTY()
+	TObjectPtr<UReturnToMainMenu> ReturnToMainMenu;
+	
 
+	
 private:
+	
+	
 
-
-	FInputModeGameOnly GameInputMode;
-	FInputModeUIOnly UIInputMode;
-
+	UPROPERTY(EditAnywhere, Category = "Input")
+	TObjectPtr<UInputAction> QuitMenuButton;
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	TObjectPtr<UInputActionData> InputData;
 	UPROPERTY()
@@ -66,5 +73,5 @@ private:
 	void AbilityInputTagHeld(FGameplayTag InputTag);
 	
 
-	
+	bool bReturnToMainMenuOpen = false;
 };

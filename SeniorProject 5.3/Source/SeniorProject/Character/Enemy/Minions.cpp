@@ -58,11 +58,18 @@ AMinions::AMinions()
 
 	GetCharacterMovement()->bUseRVOAvoidance = true;
 	GetCharacterMovement()->AvoidanceWeight = 2.0f;
-
-
-
+	
 }
 
+void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AMinions, bIsMeshChanged);
+	DOREPLIFETIME(AMinions, TeamName);
+	DOREPLIFETIME(AMinions, LineTag);
+	DOREPLIFETIME(AMinions, CombatTarget);
+	
+}
 void AMinions::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
@@ -122,17 +129,50 @@ void AMinions::BeginPlay()
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
 
-}
-
-void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(AMinions, bIsMeshChanged);
-	DOREPLIFETIME(AMinions, TeamName);
-	DOREPLIFETIME(AMinions, LineTag);
-
+	BindCallbackTargetCharacter();
 	
 }
+
+void AMinions::BindCallbackTargetCharacter()
+{
+	if(AIControllerBase != nullptr)
+	{
+		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
+		if (BlackboardComp)
+		{
+			// "Target" 키의 ID 가져오기
+			const FBlackboard::FKey TargetKeyID = BlackboardComp->GetKeyID("Target");
+			
+
+			// Target 값이 변경될 때마다 OnBlackboardTargetChanged 호출
+			BlackboardComp->RegisterObserver(TargetKeyID, this,
+				FOnBlackboardChangeNotification::CreateUObject(this, &AMinions::OnBlackboardTargetChanged));
+		}
+	}
+}
+
+EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp,
+	FBlackboard::FKey KeyID)
+{
+	
+	if(HasAuthority())
+	{
+		UObject* InTargetCharacter = BlackboardComp.GetValueAsObject("Target");
+		if(IsValid(InTargetCharacter))
+		{
+			CombatTarget = CastChecked<APawn>(InTargetCharacter);
+		}
+		else
+		{
+			CombatTarget = nullptr;
+		}
+	}
+	
+	// EBlackboardNotificationResult::Continue를 반환하여 델리게이트가 계속 유효하도록 함
+	return EBlackboardNotificationResult::ContinueObserving;
+}
+
+
 
 
 // Called every frame
@@ -149,15 +189,13 @@ void AMinions::Die_Implementation()
 	Super::Die_Implementation();
 }
 
-void AMinions::SetCombatTarget_Implementation(AActor* InCombatTarget)
-{
-	CombatTarget = InCombatTarget;
-}
 
 AActor* AMinions::GetCombatTarget_Implementation() const
 {
 	return CombatTarget;
 }
+
+
 
 void AMinions::SetTargetPlayer_Implementation(AActor* Target)
 {
@@ -236,6 +274,8 @@ void AMinions::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount
 		AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("HitReacting"), bHitReacting);
 
 }
+
+
 
 
 void AMinions::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
