@@ -29,7 +29,6 @@ void ASpawner::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 	DOREPLIFETIME(ASpawner, bSpawnSiegeMinion);
 	DOREPLIFETIME(ASpawner, bSpawnSuperMinion);
 
-
 }
 
 
@@ -42,11 +41,11 @@ void ASpawner::BeginPlay()
 void ASpawner::SpawnParticle()
 {
 	if(HasAuthority())
-		MulticastLevelUpParticles();
+		MulticastSpawnParticles();
 }
 
 
-void ASpawner::MulticastLevelUpParticles_Implementation() const
+void ASpawner::MulticastSpawnParticles_Implementation() const
 {
 	if(IsValid(ParticleComponent))
 		ParticleComponent->Activate(true);

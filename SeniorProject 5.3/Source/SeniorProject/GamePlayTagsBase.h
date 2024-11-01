@@ -121,6 +121,8 @@ public:
 	
 	FGameplayTag GameRule_Turret_Inhibitor;
 	FGameplayTag GameRule_Turret_Nexus;
+	FGameplayTag GameRule_Turret_NONE;
+
 	/* End GameRuleTag */
 
 	

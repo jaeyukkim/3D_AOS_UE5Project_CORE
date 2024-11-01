@@ -267,6 +267,8 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("Inhibitor"));
 	GameplayTags.GameRule_Turret_Nexus = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.Nexus"),
 		FString("Nexus"));
+	GameplayTags.GameRule_Turret_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.NONE"),
+		FString("NONE"));
 	/* end GameRuleTag */
 
 	

@@ -5,6 +5,7 @@
 
 #include "Components/SphereComponent.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "SeniorProject/Character/Enemy/Minions.h"
 
 
 AWayPoint::AWayPoint()
@@ -13,9 +14,10 @@ AWayPoint::AWayPoint()
 	PrimaryActorTick.bCanEverTick = false;
 
 	SphereCollision = CreateDefaultSubobject<USphereComponent>("SphereCollision");
-	SphereCollision->SetSphereRadius(600.f);
+	SphereCollision->SetSphereRadius(150.f);
 	SetRootComponent(SphereCollision);
 	FlagParticle = CreateDefaultSubobject<UParticleSystemComponent>("FlagParticle");
+	FlagParticle->SetupAttachment(SphereCollision);
 }
 
 // Called when the game starts or when spawned
@@ -24,6 +26,12 @@ void AWayPoint::BeginPlay()
 	Super::BeginPlay();
 
 	
-	
+
 }
+
+
+
+
+
+
 

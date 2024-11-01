@@ -3,6 +3,7 @@
 
 #include "Minions.h"
 
+#include "EngineUtils.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
@@ -17,6 +18,7 @@
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
+#include "SeniorProject/Actor/Gameplay/WayPoint.h"
 
 
 // Sets default values
@@ -25,11 +27,7 @@ AMinions::AMinions()
 	Tags.Add(TEXT("Minion"));
 
 	PrimaryActorTick.bCanEverTick = false;
-
-	BlueTeamMesh = CreateDefaultSubobject<USkeletalMesh>("BlueTeamMesh");
-	RedTeamMesh = CreateDefaultSubobject<USkeletalMesh>("RedTeamMesh");
-
-
+	
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponentBase>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
@@ -64,11 +62,11 @@ AMinions::AMinions()
 void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(AMinions, bIsMeshChanged);
 	DOREPLIFETIME(AMinions, TeamName);
 	DOREPLIFETIME(AMinions, LineTag);
 	DOREPLIFETIME(AMinions, CombatTarget);
-	
+	DOREPLIFETIME(AMinions, WayPoints);
+
 }
 void AMinions::PossessedBy(AController* NewController)
 {
@@ -130,9 +128,46 @@ void AMinions::BeginPlay()
 	}
 
 	BindCallbackTargetCharacter();
+
+	// 타워는 웨이 포인트 저장할 필요 x 클라이언트는 미니언의 경로 지정 권한이 없으므로 실행이유x
+	if(!ActorHasTag("Turret") || !HasAuthority())
+		GetWorldTimerManager().SetTimer(InitWayPointTimerHandle, this, &AMinions::InitWayPoint, InitWayPointLoop, true);
 	
 }
 
+//각자 라인에 맞는 웨이포인트를 저장하는 함수, 라인이 초기화되어있지 않으면 다시 Loop
+void AMinions::InitWayPoint()
+{
+	if(!HasAuthority()) return;
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_NONE) || LineTag.MatchesTagExact(TagsBase.GameRule_Line_NONE) || AIControllerBase == nullptr) return;
+
+	//팀 설정이 끝났으면 비동기 초기화 루프 제거
+	GetWorldTimerManager().ClearTimer(InitWayPointTimerHandle);
+
+
+	AActor* FirstWayPoint = nullptr;
+	float MinDistance = INFINITY;
+	for(TActorIterator<AWayPoint> It(GetWorld()) ; It ; ++It)
+	{
+		AWayPoint* Way = *It;
+
+		float DistanceToWayPoint = FVector::Distance(Way->GetActorLocation(), GetActorLocation());
+		if(Way->LineTag.MatchesTagExact(LineTag))
+		{
+			WayPoints.AddUnique(Way);
+		}
+		if(MinDistance > DistanceToWayPoint)
+		{
+			MinDistance = DistanceToWayPoint;
+			FirstWayPoint = Way;
+		}
+	}
+	
+	AIControllerBase->GetBlackboardComponent()->SetValueAsObject("WayPoint", FirstWayPoint);
+	
+	
+}
 void AMinions::BindCallbackTargetCharacter()
 {
 	if(AIControllerBase != nullptr)
@@ -151,8 +186,10 @@ void AMinions::BindCallbackTargetCharacter()
 	}
 }
 
+
+
 EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp,
-	FBlackboard::FKey KeyID)
+                                                                  FBlackboard::FKey KeyID)
 {
 	
 	if(HasAuthority())
@@ -209,42 +246,6 @@ void AMinions::SetTargetPlayer_Implementation(AActor* Target)
 		AIControllerBase->GetBlackboardComponent()->SetValueAsObject(FName("TargetPlayer"),Target);
 	}
 	
-}
-
-void AMinions::SetTeamNameByTag_Implementation(FGameplayTag NewTeamName)
-{
-	Super::SetTeamNameByTag_Implementation(NewTeamName);
-
-	if(BlueTeamMesh == nullptr || RedTeamMesh == nullptr) return;
-	
-	if(HasAuthority())
-	{
-		TeamName = NewTeamName;
-		if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
-		{
-			GetMesh()->SetSkeletalMesh(BlueTeamMesh);
-		}
-		else if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
-		{
-			GetMesh()->SetSkeletalMesh(RedTeamMesh);
-		}
-	}
-
-}
-
-void AMinions::OnRep_Mesh()
-{
-	if(BlueTeamMesh == nullptr || RedTeamMesh == nullptr) return;
-
-	
-	if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam)
-	{
-		GetMesh()->SetSkeletalMesh(BlueTeamMesh);
-	}
-	else if (TeamName == FGameplayTagsBase::Get().GameRule_TeamName_RedTeam)
-	{
-		GetMesh()->SetSkeletalMesh(RedTeamMesh);
-	}
 }
 
 

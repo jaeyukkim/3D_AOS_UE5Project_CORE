@@ -46,30 +46,27 @@ public:
 	void OnTurretSpawned(ATurret* SpawnedTurret);
 	UFUNCTION()
 	void OnTurretDestroyed(FGameplayTag& LineTag, FGameplayTag& TurretLevelTag, FGameplayTag& TeamTag);
-	UFUNCTION(BlueprintCallable)
-	FGameplayTag GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag);
+
 
 	
 protected:
 	virtual void BeginPlay() override;
 
-	//첫 미니언 스폰 타임
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	float InitialSpawnTime = 90.f;
-
-	// 미니언 스폰 타임 주기
-	const float RecurringSpawnTime = 30.f;
-
-	//공성 미니언 스폰 카운터
-	const int32 SiegeMinionSpawnCycle = 3;
-	int32 SiegeMinionSpawnCount = 0;
-
 	UPROPERTY()
 	TObjectPtr<ACoreGameState> CoreGameState;
 
+	
+	//첫 미니언 스폰 타임
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float InitialSpawnTime = 65.f;
+	// 미니언 스폰 타임 주기
+	const float RecurringSpawnTime = 30.f;
+	//공성 미니언 스폰 카운터
+	const int32 SiegeMinionSpawnCycle = 3;
+	int32 SiegeMinionSpawnCount = 0;
 	int32 RedTeamPlayerNumber = 0;
 	int32 BlueTeamPlayerNumber = 0;
-	
+	float UpdateMinionTargetDelay = 1.5f;
 private:
 	
 	// 일정 시간마다 미니언 스폰하는 함수
@@ -79,5 +76,6 @@ private:
 	
 	FTimerHandle InitialSpawnTimerHandle;
 	FTimerHandle RecurringSpawnTimerHandle;
+	FTimerHandle UpdateMinionTargetTimerHandle;
 };
 

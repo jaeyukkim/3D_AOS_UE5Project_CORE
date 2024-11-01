@@ -147,17 +147,17 @@ void ATurret::ServerUpdateTurretState_Implementation()
 
 
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-	if (AMyGameModeBase* GameMode = Cast<AMyGameModeBase>(UGameplayStatics::GetGameMode(GetWorld())))
+	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
 	{
 		FGameplayTag InTurretLevelTag = TagsBase.GameRule_TeamName_NONE;
 		
 		if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_BlueTeam))
 		{
-			InTurretLevelTag = GameMode->GetValidTargetTurret(TagsBase.GameRule_TeamName_RedTeam, LineTag);
+			InTurretLevelTag = CoreGameState->GetValidTargetTurret(TagsBase.GameRule_TeamName_RedTeam, LineTag);
 		}
 		else if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
 		{
-			InTurretLevelTag = GameMode->GetValidTargetTurret(TagsBase.GameRule_TeamName_BlueTeam, LineTag);
+			InTurretLevelTag = CoreGameState->GetValidTargetTurret(TagsBase.GameRule_TeamName_BlueTeam, LineTag);
 		}
 		
 		if(TurretLevelTag.MatchesTagExact(InTurretLevelTag))

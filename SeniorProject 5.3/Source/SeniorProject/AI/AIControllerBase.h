@@ -22,9 +22,9 @@ public:
 	
 	void StopAI();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void UpdateMinionTargetTurret();
-
+	void InitWayPoint();
 	UPROPERTY()
 	TObjectPtr<AMinions> ControlledMinion;
 	

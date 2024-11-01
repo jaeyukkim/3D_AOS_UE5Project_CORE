@@ -8,6 +8,7 @@
 #include "BehaviorTree/Blackboard/BlackboardKey.h"
 #include "Minions.generated.h"
 
+class AWayPoint;
 enum class EBlackboardNotificationResult : uint8;
 namespace FBlackboard
 {
@@ -36,12 +37,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float LifeSpanTime = 5.f;
 	virtual void Die_Implementation() override;
-
 	
 	FORCEINLINE virtual int32 GetPlayerLevel_Implementation() override {return Level;};
-
 	
-
 	/* Enemy Interface */
 	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
 	virtual AActor* GetCombatTarget_Implementation() const override;
@@ -52,7 +50,6 @@ public:
 
 
 	/* GameplayInterface */
-	virtual void SetTeamNameByTag_Implementation(FGameplayTag NewTeamName) override;
 	virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
 	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
 	/* end GameplayInterface */
@@ -63,13 +60,16 @@ public:
 	
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag LineTag;
-	
+
+	UPROPERTY(Replicated)
+	TArray<TObjectPtr<AWayPoint>> WayPoints;
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 	void BindCallbackTargetCharacter();
+	void InitWayPoint();
 	virtual EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
 	
 	
@@ -79,32 +79,18 @@ protected:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-	
-
 	UPROPERTY()
 	TObjectPtr<AAIControllerBase> AIControllerBase;
-
 	UPROPERTY(EditAnywhere, Category = "AI")
 	TObjectPtr<UBehaviorTree> BehaviorTree;
 
 	
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
-	TObjectPtr<USkeletalMesh> RedTeamMesh;
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
-	TObjectPtr<USkeletalMesh> BlueTeamMesh;
-
-	UFUNCTION(BlueprintCallable)
-	void SetIsMeshChanged(bool IsMeshChanged) {bIsMeshChanged = IsMeshChanged;}
-	
-	UFUNCTION()
-	void OnRep_Mesh();
-
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
+
+	
 private:
-	UPROPERTY(ReplicatedUsing = OnRep_Mesh)
-	bool bIsMeshChanged = false;
+	FTimerHandle InitWayPointTimerHandle;
+	const float InitWayPointLoop = 0.1f;
 	
 };

@@ -280,9 +280,13 @@ void ACoreGameState::ServerUpdateTurretStates_Implementation(const FGameplayTag&
 }
 
 
+/*
+ *  다음 적팀 타워의 타워 레벨을 반환하는 함수
+ *  다음 아군 타워의 타워 레밸을 확인하려면 팀 태그를 반대로 전달하면 됨
+ */
 FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGameplayTag& LineTag)
 {
-	 const uint16 TurretStates = (TeamTag == FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
+	 const uint16 TurretStates = TeamTag.MatchesTagExact(FGameplayTagsBase::Get().GameRule_TeamName_BlueTeam) ? RedTeamTurretStates : BlueTeamTurretStates;
 	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	
@@ -347,20 +351,19 @@ FGameplayTag ACoreGameState::GetValidTargetTurret(FGameplayTag& TeamTag, FGamepl
     		return TagsBase.GameRule_Turret_Inhibitor;
     	}
     }
-	else
-	{
-		bool bTopInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Top);
-		bool bMidInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Mid);
-		bool bBottomInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Bottom);
+	
+	bool bTopInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Top);
+	bool bMidInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Mid);
+	bool bBottomInhibitorDestroyed = IsInhibitorDestroyed(TeamTag, TagsBase.GameRule_Line_Bottom);
 
-		if(bTopInhibitorDestroyed || bMidInhibitorDestroyed || bBottomInhibitorDestroyed)
-		{
-			return TagsBase.GameRule_Turret_Nexus;
-		}
+	if(bTopInhibitorDestroyed || bMidInhibitorDestroyed || bBottomInhibitorDestroyed)
+	{
+		return TagsBase.GameRule_Turret_Nexus;
 	}
+	
 
     // 모든 타워가 파괴된 경우 nullptr 또는 비어 있는 태그 반환
-    return FGameplayTag();
+    return TagsBase.GameRule_Turret_NONE;
 }
 
 bool ACoreGameState::IsInhibitorDestroyed(FGameplayTag& TeamTag, FGameplayTag& LineTag) const

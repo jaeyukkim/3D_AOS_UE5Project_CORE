@@ -68,11 +68,11 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 	if(ControlledMinion == nullptr || !HasAuthority()) return;
 
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-	if(AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode()))
+	if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(GetWorld()->GetGameState()))
 	{
-		const FGameplayTag TeamTag = ControlledMinion->TeamName;
-		const FGameplayTag LineTag = ControlledMinion->LineTag;
-		const FGameplayTag TargetLevel = MyGameModeBase->GetValidTargetTurret(TeamTag, LineTag);
+		FGameplayTag TeamTag = ControlledMinion->TeamName;
+		FGameplayTag LineTag = ControlledMinion->LineTag;
+		const FGameplayTag TargetLevel = CoreGameState->GetValidTargetTurret(TeamTag, LineTag);
 
 		if(TeamTag.MatchesTagExact(TagsBase.GameRule_TeamName_NONE) || LineTag.MatchesTagExact(TagsBase.GameRule_Line_NONE))
 		{
@@ -91,7 +91,7 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 			{
 				if(Blackboard)
 				{
-					Blackboard->SetValueAsObject("TargetTurret", Turret);
+					Blackboard->SetValueAsVector("TargetTurret", Turret->GetActorLocation());
 					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
 					return;
 				}
@@ -103,7 +103,7 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 			{
 				if(Blackboard)
 				{
-					Blackboard->SetValueAsObject("TargetTurret", Turret);
+					Blackboard->SetValueAsVector("TargetTurret", Turret->GetActorLocation());
 					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
 				}
 			}
@@ -112,6 +112,8 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 		
 	}
 }
+
+
 
 void AAIControllerBase::StopAI()
 {

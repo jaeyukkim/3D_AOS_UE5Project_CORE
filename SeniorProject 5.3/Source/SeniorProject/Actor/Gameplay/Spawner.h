@@ -59,18 +59,21 @@ protected:
 	TObjectPtr<UParticleSystemComponent> ParticleComponent;
 
 	UFUNCTION(NetMulticast, Reliable)
-	void MulticastLevelUpParticles() const;
+	void MulticastSpawnParticles() const;
 
 	UFUNCTION(BlueprintCallable)
 	void SpawnParticle();
+
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Replicated, Category = "GameRule")
+	FGameplayTag TeamName;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Replicated, Category = "GameRule")
+	FGameplayTag LineTag;
 	
 private:
 
-	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
-	FGameplayTag TeamName;
-
-	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
-	FGameplayTag LineTag;
+	
 
 	UPROPERTY(EditDefaultsOnly, Replicated ,Category = "Spawn")
 	bool bSpawnSuperMinion = false;

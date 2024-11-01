@@ -210,7 +210,13 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 
 	
 	CoreGameState->ServerUpdateTurretStates(LineTag, TurretLevelTag, TeamTag, true);
-	UpdateMinionTargets.Broadcast();
+
+
+	GetWorldTimerManager().SetTimer(UpdateMinionTargetTimerHandle, FTimerDelegate::CreateLambda([this]()
+	{
+		UpdateMinionTargets.Broadcast();
+
+	}), UpdateMinionTargetDelay, false);
 
 
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
@@ -221,18 +227,6 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 		
 }
 
-
-
-/*
- *  다음 적팀 타워의 타워 레벨을 반환하는 함수
- *  다음 아군 타워의 타워 레밸을 확인하려면 팀 태그를 반대로 전달하면 됨
- */
-FGameplayTag AMyGameModeBase::GetValidTargetTurret(FGameplayTag TeamTag, FGameplayTag LineTag)
-{
-	if(CoreGameState == nullptr) return FGameplayTag();
-	
-	return CoreGameState->GetValidTargetTurret(TeamTag, LineTag);
-}
 
 
 
