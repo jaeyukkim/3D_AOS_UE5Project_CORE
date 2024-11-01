@@ -3,8 +3,13 @@
 
 #include "AIControllerBase.h"
 
+#include "EngineUtils.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Navigation/CrowdFollowingComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/Character/Enemy/Minions.h"
+#include "SeniorProject/Character/Turret/Turret.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
 
 
 
@@ -29,6 +34,83 @@ AAIControllerBase::AAIControllerBase(const FObjectInitializer& ObjectInitializer
 	
 	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>("BehaviorTreeComponent");
 	check(BehaviorTreeComponent);
+}
+
+void AAIControllerBase::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if(!HasAuthority()) return;
+
+	
+}
+
+void AAIControllerBase::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+	
+	ControlledMinion = Cast<AMinions>(InPawn);
+	if(ControlledMinion->ActorHasTag("Turret")) return;
+	
+	if(AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode()))
+	{
+		MyGameModeBase->UpdateMinionTargets.AddDynamic(this, &AAIControllerBase::UpdateMinionTargetTurret);
+	}
+	
+	GetWorldTimerManager().SetTimer(InitMinionTargetTimerHandle, this, &AAIControllerBase::UpdateMinionTargetTurret, InitMinionTargetLoop, true);
+}
+
+
+
+void AAIControllerBase::UpdateMinionTargetTurret()
+{
+	
+	if(ControlledMinion == nullptr || !HasAuthority()) return;
+
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	if(AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode()))
+	{
+		const FGameplayTag TeamTag = ControlledMinion->TeamName;
+		const FGameplayTag LineTag = ControlledMinion->LineTag;
+		const FGameplayTag TargetLevel = MyGameModeBase->GetValidTargetTurret(TeamTag, LineTag);
+
+		if(TeamTag.MatchesTagExact(TagsBase.GameRule_TeamName_NONE) || LineTag.MatchesTagExact(TagsBase.GameRule_Line_NONE))
+		{
+			return;
+		}
+
+		for (TActorIterator<ATurret> It(GetWorld()); It; ++It)
+		{
+			ATurret* Turret = *It;
+			const FGameplayTag TurretTeam = Turret->TeamName;
+			const FGameplayTag TurretLine = Turret->LineTag;
+			const FGameplayTag TurretLevel = Turret->TurretLevelTag;
+
+			// 다음 타겟이 넥서스이고 상대팀일 경우
+			if(TargetLevel.MatchesTagExact(TagsBase.GameRule_Turret_Nexus) && !TeamTag.MatchesTagExact(TurretTeam))
+			{
+				if(Blackboard)
+				{
+					Blackboard->SetValueAsObject("TargetTurret", Turret);
+					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
+					return;
+				}
+				return;
+			}
+			
+			// 미니언과 동일한 라인이 맞고 다음 타겟 타워이고 같은팀이 아니면 새로운 타겟 타워로 설정합니다.
+			if(LineTag.MatchesTagExact(TurretLine) && TargetLevel.MatchesTagExact(TurretLevel) && !TeamTag.MatchesTagExact(TurretTeam))
+			{
+				if(Blackboard)
+				{
+					Blackboard->SetValueAsObject("TargetTurret", Turret);
+					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
+				}
+			}
+
+		}
+		
+	}
 }
 
 void AAIControllerBase::StopAI()

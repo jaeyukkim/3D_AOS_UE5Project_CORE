@@ -16,6 +16,7 @@
 #include "SeniorProject/GameSetting/CoreGameState.h"
 
 
+
 class ICombatInterface;
 
 UAttributeSetBase::UAttributeSetBase()
@@ -188,6 +189,7 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 				{
 					SendXPEvent(Props);
 					SendGoldEvent(Props);
+					AddTeamScore(Props);
 				}
 				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
 	
@@ -301,6 +303,50 @@ bool UAttributeSetBase::bIsNeedToUpdateAttribute(const FEffectProperties& Props)
 	return true;
 }
 
+void UAttributeSetBase::AddTeamScore(const FEffectProperties& Props)
+{
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+
+
+	// 킬 대상과 데스 데상이 둘 다 플레이어일 경우 게임스코어에 영향을 미침
+	if(Props.SourceCharacter->ActorHasTag("Player") && Props.TargetCharacter->ActorHasTag("Player"))
+	{
+		if(Props.SourceCharacter->Implements<UGameRuleInterface>())
+		{
+			FGameplayTag TeamName = IGameRuleInterface::Execute_GetTeamName(Props.SourceCharacter);
+
+			if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
+			{
+				CoreGameState->ServerAddTeamScore(TeamName, true);
+				return;
+			}
+		}
+	}
+
+	// 데스 데상이 플레이어일 경우 게임스코어에 영향을 미치지 않으나 사망 사운드는 재생
+	if(Props.TargetCharacter->ActorHasTag("Player"))
+	{
+		if(Props.TargetCharacter->Implements<UGameRuleInterface>())
+		{
+			FGameplayTag TeamName = IGameRuleInterface::Execute_GetTeamName(Props.TargetCharacter);
+
+			if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
+			{
+				
+				if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_BlueTeam))
+				{
+					CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_RedTeam, false);
+				}
+				else
+				{
+					CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_BlueTeam, false);
+				}
+				
+			}
+		}
+	}
+	
+}
 
 
 void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const

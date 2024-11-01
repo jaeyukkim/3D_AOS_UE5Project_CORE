@@ -182,9 +182,14 @@ EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackbo
 
 void AMinions::Die_Implementation()
 {
-	SetLifeSpan(LifeSpan);
+	SetLifeSpan(LifeSpanTime);
 	AIControllerBase->StopAI();
 	HealthBarWidget->SetVisibility(false);
+
+	if(HasAuthority())
+	{
+		AIControllerBase->GetBlackboardComponent()->SetValueAsObject(FName("Target"),nullptr);
+	}
 	
 	Super::Die_Implementation();
 }

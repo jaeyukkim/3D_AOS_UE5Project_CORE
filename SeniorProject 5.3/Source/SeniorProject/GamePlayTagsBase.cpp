@@ -253,6 +253,8 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 		FString("MidLine"));
 	GameplayTags.GameRule_Line_Bottom = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.Bottom"),
 		FString("BottomLine"));
+	GameplayTags.GameRule_Line_NONE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Line.NONE"),
+	FString("Line NONE"));
 
 	GameplayTags.GameRule_Turret_FirstTurret = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("GameRule.Turret.FirstTurret"),
 		FString("FirstTurret"));

@@ -73,7 +73,6 @@ void ACharacterBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 	DOREPLIFETIME(ACharacterBase, bDead);
 	DOREPLIFETIME(ACharacterBase, bIsStunned);
 	DOREPLIFETIME(ACharacterBase, bIsInvincibility);
-
 	
 }
 
@@ -153,7 +152,10 @@ FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTa
 
 void ACharacterBase::Die_Implementation()
 {
-	MulticastHandleDeath();
+	if(HasAuthority())
+	{
+		MulticastHandleDeath();
+	}
 }
 
 ECharacterClass ACharacterBase::GetCharacterClass_Implementation()

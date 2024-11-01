@@ -109,8 +109,11 @@ void ACoreGameState::ServerRegisterPlayerToGameState_Implementation(APlayerState
 	}
 	
 	
-	// 중복된 PS가 없다면 추가
-	PlayerInfos.Add(PlayerInformation);
+	// 중복 확인 후 PlayerInfos에 추가
+	if (!PlayerInfos.ContainsByPredicate([&](const FPlayerInfo& Info) { return Info.PS == PlayerInformation.PS; }))
+	{
+		PlayerInfos.AddUnique(PlayerInformation);
+	}
 	
 }
 
@@ -151,8 +154,11 @@ void ACoreGameState::AddPlayerInfo(FPlayerInfo& Info)
 	PlayerInformation.PlayerTeamName = Info.PlayerTeamName;
 	PlayerInformation.PlayerName = Info.PlayerName;
 	
-	// 중복된 PS가 없다면 추가
-	PlayerInfos.Add(PlayerInformation);
+	// 중복 확인 후 PlayerInfos에 추가
+	if (!PlayerInfos.ContainsByPredicate([&](const FPlayerInfo& Infos) { return Infos.PS == PlayerInformation.PS; }))
+	{
+		PlayerInfos.Add(PlayerInformation);
+	}
 
 }
 
@@ -392,26 +398,27 @@ void ACoreGameState::OnRep_PlayerInfos()
  * 상대 플레이어를 죽였을 때 그 스코어가 파라미터로 전달됨.
  */
 
-void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName)
+void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName, bool bIsAddScore)
 {
-	//킬 대상이 플레이어끼리 였을 때만 점수를 더함 사망 사운드는 재생
+	//킬 대상이 플레이어끼리 였을 때만 점수를 더함 사망 사운드는 플레이어가 죽는다면 재생
 	
-
-	
-	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-	
-	
-	if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
+	if(bIsAddScore)
 	{
-		RedTeamScore++;
-	}
+		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	
+		if(TeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
+		{
+			RedTeamScore++;
+		}
 
-	else
-	{
-		BlueTeamScore++;
-	}
+		else
+		{
+			BlueTeamScore++;
+		}
 
-	TotalTeamScore = RedTeamScore + BlueTeamScore;
+		TotalTeamScore = RedTeamScore + BlueTeamScore;
+	}
+	
 	MulticastPlayTeamScoreSound(TeamName);
 }
 

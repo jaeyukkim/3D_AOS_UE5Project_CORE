@@ -113,6 +113,7 @@ public:
 	FGameplayTag GameRule_Line_Top;
 	FGameplayTag GameRule_Line_Mid;
 	FGameplayTag GameRule_Line_Bottom;
+	FGameplayTag GameRule_Line_NONE;
 
 	FGameplayTag GameRule_Turret_FirstTurret;
 	FGameplayTag GameRule_Turret_SecondTurret;

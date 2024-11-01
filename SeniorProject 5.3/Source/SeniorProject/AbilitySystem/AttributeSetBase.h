@@ -261,5 +261,5 @@ private:
 	void HandleIncomingGold(const FEffectProperties& Props);
 	void Debuff(const FEffectProperties& Props);
 	bool bIsNeedToUpdateAttribute(const FEffectProperties& Props);
-	
+	void AddTeamScore(const FEffectProperties& Props);
 };

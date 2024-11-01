@@ -29,31 +29,33 @@ ATurret::ATurret()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("CAMERA"));
 	Camera->SetupAttachment(SpringArm);
 
+	TargetingBeam = CreateDefaultSubobject<UParticleSystemComponent>("TargetingBeam");
+	TargetingBeam->SetupAttachment(GetRootComponent());
+	TargetingBeam->bAutoActivate = false;
+
+	AttackBeam = CreateDefaultSubobject<UParticleSystemComponent>("AttackBeam");
+	AttackBeam->SetupAttachment(GetRootComponent());
+	AttackBeam->bAutoActivate = false;
+	
 	bIsInvincibility = true;
 	
 }
 
 
-void ATurret::Tick(float DeltaSeconds)
+void ATurret::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
-	Super::Tick(DeltaSeconds);
-	
-	
-	
-	
-}
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-/*
- *  서버에서만 실행됨.
- */
+	DOREPLIFETIME(ATurret, bIsUnderAttacked);
+
+}
 
 void ATurret::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	
-
-
 }
+
 
 
 void ATurret::BeginPlay()
@@ -70,6 +72,7 @@ void ATurret::BeginPlay()
 			[this](const FOnAttributeChangeData& Data)
 			{
 				TurretUnderAttackedSound();
+				
 			}
 		);
 	
@@ -78,7 +81,29 @@ void ATurret::BeginPlay()
 	
 }
 
+void ATurret::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	
+	if(CombatTarget == nullptr)
+	{
+		if(AttackBeam->IsActive())
+		{
+			AttackBeam->DeactivateImmediate();
+		}
+		
+		return;
+	}
+	
+	FVector SourcePoint = GetMesh()->GetSocketLocation(WeaponTipSocketName);
+	FVector TargetPoint = CombatTarget->GetActorLocation();
+			
+	TargetingBeam->SetBeamSourcePoint(0, SourcePoint, 0);
+	TargetingBeam->SetBeamTargetPoint(0, TargetPoint, 0);
+	AttackBeam->SetBeamSourcePoint(0, SourcePoint, 0);
+	AttackBeam->SetBeamTargetPoint(0, TargetPoint, 0);
 
+}
 
 void ATurret::InitializeDefaultAttributes() const
 {
@@ -142,10 +167,23 @@ void ATurret::ServerUpdateTurretState_Implementation()
 	}
 }
 
+void ATurret::ServerSetIsUnderAttacked_Implementation()
+{
+	bIsUnderAttacked = true;
+	GetWorld()->GetTimerManager().SetTimer(HitReactTimerHandle, FTimerDelegate::CreateLambda([this]() ->
+	void
+	{
+		bIsUnderAttacked = false;
+	}), HitReactLoopTime, false);
+}
 
 
 void ATurret::TurretUnderAttackedSound()
 {
+	
+	ServerSetIsUnderAttacked();
+	
+	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
 	if(GameInstance == nullptr) return;
@@ -186,15 +224,74 @@ void ATurret::TurretUnderAttackedSound()
 	
 }
 
+
+
 void ATurret::Die_Implementation()
 {
 	if(HasAuthority())
 	{
 		OnTurretDestroyed.Broadcast(LineTag, TurretLevelTag, TeamName);
+		
 	}
-	PlayTowerDestroyedSound();
+	
+	MulticastPlayTowerDestroyedSound();
+	
 	
 	Super::Die_Implementation();
+}
+
+void ATurret::MulticastHandleDeath()
+{
+	AttackBeam->DeactivateImmediate();
+	TargetingBeam->DeactivateImmediate();
+
+	
+	GetWorldTimerManager().SetTimer(ExplosionTimerHandle, FTimerDelegate::CreateLambda([this]()
+	{
+		GetMesh()->SetVisibility(false);
+		
+	}), ExplosionTime ,false);
+	
+	Super::MulticastHandleDeath();
+}
+
+
+EBlackboardNotificationResult ATurret::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp,
+                                                                 FBlackboard::FKey KeyID)
+{
+	Super::OnBlackboardTargetChanged(BlackboardComp, KeyID);
+	
+	OnTargetChanged.Broadcast();
+	if(HasAuthority())
+	{
+		MulticastActiveTargetBeam(CombatTarget);
+	}
+	
+	return EBlackboardNotificationResult::ContinueObserving;
+}
+
+
+
+void ATurret::MulticastActiveTargetBeam_Implementation(AActor* TargetActor)
+{
+	if(TargetActor != nullptr)
+	{
+		if(!TargetingBeam->IsActive())
+		{
+			TargetingBeam->Activate();
+		}
+	}
+	else
+	{
+		TargetingBeam->Deactivate();
+		AttackBeam->DeactivateImmediate();
+	}
+}
+
+
+void ATurret::MulticastActiveAttackBeam_Implementation()
+{
+	AttackBeam->Activate();
 }
 
 
@@ -205,7 +302,7 @@ void ATurret::Die_Implementation()
  *  적군 타워면 적군 타워 파괴 사운드 재생
  */
 
-void ATurret::PlayTowerDestroyedSound()
+void ATurret::MulticastPlayTowerDestroyedSound_Implementation()
 {
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
@@ -260,3 +357,6 @@ void ATurret::PlayTowerDestroyedSound()
 
 	
 }
+
+
+

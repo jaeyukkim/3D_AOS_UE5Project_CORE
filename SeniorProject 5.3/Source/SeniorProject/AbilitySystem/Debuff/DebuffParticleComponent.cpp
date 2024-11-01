@@ -20,13 +20,13 @@ void UDebuffParticleComponent::BeginPlay()
 	ICombatInterface* CombatInterface = Cast<ICombatInterface>(GetOwner());
 	if (UAbilitySystemComponent* ASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(GetOwner()))
 	{
-		ASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::NewOrRemoved).AddUObject(this, &UDebuffParticleComponent::DebuffTagChanged);
+		ASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::AnyCountChange).AddUObject(this, &UDebuffParticleComponent::DebuffTagChanged);
 	}
 	if (CombatInterface)
 	{
 		CombatInterface->GetOnASCRegisteredDelegate().AddWeakLambda(this, [this](UAbilitySystemComponent* InASC)
 		{
-			InASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::NewOrRemoved).AddUObject(this, &UDebuffParticleComponent::DebuffTagChanged);
+			InASC->RegisterGameplayTagEvent(DebuffTag, EGameplayTagEventType::AnyCountChange).AddUObject(this, &UDebuffParticleComponent::DebuffTagChanged);
 		});
 	}
 	
@@ -34,12 +34,14 @@ void UDebuffParticleComponent::BeginPlay()
 
 void UDebuffParticleComponent::DebuffTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
-	if (NewCount > 0)
+	if (NewCount > PrevCount)
 	{
+		DeactivateImmediate();
 		Activate();
 	}
 	else
 	{
 		Deactivate();
 	}
+	PrevCount = NewCount;
 }

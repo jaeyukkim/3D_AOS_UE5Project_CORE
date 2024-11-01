@@ -12,7 +12,7 @@ enum class EBlackboardNotificationResult : uint8;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FTurretDestroyedDelegate, FGameplayTag&, LineTag, FGameplayTag&,
                                                TurretLevelTag, FGameplayTag&, TeamName);
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTargetChangedDelegate, UObject*, NewTarget);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTargetChangedDelegate);
 
 /**
  * 
@@ -28,8 +28,9 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void BeginPlay() override;
 	virtual void InitializeDefaultAttributes() const override;
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void Tick(float DeltaSeconds) override;
-
+	virtual EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID) override;
 	
 	// 게임 모드에 자신을 등록하는 함수
 	UFUNCTION(Server, Reliable)
@@ -38,8 +39,9 @@ public:
 	void ServerUpdateTurretState();
 	UFUNCTION()
 	void TurretUnderAttackedSound();
-	void PlayTowerDestroyedSound();
-	
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastPlayTowerDestroyedSound();
+	virtual void MulticastHandleDeath() override;
 	
 	/* Combat Interface */
 	virtual void Die_Implementation() override;
@@ -62,14 +64,29 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	TObjectPtr<USpringArmComponent> SpringArm;
-
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 	TObjectPtr<UCameraComponent> Camera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> TargetingBeam;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> AttackBeam;
 
+	UPROPERTY(Replicated)
+	bool bIsUnderAttacked = false;
+	UFUNCTION(Server, Reliable)
+	void ServerSetIsUnderAttacked();
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastActiveTargetBeam(AActor* TargetActor);
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastActiveAttackBeam();
+	
+	
 	
 private:
 	FTimerHandle TurretInitTimerHandle;
+	FTimerHandle HitReactTimerHandle;
+	FTimerHandle ExplosionTimerHandle;
 	const float InitLoopTime = 5.f;
-
-	
+	const float HitReactLoopTime = 0.1f;
+	const float ExplosionTime = 3.8f;
 };

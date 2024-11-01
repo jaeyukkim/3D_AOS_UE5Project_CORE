@@ -34,7 +34,7 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
-	float LifeSpan = 5.f;
+	float LifeSpanTime = 5.f;
 	virtual void Die_Implementation() override;
 
 	
@@ -70,7 +70,7 @@ protected:
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 	void BindCallbackTargetCharacter();
-	EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
+	virtual EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
 	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")

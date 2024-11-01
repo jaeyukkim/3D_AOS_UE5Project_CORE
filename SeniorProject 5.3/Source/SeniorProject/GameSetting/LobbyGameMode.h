@@ -6,6 +6,7 @@
 #include "GameFramework/GameMode.h"
 #include "LobbyGameMode.generated.h"
 
+class ACoreGameState;
 /**
  * 
  */
@@ -18,6 +19,7 @@ public:
 
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 	virtual void Logout(AController* Exiting) override;
+	void SetUpPlayerTeam(APlayerController* NewPlayer);
 	virtual void ServerTravelToBattlefield();
 
 	UPROPERTY()

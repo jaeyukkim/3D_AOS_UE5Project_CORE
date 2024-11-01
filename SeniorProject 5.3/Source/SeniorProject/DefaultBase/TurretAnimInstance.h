@@ -6,6 +6,7 @@
 #include "Animation/AnimInstance.h"
 #include "TurretAnimInstance.generated.h"
 
+
 class ATurret;
 /**
  * 
@@ -22,7 +23,8 @@ public:
 	
 	UPROPERTY()
 	TObjectPtr<ATurret> Turret;
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
+	TObjectPtr<AActor> CombatTarget;
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Turret, Meta = (AllowPrivateAccess = true))
@@ -68,5 +70,4 @@ private:
 	const float OpenShieldDistance = 500.f;
 	
 
-	
 };

@@ -80,25 +80,29 @@ void ADefaultHUD::InitOverlay(APlayerController* PC, APlayerState* PS, UAbilityS
 	Widget->AddToViewport();
 }
 
-void ADefaultHUD::InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter)
+bool ADefaultHUD::InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter)
 {
 	checkf(CharacterSelectWidgetClass, TEXT("CharacterSelect uninitialized, please fill out BP_DefaultHUD"));
-	if(LobbyCharacter == nullptr) return;
+	if(LobbyCharacter == nullptr) return false;
 	
 	UUserWidget* Widget = CreateWidget<UUserWidget>(GetWorld(), CharacterSelectWidgetClass);
 	CharacterSelectWidget = Cast<UOverlayWidget>(Widget);
-	LobbyCharacter->BindCallbacksToDependencies();
 	
-	CharacterSelectWidget->SetWidgetController(LobbyCharacter);
-	CharacterSelectWidget->AddToViewport();
-
 	if (CharacterSelectWidget)
 	{
-		FInputModeGameAndUI InputModeData;
+		LobbyCharacter->BindCallbacksToDependencies();
+		CharacterSelectWidget->SetWidgetController(LobbyCharacter);
+		CharacterSelectWidget->SetIsFocusable(true);
+		FInputModeUIOnly InputModeData;
 		InputModeData.SetWidgetToFocus(CharacterSelectWidget->TakeWidget());
 		GetOwningPlayerController()->SetInputMode(InputModeData);
 		GetOwningPlayerController()->SetShowMouseCursor(true);
+		CharacterSelectWidget->AddToViewport();
+		return true;
 	}
 	
+
+	
+	return false;
 }
 

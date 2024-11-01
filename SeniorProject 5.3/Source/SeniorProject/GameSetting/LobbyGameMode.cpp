@@ -3,6 +3,7 @@
 
 #include "LobbyGameMode.h"
 
+#include "GameFramework/PlayerStart.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Character/Player/LobbyCharacter.h"
 #include "SeniorProject/PlayerBase/PlayerStateBase.h"
@@ -39,11 +40,11 @@ void ALobbyGameMode::PostLogin(APlayerController* NewPlayer)
 				CoreGameState->BlueTeam.AddUnique(PS);
 				PS->SetTeamName(TagsBase.GameRule_TeamName_BlueTeam);
 			}
-			
+			SetUpPlayerTeam(NewPlayer);
 		}
-		
 	}
 }
+
 
 void ALobbyGameMode::Logout(AController* Exiting)
 {
@@ -63,6 +64,42 @@ void ALobbyGameMode::Logout(AController* Exiting)
 	
 	Super::Logout(Exiting);
 }
+
+void ALobbyGameMode::SetUpPlayerTeam(APlayerController* NewPlayer)
+{
+	APlayerStateBase* PlayerStateBase = NewPlayer->GetPlayerState<APlayerStateBase>();
+	if (PlayerStateBase && PlayerStateBase->PlayerCharacterClass)
+	{
+		
+		AActor* OldPawn = NewPlayer->GetPawn();
+		
+		// 기존의 PlayerCharacterClass에서 스폰할 캐릭터 클래스를 설정
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(this, APlayerStart::StaticClass(), PlayerStarts);
+		TArray<APlayerStart*> NewPlayerStarts;
+
+		for (auto Start : PlayerStarts)
+		{
+			APlayerStart* TeamStart = Cast<APlayerStart>(Start);
+			NewPlayerStarts.Add(TeamStart);
+		}
+		
+		if (NewPlayerStarts.Num() > 0)
+		{
+			APlayerStart* ChosenPlayerStart = NewPlayerStarts[FMath::RandRange(0, NewPlayerStarts.Num() - 1)];
+			FTransform SpawnLocation = ChosenPlayerStart->GetActorTransform();
+			
+			ALobbyCharacter* NewCharacter = GetWorld()->SpawnActor<ALobbyCharacter>(PlayerStateBase->LobbyCharacterClass, SpawnLocation);
+			if (NewCharacter)
+			{
+				// 새로 스폰한 캐릭터를 플레이어에게 할당
+				NewPlayer->Possess(NewCharacter);
+				if(OldPawn != nullptr) OldPawn->Destroy();
+			}
+		}
+	}
+}
+
 
 void ALobbyGameMode::ServerTravelToBattlefield()
 {

@@ -146,7 +146,7 @@ public:
 	int32 TotalTeamScore = 0;
 	
 	UFUNCTION(Server, Reliable)
-	void ServerAddTeamScore(const FGameplayTag& TeamName);
+	void ServerAddTeamScore(const FGameplayTag& TeamName, bool bIsAddScore);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayTeamScoreSound(const FGameplayTag& TeamName);
 

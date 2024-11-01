@@ -41,7 +41,7 @@ public:
 
 	
 	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
-	void InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter);
+	bool InitCharacterSelectWidget(ALobbyCharacter* LobbyCharacter);
 
 
 private:

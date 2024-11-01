@@ -8,13 +8,9 @@
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
 #include "GameplayTagContainer.h"
-#include "Net/UnrealNetwork.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 #include "SeniorProject/GameSetting/LobbyGameMode.h"
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
-#include "Blueprint/UserWidget.h"
-#include "SeniorProject/UI/HUD/ReturnToMainMenu.h"
+
 
 ALobbyCharacter::ALobbyCharacter()
 {
@@ -27,7 +23,8 @@ void ALobbyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	InitPlayerInfo();
-
+	if(!bIsMenuWidgetInitialized)
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, true);
 }
 
 void ALobbyCharacter::OnRep_PlayerState()
@@ -36,7 +33,8 @@ void ALobbyCharacter::OnRep_PlayerState()
 
 	if(HasAuthority()) return;
 	InitPlayerInfo();
-
+	if(!bIsMenuWidgetInitialized)
+		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, true);
 	
 }
 
@@ -46,13 +44,6 @@ void ALobbyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutL
 	
 }
 
-void ALobbyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
-	EnhancedInputComponent->BindAction(QuitMenuButton, ETriggerEvent::Triggered, this, &ALobbyCharacter::ShowReturnToMainMenu);
-}
 
 
 void ALobbyCharacter::BeginPlay()
@@ -60,50 +51,10 @@ void ALobbyCharacter::BeginPlay()
 	Super::BeginPlay();
 	
 	
-	if (AMyPlayerController* PlayerController = Cast<AMyPlayerController>(GetController()))
-	{
-		UEnhancedInputLocalPlayerSubsystem* Subsystem =
-			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer());
-		
-		if(Subsystem)
-			Subsystem->AddMappingContext(PlayerContext, 0);
-	}
+	
 	
 }
 
-void ALobbyCharacter::ShowReturnToMainMenu()
-{
-	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-	if(PlayerController == nullptr) return;
-
-	
-	if (ReturnToMainMenuClass == nullptr) return;
-	if (ReturnToMainMenu == nullptr)
-	{
-		ReturnToMainMenu = CreateWidget<UReturnToMainMenu>(PlayerController, ReturnToMainMenuClass);
-		ReturnToMainMenu->AddToViewport();
-		bReturnToMainMenuOpen = true;
-	}
-	if (ReturnToMainMenu)
-	{
-		bReturnToMainMenuOpen = !bReturnToMainMenuOpen;
-		if (bReturnToMainMenuOpen)
-		{
-			ReturnToMainMenu->MenuSetup();
-			
-		}
-		else
-		{
-			ReturnToMainMenu->MenuTearDown();
-		}
-
-		
-		FInputModeGameAndUI InputModeData;
-		PlayerController->SetInputMode(InputModeData);
-		PlayerController->SetShowMouseCursor(true);
-		
-	}
-}
 
 /*
  * 클라이언트의 경우 서버에서 팀 배치를 하기 전에 이미 InitPlayerInfo가 실행됨.
@@ -115,27 +66,27 @@ void ALobbyCharacter::InitPlayerInfo()
 	APlayerStateBase* PS = GetPlayerState<APlayerStateBase>();
 	APlayerController* PC = Cast<APlayerController>(GetController());
 
+	
 	if(PS == nullptr || PC == nullptr || CoreGameState == nullptr)
 	{
-	
-		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
-		GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoRetryTimerHandle, this, &ALobbyCharacter::InitPlayerInfo, 0.3f, true);
 		return;
 	}
 
 	
-	if(CoreGameState->SetPlayerTeam(PS))
+	if(CoreGameState->SetPlayerTeam(PS) && !bIsMenuWidgetInitialized)
 	{
-		GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
 		FPlayerInfo Info;
 		Info.PC = PC;
 		Info.PS = PS;
 		Info.PlayerTeamName = PS->GetTeamName();
 		Info.PlayerName = PS->GetPlayerName();
 		PlayerInformation = Info;
-		CoreGameState->AddPlayerInfo(Info);
-		InitLobbyWidget();
 		
+		if(HasAuthority())
+			CoreGameState->AddPlayerInfo(Info);
+		
+		if(IsLocallyControlled())
+			InitLobbyWidget();
 	}
 	
 	
@@ -241,8 +192,18 @@ void ALobbyCharacter::InitLobbyWidget()
 	{
 		if (ADefaultHUD* DefaultHUD = Cast<ADefaultHUD>(MyPlayerController->GetHUD()))
 		{
-			ServerBroadcastCharacterSelectWidget();
-			DefaultHUD->InitCharacterSelectWidget(this);
+			
+			if(DefaultHUD->InitCharacterSelectWidget(this) && !bIsMenuWidgetInitialized)
+			{
+				bIsMenuWidgetInitialized = true;
+				GetWorldTimerManager().ClearTimer(InitPlayerInfoRetryTimerHandle);
+				ServerBroadcastCharacterSelectWidget();
+			}
+			else
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 20.f, FColor::Red, FString::Printf(TEXT("Failed InitLobbyWidget")));
+
+			}
 		}
 	}
 	else

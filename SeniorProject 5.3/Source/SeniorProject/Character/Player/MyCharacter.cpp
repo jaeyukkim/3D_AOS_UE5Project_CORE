@@ -526,25 +526,10 @@ void AMyCharacter::Die_Implementation()
 
 	
 	
-	
 	//죽었을 때 상대 팀 점수 상승
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 	{
-		if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(GetWorld())))
-		{
-			FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-			if(PlayerStateBase->GetTeamName() == TagsBase.GameRule_TeamName_BlueTeam)
-			{
-				CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_RedTeam);
-			}
-			else
-			{
-				CoreGameState->ServerAddTeamScore(TagsBase.GameRule_TeamName_BlueTeam);
-			}
-		}
-
-		
-		float ReSpawnTime = 1.5f; //PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
+		float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
 		GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
 	}
 }

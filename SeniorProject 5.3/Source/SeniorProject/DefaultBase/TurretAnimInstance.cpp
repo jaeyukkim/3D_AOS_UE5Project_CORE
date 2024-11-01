@@ -35,9 +35,9 @@ void UTurretAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	
 	
 	bIsDead = Turret->bDead;
-	IsHit = Turret->bHitReacting;
+	IsHit = Turret->bIsUnderAttacked;
 	
-	AActor* CombatTarget = Turret->CombatTarget;
+	CombatTarget = Turret->CombatTarget;
 	if(CombatTarget == nullptr)
 	{
 		Aiming = false;

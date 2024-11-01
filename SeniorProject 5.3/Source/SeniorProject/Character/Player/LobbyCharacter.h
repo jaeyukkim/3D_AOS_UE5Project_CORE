@@ -35,7 +35,7 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
 
 
 	void InitLobbyWidget();
@@ -75,14 +75,7 @@ public:
 	FGameplayTag GetPlayerTeamName();
 
 	
-	UPROPERTY(EditAnywhere, Category = "Input")
-	TObjectPtr<UInputMappingContext> PlayerContext;
-	UPROPERTY(EditAnywhere, Category = "Input")
-	TObjectPtr<UInputAction> QuitMenuButton;
-	UPROPERTY(EditAnywhere, Category = HUD)
-	TSubclassOf<UReturnToMainMenu> ReturnToMainMenuClass;
-	UPROPERTY()
-	TObjectPtr<UReturnToMainMenu> ReturnToMainMenu;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -90,7 +83,7 @@ protected:
 	
 private:
 	FTimerHandle InitPlayerInfoRetryTimerHandle;
-	bool bReturnToMainMenuOpen = false;
-	void ShowReturnToMainMenu();
+	
+	bool bIsMenuWidgetInitialized = false;
 
 };
