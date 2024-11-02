@@ -26,6 +26,7 @@
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
+#include "SeniorProject/Actor/Decal/AttackRangeDecal.h"
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
@@ -179,6 +180,22 @@ void AMyCharacter::BroadcastInitialValues()
 	PlayerStateBase->BroadcastPlayerStat();
 }
 
+
+void AMyCharacter::ShowMagicCircle()
+{
+	if (!IsValid(MagicCircle))
+	{
+		MagicCircle = GetWorld()->SpawnActor<AAttackRangeDecal>(MagicCircleClass);
+	}
+}
+
+void AMyCharacter::HideMagicCircle()
+{
+	if (IsValid(MagicCircle))
+	{
+		MagicCircle->Destroy();
+	}
+}
 
 void AMyCharacter::InitAbilityActorInfo()
 {
@@ -377,10 +394,10 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if(IsLocallyControlled())
-	{
-		AimTrace();
-	}
+//	if(IsLocallyControlled())
+//	{
+//		AimTrace();
+//	}
 	
 
 }
@@ -516,6 +533,38 @@ void AMyCharacter::GetAimHitResult_Implementation(float AbilityDistance, FHitRes
 
 	}
 
+}
+
+
+void AMyCharacter::GetStraightAimHitResult_Implementation(float AttackDistance, FHitResult& HitResult)
+{
+	
+
+	//따로 지정하지 않았으면 기본공격 범위
+	if(AttackDistance <= 0.f)
+		AttackDistance = AttackRange;
+
+	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
+	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector() * AttackRange;
+	TraceEndLocation += CameraLocation;
+
+	// 충돌 쿼리 파라미터 생성 및 자기 자신 무시 설정
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this);  // 자신의 캐릭터를 무시
+
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation, ECC_OnlyOverlapCharacter, QueryParams);
+		
+	// 디버그 라인 그리기: 트레이스 라인이 시각적으로 표시되도록
+	FColor LineColor = bHit ? FColor::Red : FColor::Green;
+	DrawDebugLine(GetWorld(), CameraLocation, TraceEndLocation, LineColor, false, 10.0f, 0, 2.0f);
+
+	// 히트된 경우 히트 지점에 디버그 구 그리기
+	if (bHit)
+	{
+		float SphereRadius = 10.0f;  // 구의 반지름
+		DrawDebugSphere(GetWorld(), HitResult.Location, SphereRadius, 12, FColor::Blue, false, 10.0f);
+	}
 }
 
 void AMyCharacter::Die_Implementation()

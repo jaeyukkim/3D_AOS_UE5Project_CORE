@@ -27,8 +27,6 @@ public:
 
 
 	UFUNCTION()
-		void AnimNotify_RunStop();
-	UFUNCTION()
 		void AnimNotify_HideSword();
 	UFUNCTION()
 		void AnimNotify_UnHideSword();
@@ -40,9 +38,6 @@ public:
 		bool bIsNoWep = false;
 
 private:
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
-		float DirectionOnStop = 0.f;
 
 
 };

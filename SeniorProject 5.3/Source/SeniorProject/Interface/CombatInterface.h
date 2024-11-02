@@ -35,8 +35,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult);
-
-
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void GetStraightAimHitResult(float AttackDistance ,FHitResult& HitResult);
+	
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
 	FORCEINLINE virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
 	FORCEINLINE virtual int32 GetCurrentCombo() const {return 1;}

@@ -12,12 +12,16 @@ UTargetDataAim* UTargetDataAim::CreateTargetDataAim(UGameplayAbility* OwningAbil
 	return MyObj;
 }
 
-void UTargetDataAim::SetAimDistance(float InAimDistance)
+void UTargetDataAim::SetAimDistance(float InAimDistance, EAimTraceType TraceType)
 {
 	AimDistance = InAimDistance;
+	AimTraceType = TraceType;
 	bIsReadyForActivation = true;
 	Activate();
 }
+
+
+
 
 void UTargetDataAim::Activate()
 {
@@ -45,16 +49,30 @@ void UTargetDataAim::Activate()
 	}
 }
 
+void UTargetDataAim::GetAimData(FHitResult& HitResult)
+{
+
+	if(!GetAvatarActor()->Implements<UCombatInterface>()) return;
+
+	
+	switch (AimTraceType)
+	{
+	case EAimTraceType::Default:
+		ICombatInterface::Execute_GetAimHitResult(GetAvatarActor(), AimDistance, HitResult );
+		break;
+	case EAimTraceType::Straight:
+		ICombatInterface::Execute_GetStraightAimHitResult(GetAvatarActor(), AimDistance, HitResult);
+		
+	}
+}
+
 void UTargetDataAim::SendAimData()
 {
 	FScopedPredictionWindow ScopedPrediction(AbilitySystemComponent.Get());
 	
 	FHitResult HitResult;
-	if(GetAvatarActor()->Implements<UCombatInterface>())
-	{
-		ICombatInterface::Execute_GetAimHitResult(GetAvatarActor(), AimDistance, HitResult );
-	}
-
+	GetAimData(HitResult);
+	
 	
 	FGameplayAbilityTargetDataHandle DataHandle;
 	FGameplayAbilityTargetData_SingleTargetHit* Data = new FGameplayAbilityTargetData_SingleTargetHit();

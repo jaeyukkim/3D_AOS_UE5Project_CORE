@@ -1,42 +1,47 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "TwinBlast.h"
+
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
 #include "KwangPlayer.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/Actor/Decal/AttackRangeDecal.h"
 
 
-AKwangPlayer::AKwangPlayer()
+ATwinBlast::ATwinBlast()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	
-	CharacterClass = ECharacterClass::Kwang;
+	CharacterClass = ECharacterClass::TwinBlast;
 	
 }
 
-void AKwangPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+void ATwinBlast::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	DOREPLIFETIME(AKwangPlayer, bActiveWep);
-	DOREPLIFETIME(AKwangPlayer, SwordLocation);
+	DOREPLIFETIME(ATwinBlast, bUltimateActivate);
+
 	
 }
 
-void AKwangPlayer::PossessedBy(AController* NewController)
+void ATwinBlast::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	SetCharacterSetting();
 }
 
-void AKwangPlayer::OnRep_PlayerState()
+void ATwinBlast::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
 	SetCharacterSetting();
 }
 
 
-void AKwangPlayer::Die_Implementation()
+void ATwinBlast::Die_Implementation()
 {
 	HideMagicCircle();
 	
@@ -45,24 +50,23 @@ void AKwangPlayer::Die_Implementation()
 	
 }
 
-void AKwangPlayer::ServerReSpawn()
+void ATwinBlast::ServerReSpawn()
 {
 	Super::ServerReSpawn();
 	if(HasAuthority())
 	{
-		bActiveWep = true;
-		DestroySword();
+		bUltimateActivate = false;
 		
 	}
 }
 
-void AKwangPlayer::MulticastReSpawn()
+void ATwinBlast::MulticastReSpawn()
 {
 	Respawned.Broadcast();
 	Super::MulticastReSpawn();
 }
 
-void AKwangPlayer::Tick(float DeltaSeconds)
+void ATwinBlast::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 
@@ -70,7 +74,7 @@ void AKwangPlayer::Tick(float DeltaSeconds)
 }
 
 
-void AKwangPlayer::SetCharacterSetting()
+void ATwinBlast::SetCharacterSetting()
 {
 
 	
@@ -78,42 +82,14 @@ void AKwangPlayer::SetCharacterSetting()
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 300.0f, 0.0f);
 	
-	AttackRange = 300.0f;
+	AttackRange = 1200.0f;
 	
 }
 
 
-FVector AKwangPlayer::GetSwordLocation()
-{
-	return SwordLocation;
-}
-
-void AKwangPlayer::SetSwordLocation(FVector NewSwordLocation)
-{
-	if(HasAuthority())
-		SwordLocation = NewSwordLocation;
-}
 
 
-void AKwangPlayer::DestroySword()
-{
-	SwordDestroyDelegate.Broadcast();
-}
-
-
-bool AKwangPlayer::GetbActiveWep()
-{
-	return bActiveWep;
-}
-
-void AKwangPlayer::SetbActiveWep(bool nbActiveWep)
-{
-	if(HasAuthority())
-		bActiveWep = nbActiveWep;
-}
-
-
-void AKwangPlayer::UpdateMagicCircleLocation()
+void ATwinBlast::UpdateMagicCircleLocation()
 {
 
 	if (IsValid(MagicCircle))
@@ -127,3 +103,14 @@ void AKwangPlayer::UpdateMagicCircleLocation()
 	
 }
 
+void ATwinBlast::SetbIsLeftAttack(bool InbIsLeftAttack)
+{
+	if(HasAuthority())
+		bIsLeftAttack = InbIsLeftAttack;
+}
+
+void ATwinBlast::SetbUltimateActivate(bool InbUltimateActivate)
+{
+	if(HasAuthority())
+	 bUltimateActivate = InbUltimateActivate;
+}

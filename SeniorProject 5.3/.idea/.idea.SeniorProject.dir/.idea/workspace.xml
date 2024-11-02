@@ -9,41 +9,33 @@
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/AIController/BP_AIControllerBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/AIController/BP_AIControllerBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BB_MinionBlackBoard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BB_MinionBlackBoard.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/Task/BTT_ClearTarget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/Task/BTT_ClearTarget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/Attack/GA_PlayerMeleeAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/Attack/GA_PlayerMeleeAttack.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer_Editer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer_Editer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/BP_Ranged.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/BP_Ranged.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/BP_Siege.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/BP_Siege.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Super/BP_LaneSuper.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Super/BP_LaneSuper.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_AbilityQ_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_AbilityQ_Cost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_AbilityR_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_AbilityR_Cost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_AbilityRMB_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_AbilityRMB_Cost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Melee/M_Dawn_Minion_Melee_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Melee/M_Dawn_Minion_Melee_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Ranged/M_Dawn_Minion_Ranged_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Ranged/M_Dawn_Minion_Ranged_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Siege/M_Dawn_Minion_Siege_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Siege/M_Dawn_Minion_Siege_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Super/M_Dawn_Minion_Super_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Super/M_Dawn_Minion_Super_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AI/CustomBehaviorTree/BTS_FindNextWayPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AI/CustomBehaviorTree/BTS_FindNextWayPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AI/CustomBehaviorTree/BTS_FindNextWayPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AI/CustomBehaviorTree/BTS_FindNextWayPoint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/CoreGameState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/UI/CharacterSelect/WBP_CharacterSeletionWindow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/CharacterSelect/WBP_CharacterSeletionWindow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Kwang_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Kwang_AnimBlueprint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/SeniorProject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/SeniorProject.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,31 +47,6 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -423,6 +390,9 @@
       <workItem from="1730384959666" duration="17305000" />
       <workItem from="1730407533886" duration="6156000" />
       <workItem from="1730443461965" duration="20193000" />
+      <workItem from="1730467703425" duration="8702000" />
+      <workItem from="1730478247718" duration="17281000" />
+      <workItem from="1730530221479" duration="151000" />
     </task>
     <servers />
   </component>

@@ -7,4 +7,5 @@
 #define ECC_Character ECC_GameTraceChannel1
 #define ECC_RangeTrace ECC_GameTraceChannel3
 #define ECC_Die ECC_GameTraceChannel4
+#define ECC_OnlyOverlapCharacter ECC_GameTraceChannel6
 

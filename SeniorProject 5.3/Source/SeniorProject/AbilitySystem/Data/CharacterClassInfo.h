@@ -22,7 +22,7 @@ enum class ECharacterClass : uint8
 	Turret,
 	Inhibitor,
 	Nexus,
-	Default2,
+	TwinBlast,
 	Default3,
 	
 };

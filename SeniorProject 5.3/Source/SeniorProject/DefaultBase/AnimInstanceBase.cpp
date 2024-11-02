@@ -105,5 +105,9 @@ void UAnimInstanceBase::SetStunned(bool InbIsStunned)
 	bIsStunned = InbIsStunned;
 }
 
+void UAnimInstanceBase::AnimNotify_RunStop()
+{
+	DirectionOnStop = Direction;
+}
 
 

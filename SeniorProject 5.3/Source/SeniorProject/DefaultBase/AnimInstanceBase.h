@@ -30,7 +30,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float EnemyDirection;
-
+	UFUNCTION()
+	void AnimNotify_RunStop();
 protected:
 
 
@@ -80,5 +81,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 		float Direction;
 
-	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+	float DirectionOnStop = 0.f;
 };

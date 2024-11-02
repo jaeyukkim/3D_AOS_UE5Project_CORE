@@ -6,6 +6,14 @@
 #include "Abilities/Tasks/AbilityTask.h"
 #include "TargetDataAim.generated.h"
 
+UENUM(BlueprintType)
+enum class EAimTraceType : uint8
+{
+	Default,
+	Straight,
+	
+};
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAimTargetDataSignature, const FGameplayAbilityTargetDataHandle&, DataHandle);
 /**
  * 
@@ -25,10 +33,14 @@ public:
 	UPROPERTY(EditAnywhere)
 	float AimDistance = 1500.0f;
 
+	UPROPERTY(EditAnywhere)
+	EAimTraceType AimTraceType = EAimTraceType::Default;
+	
 	UFUNCTION(BlueprintCallable)
-	void SetAimDistance(float InAimDistance);
+	void SetAimDistance(float InAimDistance, EAimTraceType TraceType = EAimTraceType::Default);
 
 	bool bIsReadyForActivation = false;
+	void GetAimData(FHitResult& HitResult);
 private:
 	
 	virtual void Activate() override;

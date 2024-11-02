@@ -33,10 +33,7 @@ void UMyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 }
 
 
-void UMyAnimInstance::AnimNotify_RunStop()
-{
-	DirectionOnStop = Direction;
-}
+
 
 void UMyAnimInstance::AnimNotify_HideSword()
 {

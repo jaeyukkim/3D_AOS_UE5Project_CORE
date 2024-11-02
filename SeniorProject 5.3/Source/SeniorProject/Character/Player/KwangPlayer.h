@@ -8,7 +8,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FSwordDestroyDelegate);
-DECLARE_MULTICAST_DELEGATE(FRespawnedDelegate);
+
 
 class AAttackRangeDecal;
 /**
@@ -26,11 +26,7 @@ public:
 	virtual void OnRep_PlayerState() override;
 	virtual void SetCharacterSetting() override;
 
-	UFUNCTION(BlueprintCallable)
-	void ShowMagicCircle();
 	
-	UFUNCTION(BlueprintCallable)
-	void HideMagicCircle();
 	
 
 	UFUNCTION(BlueprintCallable)
@@ -60,17 +56,13 @@ public:
 	UPROPERTY(Replicated)
 	FVector SwordLocation;
 	
-	FRespawnedDelegate Respawned;
+	
 	
 protected:
 
 	virtual void Tick(float DeltaSeconds) override;
 	
-	UPROPERTY(EditDefaultsOnly, Category="Kwang")
-	TSubclassOf<AAttackRangeDecal> MagicCircleClass;
 	
-	UPROPERTY()
-	TObjectPtr<AAttackRangeDecal> MagicCircle;
 	
 	void UpdateMagicCircleLocation();
 	FHitResult AbilityRangeTraceResult;

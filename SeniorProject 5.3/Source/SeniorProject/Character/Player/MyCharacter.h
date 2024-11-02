@@ -25,10 +25,13 @@ class APlayerStateBase;
 class UWidgetComponent;
 class UOverlayWidget;
 class UUserWidget;
+class AAttackRangeDecal;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerLevelChangedSignature, int32, NewLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLeftGame);
+
+DECLARE_MULTICAST_DELEGATE(FRespawnedDelegate);
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
@@ -86,6 +89,7 @@ public:
 
 	/* CombatInterface */
 	virtual void GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult) override;
+	virtual void GetStraightAimHitResult_Implementation(float AttackDistance ,FHitResult& HitResult);
 	virtual void Die_Implementation() override;
 	/* end CombatInterface */
 
@@ -132,6 +136,17 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FPlayerAttributeChangedSignature OnPlayerBarMaxHealthChanged;
 	FOnLeftGame OnLeftGame;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float AttackRange = 1200.f;
+
+	FRespawnedDelegate Respawned;
+
+
+	UFUNCTION(BlueprintCallable)
+	void ShowMagicCircle();
+	UFUNCTION(BlueprintCallable)
+	void HideMagicCircle();
 	
 protected:
 	
@@ -158,6 +173,11 @@ protected:
 	TArray<FItemInformation> OwnedItems;
 	UPROPERTY(EditAnywhere, Category = HUD)
 	TSubclassOf<UUserWidget> EndGameWidgetClass;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Kwang")
+	TSubclassOf<AAttackRangeDecal> MagicCircleClass;
+	UPROPERTY()
+	TObjectPtr<AAttackRangeDecal> MagicCircle;
 	
 	
 	
@@ -233,6 +253,7 @@ private:
 	
 
 	void AimTrace();
+	
 
 	FTimerHandle InitPlayerHealthBarHandle;
 	FTimerHandle InitReSpawnHandle;
