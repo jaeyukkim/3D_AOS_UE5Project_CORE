@@ -31,7 +31,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, meta = (ExposeOnSpawn = true))
 	FDamageEffectParams DamageEffectParams;
 
-	
+	UPROPERTY(Replicated, BlueprintReadOnly)
+	TObjectPtr<AActor> OwnerAvatarActor;
 protected:
 
 	virtual void BeginPlay() override;
@@ -50,7 +51,16 @@ protected:
 	bool bIsAblePenetration = false;
 	
 
-	UPROPERTY(Replicated)
-	TObjectPtr<AActor> OwnerAvatarActor;
+	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	bool bIsRadialDamage = false;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	float AttackRadius;
+	
+	UFUNCTION(BlueprintCallable)
+	void ApplyRadialDamage();
+
 
 };

@@ -8,34 +8,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/Attack/GA_PlayerMeleeAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/Attack/GA_PlayerMeleeAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/CT_Spell_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/CT_Spell_Cooldown.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/Flash/GE_Flash_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/Flash/GE_Flash_Cooldown.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_Kwang_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_Kwang_Cooldown.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_AbilityQ_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_AbilityQ_Cost.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_AbilityR_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_AbilityR_Cost.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_AbilityRMB_Cost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_AbilityRMB_Cost.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_Kwang_AbilityR_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_Kwang_AbilityR_Cooldown.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GA_Kwang_AbilityRMB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GA_Kwang_AbilityRMB.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_Kwang_AbilityRMB_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GE_Kwang_AbilityRMB_Cooldown.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Ability/GA_RangeAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Ability/GA_RangeAttack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlastCost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlastCost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlast_Damage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlast_Damage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GE_TwinBlast_AbilityQ_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GE_TwinBlast_AbilityQ_Cooldown.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/RMB/GA_TwinBlast_AbilityRMB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/RMB/GA_TwinBlast_AbilityRMB.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/ABP_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/ABP_TwinBlast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/HitReact_Back_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/HitReact_Back_Montage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Primary_Fire_Med_A_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Primary_Fire_Med_A_Montage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/CharacterSelect/WBP_CharacterSeletionWindow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/CharacterSelect/WBP_CharacterSeletionWindow.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Kwang_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Kwang_AnimBlueprint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GunsSFX/Cannon_-_01/cue/SFX-Cannon-01-Explosion-02_wav_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GunsSFX/Cannon_-_01/cue/SFX-Cannon-01-Explosion-02_wav_Cue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GunsSFX/Mechanical_-_01/Cue/SFX_-_Mechanical_-_12_wav_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GunsSFX/Mechanical_-_01/Cue/SFX_-_Mechanical_-_12_wav_Cue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GunsSFX/Shot_-_01/Cue/SFX-Shot-01-Explosion_wav_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GunsSFX/Shot_-_01/Cue/SFX-Shot-01-Explosion_wav_Cue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GunsSFX/Shot_-_11/cue/SFX-Shot-11-Explosion_wav_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/GunsSFX/Shot_-_11/cue/SFX-Shot-11-Explosion_wav_Cue.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Ability_VortexGrenade_Targeting.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Ability_VortexGrenade_Targeting.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Primary_Fire_Med_A.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Primary_Fire_Med_A.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Sounds/SoundCues/Twinblast_Effort_Pain.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Sounds/SoundCues/Twinblast_Effort_Pain.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/DamageGameplayAbilityBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilityTask/TargetDataAim.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/KwangPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/ProjectileSpellBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/SeniorProject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/SeniorProject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,74 +151,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraComponent.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraSystemRenderData.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraWorldManager.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -214,6 +158,7 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Online/OnlineSubsystemUtils/Source/OnlineSubsystemUtils/Private/IpNetDriver.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/Abilities/GameplayAbility.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/GameplayEffect.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/ScalableFloat.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -393,6 +338,7 @@
       <workItem from="1730467703425" duration="8702000" />
       <workItem from="1730478247718" duration="17281000" />
       <workItem from="1730530221479" duration="151000" />
+      <workItem from="1730530922502" duration="29813000" />
     </task>
     <servers />
   </component>

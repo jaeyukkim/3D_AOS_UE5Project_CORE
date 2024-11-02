@@ -17,6 +17,7 @@ ATwinBlast::ATwinBlast()
 	
 	CharacterClass = ECharacterClass::TwinBlast;
 	
+	
 }
 
 void ATwinBlast::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -24,6 +25,7 @@ void ATwinBlast::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifeti
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(ATwinBlast, bUltimateActivate);
+	DOREPLIFETIME(ATwinBlast, bGrenade);
 
 	
 }
@@ -103,10 +105,11 @@ void ATwinBlast::UpdateMagicCircleLocation()
 	
 }
 
-void ATwinBlast::SetbIsLeftAttack(bool InbIsLeftAttack)
+
+void ATwinBlast::SetbGrenade(bool InbGrenade)
 {
 	if(HasAuthority())
-		bIsLeftAttack = InbIsLeftAttack;
+		bGrenade = InbGrenade;
 }
 
 void ATwinBlast::SetbUltimateActivate(bool InbUltimateActivate)

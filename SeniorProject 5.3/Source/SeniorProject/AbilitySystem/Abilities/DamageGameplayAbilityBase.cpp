@@ -19,10 +19,10 @@ void UDamageGameplayAbilityBase::ActivateAbility(const FGameplayAbilitySpecHandl
 
 void UDamageGameplayAbilityBase::CauseDamage(AActor* TargetActor)
 {
-//	if(!UBlueprintFunctionLibraryBase::IsFriends(TargetActor, GetAvatarActorFromActorInfo()))
-//	{
+	if(!UBlueprintFunctionLibraryBase::IsFriends(TargetActor, GetAvatarActorFromActorInfo()))
+	{
 		UBlueprintFunctionLibraryBase::ApplyDamageEffect(MakeDamageEffectParamsFromClassDefaults(TargetActor));
-//	}
+	}
 }
 
 FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassDefaults(AActor* TargetActor) const

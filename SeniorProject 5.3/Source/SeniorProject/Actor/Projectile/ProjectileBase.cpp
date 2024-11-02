@@ -51,6 +51,7 @@ void AProjectileBase::SetOwnerActor(AActor* NewOwner)
 	if(IsValid(NewOwner))
 	{
 		OwnerAvatarActor = NewOwner;
+		
 	}
 }
 
@@ -76,28 +77,86 @@ void AProjectileBase::BeginPlay()
 void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
-	if (HasAuthority())
-	{
-		AActor* OwnerActor = DamageEffectParams.SourceAbilitySystemComponent->GetAvatarActor();
-		if(OwnerActor == nullptr) return;
 
-		if(UBlueprintFunctionLibraryBase::IsFriends(OwnerActor, OtherActor))
-			return;
-		
-		if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
+	if (!HasAuthority() || OwnerAvatarActor == OtherActor) return;
+
+	
+	if(bIsRadialDamage)
+	{
+		ApplyRadialDamage();
+		return;
+	}
+	
+	
+	
+	AActor* OwnerActor = DamageEffectParams.SourceAbilitySystemComponent->GetAvatarActor();
+	if(OwnerActor == nullptr) return;
+
+	if(UBlueprintFunctionLibraryBase::IsFriends(OwnerActor, OtherActor))
+		return;
+	
+	if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
+	{
+		DamageEffectParams.TargetAbilitySystemComponent = TargetASC;
+		UBlueprintFunctionLibraryBase::ApplyDamageEffect(DamageEffectParams);
+	}
+	
+	if(!bIsAblePenetration)
+	{
+		Destroy();
+	}
+	
+	
+	
+}
+
+void AProjectileBase::ApplyRadialDamage()
+{
+	
+	
+	if (OwnerAvatarActor == nullptr || !HasAuthority()) return;
+
+	
+	TArray<AActor*> ActorsToIgnore;
+	ActorsToIgnore.Add(OwnerAvatarActor);
+
+	
+
+	FVector TargetLocation = GetActorLocation(); 
+
+	// 감지된 액터들을 담을 배열
+	TArray<AActor*> OutOverlappingActors;
+
+	// 구체 범위 내에서 플레이어 캐릭터를 감지
+	bool bHit = UKismetSystemLibrary::SphereOverlapActors(
+		GetWorld(),
+		TargetLocation,
+		AttackRadius,
+		{ UEngineTypes::ConvertToObjectType(ECC_Pawn) }, 
+		nullptr,
+		ActorsToIgnore,
+		OutOverlappingActors
+	);
+
+	
+	for (AActor* OverlappedActor : OutOverlappingActors)
+	{
+		// 팀의 경우 무시
+		if (UBlueprintFunctionLibraryBase::IsFriends(OwnerAvatarActor, OverlappedActor))
+			continue;
+
+	
+		if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OverlappedActor))
 		{
 			DamageEffectParams.TargetAbilitySystemComponent = TargetASC;
 			UBlueprintFunctionLibraryBase::ApplyDamageEffect(DamageEffectParams);
 		}
-		
-		if(!bIsAblePenetration)
-		{
-			Destroy();
-		}
 	}
-	
-	
+
+/*	if(!bIsAblePenetration)
+	{
+		Destroy();
+	}*/
 }
 
 

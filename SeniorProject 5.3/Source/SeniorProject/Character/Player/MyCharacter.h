@@ -80,7 +80,7 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 		TObjectPtr<USpringArmComponent> SpringArm;
 
-	UPROPERTY(VisibleAnywhere, Category = "Camera")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 		TObjectPtr<UCameraComponent> Camera;
 	
 	UPROPERTY(EditAnywhere, Category="Input")
@@ -137,7 +137,7 @@ public:
 	FPlayerAttributeChangedSignature OnPlayerBarMaxHealthChanged;
 	FOnLeftGame OnLeftGame;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(Replicated, EditDefaultsOnly, BlueprintReadWrite)
 	float AttackRange = 1200.f;
 
 	FRespawnedDelegate Respawned;

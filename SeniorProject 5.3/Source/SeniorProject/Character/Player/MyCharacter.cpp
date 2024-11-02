@@ -75,7 +75,7 @@ void AMyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(AMyCharacter, OwnedItems);
-	
+	DOREPLIFETIME(AMyCharacter, AttackRange);
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -394,10 +394,10 @@ void AMyCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-//	if(IsLocallyControlled())
-//	{
-//		AimTrace();
-//	}
+	if(IsLocallyControlled())
+	{
+		AimTrace();
+	}
 	
 
 }

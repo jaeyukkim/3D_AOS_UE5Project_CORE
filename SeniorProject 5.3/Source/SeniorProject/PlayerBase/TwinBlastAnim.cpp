@@ -30,16 +30,19 @@ void UTwinBlastAnim::NativeUpdateAnimation(float DeltaSeconds)
 	if(TwinBlast == nullptr) return;
 	
 	bIsUltimateActivative = TwinBlast->bUltimateActivate;
+	bGrenadeActived = TwinBlast->bGrenade;
 }
 
 void UTwinBlastAnim::AnimNotify_EnableUltimate()
 {
 	bIsUltimateActivative = true;
+	bGrenadeActived = true;
 }
 
 void UTwinBlastAnim::AnimNotify_DisableUltimate()
 {
 	bIsUltimateActivative = false;
+	bGrenadeActived = false;
 }
 
 

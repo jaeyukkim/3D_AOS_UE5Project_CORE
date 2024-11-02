@@ -22,7 +22,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 	bool bIsUltimateActivative = false;
-
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+	bool bGrenadeActived = false;
+	
 	UFUNCTION()
 	void AnimNotify_EnableUltimate();
 	UFUNCTION()

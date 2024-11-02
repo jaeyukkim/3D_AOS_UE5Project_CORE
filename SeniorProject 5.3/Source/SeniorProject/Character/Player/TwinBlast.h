@@ -27,10 +27,12 @@ public:
 	UPROPERTY(Replicated, BlueprintReadWrite)
 	bool bUltimateActivate = false;
 
-	UPROPERTY(BlueprintReadWrite)
-	bool bIsLeftAttack = false;
+	UPROPERTY(Replicated, BlueprintReadWrite)
+	bool bGrenade = false;
+	
 
-	void SetbIsLeftAttack(bool InbIsLeftAttack);
+
+	void SetbGrenade(bool InbGrenade);
 	void SetbUltimateActivate(bool InbUltimateActivate);
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)

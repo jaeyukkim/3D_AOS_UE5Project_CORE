@@ -67,8 +67,9 @@ void UProjectileSpellBase::SpawnAtLocation(const FTransform SpawnTransform)
 		ESpawnActorCollisionHandlingMethod::AlwaysSpawn);
 
 	Projectile->DamageEffectParams = MakeDamageEffectParamsFromClassDefaults();
-	Projectile->SetOwnerActor(GetAvatarActorFromActorInfo());
+	Projectile->OwnerAvatarActor = GetAvatarActorFromActorInfo();
 	Projectile->FinishSpawning(SpawnTransform);
+	Projectile->SetOwnerActor(GetAvatarActorFromActorInfo());
 	
 	
 }
