@@ -30,7 +30,10 @@ protected:
 	void SpawnProjectileAimLocation(const FVector& AimLocation);
 
 	UFUNCTION(BlueprintCallable)
-	void SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride);
+	virtual void SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride);
+
+	UFUNCTION(BlueprintCallable)
+	virtual void SpawnAtLocation(const FTransform SpawnTransform);
 
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
@@ -45,7 +48,6 @@ protected:
 
 
 private:
-	void SpawnAtLocation(const FTransform SpawnTransform);
 
 	
 };

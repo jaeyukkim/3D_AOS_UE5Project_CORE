@@ -9,7 +9,7 @@
 /**
  * 
  */
-
+struct FScalableFloat;
 
 UCLASS()
 class SENIORPROJECT_API UGameplayAbilityBase : public UGameplayAbility
@@ -20,6 +20,8 @@ public:
 	
 	virtual void ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 		const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData) override;
+	virtual bool CommitAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
+		const FGameplayAbilityActivationInfo ActivationInfo, FGameplayTagContainer* OptionalRelevantTags) override;
 	
 	UPROPERTY(EditDefaultsOnly, Category="Input")
 	FGameplayTag StartupInputTag;
@@ -40,9 +42,20 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SpawnParticleAtLocation(FVector Location, UParticleSystem* ParticleSystem);
 
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastSpawnParticleAtLocation(FVector Location, UParticleSystem* ParticleSystem);
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastSpawnParticleAtLocation(const FVector& Location, UParticleSystem* ParticleSystem);
 	
 
+	UPROPERTY(EditDefaultsOnly, Category = Cooldowns)
+	TSubclassOf<class UGameplayEffect> CustomCooldownGameplayEffectClass;
+
+	UFUNCTION(BlueprintCallable)
+	void ApplyCustomCooldownClass(const FGameplayAbilitySpecHandle Handle);
+
+	UPROPERTY(EditDefaultsOnly)
+	FGameplayTag CooldownTag;
+
+	UPROPERTY(EditDefaultsOnly)
+	FScalableFloat Cooldown;
 	
 };

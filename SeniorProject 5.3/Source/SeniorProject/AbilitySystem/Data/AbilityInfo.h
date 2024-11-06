@@ -2,6 +2,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CharacterClassInfo.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
 #include "AbilityInfo.generated.h"
@@ -13,6 +14,9 @@ struct FAbilityInfoBase
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	ECharacterClass CharacterClass = ECharacterClass::Default;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FGameplayTag AbilityTag = FGameplayTag();
 
@@ -39,7 +43,8 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AbilityInformation")
 	TArray<FAbilityInfoBase> AbilityInformation;
 
-	FAbilityInfoBase FindAbilityInfoForTag(const FGameplayTag& AbilityTag, bool bLogNotFound = false) const;
+	
+	FAbilityInfoBase FindAbilityInfoForTag(const FGameplayTag& AbilityTag, ECharacterClass CharacterClass, bool bLogNotFound = false) const;
 	
 	
 };

@@ -64,7 +64,7 @@ protected:
 	
 	
 	
-	void UpdateMagicCircleLocation();
+	virtual void UpdateMagicCircleLocation_Implementation() override;
 	FHitResult AbilityRangeTraceResult;
 	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)

@@ -93,13 +93,17 @@ protected:
 	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_XP)
 	int32 XP = 1;
 
-	UPROPERTY(VisibleAnywhere, ReplicatedUsing=OnRep_SpellPoints)
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, ReplicatedUsing=OnRep_SpellPoints)
 	int32 SpellPoints = 1;
 
 	UPROPERTY(EditAnywhere, ReplicatedUsing=OnRep_Gold)
 	int32 Gold = 500;
 
+	UPROPERTY(ReplicatedUsing="OnRep_bIsInShop")
 	bool bIsInShop = true;
+
+	UFUNCTION()
+	void OnRep_bIsInShop(bool OldbIsInShop);
 	
 	UFUNCTION()
 	void OnRep_Level(int32 OldLevel);

@@ -132,6 +132,13 @@ void AMyGameModeBase::StartMatch()
 	
 }
 
+void AMyGameModeBase::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	
+
+}
+
 void AMyGameModeBase::EndGame(const FGameplayTag& DefeatedTeamName)
 {
 
@@ -254,7 +261,7 @@ void AMyGameModeBase::SpawnMinion()
 
 				
 				
-				// 억제기가 파괴되었는지 확인합니다.
+					// 억제기가 파괴되었는지 확인합니다.
 				if (CoreGameState->IsInhibitorDestroyed(SpawnerTeam, SpawnerLine))
 				{
 					// 억제기가 파괴되었다면, 해당 스포너에 슈퍼 미니언을 생성하도록 지시합니다.

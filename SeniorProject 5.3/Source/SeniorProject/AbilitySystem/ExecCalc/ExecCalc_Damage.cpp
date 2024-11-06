@@ -16,6 +16,7 @@ struct DamageStatic
 	DECLARE_ATTRIBUTE_CAPTUREDEF(MagicResistance);
 	DECLARE_ATTRIBUTE_CAPTUREDEF(MagicPenetration);
 	DECLARE_ATTRIBUTE_CAPTUREDEF(CriticalChance);
+	DECLARE_ATTRIBUTE_CAPTUREDEF(LifeSteal);
 
 	
 	DamageStatic()
@@ -25,6 +26,8 @@ struct DamageStatic
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicResistance, Target, false);
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicPenetration, Source, false);
 		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, CriticalChance, Source, false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, LifeSteal, Source, false);
+
 	}
 };
 
@@ -42,6 +45,8 @@ UExecCalc_Damage::UExecCalc_Damage()
 	RelevantAttributesToCapture.Add(DamageStatics().MagicResistanceDef);
 	RelevantAttributesToCapture.Add(DamageStatics().MagicPenetrationDef);
 	RelevantAttributesToCapture.Add(DamageStatics().CriticalChanceDef);
+	RelevantAttributesToCapture.Add(DamageStatics().LifeStealDef);
+
 
 }
 
@@ -73,7 +78,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	
 
-	const UAbilitySystemComponent* SourceASC = ExecutionParams.GetSourceAbilitySystemComponent();
+	 UAbilitySystemComponent* SourceASC = ExecutionParams.GetSourceAbilitySystemComponent();
 	const UAbilitySystemComponent* TargetASC = ExecutionParams.GetTargetAbilitySystemComponent();
 
 	const AActor* SourceAvatar = SourceASC ? SourceASC->GetAvatarActor() : nullptr;
@@ -82,12 +87,13 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	if(TargetAvatar->Implements<UCombatInterface>())
 	{
-		if(ICombatInterface::Execute_IsInvincibility(TargetAvatar))
+		if(ICombatInterface::Execute_IsInvincibility(TargetAvatar) || ICombatInterface::Execute_IsDead(TargetAvatar))
 		{
 			const FGameplayModifierEvaluatedData MagicalEvaluatedData(UAttributeSetBase::GetIncomingDamageAttribute(), EGameplayModOp::Additive, 0.f);
 			OutExecutionOutput.AddOutputModifier(MagicalEvaluatedData);
 			return;
 		}
+		
 	}
 	
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
@@ -165,6 +171,27 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	PhysicalDamage *= 100 / (100+EffectiveArmor);
 
+	if(bIsBasicAttack)
+	{
+		float SourceLifeSteal = 0.f;
+		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().LifeStealDef, EvaluationParameters, SourceLifeSteal);
+
+		// 생명 흡수 비율 적용
+		const float LifeStealAmount = PhysicalDamage * SourceLifeSteal;
+
+		// SourceASC의 Health를 업데이트
+		if (SourceASC)
+		{
+			// Health 값을 가져와서 생명 흡수를 적용
+			FGameplayAttribute HealthAttribute = UAttributeSetBase::GetHealthAttribute();
+			float CurrentHealth = SourceASC->GetNumericAttribute(HealthAttribute);
+			float MaxHealth = SourceASC->GetNumericAttribute(UAttributeSetBase::GetMaxHealthAttribute());
+			float NewHealth = FMath::Clamp(CurrentHealth + LifeStealAmount, 0.f, MaxHealth);
+
+			// NewHealth를 설정
+			SourceASC->SetNumericAttributeBase(HealthAttribute, NewHealth);
+		}
+	}
 	
 	const FGameplayModifierEvaluatedData PhysicalEvaluatedData(UAttributeSetBase::GetIncomingDamageAttribute(), EGameplayModOp::Additive, PhysicalDamage);
 	OutExecutionOutput.AddOutputModifier(PhysicalEvaluatedData);

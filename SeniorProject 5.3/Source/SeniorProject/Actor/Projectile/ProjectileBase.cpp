@@ -80,6 +80,14 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 
 	if (!HasAuthority() || OwnerAvatarActor == OtherActor) return;
 
+
+	AActor* OwnerActor = DamageEffectParams.SourceAbilitySystemComponent->GetAvatarActor();
+	if(OwnerActor == nullptr) return;
+
+	if(UBlueprintFunctionLibraryBase::IsFriends(OwnerActor, OtherActor))
+		return;
+	
+	
 	
 	if(bIsRadialDamage)
 	{
@@ -89,11 +97,7 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 	
 	
 	
-	AActor* OwnerActor = DamageEffectParams.SourceAbilitySystemComponent->GetAvatarActor();
-	if(OwnerActor == nullptr) return;
-
-	if(UBlueprintFunctionLibraryBase::IsFriends(OwnerActor, OtherActor))
-		return;
+	
 	
 	if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
 	{
@@ -116,36 +120,32 @@ void AProjectileBase::ApplyRadialDamage()
 	
 	if (OwnerAvatarActor == nullptr || !HasAuthority()) return;
 
-	
+	// 무시할 액터 리스트 생성
 	TArray<AActor*> ActorsToIgnore;
 	ActorsToIgnore.Add(OwnerAvatarActor);
 
-	
-
-	FVector TargetLocation = GetActorLocation(); 
+	// 구체의 중심 위치 설정
+	FVector TargetLocation = GetActorLocation();
 
 	// 감지된 액터들을 담을 배열
 	TArray<AActor*> OutOverlappingActors;
 
-	// 구체 범위 내에서 플레이어 캐릭터를 감지
-	bool bHit = UKismetSystemLibrary::SphereOverlapActors(
-		GetWorld(),
-		TargetLocation,
-		AttackRadius,
-		{ UEngineTypes::ConvertToObjectType(ECC_Pawn) }, 
-		nullptr,
+	// 구체 범위 내에서 살아 있는 플레이어 캐릭터를 감지
+	UBlueprintFunctionLibraryBase::GetLivePlayersWithinRadius(
+		this,                // WorldContextObject로 자신(this)을 전달
+		OutOverlappingActors,
 		ActorsToIgnore,
-		OutOverlappingActors
+		AttackRadius,
+		TargetLocation
 	);
 
-	
 	for (AActor* OverlappedActor : OutOverlappingActors)
 	{
 		// 팀의 경우 무시
 		if (UBlueprintFunctionLibraryBase::IsFriends(OwnerAvatarActor, OverlappedActor))
 			continue;
 
-	
+		// 감지된 대상에게 피해 적용
 		if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OverlappedActor))
 		{
 			DamageEffectParams.TargetAbilitySystemComponent = TargetASC;
@@ -153,10 +153,15 @@ void AProjectileBase::ApplyRadialDamage()
 		}
 	}
 
-/*	if(!bIsAblePenetration)
+	HitOtherActor.Broadcast();
+
+	//관통 투사체가 아니라면 언바인드
+	 if (!bIsAblePenetration)
 	{
-		Destroy();
-	}*/
+	 	SphereComponent->OnComponentBeginOverlap.RemoveDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+		
+	}
+	
 }
 
 

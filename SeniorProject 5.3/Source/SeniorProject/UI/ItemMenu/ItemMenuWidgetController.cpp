@@ -24,6 +24,7 @@ void UItemMenuWidgetController::BindCallbacksToDependencies()
 	{
 		GoldChanged.Broadcast(Gold);
 	});
+
 	
 	GetMyASC()->OwnedItemChangedDelegate.AddLambda([this](const FItemInformation& Info)
 	{
@@ -76,7 +77,7 @@ void UItemMenuWidgetController::ShopClickedItem(FItemInformation Info)
 	UpdateClickedItem(Info);
 
 
-	if(PlayerStateBase->GetGold() < ClickedItemInfo.ItemPrice || ClickedItemInfo.ItemEffect == nullptr)
+	if(PlayerStateBase->GetGold() < ClickedItemInfo.ItemPrice || ClickedItemInfo.ItemEffect == nullptr || !PlayerStateBase->GetIsInShop())
 	{
 		BuyButtonChangedDelegate.Broadcast(false);
 	}

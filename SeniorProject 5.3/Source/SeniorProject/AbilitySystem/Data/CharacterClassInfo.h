@@ -23,7 +23,7 @@ enum class ECharacterClass : uint8
 	Inhibitor,
 	Nexus,
 	TwinBlast,
-	Default3,
+	Shinbi,
 	
 };
 

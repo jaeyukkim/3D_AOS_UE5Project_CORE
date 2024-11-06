@@ -145,6 +145,13 @@ void AMyCharacter::MulticastInitAbilityActorInfo_Implementation()
  *  리콜, 스킬 등 다양한 곳에 활용
  */
 
+void AMyCharacter::MulticastDisableInput_Implementation()
+{
+	GetCharacterMovement()->MaxWalkSpeed = 0.f;
+}
+
+
+
 void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
 {
 
@@ -153,11 +160,17 @@ void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
 	
 	if (bIsMovementEnable) 
 	{
-		EnableInput(PC);  // 전체 입력 활성화
+		if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+		{
+			GetCharacterMovement()->MaxWalkSpeed = AS->GetMovementSpeed();
+			
+		}
+//		EnableInput(PC);  // 전체 입력 활성화
 	}
 	else 
 	{
-		DisableInput(PC);  // 전체 입력 비활성화
+		GetCharacterMovement()->MaxWalkSpeed = 0.f;
+	//	DisableInput(PC);  // 전체 입력 비활성화
 	}
 	
 }
@@ -196,6 +209,11 @@ void AMyCharacter::HideMagicCircle()
 		MagicCircle->Destroy();
 	}
 }
+
+void AMyCharacter::UpdateMagicCircleLocation_Implementation()
+{
+}
+
 
 void AMyCharacter::InitAbilityActorInfo()
 {
@@ -344,6 +362,13 @@ void AMyCharacter::ServerReSpawn_Implementation()
 		AS->SetMana(AS->GetMaxMana());
 	}
 
+	ServerRecall();
+	
+}
+void AMyCharacter::ServerRecall_Implementation()
+{
+	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
+	if (PlayerStateBase == nullptr) return;
 	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	if (PlayerStateBase->GetTeamName() != TagsBase.GameRule_TeamName_NONE)
@@ -369,7 +394,6 @@ void AMyCharacter::ServerReSpawn_Implementation()
 		}
 	}
 }
-
 
 void AMyCharacter::BeginPlay()
 {
@@ -574,13 +598,17 @@ void AMyCharacter::Die_Implementation()
 	MulticastPlayerDie();
 
 	
-	
-	//죽었을 때 상대 팀 점수 상승
-	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
+	if(HasAuthority())
 	{
-		float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
-		GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
+		if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
+		{
+			float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
+			GetWorld()->GetTimerManager().SetTimer(InitReSpawnHandle, this, &AMyCharacter::MulticastReSpawn, ReSpawnTime, false);
+		}
+		GetWorld()->GetTimerManager().SetTimer(PlayerDieRecallHandle, this, &AMyCharacter::ServerRecall, RecallTime, false);
 	}
+	//죽었을 때 상대 팀 점수 상승
+	
 }
 
 
@@ -803,8 +831,9 @@ bool AMyCharacter::GetIsInShop_Implementation()
 void AMyCharacter::SetIsInShop_Implementation(bool InbIsInShop)
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
-	check(PlayerStateBase);
-	return PlayerStateBase->SetIsInShop(InbIsInShop);
+	if(PlayerStateBase)
+		 PlayerStateBase->SetIsInShop(InbIsInShop);
+	return;
 }
 
 UAnimMontage* AMyCharacter::GetRecallMontage_Implementation()

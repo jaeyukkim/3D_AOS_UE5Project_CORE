@@ -87,8 +87,10 @@ void AMinions::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
+	//MinionEnforceTime 경과에 따라 미니언 레벨 증가 최대 18 레벨까지만
+	Level = FMath::Clamp(GetWorld()->GetTimeSeconds()/MinionEnforceTime, 1, 18); // 최대 60%로 제한
 	InitAbilityActorInfo();
+
 	
 	if(HasAuthority())
 	{

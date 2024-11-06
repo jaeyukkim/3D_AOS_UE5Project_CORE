@@ -55,14 +55,20 @@ void USpellMenuWidgetController::OnInitializeStartupAbilities()
 	//Get information about all given abilities, look up their Ability Info, and broadcast it to widgets.
 	if (!AbilitySystemComponentBase->bStartupAbilitiesGiven) return;
 
-	FForEachAbility BroadcastDelegate;
-	BroadcastDelegate.BindLambda([this](const FGameplayAbilitySpec& AbilitySpec)
+	if(ICombatInterface* PlayerCharacter = Cast<ICombatInterface>(GetMyASC()->GetAvatarActor()))
 	{
-		FAbilityInfoBase Info = AbilityInfo->FindAbilityInfoForTag(AbilitySystemComponentBase->GetAbilityTagFromSpec(AbilitySpec));
-		Info.InputTag = AbilitySystemComponentBase->GetInputTagFromSpec(AbilitySpec);
-		AbilityInfoDelegate.Broadcast(Info);
-	});
-	AbilitySystemComponentBase->ForEachAbility(BroadcastDelegate);
+		ECharacterClass CharacterClass = PlayerCharacter->GetCharacterClass_Implementation();
+		
+		FForEachAbility BroadcastDelegate;
+		BroadcastDelegate.BindLambda([this, CharacterClass](const FGameplayAbilitySpec& AbilitySpec)
+		{
+			FAbilityInfoBase Info = AbilityInfo->FindAbilityInfoForTag(AbilitySystemComponentBase->GetAbilityTagFromSpec(AbilitySpec), CharacterClass);
+			Info.InputTag = AbilitySystemComponentBase->GetInputTagFromSpec(AbilitySpec);
+			AbilityInfoDelegate.Broadcast(Info);
+		});
+		AbilitySystemComponentBase->ForEachAbility(BroadcastDelegate);
+	}
+
 }
 
 void USpellMenuWidgetController::UpgradeSpell(const FGameplayTag& AbilityTag)

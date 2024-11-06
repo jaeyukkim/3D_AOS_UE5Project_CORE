@@ -62,8 +62,12 @@ public:
 	virtual void MulticastPlayerDie();
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastReSpawn();
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastDisableInput();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerReSpawn();
+	UFUNCTION(Server, Reliable, BlueprintCallable)
+	virtual void ServerRecall();
 	UFUNCTION(Client, Reliable)
 	void ClientSpectate();
 	UFUNCTION(BlueprintCallable)
@@ -147,7 +151,9 @@ public:
 	void ShowMagicCircle();
 	UFUNCTION(BlueprintCallable)
 	void HideMagicCircle();
-	
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void UpdateMagicCircleLocation();
+
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
@@ -176,7 +182,7 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly, Category="Kwang")
 	TSubclassOf<AAttackRangeDecal> MagicCircleClass;
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite ,EditDefaultsOnly)
 	TObjectPtr<AAttackRangeDecal> MagicCircle;
 	
 	
@@ -260,6 +266,8 @@ private:
 	FTimerHandle DeadTimerHandle;
 	FTimerHandle InitPlayerInfoHandle;
 	FTimerHandle PlayerLeftTimerHandle;
+	FTimerHandle PlayerDieRecallHandle;
 
 	float PlayerLeftTime = 3.f;
+	float RecallTime = 3.f;
 };

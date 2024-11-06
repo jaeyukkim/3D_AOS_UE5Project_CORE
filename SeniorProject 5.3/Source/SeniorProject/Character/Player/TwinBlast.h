@@ -37,8 +37,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	float Ability_Q_Distance = 1500.f;
+
 	
-	void UpdateMagicCircleLocation();
+	virtual void UpdateMagicCircleLocation_Implementation() override;
 	FHitResult AbilityRangeTraceResult;
 protected:
 	virtual void Tick(float DeltaSeconds) override;

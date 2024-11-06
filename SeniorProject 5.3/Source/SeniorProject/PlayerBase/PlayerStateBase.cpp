@@ -35,6 +35,7 @@ void APlayerStateBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(APlayerStateBase, TeamName);
 	DOREPLIFETIME(APlayerStateBase, PlayerCharacterClass);
 	DOREPLIFETIME(APlayerStateBase, GameProcess);
+	DOREPLIFETIME(APlayerStateBase, bIsInShop);
 	
 }
 
@@ -117,8 +118,11 @@ void APlayerStateBase::SetSpellPoints(int32 InPoints)
 
 void APlayerStateBase::SetIsInShop(bool InbIsInShop)
 {
-	bIsInShop = InbIsInShop;
-	ChangedShopCustomer.Broadcast(bIsInShop);
+	if(HasAuthority())
+	{
+		bIsInShop = InbIsInShop;
+	}
+	ChangedShopCustomer.Broadcast(InbIsInShop);
 }
 
 void APlayerStateBase::SetPlayerCharacterClass(UClass* InPlayerCharacterClass)
@@ -126,6 +130,11 @@ void APlayerStateBase::SetPlayerCharacterClass(UClass* InPlayerCharacterClass)
 	PlayerCharacterClass = InPlayerCharacterClass->GetClass();
 }
 
+
+void APlayerStateBase::OnRep_bIsInShop(bool OldbIsInShop)
+{
+	ChangedShopCustomer.Broadcast(bIsInShop);
+}
 
 void APlayerStateBase::OnRep_Level(int32 OldLevel)
 {

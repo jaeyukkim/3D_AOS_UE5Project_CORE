@@ -10,6 +10,8 @@
 class USphereComponent;
 class UProjectileMovementComponent;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FHitOtherActor);
+
 UCLASS(BlueprintType)
 class SENIORPROJECT_API AProjectileBase : public ADamageActorBase
 {
@@ -33,6 +35,10 @@ public:
 
 	UPROPERTY(Replicated, BlueprintReadOnly)
 	TObjectPtr<AActor> OwnerAvatarActor;
+
+	UPROPERTY(BlueprintAssignable)
+	FHitOtherActor HitOtherActor;
+	
 protected:
 
 	virtual void BeginPlay() override;
@@ -61,6 +67,8 @@ protected:
 	
 	UFUNCTION(BlueprintCallable)
 	void ApplyRadialDamage();
+
+	
 
 
 };

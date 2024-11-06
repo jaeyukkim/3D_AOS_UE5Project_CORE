@@ -90,22 +90,6 @@ void ATwinBlast::SetCharacterSetting()
 
 
 
-
-void ATwinBlast::UpdateMagicCircleLocation()
-{
-
-	if (IsValid(MagicCircle))
-	{
-		if(this->Implements<UCombatInterface>())
-		{
-			ICombatInterface::Execute_GetAimHitResult(this, Ability_Q_Distance , AbilityRangeTraceResult);
-			MagicCircle->SetActorLocation(AbilityRangeTraceResult.Location);
-		}
-	}
-	
-}
-
-
 void ATwinBlast::SetbGrenade(bool InbGrenade)
 {
 	if(HasAuthority())
@@ -116,4 +100,16 @@ void ATwinBlast::SetbUltimateActivate(bool InbUltimateActivate)
 {
 	if(HasAuthority())
 	 bUltimateActivate = InbUltimateActivate;
+}
+
+void ATwinBlast::UpdateMagicCircleLocation_Implementation()
+{
+	if (IsValid(MagicCircle))
+	{
+		if(this->Implements<UCombatInterface>())
+		{
+			ICombatInterface::Execute_GetAimHitResult(this, Ability_Q_Distance , AbilityRangeTraceResult);
+			MagicCircle->SetActorLocation(AbilityRangeTraceResult.Location);
+		}
+	}
 }

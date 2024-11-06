@@ -70,6 +70,8 @@ void AKwangPlayer::Tick(float DeltaSeconds)
 }
 
 
+
+
 void AKwangPlayer::SetCharacterSetting()
 {
 
@@ -113,9 +115,9 @@ void AKwangPlayer::SetbActiveWep(bool nbActiveWep)
 }
 
 
-void AKwangPlayer::UpdateMagicCircleLocation()
-{
 
+void AKwangPlayer::UpdateMagicCircleLocation_Implementation()
+{
 	if (IsValid(MagicCircle))
 	{
 		if(this->Implements<UCombatInterface>())
@@ -124,6 +126,4 @@ void AKwangPlayer::UpdateMagicCircleLocation()
 			MagicCircle->SetActorLocation(AbilityRangeTraceResult.Location);
 		}
 	}
-	
 }
-

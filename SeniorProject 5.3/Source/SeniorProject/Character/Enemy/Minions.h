@@ -88,7 +88,8 @@ protected:
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 
-	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float MinionEnforceTime = 60.f;
 private:
 	FTimerHandle InitWayPointTimerHandle;
 	const float InitWayPointLoop = 0.1f;
