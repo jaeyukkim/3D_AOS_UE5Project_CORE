@@ -5,6 +5,7 @@
 
 
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/Actor/Gameplay/AllWayPoint.h"
 #include "SeniorProject/Actor/Gameplay/Spawner.h"
 #include "SeniorProject/Character/Player/LobbyCharacter.h"
 #include "SeniorProject/Character/Turret/Turret.h"
@@ -181,7 +182,7 @@ void AMyGameModeBase::BeginPlay()
 	
 	// InitialSpawnTime 후 미니언 생성
 	GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
-	
+	GetWorld()->GetTimerManager().SetTimer(InitWayPointTimerHandle, this, &AMyGameModeBase::InitWayPoint, InitWayPointTime, false);
 	
 }
 
@@ -235,6 +236,14 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 }
 
 
+// WayPoint 싱글톤 클래스 생성
+void AMyGameModeBase::InitWayPoint()
+{
+	
+	const UAllWayPoint* AllWayPoint = UAllWayPoint::Get();
+	AllWayPoint->InitializeWayPoint(GetWorld());
+	
+}
 
 
 void AMyGameModeBase::SpawnMinion()

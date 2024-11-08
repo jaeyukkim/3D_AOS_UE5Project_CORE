@@ -73,6 +73,10 @@ class SENIORPROJECT_API ACoreGameState : public AGameState
 
 public:
 	ACoreGameState();
+
+	virtual void BeginPlay() override;
+	
+
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	FORCEINLINE void SetGameProcess(EGameProcess InGameProcess) {GameProcess = InGameProcess;}
 	
@@ -149,6 +153,8 @@ public:
 	void ServerAddTeamScore(const FGameplayTag& TeamName, bool bIsAddScore);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayTeamScoreSound(const FGameplayTag& TeamName);
+
+
 
 };
 

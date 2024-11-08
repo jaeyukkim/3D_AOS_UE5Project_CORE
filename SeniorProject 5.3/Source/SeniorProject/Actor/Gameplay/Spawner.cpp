@@ -4,6 +4,7 @@
 #include "Components/BoxComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "SeniorProject/Character/Enemy/Minions.h"
 
 ASpawner::ASpawner()
 {
@@ -30,6 +31,25 @@ void ASpawner::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 	DOREPLIFETIME(ASpawner, bSpawnSuperMinion);
 
 }
+
+void ASpawner::SpawnMinion(TSubclassOf<AMinions> Minions)
+{
+	if(!HasAuthority()) return;
+	
+	SpawnParticle();
+
+	FVector Location = GetActorLocation() + GetActorForwardVector() * 50.f;
+	FTransform SpawnTransform = FTransform(Location);
+
+
+	AMinions* NewMinion = GetWorld()->SpawnActorDeferred<AMinions>(Minions, SpawnTransform);
+	if (NewMinion)
+	{
+		NewMinion->LineTag = LineTag;
+		UGameplayStatics::FinishSpawningActor(NewMinion, SpawnTransform);
+	}
+}
+
 
 
 void ASpawner::BeginPlay()

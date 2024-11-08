@@ -19,19 +19,23 @@ public:
 	AAIControllerBase(const FObjectInitializer& ObjectInitializer);
 	virtual void BeginPlay() override;
 	virtual void OnPossess(APawn* InPawn) override;
-	
 	void StopAI();
+	void InitTeamAndLineTag(FGameplayTag& InTeamTag, FGameplayTag& InLineTag);
 	
 	UFUNCTION(BlueprintCallable)
 	void UpdateMinionTargetTurret();
-	void InitWayPoint();
+
 	UPROPERTY()
 	TObjectPtr<AMinions> ControlledMinion;
-	
+	FGameplayTag TeamTag;
+	FGameplayTag LineTag;
 protected:
 	UPROPERTY()
 	TObjectPtr<UBehaviorTreeComponent> BehaviorTreeComponent;
 
 	FTimerHandle InitMinionTargetTimerHandle;
 	const float InitMinionTargetLoop = 0.3f;
+
+private:
+	
 };

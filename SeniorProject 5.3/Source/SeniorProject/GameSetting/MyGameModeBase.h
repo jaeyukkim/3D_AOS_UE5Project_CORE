@@ -47,7 +47,8 @@ public:
 	void OnTurretSpawned(ATurret* SpawnedTurret);
 	UFUNCTION()
 	void OnTurretDestroyed(FGameplayTag& LineTag, FGameplayTag& TurretLevelTag, FGameplayTag& TeamTag);
-
+	UFUNCTION()
+	void InitWayPoint();
 protected:
 	virtual void BeginPlay() override;
 
@@ -67,7 +68,9 @@ protected:
 	int32 RedTeamPlayerNumber = 0;
 	int32 BlueTeamPlayerNumber = 0;
 	float UpdateMinionTargetDelay = 1.5f;
-	
+
+	// WayPoint 초기화 함수
+	float InitWayPointTime = 5.f;
 	
 private:
 	
@@ -80,5 +83,6 @@ private:
 	FTimerHandle InitialSpawnTimerHandle;
 	FTimerHandle RecurringSpawnTimerHandle;
 	FTimerHandle UpdateMinionTargetTimerHandle;
+	FTimerHandle InitWayPointTimerHandle;
 };
 

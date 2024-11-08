@@ -44,6 +44,7 @@ public:
 	virtual void SetLineTag_Implementation(FGameplayTag NewLineTag) override {LineTag = NewLineTag;}
 	virtual AActor* GetCombatTarget_Implementation() const override;
 	virtual void SetTargetPlayer_Implementation(AActor* Target) override;
+	virtual void SetCurrentWayPoint_Implementation(AActor* InCurrentWayPoint) override;
 	UPROPERTY(BlueprintReadWrite, Replicated, Category = "Combat")
 	TObjectPtr<AActor> CombatTarget;
 	/* end Enemy Interface */
@@ -57,41 +58,32 @@ public:
 	
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag TeamName;
-	
-	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
+	UPROPERTY(EditAnywhere, Category = "GameRule")
 	FGameplayTag LineTag;
 
-	UPROPERTY(Replicated)
-	TArray<TObjectPtr<AWayPoint>> WayPoints;
+	UPROPERTY()
+	TObjectPtr<AAIControllerBase> AIControllerBase;
+	UPROPERTY(EditAnywhere, Category = "AI")
+	TObjectPtr<UBehaviorTree> BehaviorTree;
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
 	virtual void InitializeDefaultAttributes() const override;
 	virtual void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount) override;
 	void BindCallbackTargetCharacter();
-	void InitWayPoint();
 	virtual EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
 	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
 	int32 Level = 1;
-
-	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-	UPROPERTY()
-	TObjectPtr<AAIControllerBase> AIControllerBase;
-	UPROPERTY(EditAnywhere, Category = "AI")
-	TObjectPtr<UBehaviorTree> BehaviorTree;
-
+	
 	
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	float MinionEnforceTime = 60.f;
-private:
-	FTimerHandle InitWayPointTimerHandle;
-	const float InitWayPointLoop = 0.1f;
 	
 };

@@ -22,7 +22,7 @@ AAIControllerBase::AAIControllerBase(const FObjectInitializer& ObjectInitializer
 	if(CrowdFollowingComponent)
 	{
 		CrowdFollowingComponent->SetCrowdSeparation(true);
-		CrowdFollowingComponent->SetCrowdSeparationWeight(800.f);
+		CrowdFollowingComponent->SetCrowdSeparationWeight(200.f);
 		CrowdFollowingComponent->SetCrowdAvoidanceRangeMultiplier(1.1f);
 		CrowdFollowingComponent->SetCrowdAvoidanceQuality(ECrowdAvoidanceQuality::Low);
 		CrowdFollowingComponent->SetCrowdAnticipateTurns(true);
@@ -48,10 +48,9 @@ void AAIControllerBase::BeginPlay()
 void AAIControllerBase::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
-	
-	ControlledMinion = Cast<AMinions>(InPawn);
-	if(ControlledMinion->ActorHasTag("Turret")) return;
-	
+
+	if(!InPawn->ActorHasTag("Turret"))
+		
 	if(AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode()))
 	{
 		MyGameModeBase->UpdateMinionTargets.AddDynamic(this, &AAIControllerBase::UpdateMinionTargetTurret);
@@ -65,13 +64,12 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
 void AAIControllerBase::UpdateMinionTargetTurret()
 {
 	
-	if(ControlledMinion == nullptr || !HasAuthority()) return;
+	if(!HasAuthority()) return;
 
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	if(ACoreGameState* CoreGameState = Cast<ACoreGameState>(GetWorld()->GetGameState()))
 	{
-		FGameplayTag TeamTag = ControlledMinion->TeamName;
-		FGameplayTag LineTag = ControlledMinion->LineTag;
+		
 		const FGameplayTag TargetLevel = CoreGameState->GetValidTargetTurret(TeamTag, LineTag);
 
 		if(TeamTag.MatchesTagExact(TagsBase.GameRule_TeamName_NONE) || LineTag.MatchesTagExact(TagsBase.GameRule_Line_NONE))
@@ -119,4 +117,10 @@ void AAIControllerBase::StopAI()
 {
 	if(BehaviorTreeComponent != nullptr)
 		BehaviorTreeComponent->StopTree(EBTStopMode::Safe);
+}
+
+void AAIControllerBase::InitTeamAndLineTag(FGameplayTag& InTeamTag, FGameplayTag& InLineTag)
+{
+	TeamTag = InTeamTag;
+	LineTag = InLineTag;
 }

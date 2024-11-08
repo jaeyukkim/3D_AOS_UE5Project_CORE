@@ -10,6 +10,7 @@
 #include "Spawner.generated.h"
 
 
+class AMinions;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMinionSpawnSignature);
 
 
@@ -30,15 +31,17 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
 	FORCEINLINE bool GetIsSpawnSuperMinion() const { return bSpawnSuperMinion; }
-
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
 	FORCEINLINE void SetIsSpawnSuperMinion(const bool IsSpawnSuperMinion) { bSpawnSuperMinion = IsSpawnSuperMinion; }
-
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
 	FORCEINLINE bool GetIsSpawnSiegeMinion() const { return bSpawnSiegeMinion; }
-
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
 	FORCEINLINE void SetIsSpawnSiegeMinion(const bool IsSpawnSiegeMinion) { bSpawnSiegeMinion = IsSpawnSiegeMinion; }
+
+	UFUNCTION(BlueprintCallable, Category = "Spawn")
+	void SpawnMinion(TSubclassOf<AMinions> Minions);
+
+
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
 	TObjectPtr<USkeletalMeshComponent> Mesh;

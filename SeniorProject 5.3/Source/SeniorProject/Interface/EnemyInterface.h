@@ -32,5 +32,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetTargetPlayer(AActor* Target);
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void SetCurrentWayPoint(AActor* InCurrentWayPoint);
 	
 };

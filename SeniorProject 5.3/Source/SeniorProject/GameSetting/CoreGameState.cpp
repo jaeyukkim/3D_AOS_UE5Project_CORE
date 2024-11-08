@@ -27,6 +27,11 @@ ACoreGameState::ACoreGameState()
 	BlueTeamTurretStates &= ~Mask;
 }
 
+void ACoreGameState::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -404,6 +409,8 @@ void ACoreGameState::OnRep_PlayerInfos()
 void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamName, bool bIsAddScore)
 {
 	//킬 대상이 플레이어끼리 였을 때만 점수를 더함 사망 사운드는 플레이어가 죽는다면 재생
+
+	MulticastPlayTeamScoreSound(TeamName);
 	
 	if(bIsAddScore)
 	{
@@ -422,7 +429,7 @@ void ACoreGameState::ServerAddTeamScore_Implementation(const FGameplayTag& TeamN
 		TotalTeamScore = RedTeamScore + BlueTeamScore;
 	}
 	
-	MulticastPlayTeamScoreSound(TeamName);
+	
 }
 
 void ACoreGameState::MulticastPlayTeamScoreSound_Implementation(const FGameplayTag& TeamName)
@@ -449,7 +456,7 @@ void ACoreGameState::MulticastPlayTeamScoreSound_Implementation(const FGameplayT
 	
 	if(TeamName.MatchesTagExact(LocalPlayerTeam))
 	{
-		if(TotalTeamScore == 1)
+		if(TotalTeamScore == 0)
 		{
 			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::FirstBloodAlly);
 		}
@@ -462,7 +469,7 @@ void ACoreGameState::MulticastPlayTeamScoreSound_Implementation(const FGameplayT
 
 	else
 	{
-		if(TotalTeamScore == 1)
+		if(TotalTeamScore == 0)
 		{
 			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::FirstBloodEnemy);
 		}
