@@ -42,12 +42,13 @@ void ASpawner::SpawnMinion(TSubclassOf<AMinions> Minions)
 	FTransform SpawnTransform = FTransform(Location);
 
 
-	AMinions* NewMinion = GetWorld()->SpawnActorDeferred<AMinions>(Minions, SpawnTransform);
-	if (NewMinion)
+	
+	if (AMinions* NewMinion = GetWorld()->SpawnActorDeferred<AMinions>(Minions, SpawnTransform))
 	{
 		NewMinion->LineTag = LineTag;
 		UGameplayStatics::FinishSpawningActor(NewMinion, SpawnTransform);
 	}
+	
 }
 
 
