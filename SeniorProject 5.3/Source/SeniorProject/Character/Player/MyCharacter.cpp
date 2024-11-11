@@ -689,6 +689,8 @@ bool AMyCharacter::DeleteItem_Implementation(FGameplayTag ItemInputTag)
 	return RemovedCount > 0;
 }
 
+
+//아이템 정렬 로직
 void AMyCharacter::SortingItem_Implementation()
 {
 	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
@@ -707,6 +709,7 @@ void AMyCharacter::SortingItem_Implementation()
 	}
 }
 
+//비어있는 아이템 슬롯 반환
 FGameplayTag AMyCharacter::GetEmptyItemSlot_Implementation()
 {
 	
