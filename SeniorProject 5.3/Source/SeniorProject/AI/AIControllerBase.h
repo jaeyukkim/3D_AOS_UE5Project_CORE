@@ -21,7 +21,6 @@ public:
 	virtual void OnPossess(APawn* InPawn) override;
 	void StopAI();
 	void InitTeamAndLineTag(FGameplayTag& InTeamTag, FGameplayTag& InLineTag);
-	
 	UFUNCTION(BlueprintCallable)
 	void UpdateMinionTargetTurret();
 

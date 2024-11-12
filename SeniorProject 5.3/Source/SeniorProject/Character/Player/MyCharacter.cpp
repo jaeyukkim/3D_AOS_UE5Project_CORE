@@ -189,28 +189,6 @@ void AMyCharacter::BroadcastInitialValues()
 	PlayerStateBase->BroadcastPlayerStat();
 }
 
-
-void AMyCharacter::ShowMagicCircle()
-{
-	if (!IsValid(MagicCircle))
-	{
-		MagicCircle = GetWorld()->SpawnActor<AAttackRangeDecal>(MagicCircleClass);
-	}
-}
-
-void AMyCharacter::HideMagicCircle()
-{
-	if (IsValid(MagicCircle))
-	{
-		MagicCircle->Destroy();
-	}
-}
-
-void AMyCharacter::UpdateMagicCircleLocation_Implementation()
-{
-}
-
-
 void AMyCharacter::InitAbilityActorInfo()
 {
 
@@ -325,8 +303,6 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Block);
 	SetMovementEnable(true);
-
-	
 	
 	if(IsLocallyControlled())
 	{
@@ -345,10 +321,6 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 void AMyCharacter::ServerReSpawn_Implementation()
 {
 	if(!HasAuthority()) return;
-
-	
-
-	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	if (PlayerStateBase == nullptr) return;
 
@@ -359,7 +331,6 @@ void AMyCharacter::ServerReSpawn_Implementation()
 	}
 
 	ServerRecall();
-	
 }
 void AMyCharacter::ServerRecall_Implementation()
 {
@@ -462,15 +433,11 @@ void AMyCharacter::Move(const FInputActionValue& InputActionValue)
 	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
 	const FRotator Rotation = GetControlRotation();
 	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
-
 	const FVector FowardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 	const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
-
 	
 	AddMovementInput(FowardDirection, InputAxisVector.Y);
 	AddMovementInput(RightDirection, InputAxisVector.X);
-	
-
 }
 
 void AMyCharacter::Look(const FInputActionValue& InputActionValue)
@@ -478,9 +445,6 @@ void AMyCharacter::Look(const FInputActionValue& InputActionValue)
 	if(bDead || !PlayerController || PlayerController->bShowMouseCursor) return;
 	
 	const FVector2D InputAxisVector = InputActionValue.Get<FVector2D>();
-
-	
-	
 
 	FRotator SpringArmRotation = SpringArm->GetComponentRotation();
 	FRotator ControlRotation = GetActorRotation();
@@ -521,70 +485,10 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 
 	
 }
-
-
-
-
 void AMyCharacter::Jump()
 {
 	if(!bDead)
 		Super::Jump();
-}
-
-
-
-void AMyCharacter::GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult)
-{
-	if(!IsValid(PlayerController)) return;
-	
-	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
-	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*AbilityDistance;
-		
-	TraceEndLocation += CameraLocation;
-
-
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation,
-	ECC_RangeTrace);
-		
-	if (!bHit)
-	{
-		FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
-		GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
-
-	}
-
-}
-
-
-void AMyCharacter::GetStraightAimHitResult_Implementation(float AttackDistance, FHitResult& HitResult)
-{
-	
-
-	//따로 지정하지 않았으면 기본공격 범위
-	if(AttackDistance <= 0.f)
-		AttackDistance = AttackRange;
-
-	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
-	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector() * AttackRange;
-	TraceEndLocation += CameraLocation;
-
-	// 충돌 쿼리 파라미터 생성 및 자기 자신 무시 설정
-	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(this);  // 자신의 캐릭터를 무시
-
-
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation, ECC_OnlyOverlapCharacter, QueryParams);
-		
-	// 디버그 라인 그리기: 트레이스 라인이 시각적으로 표시되도록
-	FColor LineColor = bHit ? FColor::Red : FColor::Green;
-	DrawDebugLine(GetWorld(), CameraLocation, TraceEndLocation, LineColor, false, 10.0f, 0, 2.0f);
-
-	// 히트된 경우 히트 지점에 디버그 구 그리기
-	if (bHit)
-	{
-		float SphereRadius = 10.0f;  // 구의 반지름
-		DrawDebugSphere(GetWorld(), HitResult.Location, SphereRadius, 12, FColor::Blue, false, 10.0f);
-	}
 }
 
 void AMyCharacter::Die_Implementation()
@@ -661,29 +565,6 @@ void AMyCharacter::LevelUp_Implementation()
 	check(PlayerStateBase);
 	MulticastLevelUpParticles();
 
-	
-	
-}
-
-
-//비어있는 아이템 슬롯 반환
-FGameplayTag AMyCharacter::GetEmptyItemSlot_Implementation()
-{
-	return ItemComponent->GetEmptyItemSlot();
-}
-
-TArray<FItemInformation> AMyCharacter::GetAllItem_Implementation()
-{
-	return ItemComponent->GetAllItem();
-}
-void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
-{
-	ItemComponent->AddToItem(InOwnedItem);
-}
-
-bool AMyCharacter::DeleteItem_Implementation(const FGameplayTag& ItemInputTag)
-{
-	return ItemComponent->DeleteItem(ItemInputTag);
 }
 
 void AMyCharacter::MulticastLevelUpParticles_Implementation() const
@@ -692,7 +573,6 @@ void AMyCharacter::MulticastLevelUpParticles_Implementation() const
 		LevelUpParticleComponent->Activate(true);
 	
 }
-
 
 int32 AMyCharacter::GetXP_Implementation() const
 {
@@ -715,7 +595,6 @@ int32 AMyCharacter::FindLevelForXP_Implementation(int32 InXP) const
 	return PlayerStateBase->LevelUpInfo->FindLevelForXP(InXP);
 }
 
-
 void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -729,10 +608,7 @@ void AMyCharacter::AddToPlayerLevel_Implementation(int32 InPlayerLevel)
 			ApplyEffectToSelf(LevelUpReward, 1.f);
 		}
 	}
-	
-	
 }
-
 
 void AMyCharacter::AddToSpellPoints_Implementation(int32 InSpellPoints)
 {
@@ -761,8 +637,10 @@ int32 AMyCharacter::GetPlayerLevel_Implementation()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	check(PlayerStateBase);
 	return PlayerStateBase->GetPlayerLevel();
-
-
+}
+void AMyCharacter::GetLevelUpReward()
+{
+	ApplyEffectToSelf(LevelUpReward, 1.f);
 }
 
 bool AMyCharacter::GetIsInShop_Implementation()
@@ -780,19 +658,29 @@ void AMyCharacter::SetIsInShop_Implementation(bool InbIsInShop)
 	return;
 }
 
+//비어있는 아이템 슬롯 반환
+FGameplayTag AMyCharacter::GetEmptyItemSlot_Implementation()
+{
+	return ItemComponent->GetEmptyItemSlot();
+}
+
+TArray<FItemInformation> AMyCharacter::GetAllItem_Implementation()
+{
+	return ItemComponent->GetAllItem();
+}
+void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
+{
+	ItemComponent->AddToItem(InOwnedItem);
+}
+
+bool AMyCharacter::DeleteItem_Implementation(const FGameplayTag& ItemInputTag)
+{
+	return ItemComponent->DeleteItem(ItemInputTag);
+}
 UAnimMontage* AMyCharacter::GetRecallMontage_Implementation()
 {
 	return RecallAnim;
 }
-
-
-
-void AMyCharacter::GetLevelUpReward()
-{
-	ApplyEffectToSelf(LevelUpReward, 1.f);
-}
-
-
 
 
 void AMyCharacter::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
@@ -813,6 +701,79 @@ void AMyCharacter::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
 	
 }
 
+void AMyCharacter::ShowMagicCircle()
+{
+	if (!IsValid(MagicCircle))
+	{
+		MagicCircle = GetWorld()->SpawnActor<AAttackRangeDecal>(MagicCircleClass);
+	}
+}
+
+void AMyCharacter::HideMagicCircle()
+{
+	if (IsValid(MagicCircle))
+	{
+		MagicCircle->Destroy();
+	}
+}
+
+void AMyCharacter::UpdateMagicCircleLocation_Implementation()
+{
+}
+
+
+void AMyCharacter::GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult)
+{
+	if(!IsValid(PlayerController)) return;
+	
+	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
+	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector()*AbilityDistance;
+		
+	TraceEndLocation += CameraLocation;
+
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation,
+	ECC_RangeTrace);
+		
+	if (!bHit)
+	{
+		FVector DownwardTraceEnd = TraceEndLocation + FVector(0.0f, 0.0f, -10000.0f); // 수직 아래로 추가 트레이스
+		GetWorld()->LineTraceSingleByChannel(HitResult, TraceEndLocation, DownwardTraceEnd, ECC_RangeTrace);
+
+	}
+
+}
+
+void AMyCharacter::GetStraightAimHitResult_Implementation(float AttackDistance, FHitResult& HitResult)
+{
+	
+
+	//따로 지정하지 않았으면 기본공격 범위
+	if(AttackDistance <= 0.f)
+		AttackDistance = AttackRange;
+
+	FVector CameraLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentLocation();
+	FVector TraceEndLocation = PlayerController->PlayerCameraManager->GetRootComponent()->GetComponentRotation().Vector() * AttackRange;
+	TraceEndLocation += CameraLocation;
+
+	// 충돌 쿼리 파라미터 생성 및 자기 자신 무시 설정
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this);  // 자신의 캐릭터를 무시
+
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, CameraLocation, TraceEndLocation, ECC_OnlyOverlapCharacter, QueryParams);
+		
+	// 디버그 라인 그리기: 트레이스 라인이 시각적으로 표시되도록
+	FColor LineColor = bHit ? FColor::Red : FColor::Green;
+	DrawDebugLine(GetWorld(), CameraLocation, TraceEndLocation, LineColor, false, 10.0f, 0, 2.0f);
+
+	// 히트된 경우 히트 지점에 디버그 구 그리기
+	if (bHit)
+	{
+		float SphereRadius = 10.0f;  // 구의 반지름
+		DrawDebugSphere(GetWorld(), HitResult.Location, SphereRadius, 12, FColor::Blue, false, 10.0f);
+	}
+}
 
 void AMyCharacter::AimTrace()
 {

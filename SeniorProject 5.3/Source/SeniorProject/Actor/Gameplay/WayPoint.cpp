@@ -28,7 +28,8 @@ void AWayPoint::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &AWayPoint::UpdateWayPoint);
+	if(HasAuthority())
+		SphereCollision->OnComponentBeginOverlap.AddDynamic(this, &AWayPoint::UpdateWayPoint);
 
 }
 
@@ -47,12 +48,10 @@ void AWayPoint::UpdateWayPoint(UPrimitiveComponent* OverlappedComponent, AActor*
 		if(AIControllerBase == nullptr) return;
 		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
 		if(BlackboardComp == nullptr) return;
-
 		
-		AActor* ArrivedWayPoint = Cast<AActor>(BlackboardComp->GetValueAsObject("WayPoint"));
-		BlackboardComp->SetValueAsObject("CurrentWayPoint", ArrivedWayPoint);
+		// 미니언이 도착했을 때 CurrentWayPoint를 이 액터로 설정
+		BlackboardComp->SetValueAsObject("CurrentWayPoint", this);
 		FVector TargetTurret = BlackboardComp->GetValueAsVector("TargetTurret");
-
 	
 		AActor* NearestWayPoint = nullptr;
 		float DistanceToTurret = FVector::Distance(TargetTurret, GetActorLocation());
@@ -65,8 +64,7 @@ void AWayPoint::UpdateWayPoint(UPrimitiveComponent* OverlappedComponent, AActor*
 		
 		for(AWayPoint* EachWayPoint : UAllWayPoint::GetWayPoint(Minion->LineTag))
 		{
-			if(EachWayPoint == nullptr) continue;  
-			if(ArrivedWayPoint != nullptr && EachWayPoint == ArrivedWayPoint)
+			if(EachWayPoint == nullptr || EachWayPoint == this)
 			{
 				continue; // 현재 웨이포인트는 제외
 			}

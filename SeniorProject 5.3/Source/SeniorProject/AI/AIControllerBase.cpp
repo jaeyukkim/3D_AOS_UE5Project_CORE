@@ -7,6 +7,7 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Navigation/CrowdFollowingComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/Actor/Gameplay/AllWayPoint.h"
 #include "SeniorProject/Character/Enemy/Minions.h"
 #include "SeniorProject/Character/Turret/Turret.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
@@ -123,4 +124,6 @@ void AAIControllerBase::InitTeamAndLineTag(FGameplayTag& InTeamTag, FGameplayTag
 {
 	TeamTag = InTeamTag;
 	LineTag = InLineTag;
+	
 }
+

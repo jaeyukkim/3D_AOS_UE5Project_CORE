@@ -32,28 +32,20 @@ AMinions::AMinions()
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Minimal);
 	AttributeSet = CreateDefaultSubobject<UAttributeSetBase>("AttributeSet");
-
-
+	
 	HealthBarWidget = CreateDefaultSubobject<UWidgetComponent>("HealthBar");
 	HealthBarWidget->SetupAttachment(GetRootComponent());
 	HealthBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 	HealthBarWidget->SetDrawSize(FVector2D(150.0f, 50.0f));
 	
-
-	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
-
-
-
+	
 	bUseControllerRotationYaw = false;
 	GetCharacterMovement()->bUseControllerDesiredRotation = true;
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
-	
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
-	
-
 	GetCharacterMovement()->bUseRVOAvoidance = true;
 	GetCharacterMovement()->AvoidanceWeight = 2.0f;
 	
@@ -132,19 +124,14 @@ void AMinions::BeginPlay()
 	
 }
 
-
-
-
 void AMinions::BindCallbackTargetCharacter()
 {
 	if(AIControllerBase != nullptr)
 	{
-		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
-		if (BlackboardComp)
+		if (UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent())
 		{
 			// "Target" 키의 ID 가져오기
 			const FBlackboard::FKey TargetKeyID = BlackboardComp->GetKeyID("Target");
-			
 
 			// Target 값이 변경될 때마다 OnBlackboardTargetChanged 호출
 			BlackboardComp->RegisterObserver(TargetKeyID, this,
@@ -152,8 +139,6 @@ void AMinions::BindCallbackTargetCharacter()
 		}
 	}
 }
-
-
 
 EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp,
                                                                   FBlackboard::FKey KeyID)
@@ -175,13 +160,6 @@ EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackbo
 	// EBlackboardNotificationResult::Continue를 반환하여 델리게이트가 계속 유효하도록 함
 	return EBlackboardNotificationResult::ContinueObserving;
 }
-
-
-
-
-// Called every frame
-
-
 
 
 void AMinions::Die_Implementation()
@@ -217,8 +195,6 @@ void AMinions::SetTargetPlayer_Implementation(AActor* Target)
 
 void AMinions::SetCurrentWayPoint_Implementation(AActor* InCurrentWayPoint)
 {
-	Super::SetCurrentWayPoint_Implementation(InCurrentWayPoint);
-
 	
 }
 

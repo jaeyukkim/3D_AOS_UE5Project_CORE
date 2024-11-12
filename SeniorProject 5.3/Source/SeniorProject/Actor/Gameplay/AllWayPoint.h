@@ -20,12 +20,15 @@ public:
 	static const UAllWayPoint* Get();
 	static void InitializeWayPoint(UWorld* WorldContext);
 	
-	static UAllWayPoint* GAllWayPoint;
+	static TObjectPtr<UAllWayPoint> GAllWayPoint;
 
 	static TArray<TObjectPtr<AWayPoint>> GetWayPoint(FGameplayTag& LineTag);
 
+	UPROPERTY()
 	TArray<TObjectPtr<AWayPoint>> TopWayPoint;
+	UPROPERTY()
 	TArray<TObjectPtr<AWayPoint>> MidWayPoint;
+	UPROPERTY()
 	TArray<TObjectPtr<AWayPoint>> BottomWayPoint;
 
 };

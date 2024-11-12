@@ -6,7 +6,7 @@
 #include "EngineUtils.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 
-UAllWayPoint* UAllWayPoint::GAllWayPoint;
+TObjectPtr<UAllWayPoint> UAllWayPoint::GAllWayPoint;
 
 const UAllWayPoint* UAllWayPoint::Get()
 {
@@ -22,6 +22,12 @@ const UAllWayPoint* UAllWayPoint::Get()
 void UAllWayPoint::InitializeWayPoint(UWorld* WorldContext)
 {
 	if (!WorldContext) return;
+	
+	if (!GAllWayPoint)
+	{
+		GAllWayPoint = NewObject<UAllWayPoint>();
+		GAllWayPoint->AddToRoot(); // GC로부터 보호
+	}
 	
 	for (TActorIterator<AWayPoint> It(WorldContext); It; ++It)
 	{

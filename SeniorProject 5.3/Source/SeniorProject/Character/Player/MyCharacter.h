@@ -30,8 +30,8 @@ class AAttackRangeDecal;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerAttributeChangedSignature, float, NewValue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FPlayerLevelChangedSignature, int32, NewLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnLeftGame);
-
 DECLARE_MULTICAST_DELEGATE(FRespawnedDelegate);
+
 
 UCLASS(abstract)
 class SENIORPROJECT_API AMyCharacter : public ACharacterBase, public IPlayerInterface
@@ -52,10 +52,6 @@ public:
 	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastEndGame(const FGameplayTag& DefeatedTeam);
-	UFUNCTION(Server, Reliable)
-	void ServerLeaveGame();
-
-	
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastInitAbilityActorInfo();
 	UFUNCTION(NetMulticast, Reliable)
@@ -64,51 +60,47 @@ public:
 	virtual void MulticastReSpawn();
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastDisableInput();
+	
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerReSpawn();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerRecall();
+	UFUNCTION(Server, Reliable)
+	void ServerLeaveGame();
+	
 	UFUNCTION(Client, Reliable)
 	void ClientSpectate();
-	UFUNCTION(BlueprintCallable)
-	virtual void SetMovementEnable(const bool bIsMovementEnable);
-	UPROPERTY()
-	TArray<TObjectPtr<AMyCharacter>> SpectatedCharacters;
-	int32 SpectateIdx = 0;
 	
 	UFUNCTION(BlueprintCallable)
 	void BroadcastInitialValues();
+	UFUNCTION(BlueprintCallable)
+	virtual void SetMovementEnable(const bool bIsMovementEnable);
 	
-	
-
 	UPROPERTY(VisibleAnywhere, Category = "Camera")
 		TObjectPtr<USpringArmComponent> SpringArm;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 		TObjectPtr<UCameraComponent> Camera;
-	
 	UPROPERTY(EditAnywhere, Category="Input")
 		TObjectPtr<AMyPlayerController> PlayerController;
 	
 
+	
 	/* CombatInterface */
 	virtual void GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult) override;
 	virtual void GetStraightAimHitResult_Implementation(float AttackDistance ,FHitResult& HitResult);
 	virtual void Die_Implementation() override;
 	/* end CombatInterface */
-
 	
 	/* Enemy Interface */
 	virtual FGameplayTag GetTeamName_Implementation() const override;
 	/* end Enemy Interface */
-
-
 	
 	/** Players Interface */
 	virtual int32 GetSpellPoints_Implementation() const override;
 	virtual int32 GetXP_Implementation() const override;
 	virtual int32 GetGold_Implementation() const override;
 	virtual int32 FindLevelForXP_Implementation(int32 InXP) const override;
+	virtual int32 GetPlayerLevel_Implementation() override;
 	virtual void AddToPlayerLevel_Implementation(int32 InPlayerLevel) override;
 	virtual void AddToSpellPoints_Implementation(int32 InSpellPoints) override;
 	virtual void AddToGold_Implementation(int32 InGold) override;
@@ -119,16 +111,12 @@ public:
 	//virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	virtual TArray<FItemInformation> GetAllItem_Implementation() override;
-	virtual int32 GetPlayerLevel_Implementation() override;
 	virtual bool GetIsInShop_Implementation() override;
 	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
 	virtual UAnimMontage* GetRecallMontage_Implementation() override;
 	/** end Player Interface */
 
 	
-	
-	
-
 	UPROPERTY(BlueprintAssignable)
 	FPlayerAttributeChangedSignature OnPlayerBarManaChanged;
 	UPROPERTY(BlueprintAssignable)
@@ -140,13 +128,9 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FPlayerAttributeChangedSignature OnPlayerBarMaxHealthChanged;
 	FOnLeftGame OnLeftGame;
-
-	UPROPERTY(Replicated, EditDefaultsOnly, BlueprintReadWrite)
-	float AttackRange = 1200.f;
-
 	FRespawnedDelegate Respawned;
 
-
+	
 	UFUNCTION(BlueprintCallable)
 	void ShowMagicCircle();
 	UFUNCTION(BlueprintCallable)
@@ -154,6 +138,9 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void UpdateMagicCircleLocation();
 
+	UPROPERTY(Replicated, EditDefaultsOnly, BlueprintReadWrite)
+	float AttackRange = 1200.f;
+	
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
@@ -165,7 +152,6 @@ protected:
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 	UFUNCTION()
 	void GetLevelUpReward();
-
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
@@ -179,16 +165,15 @@ protected:
 	TObjectPtr<UItemComponent> ItemComponent;
 	UPROPERTY(EditAnywhere, Category = HUD)
 	TSubclassOf<UUserWidget> EndGameWidgetClass;
-	
 	UPROPERTY(EditDefaultsOnly, Category="Kwang")
 	TSubclassOf<AAttackRangeDecal> MagicCircleClass;
 	UPROPERTY(BlueprintReadWrite ,EditDefaultsOnly)
 	TObjectPtr<AAttackRangeDecal> MagicCircle;
-	
-	
+	UPROPERTY()
+	TArray<TObjectPtr<AMyCharacter>> SpectatedCharacters;
 	
 	bool bAbilityIsGiven = false;
-
+	int32 SpectateIdx = 0;
 
 	
 private:
@@ -242,25 +227,19 @@ private:
 	TObjectPtr<UInputAction> MouseCursorOp;
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputAction> ShowAdditionalAttribute;
-
 	
 	void SetMouseCursor(const FInputActionValue& InputActionValue);
 	void Move(const FInputActionValue& InputActionValue);
 	void Look(const FInputActionValue& InputActionValue);
 	void ShowAdditionalAttributeMenu(const FInputActionValue& InputActionValue);
 	virtual void Jump() override;
-
+	void AimTrace();
 	
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> LastActor;
 	UPROPERTY()
 		TScriptInterface<IEnemyInterface> ThisActor;
-
 	
-
-	void AimTrace();
-	
-
 	FTimerHandle InitPlayerHealthBarHandle;
 	FTimerHandle InitReSpawnHandle;
 	FTimerHandle DeadTimerHandle;

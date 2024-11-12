@@ -239,10 +239,7 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 // WayPoint 싱글톤 클래스 생성
 void AMyGameModeBase::InitWayPoint()
 {
-	
-	const UAllWayPoint* AllWayPoint = UAllWayPoint::Get();
-	AllWayPoint->InitializeWayPoint(GetWorld());
-	
+	UAllWayPoint::InitializeWayPoint(GetWorld());
 }
 
 
