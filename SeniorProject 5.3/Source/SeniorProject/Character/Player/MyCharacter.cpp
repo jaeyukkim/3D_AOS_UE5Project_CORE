@@ -2,35 +2,36 @@
 
 #pragma once
 
-#include "MyCharacter.h"
 #include "SeniorProject/SeniorProject.h"
-#include "SeniorProject/GameSetting/MyGameModeBase.h"
-#include "SeniorProject/PlayerBase/MyAnimInstance.h"
-#include "SeniorProject/PlayerBase/PlayerStateBase.h"
-#include "SeniorProject/PlayerBase/MyPlayerController.h"
-
-#include "SeniorProject/UI/HUD/DefaultHUD.h"
-
+#include "MyCharacter.h"
 #include "AbilitySystemComponent.h"
 #include "EngineUtils.h"
-
-#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
-
+#include "Components/WidgetComponent.h"
+#include "Net/UnrealNetwork.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
 
 #include "SeniorProject/GamePlayTagsBase.h"
+#include "SeniorProject/GameSetting/MyGameModeBase.h"
+#include "SeniorProject/Character/Turret/Turret.h"
+
+#include "SeniorProject/PlayerBase/MyAnimInstance.h"
+#include "SeniorProject/PlayerBase/PlayerStateBase.h"
+#include "SeniorProject/PlayerBase/MyPlayerController.h"
+#include "SeniorProject/PlayerBase/ItemComponent.h"
+
+#include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Data/LevelUpInfo.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
-#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
-#include "Components/WidgetComponent.h"
-#include "Net/UnrealNetwork.h"
+
 #include "SeniorProject/Actor/Decal/AttackRangeDecal.h"
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
-#include "SeniorProject/Character/Turret/Turret.h"
+
+#include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
 #include "SeniorProject/UI/HUD/ReturnToMainMenu.h"
+#include "SeniorProject/UI/HUD/DefaultHUD.h"
 
 // Sets default values
 AMyCharacter::AMyCharacter()
@@ -38,7 +39,6 @@ AMyCharacter::AMyCharacter()
 	Tags.Add(TEXT("Player"));
 	
 	PrimaryActorTick.bCanEverTick = true;
-	
 	
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -88.0f), FRotator(0.0f, -90.0f, 0.0f));
 	
@@ -60,7 +60,7 @@ AMyCharacter::AMyCharacter()
 	HealthBarWidget->SetWidgetSpace(EWidgetSpace::Screen);
 	HealthBarWidget->SetDrawSize(FVector2D(250.0f, 50.0f));
 	
-	
+	ItemComponent = CreateDefaultSubobject<UItemComponent>("ItemComponents");
 
 	
 	ThisActor = nullptr;
@@ -73,8 +73,7 @@ AMyCharacter::AMyCharacter()
 void AMyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-	DOREPLIFETIME(AMyCharacter, OwnedItems);
+	
 	DOREPLIFETIME(AMyCharacter, AttackRange);
 }
 
@@ -83,20 +82,17 @@ void AMyCharacter::PossessedBy(AController* NewController)
 	Super::PossessedBy(NewController);
 	
 	
-	
-	// Ability Info ���� �ʱ�ȭ
 	InitAbilityActorInfo();
 	AddCharacterAbility();
 	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
 	bAbilityIsGiven = true;
-	
 	
 }
 
 void AMyCharacter::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	// Ability Info Ŭ���̾�Ʈ �ʱ�ȭ
+	
 	InitAbilityActorInfo();
 	
 }
@@ -669,81 +665,26 @@ void AMyCharacter::LevelUp_Implementation()
 	
 }
 
-void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
-{
-	OwnedItems.Add(InOwnedItem);
-
-}
-
-bool AMyCharacter::DeleteItem_Implementation(FGameplayTag ItemInputTag)
-{
-	
-	
-	// 배열에서 해당 태그를 가진 아이템을 모두 삭제
-	int32 RemovedCount = OwnedItems.RemoveAll([&](const FItemInformation& Info)
-	{
-		return Info.InputTag.MatchesTag(ItemInputTag);
-	});
-
-	// 삭제된 항목이 있으면 true 반환
-	return RemovedCount > 0;
-}
-
-
-//아이템 정렬 로직
-void AMyCharacter::SortingItem_Implementation()
-{
-	if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
-	{
-		UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(PlayerStateBase->GetAbilitySystemComponent());
-
-		for(FItemInformation& OwnedItem : OwnedItems)
-		{
-			FGameplayTag PrevInputTag = OwnedItem.InputTag;
-			FGameplayTag NextInputTag = GetEmptyItemSlot_Implementation();
-
-			OwnedItem.InputTag = NextInputTag;
-			ASCBase->ChangeGrantedTagToEffect(PrevInputTag, NextInputTag, OwnedItem.ItemEffect);
-		}
-		
-	}
-}
 
 //비어있는 아이템 슬롯 반환
 FGameplayTag AMyCharacter::GetEmptyItemSlot_Implementation()
 {
-	
-	// 게임플레이 태그 데이터베이스 가져오기
-	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
-    
-	// OwnedItems 배열에서 사용 중인 InputTag들을 수집합니다.
-	TSet<FGameplayTag> UsedTags;
-	for (const FItemInformation& Item : OwnedItems)
-	{
-		if (Item.InputTag.IsValid())
-		{
-			UsedTags.Add(Item.InputTag);
-		}
-	}
-
-	// 사용되지 않은 태그를 찾아 반환합니다.
-	for (const FGameplayTag& InputTag : GameplayTags.ItemInputTags)
-	{
-		if (!UsedTags.Contains(InputTag))
-		{
-			return InputTag; // 사용되지 않은 첫 번째 태그 반환
-		}
-	}
-
-	// 사용 가능한 태그가 없을 경우 NONE 태그 반환
-	return GameplayTags.Input_NONE;
+	return ItemComponent->GetEmptyItemSlot();
 }
 
 TArray<FItemInformation> AMyCharacter::GetAllItem_Implementation()
 {
-	return OwnedItems;
+	return ItemComponent->GetAllItem();
+}
+void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
+{
+	ItemComponent->AddToItem(InOwnedItem);
 }
 
+bool AMyCharacter::DeleteItem_Implementation(const FGameplayTag& ItemInputTag)
+{
+	return ItemComponent->DeleteItem(ItemInputTag);
+}
 
 void AMyCharacter::MulticastLevelUpParticles_Implementation() const
 {

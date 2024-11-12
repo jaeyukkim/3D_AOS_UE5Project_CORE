@@ -66,7 +66,7 @@ public:
 	TArray<FItemInformation> GetAllItem();
 
 	UFUNCTION(BlueprintNativeEvent)
-	bool DeleteItem(FGameplayTag ItemInputTag);
+	bool DeleteItem(FGameplayTag& ItemInputTag);
 	
 	UFUNCTION(BlueprintNativeEvent)
 	void SortingItem();

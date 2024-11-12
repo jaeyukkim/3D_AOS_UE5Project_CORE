@@ -228,7 +228,7 @@ void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEff
 
 
 
-void UAbilitySystemComponentBase::ServerSellItem_Implementation(const FItemInformation& ClickedItemInfo)
+void UAbilitySystemComponentBase::ServerSellItem_Implementation(FItemInformation& ClickedItemInfo)
 {
 	if (!GetAvatarActor()->Implements<UPlayerInterface>()) return;
 	

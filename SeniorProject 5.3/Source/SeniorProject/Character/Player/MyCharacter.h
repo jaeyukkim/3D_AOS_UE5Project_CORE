@@ -13,7 +13,7 @@
 #include "MyCharacter.generated.h"
 
 
-
+class UItemComponent;
 class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
@@ -115,8 +115,8 @@ public:
 	virtual void AddToXP_Implementation(int32 InXP) override;
 	virtual void LevelUp_Implementation() override;
 	virtual void AddToItem_Implementation(const FItemInformation& InOwnedItem) override;
-	virtual bool DeleteItem_Implementation(FGameplayTag ItemInputTag) override;
-	virtual void SortingItem_Implementation() override;
+	virtual bool DeleteItem_Implementation(const FGameplayTag& ItemInputTag) override;
+	//virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	virtual TArray<FItemInformation> GetAllItem_Implementation() override;
 	virtual int32 GetPlayerLevel_Implementation() override;
@@ -175,8 +175,8 @@ protected:
 	TObjectPtr<UAnimMontage> RecallAnim;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-	UPROPERTY(Replicated)
-	TArray<FItemInformation> OwnedItems;
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<UItemComponent> ItemComponent;
 	UPROPERTY(EditAnywhere, Category = HUD)
 	TSubclassOf<UUserWidget> EndGameWidgetClass;
 	
