@@ -59,7 +59,7 @@ public:
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastReSpawn();
 	UFUNCTION(NetMulticast, Reliable)
-	virtual void MulticastDisableInput();
+	virtual void MulticastSetMovementMode(const bool bIsMovementEnable);
 	
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerReSpawn();
@@ -111,6 +111,7 @@ public:
 	//virtual void SortingItem_Implementation() override;
 	virtual FGameplayTag GetEmptyItemSlot_Implementation() override;
 	virtual TArray<FItemInformation> GetAllItem_Implementation() override;
+
 	virtual bool GetIsInShop_Implementation() override;
 	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
 	virtual UAnimMontage* GetRecallMontage_Implementation() override;
@@ -140,7 +141,8 @@ public:
 
 	UPROPERTY(Replicated, EditDefaultsOnly, BlueprintReadWrite)
 	float AttackRange = 1200.f;
-	
+	UPROPERTY(Replicated, BlueprintReadWrite)
+	bool bActivateShift = false;
 protected:
 	
 	virtual void SetCharacterSetting() PURE_VIRTUAL(AMyCharacter::SetCharacterSetting, );
@@ -152,7 +154,8 @@ protected:
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
 	UFUNCTION()
 	void GetLevelUpReward();
-	
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+	void MulticastMoveAbility(int32 Velocity, float Duration);
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "LevelUp")
@@ -205,6 +208,9 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> Flash_Ability;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+		TObjectPtr<UInputAction> Shift_Ability;
 	
 	UPROPERTY(EditAnywhere, Category = "Input")
 		TObjectPtr<UInputAction> B_Recall;
@@ -246,6 +252,8 @@ private:
 	FTimerHandle InitPlayerInfoHandle;
 	FTimerHandle PlayerLeftTimerHandle;
 	FTimerHandle PlayerDieRecallHandle;
+	FTimerHandle MoveTimer;
+	FTimerHandle CancelTimer;
 
 	float PlayerLeftTime = 3.f;
 	float RecallTime = 3.f;

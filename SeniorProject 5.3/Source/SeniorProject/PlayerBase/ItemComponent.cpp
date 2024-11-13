@@ -66,7 +66,7 @@ FGameplayTag UItemComponent::GetEmptyItemSlot()
 	return GameplayTags.Input_NONE;
 }
 
-TArray<FItemInformation> UItemComponent::GetAllItem()
+TArray<FItemInformation>& UItemComponent::GetAllItem()
 {
 	return OwnedItems;
 }

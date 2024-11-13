@@ -30,6 +30,7 @@ void UMyAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 	if(KwangPlayer == nullptr) return;
 	
 	bIsNoWep = !KwangPlayer->bActiveWep;
+	bTwistActived = KwangPlayer->bActivateShift;
 }
 
 

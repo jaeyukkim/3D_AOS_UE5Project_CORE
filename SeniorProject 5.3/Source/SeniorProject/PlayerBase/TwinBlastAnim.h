@@ -24,6 +24,8 @@ public:
 	bool bIsUltimateActivative = false;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
 	bool bGrenadeActived = false;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Pawn, Meta = (AllowPrivateAccess = true))
+	bool bDiveActived = false;
 	
 	UFUNCTION()
 	void AnimNotify_EnableUltimate();

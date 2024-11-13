@@ -31,6 +31,7 @@ void UTwinBlastAnim::NativeUpdateAnimation(float DeltaSeconds)
 	
 	bIsUltimateActivative = TwinBlast->bUltimateActivate;
 	bGrenadeActived = TwinBlast->bGrenade;
+	bDiveActived = TwinBlast->bActivateShift;
 }
 
 void UTwinBlastAnim::AnimNotify_EnableUltimate()

@@ -24,10 +24,10 @@ public:
 	//void SortingItem();
 	
 	FGameplayTag GetEmptyItemSlot();
-	TArray<FItemInformation> GetAllItem();
+	TArray<FItemInformation>& GetAllItem();
 	
-	
-private:
 	UPROPERTY(Replicated)
 	TArray<FItemInformation> OwnedItems;
+private:
+	
 };

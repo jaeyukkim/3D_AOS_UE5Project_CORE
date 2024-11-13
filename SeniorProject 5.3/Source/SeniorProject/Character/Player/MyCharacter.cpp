@@ -61,7 +61,7 @@ AMyCharacter::AMyCharacter()
 	HealthBarWidget->SetDrawSize(FVector2D(250.0f, 50.0f));
 	
 	ItemComponent = CreateDefaultSubobject<UItemComponent>("ItemComponents");
-
+	ItemComponent->SetIsReplicated(true);
 	
 	ThisActor = nullptr;
 	LastActor = nullptr;
@@ -75,6 +75,8 @@ void AMyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLife
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	
 	DOREPLIFETIME(AMyCharacter, AttackRange);
+	DOREPLIFETIME(AMyCharacter, bActivateShift);
+	
 }
 
 void AMyCharacter::PossessedBy(AController* NewController)
@@ -141,16 +143,9 @@ void AMyCharacter::MulticastInitAbilityActorInfo_Implementation()
  *  리콜, 스킬 등 다양한 곳에 활용
  */
 
-void AMyCharacter::MulticastDisableInput_Implementation()
+void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovementEnable)
 {
 	GetCharacterMovement()->MaxWalkSpeed = 0.f;
-}
-
-
-
-void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
-{
-
 	APlayerController* PC = Cast<APlayerController>(GetController());
 	if(PC == nullptr) return;
 	
@@ -159,14 +154,28 @@ void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
 		if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 		{
 			GetCharacterMovement()->MaxWalkSpeed = AS->GetMovementSpeed();
+			bUseControllerRotationYaw = true;
+			
 			
 		}
-//		EnableInput(PC);  // 전체 입력 활성화
 	}
 	else 
 	{
 		GetCharacterMovement()->MaxWalkSpeed = 0.f;
-	//	DisableInput(PC);  // 전체 입력 비활성화
+		bUseControllerRotationYaw = false;
+		
+
+	}
+}
+
+
+
+void AMyCharacter::SetMovementEnable(const bool bIsMovementEnable)
+{
+
+	if(HasAuthority())
+	{
+		MulticastSetMovementMode(bIsMovementEnable);
 	}
 	
 }
@@ -302,14 +311,12 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	
 	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Block);
-	SetMovementEnable(true);
 	
 	if(IsLocallyControlled())
 	{
 		if(AMyPlayerController* MyPlayerController =  Cast<AMyPlayerController>(GetController()))
 		{
 			ServerReSpawn();
-			SetMovementEnable(true);
 			PlayerController->SetViewTargetWithBlend(this, 1.f, EViewTargetBlendFunction::VTBlend_EaseInOut, 2.f);
 		}
 	}
@@ -331,6 +338,8 @@ void AMyCharacter::ServerReSpawn_Implementation()
 	}
 
 	ServerRecall();
+	SetMovementEnable(true);
+
 }
 void AMyCharacter::ServerRecall_Implementation()
 {
@@ -500,6 +509,7 @@ void AMyCharacter::Die_Implementation()
 	
 	if(HasAuthority())
 	{
+		SetMovementEnable(false);
 		if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 		{
 			float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
@@ -518,8 +528,6 @@ void AMyCharacter::MulticastPlayerDie_Implementation()
 {
 	if(!IsLocallyControlled()) return;
 	
-
-	SetMovementEnable(false);
 	
 	// 관전 캐릭터 추가
 	if(PlayerController != nullptr)
@@ -643,6 +651,31 @@ void AMyCharacter::GetLevelUpReward()
 	ApplyEffectToSelf(LevelUpReward, 1.f);
 }
 
+void AMyCharacter::MulticastMoveAbility_Implementation(int32 Velocity, float Duration)
+{
+	
+	// MoveTimer를 설정하여 0.01초마다 AddActorWorldOffset 호출
+	GetWorldTimerManager().SetTimer(MoveTimer, FTimerDelegate::CreateLambda([this, Velocity]()
+	{
+		FVector MoveVector = FVector();
+		FVector TempVector = GetVelocity().GetSafeNormal();  // 현재 이동 방향을 단위 벡터로 가져옴
+		MoveVector.X = TempVector.X;
+		MoveVector.Y = TempVector.Y;
+
+		// DeltaTime을 곱하여 일정 속도로 부드럽게 이동
+		AddActorWorldOffset(MoveVector * Velocity);
+	}), 0.01, true);
+
+	
+	// Duration이 지난 후에 MoveTimer를 초기화할 타이머 핸들
+	GetWorldTimerManager().SetTimer(CancelTimer, FTimerDelegate::CreateLambda([this]()
+	{
+		// MoveTimer를 중지하여 AddActorWorldOffset 반복 호출을 멈춤
+		GetWorldTimerManager().ClearTimer(MoveTimer);
+	}), Duration, false);
+
+}
+
 bool AMyCharacter::GetIsInShop_Implementation()
 {
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
@@ -670,7 +703,8 @@ TArray<FItemInformation> AMyCharacter::GetAllItem_Implementation()
 }
 void AMyCharacter::AddToItem_Implementation(const FItemInformation& InOwnedItem)
 {
-	ItemComponent->AddToItem(InOwnedItem);
+	if(HasAuthority())
+		ItemComponent->AddToItem(InOwnedItem);
 }
 
 bool AMyCharacter::DeleteItem_Implementation(const FGameplayTag& ItemInputTag)
