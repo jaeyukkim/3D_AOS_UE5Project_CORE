@@ -8,57 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGameplayTags.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/GA_Recall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/CommonAbility/CommonAbility/GA_Recall.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/Knife/IGA_Knife.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/Knife/IGA_Knife.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/CT_Shinbi_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/CT_Shinbi_Cooldown.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Anim/Ability_Dash.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Anim/Ability_Dash.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Anim/Recall_Montage_Shinbi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Anim/Recall_Montage_Shinbi.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/BP_Shinbi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/BP_Shinbi.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlast_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/CT_TwinBlast_Cooldown.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/RMB/GA_TwinBlast_AbilityRMB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/RMB/GA_TwinBlast_AbilityRMB.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/ABP_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/ABP_TwinBlast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Recall_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Recall_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_MyCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_MyCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_KwangCost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_KwangCost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Input/InputAction/InputActionData/DA_InputActionData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Input/InputAction/InputActionData/DA_InputActionData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/RecallStart_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/RecallStart_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/Shinbi_Ability_RMB_Engage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/Shinbi_Ability_RMB_Engage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/Shinbi_Status_Recall.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/Shinbi_Status_Recall.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/recall4_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/recall4_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_ShopItem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_ShopItem.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/Demo/Characters/Mannequins/Animations/ABP_Manny_5.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/Demo/Characters/Mannequins/Animations/ABP_Manny_5.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_B_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_B_Retargeted.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE4/Animations/Twist/A_Twist_F.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE4/Animations/Twist/A_Twist_F.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_315_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_315_Retargeted.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_F_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_F_Retargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_R_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_R_Retargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_010_Dialogue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_010_Dialogue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_020_Dialogue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_020_Dialogue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_030_Dialogue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Sounds/DialogueWaves/Shinbi_Ability_RMB_Engage_030_Dialogue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Bwd_Roll.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Bwd_Roll.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Fwd_Roll.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Fwd_Roll.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Left_Roll.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Left_Roll.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Right_Roll.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Animations/Dive_Right_Roll.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/ItemComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/ItemComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/ItemComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/ItemComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyAnimInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/PlayerBase/TwinBlastAnim.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -392,6 +354,7 @@
       <workItem from="1731436496478" duration="2097000" />
       <workItem from="1731479129022" duration="20132000" />
       <workItem from="1731519841228" duration="8863000" />
+      <workItem from="1731568881647" duration="5594000" />
     </task>
     <servers />
   </component>
