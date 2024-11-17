@@ -218,6 +218,8 @@ void ATurret::TurretUnderAttackedSound()
 		else
 		{
 			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyTowerUnderAttack);
+			if(IsLocallyControlled())
+				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Cyan,FString("Turret UnderAttacked"));
 		}
 	}
 

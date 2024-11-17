@@ -8,19 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_KwangCost.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/CT_KwangCost.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE4/Animations/Twist/A_Twist_F.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE4/Animations/Twist/A_Twist_F.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_315_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_315_Retargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_F_Retargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Dodge_Animations/UE5/Animations/Twist/A_Twist_F_Retargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,87 +63,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://32" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraComponent.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraSystemRenderData.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraWorldManager.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -355,6 +267,8 @@
       <workItem from="1731479129022" duration="20132000" />
       <workItem from="1731519841228" duration="8863000" />
       <workItem from="1731568881647" duration="5594000" />
+      <workItem from="1731695792100" duration="808000" />
+      <workItem from="1731850043357" duration="2849000" />
     </task>
     <servers />
   </component>
