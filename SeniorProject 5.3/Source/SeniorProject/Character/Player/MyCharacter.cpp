@@ -471,7 +471,7 @@ void AMyCharacter::ShowAdditionalAttributeMenu(const FInputActionValue& InputAct
 	
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	FString name = PlayerStateBase->GetPlayerName();
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, name);
+	
 	bool bIsPressed = InputActionValue.Get<bool>();
 	if (AMyPlayerController* MyPlayerController = Cast<AMyPlayerController>(GetController()))
 	{

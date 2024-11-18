@@ -64,19 +64,22 @@ void ATurret::BeginPlay()
 	
 	ServerRegisterWithGameMode();
 	
-	
-	
-	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+
+	if(HasAuthority())
 	{
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetIncomingDamageAttribute()).AddLambda(
-			[this](const FOnAttributeChangeData& Data)
-			{
-				TurretUnderAttackedSound();
-				
-			}
-		);
+		if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+		{
+			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetIncomingDamageAttribute()).AddLambda(
+				[this](const FOnAttributeChangeData& Data)
+				{
+					MulticastTurretUnderAttackedSound();
+					ServerSetIsUnderAttacked();
+				}
+			);
 	
+		}
 	}
+	
 	
 	
 }
@@ -178,11 +181,8 @@ void ATurret::ServerSetIsUnderAttacked_Implementation()
 }
 
 
-void ATurret::TurretUnderAttackedSound()
+void ATurret::MulticastTurretUnderAttackedSound_Implementation()
 {
-	
-	ServerSetIsUnderAttacked();
-	
 	
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	UCoreSoundInstance* GameInstance = Cast<UCoreSoundInstance>(GetGameInstance());
@@ -218,8 +218,6 @@ void ATurret::TurretUnderAttackedSound()
 		else
 		{
 			CoreSoundManager->PlayingAnnouncerSound.Broadcast(EGamePlaySoundType::AllyTowerUnderAttack);
-			if(IsLocallyControlled())
-				GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Cyan,FString("Turret UnderAttacked"));
 		}
 	}
 
@@ -241,6 +239,8 @@ void ATurret::Die_Implementation()
 	
 	Super::Die_Implementation();
 }
+
+
 
 void ATurret::MulticastHandleDeath()
 {

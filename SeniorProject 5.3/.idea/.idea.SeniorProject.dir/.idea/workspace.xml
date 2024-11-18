@@ -8,12 +8,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/DivineMaceofRetribution/IGE_DivineMaceofRetribution.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/DivineMaceofRetribution/IGE_DivineMaceofRetribution.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/EngineersHammerofMight/IGE_EngineersHammerofMight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/EngineersHammerofMight/IGE_EngineersHammerofMight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/GladiatorsHelm/IGE_GladiatorsHelm.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/GladiatorsHelm/IGE_GladiatorsHelm.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/GuttingClaw/IGE_GuttingClaw.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/GuttingClaw/IGE_GuttingClaw.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/HelmoftheRighteous/IGE_HelmoftheRighteous.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/HelmoftheRighteous/IGE_HelmoftheRighteous.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/InfernoDagger/IGE_InfernoDagger.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/InfernoDagger/IGE_InfernoDagger.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ReapersCut/IGE_ReapersCut.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ReapersCut/IGE_ReapersCut.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StaffoftheGreenPact/IGE_StaffoftheGreenPact.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StaffoftheGreenPact/IGE_StaffoftheGreenPact.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StormhammeroftheAncients/IGE_StormhammeroftheAncients.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StormhammeroftheAncients/IGE_StormhammeroftheAncients.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StormpiercerBow/IGE_StormpiercerBow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/StormpiercerBow/IGE_StormpiercerBow.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ThunderstrikeMaul/IGE_ThunderstrikeMaul.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ThunderstrikeMaul/IGE_ThunderstrikeMaul.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/TomeofForbiddenMagic/IGE_TomeofForbiddenMagic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/TomeofForbiddenMagic/IGE_TomeofForbiddenMagic.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/TotemoftheShamanKing/IGE_TotemoftheShamanKing.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/TotemoftheShamanKing/IGE_TotemoftheShamanKing.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/VoidCrystal/IGE_VoidCrystal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/VoidCrystal/IGE_VoidCrystal.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +290,8 @@
       <workItem from="1731519841228" duration="8863000" />
       <workItem from="1731568881647" duration="5594000" />
       <workItem from="1731695792100" duration="808000" />
-      <workItem from="1731850043357" duration="2849000" />
+      <workItem from="1731850043357" duration="6737000" />
+      <workItem from="1731926192862" duration="4330000" />
     </task>
     <servers />
   </component>

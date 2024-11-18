@@ -37,8 +37,8 @@ public:
 	void ServerRegisterWithGameMode();
 	UFUNCTION(Server, Reliable)
 	void ServerUpdateTurretState();
-	UFUNCTION()
-	void TurretUnderAttackedSound();
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastTurretUnderAttackedSound();
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastPlayTowerDestroyedSound();
 	virtual void MulticastHandleDeath() override;
