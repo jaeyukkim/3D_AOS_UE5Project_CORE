@@ -30,9 +30,11 @@
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/CharacterSelectMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/CharacterSelectMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/JJ_Level.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/JJ_Level.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" afterDir="false" />
@@ -292,6 +294,9 @@
       <workItem from="1731695792100" duration="808000" />
       <workItem from="1731850043357" duration="6737000" />
       <workItem from="1731926192862" duration="4330000" />
+      <workItem from="1731960266599" duration="2009000" />
+      <workItem from="1732009783688" duration="812000" />
+      <workItem from="1732013627546" duration="2244000" />
     </task>
     <servers />
   </component>

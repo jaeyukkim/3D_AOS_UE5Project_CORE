@@ -13,5 +13,8 @@ UCLASS()
 class SENIORPROJECT_API ANeutralityMonster : public AMinions
 {
 	GENERATED_BODY()
-	
+
+public:
+	ANeutralityMonster();
+
 };
