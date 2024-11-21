@@ -4,6 +4,7 @@
 #include "Minions.h"
 
 #include "EngineUtils.h"
+#include "NavModifierComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
@@ -17,8 +18,11 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Net/UnrealNetwork.h"
+
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 
+#include "SeniorProject/AI/Navigation/DetoureNavArea.h"
+#include "NavModifierComponent.h"
 
 
 // Sets default values
@@ -48,6 +52,11 @@ AMinions::AMinions()
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
 	GetCharacterMovement()->bUseRVOAvoidance = true;
 	GetCharacterMovement()->AvoidanceWeight = 2.0f;
+
+//	DetourAreaComponent = CreateDefaultSubobject<UNavModifierComponent>("DetourAreaComponent");
+//	DetourAreaComponent->AreaClass = UDetoureNavArea::StaticClass();
+//	DetourAreaComponent->SetAreaClass(UDetoureNavArea::StaticClass());
+
 	
 }
 
@@ -71,6 +80,8 @@ void AMinions::PossessedBy(AController* NewController)
 	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("RangedAttacker"), CharacterClass != ECharacterClass::Minion_Melee);
 	AIControllerBase->InitTeamAndLineTag(TeamName, LineTag);
 	AIControllerBase->UpdateMinionTargetTurret();
+//	DetourAreaComponent->RegisterComponent();
+
 }
 
 // Called when the game starts or when spawned

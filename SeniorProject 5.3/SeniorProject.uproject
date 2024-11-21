@@ -14,7 +14,8 @@
 				"UMG",
 				"GameplayAbilities",
 				"CoreUObject",
-				"EnhancedInput"
+				"EnhancedInput",
+				"NavigationSystem"
 			]
 		}
 	],

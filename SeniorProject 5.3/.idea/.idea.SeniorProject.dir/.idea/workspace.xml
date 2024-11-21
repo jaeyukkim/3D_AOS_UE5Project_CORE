@@ -8,6 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_bIsVisiblePlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_bIsVisiblePlayer.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/DivineMaceofRetribution/IGE_DivineMaceofRetribution.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/DivineMaceofRetribution/IGE_DivineMaceofRetribution.uasset" afterDir="false" />
@@ -35,6 +38,9 @@
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/JJ_Level.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/JJ_Level.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeniorProject.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" afterDir="false" />
@@ -59,34 +65,6 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraComponent.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraSystemRenderData.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraWorldManager.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -97,6 +75,13 @@
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/ScalableFloat.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/include/atomic" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Input/InputComponentBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -298,6 +283,9 @@
       <workItem from="1732009783688" duration="812000" />
       <workItem from="1732013627546" duration="2244000" />
       <workItem from="1732095049695" duration="784000" />
+      <workItem from="1732166340822" duration="490000" />
+      <workItem from="1732188255873" duration="2387000" />
+      <workItem from="1732194683144" duration="4979000" />
     </task>
     <servers />
   </component>

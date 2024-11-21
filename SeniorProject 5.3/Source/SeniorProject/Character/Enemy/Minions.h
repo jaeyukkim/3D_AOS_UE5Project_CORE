@@ -8,7 +8,8 @@
 #include "BehaviorTree/Blackboard/BlackboardKey.h"
 #include "Minions.generated.h"
 
-class AWayPoint;
+
+
 enum class EBlackboardNotificationResult : uint8;
 namespace FBlackboard
 {
@@ -18,7 +19,8 @@ namespace FBlackboard
 class AAIControllerBase;
 class UBehaviorTree;
 class UWidgetComponent;
-
+class AWayPoint;
+class UNavModifierComponent;
 
 UCLASS(abstract, Blueprintable)
 
@@ -78,6 +80,8 @@ protected:
 	int32 Level = 1;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
+	UPROPERTY()
+	TObjectPtr<UNavModifierComponent> DetourAreaComponent;
 	
 	
 	UFUNCTION()
