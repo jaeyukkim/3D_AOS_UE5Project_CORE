@@ -4,6 +4,7 @@
 #include "Minions.h"
 
 #include "EngineUtils.h"
+#include "NavigationSystem.h"
 #include "NavModifierComponent.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
@@ -92,7 +93,10 @@ void AMinions::BeginPlay()
 	//MinionEnforceTime 경과에 따라 미니언 레벨 증가 최대 18 레벨까지만
 	Level = FMath::Clamp(GetWorld()->GetTimeSeconds()/MinionEnforceTime, 1, 18); // 최대 60%로 제한
 	InitAbilityActorInfo();
-
+	if (UNavigationSystemV1* NavSystem = UNavigationSystemV1::GetCurrent(GetWorld()))
+	{
+		NavSystem->UpdateActorInNavOctree(*this); // 현재 액터를 NavOctree에 업데이트
+	}
 	
 	if(HasAuthority())
 	{

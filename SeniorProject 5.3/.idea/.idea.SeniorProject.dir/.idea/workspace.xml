@@ -9,7 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_Melee_BehaviorTree.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BT_RangesBehaviorTree.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQS_PlayerContext.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQS_PlayerContext.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_FindAttackPos.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_FindAttackPos.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_bIsVisiblePlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_bIsVisiblePlayer.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/ArcaneSurgeStaff/IGE_ArcaneSurgeStaff.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/CrusadersMight/IGE_CrusadersMight.uasset" afterDir="false" />
@@ -30,6 +33,7 @@
       <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Shift/GA_Shift_Kwang.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/SHIFT/GA_Shift_TwinBlast.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
@@ -65,6 +69,7 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://17" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraComponent.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraSystemRenderData.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraWorldManager.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -285,7 +290,7 @@
       <workItem from="1732095049695" duration="784000" />
       <workItem from="1732166340822" duration="490000" />
       <workItem from="1732188255873" duration="2387000" />
-      <workItem from="1732194683144" duration="4979000" />
+      <workItem from="1732194683144" duration="10216000" />
     </task>
     <servers />
   </component>
