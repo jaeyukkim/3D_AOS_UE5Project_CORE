@@ -18,11 +18,16 @@
       <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Base_Side_Platforms_2A.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Base_Side_Platforms_2A.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Mid_Lane_Platforms_1c.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Mid_Lane_Platforms_1c.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Rock_Well_Halo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Rock_Well_Halo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/SM_Stairs_PM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/SM_Stairs_PM.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Ground/Meshes/SM_PDO_Disp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Ground/Meshes/SM_PDO_Disp.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_Green.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_Green.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_White_Back.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_White_Back.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleTrim01_PillarBaseA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleTrim01_PillarBaseA.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,6 +274,8 @@
       <workItem from="1732213727271" duration="664000" />
       <workItem from="1732249717863" duration="5684000" />
       <workItem from="1732347047823" duration="3960000" />
+      <workItem from="1732432923973" duration="699000" />
+      <workItem from="1732524981975" duration="612000" />
     </task>
     <servers />
   </component>
