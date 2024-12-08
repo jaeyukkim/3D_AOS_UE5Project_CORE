@@ -7,6 +7,8 @@
 #include "Turret.generated.h"
 
 
+class UAIPerceptionComponent;
+class UAISense_Sight;
 enum class EBlackboardNotificationResult : uint8;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FTurretDestroyedDelegate, FGameplayTag&, LineTag, FGameplayTag&,
@@ -70,6 +72,11 @@ public:
 	TObjectPtr<UParticleSystemComponent> TargetingBeam;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> AttackBeam;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UAIPerceptionComponent> PerceptionSystem;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<class UAISenseConfig_Sight> Sight;
+	
 
 	UPROPERTY(Replicated)
 	bool bIsUnderAttacked = false;
@@ -79,7 +86,8 @@ public:
 	void MulticastActiveTargetBeam(AActor* TargetActor);
 	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
 	void MulticastActiveAttackBeam();
-	
+	UFUNCTION()
+	void DetectEnemyMinion(const TArray<AActor*>& UpdatedActors);
 	
 	
 private:
@@ -89,4 +97,5 @@ private:
 	const float InitLoopTime = 5.f;
 	const float HitReactLoopTime = 0.1f;
 	const float ExplosionTime = 3.8f;
+	const float DetectRadius = 2000.f;
 };

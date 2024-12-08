@@ -131,6 +131,7 @@ void AMinions::BeginPlay()
 			}
 		);
 
+		
 		OnHealthChanged.Broadcast(AS->GetHealth());
 		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
 	}
@@ -213,6 +214,10 @@ void AMinions::SetCurrentWayPoint_Implementation(AActor* InCurrentWayPoint)
 	
 }
 
+void AMinions::InBattle_Implementation()
+{
+	
+}
 
 
 void AMinions::InitAbilityActorInfo()
@@ -269,3 +274,5 @@ void AMinions::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
 	}
 		
 }
+
+

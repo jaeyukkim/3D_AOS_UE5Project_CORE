@@ -5,8 +5,11 @@
 
 
 #include "Net/UnrealNetwork.h"
+#include "Perception/AIPerceptionComponent.h"
+#include "Perception/AISenseConfig_Sight.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
+#include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "SeniorProject/AI/AIControllerBase.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 #include "SeniorProject/GameSetting/MyGameModeBase.h"
@@ -38,6 +41,21 @@ ATurret::ATurret()
 	AttackBeam->bAutoActivate = false;
 	
 	bIsInvincibility = true;
+
+	PerceptionSystem = CreateDefaultSubobject<UAIPerceptionComponent>(TEXT("PerceptionComp"));
+	Sight = CreateDefaultSubobject<UAISenseConfig_Sight>(TEXT("Sight"));
+
+	Sight->SightRadius = DetectRadius;
+	Sight->LoseSightRadius = DetectRadius;
+	//전 방향 감지
+	Sight->PeripheralVisionAngleDegrees = 360.0f;
+
+	Sight->DetectionByAffiliation.bDetectEnemies = true;
+	Sight->DetectionByAffiliation.bDetectFriendlies = true;
+	Sight->DetectionByAffiliation.bDetectNeutrals = true;
+
+	PerceptionSystem->ConfigureSense(*Sight);
+	PerceptionSystem->SetDominantSense(Sight->GetSenseImplementation());
 	
 }
 
@@ -70,7 +88,7 @@ void ATurret::BeginPlay()
 		if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 		{
 			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetIncomingDamageAttribute()).AddLambda(
-				[this](const FOnAttributeChangeData& Data)
+				[this, AS](const FOnAttributeChangeData& Data)
 				{
 					MulticastTurretUnderAttackedSound();
 					ServerSetIsUnderAttacked();
@@ -78,6 +96,8 @@ void ATurret::BeginPlay()
 			);
 	
 		}
+
+		PerceptionSystem->OnPerceptionUpdated.AddDynamic(this, &ATurret::DetectEnemyMinion);
 	}
 	
 	
@@ -240,6 +260,39 @@ void ATurret::Die_Implementation()
 	Super::Die_Implementation();
 }
 
+
+
+// 상대 팀 미니언이 감지되었을 시 타워의 방어력을 낮추는 로직.
+void ATurret::DetectEnemyMinion(const TArray<AActor*>& UpdatedActors)
+{
+	if (!HasAuthority()) return;
+	
+	int32 DetectedMonsterCount = 0;
+	for (AActor* InActor : UpdatedActors)
+	{
+		if (InActor != nullptr && InActor->ActorHasTag("Minion") && !UBlueprintFunctionLibraryBase::IsFriends(this, InActor))
+		{
+			DetectedMonsterCount++;
+		}
+	}
+
+	if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
+	{
+		if (DetectedMonsterCount > 0)
+		{
+			// 시야 내에 미니언이 감지 되면 원래 방어력으로 설정
+			AS->SetArmor(AS->Armor.GetBaseValue());
+			AS->SetMagicResistance(AS->MagicResistance.GetBaseValue());
+		}
+		else
+		{
+			// 시야 내에 상대 미니언이 1마리도 없을 시에 타워 방어력 10배증가
+			AS->Armor.SetCurrentValue(AS->Armor.GetBaseValue() * 10.f);
+			AS->MagicResistance.SetCurrentValue(AS->MagicResistance.GetBaseValue() * 10.f);
+		}
+		
+	}
+}
 
 
 void ATurret::MulticastHandleDeath()

@@ -67,7 +67,7 @@ protected:
 	int32 SiegeMinionSpawnCount = 0;
 	int32 RedTeamPlayerNumber = 0;
 	int32 BlueTeamPlayerNumber = 0;
-	float UpdateMinionTargetDelay = 1.5f;
+	float UpdateMinionTargetDelay = 0.5f;
 
 	// WayPoint 초기화 함수
 	float InitWayPointTime = 5.f;

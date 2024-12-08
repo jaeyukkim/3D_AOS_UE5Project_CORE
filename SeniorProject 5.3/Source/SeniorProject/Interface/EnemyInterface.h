@@ -35,5 +35,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void SetCurrentWayPoint(AActor* InCurrentWayPoint);
-	
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void InBattle();
 };

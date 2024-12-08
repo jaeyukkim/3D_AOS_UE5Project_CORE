@@ -49,8 +49,6 @@ void ACharacterBase::BeginPlay()
 {
 	Super::BeginPlay();
 	MaxAttackCombo = AttackMontage.Num()-1;
-
-	
 	
 }
 
@@ -152,9 +150,11 @@ FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTa
 
 void ACharacterBase::Die_Implementation()
 {
+	//기본으로 제공해주는 Ragdoll용 CollisionProfile로 설정
 	if(HasAuthority())
 	{
 		MulticastHandleDeath();
+		
 	}
 }
 
@@ -170,10 +170,16 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
-	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Overlap);
-	GetCapsuleComponent()->SetEnableGravity(false);
-	bDead = true;
 	
+	GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Ragdoll"));
+	
+	if (!ActorHasTag("Player"))
+	{
+		GetMesh()->SetSimulatePhysics(true);
+	}
+	
+	bDead = true;
 	StunDebuffComponent->Deactivate();
 	ArmorDecreaseDebuffComponent->Deactivate();
 	MagicResistanceDecreaseDebuffComponent->Deactivate();
@@ -181,10 +187,6 @@ void ACharacterBase::MulticastHandleDeath_Implementation()
 	
 }
 
-void ACharacterBase::MulticastSetMaxWalkSpeed_Implementation(float NewSpeed)
-{
-	GetCharacterMovement()->MaxWalkSpeed = NewSpeed; 
-}
 
 void ACharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const
 {

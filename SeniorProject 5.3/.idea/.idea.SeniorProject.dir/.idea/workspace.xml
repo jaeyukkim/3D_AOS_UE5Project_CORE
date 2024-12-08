@@ -7,83 +7,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQS_PlayerContext.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQS_PlayerContext.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_FindAttackPos.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/EOS/EQ_FindAttackPos.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/Ability/GA_Siege_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/Ability/GA_Siege_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Base_Side_Platforms_2A.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Base_Side_Platforms_2A.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Mid_Lane_Platforms_1c.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Mid_Lane_Platforms_1c.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Rock_Well_Halo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/Rock_Well_Halo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/SM_Stairs_PM.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/SM_Stairs_PM.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Ground/Meshes/SM_PDO_Disp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Ground/Meshes/SM_PDO_Disp.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_Green.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_Green.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_White_Back.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleCamp_White_Back.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleTrim01_PillarBaseA.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Ruins/Meshes/JungleTrim01_PillarBaseA.uasset" afterDir="false" />
-    </list>
+    <list default="true" id="4def9497-296c-4454-ad77-e775fd5ad32a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="cidr-memory-view://17" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraSystemRenderData.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/FX/Niagara/Source/Niagara/Private/NiagaraWorldManager.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Marketplace/Developer/RiderLink/Source/RD/src/rd_framework_cpp/src/main/scheduler/base/IScheduler.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Online/OnlineSubsystemUtils/Source/OnlineSubsystemUtils/Private/IpNetDriver.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/Abilities/GameplayAbility.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/GameplayEffect.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/ScalableFloat.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.34.31933/include/atomic" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/PlayerInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/Input/InputComponentBase.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/SeniorProject/PlayerBase/MyPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/AIModule/Classes/Perception/AISenseConfig_Sight.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/AIModule/Private/Perception/AIPerceptionComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/Components/SkeletalMeshComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/PhysicsEngine/BodyInstance.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/Components/CharacterMovementComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/PhysicsEngine/BodyInstance.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/SkeletalMeshComponentPhysics.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Public/Net/UnrealNetwork.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2nqhnByyDhrFd4hy3MsKIjmlZRZ" />
+  <component name="ProjectId" id="2pNBTC4LtXANJUN2wrDUXbHPeb9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Uproject.SeniorProject.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -100,19 +67,6 @@
   <component name="RunManager">
     <configuration name="SeniorProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1>
-        <option name="CONFIGURATION" value="Development Editor" />
-        <option name="PLATFORM" value="Win64" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;D:\Capstone-project\SeniorProject 5.3\SeniorProject.uproject&quot;" />
-        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
-        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-      </configuration_1>
-      <configuration_2>
         <option name="CONFIGURATION" value="DebugGame Editor" />
         <option name="PLATFORM" value="Win64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
@@ -122,10 +76,10 @@
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="USE_EXTERNAL_CONSOLE" value="1" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
-      </configuration_2>
-      <configuration_3>
+      </configuration_1>
+      <configuration_2>
         <option name="CONFIGURATION" value="DebugGame" />
         <option name="PLATFORM" value="Win64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
@@ -135,7 +89,20 @@
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="USE_EXTERNAL_CONSOLE" value="1" />
+        <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
+      </configuration_2>
+      <configuration_3>
+        <option name="CONFIGURATION" value="Development Editor" />
+        <option name="PLATFORM" value="Win64" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
+        <option name="EXECUTABLE_PATH" value="C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;D:\Capstone-project\SeniorProject 5.3\SeniorProject.uproject&quot;" />
+        <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
+        <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="1" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
       </configuration_3>
       <configuration_4>
@@ -148,7 +115,7 @@
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="USE_EXTERNAL_CONSOLE" value="1" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
       </configuration_4>
       <configuration_5>
@@ -161,7 +128,7 @@
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+        <option name="USE_EXTERNAL_CONSOLE" value="1" />
         <option name="TERMINAL_INTERACTION_BEHAVIOR" value="FORCE_CONSOLE" />
       </configuration_5>
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
@@ -171,7 +138,7 @@
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
     <configuration>C:\Users\77\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
@@ -196,86 +163,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="bbe3eea7-014f-4e29-9a69-bc60818fc91b" name="변경" comment="" />
-      <created>1729707856013</created>
+      <changelist id="4def9497-296c-4454-ad77-e775fd5ad32a" name="Changes" comment="" />
+      <created>1732596657777</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1729707856013</updated>
-      <workItem from="1729707858345" duration="707000" />
-      <workItem from="1729708683259" duration="131000" />
-      <workItem from="1729708849312" duration="5541000" />
-      <workItem from="1729756112134" duration="8377000" />
-      <workItem from="1729770449000" duration="17311000" />
-      <workItem from="1729852172442" duration="63000" />
-      <workItem from="1729954446961" duration="16212000" />
-      <workItem from="1730009348491" duration="7592000" />
-      <workItem from="1730024434850" duration="3848000" />
-      <workItem from="1730028968050" duration="5020000" />
-      <workItem from="1730034724936" duration="5398000" />
-      <workItem from="1730040177494" duration="15573000" />
-      <workItem from="1730092773381" duration="2380000" />
-      <workItem from="1730095200549" duration="12871000" />
-      <workItem from="1730113793290" duration="4068000" />
-      <workItem from="1730118406214" duration="2714000" />
-      <workItem from="1730121185255" duration="11000" />
-      <workItem from="1730121239262" duration="2166000" />
-      <workItem from="1730123503650" duration="1288000" />
-      <workItem from="1730125184894" duration="245000" />
-      <workItem from="1730125511551" duration="203000" />
-      <workItem from="1730125843676" duration="338000" />
-      <workItem from="1730126232471" duration="163000" />
-      <workItem from="1730126448904" duration="191000" />
-      <workItem from="1730126682681" duration="792000" />
-      <workItem from="1730127495853" duration="500000" />
-      <workItem from="1730128116619" duration="777000" />
-      <workItem from="1730128911128" duration="389000" />
-      <workItem from="1730129348565" duration="2000" />
-      <workItem from="1730133266090" duration="2420000" />
-      <workItem from="1730136306643" duration="10443000" />
-      <workItem from="1730182148008" duration="38060000" />
-      <workItem from="1730269903469" duration="6663000" />
-      <workItem from="1730277555153" duration="677000" />
-      <workItem from="1730278360376" duration="2515000" />
-      <workItem from="1730285252124" duration="427000" />
-      <workItem from="1730286280696" duration="19913000" />
-      <workItem from="1730310600051" duration="10119000" />
-      <workItem from="1730355607390" duration="16812000" />
-      <workItem from="1730384959666" duration="17305000" />
-      <workItem from="1730407533886" duration="6156000" />
-      <workItem from="1730443461965" duration="20193000" />
-      <workItem from="1730467703425" duration="8702000" />
-      <workItem from="1730478247718" duration="17281000" />
-      <workItem from="1730530221479" duration="151000" />
-      <workItem from="1730530922502" duration="29813000" />
-      <workItem from="1730572997927" duration="6022000" />
-      <workItem from="1730618988968" duration="54887000" />
-      <workItem from="1730695789121" duration="5230000" />
-      <workItem from="1730893783803" duration="1346000" />
-      <workItem from="1730959042221" duration="1637000" />
-      <workItem from="1730986814422" duration="7999000" />
-      <workItem from="1731056104988" duration="22447000" />
-      <workItem from="1731249038410" duration="1284000" />
-      <workItem from="1731336761168" duration="807000" />
-      <workItem from="1731421484507" duration="10379000" />
-      <workItem from="1731436496478" duration="2097000" />
-      <workItem from="1731479129022" duration="20132000" />
-      <workItem from="1731519841228" duration="8863000" />
-      <workItem from="1731568881647" duration="5594000" />
-      <workItem from="1731695792100" duration="808000" />
-      <workItem from="1731850043357" duration="6737000" />
-      <workItem from="1731926192862" duration="4330000" />
-      <workItem from="1731960266599" duration="2009000" />
-      <workItem from="1732009783688" duration="812000" />
-      <workItem from="1732013627546" duration="2244000" />
-      <workItem from="1732095049695" duration="784000" />
-      <workItem from="1732166340822" duration="490000" />
-      <workItem from="1732188255873" duration="2387000" />
-      <workItem from="1732194683144" duration="10216000" />
-      <workItem from="1732213727271" duration="664000" />
-      <workItem from="1732249717863" duration="5684000" />
-      <workItem from="1732347047823" duration="3960000" />
-      <workItem from="1732432923973" duration="699000" />
-      <workItem from="1732524981975" duration="1285000" />
+      <updated>1732596657777</updated>
+      <workItem from="1732596659184" duration="842000" />
+      <workItem from="1732597774613" duration="13241000" />
+      <workItem from="1732665457520" duration="15000" />
+      <workItem from="1732665489232" duration="15569000" />
+      <workItem from="1732852691567" duration="16788000" />
+      <workItem from="1733099483916" duration="8781000" />
+      <workItem from="1733132353307" duration="4402000" />
+      <workItem from="1733223234156" duration="43000" />
+      <workItem from="1733479216507" duration="3145000" />
     </task>
     <servers />
   </component>
@@ -283,17 +184,6 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

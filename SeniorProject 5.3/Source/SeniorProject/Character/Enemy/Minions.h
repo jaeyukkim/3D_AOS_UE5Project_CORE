@@ -47,6 +47,7 @@ public:
 	virtual AActor* GetCombatTarget_Implementation() const override;
 	virtual void SetTargetPlayer_Implementation(AActor* Target) override;
 	virtual void SetCurrentWayPoint_Implementation(AActor* InCurrentWayPoint) override;
+	virtual void InBattle_Implementation() override;
 	UPROPERTY(BlueprintReadWrite, Replicated, Category = "Combat")
 	TObjectPtr<AActor> CombatTarget;
 	/* end Enemy Interface */
@@ -67,6 +68,7 @@ public:
 	TObjectPtr<AAIControllerBase> AIControllerBase;
 	UPROPERTY(EditAnywhere, Category = "AI")
 	TObjectPtr<UBehaviorTree> BehaviorTree;
+	
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
@@ -89,5 +91,6 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	float MinionEnforceTime = 60.f;
+	
 	
 };

@@ -138,11 +138,6 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultGamePlayAttributes;
-
-
-
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastSetMaxWalkSpeed(float NewSpeed);
 	
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	virtual void InitializeDefaultAttributes() const;

@@ -21,12 +21,12 @@ struct DamageStatic
 	
 	DamageStatic()
 	{
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, Armor, Target, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, Lethality, Source, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicResistance, Target, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicPenetration, Source, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, CriticalChance, Source, false);
-		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, LifeSteal, Source, false);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, Armor, Target, true);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, Lethality, Source, true);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicResistance, Target, true);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, MagicPenetration, Source, true);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, CriticalChance, Source, true);
+		DEFINE_ATTRIBUTE_CAPTUREDEF(UAttributeSetBase, LifeSteal, Source, true);
 
 	}
 };
@@ -159,19 +159,21 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	
 	/* 물리 데미지 구현 */
 	
-	float TargetArmor = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().ArmorDef, EvaluationParameters, TargetArmor);
-
+	FGameplayAttribute TargetArmorAttribute = UAttributeSetBase::GetArmorAttribute();
+	float TargetArmor = TargetASC->GetNumericAttribute(TargetArmorAttribute);
+	//ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().ArmorDef, EvaluationParameters, TargetArmor);
+	
 	float SourceLethality = 0.f;
 	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatic().LethalityDef, EvaluationParameters, SourceLethality);
 
 	float EffectiveArmor = TargetArmor - SourceLethality;
 	EffectiveArmor = FMath::Clamp(EffectiveArmor, 0.f, TargetArmor);
 
+	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString::FromInt(EffectiveArmor));
 
 	PhysicalDamage *= 100 / (100+EffectiveArmor);
-
-	if(bIsBasicAttack)
+	
+	if(bIsBasicAttack && !TargetAvatar->ActorHasTag("Turret"))
 	{
 		float SourceLifeSteal = 0.f;
 		ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().LifeStealDef, EvaluationParameters, SourceLifeSteal);
@@ -201,9 +203,9 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	
 	/* 마법 데미지 구현 */
-	
-	float TargetMagicResistance = 0.f;
-	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().MagicResistanceDef, EvaluationParameters, TargetMagicResistance);
+	FGameplayAttribute TargetMagicResistanceAttribute = UAttributeSetBase::GetArmorAttribute();
+	float TargetMagicResistance = TargetASC->GetNumericAttribute(TargetMagicResistanceAttribute);
+	//ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().MagicResistanceDef, EvaluationParameters, TargetMagicResistance);
 
 	float SourceMagicPenetration = 0.f;
 	ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatic().MagicPenetrationDef, EvaluationParameters, SourceMagicPenetration);

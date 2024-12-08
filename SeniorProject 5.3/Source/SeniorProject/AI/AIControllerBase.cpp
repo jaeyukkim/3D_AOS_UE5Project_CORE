@@ -78,6 +78,7 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 			return;
 		}
 
+		
 		for (TActorIterator<ATurret> It(GetWorld()); It; ++It)
 		{
 			ATurret* Turret = *It;
@@ -85,18 +86,23 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 			const FGameplayTag TurretLine = Turret->LineTag;
 			const FGameplayTag TurretLevel = Turret->TurretLevelTag;
 
+			
+			if(!TargetLevel.MatchesTagExact(TurretLevel) || TeamTag.MatchesTagExact(TurretTeam)) continue;
+		
 			// 다음 타겟이 넥서스이고 상대팀일 경우
 			if(TargetLevel.MatchesTagExact(TagsBase.GameRule_Turret_Nexus) && !TeamTag.MatchesTagExact(TurretTeam))
 			{
 				if(Blackboard)
 				{
+					GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TargetLevel.ToString());
 					Blackboard->SetValueAsVector("TargetTurret", Turret->GetActorLocation());
 					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
 					return;
 				}
 				return;
 			}
-			
+
+			//월드상에서 모든 포탑을 가져와서 다음 타겟포탑과 라인 태그가 맞지 않거나 같은 팀 포탑일 경우는 제외한다.
 			// 미니언과 동일한 라인이 맞고 다음 타겟 타워이고 같은팀이 아니면 새로운 타겟 타워로 설정합니다.
 			if(LineTag.MatchesTagExact(TurretLine) && TargetLevel.MatchesTagExact(TurretLevel) && !TeamTag.MatchesTagExact(TurretTeam))
 			{

@@ -2,8 +2,9 @@
 
 #pragma once
 
-#include "SeniorProject/SeniorProject.h"
 #include "MyCharacter.h"
+#include "SeniorProject/SeniorProject.h"
+
 #include "AbilitySystemComponent.h"
 #include "EngineUtils.h"
 #include "Components/WidgetComponent.h"
@@ -66,6 +67,8 @@ AMyCharacter::AMyCharacter()
 	LastActor = nullptr;
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
+
+	
 }
 
 
@@ -286,7 +289,6 @@ void AMyCharacter::InitializeHealthBarWidget()
 			if(HasAuthority())
 			{
 				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
-				MulticastSetMaxWalkSpeed(Data.NewValue);
 			}
 		}
 	);
@@ -309,7 +311,8 @@ void AMyCharacter::MulticastReSpawn_Implementation()
 	bDead = false;
 	
 	GetWorldTimerManager().ClearTimer(InitReSpawnHandle);
-	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Character, ECR_Block);
+	GetMesh()->SetCollisionProfileName(TEXT("Character"));
+	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
 	
 	if(IsLocallyControlled())
 	{
@@ -502,13 +505,13 @@ void AMyCharacter::Jump()
 void AMyCharacter::Die_Implementation()
 {
 	Super::Die_Implementation();
-
-	MulticastPlayerDie();
-
 	
 	if(HasAuthority())
 	{
+		MulticastPlayerDie();
 		SetMovementEnable(false);
+		
+		
 		if(APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>())
 		{
 			float ReSpawnTime = PlayerStateBase->GetPlayerLevel() * 2.f + 5.f;
@@ -526,7 +529,9 @@ void AMyCharacter::Die_Implementation()
 void AMyCharacter::MulticastPlayerDie_Implementation()
 {
 	if(!IsLocallyControlled()) return;
+
 	
+
 	
 	// 관전 캐릭터 추가
 	if(PlayerController != nullptr)
