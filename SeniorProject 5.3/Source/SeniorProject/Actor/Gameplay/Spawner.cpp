@@ -32,6 +32,7 @@ void ASpawner::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 
 }
 
+//미니언을 스폰하는 함수
 void ASpawner::SpawnMinion(TSubclassOf<AMinions> Minions)
 {
 	if(!HasAuthority()) return;
