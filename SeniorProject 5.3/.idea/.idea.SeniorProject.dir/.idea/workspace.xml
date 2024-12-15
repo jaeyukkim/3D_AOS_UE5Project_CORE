@@ -8,6 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4def9497-296c-4454-ad77-e775fd5ad32a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Input/InputAction/IMC_PlayerContext.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,6 +182,7 @@
       <workItem from="1733223234156" duration="43000" />
       <workItem from="1733479216507" duration="3145000" />
       <workItem from="1733745798226" duration="139000" />
+      <workItem from="1734261278185" duration="138000" />
     </task>
     <servers />
   </component>

@@ -43,7 +43,7 @@ void ASpawner::SpawnMinion(TSubclassOf<AMinions> Minions)
 	FTransform SpawnTransform = FTransform(Location);
 
 
-	
+	//미니언 생성 전에 라인 부여
 	if (AMinions* NewMinion = GetWorld()->SpawnActorDeferred<AMinions>(Minions, SpawnTransform))
 	{
 		NewMinion->LineTag = LineTag;
