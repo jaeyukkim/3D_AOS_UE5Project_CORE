@@ -168,9 +168,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	float EffectiveArmor = TargetArmor - SourceLethality;
 	EffectiveArmor = FMath::Clamp(EffectiveArmor, 0.f, TargetArmor);
-
-	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Red, FString::FromInt(EffectiveArmor));
-
+	
 	PhysicalDamage *= 100 / (100+EffectiveArmor);
 	
 	if(bIsBasicAttack && !TargetAvatar->ActorHasTag("Turret"))
@@ -203,7 +201,7 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 
 	
 	/* 마법 데미지 구현 */
-	FGameplayAttribute TargetMagicResistanceAttribute = UAttributeSetBase::GetArmorAttribute();
+	FGameplayAttribute TargetMagicResistanceAttribute = UAttributeSetBase::GetMagicResistanceAttribute();
 	float TargetMagicResistance = TargetASC->GetNumericAttribute(TargetMagicResistanceAttribute);
 	//ExecutionParams.AttemptCalculateCapturedAttributeMagnitude(DamageStatics().MagicResistanceDef, EvaluationParameters, TargetMagicResistance);
 
@@ -221,4 +219,12 @@ void UExecCalc_Damage::Execute_Implementation(const FGameplayEffectCustomExecuti
 	
 	/* 마법 데미지 구현 */
 	
+}
+
+void UExecCalc_Damage::ApplyMagicalDamage()
+{
+}
+
+void UExecCalc_Damage::ApplyPhysicDamage()
+{
 }

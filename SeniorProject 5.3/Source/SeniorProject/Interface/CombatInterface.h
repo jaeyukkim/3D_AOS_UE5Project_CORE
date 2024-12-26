@@ -8,6 +8,7 @@
 #include "AbilitySystemComponent.h"
 #include "CombatInterface.generated.h"
 
+class UAttributeSetBase;
 class UAnimMontage;
 class UAbilitySystemComponent;
 
@@ -30,20 +31,22 @@ class SENIORPROJECT_API ICombatInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	UFUNCTION(BlueprintNativeEvent)
-	int32 GetPlayerLevel();
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void GetStraightAimHitResult(float AttackDistance ,FHitResult& HitResult);
-	
 	FORCEINLINE virtual void SetCurrentCombo(int32 NewCurrentCombo) {return;}
 	FORCEINLINE virtual void SetMaxAttackCombo(int32 NewMaxAttackCombo) {return;}
 	FORCEINLINE virtual int32 GetCurrentCombo() const {return 1;}
 	FORCEINLINE virtual int32 GetMaxAttackCombo() const {return 1;}
 	FORCEINLINE virtual int32 GetAttackRange() const {return 100;}
+	
+	UFUNCTION(BlueprintNativeEvent)
+	int32 GetPlayerLevel();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void GetAimHitResult(float AbilityDistance ,FHitResult& HitResult);
+	
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void GetStraightAimHitResult(float AttackDistance ,FHitResult& HitResult);
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void ApplyDebuffEffect(const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency);
 	
@@ -56,7 +59,6 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetAttackMontage();
 	
-
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	bool IsDead() const;
 
@@ -80,6 +82,9 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void Die();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	TArray<AActor*> GetAllAttackers();
 	
 	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() = 0;
 	

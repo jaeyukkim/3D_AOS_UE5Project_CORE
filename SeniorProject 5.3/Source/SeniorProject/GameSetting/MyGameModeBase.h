@@ -15,6 +15,7 @@ class AMyPlayerController;
 class AMyCharacter;
 class UCharacterClassInfo;
 class ATurret;
+class USpawnerDataAsset;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FUpdateMinionTargetsSignature);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUpdateSelectedCharacterDelegate, APlayerStateBase*, PS);
@@ -36,53 +37,40 @@ public:
 	virtual void GenericPlayerInitialization(AController* C) override;
 	void SetupPlayerCharacterClass(APlayerController* NewPlayer);
 	
-	
-	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
-	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
-	UPROPERTY(BlueprintAssignable, Category="GameRule")
-	FUpdateMinionTargetsSignature UpdateMinionTargets;
-
-	
 	UFUNCTION()
 	void OnTurretSpawned(ATurret* SpawnedTurret);
 	UFUNCTION()
 	void OnTurretDestroyed(FGameplayTag& LineTag, FGameplayTag& TurretLevelTag, FGameplayTag& TeamTag);
 	UFUNCTION()
 	void InitWayPoint();
+
+public:
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Character Class Defaults")
+	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Spawner Class Defaults")
+	TObjectPtr<USpawnerDataAsset> SpawnerDataAsset;
+	UPROPERTY(BlueprintAssignable, Category="GameRule")
+	FUpdateMinionTargetsSignature UpdateMinionTargets;
+	
 protected:
 	virtual void BeginPlay() override;
 
+	
+protected:
 	UPROPERTY()
 	TObjectPtr<ACoreGameState> CoreGameState;
-
-	
-	//첫 미니언 스폰 타임
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	float InitialSpawnTime = 65.f;
-	// 미니언 스폰 타임 주기
-	const float RecurringSpawnTime = 30.f;
-	//공성 미니언 스폰 카운터
-	const int32 SiegeMinionSpawnCycle = 3;
-	
-	int32 SiegeMinionSpawnCount = 0;
-	int32 RedTeamPlayerNumber = 0;
-	int32 BlueTeamPlayerNumber = 0;
 	float UpdateMinionTargetDelay = 0.5f;
 
 	// WayPoint 초기화 함수
 	float InitWayPointTime = 5.f;
+
 	
 private:
 	
-	// 일정 시간마다 미니언 스폰하는 함수
-	UFUNCTION()
-	void SpawnMinion();
-	
-	
-	
-	FTimerHandle InitialSpawnTimerHandle;
-	FTimerHandle RecurringSpawnTimerHandle;
 	FTimerHandle UpdateMinionTargetTimerHandle;
 	FTimerHandle InitWayPointTimerHandle;
+	//FTimerHandle InitialSpawnTimerHandle;
+	//FTimerHandle RecurringSpawnTimerHandle;
 };
 

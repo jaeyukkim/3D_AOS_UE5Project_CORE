@@ -56,7 +56,9 @@ public:
 	
 	UFUNCTION()
 	void ApplyDebuffEffectSelf(TSubclassOf<UGameplayEffect> DebuffEffectClass, const FGameplayTag& DebuffTag, const float DebuffCoefficient, const float DebuffDuration, const float DebuffFrequency);
-
+	UFUNCTION()
+	void ApplyBuffEffectToSelf(const TSubclassOf<UGameplayEffect>& BuffEffectClass);
+	
 	UFUNCTION(Server, Reliable)
 	void ServerBuyItem(FItemInformation ClickedItemInfo);
 	

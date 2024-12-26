@@ -53,12 +53,15 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<USphereComponent> SphereComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UAudioComponent> HitAudioComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> ProjectileParticleSystem;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Attack")
 	bool bIsAblePenetration = false;
 	
-
-	
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	bool bIsRadialDamage = false;
 	
@@ -68,7 +71,9 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void ApplyRadialDamage();
 
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+	void MulticastSpawnParticleAndSound();
+
+	const float ProjectileLifetime = 1.5f;
 	
-
-
 };

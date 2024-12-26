@@ -68,7 +68,9 @@ public:
 	TObjectPtr<AAIControllerBase> AIControllerBase;
 	UPROPERTY(EditAnywhere, Category = "AI")
 	TObjectPtr<UBehaviorTree> BehaviorTree;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
+	int32 Level = 1;
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;
@@ -77,20 +79,13 @@ protected:
 	void BindCallbackTargetCharacter();
 	virtual EBlackboardNotificationResult OnBlackboardTargetChanged(const UBlackboardComponent& BlackboardComp, FBlackboard::FKey KeyID);
 	
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
-	int32 Level = 1;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
-	UPROPERTY()
-	TObjectPtr<UNavModifierComponent> DetourAreaComponent;
 	
 	
 	UFUNCTION()
 	void Stunned(const FGameplayTag CallbackTag, int32 NewCount);
-
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
-	float MinionEnforceTime = 60.f;
-	
+	UFUNCTION(BlueprintNativeEvent)
+	void SetDamagedColor();
 	
 };

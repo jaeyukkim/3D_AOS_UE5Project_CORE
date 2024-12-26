@@ -13,6 +13,7 @@
 #include "MyCharacter.generated.h"
 
 
+class UActionComponent;
 class UItemComponent;
 class USpringArmComponent;
 class UCameraComponent;
@@ -60,17 +61,14 @@ public:
 	virtual void MulticastReSpawn();
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastSetMovementMode(const bool bIsMovementEnable);
-	
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerReSpawn();
 	UFUNCTION(Server, Reliable, BlueprintCallable)
 	virtual void ServerRecall();
 	UFUNCTION(Server, Reliable)
 	void ServerLeaveGame();
-	
 	UFUNCTION(Client, Reliable)
 	void ClientSpectate();
-	
 	UFUNCTION(BlueprintCallable)
 	void BroadcastInitialValues();
 	UFUNCTION(BlueprintCallable)
@@ -89,6 +87,7 @@ public:
 	virtual void GetAimHitResult_Implementation(float AbilityDistance, FHitResult& HitResult) override;
 	virtual void GetStraightAimHitResult_Implementation(float AttackDistance ,FHitResult& HitResult);
 	virtual void Die_Implementation() override;
+	
 	/* end CombatInterface */
 	
 	/* Enemy Interface */
@@ -115,6 +114,7 @@ public:
 	virtual bool GetIsInShop_Implementation() override;
 	virtual void SetIsInShop_Implementation(bool InbIsInShop) override;
 	virtual UAnimMontage* GetRecallMontage_Implementation() override;
+	virtual UActionComponent* GetActionComponent_Implementation() override;
 	/** end Player Interface */
 
 	
@@ -156,29 +156,47 @@ protected:
 	void GetLevelUpReward();
 	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void MulticastMoveAbility(int32 Velocity, float Duration);
+
+protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> LevelUpParticleComponent;
+	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "LevelUp")
 	TSubclassOf<UGameplayEffect> LevelUpReward;
+	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TObjectPtr<UAnimMontage> RecallAnim;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
+	
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<UItemComponent> ItemComponent;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	TObjectPtr<UActionComponent> ActionComponent;
+	
 	UPROPERTY(EditAnywhere, Category = HUD)
 	TSubclassOf<UUserWidget> EndGameWidgetClass;
+	
 	UPROPERTY(EditDefaultsOnly, Category="Kwang")
 	TSubclassOf<AAttackRangeDecal> MagicCircleClass;
+	
 	UPROPERTY(BlueprintReadWrite ,EditDefaultsOnly)
 	TObjectPtr<AAttackRangeDecal> MagicCircle;
+	
 	UPROPERTY()
 	TArray<TObjectPtr<AMyCharacter>> SpectatedCharacters;
-	
+
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> RedBuffComponent;
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> BlueBuffComponent;
+	UPROPERTY(VisibleAnywhere)
+	TObjectPtr<UDebuffParticleComponent> PrimeBuffComponent;
+
 	bool bAbilityIsGiven = false;
 	int32 SpectateIdx = 0;
-
-	
 private:
 	
 	

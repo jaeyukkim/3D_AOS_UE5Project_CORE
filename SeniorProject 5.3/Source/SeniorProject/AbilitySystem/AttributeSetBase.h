@@ -18,7 +18,8 @@
  	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
 
-//	typedef is specific to the FGameplayAttribute() signature, but TStaticFunPtr is generic to any signature chosen
+// typedef는 FGameplayAttribute() 시그니처에만 특정되지만,
+// TStaticFuncPtr은 선택한 모든 시그니처에 대해 일반적으로 사용할 수 있습니다.
 //	typedef TBaseStaticDelegateInstance<FGameplayAttribute(), FDefaultDelegateUserPolicy>::FFuncPtr FAttributeFuncPtr;
 // StaticFunction 함수 포인터와 델리게이트 지정
 template<class T>
@@ -60,7 +61,7 @@ struct FEffectProperties
 /**
  * 
  */
-
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnIncomingDamageDelegate, AActor*);
 
 UCLASS()
 class SENIORPROJECT_API UAttributeSetBase : public UAttributeSet
@@ -76,7 +77,7 @@ public:
 
 
 	TMap<FGameplayTag, TStaticFuncPtr<FGameplayAttribute()>> TagsToAttributes;
-
+	FOnIncomingDamageDelegate OnIncomingDamageDelegate;
 
 
 	
@@ -123,7 +124,7 @@ public:
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, CriticalChance);
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MovementSpeed, Category="SecondaryAttributes")
-	FGameplayAttributeData MovementSpeed;
+		FGameplayAttributeData MovementSpeed;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MovementSpeed);
 	/* SecondaryAttributes */
 
@@ -135,7 +136,7 @@ public:
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxHealth);
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category="Additional Vital Attribute")
-	FGameplayAttributeData MaxMana;
+		FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MaxMana);
 	
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_HealthRegeneration, Category="Additional Vital Attribute")
@@ -147,11 +148,11 @@ public:
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, ManaRegeneration);
 	
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_Lethality, Category="Additional Vital Attribute")
-	FGameplayAttributeData Lethality;
+		FGameplayAttributeData Lethality;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, Lethality);
 
 	UPROPERTY(BlueprintReadOnly ,ReplicatedUsing = OnRep_MagicPenetration, Category="Additional Vital Attribute")
-	FGameplayAttributeData MagicPenetration;
+		FGameplayAttributeData MagicPenetration;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, MagicPenetration);
 	
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_LifeSteal, Category="Additional Vital Attribute")
@@ -166,16 +167,16 @@ public:
 	 * Meta Attributes
 	 */
 
-	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
-	FGameplayAttributeData IncomingDamage;
+	UPROPERTY(BlueprintReadOnly,  Category = "Meta Attributes")
+		FGameplayAttributeData IncomingDamage;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingDamage);
 
 	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
-	FGameplayAttributeData IncomingXP;
+		FGameplayAttributeData IncomingXP;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingXP);
 
 	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
-	FGameplayAttributeData IncomingGold;
+		FGameplayAttributeData IncomingGold;
 	ATTRIBUTE_ACCESSORS(UAttributeSetBase, IncomingGold);
 	
 /* -------------------------OnRep---------------------------------*/
@@ -242,24 +243,24 @@ public:
 	UFUNCTION()
 	void OnRep_MagicPenetration(const FGameplayAttributeData& OldMagicPenetration) const;
 	/* Additional Vital Attribute */
-
-
-
-
+	
 
 	
 private:
 
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data, FEffectProperties& Props) const;
 	void ShowFloatingText(const FEffectProperties& Props, float Damage, bool bCriticalHit, bool bMagicalDamage) const;
-	void ShowGoldAmountText(const FEffectProperties& Props, float GoldAmount) const;
+	void ShowGoldAmountText(const FEffectProperties& Props, AActor* SourceActor, float GoldAmount) const;
 	void NotifyMinionTarget(AActor* DamagedActor, AActor* Instigator); // 적 플레이어에 의해 플레이어 피격시 주변의 팀 미니언들에게 적 플레이어를 타겟팅 하도록 함
+	void NotifyDamageInstigator(AActor* DamagedActor, AActor* Instigator); // 적 플레이어에 의해 피격시 실행하는 함수 피격정보 저장하는대에 사용
 	void SendXPEvent(const FEffectProperties& Props);
 	void SendGoldEvent(const FEffectProperties& Props);
 	void HandleIncomingDamage(const FEffectProperties& Props);
 	void HandleIncomingXP(const FEffectProperties& Props);
 	void HandleIncomingGold(const FEffectProperties& Props);
 	void Debuff(const FEffectProperties& Props);
+	void SendBuffEffect(const FEffectProperties& Props);
 	bool bIsNeedToUpdateAttribute(const FEffectProperties& Props);
 	void AddTeamScore(const FEffectProperties& Props);
 };
+

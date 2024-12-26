@@ -42,8 +42,13 @@ AProjectileBase::AProjectileBase()
 	ProjectileMovement->bRotationFollowsVelocity = false; 
 	ProjectileMovement->bShouldBounce = false;
 	
-
+	ProjectileParticleSystem = CreateDefaultSubobject<UParticleSystemComponent>("ProjectileParticleSystem");
+	ProjectileParticleSystem->SetAutoActivate(false);
+	ProjectileParticleSystem->SetupAttachment(SphereComponent);
 	
+	HitAudioComponent = CreateDefaultSubobject<UAudioComponent>("HitAudioComponent");
+	HitAudioComponent->SetAutoActivate(false);
+	HitAudioComponent->SetupAttachment(SphereComponent);
 }
 
 void AProjectileBase::SetOwnerActor(AActor* NewOwner)
@@ -88,16 +93,11 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 		return;
 	
 	
-	
 	if(bIsRadialDamage)
 	{
 		ApplyRadialDamage();
 		return;
 	}
-	
-	
-	
-	
 	
 	if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
 	{
@@ -107,7 +107,7 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 	
 	if(!bIsAblePenetration)
 	{
-		Destroy();
+		SetLifeSpan(ProjectileLifetime);
 	}
 	
 	
@@ -116,7 +116,6 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 
 void AProjectileBase::ApplyRadialDamage()
 {
-	
 	
 	if (OwnerAvatarActor == nullptr || !HasAuthority()) return;
 
@@ -159,9 +158,14 @@ void AProjectileBase::ApplyRadialDamage()
 	 if (!bIsAblePenetration)
 	{
 	 	SphereComponent->OnComponentBeginOverlap.RemoveDynamic(this, &AProjectileBase::OnCapsuleOverlap);
-		
 	}
 	
+}
+
+void AProjectileBase::MulticastSpawnParticleAndSound_Implementation()
+{
+	ProjectileParticleSystem->Activate();
+	HitAudioComponent->Activate();
 }
 
 

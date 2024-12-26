@@ -24,7 +24,15 @@ enum class ECharacterClass : uint8
 	Nexus,
 	TwinBlast,
 	Shinbi,
-	
+	Red,
+	Blue,
+	Green,
+	Yellow,
+	Black,
+	White,
+	Prime,
+	Minion,
+	Crunch
 };
 
 USTRUCT(BlueprintType)

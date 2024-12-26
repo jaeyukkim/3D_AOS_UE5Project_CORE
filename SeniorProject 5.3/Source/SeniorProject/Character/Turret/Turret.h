@@ -97,5 +97,5 @@ private:
 	const float InitLoopTime = 5.f;
 	const float HitReactLoopTime = 0.1f;
 	const float ExplosionTime = 3.8f;
-	const float DetectRadius = 2000.f;
+	const float DetectRadius = 1500.f;
 };

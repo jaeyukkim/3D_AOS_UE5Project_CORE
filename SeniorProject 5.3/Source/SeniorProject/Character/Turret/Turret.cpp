@@ -94,7 +94,9 @@ void ATurret::BeginPlay()
 					ServerSetIsUnderAttacked();
 				}
 			);
-	
+
+			BindCallBackSaveAttacker();
+			
 		}
 
 		PerceptionSystem->OnPerceptionUpdated.AddDynamic(this, &ATurret::DetectEnemyMinion);
@@ -266,19 +268,24 @@ void ATurret::Die_Implementation()
 void ATurret::DetectEnemyMinion(const TArray<AActor*>& UpdatedActors)
 {
 	if (!HasAuthority()) return;
+
+	TArray<AActor*> PerceivedActors;
+	TArray<AActor*> PerceivedEnemyMinion;
+	PerceptionSystem->GetCurrentlyPerceivedActors(nullptr, PerceivedActors);
 	
-	int32 DetectedMonsterCount = 0;
-	for (AActor* InActor : UpdatedActors)
+
+	for (AActor* InActor : PerceivedActors)
 	{
 		if (InActor != nullptr && InActor->ActorHasTag("Minion") && !UBlueprintFunctionLibraryBase::IsFriends(this, InActor))
 		{
-			DetectedMonsterCount++;
+			PerceivedEnemyMinion.AddUnique(InActor);
 		}
 	}
+	
 
 	if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 	{
-		if (DetectedMonsterCount > 0)
+		if (PerceivedEnemyMinion.Num() > 0)
 		{
 			// 시야 내에 미니언이 감지 되면 원래 방어력으로 설정
 			AS->SetArmor(AS->Armor.GetBaseValue());

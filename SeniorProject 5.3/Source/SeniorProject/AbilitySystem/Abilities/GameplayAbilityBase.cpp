@@ -56,6 +56,13 @@ void UGameplayAbilityBase::SpawnParticleAtLocation(FVector Location, UParticleSy
 	}
 }
 
+void UGameplayAbilityBase::MulticastPlaySoundAtLocation_Implementation(const FVector& Location, USoundBase* SoundCue)
+{
+	
+	UGameplayStatics::PlaySoundAtLocation(this, SoundCue, Location, FRotator::ZeroRotator);
+	
+}
+
 void UGameplayAbilityBase::ApplyCustomCooldownClass(const FGameplayAbilitySpecHandle Handle)
 {
 

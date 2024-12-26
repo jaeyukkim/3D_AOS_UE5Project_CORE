@@ -30,14 +30,7 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TObjectPtr<UParticleSystemComponent> WolfParticle;
 
-	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UParticleSystemComponent> AttackParticle;
-	
-	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UAudioComponent> AttackAudio;
-
-	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
-	void MulticastPlaySoundAndParticle();
+	virtual void MulticastSpawnParticleAndSound_Implementation() override;
 	
 };
 

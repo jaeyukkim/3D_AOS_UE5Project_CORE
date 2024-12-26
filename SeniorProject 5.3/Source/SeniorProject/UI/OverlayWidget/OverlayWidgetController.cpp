@@ -30,9 +30,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 			OnLevelChanged.Broadcast(NewLevel);
 		}
 	);
-
 	
-
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 	GetMyAS()->GetHealthAttribute()).AddLambda( [this](const FOnAttributeChangeData& Data)
 	{

@@ -37,7 +37,7 @@ void AWayPoint::UpdateWayPoint(UPrimitiveComponent* OverlappedComponent, AActor*
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	// 미니언만 WayPoint 업데이트
-	if(OtherActor == nullptr && OtherActor->ActorHasTag("Turret") && !OtherActor->ActorHasTag("Minion"))
+	if(OtherActor == nullptr || OtherActor->ActorHasTag("Turret") || !OtherActor->ActorHasTag("Minion"))
 	{
 		return;
 	}

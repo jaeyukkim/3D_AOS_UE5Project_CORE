@@ -2,19 +2,16 @@
 
 
 #include "AttributeSetBase.h"
-
 #include "AbilityTypesBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 #include "Net/UnrealNetwork.h"
 #include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 #include "Kismet/GameplayStatics.h"
-#include "SeniorProject/Character/Enemy/Minions.h"
 #include "SeniorProject/Interface/PlayerInterface.h"
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
-#include "GameplayEffectComponents/TargetTagsGameplayEffectComponent.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
-
+#include "SeniorProject/Interface/BuffMonsterInterface.h"
 
 
 class ICombatInterface;
@@ -175,9 +172,10 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 		
 	if (LocalIncomingDamage > 0.f)
 	{
+		NotifyDamageInstigator(Props.TargetAvatarActor, Props.SourceAvatarActor);
+
 		const float NewHealth = GetHealth() - LocalIncomingDamage;
 		SetHealth(FMath::Clamp(NewHealth, 0.f, GetMaxHealth()));
-
 		const bool bFatal = NewHealth <= 0.f;
 
 		if (bFatal)
@@ -189,14 +187,13 @@ void UAttributeSetBase::HandleIncomingDamage(const FEffectProperties& Props)
 				{
 					SendXPEvent(Props);
 					SendGoldEvent(Props);
+					SendBuffEffect(Props);
 					AddTeamScore(Props);
 				}
 				ICombatInterface::Execute_Die(Props.TargetAvatarActor);
 	
 			}
-				
-				
-				
+			
 			FGameplayTagContainer TagContainer;
 			TagContainer.AddTag(FGameplayTagsBase::Get().Effects_DieReact);
 			Props.TargetASC->TryActivateAbilitiesByTag(TagContainer);
@@ -227,7 +224,7 @@ void UAttributeSetBase::HandleIncomingXP(const FEffectProperties& Props)
 	const float LocalIncomingXP = GetIncomingXP();
 	SetIncomingXP(0.f);
 
-	// Source Character is the owner, since GA_ListenForEvents applies GE_EventBasedEffect, adding to IncomingXP
+	
 	if (Props.SourceCharacter->Implements<UPlayerInterface>() && Props.SourceCharacter->Implements<UCombatInterface>())
 	{
 		const int32 CurrentLevel = ICombatInterface::Execute_GetPlayerLevel(Props.SourceCharacter);
@@ -281,6 +278,27 @@ void UAttributeSetBase::Debuff(const FEffectProperties& Props)
 	}
 	
 
+}
+
+void UAttributeSetBase::SendBuffEffect(const FEffectProperties& Props)
+{
+	
+	// 죽었을 때 버프몬스터라면
+	if (Props.TargetCharacter && Props.TargetCharacter->Implements<UBuffMonsterInterface>())
+	{
+		// 버프몬스터를 죽인 플레이어에게 버프 전달
+		if (Props.SourceCharacter || Props.SourceCharacter->Implements<UPlayerInterface>())
+		{
+			if (UAbilitySystemComponentBase* PlayerASCBase = Cast<UAbilitySystemComponentBase>(Props.SourceASC))
+			{
+				TArray<TSubclassOf<UGameplayEffect>> Buffs = IBuffMonsterInterface::Execute_GetBuffEffect(Props.TargetCharacter);
+				for(TSubclassOf<UGameplayEffect> Buff : Buffs)
+				{
+					PlayerASCBase->ApplyBuffEffectToSelf(Buff);
+				}
+			}
+		}
+	}
 }
 
 /*
@@ -360,11 +378,12 @@ void UAttributeSetBase::ShowFloatingText(const FEffectProperties& Props, float D
 	}
 }
 
-void UAttributeSetBase::ShowGoldAmountText(const FEffectProperties& Props, float GoldAmount) const
+void UAttributeSetBase::ShowGoldAmountText(const FEffectProperties& Props, AActor* SourceActor, float GoldAmount) const
 {
-	if (Props.SourceCharacter != Props.TargetCharacter)
+	if (SourceActor != Props.TargetCharacter)
 	{
-		if(AMyPlayerController* PC = Cast<AMyPlayerController>(Props.SourceCharacter->Controller))
+		if (ACharacter* SourceCharacter = Cast<ACharacter>(SourceActor))
+		if(AMyPlayerController* PC = Cast<AMyPlayerController>(SourceCharacter->Controller))
 		{
 			PC->ShowGoldAmount(GoldAmount, Props.TargetCharacter);
 		}
@@ -404,6 +423,19 @@ void UAttributeSetBase::NotifyMinionTarget(AActor* DamagedActor, AActor* Instiga
 	
 }
 
+// 공격자가 플레이어 일 때 노티파이
+void UAttributeSetBase::NotifyDamageInstigator(AActor* DamagedActor, AActor* Instigator)
+{
+
+	if (Instigator->ActorHasTag("Player"))
+	{
+		OnIncomingDamageDelegate.Broadcast(Instigator);
+	}
+	
+}
+
+
+
 void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 {
 	if(Props.TargetCharacter == nullptr) return;
@@ -441,26 +473,56 @@ void UAttributeSetBase::SendXPEvent(const FEffectProperties& Props)
 	{
 		if(Props.TargetCharacter->Implements<UCombatInterface>())
 		{
-			
+			int32 OverlapNum = OverlapActors.Num();
 			const int32 TargetLevel = ICombatInterface::Execute_GetPlayerLevel(Props.TargetCharacter);
 			const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
 			const int32 XPReward = UBlueprintFunctionLibraryBase::GetXPRewardForClassAndLevel(Props.TargetCharacter, TargetClass, TargetLevel);
 			const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
 			FGameplayEventData Payload;
 			Payload.EventTag = GameplayTags.Attributes_Meta_IncomingXP;
-			Payload.EventMagnitude = XPReward / OverlapActors.Num();
+
+			// 경험치를 나눠가질 경우 1명당 25%의 추가 경험치를 부여하고 사람수에 따라 나눔
+			Payload.EventMagnitude = OverlapActors.Num() > 1 ? (XPReward + (XPReward * (0.25 * OverlapNum)))/OverlapNum : XPReward;
 			UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(EnemyPlayer, GameplayTags.Attributes_Meta_IncomingXP, Payload);
 		}
 		
 	}
+
 	
 }
 
+
+
 void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 {
-	if(Props.TargetCharacter == nullptr) return;
+	if(Props.TargetCharacter == nullptr || Props.SourceAvatarActor == nullptr) return;
 
-	if(Props.TargetCharacter->Implements<UCombatInterface>())
+	// 공격자와 피격자 모두 플레이어라면 어시스트 로직 활용하여 gold Event 발생
+	// 피격자가 포탑이라면 어시스트 로직 활용하여 gold Event 발생
+	if ((Props.TargetCharacter->ActorHasTag("Player") && Props.SourceAvatarActor->ActorHasTag("Player")) || Props.TargetAvatarActor->ActorHasTag("Turret"))
+	{
+		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
+		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+		const int32 GoldReward = UBlueprintFunctionLibraryBase::GetGoldRewardForClassAndLevel(Props.TargetCharacter, TargetClass);
+		
+		const TArray<AActor*> SourcePlayers = ICombatInterface::Execute_GetAllAttackers(Props.TargetCharacter);
+		
+		// 마지막 타격자라면 골드를 온전히 가져가고 나머지 플레이어는 (골드/타겟 플레이어 수) 만큼 가져감
+		for (AActor* Source : SourcePlayers)
+		{
+			FGameplayEventData Payload;
+			Payload.EventTag = GameplayTags.Attributes_Meta_IncomingGold;
+			Payload.EventMagnitude = Source == Props.SourceAvatarActor? GoldReward : GoldReward / SourcePlayers.Num();
+			UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Source, GameplayTags.Attributes_Meta_IncomingGold, Payload);
+			ShowGoldAmountText(Props, Source, Payload.EventMagnitude);
+		}
+		
+		return;
+	}
+
+	
+	// 공격자가 플레이어일 때만 send gold event 발생
+	if(Props.TargetCharacter->Implements<UCombatInterface>() && Props.SourceAvatarActor->Implements<UPlayerInterface>())
 	{
 		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
 		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
@@ -468,8 +530,9 @@ void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 		FGameplayEventData Payload;
 		Payload.EventTag = GameplayTags.Attributes_Meta_IncomingGold;
 		Payload.EventMagnitude = GoldReward;
+		
 		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(Props.SourceAvatarActor, GameplayTags.Attributes_Meta_IncomingGold, Payload);
-		ShowGoldAmountText(Props, GoldReward);
+		ShowGoldAmountText(Props, Props.SourceAvatarActor, GoldReward);
 		
 	}
 
@@ -563,4 +626,3 @@ void UAttributeSetBase::OnRep_MagicPenetration(const FGameplayAttributeData& Old
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(UAttributeSetBase, MagicPenetration, OldMagicPenetration);
 }
-

@@ -40,9 +40,7 @@ AAIControllerBase::AAIControllerBase(const FObjectInitializer& ObjectInitializer
 void AAIControllerBase::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if(!HasAuthority()) return;
-
+	
 	
 }
 
@@ -50,7 +48,7 @@ void AAIControllerBase::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
 
-	if(!InPawn->ActorHasTag("Turret"))
+	if(InPawn->ActorHasTag("Buff") || InPawn->ActorHasTag("Turret")) return;
 		
 	if(AMyGameModeBase* MyGameModeBase = Cast<AMyGameModeBase>(GetWorld()->GetAuthGameMode()))
 	{
@@ -94,7 +92,6 @@ void AAIControllerBase::UpdateMinionTargetTurret()
 			{
 				if(Blackboard)
 				{
-					GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, TargetLevel.ToString());
 					Blackboard->SetValueAsVector("TargetTurret", Turret->GetActorLocation());
 					GetWorldTimerManager().ClearTimer(InitMinionTargetTimerHandle);
 					return;

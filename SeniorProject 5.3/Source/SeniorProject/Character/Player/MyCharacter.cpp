@@ -24,10 +24,12 @@
 #include "SeniorProject/AbilitySystem/AbilitySystemComponentBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Data/LevelUpInfo.h"
+#include "SeniorProject/AbilitySystem/Debuff/DebuffParticleComponent.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 
 #include "SeniorProject/Actor/Decal/AttackRangeDecal.h"
 #include "SeniorProject/Actor/PlayerStart/TeamPlayerStart.h"
+#include "SeniorProject/PlayerBase/ActionComponent.h"
 
 #include "SeniorProject/UI/OverlayWidget/OverlayWidget.h"
 #include "SeniorProject/UI/OverlayWidget/OverlayWidgetController.h"
@@ -68,6 +70,21 @@ AMyCharacter::AMyCharacter()
 	
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Character"));
 
+	const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();
+	
+	RedBuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("RedBuffComponent");
+	RedBuffComponent->SetupAttachment(GetRootComponent());
+	RedBuffComponent->DebuffTag = GameplayTags.Buff_Type_RED;
+
+	BlueBuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("BlueBuffComponent");
+	BlueBuffComponent->SetupAttachment(GetRootComponent());
+	BlueBuffComponent->DebuffTag = GameplayTags.Buff_Type_BLUE;
+
+	PrimeBuffComponent = CreateDefaultSubobject<UDebuffParticleComponent>("PrimeBuffComponent");
+	PrimeBuffComponent->SetupAttachment(GetRootComponent());
+	PrimeBuffComponent->DebuffTag = GameplayTags.Buff_Type_PRIME;
+	
+	ActionComponent = CreateDefaultSubobject<UActionComponent>("ActionComponent");
 	
 }
 
@@ -89,6 +106,7 @@ void AMyCharacter::PossessedBy(AController* NewController)
 	InitAbilityActorInfo();
 	AddCharacterAbility();
 	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
+	BindCallBackSaveAttacker();
 	bAbilityIsGiven = true;
 	
 }
@@ -158,7 +176,6 @@ void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovemen
 			GetCharacterMovement()->MaxWalkSpeed = AS->GetMovementSpeed();
 			bUseControllerRotationYaw = true;
 			
-			
 		}
 	}
 	else 
@@ -166,7 +183,6 @@ void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovemen
 		GetCharacterMovement()->MaxWalkSpeed = 0.f;
 		bUseControllerRotationYaw = false;
 		
-
 	}
 }
 
@@ -189,7 +205,7 @@ void AMyCharacter::BroadcastInitialValues()
 	APlayerStateBase* PlayerStateBase = GetPlayerState<APlayerStateBase>();
 	if(PlayerStateBase == nullptr) return;
 
-	const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
+	UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet);
 	checkf(AS, TEXT("AttibuteSet Class uninitialized"));
 
 	OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
@@ -198,6 +214,8 @@ void AMyCharacter::BroadcastInitialValues()
 	OnPlayerBarManaChanged.Broadcast(AS->GetMana());
 	OnPlayerBarLevelChanged.Broadcast(PlayerStateBase->GetPlayerLevel());
 	PlayerStateBase->BroadcastPlayerStat();
+
+	
 }
 
 void AMyCharacter::InitAbilityActorInfo()
@@ -226,6 +244,8 @@ void AMyCharacter::InitAbilityActorInfo()
 			DefaultHUD->InitOverlay(MyPlayerController, PlayerStateBase, AbilitySystemComponent, AttributeSet);
 		}
 	}
+
+	
 	
 	InitializeDefaultAttributes();
 	GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoHandle, this, &AMyCharacter::InitPlayerInfo, 5.f, true);
@@ -286,10 +306,7 @@ void AMyCharacter::InitializeHealthBarWidget()
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
 		[this](const FOnAttributeChangeData& Data)
 		{
-			if(HasAuthority())
-			{
-				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
-			}
+			GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
 		}
 	);
 
@@ -718,6 +735,16 @@ bool AMyCharacter::DeleteItem_Implementation(const FGameplayTag& ItemInputTag)
 UAnimMontage* AMyCharacter::GetRecallMontage_Implementation()
 {
 	return RecallAnim;
+}
+
+UActionComponent* AMyCharacter::GetActionComponent_Implementation()
+{
+	if (IsValid(ActionComponent))
+	{
+		return ActionComponent;
+	}
+
+	return nullptr;
 }
 
 

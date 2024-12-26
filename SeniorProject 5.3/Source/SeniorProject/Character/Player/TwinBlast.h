@@ -29,7 +29,9 @@ public:
 
 	UPROPERTY(Replicated, BlueprintReadWrite)
 	bool bGrenade = false;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	TObjectPtr<USkeletalMeshComponent> UltGunMesh;
 
 
 	void SetbGrenade(bool InbGrenade);

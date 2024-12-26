@@ -30,11 +30,9 @@ public:
 	ACharacterBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	virtual void Tick(float DeltaTime) override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-
 	
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	UAttributeSet* GetAttributeSet()	const { return AttributeSet; }
-
 	
 	/* Enemy Interface */
 	virtual void HighlightActor() override;
@@ -59,20 +57,14 @@ public:
 	virtual void Die_Implementation() override;
 	virtual ECharacterClass GetCharacterClass_Implementation() override;
 	virtual FOnASCRegistered& GetOnASCRegisteredDelegate() override;
+	virtual TArray<AActor*> GetAllAttackers_Implementation() override;
 	FOnASCRegistered OnAscRegistered;
+	
 	UFUNCTION(NetMulticast, Reliable)
 	virtual void MulticastHandleDeath();
 	/* end CombatInterface*/
 	
 	
-	
-
-	/* GameRuleInterface*/
-	
-	
-	/* end GameRuleInterface */
-
-
 	
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName WeaponTipSocketName;
@@ -108,58 +100,73 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<UDebuffParticleComponent> MagicResistanceDecreaseDebuffComponent;
 
+	
+
+public:	
+
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	bool bHitReacting = false;
+	UPROPERTY(BlueprintReadOnly, Replicated ,Category = "Combat")
+	bool bIsStunned;
 	UPROPERTY(BlueprintReadOnly, Replicated)
 	bool bDead = false;
-
-	// 포탑의 기본은 무적상태이되 첫번째 포탑은 무적이아님
 	UPROPERTY(BlueprintReadOnly, Replicated)
-	bool bIsInvincibility = false;
+	bool bIsInvincibility = false;	// 포탑의 기본은 무적상태이되 첫번째 포탑은 무적이아님
+	
+	int32 AttackRange;
+	
 	
 protected:
 	
 	virtual void BeginPlay() override;
+	virtual void InitAbilityActorInfo();
+	virtual void InitializeDefaultAttributes() const;
+	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
+	void AddCharacterAbility();
 
+	
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
-
+	
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
-
-	virtual void InitAbilityActorInfo();
-
+	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
 	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultAdditionalVitalAttributes;
-
+	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultSecondaryAttributes;
-
+	
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "DefaultAttributes")
 	TSubclassOf<UGameplayEffect> DefaultGamePlayAttributes;
+
+protected:
+	void BindCallBackSaveAttacker();
+
+	UFUNCTION()
+	virtual void SaveAttacker(AActor* Attacker);	// 공격자를 저장하는 함수
 	
-	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
-	virtual void InitializeDefaultAttributes() const;
-	void AddCharacterAbility();
+	UFUNCTION()
+	virtual void RemoveAttacker(AActor* Attacker);	// 공격자를 배열에서 제거하는 함수
 	
+	UPROPERTY()
+	TArray<AActor*> RecentAttackers;	// 공격자를 저장할 배열
 	
-	
+	UPROPERTY()
+	TMap<AActor*, FTimerHandle> AttackerTimers;		// 공격자 타이머를 관리할 핸들
+
 	UPROPERTY(EditDefaultsOnly, Category="Debuff")
 	TMap<FGameplayTag, TSubclassOf<UGameplayEffect>> DebuffClassMap;
-	
-	
-public:	
-	
-	
-	int32 AttackRange;
-	UPROPERTY(BlueprintReadOnly, Category = "Combat")
-	bool bHitReacting = false;
 
-	UPROPERTY(BlueprintReadOnly, Replicated ,Category = "Combat")
-	bool bIsStunned;
-	
+	// ***사망시에 반드시 호출해야함***//
+	void ClearAttackers();
+	const float DeleteRecentAttackerTime = 10.f;
+
 private:
+	
 	UPROPERTY(EditAnywhere, Category="Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
 
@@ -173,13 +180,11 @@ private:
 
 	UPROPERTY(EditAnywhere,  Category="Combat")
 	TArray<TObjectPtr<UAnimMontage>> AttackMontage;
-
 	
-
 	int32 MaxAttackCombo = 0;
 	int32 CurrentCombo = 0;
-
 	/*Combat Interface*/
 
 	
 };
+

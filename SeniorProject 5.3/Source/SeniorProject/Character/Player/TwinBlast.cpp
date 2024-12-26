@@ -17,7 +17,8 @@ ATwinBlast::ATwinBlast()
 	
 	CharacterClass = ECharacterClass::TwinBlast;
 	
-	
+	UltGunMesh = CreateDefaultSubobject<USkeletalMeshComponent>("UltGunMesh");
+	UltGunMesh->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, FName("UltGunAttach"));
 }
 
 void ATwinBlast::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

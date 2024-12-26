@@ -181,7 +181,7 @@ void AMyGameModeBase::BeginPlay()
 	}
 	
 	// InitialSpawnTime 후 미니언 생성
-	GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
+	//GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
 	GetWorld()->GetTimerManager().SetTimer(InitWayPointTimerHandle, this, &AMyGameModeBase::InitWayPoint, InitWayPointTime, false);
 	
 }
@@ -240,54 +240,6 @@ void AMyGameModeBase::OnTurretDestroyed(FGameplayTag& LineTag,  FGameplayTag& Tu
 void AMyGameModeBase::InitWayPoint()
 {
 	UAllWayPoint::InitializeWayPoint(GetWorld());
-}
-
-
-void AMyGameModeBase::SpawnMinion()
-{
-
-	if(CoreGameState == nullptr) return;
-	
-	// 공성미니언 생성 주기 카운터 증가
-	SiegeMinionSpawnCount++;
-	
-	// 모든 스포너를 찾습니다.
-	TArray<AActor*> Spawners;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ASpawner::StaticClass(), Spawners);
-
-	for (AActor* Spawner : Spawners)
-	{
-		if (ASpawner* EachSpawner = Cast<ASpawner>(Spawner))
-		{
-			// 스포너가 구현한 인터페이스를 통해 팀과 라인을 가져옵니다.
-			if (IGameRuleInterface* EachSpawnerInterface = Cast<IGameRuleInterface>(EachSpawner))
-			{
-				FGameplayTag SpawnerTeam = EachSpawnerInterface->Execute_GetTeamName(EachSpawner);
-				FGameplayTag SpawnerLine = EachSpawnerInterface->Execute_GetLineTag(EachSpawner);
-
-				
-				
-					// 억제기가 파괴되었는지 확인합니다.
-				if (CoreGameState->IsInhibitorDestroyed(SpawnerTeam, SpawnerLine))
-				{
-					// 억제기가 파괴되었다면, 해당 스포너에 슈퍼 미니언을 생성하도록 지시합니다.
-					EachSpawner->SetIsSpawnSuperMinion(true);
-				}
-				else if ((SiegeMinionSpawnCount % SiegeMinionSpawnCycle) == 0)
-				{
-					// SiegeMinionSpawnCycle 주기에 따라 공성 미니언을 생성합니다.
-					EachSpawner->SetIsSpawnSiegeMinion(true);
-				}
-				
-				// 기본 미니언 생성 델리게이트를 호출합니다.
-				EachSpawner->OnMinionSpawn.Broadcast();
-				
-			}
-		}
-	}
-
-	// RecurringSpawnTime 초 후에 다시 호출되도록 타이머를 설정합니다.
-	GetWorld()->GetTimerManager().SetTimer(RecurringSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, RecurringSpawnTime, false);
 }
 
 

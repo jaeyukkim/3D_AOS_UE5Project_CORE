@@ -5,6 +5,7 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
+#include "SeniorProject/GamePlayTagsBase.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 
 UDebuffParticleComponent::UDebuffParticleComponent()
@@ -34,14 +35,36 @@ void UDebuffParticleComponent::BeginPlay()
 
 void UDebuffParticleComponent::DebuffTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
-	if (NewCount > PrevCount)
+	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
+	
+	//버프일 떼 버프는 스택이 최대 1임
+	if (DebuffTag.MatchesTag(TagsBase.Buff_Type))
 	{
-		DeactivateImmediate();
-		Activate();
+		if (NewCount > 0)
+		{
+			DeactivateImmediate();
+			Activate();
+		}
+		else
+		{
+			Deactivate();
+		}
+		
 	}
+
+	//디버프일때 디버프는 중첩 가능함
 	else
 	{
-		Deactivate();
+		if (NewCount > PrevCount)
+		{
+			DeactivateImmediate();
+			Activate();
+		}
+		else
+		{
+			Deactivate();
+		}
+		PrevCount = NewCount;
 	}
-	PrevCount = NewCount;
+	
 }

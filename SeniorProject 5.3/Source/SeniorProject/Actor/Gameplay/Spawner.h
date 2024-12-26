@@ -4,84 +4,93 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
-#include "Components/BoxComponent.h"
 #include "GameFramework/Actor.h"
 #include "SeniorProject/Interface/GameRuleInterface.h"
 #include "Spawner.generated.h"
 
 
-class AMinions;
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMinionSpawnSignature);
 
 
+
+enum class ECharacterClass : uint8;
+
 class UBoxComponent;
 class UParticleSystemComponent;
+class USpawnerDataAsset;
 
-UCLASS()
+UCLASS(Blueprintable)
 class SENIORPROJECT_API ASpawner : public AActor, public IGameRuleInterface
 {
 	GENERATED_BODY()
 	
 public:	
-
 	ASpawner();
-	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-	FORCEINLINE virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
-	FORCEINLINE virtual FGameplayTag GetTeamName_Implementation() const override {return TeamName;}
-
+	
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	FORCEINLINE bool GetIsSpawnSuperMinion() const { return bSpawnSuperMinion; }
+	void Spawn(TSubclassOf<AMinions> Minions);
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	FORCEINLINE void SetIsSpawnSuperMinion(const bool IsSpawnSuperMinion) { bSpawnSuperMinion = IsSpawnSuperMinion; }
+	void SpawnBuff();
 	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	FORCEINLINE bool GetIsSpawnSiegeMinion() const { return bSpawnSiegeMinion; }
-	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	FORCEINLINE void SetIsSpawnSiegeMinion(const bool IsSpawnSiegeMinion) { bSpawnSiegeMinion = IsSpawnSiegeMinion; }
-
-	UFUNCTION(BlueprintCallable, Category = "Spawn")
-	void SpawnMinion(TSubclassOf<AMinions> Minions);
-
-
+	void SpawnMinion();
+public:
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Mesh")
-	TObjectPtr<USkeletalMeshComponent> Mesh;
+	TObjectPtr<UStaticMeshComponent> StaticMesh;
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Box")
 	TObjectPtr<UBoxComponent> BoxComponent;
 	
-	
 	UPROPERTY(BlueprintAssignable, Category = "Spawn")
 	FOnMinionSpawnSignature OnMinionSpawn;
 	
-	
+	//반드시 블루프린트에서 설정해줘야함
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawn")
+	ECharacterClass SpawnerType;
+
+	TSubclassOf<AMinions> MonsterClass;
+
 protected:
 
 	virtual void BeginPlay() override;
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastSpawnParticles() const;
+
+protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UParticleSystemComponent> ParticleComponent;
-
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastSpawnParticles() const;
-
-	UFUNCTION(BlueprintCallable)
-	void SpawnParticle();
-
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Replicated, Category = "GameRule")
+	
+	UPROPERTY()
+	TObjectPtr<UParticleSystem> SpawnParticle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly , Category = "GameRule")
 	FGameplayTag TeamName;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Replicated, Category = "GameRule")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "GameRule")
 	FGameplayTag LineTag;
 	
-private:
-
-	
-
-	UPROPERTY(EditDefaultsOnly, Replicated ,Category = "Spawn")
+	UPROPERTY(BlueprintReadWrite, Category = "Spawn")
 	bool bSpawnSuperMinion = false;
 
-	UPROPERTY(EditDefaultsOnly,Replicated, Category = "Spawn")
+	UPROPERTY(BlueprintReadWrite, Category = "Spawn")
 	bool bSpawnSiegeMinion = false;
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	float MobEnforceTimeInterval = 100.f;
+private:
+	//첫 미니언 스폰 타임
+	float InitialSpawnTime;
+	
+	// 스폰 타임 주기
+	float SpawnTimeInterval;
+	
+	//공성 미니언 스폰 카운터
+	const int32 SiegeMinionSpawnCycle = 3;
+	int32 SiegeMinionSpawnCount = 0;
+	
+	FTimerHandle SpawnTimerHandle;
 	
 };
+

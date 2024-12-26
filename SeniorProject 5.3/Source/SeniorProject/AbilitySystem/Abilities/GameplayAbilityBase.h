@@ -44,7 +44,9 @@ public:
 
 	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
 	void MulticastSpawnParticleAtLocation(const FVector& Location, UParticleSystem* ParticleSystem);
-	
+
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastPlaySoundAtLocation(const FVector& Location, USoundBase* SoundCue);
 
 	UPROPERTY(EditDefaultsOnly, Category = Cooldowns)
 	TSubclassOf<class UGameplayEffect> CustomCooldownGameplayEffectClass;

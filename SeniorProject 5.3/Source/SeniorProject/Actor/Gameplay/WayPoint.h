@@ -23,7 +23,7 @@ public:
 	TObjectPtr<USphereComponent> SphereCollision;
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TObjectPtr<UParticleSystemComponent> FlagParticle;
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FGameplayTag LineTag;
 	
 	UPROPERTY(BlueprintReadWrite, BlueprintAssignable)

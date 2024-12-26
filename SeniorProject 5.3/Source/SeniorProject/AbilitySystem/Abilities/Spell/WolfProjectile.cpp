@@ -4,6 +4,7 @@
 #include "WolfProjectile.h"
 
 #include "SeniorProject/Actor/Projectile/ProjectileBase.h"
+#include "SeniorProject/Character/Player/MyCharacter.h"
 #include "SeniorProject/Interface/CombatInterface.h"
 
 
@@ -11,15 +12,19 @@ void UWolfProjectile::SpawnWolf(const FVector& ProjectileTargetLocation)
 {
 	AActor* SpellOwner = GetAvatarActorFromActorInfo();
 	if (!SpellOwner) return;
+	AMyCharacter* Shinbi = Cast<AMyCharacter>(SpellOwner);
 
 	// 소유자의 전방 벡터 + 바닥에 닿는거 방지
 	const FVector OwnerLocation = SpellOwner->GetActorLocation()+FVector(0,0, 20) + (SpellOwner->GetActorForwardVector() * PlusSpawnLocationFromOwner);
-	
-	
-	// 소유자가 바라보는 방향으로 회전 설정
-	FRotator Rotation = SpellOwner->GetActorRotation();
 
-	// 스폰 변환 설정
+	// 카메라를 기준으로 각도를 계산
+	const FVector CameraLocation = Shinbi->Camera->GetComponentLocation();
+	FVector Direction = (ProjectileTargetLocation - CameraLocation).GetSafeNormal();
+
+	// 투사체의 스폰 회전을 방향에 맞게 설정합니다.
+	FRotator Rotation = Direction.Rotation();
+	
+	// 스폰은 캐릭터 앞에
 	FTransform SpawnTransform;
 	SpawnTransform.SetLocation(OwnerLocation);
 	SpawnTransform.SetRotation(Rotation.Quaternion());

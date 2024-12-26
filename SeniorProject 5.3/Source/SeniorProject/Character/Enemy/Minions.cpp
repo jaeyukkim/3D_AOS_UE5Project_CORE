@@ -51,13 +51,8 @@ AMinions::AMinions()
 	GetCharacterMovement()->bOrientRotationToMovement = false;
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 800.0f, 0.0f);
 	GetCharacterMovement()->bRequestedMoveUseAcceleration = true;
-	GetCharacterMovement()->bUseRVOAvoidance = true;
-	GetCharacterMovement()->AvoidanceWeight = 2.0f;
-
-//	DetourAreaComponent = CreateDefaultSubobject<UNavModifierComponent>("DetourAreaComponent");
-//	DetourAreaComponent->AreaClass = UDetoureNavArea::StaticClass();
-//	DetourAreaComponent->SetAreaClass(UDetoureNavArea::StaticClass());
-
+	GetCharacterMovement()->bUseRVOAvoidance = false;
+	//GetCharacterMovement()->AvoidanceWeight = 2.0f;
 	
 }
 
@@ -66,32 +61,31 @@ void AMinions::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetime
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 	DOREPLIFETIME(AMinions, TeamName);
 	DOREPLIFETIME(AMinions, CombatTarget);
-	
 }
+
 void AMinions::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
 	if(!HasAuthority()) return;
-	
-	AIControllerBase = Cast<AAIControllerBase>(NewController);
-	AIControllerBase->GetBlackboardComponent()->InitializeBlackboard(*BehaviorTree->BlackboardAsset);
-	AIControllerBase->RunBehaviorTree(BehaviorTree);
-	AIControllerBase->GetBlackboardComponent()->SetValueAsBool("HitReacting", false);
-	AIControllerBase->GetBlackboardComponent()->SetValueAsBool(FName("RangedAttacker"), CharacterClass != ECharacterClass::Minion_Melee);
-	AIControllerBase->InitTeamAndLineTag(TeamName, LineTag);
-	AIControllerBase->UpdateMinionTargetTurret();
-//	DetourAreaComponent->RegisterComponent();
 
+	AIControllerBase = Cast<AAIControllerBase>(NewController);
+	if (AIControllerBase)
+	{
+		AIControllerBase->GetBlackboardComponent()->InitializeBlackboard(*BehaviorTree->BlackboardAsset);
+		AIControllerBase->RunBehaviorTree(BehaviorTree);
+		AIControllerBase->GetBlackboardComponent()->SetValueAsBool("HitReacting", false);
+		AIControllerBase->InitTeamAndLineTag(TeamName, LineTag);
+		AIControllerBase->UpdateMinionTargetTurret();
+	}
+	
 }
 
 // Called when the game starts or when spawned
 void AMinions::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//MinionEnforceTime 경과에 따라 미니언 레벨 증가 최대 18 레벨까지만
-	Level = FMath::Clamp(GetWorld()->GetTimeSeconds()/MinionEnforceTime, 1, 18); // 최대 60%로 제한
+	
 	InitAbilityActorInfo();
 	if (UNavigationSystemV1* NavSystem = UNavigationSystemV1::GetCurrent(GetWorld()))
 	{
@@ -104,12 +98,7 @@ void AMinions::BeginPlay()
 	}
 	
 	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(this,&AMinions::HitReactTagChanged);
-
-	if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
-	{
-		OverlayUserWidget->SetWidgetController(this);
-	}
-
+	
 	if (const UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 	{
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
@@ -130,10 +119,21 @@ void AMinions::BeginPlay()
 				GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
 			}
 		);
-
+		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetIncomingDamageAttribute()).AddLambda(
+			[this](const FOnAttributeChangeData& Data)
+			{
+				SetDamagedColor();
+			}
+		);
 		
-		OnHealthChanged.Broadcast(AS->GetHealth());
-		OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+		if (UOverlayWidget* OverlayUserWidget = Cast<UOverlayWidget>(HealthBarWidget->GetUserWidgetObject()))
+		{
+			OverlayUserWidget->SetWidgetController(this);
+			OnHealthChanged.Broadcast(AS->GetHealth());
+			OnMaxHealthChanged.Broadcast(AS->GetMaxHealth());
+			OverlayUserWidget->SetVisibility(ESlateVisibility::Hidden);
+		}
+		
 	}
 
 	BindCallbackTargetCharacter();
@@ -273,6 +273,10 @@ void AMinions::Stunned(const FGameplayTag CallbackTag, int32 NewCount)
 		
 	}
 		
+}
+
+void AMinions::SetDamagedColor_Implementation()
+{
 }
 
 

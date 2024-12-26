@@ -18,11 +18,6 @@ void UTurretAnimInstance::NativeInitializeAnimation()
 		Turret = Cast<ATurret>(Pawn);
 	}
 
-	
-	if (!IsValid(Turret))
-		return;
-
-
 }
 
 

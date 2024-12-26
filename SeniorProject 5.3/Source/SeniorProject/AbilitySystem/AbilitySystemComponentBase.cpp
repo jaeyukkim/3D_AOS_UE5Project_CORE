@@ -214,9 +214,6 @@ void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEff
 	
 
 	FGameplayEffectSpecHandle SpecHandle = MakeOutgoingSpec(DebuffEffectClass, 1, EffectContextHandle);
-	//SpecHandle.Data.Get()->SetDuration(DebuffDuration, false);
-	//SpecHandle.Data.Get()->Period = DebuffFrequency;
-	//SpecHandle.Data.Get()->Def.Get()->Period = FScalableFloat(DebuffFrequency);
 	SpecHandle.Data->SetSetByCallerMagnitude(DebuffTag, DebuffCoefficient);
 	SpecHandle.Data->SetSetByCallerMagnitude(GameplayTags.Debuff_Frequency, DebuffFrequency);
 	SpecHandle.Data->SetSetByCallerMagnitude(GameplayTags.Debuff_Duration, DebuffDuration);
@@ -226,6 +223,14 @@ void UAbilitySystemComponentBase::ApplyDebuffEffectSelf(TSubclassOf<UGameplayEff
 	
 }
 
+void UAbilitySystemComponentBase::ApplyBuffEffectToSelf(const TSubclassOf<UGameplayEffect>& BuffEffectClass)
+{
+	if (BuffEffectClass == nullptr) return;
+
+	FGameplayEffectContextHandle EffectContextHandle = MakeEffectContext();
+	FGameplayEffectSpecHandle SpecHandle = MakeOutgoingSpec(BuffEffectClass, 1, EffectContextHandle);
+	ApplyGameplayEffectSpecToSelf(*SpecHandle.Data.Get());
+}
 
 
 void UAbilitySystemComponentBase::ServerSellItem_Implementation(const FItemInformation& ClickedItemInfo)

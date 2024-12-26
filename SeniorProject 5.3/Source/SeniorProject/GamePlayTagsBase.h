@@ -93,6 +93,17 @@ public:
 	TArray<FGameplayTag> DebuffTypes;
 	/*Debuff Tag*/
 
+	/*Buff Tag*/
+	FGameplayTag Buff_Type_RED;
+	FGameplayTag Buff_Type_BLUE;
+	FGameplayTag Buff_Type_YELLOW;
+	FGameplayTag Buff_Type_WHITE;
+	FGameplayTag Buff_Type_GREEN;
+	FGameplayTag Buff_Type_BLACK;
+	FGameplayTag Buff_Type_PRIME;
+	FGameplayTag Buff_Type;
+	/*Buff Tag*/
+
 	
 
 	/*CombatSocket Tag*/
@@ -128,6 +139,7 @@ public:
 	
 
 	/* Abilities */
+	FGameplayTag Abilities_Combat;
 	FGameplayTag Abilities_Combat_Attack;
 	FGameplayTag Abilities_Combat_MeleeAttack;
 	FGameplayTag Abilities_Combat_RangeAttack;

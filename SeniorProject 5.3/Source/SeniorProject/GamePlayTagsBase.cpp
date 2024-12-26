@@ -118,8 +118,7 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.ItemInputTags.Add(GameplayTags.Input_5);
 	GameplayTags.ItemInputTags.Add(GameplayTags.Input_6);
 	GameplayTags.ItemInputTags.Add(GameplayTags.Input_NONE);
-
-
+	
 	/* end Input Tag */
 
 
@@ -163,11 +162,34 @@ void FGameplayTagsBase::InitializeNativeGameplayTags()
 	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_ArmorDecrease);
 	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_MagicResistanceDecrease);
 	GameplayTags.DebuffTypes.Add(GameplayTags.Debuff_Type_DebuffDamage);
-	
 	/*End Debuff Tag*/
 
 	
+	/*Buff Tag*/
+	GameplayTags.Buff_Type = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type"),
+		FString("NONE"));
+	GameplayTags.Buff_Type_RED = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.RED"),
+		FString("RedBuff"));
+	GameplayTags.Buff_Type_BLUE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.BLUE"),
+		FString("BlueBuff"));
+	GameplayTags.Buff_Type_GREEN = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.GREEN"),
+			FString("GreenBuff"));
+	GameplayTags.Buff_Type_WHITE = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff_Type_WHITE"),
+			FString("BuffWHITE"));
+	GameplayTags.Buff_Type_BLACK = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.BLACK"),
+			FString("BuffBLACK"));
+	GameplayTags.Buff_Type_YELLOW = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.YELLOW"),
+			FString("Buff_YELLOW"));
+	GameplayTags.Buff_Type_PRIME = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Buff.Type.PRIME"),
+		FString("PrimeBuff"));
+	
+	
+	/*End Buff Tag*/
+
+	
 	/* Abilities Tag */
+	GameplayTags.Abilities_Combat = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat"),
+		FString("Abilities_Combat"));
 	GameplayTags.Abilities_Combat_Attack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.Attack"),
 		FString("Attack Ability Tag"));
 	GameplayTags.Abilities_Combat_MeleeAttack = UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Abilities.Combat.MeleeAttack"),

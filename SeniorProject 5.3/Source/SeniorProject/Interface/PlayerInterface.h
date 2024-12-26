@@ -7,6 +7,7 @@
 #include "PlayerInterface.generated.h"
 
 
+class UActionComponent;
 struct FItemInformation;
 
 UINTERFACE
@@ -79,4 +80,7 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	UAnimMontage* GetRecallMontage();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	UActionComponent* GetActionComponent();
 };

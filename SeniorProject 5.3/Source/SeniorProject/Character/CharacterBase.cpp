@@ -124,6 +124,7 @@ UAnimMontage* ACharacterBase::GetAttackMontage_Implementation()
 void ACharacterBase::HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount)
 {
 	bHitReacting = NewCount > 0;
+	
 }
 
 FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTag& MontageTag)
@@ -150,11 +151,11 @@ FVector ACharacterBase::GetCombatSocketLocation_Implementation(const FGameplayTa
 
 void ACharacterBase::Die_Implementation()
 {
-	//기본으로 제공해주는 Ragdoll용 CollisionProfile로 설정
+	
 	if(HasAuthority())
 	{
 		MulticastHandleDeath();
-		
+		ClearAttackers();	//공격자 배열과 타이머 모두 초기화
 	}
 }
 
@@ -167,6 +168,9 @@ FOnASCRegistered& ACharacterBase::GetOnASCRegisteredDelegate()
 {
 	return OnAscRegistered;
 }
+
+
+
 
 void ACharacterBase::MulticastHandleDeath_Implementation()
 {
@@ -215,8 +219,81 @@ void ACharacterBase::AddCharacterAbility()
 	UAbilitySystemComponentBase* ASCBase = CastChecked<UAbilitySystemComponentBase>(AbilitySystemComponent);
 	ASCBase->AddCharacterAbility(GameplayAbility);
 	ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
-
 	
 }
 
+/*
+ * AttributeSet이 초기화 된 후 실행할것
+ */
+void ACharacterBase::BindCallBackSaveAttacker()
+{
+	if (!HasAuthority()) return;
+	
+	if (UAttributeSetBase* ASB = Cast<UAttributeSetBase>(AttributeSet))
+	{
+		ASB->OnIncomingDamageDelegate.AddUObject(this, &ACharacterBase::SaveAttacker);
+	}
+}
+
+void ACharacterBase::SaveAttacker(AActor* Attacker)
+{
+	if (Attacker == nullptr || !HasAuthority()) return;
+	
+
+	// 공격자가 이미 배열에 있는 경우
+	if (RecentAttackers.Contains(Attacker))
+	{
+		// 기존 타이머를 갱신
+		GetWorld()->GetTimerManager().ClearTimer(AttackerTimers[Attacker]);
+		GetWorld()->GetTimerManager().SetTimer(AttackerTimers[Attacker], FTimerDelegate::CreateUObject(this,
+			&ACharacterBase::RemoveAttacker, Attacker), DeleteRecentAttackerTime, false);
+	}
+	else
+	{
+		// 배열에 없는 경우 새로 추가
+		RecentAttackers.Add(Attacker);
+
+		// RecentAttackers 배열에서 DeleteRecentAttackerTime초 후에 제거
+		FTimerHandle TimerHandle;
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle, FTimerDelegate::CreateUObject(this,
+			&ACharacterBase::RemoveAttacker, Attacker), DeleteRecentAttackerTime, false);
+
+		// 타이머 핸들을 저장
+		AttackerTimers.Add(Attacker, TimerHandle);
+	}
+}
+void ACharacterBase::RemoveAttacker(AActor* Attacker)
+{
+	if (!HasAuthority()) return;
+	
+	// 배열에서 공격자를 제거
+	RecentAttackers.Remove(Attacker);
+
+	// 타이머 핸들을 정리
+	if (AttackerTimers.Contains(Attacker))
+	{
+		GetWorld()->GetTimerManager().ClearTimer(AttackerTimers[Attacker]);
+		AttackerTimers.Remove(Attacker);
+	}
+}
+
+void ACharacterBase::ClearAttackers()
+{
+	
+	// 모든 타이머 정리
+	for (auto& Pair : AttackerTimers)
+	{
+		GetWorld()->GetTimerManager().ClearTimer(Pair.Value);
+	}
+
+	// 어태커에 관련된 모든 타이머 지우기
+	AttackerTimers.Empty();
+	RecentAttackers.Empty();
+
+}
+
+TArray<AActor*> ACharacterBase::GetAllAttackers_Implementation()
+{
+	return RecentAttackers;
+}
 

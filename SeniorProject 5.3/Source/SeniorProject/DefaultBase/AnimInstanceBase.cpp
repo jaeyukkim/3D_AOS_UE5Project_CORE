@@ -96,6 +96,7 @@ FRotator UAnimInstanceBase::NormalizedDeltaRotator(FRotator A, FRotator B)
 	FRotator Delta = A - B;
 	Delta.Normalize();
 	return Delta;
+	
 }
 
 
