@@ -64,7 +64,13 @@ public:
 	virtual void MulticastHandleDeath();
 	/* end CombatInterface*/
 	
+
+public:
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastEndGame(const FGameplayTag& DefeatedTeam);
 	
+public:
 	
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	FName WeaponTipSocketName;
@@ -124,6 +130,7 @@ protected:
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
 	void AddCharacterAbility();
 
+	
 	
 	UPROPERTY()
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;

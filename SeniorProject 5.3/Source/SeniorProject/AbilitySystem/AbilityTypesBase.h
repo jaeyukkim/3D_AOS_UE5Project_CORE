@@ -41,6 +41,9 @@ struct FDamageEffectParams
 
 	UPROPERTY(BlueprintReadWrite)
 	float ADCoefficient = 0.f;
+
+	UPROPERTY(BlueprintReadWrite)
+	float HealthCoefficient = 0.f;
 	
 	UPROPERTY(BlueprintReadWrite)
 	float AbilityLevel = 1.f;

@@ -58,6 +58,10 @@ public:
 	virtual FGameplayTag GetLineTag_Implementation() const override {return LineTag;}
 	/* end GameplayInterface */
 
+
+public:
+	virtual void MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam) override;
+	
 	
 	UPROPERTY(EditAnywhere, Replicated, Category = "GameRule")
 	FGameplayTag TeamName;
@@ -71,6 +75,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Defalut Character Setting")
 	int32 Level = 1;
+
+	
 protected:
 	virtual void SetDefaultSetting() {};
 	virtual void InitAbilityActorInfo() override;

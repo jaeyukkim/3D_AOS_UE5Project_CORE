@@ -34,6 +34,10 @@ void AShop::IsPlayerShopBeginOverlap(UPrimitiveComponent* OverlappedComponent, A
 	{
 		IPlayerInterface::Execute_SetIsInShop(OtherActor, true);
 	}
+	if(HasAuthority())
+	{
+		OnOverlap(OtherActor);
+	}
 }
 
 void AShop::IsPlayerShopBeginEndOverlap(
@@ -42,6 +46,10 @@ void AShop::IsPlayerShopBeginEndOverlap(
 	if(OtherActor->Implements<UPlayerInterface>())
 	{
 		IPlayerInterface::Execute_SetIsInShop(OtherActor, false);
+	}
+	if(HasAuthority())
+	{
+		OnEndOverlap(OtherActor);
 	}
 	
 }

@@ -180,6 +180,8 @@ EBlackboardNotificationResult AMinions::OnBlackboardTargetChanged(const UBlackbo
 
 void AMinions::Die_Implementation()
 {
+	if(AIControllerBase != nullptr && HealthBarWidget != nullptr)
+		
 	SetLifeSpan(LifeSpanTime);
 	AIControllerBase->StopAI();
 	HealthBarWidget->SetVisibility(false);
@@ -217,6 +219,16 @@ void AMinions::SetCurrentWayPoint_Implementation(AActor* InCurrentWayPoint)
 void AMinions::InBattle_Implementation()
 {
 	
+}
+
+void AMinions::MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam)
+{
+	Super::MulticastEndGame_Implementation(DefeatedTeam);
+	
+	if(AIControllerBase)
+	{
+		AIControllerBase->StopAI();
+	}
 }
 
 

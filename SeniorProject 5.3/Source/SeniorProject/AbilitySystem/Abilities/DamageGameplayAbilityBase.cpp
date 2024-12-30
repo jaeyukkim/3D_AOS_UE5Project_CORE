@@ -8,11 +8,12 @@
 #include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+#include "Systems/MovieSceneComponentMobilitySystem.h"
 
 
 void UDamageGameplayAbilityBase::ActivateAbility(const FGameplayAbilitySpecHandle Handle,
-	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
-	const FGameplayEventData* TriggerEventData)
+                                                 const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+                                                 const FGameplayEventData* TriggerEventData)
 {
 	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
 }
@@ -38,6 +39,7 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 	Params.AbilityLevel = GetAbilityLevel();
 	Params.ADCoefficient = ADCoefficient;
 	Params.APCoefficient = APCoefficient;
+	Params.HealthCoefficient = HealthCoefficient;
 	Params.DamageType = DamageType;
 	Params.bDebuffValid = bDebuffValid;
 	Params.DebuffType = DebuffType;
@@ -52,10 +54,14 @@ FDamageEffectParams UDamageGameplayAbilityBase::MakeDamageEffectParamsFromClassD
 	{
 		Params.SourceAttackDamage = SourceAttributes->GetAttackDamage();
 		Params.SourceAbilityPower = SourceAttributes->GetAbilityPower();
+	
+		
+		Params.AppliedCoefficientDamage =
+			Params.BaseDamage
+		+ (Params.SourceAttackDamage * Params.ADCoefficient)
+		+ (Params.SourceAbilityPower * Params.APCoefficient)
+		+ (SourceAttributes->GetMaxHealth() * Params.HealthCoefficient);
 	}
-
-	Params.AppliedCoefficientDamage = Params.BaseDamage + (Params.SourceAttackDamage * Params.ADCoefficient) + (Params.SourceAbilityPower * Params.APCoefficient);
-
 	
 	
 	return Params;

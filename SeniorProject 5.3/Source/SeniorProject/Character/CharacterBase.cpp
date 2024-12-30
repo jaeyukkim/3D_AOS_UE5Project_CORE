@@ -222,6 +222,10 @@ void ACharacterBase::AddCharacterAbility()
 	
 }
 
+void ACharacterBase::MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam)
+{
+}
+
 /*
  * AttributeSet이 초기화 된 후 실행할것
  */

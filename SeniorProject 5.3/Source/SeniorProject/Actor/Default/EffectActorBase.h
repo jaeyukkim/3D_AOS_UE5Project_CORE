@@ -41,9 +41,15 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void OnEndOverlap(AActor* TargetActor);
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UAudioComponent> EffectAudioComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UParticleSystemComponent> EffectParticleSystem;
 
 	
-	
+	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
+	void MulticastSpawnParticleAndSound();
 
 
 protected:

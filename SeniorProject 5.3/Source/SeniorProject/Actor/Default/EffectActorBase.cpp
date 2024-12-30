@@ -4,6 +4,8 @@
 #include "EffectActorBase.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemComponent.h"
+#include "Components/AudioComponent.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AEffectActorBase::AEffectActorBase()
@@ -13,6 +15,13 @@ AEffectActorBase::AEffectActorBase()
 
 	SetRootComponent(CreateDefaultSubobject<USceneComponent>("SceneRoot"));
 
+	EffectParticleSystem = CreateDefaultSubobject<UParticleSystemComponent>("ProjectileParticleSystem");
+	EffectParticleSystem->SetAutoActivate(false);
+	EffectParticleSystem->SetupAttachment(GetRootComponent());
+	
+	EffectAudioComponent = CreateDefaultSubobject<UAudioComponent>("HitAudioComponent");
+	EffectAudioComponent->SetAutoActivate(false);
+	EffectAudioComponent->SetupAttachment(GetRootComponent());
 }
 
 
@@ -91,4 +100,10 @@ void AEffectActorBase::OnEndOverlap(AActor* TargetActor)
 			
 	}
 
+}
+
+void AEffectActorBase::MulticastSpawnParticleAndSound_Implementation()
+{
+	EffectParticleSystem->Activate();
+	EffectAudioComponent->Activate();
 }

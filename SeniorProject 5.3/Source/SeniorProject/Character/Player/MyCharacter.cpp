@@ -174,14 +174,19 @@ void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovemen
 		if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 		{
 			GetCharacterMovement()->MaxWalkSpeed = AS->GetMovementSpeed();
+			//GetCharacterMovement()->bOrientRotationToMovement = false; 
 			bUseControllerRotationYaw = true;
-			
+			SpringArm->bUsePawnControlRotation = true;
+			Camera->bUsePawnControlRotation = false; 
 		}
 	}
 	else 
 	{
 		GetCharacterMovement()->MaxWalkSpeed = 0.f;
+		//GetCharacterMovement()->bOrientRotationToMovement = true; 
 		bUseControllerRotationYaw = false;
+		SpringArm->bUsePawnControlRotation = true;
+		Camera->bUsePawnControlRotation = false; 
 		
 	}
 }

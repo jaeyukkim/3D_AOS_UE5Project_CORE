@@ -50,9 +50,8 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 	virtual void InitPlayerInfo();
+	virtual void MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam) override;
 	
-	UFUNCTION(NetMulticast, Reliable)
-	void MulticastEndGame(const FGameplayTag& DefeatedTeam);
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastInitAbilityActorInfo();
 	UFUNCTION(NetMulticast, Reliable)

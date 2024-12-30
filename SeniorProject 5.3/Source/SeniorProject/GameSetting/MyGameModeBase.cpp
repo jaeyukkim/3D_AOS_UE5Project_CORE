@@ -17,7 +17,7 @@
 
 AMyGameModeBase::AMyGameModeBase()
 {
-	bUseSeamlessTravel = false;
+	bUseSeamlessTravel = true;
 
 }
 
@@ -51,7 +51,7 @@ void AMyGameModeBase::PostLogin(APlayerController* NewPlayer)
 		
 	}
 	
-	//setupPlayerCharacterClass(NewPlayer);
+	SetupPlayerCharacterClass(NewPlayer);
 	
 }
 
@@ -143,13 +143,14 @@ void AMyGameModeBase::Tick(float DeltaSeconds)
 void AMyGameModeBase::EndGame(const FGameplayTag& DefeatedTeamName)
 {
 
-	TArray<AActor*> Players;
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AMyCharacter::StaticClass(), Players);
+	TArray<AActor*> AllCharacters;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACharacterBase::StaticClass(), AllCharacters);
 
-	for(AActor* Player : Players)
+	for(AActor* Character : AllCharacters)
 	{
-		AMyCharacter* CorePlayer = Cast<AMyCharacter>(Player);
-		CorePlayer->MulticastEndGame(DefeatedTeamName);
+		ACharacterBase* CoreCharacter = Cast<ACharacterBase>(Character);
+		CoreCharacter->MulticastEndGame(DefeatedTeamName);
+	
 	}
 }
 
@@ -162,10 +163,10 @@ void AMyGameModeBase::GenericPlayerInitialization(AController* C)
 /*
  *	패키징할 때 사용 에디터에서는 유효하지 않음
  */
-	/*if(APlayerController* PC = Cast<APlayerController>(C))
+	if(APlayerController* PC = Cast<APlayerController>(C))
 	{
 		SetupPlayerCharacterClass(PC);
-	}*/
+	}
 	
 }
 

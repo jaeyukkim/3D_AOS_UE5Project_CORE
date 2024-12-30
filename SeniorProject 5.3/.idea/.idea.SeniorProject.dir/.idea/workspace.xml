@@ -7,153 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="47741b5e-34d9-403c-84cd-1ee2d0b699e2" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BB_MinionBlackBoard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AI/BehaviorTree/BB_MinionBlackBoard.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/WarlordsHelm/IGE_WarlordsHelm.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/AbilitySystem/Item/WarlordsHelm/IGE_WarlordsHelm.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Nexus/BP_Nexus.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Nexus/BP_Nexus.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Shop/BP_Shop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Shop/BP_Shop.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_Spawner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_SpawnerRed.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Spawner/BP_SpawnerRed.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/Ability/GA_TurretAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/Ability/GA_TurretAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/Ability/GE_TurretProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/Ability/GE_TurretProjectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/Attribute/CT_AdditionalVitalAttribute_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/Attribute/CT_AdditionalVitalAttribute_Turret.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/Attribute/GE_SecondaryAttributes_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/Attribute/GE_SecondaryAttributes_Turret.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret_Red.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/Turret/BP_Turret_Red.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/WayPoint/BP_WayPoint_Bottom.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/WayPoint/BP_WayPoint_Bottom.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Actor/WayPoint/BP_WayPoint_Top.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Actor/WayPoint/BP_WayPoint_Top.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/GE_AdditionalVitalAttributes_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/GE_AdditionalVitalAttributes_Kwang.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/GE_SecondaryAttributes_Kwang.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Attribute/GE_SecondaryAttributes_Kwang.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/BP_KwangPlayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/GA_KwangMeleeAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/GA_KwangMeleeAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/BP_KwangSword.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/BP_KwangSword.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GA_KwangQ_Weps.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_Kwang_AbilityQ_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/GE_Kwang_AbilityQ_Cooldown.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR_NoWep.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GA_Kwang_AbilityR_NoWep.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_Kwang_AbilityR_Cooldown.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/R/GE_Kwang_AbilityR_Cooldown.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GA_Kwang_AbilityRMB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/RMB/GA_Kwang_AbilityRMB.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/BP_Minion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/Animation/Attack_A_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/Animation/Attack_A_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee_Red.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Melee/BP_Melee_Red.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Ability/GE_RangeProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Ability/GE_RangeProjectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Attribute/CT_SecondaryAttribute_Ranged.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Ranged/Attribute/CT_SecondaryAttribute_Ranged.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/Ability/GE_SiegeProjectile.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/Ability/GE_SiegeProjectile.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/BP_Siege.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Minion/Siege/BP_Siege.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/GA_ShinbiMeleeAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/GA_ShinbiMeleeAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/BP_SinbiWolf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/BP_SinbiWolf.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/Q/GA_ShinbiQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/R/GA_Shinbi_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/R/GA_Shinbi_AbilityR.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/RMB/BP_SinbiWolfRMB.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Ability/RMB/BP_SinbiWolfRMB.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Attirubute/GE_AdditionalVitalAttributes_Shinbi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Attirubute/GE_AdditionalVitalAttributes_Shinbi.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Attirubute/GE_SecondaryAttributes_Shinbi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/Attirubute/GE_SecondaryAttributes_Shinbi.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Shinbi/BP_Shinbi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Shinbi/BP_Shinbi.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/GA_TwinBlastAttack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/Q/GA_TwinblastQ.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Abilities/R/GA_TwinBlast_AbilityR.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Recall_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Animation/Recall_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Attribute/GE_AdditionalVitalAttributes_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Attribute/GE_AdditionalVitalAttributes_TwinBlast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Attribute/GE_SecondaryAttributes_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/Attribute/GE_SecondaryAttributes_TwinBlast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/TwinBlast/BP_TwinBlast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_AbilityInfo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Data/DataAsset/DA_CharacterClassInfo.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/EQSTestMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/ShinbiQExplosion_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/ShinbiQExplosion_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/SlashImpact.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/ShinbiSound/SlashImpact.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/Sword_On_Wood_Impact_1_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/Sword_On_Wood_Impact_1_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Sound/TwinHitSound/Arrow_On_Flesh_Arrow_1_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Sound/TwinHitSound/Arrow_On_Flesh_Arrow_1_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AdditionalAttributeFrame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AdditionalAttributeFrame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AttributeFrame.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AttributeFrame.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AttributeValue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/AttributeMenu/WBP_AttributeValue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/HealthBar/WBP_HealthBar.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/HealthBar/WBP_HealthBar.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/ItemList/Shop/WBP_Shop.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/OverlayWidget/WBP_OverlayWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/OverlayWidget/WBP_OverlayWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Explore_Vol_1/CUE/Explore_01_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Explore_Vol_1/CUE/Explore_01_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Jog_Fwd_Stop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonKwang/Characters/Heroes/Kwang/Animations/Jog_Fwd_Stop.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Black/Animations/AimOffsets/AimOffsets.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Black/Animations/AimOffsets/AimOffsets.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Black/Meshes/Buff_Black.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Black/Meshes/Buff_Black.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Blue/Meshes/Buff_Blue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Blue/Meshes/Buff_Blue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Animations/AimOffsets/NewAimOffsetBlendSpace.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Animations/AimOffsets/NewAimOffsetBlendSpace.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Animations/Blendspaces/CombatAims.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Animations/Blendspaces/CombatAims.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Meshes/Buff_Red.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Meshes/Buff_Red.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Meshes/Buff_Red_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_Red/Meshes/Buff_Red_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_White/Meshes/Buff_White.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Buff/Buff_White/Meshes/Buff_White.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Melee/M_Dawn_Minion_Melee_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Melee/M_Dawn_Minion_Melee_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Ranged/M_Dawn_Minion_Ranged_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Ranged/M_Dawn_Minion_Ranged_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Siege/M_Dawn_Minion_Siege_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Siege/M_Dawn_Minion_Siege_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Super/M_Dawn_Minion_Super_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Materials/Super/M_Dawn_Minion_Super_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Ranged_Core_Dawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Ranged_Core_Dawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Siege_Core_Dawn.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Down_Minions/Meshes/Minion_Lane_Siege_Core_Dawn.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Melee/MI_Minion_Dusk_Melee_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Melee/MI_Minion_Dusk_Melee_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Ranged/MI_Minion_Dusk_Ranged_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Ranged/MI_Minion_Dusk_Ranged_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Super/MI_Minion_Dusk_Super_Core.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Materials/Super/MI_Minion_Dusk_Super_Core.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Minion_Lane_Melee_Core_Dusk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Minion_Lane_Melee_Core_Dusk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Minion_Lane_Ranged_Core_Dusk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Minion_Lane_Ranged_Core_Dusk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Siege_Core_Dusk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/Characters/Minions/Dusk_Minions/Meshes/Siege_Core_Dusk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonMinions/FX/SkeletalMeshes/Buff_Red.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonMinions/FX/SkeletalMeshes/Buff_Red.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/MinionSpawner_2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Agora/Props/Meshes/MinionSpawner_2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Ground/FoliageInstances/NewFoliageType_InstancedStaticMesh.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Ground/FoliageInstances/NewFoliageType_InstancedStaticMesh.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_TerminusCore_Stairs_Mid_B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_03.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonProps/Monolith/Dawn/Meshes/Dawn_Turret_Floor_04.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_Wolf/Meshes/Shinbi_Wolf.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_Wolf/Meshes/Shinbi_Wolf.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_Wolf/Meshes/Shinbi_Wolf_PhysicsAsset.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonShinbi/Characters/Heroes/Shinbi/Shinbi_Wolf/Meshes/Shinbi_Wolf_PhysicsAsset.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Meshes/TwinBlast_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonTwinblast/Characters/Heroes/TwinBlast/Meshes/TwinBlast_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sound/Kwang_Ability_Q_End_Cue.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sound/Kwang_Ability_Q_End_Cue.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeniorProject.uproject.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SeniorProject.uproject.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AI/AIControllerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/WolfProjectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/Spell/WolfProjectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AbilitySystemComponentBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AttributeSetBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Data/CharacterClassInfo.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Debuff/DebuffParticleComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Debuff/DebuffParticleComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/ExecCalc/ExecCalc_Damage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Default/DamageActorBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Default/DamageActorBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/WayPoint.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ProjectileBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ShinbiWolf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ShinbiWolf.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ShinbiWolf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Projectile/ShinbiWolf.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/CharacterBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/Minions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Enemy/NeutralityMonster.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/MyCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Player/TwinBlast.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Character/Turret/Turret.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/TurretAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/TurretAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GamePlayTagsBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/GameSetting/MyGameModeBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/CombatInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Interface/PlayerInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Interface/PlayerInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/UI/OverlayWidget/OverlayWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/UI/OverlayWidget/OverlayWidget.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/UI/OverlayWidget/OverlayWidgetController.cpp" afterDir="false" />
-    </list>
-    <list id="b7edaad0-c99e-4ebc-abda-ac807bb34ab3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/Animation/KwangAnim.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/GameSetting/BP_MyGameModeBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/MainMenuMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/TurretTest.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/Actor/Gameplay/Spawner.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/DefaultBase/AnimInstanceBase.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="59833edb-289a-4e3f-a427-2d34653103b8" name="변경" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,49 +16,46 @@
   <component name="DpaMonitoringSettings">
     <option name="firstShow" value="false" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://3" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Public/Containers/Array.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Public/Containers/Map.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Public/Containers/TripleBuffer.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Public/Templates/Tuple.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/UObject/Object.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectHandle.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/BuffMonsterInterface.gen.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/Spawner.gen.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/Abilities/GameplayAbility.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2pyEr3ogEx0DSy2cGJwroLSuCF8" />
+  <component name="ProjectId" id="2qjTGIngvBBTST3Lss5dakFv1qz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Uproject.SeniorProject.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Uproject.SeniorProject.executor&quot;: &quot;Debug&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\77\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\77\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SeniorProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1>
@@ -213,7 +64,7 @@
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor-Win64-DebugGame.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;D:\Capstone-project\SeniorProject 5.3\SeniorProject.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;E:\12-25\SeniorProject 5.3\SeniorProject.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -225,7 +76,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="D:\Capstone-project\SeniorProject 5.3\Binaries\Win64\SeniorProject-Win64-DebugGame.exe" />
+        <option name="EXECUTABLE_PATH" value="E:\12-25\SeniorProject 5.3\Binaries\Win64\SeniorProject-Win64-DebugGame.exe" />
         <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
@@ -239,7 +90,7 @@
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXECUTABLE_PATH" value="C:\Program Files\Epic Games\UE_5.3\Engine\Binaries\Win64\UnrealEditor.exe" />
-        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;D:\Capstone-project\SeniorProject 5.3\SeniorProject.uproject&quot;" />
+        <option name="MANDATORY_PROGRAM_PARAMETERS" value=" &quot;E:\12-25\SeniorProject 5.3\SeniorProject.uproject&quot;" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
         <option name="PASS_PARENT_ENVS" value="1" />
@@ -251,7 +102,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="D:\Capstone-project\SeniorProject 5.3\Binaries\Win64\SeniorProject.exe" />
+        <option name="EXECUTABLE_PATH" value="E:\12-25\SeniorProject 5.3\Binaries\Win64\SeniorProject.exe" />
         <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
@@ -264,7 +115,7 @@
         <option name="PLATFORM" value="Win64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/SeniorProject.uproject" />
         <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXECUTABLE_PATH" value="D:\Capstone-project\SeniorProject 5.3\Binaries\Win64\SeniorProject-Win64-Shipping.exe" />
+        <option name="EXECUTABLE_PATH" value="E:\12-25\SeniorProject 5.3\Binaries\Win64\SeniorProject-Win64-Shipping.exe" />
         <option name="MANDATORY_PROGRAM_PARAMETERS" value="" />
         <option name="CUSTOM_PROGRAM_PARAMETERS" value="" />
         <option name="WORKING_DIRECTORY" value="C:\Program Files\Epic Games\UE_5.3" />
@@ -280,58 +131,23 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\77\AppData\Roaming\Subversion</configuration>
-    <supportedVersion>125</supportedVersion>
-  </component>
-  <component name="SvnFileUrlMappingImpl">
-    <option name="myMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\Capstone-project\SeniorProject 5.3" />
-          <option name="myCopyRoot" value="D:\Capstone-project\SeniorProject 5.3" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-    <option name="myMoreRealMappingRoots">
-      <list>
-        <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="D:\Capstone-project\SeniorProject 5.3" />
-          <option name="myCopyRoot" value="D:\Capstone-project\SeniorProject 5.3" />
-        </SvnCopyRootSimple>
-      </list>
-    </option>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="47741b5e-34d9-403c-84cd-1ee2d0b699e2" name="변경" comment="" />
-      <created>1733730111440</created>
+      <changelist id="59833edb-289a-4e3f-a427-2d34653103b8" name="변경" comment="" />
+      <created>1735174888255</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733730111440</updated>
-      <workItem from="1733730112875" duration="4596000" />
-      <workItem from="1734051953582" duration="9031000" />
-      <workItem from="1734065184033" duration="15538000" />
-      <workItem from="1734307257913" duration="15218000" />
-      <workItem from="1734330767393" duration="307000" />
-      <workItem from="1734348700401" duration="11684000" />
-      <workItem from="1734393760632" duration="13488000" />
-      <workItem from="1734432460001" duration="1013000" />
-      <workItem from="1734435912714" duration="3141000" />
-      <workItem from="1734440121412" duration="4467000" />
-      <workItem from="1734480426980" duration="14541000" />
-      <workItem from="1734508819758" duration="206000" />
-      <workItem from="1734511482801" duration="722000" />
-      <workItem from="1734512439305" duration="1468000" />
-      <workItem from="1734519762953" duration="6919000" />
-      <workItem from="1734567091032" duration="12916000" />
-      <workItem from="1734623856909" duration="1473000" />
-      <workItem from="1734659242915" duration="5950000" />
-      <workItem from="1734835301282" duration="6669000" />
-      <workItem from="1734868334053" duration="12890000" />
-      <workItem from="1734912260650" duration="650000" />
-      <workItem from="1734929054753" duration="1713000" />
-      <workItem from="1735113356867" duration="8928000" />
+      <updated>1735174888255</updated>
+      <workItem from="1735174889713" duration="5112000" />
+      <workItem from="1735187869988" duration="1720000" />
+      <workItem from="1735192816237" duration="8253000" />
+      <workItem from="1735223959008" duration="3523000" />
+      <workItem from="1735266124277" duration="6793000" />
+      <workItem from="1735288814615" duration="704000" />
+      <workItem from="1735356727653" duration="15994000" />
+      <workItem from="1735446183473" duration="10535000" />
+      <workItem from="1735478829882" duration="2604000" />
+      <workItem from="1735484370176" duration="683000" />
     </task>
     <servers />
   </component>

@@ -14,6 +14,6 @@ class SENIORPROJECT_API AMainMenuGameMode : public AGameMode
 {
 	GENERATED_BODY()
 public:
-	
+	AMainMenuGameMode();
 	virtual void PostLogin(APlayerController* NewPlayer) override;
 };

@@ -323,6 +323,7 @@ void UBlueprintFunctionLibraryBase::GetLivePlayersWithinRadius(const UObject* Wo
 
 bool UBlueprintFunctionLibraryBase::IsFriends(AActor* ThisActor, AActor* TargetActor)
 {
+	if (ThisActor == nullptr || TargetActor == nullptr) return true;
 	if(!(ThisActor->Implements<UEnemyInterface>() && TargetActor->Implements<UEnemyInterface>()))
 	{
 		return false;

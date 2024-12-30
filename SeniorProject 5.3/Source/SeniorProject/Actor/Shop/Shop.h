@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/SphereComponent.h"
-#include "GameFramework/Actor.h"
+#include "SeniorProject/Actor/Default/EffectActorBase.h"
 #include "Shop.generated.h"
 
 
@@ -14,7 +14,7 @@
  * 
  */
 UCLASS()
-class SENIORPROJECT_API AShop : public AActor
+class SENIORPROJECT_API AShop : public AEffectActorBase
 {
 	GENERATED_BODY()
 

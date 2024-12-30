@@ -32,7 +32,8 @@ enum class ECharacterClass : uint8
 	White,
 	Prime,
 	Minion,
-	Crunch
+	Crunch,
+	HomeTurret
 };
 
 USTRUCT(BlueprintType)
