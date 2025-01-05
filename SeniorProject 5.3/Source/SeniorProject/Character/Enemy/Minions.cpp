@@ -95,6 +95,7 @@ void AMinions::BeginPlay()
 	if(HasAuthority())
 	{
 		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
+		
 	}
 	
 	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Effects_HitReact, EGameplayTagEventType::NewOrRemoved).AddUObject(this,&AMinions::HitReactTagChanged);
@@ -236,11 +237,16 @@ void AMinions::InitAbilityActorInfo()
 {
 	
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
-	Cast<UAbilitySystemComponentBase>(AbilitySystemComponent)->AbilityActorInfoSet();
-	if(HasAuthority())
+	if(UAbilitySystemComponentBase* ASCBase = Cast<UAbilitySystemComponentBase>(AbilitySystemComponent))
 	{
-		InitializeDefaultAttributes();
+		ASCBase->AbilityActorInfoSet();
+		if(HasAuthority())
+		{
+			InitializeDefaultAttributes();
+			ASCBase->AddCharacterPassiveAbilities(StartupPassiveAbilities);
+		}
 	}
+	
 	OnAscRegistered.Broadcast(AbilitySystemComponent);
 	AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTagsBase::Get().Debuff_Type_Stun,
 		EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AMinions::Stunned);

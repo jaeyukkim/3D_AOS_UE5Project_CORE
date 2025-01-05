@@ -42,8 +42,10 @@ struct FPlayerInfo
 	TObjectPtr<UTexture> CharacterImg = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSubclassOf<AMyCharacter> SelectedCharacter = nullptr;
+	UClass* SelectedCharacter = nullptr;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 SelectCnt = 0;
 	bool operator==(const FPlayerInfo& Other) const
 	{
 		return PC == Other.PC &&
@@ -105,8 +107,6 @@ public:
 	void AddPlayerInfo(FPlayerInfo& Info);
 	bool SetPlayerTeam(APlayerStateBase* PS);
 	
-	
-
 	
 	UFUNCTION(Server, Reliable)
 	void ServerUpdateTurretStates(const FGameplayTag& LineTag, const FGameplayTag& TurretLevelTag, const FGameplayTag& TeamTag, bool bIsDestroy);

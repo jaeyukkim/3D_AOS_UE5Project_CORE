@@ -54,6 +54,11 @@ void ACoreGameState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLi
 
 void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState* InPS, UClass* SelectedCharacter, UTexture* CharacterImg)
 {
+	if(APlayerStateBase* PSBase = Cast<APlayerStateBase>(InPS))
+	{
+		if(HasAuthority())
+			PSBase->PlayerCharacterClass = SelectedCharacter;
+	}
 	for (FPlayerInfo& PlayerInfo : PlayerInfos)
 	{
 		// 일치하는 PlayerInfo를 찾으면 반환
@@ -62,6 +67,7 @@ void ACoreGameState::MulticastPlayerCharacterChanged_Implementation(APlayerState
 			PlayerInfo.CharacterImg = CharacterImg;
 			PlayerInfo.SelectedCharacter = SelectedCharacter;
 			PlayerCharacterChangedDelegate.Broadcast(PlayerInfo);
+			
 		}
 	}
 }
@@ -137,9 +143,9 @@ TMap<UClass*, FGameplayTag> ACoreGameState::GetSelectedPlayerClass(FGameplayTag 
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 	for (FPlayerInfo& PlayerInfo : PlayerInfos)
 	{
-		if(PlayerInfo.PlayerTeamName == TagsBase.GameRule_TeamName_RedTeam)
+		if(PlayerInfo.PlayerTeamName.MatchesTagExact(TagsBase.GameRule_TeamName_RedTeam))
 			RedTeamSeletedPlayerClass.Add(PlayerInfo.SelectedCharacter, PlayerInfo.PlayerTeamName);
-		else if(PlayerInfo.PlayerTeamName == TagsBase.GameRule_TeamName_BlueTeam)
+		else if(PlayerInfo.PlayerTeamName.MatchesTagExact(TagsBase.GameRule_TeamName_BlueTeam))
 			BlueTeamSeletedPlayerClass.Add(PlayerInfo.SelectedCharacter, PlayerInfo.PlayerTeamName);
 	}
 

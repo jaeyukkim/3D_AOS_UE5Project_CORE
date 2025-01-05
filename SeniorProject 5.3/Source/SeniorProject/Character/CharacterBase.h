@@ -172,13 +172,12 @@ protected:
 	void ClearAttackers();
 	const float DeleteRecentAttackerTime = 10.f;
 
-private:
-	
 	UPROPERTY(EditAnywhere, Category="Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> GameplayAbility;
 
 	UPROPERTY(EditAnywhere, Category = "Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> StartupPassiveAbilities;
+private:
 
 	
 	/*Combat Interface*/

@@ -40,6 +40,8 @@ ACharacterBase::ACharacterBase(const FObjectInitializer& ObjectInitializer)
 	MagicResistanceDecreaseDebuffComponent->SetupAttachment(GetRootComponent());
 	MagicResistanceDecreaseDebuffComponent->DebuffTag = GameplayTags.Debuff_Type_MagicResistanceDecrease;
 
+	//생성되어도 기본적으로 ai 컨트롤러에 빙의되지 않으며 명시적으로 설정해줘야함
+	AutoPossessAI = EAutoPossessAI::Disabled;
 	
 }
 

@@ -8,6 +8,7 @@
 #include "SeniorProject/AbilitySystem/AbilityTypesBase.h"
 #include "SeniorProject/AbilitySystem/AttributeSetBase.h"
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
+#include "SeniorProject/Interface/CombatInterface.h"
 #include "Systems/MovieSceneComponentMobilitySystem.h"
 
 
@@ -20,6 +21,8 @@ void UDamageGameplayAbilityBase::ActivateAbility(const FGameplayAbilitySpecHandl
 
 void UDamageGameplayAbilityBase::CauseDamage(AActor* TargetActor)
 {
+	if (TargetActor == nullptr || !TargetActor->Implements<UCombatInterface>()) return;
+	
 	if(!UBlueprintFunctionLibraryBase::IsFriends(TargetActor, GetAvatarActorFromActorInfo()))
 	{
 		UBlueprintFunctionLibraryBase::ApplyDamageEffect(MakeDamageEffectParamsFromClassDefaults(TargetActor));

@@ -85,7 +85,9 @@ AMyCharacter::AMyCharacter()
 	PrimeBuffComponent->DebuffTag = GameplayTags.Buff_Type_PRIME;
 	
 	ActionComponent = CreateDefaultSubobject<UActionComponent>("ActionComponent");
-	
+
+	// NetCullDistanceSquared를 설정하여 복제 거리 증가
+	NetCullDistanceSquared = 500000000.0f;
 }
 
 
@@ -102,11 +104,14 @@ void AMyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	
+	if(!bAbilityIsGiven)
+	{
+		InitAbilityActorInfo();
+		AddCharacterAbility();
+		UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
+		BindCallBackSaveAttacker();
+	}
 	
-	InitAbilityActorInfo();
-	AddCharacterAbility();
-	UBlueprintFunctionLibraryBase::GiveStartupAbilities(this, AbilitySystemComponent, CharacterClass);
-	BindCallBackSaveAttacker();
 	bAbilityIsGiven = true;
 	
 }
@@ -174,7 +179,6 @@ void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovemen
 		if (UAttributeSetBase* AS = Cast<UAttributeSetBase>(AttributeSet))
 		{
 			GetCharacterMovement()->MaxWalkSpeed = AS->GetMovementSpeed();
-			//GetCharacterMovement()->bOrientRotationToMovement = false; 
 			bUseControllerRotationYaw = true;
 			SpringArm->bUsePawnControlRotation = true;
 			Camera->bUsePawnControlRotation = false; 
@@ -183,7 +187,6 @@ void AMyCharacter::MulticastSetMovementMode_Implementation(const bool bIsMovemen
 	else 
 	{
 		GetCharacterMovement()->MaxWalkSpeed = 0.f;
-		//GetCharacterMovement()->bOrientRotationToMovement = true; 
 		bUseControllerRotationYaw = false;
 		SpringArm->bUsePawnControlRotation = true;
 		Camera->bUsePawnControlRotation = false; 
@@ -253,8 +256,8 @@ void AMyCharacter::InitAbilityActorInfo()
 	
 	
 	InitializeDefaultAttributes();
+	GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::InitializeHealthBarWidget, 10.f, false);
 	GetWorld()->GetTimerManager().SetTimer(InitPlayerInfoHandle, this, &AMyCharacter::InitPlayerInfo, 5.f, true);
-	GetWorld()->GetTimerManager().SetTimer(InitPlayerHealthBarHandle, this, &AMyCharacter::InitializeHealthBarWidget, 5.f, false);
 	GetMesh()->SetSimulatePhysics(false);
 }
 
@@ -278,14 +281,14 @@ void AMyCharacter::InitializeHealthBarWidget()
 	if(AS == nullptr || PlayerStateBase == nullptr) return;
 	
 		
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddLambda(
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetHealthAttribute()).AddWeakLambda(this,
 	[this](const FOnAttributeChangeData& Data)
 	{
 		OnPlayerBarHealthChanged.Broadcast(Data.NewValue);
 
 	});
 	
- 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddLambda(
+ 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxHealthAttribute()).AddWeakLambda(this,
 		[this, AS](const FOnAttributeChangeData& Data)
 		{
 			OnPlayerBarMaxHealthChanged.Broadcast(AS->GetMaxHealth());
@@ -293,14 +296,14 @@ void AMyCharacter::InitializeHealthBarWidget()
 		}
 	);
 	
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddLambda(
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetManaAttribute()).AddWeakLambda(this,
 		[this](const FOnAttributeChangeData& Data)
 		{
 			OnPlayerBarManaChanged.Broadcast(Data.NewValue);
 
 		}
 	);
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddLambda(
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMaxManaAttribute()).AddWeakLambda(this,
 		[this, AS](const FOnAttributeChangeData& Data)
 		{
 			OnPlayerBarMaxManaChanged.Broadcast(AS->GetMaxMana());
@@ -308,20 +311,18 @@ void AMyCharacter::InitializeHealthBarWidget()
 	);
 
 	
-	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddLambda(
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AS->GetMovementSpeedAttribute()).AddWeakLambda(this,
 		[this](const FOnAttributeChangeData& Data)
 		{
 			GetCharacterMovement()->MaxWalkSpeed = Data.NewValue;
 		}
 	);
 
-	PlayerStateBase->OnLevelChangedDelegate.AddLambda([this](int32 Level)
+	PlayerStateBase->OnLevelChangedDelegate.AddWeakLambda(this,[this](int32 Level)
 	{
 		OnPlayerBarLevelChanged.Broadcast(Level);
 	});
 		
-		
-	
 	
 	BroadcastInitialValues();
 
@@ -409,8 +410,8 @@ void AMyCharacter::BeginPlay()
 		if(Subsystem)
 			Subsystem->AddMappingContext(PlayerContext, 0);
 	}
-	
 
+	
 }
 
 // Called every frame

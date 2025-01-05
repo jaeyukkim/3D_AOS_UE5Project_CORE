@@ -105,5 +105,5 @@ void AEffectActorBase::OnEndOverlap(AActor* TargetActor)
 void AEffectActorBase::MulticastSpawnParticleAndSound_Implementation()
 {
 	EffectParticleSystem->Activate();
-	EffectAudioComponent->Activate();
+	EffectAudioComponent->Play();
 }

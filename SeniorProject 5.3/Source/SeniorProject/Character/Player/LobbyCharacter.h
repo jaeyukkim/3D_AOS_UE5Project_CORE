@@ -10,6 +10,7 @@
 
 
 struct FGameplayTag;
+struct FPlayerInfo;
 
 class UReturnToMainMenu;
 class UInputMappingContext;
@@ -69,7 +70,7 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<UOverlayWidget> CharacterSelectWidget;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadOnly)
 	FPlayerInfo PlayerInformation;
 	UFUNCTION(BlueprintCallable)
 	FGameplayTag GetPlayerTeamName();

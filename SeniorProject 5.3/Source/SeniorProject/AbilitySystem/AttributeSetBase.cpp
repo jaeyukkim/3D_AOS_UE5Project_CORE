@@ -499,7 +499,7 @@ void UAttributeSetBase::SendGoldEvent(const FEffectProperties& Props)
 
 	// 공격자와 피격자 모두 플레이어라면 어시스트 로직 활용하여 gold Event 발생
 	// 피격자가 포탑이라면 어시스트 로직 활용하여 gold Event 발생
-	if ((Props.TargetCharacter->ActorHasTag("Player") && Props.SourceAvatarActor->ActorHasTag("Player")) || Props.TargetAvatarActor->ActorHasTag("Turret"))
+	if (Props.TargetCharacter->ActorHasTag("Player"))
 	{
 		const ECharacterClass TargetClass = ICombatInterface::Execute_GetCharacterClass(Props.TargetCharacter);
 		const FGameplayTagsBase& GameplayTags = FGameplayTagsBase::Get();

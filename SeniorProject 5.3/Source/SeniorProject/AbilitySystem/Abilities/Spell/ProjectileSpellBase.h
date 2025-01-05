@@ -45,8 +45,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	FVector AdditiveSpawnLocation;
 
-
-
+	
 private:
 
 	

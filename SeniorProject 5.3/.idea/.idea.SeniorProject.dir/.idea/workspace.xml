@@ -19,15 +19,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/Abilities/GameplayAbility.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Private/Abilities/GameplayAbility.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/UObject/Class.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Intermediate/Build/Win64/UnrealEditor/Inc/SeniorProject/UHT/AbilitySystemComponentBase.gen.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Public/UObject/ObjectPtr.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://C:/Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/GameMode.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -148,6 +143,28 @@
       <workItem from="1735446183473" duration="10535000" />
       <workItem from="1735478829882" duration="2604000" />
       <workItem from="1735484370176" duration="683000" />
+      <workItem from="1735487959335" duration="697000" />
+      <workItem from="1735517800551" duration="79000" />
+      <workItem from="1735533378717" duration="755000" />
+      <workItem from="1735535210396" duration="396000" />
+      <workItem from="1735537451591" duration="3553000" />
+      <workItem from="1735547767313" duration="748000" />
+      <workItem from="1735552769721" duration="2384000" />
+      <workItem from="1735570526926" duration="477000" />
+      <workItem from="1735571426762" duration="1223000" />
+      <workItem from="1735642011705" duration="771000" />
+      <workItem from="1735644575596" duration="17024000" />
+      <workItem from="1735664529155" duration="1063000" />
+      <workItem from="1735695666786" duration="1515000" />
+      <workItem from="1735702325383" duration="8335000" />
+      <workItem from="1735810392465" duration="1263000" />
+      <workItem from="1735824909755" duration="1789000" />
+      <workItem from="1735836510069" duration="2274000" />
+      <workItem from="1735863645078" duration="11810000" />
+      <workItem from="1735879365614" duration="3646000" />
+      <workItem from="1735890798218" duration="6864000" />
+      <workItem from="1735900472769" duration="9312000" />
+      <workItem from="1735970407749" duration="9039000" />
     </task>
     <servers />
   </component>

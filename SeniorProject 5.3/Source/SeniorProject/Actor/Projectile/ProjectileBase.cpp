@@ -11,6 +11,13 @@
 #include "SeniorProject/AbilitySystem/Global/BlueprintFunctionLibraryBase.h"
 
 
+void AProjectileBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	CurrentDistance = FVector::Dist(GetActorLocation(), OriginPos);
+}
+
 void AProjectileBase::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
@@ -23,17 +30,19 @@ AProjectileBase::AProjectileBase()
  	
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = true;
-	
+
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
 	SetRootComponent(Mesh);
-
+	
 	SphereComponent = CreateDefaultSubobject<USphereComponent>("SphereComponent");
+
 	SphereComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	SphereComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	SphereComponent->SetCollisionResponseToChannel(ECC_WorldDynamic, ECR_Overlap);
 	SphereComponent->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Overlap);
 	SphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	SphereComponent->SetupAttachment(Mesh);
+
 	
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>("ProjectileMovement");
 	ProjectileMovement->InitialSpeed = 100.0f; // Start at rest
@@ -74,8 +83,11 @@ void AProjectileBase::BeginPlay()
 {
 	Super::BeginPlay();
 
-	
-	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+	if (HasAuthority())
+	{
+		SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+	}
+	OriginPos = GetActorLocation();
 	
 }
 
@@ -96,6 +108,7 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 	if(bIsRadialDamage)
 	{
 		ApplyRadialDamage();
+		OverlapBlueprintEvent(OtherActor);
 		return;
 	}
 	
@@ -103,6 +116,7 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 	{
 		DamageEffectParams.TargetAbilitySystemComponent = TargetASC;
 		UBlueprintFunctionLibraryBase::ApplyDamageEffect(DamageEffectParams);
+		OverlapBlueprintEvent(OtherActor);
 	}
 	
 	if(!bIsAblePenetration)
@@ -110,9 +124,16 @@ void AProjectileBase::OnCapsuleOverlap(UPrimitiveComponent* OverlappedComponent,
 		SetLifeSpan(ProjectileLifetime);
 	}
 	
+	//관통 투사체가 아니라면 언바인드
+	if (!bIsAblePenetration)
+	{
+		SphereComponent->OnComponentBeginOverlap.RemoveDynamic(this, &AProjectileBase::OnCapsuleOverlap);
+	}
+	
 	
 	
 }
+
 
 void AProjectileBase::ApplyRadialDamage()
 {
@@ -160,13 +181,29 @@ void AProjectileBase::ApplyRadialDamage()
 	 	SphereComponent->OnComponentBeginOverlap.RemoveDynamic(this, &AProjectileBase::OnCapsuleOverlap);
 	}
 	
+	
+}
+void AProjectileBase::OverlapBlueprintEvent_Implementation(AActor* OtherActor)
+{
+}
+
+void AProjectileBase::MulticastEnableProjectileMesh_Implementation(UStaticMeshComponent* ProjectileMesh)
+{
+	if (ProjectileParticleSystem || ProjectileParticleSystem->IsActive())
+	{
+		ProjectileParticleSystem->DeactivateImmediate();
+	}
+	if (ProjectileMesh)
+	{
+		ProjectileMesh->SetVisibility(false);
+		ProjectileMovement->SetActive(false);
+	}
 }
 
 void AProjectileBase::MulticastSpawnParticleAndSound_Implementation()
 {
+	
 	ProjectileParticleSystem->Activate();
-	HitAudioComponent->Activate();
+	HitAudioComponent->Play();
+	
 }
-
-
-

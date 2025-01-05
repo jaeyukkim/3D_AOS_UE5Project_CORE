@@ -56,7 +56,9 @@ ATurret::ATurret()
 
 	PerceptionSystem->ConfigureSense(*Sight);
 	PerceptionSystem->SetDominantSense(Sight->GetSenseImplementation());
-	
+
+	//배치 되어 있으면 알아서 ai 컨트롤러 빙의
+	AutoPossessAI = EAutoPossessAI::PlacedInWorld;
 }
 
 

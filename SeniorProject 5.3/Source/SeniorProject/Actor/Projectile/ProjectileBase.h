@@ -19,6 +19,8 @@ class SENIORPROJECT_API AProjectileBase : public ADamageActorBase
 	
 public:	
 
+	virtual void Tick(float DeltaTime) override;
+	
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	AProjectileBase();
 	
@@ -71,9 +73,26 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	void ApplyRadialDamage();
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void OverlapBlueprintEvent(AActor* OtherActor);
+	
 	UFUNCTION(BlueprintCallable, NetMulticast, Reliable)
 	void MulticastSpawnParticleAndSound();
-
+	
+	UFUNCTION(NetMulticast, Reliable, BlueprintCallable)
+	void MulticastEnableProjectileMesh(UStaticMeshComponent* ProjectileMesh);
+	
+	
 	const float ProjectileLifetime = 1.5f;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float DestroyDistance = 1500.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CurrentDistance = 0.f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FVector OriginPos;
+
+
 };

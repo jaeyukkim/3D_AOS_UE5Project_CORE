@@ -59,6 +59,8 @@ public:
 	/* end GameplayInterface */
 
 
+	UPROPERTY()
+	TArray<TObjectPtr<AActor>> IgnoreWayPoint;
 public:
 	virtual void MulticastEndGame_Implementation(const FGameplayTag& DefeatedTeam) override;
 	

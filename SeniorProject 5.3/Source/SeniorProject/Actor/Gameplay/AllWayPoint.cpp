@@ -33,15 +33,15 @@ void UAllWayPoint::InitializeWayPoint(UWorld* WorldContext)
 	{
 		AWayPoint* Way = *It;
 		FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
-		if (Way->LineTag == TagsBase.GameRule_Line_Top)
+		if (Way->LineTag.MatchesTagExact(TagsBase.GameRule_Line_Top))
 		{
 			GAllWayPoint->TopWayPoint.AddUnique(Way);
 		}
-		else if (Way->LineTag == TagsBase.GameRule_Line_Mid)
+		else if (Way->LineTag.MatchesTagExact(TagsBase.GameRule_Line_Mid))
 		{
 			GAllWayPoint->MidWayPoint.AddUnique(Way);
 		}
-		else if (Way->LineTag == TagsBase.GameRule_Line_Bottom)
+		else if (Way->LineTag.MatchesTagExact(TagsBase.GameRule_Line_Bottom))
 		{
 			GAllWayPoint->BottomWayPoint.AddUnique(Way);
 		}
@@ -51,20 +51,20 @@ void UAllWayPoint::InitializeWayPoint(UWorld* WorldContext)
 
 
 // 인자로 받은 라인에 대한 WayPoint Array 반환
-TArray<TObjectPtr<AWayPoint>> UAllWayPoint::GetWayPoint(FGameplayTag& LineTag)
+TArray<AWayPoint*> UAllWayPoint::GetWayPoint(FGameplayTag& LineTag) const
 {
 	FGameplayTagsBase TagsBase = FGameplayTagsBase::Get();
 
-	if(LineTag == TagsBase.GameRule_Line_Top)
+	if(LineTag.MatchesTagExact(TagsBase.GameRule_Line_Top))
 	{
 		return GAllWayPoint->TopWayPoint;
 	}
-	if(LineTag == TagsBase.GameRule_Line_Mid)
+	if(LineTag.MatchesTagExact(TagsBase.GameRule_Line_Mid))
 	{
 		return GAllWayPoint->MidWayPoint;
 
 	}
-	if(LineTag == TagsBase.GameRule_Line_Bottom)
+	if(LineTag.MatchesTagExact(TagsBase.GameRule_Line_Bottom))
 	{
 		return GAllWayPoint->BottomWayPoint;
 	}

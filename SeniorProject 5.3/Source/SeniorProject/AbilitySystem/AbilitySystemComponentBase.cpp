@@ -292,9 +292,8 @@ void UAbilitySystemComponentBase::ChangeGrantedTagToEffect_Implementation(FGamep
 void UAbilitySystemComponentBase::ServerBuyItem_Implementation(FItemInformation ClickedItemInfo)
 {
 	if (!GetAvatarActor()->Implements<UPlayerInterface>() || IPlayerInterface::Execute_GetGold(GetAvatarActor()) < ClickedItemInfo.ItemPrice) return;
-	if(ClickedItemInfo.ItemEffect == nullptr) return;
-
-	
+	if(ClickedItemInfo.ItemEffect == nullptr || ClickedItemInfo.bHasBought) return;
+	ClickedItemInfo.bHasBought = true;	//구매처리
 	
 	/* 비어있는 아이템 슬롯 반환 */
 	FGameplayTag EmptyItemSlotTag = IPlayerInterface::Execute_GetEmptyItemSlot(GetAvatarActor());
@@ -324,13 +323,11 @@ void UAbilitySystemComponentBase::ServerBuyItem_Implementation(FItemInformation 
 		}
 		
 	}
-
-	
-	
 	
 	
 	IPlayerInterface::Execute_AddToItem(GetAvatarActor(), ClickedItemInfo);
 	IPlayerInterface::Execute_AddToGold(GetAvatarActor(), -ClickedItemInfo.ItemPrice);
+	
 	ClientUpdateItem(ClickedItemInfo);
 	
 }
@@ -338,6 +335,7 @@ void UAbilitySystemComponentBase::ServerBuyItem_Implementation(FItemInformation 
 void UAbilitySystemComponentBase::ClientUpdateItem_Implementation(const FItemInformation& ClickedItemInfo)
 {
 	OwnedItemChangedDelegate.Broadcast(ClickedItemInfo);
+
 }
 
 

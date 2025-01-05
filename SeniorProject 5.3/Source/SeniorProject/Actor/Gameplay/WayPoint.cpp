@@ -44,37 +44,34 @@ void AWayPoint::UpdateWayPoint(UPrimitiveComponent* OverlappedComponent, AActor*
 	
 	if(AMinions* Minion = Cast<AMinions>(OtherActor))
 	{
+		
 		AAIControllerBase* AIControllerBase = Minion->AIControllerBase;
 		if(AIControllerBase == nullptr) return;
 		UBlackboardComponent* BlackboardComp = AIControllerBase->GetBlackboardComponent();
 		if(BlackboardComp == nullptr) return;
-		
+
 		// 미니언이 도착했을 때 CurrentWayPoint를 이 액터로 설정
 		BlackboardComp->SetValueAsObject("CurrentWayPoint", this);
-		FVector TargetTurret = BlackboardComp->GetValueAsVector("TargetTurret");
-	
+		Minion->IgnoreWayPoint.AddUnique(this);
 		AActor* NearestWayPoint = nullptr;
-		float DistanceToTurret = FVector::Distance(TargetTurret, GetActorLocation());
 		float MinDistance = INFINITY;
 		
 		/*
 		 * Overlap된 미니언의 Line에 맞는 WayPoint를 가져와서 다음 WayPoint를 업데이트
-		 * 가장 가까운 웨이포인트를 반환하되 그 거리가 포탑까지와의 거리보다 멀다면 취소
+		 * 가장 가까운 웨이포인트를 반환함
 		*/
 		
-		for(AWayPoint* EachWayPoint : UAllWayPoint::GetWayPoint(Minion->LineTag))
+		for(AWayPoint* EachWayPoint : UAllWayPoint::Get()->GetWayPoint(Minion->LineTag))
 		{
-			if(EachWayPoint == nullptr || EachWayPoint == this)
+ 			if(EachWayPoint == nullptr ||  Minion->IgnoreWayPoint.Contains(EachWayPoint))
 			{
-				continue; // 현재 웨이포인트는 제외
+				continue; // 현재 웨이포인트와 이미 도착했던 웨이 포인트는 무시
 			}
 
-			//현재 위치에서 포탑까지의 거리보다 먼 웨이포인트는 제외
-			float WayPointToTurret = FVector::Distance(EachWayPoint->GetActorLocation(), TargetTurret);
+			
 			float MinionToWayPoint = FVector::Distance(GetActorLocation(), EachWayPoint->GetActorLocation());
 		
-			if(WayPointToTurret > DistanceToTurret) continue;
-
+			
 			if(MinDistance > MinionToWayPoint)
 			{
 				MinDistance = MinionToWayPoint;
@@ -88,6 +85,7 @@ void AWayPoint::UpdateWayPoint(UPrimitiveComponent* OverlappedComponent, AActor*
 		{
 			BlackboardComp->SetValueAsObject("WayPoint", NearestWayPoint);
 		}
+		
 	}
 	
 	

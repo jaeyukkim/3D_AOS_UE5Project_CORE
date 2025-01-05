@@ -166,7 +166,7 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
 	TObjectPtr<UAnimMontage> RecallAnim;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="HealthBar")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Transient,Category="HealthBar")
 	TObjectPtr<UWidgetComponent> HealthBarWidget;
 	
 	UPROPERTY(BlueprintReadOnly)
@@ -195,6 +195,7 @@ protected:
 	TObjectPtr<UDebuffParticleComponent> PrimeBuffComponent;
 
 	bool bAbilityIsGiven = false;
+	bool bClientInitializeComplited = false;
 	int32 SpectateIdx = 0;
 private:
 	

@@ -79,7 +79,7 @@ void AMyGameModeBase::SetupPlayerCharacterClass(APlayerController* NewPlayer)
 		for (auto Start : PlayerStarts)
 		{
 			ATeamPlayerStart* TeamStart = Cast<ATeamPlayerStart>(Start);
-			if (TeamStart && TeamStart->TeamName == PlayerStateBase->GetTeamName())
+			if (TeamStart && TeamStart->TeamName.MatchesTagExact(PlayerStateBase->GetTeamName()))
 			{
 				TeamPlayerStarts.Add(TeamStart);
 			}
@@ -181,8 +181,6 @@ void AMyGameModeBase::BeginPlay()
 		CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this));
 	}
 	
-	// InitialSpawnTime 후 미니언 생성
-	//GetWorld()->GetTimerManager().SetTimer(InitialSpawnTimerHandle, this, &AMyGameModeBase::SpawnMinion, InitialSpawnTime, false);
 	GetWorld()->GetTimerManager().SetTimer(InitWayPointTimerHandle, this, &AMyGameModeBase::InitWayPoint, InitWayPointTime, false);
 	
 }

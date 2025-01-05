@@ -29,6 +29,7 @@ void UItemMenuWidgetController::BindCallbacksToDependencies()
 	GetMyASC()->OwnedItemChangedDelegate.AddLambda([this](const FItemInformation& Info)
 	{
 		PlayerItemChangedDelegate.Broadcast(Info);
+		BuyButtonChangedDelegate.Broadcast(false);
 	});
 	
 	if(GetMyPS() != nullptr)
@@ -37,8 +38,10 @@ void UItemMenuWidgetController::BindCallbacksToDependencies()
 	if(GetMyPS() != nullptr)
 		GetMyPS()->ChangedShopCustomer.AddLambda([this](const bool bIsInShop)
 		{
-			BuyButtonChangedDelegate.Broadcast(bIsInShop);
+			if(bIsInShop == false) ClickedItemInfo = FItemInformation();
+			BuyButtonChangedDelegate.Broadcast(false);
 			ShopCustomerChangedDelegate.Broadcast(bIsInShop);
+			
 		});
 }
 
@@ -71,13 +74,23 @@ void UItemMenuWidgetController::UpdateClickedItem(FItemInformation Info)
 
 void UItemMenuWidgetController::ShopClickedItem(FItemInformation Info)
 {
-	if(GetMyPS() == nullptr) return;
-
+	if(GetMyPS() == nullptr || GetMyASC() == nullptr) return;
+	
+	TArray<FItemInformation> AllItem = AbilitySystemComponentBase->GetAllPlayerItem();
+	for(FItemInformation BoughtItem : AllItem)
+	{
+		if(BoughtItem.ItemTag.MatchesTagExact(Info.ItemTag))
+		{
+			Info.bHasBought = true;
+		}
+	}
+	
 	Info.ItemDescription = GetEffectAttributesAsString(Info.ItemEffect);
 	UpdateClickedItem(Info);
 
 
-	if(PlayerStateBase->GetGold() < ClickedItemInfo.ItemPrice || ClickedItemInfo.ItemEffect == nullptr || !PlayerStateBase->GetIsInShop())
+	if(PlayerStateBase->GetGold() < ClickedItemInfo.ItemPrice ||
+		ClickedItemInfo.ItemEffect == nullptr || !PlayerStateBase->GetIsInShop() || ClickedItemInfo.bHasBought)
 	{
 		BuyButtonChangedDelegate.Broadcast(false);
 	}
@@ -125,11 +138,12 @@ void UItemMenuWidgetController::ShopClickedPlayerItem(FGameplayTag ItemInputTag)
 	FItemInformation Info = AbilitySystemComponentBase->GetPlayerItem(ItemInputTag);
 
 	if(Info.ItemEffect == nullptr) return;
-	
-	ShowItemInfoDelegate.Broadcast(Info);
+
+	Info.bHasBought = true;
 	UpdateClickedItem(Info);
+	ShowItemInfoDelegate.Broadcast(Info);
 	SellButtonChangedDelegate.Broadcast(true);
-	
+	BuyButtonChangedDelegate.Broadcast(false);
 	
 }
 
@@ -138,7 +152,7 @@ void UItemMenuWidgetController::BuyItem()
 	if(GetMyASC() == nullptr || ClickedItemInfo.ItemEffect == nullptr) return;
 	
 	AbilitySystemComponentBase->ServerBuyItem(ClickedItemInfo);
-	
+	BuyButtonChangedDelegate.Broadcast(false);
 	
 }
 
@@ -146,9 +160,10 @@ void UItemMenuWidgetController::SellItem()
 {
 	if(GetMyASC() == nullptr || ClickedItemInfo.ItemEffect == nullptr) return;
 
+	ItemDeletedDelegate.Broadcast(ClickedItemInfo.InputTag, ClickedItemInfo.ItemTag);
 	AbilitySystemComponentBase->ServerSellItem(ClickedItemInfo);
-	ItemDeletedDelegate.Broadcast(ClickedItemInfo.InputTag);
 	SellButtonChangedDelegate.Broadcast(false);
+	
 }
 
 void UItemMenuWidgetController::InitializeShopPlayerItem()

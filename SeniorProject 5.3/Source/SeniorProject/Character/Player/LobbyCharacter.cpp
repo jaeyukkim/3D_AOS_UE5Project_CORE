@@ -8,6 +8,7 @@
 #include "SeniorProject/PlayerBase/MyPlayerController.h"
 #include "SeniorProject/UI/HUD/DefaultHUD.h"
 #include "GameplayTagContainer.h"
+#include "Net/UnrealNetwork.h"
 #include "SeniorProject/GameSetting/CoreGameState.h"
 #include "SeniorProject/GameSetting/LobbyGameMode.h"
 
@@ -16,7 +17,10 @@ ALobbyCharacter::ALobbyCharacter()
 {
  	
 	PrimaryActorTick.bCanEverTick = false;
-
+	bReplicates = true;
+	
+	//생성되어도 기본적으로 ai 컨트롤러에 빙의되지 않으며 명시적으로 설정해줘야함
+	AutoPossessAI = EAutoPossessAI::Disabled;
 }
 
 void ALobbyCharacter::PossessedBy(AController* NewController)
@@ -41,6 +45,8 @@ void ALobbyCharacter::OnRep_PlayerState()
 void ALobbyCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ALobbyCharacter, PlayerInformation);
 	
 }
 
@@ -75,15 +81,18 @@ void ALobbyCharacter::InitPlayerInfo()
 	
 	if(CoreGameState->SetPlayerTeam(PS) && !bIsMenuWidgetInitialized)
 	{
-		FPlayerInfo Info;
-		Info.PC = PC;
-		Info.PS = PS;
-		Info.PlayerTeamName = PS->GetTeamName();
-		Info.PlayerName = PS->GetPlayerName();
-		PlayerInformation = Info;
 		
+		// GameState에 플레이어 정보 저장
 		if(HasAuthority())
+		{
+			FPlayerInfo Info;
+			Info.PC = PC;
+			Info.PS = PS;
+			Info.PlayerTeamName = PS->GetTeamName();
+			Info.PlayerName = PS->GetPlayerName();
+			PlayerInformation = Info;
 			CoreGameState->AddPlayerInfo(Info);
+		}
 		
 		if(IsLocallyControlled())
 			InitLobbyWidget();
@@ -117,6 +126,7 @@ void ALobbyCharacter::BindCallbacksToDependencies()
 		
 	}
 }
+
 
 void ALobbyCharacter::GameStart_Implementation()
 {
@@ -152,13 +162,12 @@ void ALobbyCharacter::ServerReady_Implementation()
 {
 	if(PlayerInformation.PS == nullptr) return;
 	
-	PlayerInformation.PS->PlayerCharacterClass = PlayerInformation.SelectedCharacter;
-
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{
 		CoreGameState->ServerPlayerReady(PlayerInformation.PS);
 		CoreGameState->MulticastPlayerReady(PlayerInformation.PS);
 	}
+	
 }
 
 
@@ -166,9 +175,7 @@ void ALobbyCharacter::ServerSetPlayerCharacterClass_Implementation(UClass* Selec
                                                              UTexture* CharacterImg)
 {
 	if(PlayerInformation.PC == nullptr && PlayerInformation.PS == nullptr) return;
-	
-	PlayerInformation.SelectedCharacter = SelectedCharacter;
-	
+
 	
 	if (ACoreGameState* CoreGameState = Cast<ACoreGameState>(UGameplayStatics::GetGameState(this)))
 	{

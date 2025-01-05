@@ -22,13 +22,14 @@ public:
 	
 	static TObjectPtr<UAllWayPoint> GAllWayPoint;
 
-	static TArray<TObjectPtr<AWayPoint>> GetWayPoint(FGameplayTag& LineTag);
+	UFUNCTION()
+	TArray<AWayPoint*> GetWayPoint(FGameplayTag& LineTag) const;
 
-	UPROPERTY()
+	UPROPERTY(Transient)
 	TArray<TObjectPtr<AWayPoint>> TopWayPoint;
-	UPROPERTY()
+	UPROPERTY(Transient)
 	TArray<TObjectPtr<AWayPoint>> MidWayPoint;
-	UPROPERTY()
+	UPROPERTY(Transient)
 	TArray<TObjectPtr<AWayPoint>> BottomWayPoint;
 
 };

@@ -61,7 +61,7 @@ struct FItemInformation
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGoldChangedSignature, int32, NewGold);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FBuyButtonChangedDelegate, bool, bIsBuyable);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemStateChangedDelegate, const FItemInformation&, Info);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FItemDeletedDelegate, const FGameplayTag&, ItemInputTag);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FItemDeletedDelegate, const FGameplayTag&, ItemInputTag, const FGameplayTag&, ItemTag);
 
 
 /**
