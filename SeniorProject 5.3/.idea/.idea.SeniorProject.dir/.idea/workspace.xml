@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase_Test.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,26 +46,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Uproject.SeniorProject.executor": "Debug",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Uproject.SeniorProject.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\77\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\77\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\77\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="SeniorProject" type="Uproject" factoryName="rider.uproject">
       <configuration_1>
@@ -202,6 +203,7 @@
       <workItem from="1735900472769" duration="9312000" />
       <workItem from="1735970407749" duration="9039000" />
       <workItem from="1736056354266" duration="12378000" />
+      <workItem from="1736175759297" duration="4888000" />
     </task>
     <servers />
   </component>
