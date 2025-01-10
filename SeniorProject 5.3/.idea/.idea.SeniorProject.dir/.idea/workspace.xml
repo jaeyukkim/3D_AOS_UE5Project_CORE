@@ -8,16 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59833edb-289a-4e3f-a427-2d34653103b8" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/CookerOpenOrder.log" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/CookerOpenOrder.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/EditorOpenOrder.log" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/EditorOpenOrder.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/Q/GA_Crunch_Q_Ability.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/Q/GA_Crunch_Q_Ability.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/RMB/GA_Ability_RMB_Crunch.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/RMB/GA_Ability_RMB_Crunch.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/Shift/GA_AbilityShift_Crunch.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Crunch/Ability/Shift/GA_AbilityShift_Crunch.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/BP_KwangSword.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Character/Kwang/KwangAbility/Q/BP_KwangSword.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase_Test.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/CharacterSetting/BP_PlayerStateBase_Test.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/Maps/CombatStage.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/UI/SpellGlobe/WBP_SpellGlobe.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AsyncTasks/WaitCooldownChange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AsyncTasks/WaitCooldownChange.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,6 +195,7 @@
       <workItem from="1735970407749" duration="9039000" />
       <workItem from="1736056354266" duration="12378000" />
       <workItem from="1736175759297" duration="4888000" />
+      <workItem from="1736512826496" duration="243000" />
     </task>
     <servers />
   </component>

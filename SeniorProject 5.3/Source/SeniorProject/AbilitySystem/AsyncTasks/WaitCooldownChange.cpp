@@ -4,6 +4,13 @@
 #include "WaitCooldownChange.h"
 #include "AbilitySystemComponent.h"
 
+
+/*
+ * 쿨다운 태그가 붙는지 대기하고 있는 비동기 노드
+ * InCooldownTag를 파라미터로 전달하면
+ * 이 태그가 부착 될 때 비동기 노드가 실행됨
+ */
+
 UWaitCooldownChange* UWaitCooldownChange::WaitForCooldownChange(UAbilitySystemComponent* AbilitySystemComponent,
 	const FGameplayTag& InCooldownTag)
 {
@@ -46,6 +53,9 @@ void UWaitCooldownChange::CooldownTagChanged(const FGameplayTag InCooldownTag, i
 	}
 }
 
+/*
+* 
+*/
 void UWaitCooldownChange::OnActiveEffectAdded(UAbilitySystemComponent* TargetASC,
 	const FGameplayEffectSpec& SpecApplied, FActiveGameplayEffectHandle ActiveEffectHandle)
 {
