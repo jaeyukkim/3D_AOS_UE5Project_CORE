@@ -8,6 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59833edb-289a-4e3f-a427-2d34653103b8" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/Abilities/GameplayAbilityBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AsyncTasks/WaitCooldownChange.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/SeniorProject/AbilitySystem/AsyncTasks/WaitCooldownChange.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,6 +197,7 @@
       <workItem from="1736056354266" duration="12378000" />
       <workItem from="1736175759297" duration="4888000" />
       <workItem from="1736512826496" duration="243000" />
+      <workItem from="1736687508659" duration="22000" />
     </task>
     <servers />
   </component>

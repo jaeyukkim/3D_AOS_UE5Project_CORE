@@ -35,6 +35,9 @@ bool UGameplayAbilityBase::CommitAbility(const FGameplayAbilitySpecHandle Handle
 
 }
 
+/*
+ * 캐스팅을 적용하는 함수, 캐스팅 태그가 부착되고 이걸 이용해서 스킬 캔슬을 막을 수 있음
+ */
 
 void UGameplayAbilityBase::ActivateCasting()
 {
